@@ -34,6 +34,39 @@ APIClient *apiClient = [[APIClient alloc] initWithBaseURL:[NSURL URLWithString:k
 }
 
 
++(void)resetUserPassword:(NSString *)email completion:(void (^)(bool))successfullyPosted{
+
+    APIClient *apiClient = [[APIClient alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
+    
+    NSDictionary * params = @{
+                              @"email":email
+                              };
+    
+    
+    [apiClient POST:@"users/password" parameters:params completion:^(id response, NSError *error) {
+        //OVCResponse * resp = response;
+        if (!error) {
+            //TODO: in caller of that block show alert on success.
+            successfullyPosted(true);
+        }
+    }];
+}
+
++(void)signOutUser:(void (^)(bool))successfullyPosted{
+  
+    APIClient *apiClient = [[APIClient alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
+    
+    [apiClient DELETE:@"users/password" parameters:[AuthenticationService paramsForSignOut] completion:^(id response, NSError *error) {
+        //OVCResponse * resp = response;
+        if (!error) {
+            //TODO: in caller of that block show alert on success.
+            successfullyPosted(true);
+        }
+    }];
+    
+}
+
+
 
 //TODO: Create password reset, sign out method calls same way.
 
@@ -42,14 +75,21 @@ APIClient *apiClient = [[APIClient alloc] initWithBaseURL:[NSURL URLWithString:k
 #pragma mark - Helper Methods
 +(NSDictionary *)paramsForLogin:(NSString *)userName password:(NSString *)pwd{
 
-    NSDictionary * credentials = @{
-                                   @"email": userName,
-                                   @"password": pwd
-                                   };
-    NSDictionary * params = @{
-                              @"user_login" : credentials
-                              };
-    return params;
+    return    @{
+                @"user_login" : @{
+                        @"email": userName,
+                        @"password": pwd
+                        }
+                };
+}
+
++(NSDictionary *)paramsForSignOut{
+    
+    return   @{
+               @"user_login":@{
+                       @"auth_token" : @"" //TODO: get authentication token from persistence object.
+                       }
+               };
 }
 
 
