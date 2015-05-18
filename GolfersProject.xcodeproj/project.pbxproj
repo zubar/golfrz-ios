@@ -25,6 +25,11 @@
 		885CB06A1B09BADE00AD2A7B /* SignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 885CB0611B09BADE00AD2A7B /* SignInViewController.m */; };
 		885CB06B1B09BADE00AD2A7B /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 885CB0641B09BADE00AD2A7B /* SignUpViewController.m */; };
 		885CB06D1B09BDCD00AD2A7B /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 885CB06C1B09BDCD00AD2A7B /* README.md */; };
+		885CB0721B09F93700AD2A7B /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 885CB0711B09F93700AD2A7B /* User.m */; };
+		885CB0751B09FB0100AD2A7B /* APIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 885CB0741B09FB0100AD2A7B /* APIClient.m */; };
+		885CB07A1B0A117300AD2A7B /* GolfrzError.m in Sources */ = {isa = PBXBuildFile; fileRef = 885CB0771B0A117300AD2A7B /* GolfrzError.m */; };
+		885CB07B1B0A117300AD2A7B /* GolfrzErrorResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 885CB0791B0A117300AD2A7B /* GolfrzErrorResponse.m */; };
+		885CB0801B0A128100AD2A7B /* AuthenticationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 885CB07F1B0A128100AD2A7B /* AuthenticationService.m */; };
 		88FE3C391B03A47C00FDA253 /* Holiday-Golf-Club-logo-sized-down.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 88FE3C381B03A47C00FDA253 /* Holiday-Golf-Club-logo-sized-down.jpg */; };
 		88FE3C3F1B03AC0E00FDA253 /* signup_location@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 88FE3C3D1B03AC0E00FDA253 /* signup_location@2x.png */; };
 		88FE3C401B03AC0E00FDA253 /* signup_location@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 88FE3C3E1B03AC0E00FDA253 /* signup_location@3x.png */; };
@@ -74,6 +79,16 @@
 		885CB0631B09BADE00AD2A7B /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
 		885CB0641B09BADE00AD2A7B /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 		885CB06C1B09BDCD00AD2A7B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		885CB0701B09F93700AD2A7B /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		885CB0711B09F93700AD2A7B /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		885CB0731B09FB0100AD2A7B /* APIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIClient.h; sourceTree = "<group>"; };
+		885CB0741B09FB0100AD2A7B /* APIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIClient.m; sourceTree = "<group>"; };
+		885CB0761B0A117300AD2A7B /* GolfrzError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GolfrzError.h; sourceTree = "<group>"; };
+		885CB0771B0A117300AD2A7B /* GolfrzError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GolfrzError.m; sourceTree = "<group>"; };
+		885CB0781B0A117300AD2A7B /* GolfrzErrorResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GolfrzErrorResponse.h; sourceTree = "<group>"; };
+		885CB0791B0A117300AD2A7B /* GolfrzErrorResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GolfrzErrorResponse.m; sourceTree = "<group>"; };
+		885CB07E1B0A128100AD2A7B /* AuthenticationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthenticationService.h; sourceTree = "<group>"; };
+		885CB07F1B0A128100AD2A7B /* AuthenticationService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthenticationService.m; sourceTree = "<group>"; };
 		88FE3C281B03753500FDA253 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		88FE3C381B03A47C00FDA253 /* Holiday-Golf-Club-logo-sized-down.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Holiday-Golf-Club-logo-sized-down.jpg"; sourceTree = "<group>"; };
 		88FE3C3D1B03AC0E00FDA253 /* signup_location@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "signup_location@2x.png"; sourceTree = "<group>"; };
@@ -133,11 +148,14 @@
 		88024F5F1AD29134004AC260 /* GolfersProject */ = {
 			isa = PBXGroup;
 			children = (
+				885CB07C1B0A121300AD2A7B /* Services */,
 				885CB06C1B09BDCD00AD2A7B /* README.md */,
 				885CB04F1B09BADE00AD2A7B /* ViewController */,
 				885CB0291B09BA9D00AD2A7B /* External-Libs */,
 				885CB0231B09BA9D00AD2A7B /* AppDelegate */,
 				885CB03B1B09BA9D00AD2A7B /* NetworkManager */,
+				885CB06E1B09F7F100AD2A7B /* APIClient */,
+				885CB06F1B09F91700AD2A7B /* Model */,
 				88FE3C3D1B03AC0E00FDA253 /* signup_location@2x.png */,
 				88FE3C3E1B03AC0E00FDA253 /* signup_location@3x.png */,
 				88FE3C381B03A47C00FDA253 /* Holiday-Golf-Club-logo-sized-down.jpg */,
@@ -290,6 +308,45 @@
 			path = SignUpViewController;
 			sourceTree = "<group>";
 		};
+		885CB06E1B09F7F100AD2A7B /* APIClient */ = {
+			isa = PBXGroup;
+			children = (
+				885CB0731B09FB0100AD2A7B /* APIClient.h */,
+				885CB0741B09FB0100AD2A7B /* APIClient.m */,
+			);
+			path = APIClient;
+			sourceTree = "<group>";
+		};
+		885CB06F1B09F91700AD2A7B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				885CB0761B0A117300AD2A7B /* GolfrzError.h */,
+				885CB0771B0A117300AD2A7B /* GolfrzError.m */,
+				885CB0781B0A117300AD2A7B /* GolfrzErrorResponse.h */,
+				885CB0791B0A117300AD2A7B /* GolfrzErrorResponse.m */,
+				885CB0701B09F93700AD2A7B /* User.h */,
+				885CB0711B09F93700AD2A7B /* User.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		885CB07C1B0A121300AD2A7B /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				885CB07D1B0A121300AD2A7B /* AuthenticationServices */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		885CB07D1B0A121300AD2A7B /* AuthenticationServices */ = {
+			isa = PBXGroup;
+			children = (
+				885CB07E1B0A128100AD2A7B /* AuthenticationService.h */,
+				885CB07F1B0A128100AD2A7B /* AuthenticationService.m */,
+			);
+			path = AuthenticationServices;
+			sourceTree = "<group>";
+		};
 		C91B48159ABC56B52D213A0C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -426,9 +483,14 @@
 				885CB0441B09BA9D00AD2A7B /* AppDelegate.m in Sources */,
 				885CB06D1B09BDCD00AD2A7B /* README.md in Sources */,
 				885CB0691B09BADE00AD2A7B /* MainViewController.m in Sources */,
+				885CB07A1B0A117300AD2A7B /* GolfrzError.m in Sources */,
+				885CB0801B0A128100AD2A7B /* AuthenticationService.m in Sources */,
 				885CB06A1B09BADE00AD2A7B /* SignInViewController.m in Sources */,
 				88024F631AD29134004AC260 /* main.m in Sources */,
+				885CB0721B09F93700AD2A7B /* User.m in Sources */,
 				885CB0651B09BADE00AD2A7B /* BlueViewController.m in Sources */,
+				885CB0751B09FB0100AD2A7B /* APIClient.m in Sources */,
+				885CB07B1B0A117300AD2A7B /* GolfrzErrorResponse.m in Sources */,
 				885CB0471B09BA9D00AD2A7B /* XHTwitterPaggingViewer.m in Sources */,
 				885CB04C1B09BA9D00AD2A7B /* NetworkManager.m in Sources */,
 				885CB0461B09BA9D00AD2A7B /* XHPaggingNavbar.m in Sources */,

@@ -20,11 +20,24 @@ PODS:
   - AFNetworking/UIKit (2.5.2):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - Mantle (1.5.4):
+    - Mantle/extobjc (= 1.5.4)
+  - Mantle/extobjc (1.5.4)
+  - Overcoat (2.1.1):
+    - Overcoat/NSURLSession (= 2.1.1)
+  - Overcoat/Core (2.1.1):
+    - AFNetworking (~> 2.5)
+    - Mantle (~> 1.5)
+  - Overcoat/NSURLSession (2.1.1):
+    - Overcoat/Core
 
 DEPENDENCIES:
   - AFNetworking (~> 2.5)
+  - Overcoat (~> 2.0)
 
 SPEC CHECKSUMS:
   AFNetworking: fefbce9660acb17f48ae0011292d4da0f457bf36
+  Mantle: 60acd0cd363e27d945bda0a6b8e90577112d28f3
+  Overcoat: a8d02b26f11e72ca10b4d8d786f6df83b3277b28
 
 COCOAPODS: 0.36.3

@@ -10,6 +10,9 @@
 #import <QuartzCore/QuartzCore.h>
 #import "SignInViewController.h"
 
+#import "AuthenticationService.h"
+
+
 @interface InitialViewController ()
 
 @end
@@ -24,6 +27,8 @@
     [self setImageCourseLogoRounded];
     [self addGestureToSignIn];
     
+    
+    [AuthenticationService loginWithUserName:@"its my name" password:@"Abdullah"];
     
 }
 
