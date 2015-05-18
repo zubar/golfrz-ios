@@ -13,7 +13,7 @@
 
 @property (copy, nonatomic, readonly) NSString * authToken;
 @property (copy, nonatomic, readonly) NSString * email;
-@property (assign, nonatomic, readonly) BOOL * success;
+@property (assign, nonatomic, readonly) NSNumber * success;
 
 @end
 

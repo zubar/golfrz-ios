@@ -22,10 +22,11 @@
     return [GolfrzErrorResponse class];
 }
 
+
 +(NSDictionary *)modelClassesByResourcePath{
 
     return @{
-             @"sign_up" : [User class]
+             @"users/sign_in" : [User class]
              };
 }
 

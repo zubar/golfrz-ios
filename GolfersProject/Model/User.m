@@ -13,9 +13,10 @@
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
     return @{
-             @"authToken": @"auth_token",
+             @"authToken" : @"auth_token",
              @"email" : @"email",
-             @"success": @"success",                 //propertyName : json_key
+             @"success" : @"success"
+             //propertyName : json_key
              };
 }
 

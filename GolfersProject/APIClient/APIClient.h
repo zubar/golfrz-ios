@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Abdullah Saeed. All rights reserved.
 //
 
-#import "OVCHTTPSessionManager.h"
+#import <Overcoat/Overcoat.h>
 
 @interface APIClient : OVCHTTPSessionManager
 

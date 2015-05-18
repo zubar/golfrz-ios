@@ -11,6 +11,7 @@
 #import "SignInViewController.h"
 
 #import "AuthenticationService.h"
+#import "User.h"
 
 
 @interface InitialViewController ()
@@ -28,7 +29,9 @@
     [self addGestureToSignIn];
     
     
-    [AuthenticationService loginWithUserName:@"its my name" password:@"Abdullah"];
+    [AuthenticationService loginWithUserName:@"admin@golfrz.com" password:@"password" success:^(User * muser){
+        [[[UIAlertView alloc]initWithTitle:@"Authenticated" message:muser.authToken delegate:nil cancelButtonTitle:@"Oky" otherButtonTitles:nil, nil] show];
+    }];
     
 }
 

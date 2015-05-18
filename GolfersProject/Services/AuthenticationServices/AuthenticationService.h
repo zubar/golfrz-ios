@@ -7,9 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+@class User;
 
 @interface AuthenticationService : NSObject
 
-+(void)loginWithUserName:(NSString *)name password:(NSString *)password;
++(void)loginWithUserName:(NSString *)name password:(NSString *)password success:(void (^)(User *))success;
 
 @end
