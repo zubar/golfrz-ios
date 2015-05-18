@@ -1,0 +1,638 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		32B56928BD94CBDCCDA0C43B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A26DAF5CF62E34098597EA3 /* libPods.a */; };
+		88024F631AD29134004AC260 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 88024F621AD29134004AC260 /* main.m */; };
+		88024F6C1AD29134004AC260 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88024F6A1AD29134004AC260 /* Main.storyboard */; };
+		88024F6E1AD29134004AC260 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88024F6D1AD29134004AC260 /* Images.xcassets */; };
+		88024F711AD29134004AC260 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88024F6F1AD29134004AC260 /* LaunchScreen.xib */; };
+		88024F7D1AD29134004AC260 /* GolfersProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 88024F7C1AD29134004AC260 /* GolfersProjectTests.m */; };
+		885CB0441B09BA9D00AD2A7B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 885CB0251B09BA9D00AD2A7B /* AppDelegate.m */; };
+		885CB0461B09BA9D00AD2A7B /* XHPaggingNavbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 885CB02C1B09BA9D00AD2A7B /* XHPaggingNavbar.m */; };
+		885CB0471B09BA9D00AD2A7B /* XHTwitterPaggingViewer.m in Sources */ = {isa = PBXBuildFile; fileRef = 885CB02E1B09BA9D00AD2A7B /* XHTwitterPaggingViewer.m */; };
+		885CB04C1B09BA9D00AD2A7B /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 885CB03D1B09BA9D00AD2A7B /* NetworkManager.m */; };
+		885CB0651B09BADE00AD2A7B /* BlueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 885CB0521B09BADE00AD2A7B /* BlueViewController.m */; };
+		885CB0661B09BADE00AD2A7B /* GrayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 885CB0551B09BADE00AD2A7B /* GrayViewController.m */; };
+		885CB0671B09BADE00AD2A7B /* GreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 885CB0581B09BADE00AD2A7B /* GreenViewController.m */; };
+		885CB0681B09BADE00AD2A7B /* InitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 885CB05B1B09BADE00AD2A7B /* InitialViewController.m */; };
+		885CB0691B09BADE00AD2A7B /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 885CB05E1B09BADE00AD2A7B /* MainViewController.m */; };
+		885CB06A1B09BADE00AD2A7B /* SignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 885CB0611B09BADE00AD2A7B /* SignInViewController.m */; };
+		885CB06B1B09BADE00AD2A7B /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 885CB0641B09BADE00AD2A7B /* SignUpViewController.m */; };
+		88FE3C391B03A47C00FDA253 /* Holiday-Golf-Club-logo-sized-down.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 88FE3C381B03A47C00FDA253 /* Holiday-Golf-Club-logo-sized-down.jpg */; };
+		88FE3C3F1B03AC0E00FDA253 /* signup_location@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 88FE3C3D1B03AC0E00FDA253 /* signup_location@2x.png */; };
+		88FE3C401B03AC0E00FDA253 /* signup_location@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 88FE3C3E1B03AC0E00FDA253 /* signup_location@3x.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		88024F771AD29134004AC260 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 88024F551AD29134004AC260 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 88024F5C1AD29134004AC260;
+			remoteInfo = GolfersProject;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		5A26DAF5CF62E34098597EA3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		88024F5D1AD29134004AC260 /* GolfersProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GolfersProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		88024F611AD29134004AC260 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		88024F621AD29134004AC260 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		88024F6B1AD29134004AC260 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		88024F6D1AD29134004AC260 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		88024F701AD29134004AC260 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		88024F761AD29134004AC260 /* GolfersProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GolfersProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		88024F7B1AD29134004AC260 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		88024F7C1AD29134004AC260 /* GolfersProjectTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GolfersProjectTests.m; sourceTree = "<group>"; };
+		885CB0241B09BA9D00AD2A7B /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		885CB0251B09BA9D00AD2A7B /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		885CB02B1B09BA9D00AD2A7B /* XHPaggingNavbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHPaggingNavbar.h; sourceTree = "<group>"; };
+		885CB02C1B09BA9D00AD2A7B /* XHPaggingNavbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHPaggingNavbar.m; sourceTree = "<group>"; };
+		885CB02D1B09BA9D00AD2A7B /* XHTwitterPaggingViewer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHTwitterPaggingViewer.h; sourceTree = "<group>"; };
+		885CB02E1B09BA9D00AD2A7B /* XHTwitterPaggingViewer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHTwitterPaggingViewer.m; sourceTree = "<group>"; };
+		885CB03C1B09BA9D00AD2A7B /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
+		885CB03D1B09BA9D00AD2A7B /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
+		885CB0511B09BADE00AD2A7B /* BlueViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueViewController.h; sourceTree = "<group>"; };
+		885CB0521B09BADE00AD2A7B /* BlueViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlueViewController.m; sourceTree = "<group>"; };
+		885CB0541B09BADE00AD2A7B /* GrayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrayViewController.h; sourceTree = "<group>"; };
+		885CB0551B09BADE00AD2A7B /* GrayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrayViewController.m; sourceTree = "<group>"; };
+		885CB0571B09BADE00AD2A7B /* GreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GreenViewController.h; sourceTree = "<group>"; };
+		885CB0581B09BADE00AD2A7B /* GreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GreenViewController.m; sourceTree = "<group>"; };
+		885CB05A1B09BADE00AD2A7B /* InitialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitialViewController.h; sourceTree = "<group>"; };
+		885CB05B1B09BADE00AD2A7B /* InitialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitialViewController.m; sourceTree = "<group>"; };
+		885CB05D1B09BADE00AD2A7B /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		885CB05E1B09BADE00AD2A7B /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		885CB0601B09BADE00AD2A7B /* SignInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignInViewController.h; sourceTree = "<group>"; };
+		885CB0611B09BADE00AD2A7B /* SignInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignInViewController.m; sourceTree = "<group>"; };
+		885CB0631B09BADE00AD2A7B /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
+		885CB0641B09BADE00AD2A7B /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
+		88FE3C281B03753500FDA253 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		88FE3C381B03A47C00FDA253 /* Holiday-Golf-Club-logo-sized-down.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Holiday-Golf-Club-logo-sized-down.jpg"; sourceTree = "<group>"; };
+		88FE3C3D1B03AC0E00FDA253 /* signup_location@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "signup_location@2x.png"; sourceTree = "<group>"; };
+		88FE3C3E1B03AC0E00FDA253 /* signup_location@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "signup_location@3x.png"; sourceTree = "<group>"; };
+		D817BE50C16025D4FB4E4951 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		E15946F021CC95FC21355D7C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		88024F5A1AD29134004AC260 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32B56928BD94CBDCCDA0C43B /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		88024F731AD29134004AC260 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		66D43E9E53452F667DDF180D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D817BE50C16025D4FB4E4951 /* Pods.debug.xcconfig */,
+				E15946F021CC95FC21355D7C /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		88024F541AD29134004AC260 = {
+			isa = PBXGroup;
+			children = (
+				88024F5F1AD29134004AC260 /* GolfersProject */,
+				88024F791AD29134004AC260 /* GolfersProjectTests */,
+				88024F5E1AD29134004AC260 /* Products */,
+				66D43E9E53452F667DDF180D /* Pods */,
+				C91B48159ABC56B52D213A0C /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		88024F5E1AD29134004AC260 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				88024F5D1AD29134004AC260 /* GolfersProject.app */,
+				88024F761AD29134004AC260 /* GolfersProjectTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		88024F5F1AD29134004AC260 /* GolfersProject */ = {
+			isa = PBXGroup;
+			children = (
+				885CB04F1B09BADE00AD2A7B /* ViewController */,
+				885CB0291B09BA9D00AD2A7B /* External-Libs */,
+				885CB0231B09BA9D00AD2A7B /* AppDelegate */,
+				885CB03B1B09BA9D00AD2A7B /* NetworkManager */,
+				88FE3C3D1B03AC0E00FDA253 /* signup_location@2x.png */,
+				88FE3C3E1B03AC0E00FDA253 /* signup_location@3x.png */,
+				88FE3C381B03A47C00FDA253 /* Holiday-Golf-Club-logo-sized-down.jpg */,
+				88024F6A1AD29134004AC260 /* Main.storyboard */,
+				88024F6D1AD29134004AC260 /* Images.xcassets */,
+				88024F6F1AD29134004AC260 /* LaunchScreen.xib */,
+				88024F601AD29134004AC260 /* Supporting Files */,
+				88FE3C281B03753500FDA253 /* Constants.h */,
+			);
+			path = GolfersProject;
+			sourceTree = "<group>";
+		};
+		88024F601AD29134004AC260 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				88024F611AD29134004AC260 /* Info.plist */,
+				88024F621AD29134004AC260 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		88024F791AD29134004AC260 /* GolfersProjectTests */ = {
+			isa = PBXGroup;
+			children = (
+				88024F7C1AD29134004AC260 /* GolfersProjectTests.m */,
+				88024F7A1AD29134004AC260 /* Supporting Files */,
+			);
+			path = GolfersProjectTests;
+			sourceTree = "<group>";
+		};
+		88024F7A1AD29134004AC260 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				88024F7B1AD29134004AC260 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		885CB0231B09BA9D00AD2A7B /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				885CB0241B09BA9D00AD2A7B /* AppDelegate.h */,
+				885CB0251B09BA9D00AD2A7B /* AppDelegate.m */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		885CB0291B09BA9D00AD2A7B /* External-Libs */ = {
+			isa = PBXGroup;
+			children = (
+				885CB02A1B09BA9D00AD2A7B /* XHTwitterPaggingViewer */,
+			);
+			path = "External-Libs";
+			sourceTree = "<group>";
+		};
+		885CB02A1B09BA9D00AD2A7B /* XHTwitterPaggingViewer */ = {
+			isa = PBXGroup;
+			children = (
+				885CB02B1B09BA9D00AD2A7B /* XHPaggingNavbar.h */,
+				885CB02C1B09BA9D00AD2A7B /* XHPaggingNavbar.m */,
+				885CB02D1B09BA9D00AD2A7B /* XHTwitterPaggingViewer.h */,
+				885CB02E1B09BA9D00AD2A7B /* XHTwitterPaggingViewer.m */,
+			);
+			path = XHTwitterPaggingViewer;
+			sourceTree = "<group>";
+		};
+		885CB03B1B09BA9D00AD2A7B /* NetworkManager */ = {
+			isa = PBXGroup;
+			children = (
+				885CB03C1B09BA9D00AD2A7B /* NetworkManager.h */,
+				885CB03D1B09BA9D00AD2A7B /* NetworkManager.m */,
+			);
+			path = NetworkManager;
+			sourceTree = "<group>";
+		};
+		885CB04F1B09BADE00AD2A7B /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				885CB0501B09BADE00AD2A7B /* BlueViewController */,
+				885CB0531B09BADE00AD2A7B /* GrayViewController */,
+				885CB0561B09BADE00AD2A7B /* GreenViewController */,
+				885CB0591B09BADE00AD2A7B /* InitialViewController */,
+				885CB05C1B09BADE00AD2A7B /* MainViewController */,
+				885CB05F1B09BADE00AD2A7B /* SignInViewController */,
+				885CB0621B09BADE00AD2A7B /* SignUpViewController */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		885CB0501B09BADE00AD2A7B /* BlueViewController */ = {
+			isa = PBXGroup;
+			children = (
+				885CB0511B09BADE00AD2A7B /* BlueViewController.h */,
+				885CB0521B09BADE00AD2A7B /* BlueViewController.m */,
+			);
+			path = BlueViewController;
+			sourceTree = "<group>";
+		};
+		885CB0531B09BADE00AD2A7B /* GrayViewController */ = {
+			isa = PBXGroup;
+			children = (
+				885CB0541B09BADE00AD2A7B /* GrayViewController.h */,
+				885CB0551B09BADE00AD2A7B /* GrayViewController.m */,
+			);
+			path = GrayViewController;
+			sourceTree = "<group>";
+		};
+		885CB0561B09BADE00AD2A7B /* GreenViewController */ = {
+			isa = PBXGroup;
+			children = (
+				885CB0571B09BADE00AD2A7B /* GreenViewController.h */,
+				885CB0581B09BADE00AD2A7B /* GreenViewController.m */,
+			);
+			path = GreenViewController;
+			sourceTree = "<group>";
+		};
+		885CB0591B09BADE00AD2A7B /* InitialViewController */ = {
+			isa = PBXGroup;
+			children = (
+				885CB05A1B09BADE00AD2A7B /* InitialViewController.h */,
+				885CB05B1B09BADE00AD2A7B /* InitialViewController.m */,
+			);
+			path = InitialViewController;
+			sourceTree = "<group>";
+		};
+		885CB05C1B09BADE00AD2A7B /* MainViewController */ = {
+			isa = PBXGroup;
+			children = (
+				885CB05D1B09BADE00AD2A7B /* MainViewController.h */,
+				885CB05E1B09BADE00AD2A7B /* MainViewController.m */,
+			);
+			path = MainViewController;
+			sourceTree = "<group>";
+		};
+		885CB05F1B09BADE00AD2A7B /* SignInViewController */ = {
+			isa = PBXGroup;
+			children = (
+				885CB0601B09BADE00AD2A7B /* SignInViewController.h */,
+				885CB0611B09BADE00AD2A7B /* SignInViewController.m */,
+			);
+			path = SignInViewController;
+			sourceTree = "<group>";
+		};
+		885CB0621B09BADE00AD2A7B /* SignUpViewController */ = {
+			isa = PBXGroup;
+			children = (
+				885CB0631B09BADE00AD2A7B /* SignUpViewController.h */,
+				885CB0641B09BADE00AD2A7B /* SignUpViewController.m */,
+			);
+			path = SignUpViewController;
+			sourceTree = "<group>";
+		};
+		C91B48159ABC56B52D213A0C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5A26DAF5CF62E34098597EA3 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		88024F5C1AD29134004AC260 /* GolfersProject */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 88024F801AD29134004AC260 /* Build configuration list for PBXNativeTarget "GolfersProject" */;
+			buildPhases = (
+				88024F591AD29134004AC260 /* Sources */,
+				88024F5A1AD29134004AC260 /* Frameworks */,
+				88024F5B1AD29134004AC260 /* Resources */,
+				062D08ABEFCEB2B97249E626 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GolfersProject;
+			productName = GolfersProject;
+			productReference = 88024F5D1AD29134004AC260 /* GolfersProject.app */;
+			productType = "com.apple.product-type.application";
+		};
+		88024F751AD29134004AC260 /* GolfersProjectTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 88024F831AD29134004AC260 /* Build configuration list for PBXNativeTarget "GolfersProjectTests" */;
+			buildPhases = (
+				88024F721AD29134004AC260 /* Sources */,
+				88024F731AD29134004AC260 /* Frameworks */,
+				88024F741AD29134004AC260 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				88024F781AD29134004AC260 /* PBXTargetDependency */,
+			);
+			name = GolfersProjectTests;
+			productName = GolfersProjectTests;
+			productReference = 88024F761AD29134004AC260 /* GolfersProjectTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		88024F551AD29134004AC260 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "Abdullah Saeed";
+				TargetAttributes = {
+					88024F5C1AD29134004AC260 = {
+						CreatedOnToolsVersion = 6.1;
+					};
+					88024F751AD29134004AC260 = {
+						CreatedOnToolsVersion = 6.1;
+						TestTargetID = 88024F5C1AD29134004AC260;
+					};
+				};
+			};
+			buildConfigurationList = 88024F581AD29134004AC260 /* Build configuration list for PBXProject "GolfersProject" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 88024F541AD29134004AC260;
+			productRefGroup = 88024F5E1AD29134004AC260 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				88024F5C1AD29134004AC260 /* GolfersProject */,
+				88024F751AD29134004AC260 /* GolfersProjectTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		88024F5B1AD29134004AC260 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				88024F6C1AD29134004AC260 /* Main.storyboard in Resources */,
+				88FE3C391B03A47C00FDA253 /* Holiday-Golf-Club-logo-sized-down.jpg in Resources */,
+				88FE3C401B03AC0E00FDA253 /* signup_location@3x.png in Resources */,
+				88024F711AD29134004AC260 /* LaunchScreen.xib in Resources */,
+				88FE3C3F1B03AC0E00FDA253 /* signup_location@2x.png in Resources */,
+				88024F6E1AD29134004AC260 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		88024F741AD29134004AC260 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		062D08ABEFCEB2B97249E626 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		88024F591AD29134004AC260 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				885CB0681B09BADE00AD2A7B /* InitialViewController.m in Sources */,
+				885CB0671B09BADE00AD2A7B /* GreenViewController.m in Sources */,
+				885CB06B1B09BADE00AD2A7B /* SignUpViewController.m in Sources */,
+				885CB0441B09BA9D00AD2A7B /* AppDelegate.m in Sources */,
+				885CB0691B09BADE00AD2A7B /* MainViewController.m in Sources */,
+				885CB06A1B09BADE00AD2A7B /* SignInViewController.m in Sources */,
+				88024F631AD29134004AC260 /* main.m in Sources */,
+				885CB0651B09BADE00AD2A7B /* BlueViewController.m in Sources */,
+				885CB0471B09BA9D00AD2A7B /* XHTwitterPaggingViewer.m in Sources */,
+				885CB04C1B09BA9D00AD2A7B /* NetworkManager.m in Sources */,
+				885CB0461B09BA9D00AD2A7B /* XHPaggingNavbar.m in Sources */,
+				885CB0661B09BADE00AD2A7B /* GrayViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		88024F721AD29134004AC260 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				88024F7D1AD29134004AC260 /* GolfersProjectTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		88024F781AD29134004AC260 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 88024F5C1AD29134004AC260 /* GolfersProject */;
+			targetProxy = 88024F771AD29134004AC260 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		88024F6A1AD29134004AC260 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				88024F6B1AD29134004AC260 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		88024F6F1AD29134004AC260 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				88024F701AD29134004AC260 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		88024F7E1AD29134004AC260 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		88024F7F1AD29134004AC260 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		88024F811AD29134004AC260 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D817BE50C16025D4FB4E4951 /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = GolfersProject/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		88024F821AD29134004AC260 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E15946F021CC95FC21355D7C /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = GolfersProject/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		88024F841AD29134004AC260 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = GolfersProjectTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GolfersProject.app/GolfersProject";
+			};
+			name = Debug;
+		};
+		88024F851AD29134004AC260 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = GolfersProjectTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GolfersProject.app/GolfersProject";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		88024F581AD29134004AC260 /* Build configuration list for PBXProject "GolfersProject" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				88024F7E1AD29134004AC260 /* Debug */,
+				88024F7F1AD29134004AC260 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		88024F801AD29134004AC260 /* Build configuration list for PBXNativeTarget "GolfersProject" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				88024F811AD29134004AC260 /* Debug */,
+				88024F821AD29134004AC260 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		88024F831AD29134004AC260 /* Build configuration list for PBXNativeTarget "GolfersProjectTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				88024F841AD29134004AC260 /* Debug */,
+				88024F851AD29134004AC260 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 88024F551AD29134004AC260 /* Project object */;
+}
