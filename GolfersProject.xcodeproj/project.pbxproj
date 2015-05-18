@@ -24,6 +24,7 @@
 		885CB0691B09BADE00AD2A7B /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 885CB05E1B09BADE00AD2A7B /* MainViewController.m */; };
 		885CB06A1B09BADE00AD2A7B /* SignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 885CB0611B09BADE00AD2A7B /* SignInViewController.m */; };
 		885CB06B1B09BADE00AD2A7B /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 885CB0641B09BADE00AD2A7B /* SignUpViewController.m */; };
+		885CB06D1B09BDCD00AD2A7B /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 885CB06C1B09BDCD00AD2A7B /* README.md */; };
 		88FE3C391B03A47C00FDA253 /* Holiday-Golf-Club-logo-sized-down.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 88FE3C381B03A47C00FDA253 /* Holiday-Golf-Club-logo-sized-down.jpg */; };
 		88FE3C3F1B03AC0E00FDA253 /* signup_location@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 88FE3C3D1B03AC0E00FDA253 /* signup_location@2x.png */; };
 		88FE3C401B03AC0E00FDA253 /* signup_location@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 88FE3C3E1B03AC0E00FDA253 /* signup_location@3x.png */; };
@@ -72,6 +73,7 @@
 		885CB0611B09BADE00AD2A7B /* SignInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignInViewController.m; sourceTree = "<group>"; };
 		885CB0631B09BADE00AD2A7B /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
 		885CB0641B09BADE00AD2A7B /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
+		885CB06C1B09BDCD00AD2A7B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		88FE3C281B03753500FDA253 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		88FE3C381B03A47C00FDA253 /* Holiday-Golf-Club-logo-sized-down.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Holiday-Golf-Club-logo-sized-down.jpg"; sourceTree = "<group>"; };
 		88FE3C3D1B03AC0E00FDA253 /* signup_location@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "signup_location@2x.png"; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 		88024F5F1AD29134004AC260 /* GolfersProject */ = {
 			isa = PBXGroup;
 			children = (
+				885CB06C1B09BDCD00AD2A7B /* README.md */,
 				885CB04F1B09BADE00AD2A7B /* ViewController */,
 				885CB0291B09BA9D00AD2A7B /* External-Libs */,
 				885CB0231B09BA9D00AD2A7B /* AppDelegate */,
@@ -421,6 +424,7 @@
 				885CB0671B09BADE00AD2A7B /* GreenViewController.m in Sources */,
 				885CB06B1B09BADE00AD2A7B /* SignUpViewController.m in Sources */,
 				885CB0441B09BA9D00AD2A7B /* AppDelegate.m in Sources */,
+				885CB06D1B09BDCD00AD2A7B /* README.md in Sources */,
 				885CB0691B09BADE00AD2A7B /* MainViewController.m in Sources */,
 				885CB06A1B09BADE00AD2A7B /* SignInViewController.m in Sources */,
 				88024F631AD29134004AC260 /* main.m in Sources */,
