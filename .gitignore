@@ -1,0 +1,19 @@
+# Xcode
+.DS_Store
+build/
+*.pbxuser
+!default.pbxuser
+
+
+*.xcworkspace
+!default.xcworkspace
+
+*.perspectivev3
+
+
+xcuserdata
+profile
+DerivedData
+.idea/
+# Pods - for those of you who use CocoaPods
+Pods
