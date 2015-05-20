@@ -10,9 +10,10 @@
 #import <QuartzCore/QuartzCore.h>
 #import "SignInViewController.h"
 
-#import "AuthenticationService.h"
 #import "User.h"
-
+#import "AuthenticationService.h"
+#import "UserServices.h"
+#import "CourseServices.h"
 
 @interface InitialViewController ()
 
@@ -25,14 +26,25 @@
     // Do any additional setup after loading the view.
     [self.navigationController setNavigationBarHidden:YES animated:YES];
     [super viewWillAppear:YES];
-    [self setImageCourseLogoRounded];
+    
+    //[self setImageCourseLogoRounded];
     [self addGestureToSignIn];
+   
+    
     
     
     [AuthenticationService loginWithUserName:@"admin@golfrz.com" password:@"password" success:^(User * muser){
+        
+        NSLog(@"%@",[UserServices currentUser]);
         [[[UIAlertView alloc]initWithTitle:@"Authenticated" message:muser.authToken delegate:nil cancelButtonTitle:@"Oky" otherButtonTitles:nil, nil] show];
     }];
     
+    
+    [CourseServices courseInfo:^(bool status, Course *currentCourse) {
+        NSLog(@"%@", currentCourse);
+    } failure:^(bool status, NSError *error) {
+        //
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -40,10 +52,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+/* method to make the image rounded if not provided
 -(void)setImageCourseLogoRounded{
     [self.imgCourseLogo.layer setCornerRadius:(CGRectGetWidth(self.imgCourseLogo.frame) / 2)];
     [self.imgCourseLogo setClipsToBounds:YES];
 }
+ */
 
 -(void) addGestureToSignIn{
     UITapGestureRecognizer* gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(signInTapped)];

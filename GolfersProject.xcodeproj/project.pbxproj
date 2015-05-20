@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		32B56928BD94CBDCCDA0C43B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A26DAF5CF62E34098597EA3 /* libPods.a */; };
+		3D1963BC1B0CE05700766CFC /* CourseServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1963B81B0CE05700766CFC /* CourseServices.m */; };
+		3D1963BD1B0CE05700766CFC /* UserServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1963BB1B0CE05700766CFC /* UserServices.m */; };
+		3D1963C01B0CE08900766CFC /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1963BF1B0CE08900766CFC /* Course.m */; };
 		88024F631AD29134004AC260 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 88024F621AD29134004AC260 /* main.m */; };
 		88024F6C1AD29134004AC260 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88024F6A1AD29134004AC260 /* Main.storyboard */; };
 		88024F6E1AD29134004AC260 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88024F6D1AD29134004AC260 /* Images.xcassets */; };
@@ -30,9 +33,6 @@
 		885CB07A1B0A117300AD2A7B /* GolfrzError.m in Sources */ = {isa = PBXBuildFile; fileRef = 885CB0771B0A117300AD2A7B /* GolfrzError.m */; };
 		885CB07B1B0A117300AD2A7B /* GolfrzErrorResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 885CB0791B0A117300AD2A7B /* GolfrzErrorResponse.m */; };
 		885CB0801B0A128100AD2A7B /* AuthenticationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 885CB07F1B0A128100AD2A7B /* AuthenticationService.m */; };
-		88FE3C391B03A47C00FDA253 /* Holiday-Golf-Club-logo-sized-down.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 88FE3C381B03A47C00FDA253 /* Holiday-Golf-Club-logo-sized-down.jpg */; };
-		88FE3C3F1B03AC0E00FDA253 /* signup_location@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 88FE3C3D1B03AC0E00FDA253 /* signup_location@2x.png */; };
-		88FE3C401B03AC0E00FDA253 /* signup_location@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 88FE3C3E1B03AC0E00FDA253 /* signup_location@3x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +46,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3D1963B71B0CE05700766CFC /* CourseServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseServices.h; sourceTree = "<group>"; };
+		3D1963B81B0CE05700766CFC /* CourseServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseServices.m; sourceTree = "<group>"; };
+		3D1963BA1B0CE05700766CFC /* UserServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserServices.h; sourceTree = "<group>"; };
+		3D1963BB1B0CE05700766CFC /* UserServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserServices.m; sourceTree = "<group>"; };
+		3D1963BE1B0CE08900766CFC /* Course.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Course.h; sourceTree = "<group>"; };
+		3D1963BF1B0CE08900766CFC /* Course.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Course.m; sourceTree = "<group>"; };
 		5A26DAF5CF62E34098597EA3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		88024F5D1AD29134004AC260 /* GolfersProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GolfersProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88024F611AD29134004AC260 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -90,9 +96,6 @@
 		885CB07E1B0A128100AD2A7B /* AuthenticationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthenticationService.h; sourceTree = "<group>"; };
 		885CB07F1B0A128100AD2A7B /* AuthenticationService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthenticationService.m; sourceTree = "<group>"; };
 		88FE3C281B03753500FDA253 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
-		88FE3C381B03A47C00FDA253 /* Holiday-Golf-Club-logo-sized-down.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Holiday-Golf-Club-logo-sized-down.jpg"; sourceTree = "<group>"; };
-		88FE3C3D1B03AC0E00FDA253 /* signup_location@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "signup_location@2x.png"; sourceTree = "<group>"; };
-		88FE3C3E1B03AC0E00FDA253 /* signup_location@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "signup_location@3x.png"; sourceTree = "<group>"; };
 		D817BE50C16025D4FB4E4951 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		E15946F021CC95FC21355D7C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -116,6 +119,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D1963B61B0CE05700766CFC /* CourseServices */ = {
+			isa = PBXGroup;
+			children = (
+				3D1963B71B0CE05700766CFC /* CourseServices.h */,
+				3D1963B81B0CE05700766CFC /* CourseServices.m */,
+			);
+			path = CourseServices;
+			sourceTree = "<group>";
+		};
+		3D1963B91B0CE05700766CFC /* UserServices */ = {
+			isa = PBXGroup;
+			children = (
+				3D1963BA1B0CE05700766CFC /* UserServices.h */,
+				3D1963BB1B0CE05700766CFC /* UserServices.m */,
+			);
+			path = UserServices;
+			sourceTree = "<group>";
+		};
 		66D43E9E53452F667DDF180D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -156,9 +177,6 @@
 				885CB03B1B09BA9D00AD2A7B /* NetworkManager */,
 				885CB06E1B09F7F100AD2A7B /* APIClient */,
 				885CB06F1B09F91700AD2A7B /* Model */,
-				88FE3C3D1B03AC0E00FDA253 /* signup_location@2x.png */,
-				88FE3C3E1B03AC0E00FDA253 /* signup_location@3x.png */,
-				88FE3C381B03A47C00FDA253 /* Holiday-Golf-Club-logo-sized-down.jpg */,
 				88024F6A1AD29134004AC260 /* Main.storyboard */,
 				88024F6D1AD29134004AC260 /* Images.xcassets */,
 				88024F6F1AD29134004AC260 /* LaunchScreen.xib */,
@@ -320,6 +338,8 @@
 		885CB06F1B09F91700AD2A7B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3D1963BE1B0CE08900766CFC /* Course.h */,
+				3D1963BF1B0CE08900766CFC /* Course.m */,
 				885CB0761B0A117300AD2A7B /* GolfrzError.h */,
 				885CB0771B0A117300AD2A7B /* GolfrzError.m */,
 				885CB0781B0A117300AD2A7B /* GolfrzErrorResponse.h */,
@@ -333,6 +353,8 @@
 		885CB07C1B0A121300AD2A7B /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				3D1963B61B0CE05700766CFC /* CourseServices */,
+				3D1963B91B0CE05700766CFC /* UserServices */,
 				885CB07D1B0A121300AD2A7B /* AuthenticationServices */,
 			);
 			path = Services;
@@ -437,10 +459,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				88024F6C1AD29134004AC260 /* Main.storyboard in Resources */,
-				88FE3C391B03A47C00FDA253 /* Holiday-Golf-Club-logo-sized-down.jpg in Resources */,
-				88FE3C401B03AC0E00FDA253 /* signup_location@3x.png in Resources */,
 				88024F711AD29134004AC260 /* LaunchScreen.xib in Resources */,
-				88FE3C3F1B03AC0E00FDA253 /* signup_location@2x.png in Resources */,
 				88024F6E1AD29134004AC260 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -478,12 +497,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				885CB0681B09BADE00AD2A7B /* InitialViewController.m in Sources */,
+				3D1963BC1B0CE05700766CFC /* CourseServices.m in Sources */,
 				885CB0671B09BADE00AD2A7B /* GreenViewController.m in Sources */,
 				885CB06B1B09BADE00AD2A7B /* SignUpViewController.m in Sources */,
 				885CB0441B09BA9D00AD2A7B /* AppDelegate.m in Sources */,
 				885CB06D1B09BDCD00AD2A7B /* README.md in Sources */,
 				885CB0691B09BADE00AD2A7B /* MainViewController.m in Sources */,
+				3D1963C01B0CE08900766CFC /* Course.m in Sources */,
 				885CB07A1B0A117300AD2A7B /* GolfrzError.m in Sources */,
+				3D1963BD1B0CE05700766CFC /* UserServices.m in Sources */,
 				885CB0801B0A128100AD2A7B /* AuthenticationService.m in Sources */,
 				885CB06A1B09BADE00AD2A7B /* SignInViewController.m in Sources */,
 				88024F631AD29134004AC260 /* main.m in Sources */,

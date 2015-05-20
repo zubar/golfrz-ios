@@ -9,12 +9,23 @@
 #import "APIClient.h"
 #import "User.h"
 #import "GolfrzErrorResponse.h"
-
-
+#import "Constants.h"
+#import "Course.h"
 
 @implementation APIClient
 
-
++(APIClient *)sharedAPICLient{
+    
+    static APIClient *_aPIClient = nil;
+    
+    static dispatch_once_t onceToken;
+    //Use Grand Central Dispatch to create a single instance and do any initial setup only once.
+    dispatch_once(&onceToken, ^{
+        //These are only invoked the onceToken has never been used before.
+        _aPIClient = [[APIClient alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
+    });
+    return _aPIClient;
+}
 
 #pragma mark - OVCHTTPSessionManager
 
@@ -26,7 +37,8 @@
 +(NSDictionary *)modelClassesByResourcePath{
 
     return @{
-             @"users/sign_in" : [User class]
+             kSignInURL : [User class],
+             kCourseInfo : [Course class]
              };
 }
 
