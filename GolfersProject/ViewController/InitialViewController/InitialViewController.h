@@ -12,6 +12,7 @@
 @property (strong, nonatomic) IBOutlet UIImageView *imgCourseLogo;
 @property (strong, nonatomic) IBOutlet UILabel *lblSignIn;
 
-- (void) setImageCourseLogoRounded;
+//- (void) setImageCourseLogoRounded;
+@property (strong, nonatomic) IBOutlet UIView *backGroundView;
 
 @end

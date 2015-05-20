@@ -8,7 +8,7 @@
 
 #import "SignUpViewController.h"
 #import "InitialViewController.h"
-
+#import "AuthenticationService.h"
 
 @interface SignUpViewController ()
 
@@ -19,10 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.navigationController setNavigationBarHidden:YES animated:YES];
-    [super viewWillAppear:YES];
-    //[self.navigationController setNavigationBarHidden:YES animated:animated];
-    //[super viewWillAppear:animated];
-    // Do any additional setup after loading the view.
+    [super viewWillAppear:YES];    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -44,7 +41,11 @@
 
 - (IBAction)btnRegisterTapped:(UIButton *)sender {
    
-    
+    [AuthenticationService singUpUser:self.txtFirstName.text lastName:self.txtLastName.text email:self.txtEmail.text password:self.txtPassword.text passwordConfirmation:self.txtPassword.text memberId:self.txtMemberID.text completion:^(bool status, NSError *error) {
+        if (status) {
+            [[[UIAlertView alloc]initWithTitle:@"Success" message:@"Please check your email to confirm " delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", @"Okay Comment") otherButtonTitles:nil, nil] show];
+        }
+    }];
     
 }
 
@@ -54,7 +55,12 @@
     [self.navigationController pushViewController:initialViewController animated:NO];
 }
 
+#pragma TextFieldMethods
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return NO;
+}
 
 
 @end

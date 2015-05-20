@@ -25,8 +25,10 @@
     // Do any additional setup after loading the view.
     [self.navigationController setNavigationBarHidden:YES animated:YES];
     [super viewWillAppear:YES];
-    [self setImageCourseLogoRounded];
+    
+    //[self setImageCourseLogoRounded];
     [self addGestureToSignIn];
+   
     
     
     [AuthenticationService loginWithUserName:@"admin@golfrz.com" password:@"password" success:^(User * muser){
@@ -40,10 +42,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+/* method to make the image rounded if not provided
 -(void)setImageCourseLogoRounded{
     [self.imgCourseLogo.layer setCornerRadius:(CGRectGetWidth(self.imgCourseLogo.frame) / 2)];
     [self.imgCourseLogo setClipsToBounds:YES];
 }
+ */
 
 -(void) addGestureToSignIn{
     UITapGestureRecognizer* gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(signInTapped)];

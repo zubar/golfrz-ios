@@ -89,13 +89,61 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "GolfersProject/APIClient/APIClient.m"
-            timestampString = "453658669.139241"
+            filePath = "GolfersProject/Services/AuthenticationServices/AuthenticationService.m"
+            timestampString = "453724495.075094"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
-            landmarkName = "+modelClassesByResourcePath"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
+            landmarkName = "+singUpUser:lastName:email:password:passwordConfirmation:memberId:completion:"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "+[AuthenticationService singUpUser:lastName:email:password:passwordConfirmation:memberId:completion:]"
+                  moduleName = "GolfersProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/abdullahsaeed/Documents/iOS-Projects/GolfersProject/GolfersProject/Services/AuthenticationServices/AuthenticationService.m"
+                  timestampString = "453742556.068568"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "75"
+                  endingLineNumber = "75"
+                  offsetFromSymbolStart = "439">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__101+[AuthenticationService singUpUser:lastName:email:password:passwordConfirmation:memberId:completion:]_block_invoke"
+                  moduleName = "GolfersProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/abdullahsaeed/Documents/iOS-Projects/GolfersProject/GolfersProject/Services/AuthenticationServices/AuthenticationService.m"
+                  timestampString = "453742556.068899"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "75"
+                  endingLineNumber = "75"
+                  offsetFromSymbolStart = "67">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GolfersProject/Services/AuthenticationServices/AuthenticationService.m"
+            timestampString = "453723663.642237"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
+            landmarkName = "+singUpUser:lastName:email:password:passwordConfirmation:memberId:completion:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

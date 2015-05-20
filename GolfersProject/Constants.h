@@ -12,8 +12,24 @@
 #define BASE_URL @"https://powerful-plains-9156.herokuapp.com"
 #define USER_SIGN_UP @"https://powerful-plains-9156.herokuapp.com/api/users"
 
+/*
+ *  Authentication Services
+ *  SignIn, SignOut
+ */
 static NSString * const kBaseURL = @"https://powerful-plains-9156.herokuapp.com/api/";
+static NSString * const kSignInURL = @"users/sign_in";
+static NSString * const kForgetPasswordURL = @"users/password";
+static NSString * const kSignOutURL = @"users/sign_out";
+static NSString * const kSignUpURL = @"users";
+
+/*
+ *  Golf Course Data Services
+ *  SignIn, SignOut
+ */
+
+
 
 
 
 #endif
+

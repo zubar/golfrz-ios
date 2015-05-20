@@ -10,4 +10,8 @@
 
 @interface APIClient : OVCHTTPSessionManager
 
++(APIClient *)sharedAPICLient;
++(Class)errorModelClass;
++(NSDictionary *)modelClassesByResourcePath;
+
 @end
