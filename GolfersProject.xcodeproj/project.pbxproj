@@ -38,6 +38,8 @@
 		885CB0801B0A128100AD2A7B /* AuthenticationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 885CB07F1B0A128100AD2A7B /* AuthenticationService.m */; };
 		886B9ED41B0B95900078B09D /* ForgotPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 886B9ED31B0B95900078B09D /* ForgotPasswordViewController.m */; };
 		88709E9E1B0DB600005DA345 /* ForgotPasswordSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88709E9D1B0DB600005DA345 /* ForgotPasswordSViewController.m */; };
+		88709EA11B0DF706005DA345 /* ClubHouseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88709EA01B0DF706005DA345 /* ClubHouseViewController.m */; };
+		88709EA41B0E161A005DA345 /* WeatherViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88709EA31B0E161A005DA345 /* WeatherViewCell.m */; };
 		889E1E5D1B0C7CC300F55B40 /* TPKeyboardAvoidingCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 889E1E561B0C7CC300F55B40 /* TPKeyboardAvoidingCollectionView.m */; };
 		889E1E5E1B0C7CC300F55B40 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 889E1E581B0C7CC300F55B40 /* TPKeyboardAvoidingScrollView.m */; };
 		889E1E5F1B0C7CC300F55B40 /* TPKeyboardAvoidingTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 889E1E5A1B0C7CC300F55B40 /* TPKeyboardAvoidingTableView.m */; };
@@ -114,6 +116,10 @@
 		886B9ED31B0B95900078B09D /* ForgotPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgotPasswordViewController.m; sourceTree = "<group>"; };
 		88709E9C1B0DB600005DA345 /* ForgotPasswordSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgotPasswordSViewController.h; sourceTree = "<group>"; };
 		88709E9D1B0DB600005DA345 /* ForgotPasswordSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgotPasswordSViewController.m; sourceTree = "<group>"; };
+		88709E9F1B0DF706005DA345 /* ClubHouseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClubHouseViewController.h; sourceTree = "<group>"; };
+		88709EA01B0DF706005DA345 /* ClubHouseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClubHouseViewController.m; sourceTree = "<group>"; };
+		88709EA21B0E161A005DA345 /* WeatherViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherViewCell.h; sourceTree = "<group>"; };
+		88709EA31B0E161A005DA345 /* WeatherViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherViewCell.m; sourceTree = "<group>"; };
 		889E1E551B0C7CC300F55B40 /* TPKeyboardAvoidingCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingCollectionView.h; sourceTree = "<group>"; };
 		889E1E561B0C7CC300F55B40 /* TPKeyboardAvoidingCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingCollectionView.m; sourceTree = "<group>"; };
 		889E1E571B0C7CC300F55B40 /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingScrollView.h; sourceTree = "<group>"; };
@@ -229,6 +235,10 @@
 				88024F6F1AD29134004AC260 /* LaunchScreen.xib */,
 				88024F601AD29134004AC260 /* Supporting Files */,
 				88FE3C281B03753500FDA253 /* Constants.h */,
+				88709E9F1B0DF706005DA345 /* ClubHouseViewController.h */,
+				88709EA01B0DF706005DA345 /* ClubHouseViewController.m */,
+				88709EA21B0E161A005DA345 /* WeatherViewCell.h */,
+				88709EA31B0E161A005DA345 /* WeatherViewCell.m */,
 			);
 			path = GolfersProject;
 			sourceTree = "<group>";
@@ -593,8 +603,10 @@
 				886B9ED41B0B95900078B09D /* ForgotPasswordViewController.m in Sources */,
 				885CB06A1B09BADE00AD2A7B /* SignInViewController.m in Sources */,
 				889E1E5D1B0C7CC300F55B40 /* TPKeyboardAvoidingCollectionView.m in Sources */,
+				88709EA11B0DF706005DA345 /* ClubHouseViewController.m in Sources */,
 				88024F631AD29134004AC260 /* main.m in Sources */,
 				885CB0721B09F93700AD2A7B /* User.m in Sources */,
+				88709EA41B0E161A005DA345 /* WeatherViewCell.m in Sources */,
 				885CB0651B09BADE00AD2A7B /* BlueViewController.m in Sources */,
 				885CB0751B09FB0100AD2A7B /* APIClient.m in Sources */,
 				885CB07B1B0A117300AD2A7B /* GolfrzErrorResponse.m in Sources */,

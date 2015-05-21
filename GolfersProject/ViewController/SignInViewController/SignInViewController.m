@@ -8,6 +8,8 @@
 
 #import "SignInViewController.h"
 #import "ForgotPasswordViewController.h"
+#import "AppDelegate.h"
+#import "ClubHouseViewController.h"
 
 @interface SignInViewController ()
 
@@ -54,6 +56,45 @@
 
 - (IBAction)btnSignInTapped:(id)sender {
     
+    ClubHouseViewController *clubHouseVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ClubHouseViewController"];
+    
+    [self.navigationController pushViewController:clubHouseVC animated:YES];
+
+//    
+//    UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//    
+//    AppDelegate * appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+//    
+//    
+//    
+//        appDelegate.mainController = (MainViewController *)[mainStoryBoard instantiateViewControllerWithIdentifier:@"mainPagingController"];
+//        appDelegate.greenViewController = (GreenViewController *)[mainStoryBoard instantiateViewControllerWithIdentifier:@"GreenViewController"];
+//        appDelegate.blueViewController = (BlueViewController *)[mainStoryBoard instantiateViewControllerWithIdentifier:@"BlueViewController"];
+//        appDelegate.grayViewController = (GrayViewController *)[mainStoryBoard instantiateViewControllerWithIdentifier:@"GrayViewController"];
+//    
+//    
+//    
+//        NSMutableArray *controllersArray = [NSMutableArray array];
+//        [controllersArray addObject:appDelegate.greenViewController];
+//        [controllersArray addObject:appDelegate.blueViewController];
+//        [controllersArray addObject:appDelegate.grayViewController];
+//    
+//        [appDelegate.mainController setViewControllers:controllersArray];
+//    
+//    
+//        appDelegate.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:appDelegate.mainController];
+//    
+//    
+//        [[UINavigationBar appearance] setTintColor:[UIColor redColor]];
+//        [[UINavigationBar appearance] setBackgroundColor:[UIColor redColor]];
+//        [[UINavigationBar appearance] setTranslucent:FALSE];
+//        [[UINavigationBar appearance] setBarTintColor:[UIColor redColor]];
+    // Override point for customization after application launch.
+    
+    
+    
+    /*
+    
     
         self.mainController = (MainViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"mainPagingController"];
         self.greenViewController = (GreenViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"GreenViewController"];
@@ -68,6 +109,7 @@
         [controllersArray addObject:self.grayViewController];
     
         [self.mainController setViewControllers:controllersArray];
+    
         self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:self.mainController];
     
         [[UINavigationBar appearance] setTintColor:[UIColor redColor]];
@@ -75,6 +117,6 @@
         [[UINavigationBar appearance] setTranslucent:FALSE];
         [[UINavigationBar appearance] setBarTintColor:[UIColor redColor]];
     
-    
+    */
 }
 @end

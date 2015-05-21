@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="1gL-qd-nhi">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Main View Controller-->
@@ -800,6 +801,146 @@
             </objects>
             <point key="canvasLocation" x="-638" y="1173"/>
         </scene>
+        <!--Club House View Controller-->
+        <scene sceneID="xhQ-n3-rfC">
+            <objects>
+                <viewController storyboardIdentifier="ClubHouseViewController" id="iSr-ry-nVa" customClass="ClubHouseViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="IsR-Rb-37t"/>
+                        <viewControllerLayoutGuide type="bottom" id="TuG-uA-RfF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lHd-67-yBJ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background_image" translatesAutoresizingMaskIntoConstraints="NO" id="jBx-Rk-ibv">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BxL-gq-5xJ">
+                                <rect key="frame" x="0.0" y="64" width="320" height="496"/>
+                                <subviews>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.40000000000000002" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gGT-sU-Edv">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="74"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="20" minimumInteritemSpacing="20" id="iW4-cO-kqQ">
+                                            <size key="itemSize" width="32" height="65"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="WeatherCell" id="lwT-If-vQD" customClass="WeatherViewCell">
+                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                                    <rect key="frame" x="0.0" y="0.0" width="35" height="65"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5au-vI-tRK">
+                                                            <rect key="frame" x="9" y="24" width="17" height="17"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="17" id="nHd-iT-wxX"/>
+                                                                <constraint firstAttribute="height" constant="17" id="uPq-iR-6b1"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lIk-oU-zrY">
+                                                            <rect key="frame" x="3" y="8" width="29" height="14"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xRp-el-ZhR">
+                                                            <rect key="frame" x="3" y="51" width="29" height="14"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                </view>
+                                                <constraints>
+                                                    <constraint firstAttribute="centerX" secondItem="lIk-oU-zrY" secondAttribute="centerX" id="1OW-WA-EiQ"/>
+                                                    <constraint firstAttribute="centerX" secondItem="5au-vI-tRK" secondAttribute="centerX" id="F5b-Do-Izm"/>
+                                                    <constraint firstItem="lIk-oU-zrY" firstAttribute="top" secondItem="lwT-If-vQD" secondAttribute="topMargin" id="RxT-5X-8tD"/>
+                                                    <constraint firstAttribute="bottom" secondItem="xRp-el-ZhR" secondAttribute="bottom" id="S4D-TP-1qo"/>
+                                                    <constraint firstAttribute="centerX" secondItem="xRp-el-ZhR" secondAttribute="centerX" id="axo-SG-X5E"/>
+                                                    <constraint firstAttribute="centerY" secondItem="5au-vI-tRK" secondAttribute="centerY" id="bE9-ho-1CV"/>
+                                                </constraints>
+                                                <size key="customSize" width="35" height="65"/>
+                                                <connections>
+                                                    <outlet property="imgWeatherIcon" destination="5au-vI-tRK" id="l7f-cp-sH5"/>
+                                                    <outlet property="lblTemperature" destination="xRp-el-ZhR" id="igo-uj-tRA"/>
+                                                    <outlet property="lblTime" destination="lIk-oU-zrY" id="ey1-LM-Jao"/>
+                                                </connections>
+                                            </collectionViewCell>
+                                        </cells>
+                                        <connections>
+                                            <outlet property="dataSource" destination="iSr-ry-nVa" id="gDc-Ul-SlJ"/>
+                                            <outlet property="delegate" destination="iSr-ry-nVa" id="SPa-Io-lr6"/>
+                                        </connections>
+                                    </collectionView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="courselogo_small" translatesAutoresizingMaskIntoConstraints="NO" id="yUd-U0-aX0">
+                                        <rect key="frame" x="125" y="95" width="70" height="70"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="70" id="2fm-ce-Zu9"/>
+                                            <constraint firstAttribute="width" constant="70" id="Uru-Uu-k6Y"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SEDONA GOLF RESORT" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ttc-5C-ber">
+                                        <rect key="frame" x="64" y="180" width="193" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A6e-HL-Fpl">
+                                        <rect key="frame" x="95" y="223" width="130" height="35"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="qHB-SB-Nwx"/>
+                                        </constraints>
+                                        <state key="normal" title="CHECK IN">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="layer.borderWidth" value="1"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="yUd-U0-aX0" firstAttribute="top" secondItem="gGT-sU-Edv" secondAttribute="bottom" constant="21" id="ItZ-yF-i7M"/>
+                                    <constraint firstItem="gGT-sU-Edv" firstAttribute="top" secondItem="BxL-gq-5xJ" secondAttribute="top" id="KxB-9y-52C"/>
+                                    <constraint firstAttribute="trailing" secondItem="gGT-sU-Edv" secondAttribute="trailing" id="OE3-sG-djz"/>
+                                    <constraint firstAttribute="trailing" secondItem="A6e-HL-Fpl" secondAttribute="trailing" constant="95" id="Svy-dD-8Jc"/>
+                                    <constraint firstAttribute="centerX" secondItem="yUd-U0-aX0" secondAttribute="centerX" id="YRT-bg-Ofj"/>
+                                    <constraint firstItem="ttc-5C-ber" firstAttribute="top" secondItem="yUd-U0-aX0" secondAttribute="bottom" constant="15" id="Z55-Fi-N4A"/>
+                                    <constraint firstItem="yUd-U0-aX0" firstAttribute="top" secondItem="BxL-gq-5xJ" secondAttribute="top" constant="95" id="kQu-bA-imp"/>
+                                    <constraint firstAttribute="centerX" secondItem="ttc-5C-ber" secondAttribute="centerX" id="lgm-TU-mcJ"/>
+                                    <constraint firstItem="A6e-HL-Fpl" firstAttribute="top" secondItem="ttc-5C-ber" secondAttribute="bottom" constant="22" id="prF-Jc-gcm"/>
+                                    <constraint firstItem="A6e-HL-Fpl" firstAttribute="leading" secondItem="BxL-gq-5xJ" secondAttribute="leading" constant="95" id="zpR-h7-Bl7"/>
+                                    <constraint firstItem="gGT-sU-Edv" firstAttribute="leading" secondItem="BxL-gq-5xJ" secondAttribute="leading" id="zyX-Fx-63D"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="BxL-gq-5xJ" firstAttribute="top" secondItem="lHd-67-yBJ" secondAttribute="top" constant="64" id="0xo-6W-1kT"/>
+                            <constraint firstItem="jBx-Rk-ibv" firstAttribute="top" secondItem="lHd-67-yBJ" secondAttribute="top" id="6UE-TX-XPR"/>
+                            <constraint firstItem="TuG-uA-RfF" firstAttribute="top" secondItem="jBx-Rk-ibv" secondAttribute="bottom" id="6XY-MK-jkr"/>
+                            <constraint firstAttribute="bottom" secondItem="BxL-gq-5xJ" secondAttribute="bottom" constant="8" id="Ofq-6w-leK"/>
+                            <constraint firstAttribute="trailing" secondItem="jBx-Rk-ibv" secondAttribute="trailing" id="cY7-yQ-pyq"/>
+                            <constraint firstItem="BxL-gq-5xJ" firstAttribute="leading" secondItem="lHd-67-yBJ" secondAttribute="leading" id="fpw-fL-b7m"/>
+                            <constraint firstAttribute="trailing" secondItem="BxL-gq-5xJ" secondAttribute="trailing" id="pws-Fg-hjI"/>
+                            <constraint firstItem="jBx-Rk-ibv" firstAttribute="leading" secondItem="lHd-67-yBJ" secondAttribute="leading" id="vTs-hf-qzF"/>
+                        </constraints>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jb7-lJ-pMR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-189" y="1104"/>
+        </scene>
         <!--Green View Controller-->
         <scene sceneID="KQ3-eT-fzn">
             <objects>
@@ -857,6 +998,7 @@
     </scenes>
     <resources>
         <image name="background_image" width="320" height="568"/>
+        <image name="courselogo_small" width="70" height="70"/>
         <image name="golfcourse_logo" width="100" height="101"/>
         <image name="signup_location" width="23" height="31"/>
         <image name="singup_backarrow" width="41" height="43"/>
