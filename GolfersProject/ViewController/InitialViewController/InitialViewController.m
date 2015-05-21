@@ -30,10 +30,10 @@
     [self addGestureToSignIn];
    
     
-    
-    [AuthenticationService loginWithUserName:@"admin@golfrz.com" password:@"password" success:^(User * muser){
-        [[[UIAlertView alloc]initWithTitle:@"Authenticated" message:muser.authToken delegate:nil cancelButtonTitle:@"Oky" otherButtonTitles:nil, nil] show];
-    }];
+//    
+//    [AuthenticationService loginWithUserName:@"admin@golfrz.com" password:@"password" success:^(User * muser){
+//        [[[UIAlertView alloc]initWithTitle:@"Authenticated" message:muser.authToken delegate:nil cancelButtonTitle:@"Oky" otherButtonTitles:nil, nil] show];
+//    }];
     
 }
 
