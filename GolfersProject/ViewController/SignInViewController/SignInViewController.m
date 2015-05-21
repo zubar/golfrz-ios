@@ -52,4 +52,29 @@
 }
 */
 
+- (IBAction)btnSignInTapped:(id)sender {
+    
+    
+        self.mainController = (MainViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"mainPagingController"];
+        self.greenViewController = (GreenViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"GreenViewController"];
+        self.blueViewController = (BlueViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"BlueViewController"];
+        self.grayViewController = (GrayViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"GrayViewController"];
+    
+    
+    
+        NSMutableArray *controllersArray = [NSMutableArray array];
+        [controllersArray addObject:self.greenViewController];
+        [controllersArray addObject:self.blueViewController];
+        [controllersArray addObject:self.grayViewController];
+    
+        [self.mainController setViewControllers:controllersArray];
+        self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:self.mainController];
+    
+        [[UINavigationBar appearance] setTintColor:[UIColor redColor]];
+        [[UINavigationBar appearance] setBackgroundColor:[UIColor redColor]];
+        [[UINavigationBar appearance] setTranslucent:FALSE];
+        [[UINavigationBar appearance] setBarTintColor:[UIColor redColor]];
+    
+    
+}
 @end
