@@ -14,6 +14,7 @@
 #import "AuthenticationService.h"
 #import "UserServices.h"
 #import "CourseServices.h"
+#import "WeatherServices.h"
 
 @interface InitialViewController ()
 
@@ -42,6 +43,13 @@
         NSLog(@"%@", currentCourse);
     } failure:^(bool status, NSError *error) {
         //
+    }];
+    
+    
+    [WeatherServices weatherInfo:^(bool status, NSArray *mWeatherData) {
+        NSLog(@"weather:%@", mWeatherData);
+    } failure:^(bool status, NSError *error) {
+        NSLog(@"%@", error);
     }];
 }
 
