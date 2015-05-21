@@ -8,6 +8,8 @@
 
 #import "SignInViewController.h"
 #import "ForgotPasswordViewController.h"
+#import "AppDelegate.h"
+#import "ClubHouseContainerVC.h"
 
 @interface SignInViewController ()
 
@@ -52,4 +54,9 @@
 }
 */
 
+- (IBAction)btnSignInTapped:(id)sender {
+    ClubHouseContainerVC *clubHouseContainerVC  = [self.storyboard instantiateViewControllerWithIdentifier:@"ClubHouseContainerVC"];
+    
+    [self.navigationController pushViewController:clubHouseContainerVC animated:YES];
+}
 @end

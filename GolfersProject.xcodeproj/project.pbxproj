@@ -19,10 +19,12 @@
 		3D1963D81B0DEBA200766CFC /* THCalendarInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1963D51B0DEBA100766CFC /* THCalendarInfo.m */; };
 		3D1963EA1B0E1B5200766CFC /* ClubHouseContainerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1963E41B0E1B5200766CFC /* ClubHouseContainerVC.m */; };
 		3D1963EB1B0E1B5200766CFC /* ClubHouseSubController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1963E61B0E1B5200766CFC /* ClubHouseSubController.m */; };
-		3D1963EC1B0E1B5200766CFC /* CloubHouseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1963E91B0E1B5200766CFC /* CloubHouseViewController.m */; };
+		3D1963EC1B0E1B5200766CFC /* ClubHouseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1963E91B0E1B5200766CFC /* ClubHouseViewController.m */; };
 		3D1963F31B0E1B6900766CFC /* PlayerProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1963EF1B0E1B6900766CFC /* PlayerProfileViewController.m */; };
 		3D1963F41B0E1B6900766CFC /* RewardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1963F21B0E1B6900766CFC /* RewardViewController.m */; };
-		88024F631AD29134004AC260 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 88024F621AD29134004AC260 /* main.m */; };
+		3D1963F81B0E1F0500766CFC /* WeatherViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1963F71B0E1F0500766CFC /* WeatherViewCell.m */; };
+		3D1963F91B0E218B00766CFC /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 885CB0711B09F93700AD2A7B /* User.m */; };
+		3D1963FA1B0E21B100766CFC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 88024F621AD29134004AC260 /* main.m */; };
 		88024F6C1AD29134004AC260 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88024F6A1AD29134004AC260 /* Main.storyboard */; };
 		88024F6E1AD29134004AC260 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88024F6D1AD29134004AC260 /* Images.xcassets */; };
 		88024F711AD29134004AC260 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88024F6F1AD29134004AC260 /* LaunchScreen.xib */; };
@@ -36,7 +38,6 @@
 		885CB06A1B09BADE00AD2A7B /* SignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 885CB0611B09BADE00AD2A7B /* SignInViewController.m */; };
 		885CB06B1B09BADE00AD2A7B /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 885CB0641B09BADE00AD2A7B /* SignUpViewController.m */; };
 		885CB06D1B09BDCD00AD2A7B /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 885CB06C1B09BDCD00AD2A7B /* README.md */; };
-		885CB0721B09F93700AD2A7B /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 885CB0711B09F93700AD2A7B /* User.m */; };
 		885CB0751B09FB0100AD2A7B /* APIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 885CB0741B09FB0100AD2A7B /* APIClient.m */; };
 		885CB07A1B0A117300AD2A7B /* GolfrzError.m in Sources */ = {isa = PBXBuildFile; fileRef = 885CB0771B0A117300AD2A7B /* GolfrzError.m */; };
 		885CB07B1B0A117300AD2A7B /* GolfrzErrorResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 885CB0791B0A117300AD2A7B /* GolfrzErrorResponse.m */; };
@@ -82,12 +83,14 @@
 		3D1963E41B0E1B5200766CFC /* ClubHouseContainerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClubHouseContainerVC.m; sourceTree = "<group>"; };
 		3D1963E51B0E1B5200766CFC /* ClubHouseSubController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClubHouseSubController.h; sourceTree = "<group>"; };
 		3D1963E61B0E1B5200766CFC /* ClubHouseSubController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClubHouseSubController.m; sourceTree = "<group>"; };
-		3D1963E81B0E1B5200766CFC /* CloubHouseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CloubHouseViewController.h; sourceTree = "<group>"; };
-		3D1963E91B0E1B5200766CFC /* CloubHouseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloubHouseViewController.m; sourceTree = "<group>"; };
+		3D1963E81B0E1B5200766CFC /* ClubHouseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClubHouseViewController.h; sourceTree = "<group>"; };
+		3D1963E91B0E1B5200766CFC /* ClubHouseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClubHouseViewController.m; sourceTree = "<group>"; };
 		3D1963EE1B0E1B6900766CFC /* PlayerProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerProfileViewController.h; sourceTree = "<group>"; };
 		3D1963EF1B0E1B6900766CFC /* PlayerProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerProfileViewController.m; sourceTree = "<group>"; };
 		3D1963F11B0E1B6900766CFC /* RewardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RewardViewController.h; sourceTree = "<group>"; };
 		3D1963F21B0E1B6900766CFC /* RewardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RewardViewController.m; sourceTree = "<group>"; };
+		3D1963F61B0E1F0500766CFC /* WeatherViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherViewCell.h; sourceTree = "<group>"; };
+		3D1963F71B0E1F0500766CFC /* WeatherViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherViewCell.m; sourceTree = "<group>"; };
 		5A26DAF5CF62E34098597EA3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		88024F5D1AD29134004AC260 /* GolfersProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GolfersProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88024F611AD29134004AC260 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -226,8 +229,8 @@
 		3D1963E71B0E1B5200766CFC /* ClubHouseViewController */ = {
 			isa = PBXGroup;
 			children = (
-				3D1963E81B0E1B5200766CFC /* CloubHouseViewController.h */,
-				3D1963E91B0E1B5200766CFC /* CloubHouseViewController.m */,
+				3D1963E81B0E1B5200766CFC /* ClubHouseViewController.h */,
+				3D1963E91B0E1B5200766CFC /* ClubHouseViewController.m */,
 			);
 			path = ClubHouseViewController;
 			sourceTree = "<group>";
@@ -248,6 +251,15 @@
 				3D1963F21B0E1B6900766CFC /* RewardViewController.m */,
 			);
 			path = RewardViewController;
+			sourceTree = "<group>";
+		};
+		3D1963F51B0E1F0500766CFC /* WeatherCell */ = {
+			isa = PBXGroup;
+			children = (
+				3D1963F61B0E1F0500766CFC /* WeatherViewCell.h */,
+				3D1963F71B0E1F0500766CFC /* WeatherViewCell.m */,
+			);
+			path = WeatherCell;
 			sourceTree = "<group>";
 		};
 		66D43E9E53452F667DDF180D /* Pods */ = {
@@ -282,6 +294,7 @@
 		88024F5F1AD29134004AC260 /* GolfersProject */ = {
 			isa = PBXGroup;
 			children = (
+				3D1963F51B0E1F0500766CFC /* WeatherCell */,
 				885CB07C1B0A121300AD2A7B /* Services */,
 				885CB06C1B09BDCD00AD2A7B /* README.md */,
 				885CB04F1B09BADE00AD2A7B /* ViewController */,
@@ -614,6 +627,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D1963FA1B0E21B100766CFC /* main.m in Sources */,
+				3D1963F91B0E218B00766CFC /* User.m in Sources */,
 				889E1E5E1B0C7CC300F55B40 /* TPKeyboardAvoidingScrollView.m in Sources */,
 				885CB0681B09BADE00AD2A7B /* InitialViewController.m in Sources */,
 				3D1963F41B0E1B6900766CFC /* RewardViewController.m in Sources */,
@@ -637,18 +652,17 @@
 				885CB06A1B09BADE00AD2A7B /* SignInViewController.m in Sources */,
 				889E1E5D1B0C7CC300F55B40 /* TPKeyboardAvoidingCollectionView.m in Sources */,
 				3D1963D71B0DEBA200766CFC /* NSDate+Helper.m in Sources */,
-				88024F631AD29134004AC260 /* main.m in Sources */,
-				885CB0721B09F93700AD2A7B /* User.m in Sources */,
 				885CB0751B09FB0100AD2A7B /* APIClient.m in Sources */,
 				3D1963F31B0E1B6900766CFC /* PlayerProfileViewController.m in Sources */,
 				885CB07B1B0A117300AD2A7B /* GolfrzErrorResponse.m in Sources */,
 				885CB0471B09BA9D00AD2A7B /* XHTwitterPaggingViewer.m in Sources */,
 				885CB04C1B09BA9D00AD2A7B /* NetworkManager.m in Sources */,
 				3D1963D61B0DEBA100766CFC /* CalendarUtilities.m in Sources */,
+				3D1963F81B0E1F0500766CFC /* WeatherViewCell.m in Sources */,
 				3D1963EA1B0E1B5200766CFC /* ClubHouseContainerVC.m in Sources */,
 				889E1E5F1B0C7CC300F55B40 /* TPKeyboardAvoidingTableView.m in Sources */,
 				885CB0461B09BA9D00AD2A7B /* XHPaggingNavbar.m in Sources */,
-				3D1963EC1B0E1B5200766CFC /* CloubHouseViewController.m in Sources */,
+				3D1963EC1B0E1B5200766CFC /* ClubHouseViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

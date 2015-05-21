@@ -39,8 +39,7 @@
 
     return @{
              kSignInURL : [User class],
-             kCourseInfo : [Course class],
-             kSignInURL : [User class]
+             kCourseInfo : [Course class]
              };
 }
 

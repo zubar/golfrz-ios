@@ -10,7 +10,7 @@
 #import "XHPaggingNavbar.h"
 #import "XHTwitterPaggingViewer.h"
 #import "AppDelegate.h"
-#import "CloubHouseViewController.h"
+#import "ClubHouseViewController.h"
 #import "PlayerProfileViewController.h"
 
 

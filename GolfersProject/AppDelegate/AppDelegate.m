@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "MainViewController.h"
 #import "RewardViewController.h"
-#import "CloubHouseViewController.h"
+#import "ClubHouseViewController.h"
 #import "PlayerProfileViewController.h"
 #define MAIN_CONTROL_IDENTIFIER @"mainPagingController"
 

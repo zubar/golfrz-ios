@@ -7,14 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CloubHouseViewController.h"
+#import "ClubHouseViewController.h"
 #import "PlayerProfileViewController.h"
 #import "RewardViewController.h"
 
 @interface ClubHouseContainerVC : UIViewController
 @property (nonatomic, strong) UIPageControl *pageControl;
 
-@property (nonatomic, retain) CloubHouseViewController *  clubHouseViewController;
+@property (nonatomic, retain) ClubHouseViewController *  clubHouseViewController;
 @property (nonatomic, retain) PlayerProfileViewController *  playerProfileViewController;
 @property (nonatomic, retain) RewardViewController * rewardViewController;
 @end

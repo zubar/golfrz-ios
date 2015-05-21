@@ -8,7 +8,7 @@
 
 #import "ClubHouseContainerVC.h"
 #import "MainViewController.h"
-#import "CloubHouseViewController.h"
+#import "ClubHouseViewController.h"
 #import "PlayerProfileViewController.h"
 #import "RewardViewController.h"
 
@@ -25,10 +25,9 @@
     [super viewDidLoad];
     
     UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-     self.clubHouseViewController = (CloubHouseViewController *)[mainStoryBoard instantiateViewControllerWithIdentifier:@"GreenViewController"];
-    self.playerProfileViewController = (PlayerProfileViewController *)[mainStoryBoard instantiateViewControllerWithIdentifier:@"BlueViewController"];
-    self.rewardViewController = (RewardViewController *)[mainStoryBoard instantiateViewControllerWithIdentifier:@"GrayViewController"];
-    
+     self.clubHouseViewController = (ClubHouseViewController *)[mainStoryBoard instantiateViewControllerWithIdentifier:@"ClubHouseViewController"];
+    self.playerProfileViewController = (PlayerProfileViewController *)[mainStoryBoard instantiateViewControllerWithIdentifier:@"PlayerProfileViewController"];
+    self.rewardViewController = (RewardViewController *)[mainStoryBoard instantiateViewControllerWithIdentifier:@"RewardViewController"];
     
     NSMutableArray *controllersArray = [NSMutableArray array];
     [controllersArray addObject:self.clubHouseViewController];
@@ -36,23 +35,20 @@
     //[controllersArray addObject:self.rewardViewController];
     
     
-    self.navController = [[UINavigationController alloc]init];//[[UINavigationController alloc]initWithRootViewController:self.blueViewController];
+    self.navController = [[UINavigationController alloc]init];
     [self.navController setViewControllers:controllersArray];
     
-    self.navController.delegate = self;
-    
-    self.navController.navigationBar.barTintColor = [UIColor greenColor];
     
     CGSize navBarSize = self.navController.navigationBar.bounds.size;
+    self.navController.navigationBar.barTintColor = [UIColor redColor];
+
     CGPoint origin = CGPointMake( navBarSize.width/2, navBarSize.height/2 );
-    
     self.pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(origin.x, origin.y,
                                                                        0, 0)];
     
     //Or whatever number of viewcontrollers you have
     [self.pageControl setNumberOfPages:3];
     [self.navController setNavigationBarHidden:NO];
-    
     [self.navController.navigationBar addSubview:self.pageControl];
     
     self.navController.delegate = self;

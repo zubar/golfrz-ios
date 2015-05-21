@@ -7,8 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MainViewController.h"
+
 
 @interface SignInViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UILabel *lblForgotPassword;
+
+- (IBAction)btnSignInTapped:(id)sender;
 
 @end

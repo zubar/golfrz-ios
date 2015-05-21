@@ -6,14 +6,15 @@
 //  Copyright (c) 2015 Abdullah Saeed. All rights reserved.
 //
 
-#import "CloubHouseViewController.h"
+#import "ClubHouseViewController.h"
 #import "ClubHouseContainerVC.h"
+#import "WeatherViewCell.h"
 
-@interface CloubHouseViewController ()
+@interface ClubHouseViewController ()
 
 @end
 
-@implementation CloubHouseViewController
+@implementation ClubHouseViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -31,6 +32,20 @@
 }
 
 
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    return 1;
+}
+
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"WeatherCell" forIndexPath:indexPath];
+    if (cell == nil) {
+        cell = [[UICollectionViewCell alloc] init];
+    }
+    WeatherViewCell *customCell = (WeatherViewCell *)cell;
+    
+    return customCell;
+}
 
 
 -(void)btnTapped{

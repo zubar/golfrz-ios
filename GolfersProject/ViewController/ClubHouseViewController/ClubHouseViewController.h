@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "ClubHouseSubController.h"
 
-@interface CloubHouseViewController : ClubHouseSubController
+@interface ClubHouseViewController : ClubHouseSubController<UICollectionViewDelegate, UICollectionViewDataSource>
 
 @end
