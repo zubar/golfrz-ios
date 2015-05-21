@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		32B56928BD94CBDCCDA0C43B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A26DAF5CF62E34098597EA3 /* libPods.a */; };
+		3D1963BC1B0CE05700766CFC /* CourseServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1963B81B0CE05700766CFC /* CourseServices.m */; };
+		3D1963BD1B0CE05700766CFC /* UserServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1963BB1B0CE05700766CFC /* UserServices.m */; };
+		3D1963C01B0CE08900766CFC /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1963BF1B0CE08900766CFC /* Course.m */; };
+		3D1963C41B0DAECD00766CFC /* WeatherServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1963C31B0DAECD00766CFC /* WeatherServices.m */; };
+		3D1963CB1B0DBC2600766CFC /* WeatherData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1963CA1B0DBC2600766CFC /* WeatherData.m */; };
+		3D1963CE1B0DBC8300766CFC /* Condition.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1963CD1B0DBC8300766CFC /* Condition.m */; };
 		88024F631AD29134004AC260 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 88024F621AD29134004AC260 /* main.m */; };
 		88024F6C1AD29134004AC260 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88024F6A1AD29134004AC260 /* Main.storyboard */; };
 		88024F6E1AD29134004AC260 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88024F6D1AD29134004AC260 /* Images.xcassets */; };
@@ -49,6 +55,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3D1963B71B0CE05700766CFC /* CourseServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseServices.h; sourceTree = "<group>"; };
+		3D1963B81B0CE05700766CFC /* CourseServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseServices.m; sourceTree = "<group>"; };
+		3D1963BA1B0CE05700766CFC /* UserServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserServices.h; sourceTree = "<group>"; };
+		3D1963BB1B0CE05700766CFC /* UserServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserServices.m; sourceTree = "<group>"; };
+		3D1963BE1B0CE08900766CFC /* Course.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Course.h; sourceTree = "<group>"; };
+		3D1963BF1B0CE08900766CFC /* Course.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Course.m; sourceTree = "<group>"; };
+		3D1963C21B0DAECD00766CFC /* WeatherServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherServices.h; sourceTree = "<group>"; };
+		3D1963C31B0DAECD00766CFC /* WeatherServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherServices.m; sourceTree = "<group>"; };
+		3D1963C91B0DBC2600766CFC /* WeatherData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherData.h; sourceTree = "<group>"; };
+		3D1963CA1B0DBC2600766CFC /* WeatherData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherData.m; sourceTree = "<group>"; };
+		3D1963CC1B0DBC8300766CFC /* Condition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Condition.h; sourceTree = "<group>"; };
+		3D1963CD1B0DBC8300766CFC /* Condition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Condition.m; sourceTree = "<group>"; };
 		5A26DAF5CF62E34098597EA3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		88024F5D1AD29134004AC260 /* GolfersProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GolfersProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88024F611AD29134004AC260 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -128,6 +146,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D1963B61B0CE05700766CFC /* CourseServices */ = {
+			isa = PBXGroup;
+			children = (
+				3D1963B71B0CE05700766CFC /* CourseServices.h */,
+				3D1963B81B0CE05700766CFC /* CourseServices.m */,
+			);
+			path = CourseServices;
+			sourceTree = "<group>";
+		};
+		3D1963B91B0CE05700766CFC /* UserServices */ = {
+			isa = PBXGroup;
+			children = (
+				3D1963BA1B0CE05700766CFC /* UserServices.h */,
+				3D1963BB1B0CE05700766CFC /* UserServices.m */,
+			);
+			path = UserServices;
+			sourceTree = "<group>";
+		};
+		3D1963C11B0DAEB200766CFC /* WeatherServices */ = {
+			isa = PBXGroup;
+			children = (
+				3D1963C21B0DAECD00766CFC /* WeatherServices.h */,
+				3D1963C31B0DAECD00766CFC /* WeatherServices.m */,
+			);
+			path = WeatherServices;
+			sourceTree = "<group>";
+		};
+		3D1963C81B0DBC2600766CFC /* WeatherModel */ = {
+			isa = PBXGroup;
+			children = (
+				3D1963C91B0DBC2600766CFC /* WeatherData.h */,
+				3D1963CA1B0DBC2600766CFC /* WeatherData.m */,
+				3D1963CC1B0DBC8300766CFC /* Condition.h */,
+				3D1963CD1B0DBC8300766CFC /* Condition.m */,
+			);
+			path = WeatherModel;
+			sourceTree = "<group>";
+		};
 		66D43E9E53452F667DDF180D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -331,6 +387,9 @@
 		885CB06F1B09F91700AD2A7B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3D1963C81B0DBC2600766CFC /* WeatherModel */,
+				3D1963BE1B0CE08900766CFC /* Course.h */,
+				3D1963BF1B0CE08900766CFC /* Course.m */,
 				885CB0761B0A117300AD2A7B /* GolfrzError.h */,
 				885CB0771B0A117300AD2A7B /* GolfrzError.m */,
 				885CB0781B0A117300AD2A7B /* GolfrzErrorResponse.h */,
@@ -344,6 +403,9 @@
 		885CB07C1B0A121300AD2A7B /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				3D1963C11B0DAEB200766CFC /* WeatherServices */,
+				3D1963B61B0CE05700766CFC /* CourseServices */,
+				3D1963B91B0CE05700766CFC /* UserServices */,
 				885CB07D1B0A121300AD2A7B /* AuthenticationServices */,
 			);
 			path = Services;
@@ -513,14 +575,20 @@
 			files = (
 				889E1E5E1B0C7CC300F55B40 /* TPKeyboardAvoidingScrollView.m in Sources */,
 				885CB0681B09BADE00AD2A7B /* InitialViewController.m in Sources */,
+				3D1963BC1B0CE05700766CFC /* CourseServices.m in Sources */,
 				885CB0671B09BADE00AD2A7B /* GreenViewController.m in Sources */,
 				885CB06B1B09BADE00AD2A7B /* SignUpViewController.m in Sources */,
 				885CB0441B09BA9D00AD2A7B /* AppDelegate.m in Sources */,
+				3D1963CE1B0DBC8300766CFC /* Condition.m in Sources */,
 				885CB06D1B09BDCD00AD2A7B /* README.md in Sources */,
 				889E1E601B0C7CC300F55B40 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				885CB0691B09BADE00AD2A7B /* MainViewController.m in Sources */,
+				3D1963CB1B0DBC2600766CFC /* WeatherData.m in Sources */,
+				3D1963C01B0CE08900766CFC /* Course.m in Sources */,
 				88709E9E1B0DB600005DA345 /* ForgotPasswordSViewController.m in Sources */,
+				3D1963C41B0DAECD00766CFC /* WeatherServices.m in Sources */,
 				885CB07A1B0A117300AD2A7B /* GolfrzError.m in Sources */,
+				3D1963BD1B0CE05700766CFC /* UserServices.m in Sources */,
 				885CB0801B0A128100AD2A7B /* AuthenticationService.m in Sources */,
 				886B9ED41B0B95900078B09D /* ForgotPasswordViewController.m in Sources */,
 				885CB06A1B09BADE00AD2A7B /* SignInViewController.m in Sources */,

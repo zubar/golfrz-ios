@@ -11,5 +11,4 @@
 @interface ForgotPasswordViewController : UIViewController
 - (IBAction)btnResetPasswordTapped:(UIButton *)sender;
 
-
 @end

@@ -12,6 +12,7 @@
 #import <Overcoat/OVCResponse.h>
 
 #import "User.h"
+#import "UserServices.h"
 
 
 
@@ -28,6 +29,8 @@ APIClient *apiClient = [APIClient sharedAPICLient];
         OVCResponse * resp = response;
         if (!error) {
             User * mUser =[resp result];
+            //Setting current user
+            [UserServices setCurrentUser:mUser];
             success(mUser);
         }
     }];
@@ -52,7 +55,7 @@ APIClient *apiClient = [APIClient sharedAPICLient];
     }];
 }
 
-+(void)signOutUser:(void (^)(bool))successfullyPosted{
++(void)signOutUser:(void (^)(bool status))successfullyPosted{
   
     APIClient *apiClient = [APIClient sharedAPICLient];
     
@@ -101,9 +104,10 @@ APIClient *apiClient = [APIClient sharedAPICLient];
 
 +(NSDictionary *)paramsForSignOut{
     
+    
     return   @{
                @"user_login":@{
-                       @"auth_token" : @"" //TODO: get authentication token from persistence object.
+                       @"auth_token" : [[UserServices currentUser] authToken]
                        }
                };
 }

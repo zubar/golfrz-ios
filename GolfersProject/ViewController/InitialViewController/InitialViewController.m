@@ -10,9 +10,11 @@
 #import <QuartzCore/QuartzCore.h>
 #import "SignInViewController.h"
 
-#import "AuthenticationService.h"
 #import "User.h"
-
+#import "AuthenticationService.h"
+#import "UserServices.h"
+#import "CourseServices.h"
+#import "WeatherServices.h"
 
 @interface InitialViewController ()
 
@@ -25,16 +27,30 @@
     // Do any additional setup after loading the view.
     [self.navigationController setNavigationBarHidden:YES animated:YES];
     [super viewWillAppear:YES];
-    
+
     //[self setImageCourseLogoRounded];
     [self addGestureToSignIn];
    
     
-//    
-//    [AuthenticationService loginWithUserName:@"admin@golfrz.com" password:@"password" success:^(User * muser){
-//        [[[UIAlertView alloc]initWithTitle:@"Authenticated" message:muser.authToken delegate:nil cancelButtonTitle:@"Oky" otherButtonTitles:nil, nil] show];
-//    }];
+    [AuthenticationService loginWithUserName:@"admin@golfrz.com" password:@"password" success:^(User * muser){
+        
+        NSLog(@"%@",[UserServices currentUser]);
+        [[[UIAlertView alloc]initWithTitle:@"Authenticated" message:muser.authToken delegate:nil cancelButtonTitle:@"Oky" otherButtonTitles:nil, nil] show];
+    }];
     
+    
+    [CourseServices courseInfo:^(bool status, Course *currentCourse) {
+        NSLog(@"%@", currentCourse);
+    } failure:^(bool status, NSError *error) {
+        //
+    }];
+    
+    
+    [WeatherServices weatherInfo:^(bool status, NSArray *mWeatherData) {
+        NSLog(@"weather:%@", mWeatherData);
+    } failure:^(bool status, NSError *error) {
+        NSLog(@"%@", error);
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

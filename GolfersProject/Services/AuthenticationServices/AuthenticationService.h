@@ -15,4 +15,8 @@
 
 +(void)singUpUser:(NSString * )firstName lastName:(NSString *)lastName email:(NSString *)email password:(NSString *)password  passwordConfirmation:(NSString *)passwordConfirmation memberId:(NSString *)memberID completion:(void (^)(bool status, NSError * error))block;
 
++(void)resetUserPassword:(NSString *)email completion:(void (^)(bool status))successfullyPosted;
+
++(void)signOutUser:(void (^)(bool status))successfullyPosted;
+
 @end

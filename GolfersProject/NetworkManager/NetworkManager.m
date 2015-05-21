@@ -10,7 +10,7 @@
 #import "Constants.h"
 
 @implementation NetworkManager
-
+/*
 +(NetworkManager *)sharedNetworkManager
 {
     static NetworkManager *sharedInstance = nil;
@@ -47,5 +47,5 @@
         success(NO, error,nil);
     }];
 }
-
+*/
 @end

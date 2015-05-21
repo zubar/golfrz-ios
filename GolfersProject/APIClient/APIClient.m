@@ -10,6 +10,7 @@
 #import "User.h"
 #import "GolfrzErrorResponse.h"
 #import "Constants.h"
+#import "Course.h"
 
 
 @implementation APIClient
@@ -37,6 +38,8 @@
 +(NSDictionary *)modelClassesByResourcePath{
 
     return @{
+             kSignInURL : [User class],
+             kCourseInfo : [Course class],
              kSignInURL : [User class]
              };
 }
