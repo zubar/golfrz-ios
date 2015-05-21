@@ -16,7 +16,7 @@
     Condition * conditionObject = [[Condition alloc]init];
     conditionObject.main = dataDict[@"main"];
     conditionObject.breif = dataDict[@"description"];
-    conditionObject.icon = [NSString stringWithFormat:@"http://openweathermap.org/img/w/%@",dataDict[@"icon"]];
+    conditionObject.icon = [NSString stringWithFormat:@"http://openweathermap.org/img/w/%@.png",dataDict[@"icon"]];
 
     return conditionObject;
 }

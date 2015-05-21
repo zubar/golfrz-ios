@@ -10,5 +10,6 @@
 #import "ClubHouseSubController.h"
 
 @interface ClubHouseViewController : ClubHouseSubController<UICollectionViewDelegate, UICollectionViewDataSource>
+@property (strong, nonatomic) IBOutlet UICollectionView *weatherCollectionView;
 
 @end

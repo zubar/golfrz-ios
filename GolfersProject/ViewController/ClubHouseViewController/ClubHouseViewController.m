@@ -9,9 +9,13 @@
 #import "ClubHouseViewController.h"
 #import "ClubHouseContainerVC.h"
 #import "WeatherViewCell.h"
+#import "WeatherServices.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+
+
 
 @interface ClubHouseViewController ()
-
+@property (nonatomic, retain) NSArray * weatherList;
 @end
 
 @implementation ClubHouseViewController
@@ -19,6 +23,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [WeatherServices weatherInfo:^(bool status, NSArray *mWeatherData) {
+        if (status) {
+            self.weatherList = mWeatherData;
+            [self.weatherCollectionView reloadData];
+        }
+    } failure:^(bool status, NSError *error) {
+        if (error) {
+            [[[UIAlertView alloc]initWithTitle:@"Try Again" message:@"Failed to get weather" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil] show];
+        }
+    }];
 }
 
 - (void)pushNextController{
@@ -33,7 +48,7 @@
 
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 1;
+    return [self.weatherList count];
 }
 
 
@@ -42,9 +57,34 @@
     if (cell == nil) {
         cell = [[UICollectionViewCell alloc] init];
     }
+    
+    WeatherData * tempWeather = [self.weatherList objectAtIndex:indexPath.row];
+    
+    NSLog(@"%@", tempWeather.condition.icon);
+    
     WeatherViewCell *customCell = (WeatherViewCell *)cell;
+    [customCell.lblTime setText:[self hoursFromDate:tempWeather.timeStamp]];
+    [customCell.lblTemperature setText:[NSString stringWithFormat:@"%@", tempWeather.temperature]];
+    
+    [customCell.imgWeatherIcon sd_setImageWithURL:[NSURL URLWithString:tempWeather.condition.icon] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+      //  <#code#>
+        [customCell.imgWeatherIcon setImage:image];
+    } ];
+    
     
     return customCell;
+}
+
+-(NSString *)hoursFromDate:(NSDate *)date{
+
+//    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+//    [dateFormatter setDateFormat:@"<your date format goes here"];
+//    NSDate *date = date;
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *components = [calendar components:(NSCalendarUnitHour | NSCalendarUnitMinute) fromDate:date];
+    NSInteger hour = [components hour];
+    NSInteger minute = [components minute];
+    return [NSString stringWithFormat:@"%ld", (long)hour];
 }
 
 
