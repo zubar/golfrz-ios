@@ -6,19 +6,25 @@
 //  Copyright (c) 2015 Abdullah Saeed. All rights reserved.
 //
 
-#import "GreenViewController.h"
+#import "CloubHouseViewController.h"
+#import "ClubHouseContainerVC.h"
 
-@interface GreenViewController ()
+@interface CloubHouseViewController ()
 
 @end
 
-@implementation GreenViewController
+@implementation CloubHouseViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-   
 }
+
+- (void)pushNextController{
+    [self.navigationController pushViewController:self.containerVC.playerProfileViewController animated:YES];
+}
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -33,17 +39,6 @@
 }
 
 #pragma mark - NavBarButtonsDelegate
-
--(NSDictionary *)updateNavBarRightButtons{
-    
-    UIButton * barBtn = [[UIButton alloc]initWithFrame:CGRectMake(10, 0, 30, 30)];
-    [barBtn setTitle:@"Flip" forState:UIControlStateNormal];
-    [barBtn addTarget:self action:@selector(btnTapped) forControlEvents:UIControlEventTouchUpInside];
-    
-    
-    NSDictionary * dict=[[NSDictionary alloc]initWithObjectsAndKeys:barBtn, @"left_btn",nil];
-    return dict;
-}
 
 
 /*

@@ -1,5 +1,5 @@
 //
-//  GrayViewController.h
+//  GreenViewController.h
 //  GolfersProject
 //
 //  Created by Abdullah Saeed on 4/7/15.
@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ClubHouseSubController.h"
 
-@interface GrayViewController : UIViewController
+@interface CloubHouseViewController : ClubHouseSubController
 
 @end

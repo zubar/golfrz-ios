@@ -10,7 +10,7 @@
 #import "WeatherData.h"
 #import "Condition.h"
 #import "APIClient.h"
-
+#import "NSDate+Helper.h"
 
 @implementation WeatherServices
 
@@ -31,6 +31,9 @@
         
         for (NSDictionary * weather in tempObjects) {
             WeatherData * temp = [WeatherData initWithDictionary:weather[@"main"]];
+            temp.stringDate = weather[@"dt_txt"];
+            temp.timeStamp = [NSDate dateFromString:temp.stringDate];
+
             Condition * tempCondition = [Condition initWithDictionary:weather[@"weather"][0]];
             [temp setCondition:tempCondition];
             

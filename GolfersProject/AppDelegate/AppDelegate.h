@@ -8,18 +8,18 @@
 
 #import <UIKit/UIKit.h>
 #import "MainViewController.h"
-#import "BlueViewController.h"
-#import "GreenViewController.h"
-#import "GrayViewController.h"
+#import "PlayerProfileViewController.h"
+#import "CloubHouseViewController.h"
+#import "RewardViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
 @property (strong, nonatomic) MainViewController *mainController;
-@property (strong, nonatomic) GreenViewController *greenViewController;
-@property (strong, nonatomic) BlueViewController *blueViewController;
-@property (strong, nonatomic) GrayViewController *grayViewController;
+@property (strong, nonatomic) CloubHouseViewController *greenViewController;
+@property (strong, nonatomic) PlayerProfileViewController *blueViewController;
+@property (strong, nonatomic) RewardViewController *grayViewController;
 
 @end
 

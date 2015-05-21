@@ -7,6 +7,7 @@
 //
 
 #import "WeatherData.h"
+#import "NSDate+Helper.h"
 
 @implementation WeatherData
 
@@ -20,7 +21,8 @@
     weatherObject.humidity = weatherData[@"humidity"];
     weatherObject.atmosphericPressure = weatherData[@"pressure"];
     weatherObject.temp_kf = weatherData[@"temp_kf"];
-    weatherObject.stringDate = weatherData[@"dt_txt"];
+   // weatherObject.stringDate = weatherData[@"dt_txt"];
+   // weatherObject.timeStamp = [NSDate dateFromString:weatherObject.stringDate];
     
     return weatherObject;
 }

@@ -10,8 +10,8 @@
 #import "XHPaggingNavbar.h"
 #import "XHTwitterPaggingViewer.h"
 #import "AppDelegate.h"
-#import "GreenViewController.h"
-#import "BlueViewController.h"
+#import "CloubHouseViewController.h"
+#import "PlayerProfileViewController.h"
 
 
 @interface MainViewController ()

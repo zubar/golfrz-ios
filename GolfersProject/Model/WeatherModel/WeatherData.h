@@ -23,6 +23,8 @@
 @property (retain, nonatomic ) NSNumber * temp_kf;
 @property (retain, nonatomic ) NSString * stringDate;
 
+@property (retain, nonatomic )NSDate * timeStamp;
+
 @property (retain, nonatomic) Condition * condition;
 
 +(WeatherData *)initWithDictionary:(NSDictionary *)weatherData;

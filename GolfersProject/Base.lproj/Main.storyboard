@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="1gL-qd-nhi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="5Ue-MS-T7Q">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
     </dependencies>
@@ -800,10 +800,10 @@
             </objects>
             <point key="canvasLocation" x="-638" y="1173"/>
         </scene>
-        <!--Green View Controller-->
+        <!--Cloub House View Controller-->
         <scene sceneID="KQ3-eT-fzn">
             <objects>
-                <viewController storyboardIdentifier="GreenViewController" id="TbR-hG-38y" customClass="GreenViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GreenViewController" id="TbR-hG-38y" customClass="CloubHouseViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="n2d-ag-QI8"/>
                         <viewControllerLayoutGuide type="bottom" id="FcT-hL-hsY"/>
@@ -818,10 +818,10 @@
             </objects>
             <point key="canvasLocation" x="329.06666666666666" y="159.03999999999999"/>
         </scene>
-        <!--Gray View Controller-->
+        <!--Reward View Controller-->
         <scene sceneID="hTy-NE-a2Y">
             <objects>
-                <viewController storyboardIdentifier="GrayViewController" id="EEP-B9-hvC" customClass="GrayViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GrayViewController" id="EEP-B9-hvC" customClass="RewardViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dQH-S9-QxU"/>
                         <viewControllerLayoutGuide type="bottom" id="1iz-cA-Zbd"/>
@@ -836,10 +836,10 @@
             </objects>
             <point key="canvasLocation" x="807.4666666666667" y="195.01333333333332"/>
         </scene>
-        <!--Blue View Controller-->
+        <!--Player Profile View Controller-->
         <scene sceneID="Vdg-uO-h4v">
             <objects>
-                <viewController storyboardIdentifier="BlueViewController" id="kg1-ve-gMi" customClass="BlueViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BlueViewController" id="kg1-ve-gMi" customClass="PlayerProfileViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kR8-H5-ilp"/>
                         <viewControllerLayoutGuide type="bottom" id="q7V-l9-iP1"/>
@@ -853,6 +853,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gDP-Q2-ONo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="546.66666666666663" y="1059.3199999999999"/>
+        </scene>
+        <!--Club House ContainerVC-->
+        <scene sceneID="E2E-9O-bK5">
+            <objects>
+                <viewController id="5Ue-MS-T7Q" customClass="ClubHouseContainerVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="HNY-b2-47K"/>
+                        <viewControllerLayoutGuide type="bottom" id="NEJ-Zn-1KK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mAM-HH-Ctp">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DGJ-xR-0ta" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1144" y="1518"/>
         </scene>
     </scenes>
     <resources>

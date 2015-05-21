@@ -14,6 +14,14 @@
 		3D1963C41B0DAECD00766CFC /* WeatherServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1963C31B0DAECD00766CFC /* WeatherServices.m */; };
 		3D1963CB1B0DBC2600766CFC /* WeatherData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1963CA1B0DBC2600766CFC /* WeatherData.m */; };
 		3D1963CE1B0DBC8300766CFC /* Condition.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1963CD1B0DBC8300766CFC /* Condition.m */; };
+		3D1963D61B0DEBA100766CFC /* CalendarUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1963D11B0DEBA100766CFC /* CalendarUtilities.m */; };
+		3D1963D71B0DEBA200766CFC /* NSDate+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1963D31B0DEBA100766CFC /* NSDate+Helper.m */; };
+		3D1963D81B0DEBA200766CFC /* THCalendarInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1963D51B0DEBA100766CFC /* THCalendarInfo.m */; };
+		3D1963EA1B0E1B5200766CFC /* ClubHouseContainerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1963E41B0E1B5200766CFC /* ClubHouseContainerVC.m */; };
+		3D1963EB1B0E1B5200766CFC /* ClubHouseSubController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1963E61B0E1B5200766CFC /* ClubHouseSubController.m */; };
+		3D1963EC1B0E1B5200766CFC /* CloubHouseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1963E91B0E1B5200766CFC /* CloubHouseViewController.m */; };
+		3D1963F31B0E1B6900766CFC /* PlayerProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1963EF1B0E1B6900766CFC /* PlayerProfileViewController.m */; };
+		3D1963F41B0E1B6900766CFC /* RewardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1963F21B0E1B6900766CFC /* RewardViewController.m */; };
 		88024F631AD29134004AC260 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 88024F621AD29134004AC260 /* main.m */; };
 		88024F6C1AD29134004AC260 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88024F6A1AD29134004AC260 /* Main.storyboard */; };
 		88024F6E1AD29134004AC260 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88024F6D1AD29134004AC260 /* Images.xcassets */; };
@@ -23,9 +31,6 @@
 		885CB0461B09BA9D00AD2A7B /* XHPaggingNavbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 885CB02C1B09BA9D00AD2A7B /* XHPaggingNavbar.m */; };
 		885CB0471B09BA9D00AD2A7B /* XHTwitterPaggingViewer.m in Sources */ = {isa = PBXBuildFile; fileRef = 885CB02E1B09BA9D00AD2A7B /* XHTwitterPaggingViewer.m */; };
 		885CB04C1B09BA9D00AD2A7B /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 885CB03D1B09BA9D00AD2A7B /* NetworkManager.m */; };
-		885CB0651B09BADE00AD2A7B /* BlueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 885CB0521B09BADE00AD2A7B /* BlueViewController.m */; };
-		885CB0661B09BADE00AD2A7B /* GrayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 885CB0551B09BADE00AD2A7B /* GrayViewController.m */; };
-		885CB0671B09BADE00AD2A7B /* GreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 885CB0581B09BADE00AD2A7B /* GreenViewController.m */; };
 		885CB0681B09BADE00AD2A7B /* InitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 885CB05B1B09BADE00AD2A7B /* InitialViewController.m */; };
 		885CB0691B09BADE00AD2A7B /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 885CB05E1B09BADE00AD2A7B /* MainViewController.m */; };
 		885CB06A1B09BADE00AD2A7B /* SignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 885CB0611B09BADE00AD2A7B /* SignInViewController.m */; };
@@ -67,6 +72,22 @@
 		3D1963CA1B0DBC2600766CFC /* WeatherData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherData.m; sourceTree = "<group>"; };
 		3D1963CC1B0DBC8300766CFC /* Condition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Condition.h; sourceTree = "<group>"; };
 		3D1963CD1B0DBC8300766CFC /* Condition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Condition.m; sourceTree = "<group>"; };
+		3D1963D01B0DEBA100766CFC /* CalendarUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarUtilities.h; sourceTree = "<group>"; };
+		3D1963D11B0DEBA100766CFC /* CalendarUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarUtilities.m; sourceTree = "<group>"; };
+		3D1963D21B0DEBA100766CFC /* NSDate+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Helper.h"; sourceTree = "<group>"; };
+		3D1963D31B0DEBA100766CFC /* NSDate+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Helper.m"; sourceTree = "<group>"; };
+		3D1963D41B0DEBA100766CFC /* THCalendarInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THCalendarInfo.h; sourceTree = "<group>"; };
+		3D1963D51B0DEBA100766CFC /* THCalendarInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THCalendarInfo.m; sourceTree = "<group>"; };
+		3D1963E31B0E1B5200766CFC /* ClubHouseContainerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClubHouseContainerVC.h; sourceTree = "<group>"; };
+		3D1963E41B0E1B5200766CFC /* ClubHouseContainerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClubHouseContainerVC.m; sourceTree = "<group>"; };
+		3D1963E51B0E1B5200766CFC /* ClubHouseSubController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClubHouseSubController.h; sourceTree = "<group>"; };
+		3D1963E61B0E1B5200766CFC /* ClubHouseSubController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClubHouseSubController.m; sourceTree = "<group>"; };
+		3D1963E81B0E1B5200766CFC /* CloubHouseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CloubHouseViewController.h; sourceTree = "<group>"; };
+		3D1963E91B0E1B5200766CFC /* CloubHouseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloubHouseViewController.m; sourceTree = "<group>"; };
+		3D1963EE1B0E1B6900766CFC /* PlayerProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerProfileViewController.h; sourceTree = "<group>"; };
+		3D1963EF1B0E1B6900766CFC /* PlayerProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerProfileViewController.m; sourceTree = "<group>"; };
+		3D1963F11B0E1B6900766CFC /* RewardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RewardViewController.h; sourceTree = "<group>"; };
+		3D1963F21B0E1B6900766CFC /* RewardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RewardViewController.m; sourceTree = "<group>"; };
 		5A26DAF5CF62E34098597EA3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		88024F5D1AD29134004AC260 /* GolfersProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GolfersProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88024F611AD29134004AC260 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -85,12 +106,6 @@
 		885CB02E1B09BA9D00AD2A7B /* XHTwitterPaggingViewer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHTwitterPaggingViewer.m; sourceTree = "<group>"; };
 		885CB03C1B09BA9D00AD2A7B /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
 		885CB03D1B09BA9D00AD2A7B /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
-		885CB0511B09BADE00AD2A7B /* BlueViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueViewController.h; sourceTree = "<group>"; };
-		885CB0521B09BADE00AD2A7B /* BlueViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlueViewController.m; sourceTree = "<group>"; };
-		885CB0541B09BADE00AD2A7B /* GrayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrayViewController.h; sourceTree = "<group>"; };
-		885CB0551B09BADE00AD2A7B /* GrayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrayViewController.m; sourceTree = "<group>"; };
-		885CB0571B09BADE00AD2A7B /* GreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GreenViewController.h; sourceTree = "<group>"; };
-		885CB0581B09BADE00AD2A7B /* GreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GreenViewController.m; sourceTree = "<group>"; };
 		885CB05A1B09BADE00AD2A7B /* InitialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitialViewController.h; sourceTree = "<group>"; };
 		885CB05B1B09BADE00AD2A7B /* InitialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitialViewController.m; sourceTree = "<group>"; };
 		885CB05D1B09BADE00AD2A7B /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
@@ -184,6 +199,57 @@
 			path = WeatherModel;
 			sourceTree = "<group>";
 		};
+		3D1963CF1B0DEBA100766CFC /* Calender */ = {
+			isa = PBXGroup;
+			children = (
+				3D1963D01B0DEBA100766CFC /* CalendarUtilities.h */,
+				3D1963D11B0DEBA100766CFC /* CalendarUtilities.m */,
+				3D1963D21B0DEBA100766CFC /* NSDate+Helper.h */,
+				3D1963D31B0DEBA100766CFC /* NSDate+Helper.m */,
+				3D1963D41B0DEBA100766CFC /* THCalendarInfo.h */,
+				3D1963D51B0DEBA100766CFC /* THCalendarInfo.m */,
+			);
+			path = Calender;
+			sourceTree = "<group>";
+		};
+		3D1963E21B0E1B5200766CFC /* ClubHouseContainerVC */ = {
+			isa = PBXGroup;
+			children = (
+				3D1963E31B0E1B5200766CFC /* ClubHouseContainerVC.h */,
+				3D1963E41B0E1B5200766CFC /* ClubHouseContainerVC.m */,
+				3D1963E51B0E1B5200766CFC /* ClubHouseSubController.h */,
+				3D1963E61B0E1B5200766CFC /* ClubHouseSubController.m */,
+			);
+			path = ClubHouseContainerVC;
+			sourceTree = "<group>";
+		};
+		3D1963E71B0E1B5200766CFC /* ClubHouseViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3D1963E81B0E1B5200766CFC /* CloubHouseViewController.h */,
+				3D1963E91B0E1B5200766CFC /* CloubHouseViewController.m */,
+			);
+			path = ClubHouseViewController;
+			sourceTree = "<group>";
+		};
+		3D1963ED1B0E1B6900766CFC /* PlayerProfileViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3D1963EE1B0E1B6900766CFC /* PlayerProfileViewController.h */,
+				3D1963EF1B0E1B6900766CFC /* PlayerProfileViewController.m */,
+			);
+			path = PlayerProfileViewController;
+			sourceTree = "<group>";
+		};
+		3D1963F01B0E1B6900766CFC /* RewardViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3D1963F11B0E1B6900766CFC /* RewardViewController.h */,
+				3D1963F21B0E1B6900766CFC /* RewardViewController.m */,
+			);
+			path = RewardViewController;
+			sourceTree = "<group>";
+		};
 		66D43E9E53452F667DDF180D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -271,6 +337,7 @@
 		885CB0291B09BA9D00AD2A7B /* External-Libs */ = {
 			isa = PBXGroup;
 			children = (
+				3D1963CF1B0DEBA100766CFC /* Calender */,
 				889E1E541B0C7CC300F55B40 /* TPKeyboardAvoiding */,
 				885CB02A1B09BA9D00AD2A7B /* XHTwitterPaggingViewer */,
 			);
@@ -300,43 +367,17 @@
 		885CB04F1B09BADE00AD2A7B /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				3D1963ED1B0E1B6900766CFC /* PlayerProfileViewController */,
+				3D1963F01B0E1B6900766CFC /* RewardViewController */,
+				3D1963E21B0E1B5200766CFC /* ClubHouseContainerVC */,
+				3D1963E71B0E1B5200766CFC /* ClubHouseViewController */,
 				886B9ED11B0B95900078B09D /* ForgotPasswordViewController */,
-				885CB0501B09BADE00AD2A7B /* BlueViewController */,
-				885CB0531B09BADE00AD2A7B /* GrayViewController */,
-				885CB0561B09BADE00AD2A7B /* GreenViewController */,
 				885CB0591B09BADE00AD2A7B /* InitialViewController */,
 				885CB05C1B09BADE00AD2A7B /* MainViewController */,
 				885CB05F1B09BADE00AD2A7B /* SignInViewController */,
 				885CB0621B09BADE00AD2A7B /* SignUpViewController */,
 			);
 			path = ViewController;
-			sourceTree = "<group>";
-		};
-		885CB0501B09BADE00AD2A7B /* BlueViewController */ = {
-			isa = PBXGroup;
-			children = (
-				885CB0511B09BADE00AD2A7B /* BlueViewController.h */,
-				885CB0521B09BADE00AD2A7B /* BlueViewController.m */,
-			);
-			path = BlueViewController;
-			sourceTree = "<group>";
-		};
-		885CB0531B09BADE00AD2A7B /* GrayViewController */ = {
-			isa = PBXGroup;
-			children = (
-				885CB0541B09BADE00AD2A7B /* GrayViewController.h */,
-				885CB0551B09BADE00AD2A7B /* GrayViewController.m */,
-			);
-			path = GrayViewController;
-			sourceTree = "<group>";
-		};
-		885CB0561B09BADE00AD2A7B /* GreenViewController */ = {
-			isa = PBXGroup;
-			children = (
-				885CB0571B09BADE00AD2A7B /* GreenViewController.h */,
-				885CB0581B09BADE00AD2A7B /* GreenViewController.m */,
-			);
-			path = GreenViewController;
 			sourceTree = "<group>";
 		};
 		885CB0591B09BADE00AD2A7B /* InitialViewController */ = {
@@ -575,8 +616,8 @@
 			files = (
 				889E1E5E1B0C7CC300F55B40 /* TPKeyboardAvoidingScrollView.m in Sources */,
 				885CB0681B09BADE00AD2A7B /* InitialViewController.m in Sources */,
+				3D1963F41B0E1B6900766CFC /* RewardViewController.m in Sources */,
 				3D1963BC1B0CE05700766CFC /* CourseServices.m in Sources */,
-				885CB0671B09BADE00AD2A7B /* GreenViewController.m in Sources */,
 				885CB06B1B09BADE00AD2A7B /* SignUpViewController.m in Sources */,
 				885CB0441B09BA9D00AD2A7B /* AppDelegate.m in Sources */,
 				3D1963CE1B0DBC8300766CFC /* Condition.m in Sources */,
@@ -585,24 +626,29 @@
 				885CB0691B09BADE00AD2A7B /* MainViewController.m in Sources */,
 				3D1963CB1B0DBC2600766CFC /* WeatherData.m in Sources */,
 				3D1963C01B0CE08900766CFC /* Course.m in Sources */,
+				3D1963EB1B0E1B5200766CFC /* ClubHouseSubController.m in Sources */,
 				88709E9E1B0DB600005DA345 /* ForgotPasswordSViewController.m in Sources */,
 				3D1963C41B0DAECD00766CFC /* WeatherServices.m in Sources */,
 				885CB07A1B0A117300AD2A7B /* GolfrzError.m in Sources */,
 				3D1963BD1B0CE05700766CFC /* UserServices.m in Sources */,
 				885CB0801B0A128100AD2A7B /* AuthenticationService.m in Sources */,
+				3D1963D81B0DEBA200766CFC /* THCalendarInfo.m in Sources */,
 				886B9ED41B0B95900078B09D /* ForgotPasswordViewController.m in Sources */,
 				885CB06A1B09BADE00AD2A7B /* SignInViewController.m in Sources */,
 				889E1E5D1B0C7CC300F55B40 /* TPKeyboardAvoidingCollectionView.m in Sources */,
+				3D1963D71B0DEBA200766CFC /* NSDate+Helper.m in Sources */,
 				88024F631AD29134004AC260 /* main.m in Sources */,
 				885CB0721B09F93700AD2A7B /* User.m in Sources */,
-				885CB0651B09BADE00AD2A7B /* BlueViewController.m in Sources */,
 				885CB0751B09FB0100AD2A7B /* APIClient.m in Sources */,
+				3D1963F31B0E1B6900766CFC /* PlayerProfileViewController.m in Sources */,
 				885CB07B1B0A117300AD2A7B /* GolfrzErrorResponse.m in Sources */,
 				885CB0471B09BA9D00AD2A7B /* XHTwitterPaggingViewer.m in Sources */,
 				885CB04C1B09BA9D00AD2A7B /* NetworkManager.m in Sources */,
+				3D1963D61B0DEBA100766CFC /* CalendarUtilities.m in Sources */,
+				3D1963EA1B0E1B5200766CFC /* ClubHouseContainerVC.m in Sources */,
 				889E1E5F1B0C7CC300F55B40 /* TPKeyboardAvoidingTableView.m in Sources */,
 				885CB0461B09BA9D00AD2A7B /* XHPaggingNavbar.m in Sources */,
-				885CB0661B09BADE00AD2A7B /* GrayViewController.m in Sources */,
+				3D1963EC1B0E1B5200766CFC /* CloubHouseViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

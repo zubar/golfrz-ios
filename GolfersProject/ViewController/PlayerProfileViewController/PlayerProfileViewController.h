@@ -7,8 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MainViewController.h"
+#import "ClubHouseSubController.h"
 
-@interface BlueViewController : UIViewController<NavBarButtons>
-
+@interface PlayerProfileViewController : ClubHouseSubController
 @end
