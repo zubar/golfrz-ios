@@ -26,9 +26,6 @@ static NSString * const kForgetPasswordURL = @"users/password";
 static NSString * const kSignOutURL = @"users/sign_out";
 static NSString * const kSignUpURL = @"users";
 
-
-
-
 /*
  *  Golf Course Data Services
  *  SignIn, SignOut
@@ -38,6 +35,7 @@ static NSString * const kCourseInfo = @"course/info";
 #pragma warking - Automation issue.
 static NSString * const kAppBundleId = @"com.golfrz.sedona";
 static NSString * const kUserAgent = @"iOS";
+
 
 
 

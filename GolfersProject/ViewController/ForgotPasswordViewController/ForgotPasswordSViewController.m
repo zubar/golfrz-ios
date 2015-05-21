@@ -1,25 +1,25 @@
 //
-//  SignInViewController.m
+//  ForgotPasswordSViewController.m
 //  GolfersProject
 //
-//  Created by Abdullah Saeed on 5/15/15.
+//  Created by Abdullah Saeed on 5/21/15.
 //  Copyright (c) 2015 Abdullah Saeed. All rights reserved.
 //
 
+#import "ForgotPasswordSViewController.h"
 #import "SignInViewController.h"
-#import "ForgotPasswordViewController.h"
 
-@interface SignInViewController ()
+@interface ForgotPasswordSViewController ()
 
 @end
 
-@implementation SignInViewController
+@implementation ForgotPasswordSViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.navigationController setNavigationBarHidden:YES animated:YES];
-    //[super viewWillAppear:YES];
-    [self addGestureToForgotPassword];
+    [super viewWillAppear:YES];
+    [self addGestureToSignIn];
     // Do any additional setup after loading the view.
 }
 
@@ -28,17 +28,16 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void) addGestureToForgotPassword{
-    UITapGestureRecognizer* gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(forgotPasswordTapped)];
+-(void) addGestureToSignIn{
+    UITapGestureRecognizer* gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(backToLoginTapped)];
     // if labelView is not set userInteractionEnabled, you must do so
-    [self.lblForgotPassword setUserInteractionEnabled:YES];
-    [self.lblForgotPassword addGestureRecognizer:gesture];
+    [self.lblBackToLogin setUserInteractionEnabled:YES];
+    [self.lblBackToLogin addGestureRecognizer:gesture];
 }
 
-- (void)forgotPasswordTapped{
-    ForgotPasswordViewController *forgotPasswordViewController  = [self.storyboard instantiateViewControllerWithIdentifier:@"ForgotPasswordViewController"];
-    
-    [self.navigationController pushViewController:forgotPasswordViewController animated:YES];
+- (void)backToLoginTapped{
+    SignInViewController *signInViewController  = [self.storyboard instantiateViewControllerWithIdentifier:@"SignInViewController"];
+    [self.navigationController pushViewController:signInViewController animated:YES];
 }
 
 

@@ -26,12 +26,10 @@
     // Do any additional setup after loading the view.
     [self.navigationController setNavigationBarHidden:YES animated:YES];
     [super viewWillAppear:YES];
-    
+
     //[self setImageCourseLogoRounded];
     [self addGestureToSignIn];
    
-    
-    
     
     [AuthenticationService loginWithUserName:@"admin@golfrz.com" password:@"password" success:^(User * muser){
         

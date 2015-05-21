@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface ForgotPasswordViewController : UIViewController
+- (IBAction)btnResetPasswordTapped:(UIButton *)sender;
 
 @end

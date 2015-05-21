@@ -12,6 +12,7 @@
 #import "Constants.h"
 #import "Course.h"
 
+
 @implementation APIClient
 
 +(APIClient *)sharedAPICLient{
@@ -38,7 +39,8 @@
 
     return @{
              kSignInURL : [User class],
-             kCourseInfo : [Course class]
+             kCourseInfo : [Course class],
+             kSignInURL : [User class]
              };
 }
 

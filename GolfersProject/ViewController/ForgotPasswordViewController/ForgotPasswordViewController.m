@@ -7,6 +7,7 @@
 //
 
 #import "ForgotPasswordViewController.h"
+#import "ForgotPasswordSViewController.h"
 
 @interface ForgotPasswordViewController ()
 
@@ -23,7 +24,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 /*
 #pragma mark - Navigation
 
@@ -34,4 +34,8 @@
 }
 */
 
+- (IBAction)btnResetPasswordTapped:(UIButton *)sender {
+    ForgotPasswordSViewController *forgotPasswordSViewController  = [self.storyboard instantiateViewControllerWithIdentifier:@"ForgotPasswordSViewController"];
+    [self.navigationController pushViewController:forgotPasswordSViewController animated:YES];
+}
 @end
