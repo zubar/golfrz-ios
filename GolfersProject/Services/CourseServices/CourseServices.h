@@ -14,4 +14,7 @@
 +(void)courseInfo:(void (^)(bool status, Course * currentCourse))successBlock failure:(void (^)(bool status, NSError * error))failureBlock;
 
 
++(void)setCurrentCourse:(Course *)mCourse;
++(Course *)currentCourse;
+
 @end

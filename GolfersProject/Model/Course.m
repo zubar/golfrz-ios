@@ -7,6 +7,7 @@
 //
 
 #import "Course.h"
+#import "Coordinates.h"
 
 @implementation Course
 
@@ -18,10 +19,19 @@
              @"courseTheme" : @"course_theme",
              @"courseState" : @"course_state",
              @"courseCity"  : @"course_city",
-             @"courseAddress" : @"course_address"
+             @"courseAddress" : @"course_address",
+             @"coordinates" : @"course_location"
              //propertyName : json_key
              };
 }
+
++ (NSValueTransformer *)coordinatesJSONTransformer {
+    
+    return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[Coordinates class]];
+        //return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[Coordinates class]];
+}
+
+
 
 @end
 

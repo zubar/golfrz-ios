@@ -14,9 +14,6 @@
 		3D1963C41B0DAECD00766CFC /* WeatherServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1963C31B0DAECD00766CFC /* WeatherServices.m */; };
 		3D1963CB1B0DBC2600766CFC /* WeatherData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1963CA1B0DBC2600766CFC /* WeatherData.m */; };
 		3D1963CE1B0DBC8300766CFC /* Condition.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1963CD1B0DBC8300766CFC /* Condition.m */; };
-		3D1963D61B0DEBA100766CFC /* CalendarUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1963D11B0DEBA100766CFC /* CalendarUtilities.m */; };
-		3D1963D71B0DEBA200766CFC /* NSDate+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1963D31B0DEBA100766CFC /* NSDate+Helper.m */; };
-		3D1963D81B0DEBA200766CFC /* THCalendarInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1963D51B0DEBA100766CFC /* THCalendarInfo.m */; };
 		3D1963EA1B0E1B5200766CFC /* ClubHouseContainerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1963E41B0E1B5200766CFC /* ClubHouseContainerVC.m */; };
 		3D1963EB1B0E1B5200766CFC /* ClubHouseSubController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1963E61B0E1B5200766CFC /* ClubHouseSubController.m */; };
 		3D1963EC1B0E1B5200766CFC /* ClubHouseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1963E91B0E1B5200766CFC /* ClubHouseViewController.m */; };
@@ -25,16 +22,26 @@
 		3D1963F81B0E1F0500766CFC /* WeatherViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1963F71B0E1F0500766CFC /* WeatherViewCell.m */; };
 		3D1963F91B0E218B00766CFC /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 885CB0711B09F93700AD2A7B /* User.m */; };
 		3D1963FA1B0E21B100766CFC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 88024F621AD29134004AC260 /* main.m */; };
+		3D1964011B1305FC00766CFC /* PresentationServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1964001B1305FC00766CFC /* PresentationServices.m */; };
+		3D1964161B130E3B00766CFC /* CalendarUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1964051B130E3B00766CFC /* CalendarUtilities.m */; };
+		3D1964171B130E3B00766CFC /* NSDate+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1964071B130E3B00766CFC /* NSDate+Helper.m */; };
+		3D1964181B130E3B00766CFC /* THCalendarInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1964091B130E3B00766CFC /* THCalendarInfo.m */; };
+		3D1964191B130E3B00766CFC /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D19640C1B130E3B00766CFC /* MBProgressHUD.m */; };
+		3D19641A1B130E3B00766CFC /* TPKeyboardAvoidingCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D19640F1B130E3B00766CFC /* TPKeyboardAvoidingCollectionView.m */; };
+		3D19641B1B130E3B00766CFC /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1964111B130E3B00766CFC /* TPKeyboardAvoidingScrollView.m */; };
+		3D19641C1B130E3B00766CFC /* TPKeyboardAvoidingTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1964131B130E3B00766CFC /* TPKeyboardAvoidingTableView.m */; };
+		3D19641D1B130E3B00766CFC /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1964151B130E3B00766CFC /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
+		3D1964211B13270F00766CFC /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D19641E1B13270F00766CFC /* FBSDKCoreKit.framework */; };
+		3D1964221B13271000766CFC /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D19641F1B13270F00766CFC /* FBSDKLoginKit.framework */; };
+		3D1964231B13271000766CFC /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D1964201B13270F00766CFC /* FBSDKShareKit.framework */; };
+		3D1964271B13305200766CFC /* FaceBookAuthAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1964261B13305200766CFC /* FaceBookAuthAgent.m */; };
+		3D19642A1B13364B00766CFC /* Coordinates.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1964291B13364B00766CFC /* Coordinates.m */; };
 		88024F6C1AD29134004AC260 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88024F6A1AD29134004AC260 /* Main.storyboard */; };
 		88024F6E1AD29134004AC260 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88024F6D1AD29134004AC260 /* Images.xcassets */; };
 		88024F711AD29134004AC260 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88024F6F1AD29134004AC260 /* LaunchScreen.xib */; };
 		88024F7D1AD29134004AC260 /* GolfersProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 88024F7C1AD29134004AC260 /* GolfersProjectTests.m */; };
 		885CB0441B09BA9D00AD2A7B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 885CB0251B09BA9D00AD2A7B /* AppDelegate.m */; };
-		885CB0461B09BA9D00AD2A7B /* XHPaggingNavbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 885CB02C1B09BA9D00AD2A7B /* XHPaggingNavbar.m */; };
-		885CB0471B09BA9D00AD2A7B /* XHTwitterPaggingViewer.m in Sources */ = {isa = PBXBuildFile; fileRef = 885CB02E1B09BA9D00AD2A7B /* XHTwitterPaggingViewer.m */; };
-		885CB04C1B09BA9D00AD2A7B /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 885CB03D1B09BA9D00AD2A7B /* NetworkManager.m */; };
 		885CB0681B09BADE00AD2A7B /* InitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 885CB05B1B09BADE00AD2A7B /* InitialViewController.m */; };
-		885CB0691B09BADE00AD2A7B /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 885CB05E1B09BADE00AD2A7B /* MainViewController.m */; };
 		885CB06A1B09BADE00AD2A7B /* SignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 885CB0611B09BADE00AD2A7B /* SignInViewController.m */; };
 		885CB06B1B09BADE00AD2A7B /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 885CB0641B09BADE00AD2A7B /* SignUpViewController.m */; };
 		885CB06D1B09BDCD00AD2A7B /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 885CB06C1B09BDCD00AD2A7B /* README.md */; };
@@ -77,12 +84,6 @@
 		3D1963CA1B0DBC2600766CFC /* WeatherData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherData.m; sourceTree = "<group>"; };
 		3D1963CC1B0DBC8300766CFC /* Condition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Condition.h; sourceTree = "<group>"; };
 		3D1963CD1B0DBC8300766CFC /* Condition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Condition.m; sourceTree = "<group>"; };
-		3D1963D01B0DEBA100766CFC /* CalendarUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarUtilities.h; sourceTree = "<group>"; };
-		3D1963D11B0DEBA100766CFC /* CalendarUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarUtilities.m; sourceTree = "<group>"; };
-		3D1963D21B0DEBA100766CFC /* NSDate+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Helper.h"; sourceTree = "<group>"; };
-		3D1963D31B0DEBA100766CFC /* NSDate+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Helper.m"; sourceTree = "<group>"; };
-		3D1963D41B0DEBA100766CFC /* THCalendarInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THCalendarInfo.h; sourceTree = "<group>"; };
-		3D1963D51B0DEBA100766CFC /* THCalendarInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THCalendarInfo.m; sourceTree = "<group>"; };
 		3D1963E31B0E1B5200766CFC /* ClubHouseContainerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClubHouseContainerVC.h; sourceTree = "<group>"; };
 		3D1963E41B0E1B5200766CFC /* ClubHouseContainerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClubHouseContainerVC.m; sourceTree = "<group>"; };
 		3D1963E51B0E1B5200766CFC /* ClubHouseSubController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClubHouseSubController.h; sourceTree = "<group>"; };
@@ -95,6 +96,32 @@
 		3D1963F21B0E1B6900766CFC /* RewardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RewardViewController.m; sourceTree = "<group>"; };
 		3D1963F61B0E1F0500766CFC /* WeatherViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherViewCell.h; sourceTree = "<group>"; };
 		3D1963F71B0E1F0500766CFC /* WeatherViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherViewCell.m; sourceTree = "<group>"; };
+		3D1963FC1B12FB4700766CFC /* Alert-Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Alert-Constants.h"; sourceTree = "<group>"; };
+		3D1963FF1B1305FC00766CFC /* PresentationServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PresentationServices.h; sourceTree = "<group>"; };
+		3D1964001B1305FC00766CFC /* PresentationServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PresentationServices.m; sourceTree = "<group>"; };
+		3D1964041B130E3B00766CFC /* CalendarUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarUtilities.h; sourceTree = "<group>"; };
+		3D1964051B130E3B00766CFC /* CalendarUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarUtilities.m; sourceTree = "<group>"; };
+		3D1964061B130E3B00766CFC /* NSDate+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Helper.h"; sourceTree = "<group>"; };
+		3D1964071B130E3B00766CFC /* NSDate+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Helper.m"; sourceTree = "<group>"; };
+		3D1964081B130E3B00766CFC /* THCalendarInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THCalendarInfo.h; sourceTree = "<group>"; };
+		3D1964091B130E3B00766CFC /* THCalendarInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THCalendarInfo.m; sourceTree = "<group>"; };
+		3D19640B1B130E3B00766CFC /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		3D19640C1B130E3B00766CFC /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		3D19640E1B130E3B00766CFC /* TPKeyboardAvoidingCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingCollectionView.h; sourceTree = "<group>"; };
+		3D19640F1B130E3B00766CFC /* TPKeyboardAvoidingCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingCollectionView.m; sourceTree = "<group>"; };
+		3D1964101B130E3B00766CFC /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingScrollView.h; sourceTree = "<group>"; };
+		3D1964111B130E3B00766CFC /* TPKeyboardAvoidingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingScrollView.m; sourceTree = "<group>"; };
+		3D1964121B130E3B00766CFC /* TPKeyboardAvoidingTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingTableView.h; sourceTree = "<group>"; };
+		3D1964131B130E3B00766CFC /* TPKeyboardAvoidingTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingTableView.m; sourceTree = "<group>"; };
+		3D1964141B130E3B00766CFC /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
+		3D1964151B130E3B00766CFC /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
+		3D19641E1B13270F00766CFC /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		3D19641F1B13270F00766CFC /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		3D1964201B13270F00766CFC /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
+		3D1964251B13305200766CFC /* FaceBookAuthAgent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceBookAuthAgent.h; sourceTree = "<group>"; };
+		3D1964261B13305200766CFC /* FaceBookAuthAgent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaceBookAuthAgent.m; sourceTree = "<group>"; };
+		3D1964281B13364B00766CFC /* Coordinates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Coordinates.h; sourceTree = "<group>"; };
+		3D1964291B13364B00766CFC /* Coordinates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Coordinates.m; sourceTree = "<group>"; };
 		5A26DAF5CF62E34098597EA3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		88024F5D1AD29134004AC260 /* GolfersProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GolfersProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88024F611AD29134004AC260 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -107,16 +134,8 @@
 		88024F7C1AD29134004AC260 /* GolfersProjectTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GolfersProjectTests.m; sourceTree = "<group>"; };
 		885CB0241B09BA9D00AD2A7B /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		885CB0251B09BA9D00AD2A7B /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		885CB02B1B09BA9D00AD2A7B /* XHPaggingNavbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHPaggingNavbar.h; sourceTree = "<group>"; };
-		885CB02C1B09BA9D00AD2A7B /* XHPaggingNavbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHPaggingNavbar.m; sourceTree = "<group>"; };
-		885CB02D1B09BA9D00AD2A7B /* XHTwitterPaggingViewer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHTwitterPaggingViewer.h; sourceTree = "<group>"; };
-		885CB02E1B09BA9D00AD2A7B /* XHTwitterPaggingViewer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHTwitterPaggingViewer.m; sourceTree = "<group>"; };
-		885CB03C1B09BA9D00AD2A7B /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
-		885CB03D1B09BA9D00AD2A7B /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
 		885CB05A1B09BADE00AD2A7B /* InitialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitialViewController.h; sourceTree = "<group>"; };
 		885CB05B1B09BADE00AD2A7B /* InitialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitialViewController.m; sourceTree = "<group>"; };
-		885CB05D1B09BADE00AD2A7B /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
-		885CB05E1B09BADE00AD2A7B /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		885CB0601B09BADE00AD2A7B /* SignInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignInViewController.h; sourceTree = "<group>"; };
 		885CB0611B09BADE00AD2A7B /* SignInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignInViewController.m; sourceTree = "<group>"; };
 		885CB0631B09BADE00AD2A7B /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
@@ -153,6 +172,7 @@
 		889E1E5A1B0C7CC300F55B40 /* TPKeyboardAvoidingTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingTableView.m; sourceTree = "<group>"; };
 		889E1E5B1B0C7CC300F55B40 /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
 		889E1E5C1B0C7CC300F55B40 /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
+		88FE3C281B03753500FDA253 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		D817BE50C16025D4FB4E4951 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		E15946F021CC95FC21355D7C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -162,7 +182,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D1964231B13271000766CFC /* FBSDKShareKit.framework in Frameworks */,
 				32B56928BD94CBDCCDA0C43B /* libPods.a in Frameworks */,
+				3D1964211B13270F00766CFC /* FBSDKCoreKit.framework in Frameworks */,
+				3D1964221B13271000766CFC /* FBSDKLoginKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,19 +237,6 @@
 			path = WeatherModel;
 			sourceTree = "<group>";
 		};
-		3D1963CF1B0DEBA100766CFC /* Calender */ = {
-			isa = PBXGroup;
-			children = (
-				3D1963D01B0DEBA100766CFC /* CalendarUtilities.h */,
-				3D1963D11B0DEBA100766CFC /* CalendarUtilities.m */,
-				3D1963D21B0DEBA100766CFC /* NSDate+Helper.h */,
-				3D1963D31B0DEBA100766CFC /* NSDate+Helper.m */,
-				3D1963D41B0DEBA100766CFC /* THCalendarInfo.h */,
-				3D1963D51B0DEBA100766CFC /* THCalendarInfo.m */,
-			);
-			path = Calender;
-			sourceTree = "<group>";
-		};
 		3D1963E21B0E1B5200766CFC /* ClubHouseContainerVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -274,6 +284,81 @@
 			path = WeatherCell;
 			sourceTree = "<group>";
 		};
+		3D1963FD1B1305D500766CFC /* GeoLocationServices */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = GeoLocationServices;
+			sourceTree = "<group>";
+		};
+		3D1963FE1B1305D500766CFC /* PresentationServices */ = {
+			isa = PBXGroup;
+			children = (
+				3D1963FF1B1305FC00766CFC /* PresentationServices.h */,
+				3D1964001B1305FC00766CFC /* PresentationServices.m */,
+			);
+			path = PresentationServices;
+			sourceTree = "<group>";
+		};
+		3D1964021B130E3B00766CFC /* Vendors */ = {
+			isa = PBXGroup;
+			children = (
+				3D19641E1B13270F00766CFC /* FBSDKCoreKit.framework */,
+				3D19641F1B13270F00766CFC /* FBSDKLoginKit.framework */,
+				3D1964201B13270F00766CFC /* FBSDKShareKit.framework */,
+				3D1964031B130E3B00766CFC /* Calender */,
+				3D19640A1B130E3B00766CFC /* MDProgressHUD */,
+				3D19640D1B130E3B00766CFC /* TPKeyboardAvoiding */,
+			);
+			path = Vendors;
+			sourceTree = "<group>";
+		};
+		3D1964031B130E3B00766CFC /* Calender */ = {
+			isa = PBXGroup;
+			children = (
+				3D1964041B130E3B00766CFC /* CalendarUtilities.h */,
+				3D1964051B130E3B00766CFC /* CalendarUtilities.m */,
+				3D1964061B130E3B00766CFC /* NSDate+Helper.h */,
+				3D1964071B130E3B00766CFC /* NSDate+Helper.m */,
+				3D1964081B130E3B00766CFC /* THCalendarInfo.h */,
+				3D1964091B130E3B00766CFC /* THCalendarInfo.m */,
+			);
+			path = Calender;
+			sourceTree = "<group>";
+		};
+		3D19640A1B130E3B00766CFC /* MDProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				3D19640B1B130E3B00766CFC /* MBProgressHUD.h */,
+				3D19640C1B130E3B00766CFC /* MBProgressHUD.m */,
+			);
+			path = MDProgressHUD;
+			sourceTree = "<group>";
+		};
+		3D19640D1B130E3B00766CFC /* TPKeyboardAvoiding */ = {
+			isa = PBXGroup;
+			children = (
+				3D19640E1B130E3B00766CFC /* TPKeyboardAvoidingCollectionView.h */,
+				3D19640F1B130E3B00766CFC /* TPKeyboardAvoidingCollectionView.m */,
+				3D1964101B130E3B00766CFC /* TPKeyboardAvoidingScrollView.h */,
+				3D1964111B130E3B00766CFC /* TPKeyboardAvoidingScrollView.m */,
+				3D1964121B130E3B00766CFC /* TPKeyboardAvoidingTableView.h */,
+				3D1964131B130E3B00766CFC /* TPKeyboardAvoidingTableView.m */,
+				3D1964141B130E3B00766CFC /* UIScrollView+TPKeyboardAvoidingAdditions.h */,
+				3D1964151B130E3B00766CFC /* UIScrollView+TPKeyboardAvoidingAdditions.m */,
+			);
+			path = TPKeyboardAvoiding;
+			sourceTree = "<group>";
+		};
+		3D1964241B13302A00766CFC /* FBAuthenticationAgent */ = {
+			isa = PBXGroup;
+			children = (
+				3D1964251B13305200766CFC /* FaceBookAuthAgent.h */,
+				3D1964261B13305200766CFC /* FaceBookAuthAgent.m */,
+			);
+			path = FBAuthenticationAgent;
+			sourceTree = "<group>";
+		};
 		66D43E9E53452F667DDF180D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -309,13 +394,14 @@
 				889872C71B13237F00D3C0E9 /* Views */,
 				889872C01B13111900D3C0E9 /* Constants */,
 				889872BC1B13103300D3C0E9 /* Utilities */,
+				885CB06C1B09BDCD00AD2A7B /* README.md */,
+				3D1963FC1B12FB4700766CFC /* Alert-Constants.h */,
+				88FE3C281B03753500FDA253 /* Constants.h */,
 				3D1963F51B0E1F0500766CFC /* WeatherCell */,
 				885CB07C1B0A121300AD2A7B /* Services */,
-				885CB06C1B09BDCD00AD2A7B /* README.md */,
 				885CB04F1B09BADE00AD2A7B /* ViewController */,
-				885CB0291B09BA9D00AD2A7B /* External-Libs */,
+				3D1964021B130E3B00766CFC /* Vendors */,
 				885CB0231B09BA9D00AD2A7B /* AppDelegate */,
-				885CB03B1B09BA9D00AD2A7B /* NetworkManager */,
 				885CB06E1B09F7F100AD2A7B /* APIClient */,
 				885CB06F1B09F91700AD2A7B /* Model */,
 				88024F6A1AD29134004AC260 /* Main.storyboard */,
@@ -362,37 +448,6 @@
 			path = AppDelegate;
 			sourceTree = "<group>";
 		};
-		885CB0291B09BA9D00AD2A7B /* External-Libs */ = {
-			isa = PBXGroup;
-			children = (
-				88709EF81B0F3C61005DA345 /* MDProgressHUD */,
-				3D1963CF1B0DEBA100766CFC /* Calender */,
-				889E1E541B0C7CC300F55B40 /* TPKeyboardAvoiding */,
-				885CB02A1B09BA9D00AD2A7B /* XHTwitterPaggingViewer */,
-			);
-			path = "External-Libs";
-			sourceTree = "<group>";
-		};
-		885CB02A1B09BA9D00AD2A7B /* XHTwitterPaggingViewer */ = {
-			isa = PBXGroup;
-			children = (
-				885CB02B1B09BA9D00AD2A7B /* XHPaggingNavbar.h */,
-				885CB02C1B09BA9D00AD2A7B /* XHPaggingNavbar.m */,
-				885CB02D1B09BA9D00AD2A7B /* XHTwitterPaggingViewer.h */,
-				885CB02E1B09BA9D00AD2A7B /* XHTwitterPaggingViewer.m */,
-			);
-			path = XHTwitterPaggingViewer;
-			sourceTree = "<group>";
-		};
-		885CB03B1B09BA9D00AD2A7B /* NetworkManager */ = {
-			isa = PBXGroup;
-			children = (
-				885CB03C1B09BA9D00AD2A7B /* NetworkManager.h */,
-				885CB03D1B09BA9D00AD2A7B /* NetworkManager.m */,
-			);
-			path = NetworkManager;
-			sourceTree = "<group>";
-		};
 		885CB04F1B09BADE00AD2A7B /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -402,7 +457,6 @@
 				3D1963E71B0E1B5200766CFC /* ClubHouseViewController */,
 				886B9ED11B0B95900078B09D /* ForgotPasswordViewController */,
 				885CB0591B09BADE00AD2A7B /* InitialViewController */,
-				885CB05C1B09BADE00AD2A7B /* MainViewController */,
 				885CB05F1B09BADE00AD2A7B /* SignInViewController */,
 				885CB0621B09BADE00AD2A7B /* SignUpViewController */,
 			);
@@ -416,15 +470,6 @@
 				885CB05B1B09BADE00AD2A7B /* InitialViewController.m */,
 			);
 			path = InitialViewController;
-			sourceTree = "<group>";
-		};
-		885CB05C1B09BADE00AD2A7B /* MainViewController */ = {
-			isa = PBXGroup;
-			children = (
-				885CB05D1B09BADE00AD2A7B /* MainViewController.h */,
-				885CB05E1B09BADE00AD2A7B /* MainViewController.m */,
-			);
-			path = MainViewController;
 			sourceTree = "<group>";
 		};
 		885CB05F1B09BADE00AD2A7B /* SignInViewController */ = {
@@ -460,6 +505,8 @@
 				3D1963C81B0DBC2600766CFC /* WeatherModel */,
 				3D1963BE1B0CE08900766CFC /* Course.h */,
 				3D1963BF1B0CE08900766CFC /* Course.m */,
+				3D1964281B13364B00766CFC /* Coordinates.h */,
+				3D1964291B13364B00766CFC /* Coordinates.m */,
 				885CB0761B0A117300AD2A7B /* GolfrzError.h */,
 				885CB0771B0A117300AD2A7B /* GolfrzError.m */,
 				885CB0781B0A117300AD2A7B /* GolfrzErrorResponse.h */,
@@ -473,6 +520,9 @@
 		885CB07C1B0A121300AD2A7B /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				3D1964241B13302A00766CFC /* FBAuthenticationAgent */,
+				3D1963FD1B1305D500766CFC /* GeoLocationServices */,
+				3D1963FE1B1305D500766CFC /* PresentationServices */,
 				3D1963C11B0DAEB200766CFC /* WeatherServices */,
 				3D1963B61B0CE05700766CFC /* CourseServices */,
 				3D1963B91B0CE05700766CFC /* UserServices */,
@@ -552,6 +602,7 @@
 			path = TPKeyboardAvoiding;
 			sourceTree = "<group>";
 		};
+
 		C91B48159ABC56B52D213A0C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -610,6 +661,7 @@
 				TargetAttributes = {
 					88024F5C1AD29134004AC260 = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = X6K86D8S89;
 					};
 					88024F751AD29134004AC260 = {
 						CreatedOnToolsVersion = 6.1;
@@ -682,18 +734,17 @@
 			files = (
 				3D1963FA1B0E21B100766CFC /* main.m in Sources */,
 				3D1963F91B0E218B00766CFC /* User.m in Sources */,
-				889E1E5E1B0C7CC300F55B40 /* TPKeyboardAvoidingScrollView.m in Sources */,
 				885CB0681B09BADE00AD2A7B /* InitialViewController.m in Sources */,
 				889872BF1B13105C00D3C0E9 /* Utilities.m in Sources */,
+				3D19642A1B13364B00766CFC /* Coordinates.m in Sources */,
 				3D1963F41B0E1B6900766CFC /* RewardViewController.m in Sources */,
 				3D1963BC1B0CE05700766CFC /* CourseServices.m in Sources */,
+				3D1964181B130E3B00766CFC /* THCalendarInfo.m in Sources */,
 				885CB06B1B09BADE00AD2A7B /* SignUpViewController.m in Sources */,
 				889872CC1B13437400D3C0E9 /* SideNotificationView.m in Sources */,
 				885CB0441B09BA9D00AD2A7B /* AppDelegate.m in Sources */,
 				3D1963CE1B0DBC8300766CFC /* Condition.m in Sources */,
 				885CB06D1B09BDCD00AD2A7B /* README.md in Sources */,
-				889E1E601B0C7CC300F55B40 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
-				885CB0691B09BADE00AD2A7B /* MainViewController.m in Sources */,
 				3D1963CB1B0DBC2600766CFC /* WeatherData.m in Sources */,
 				3D1963C01B0CE08900766CFC /* Course.m in Sources */,
 				3D1963EB1B0E1B5200766CFC /* ClubHouseSubController.m in Sources */,
@@ -701,23 +752,23 @@
 				3D1963C41B0DAECD00766CFC /* WeatherServices.m in Sources */,
 				885CB07A1B0A117300AD2A7B /* GolfrzError.m in Sources */,
 				3D1963BD1B0CE05700766CFC /* UserServices.m in Sources */,
+				3D19641A1B130E3B00766CFC /* TPKeyboardAvoidingCollectionView.m in Sources */,
+				3D19641C1B130E3B00766CFC /* TPKeyboardAvoidingTableView.m in Sources */,
+				3D1964171B130E3B00766CFC /* NSDate+Helper.m in Sources */,
 				885CB0801B0A128100AD2A7B /* AuthenticationService.m in Sources */,
-				3D1963D81B0DEBA200766CFC /* THCalendarInfo.m in Sources */,
 				886B9ED41B0B95900078B09D /* ForgotPasswordViewController.m in Sources */,
-				88709EFB1B0F3C61005DA345 /* MBProgressHUD.m in Sources */,
 				885CB06A1B09BADE00AD2A7B /* SignInViewController.m in Sources */,
-				889E1E5D1B0C7CC300F55B40 /* TPKeyboardAvoidingCollectionView.m in Sources */,
-				3D1963D71B0DEBA200766CFC /* NSDate+Helper.m in Sources */,
+				3D19641D1B130E3B00766CFC /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
+				3D1964191B130E3B00766CFC /* MBProgressHUD.m in Sources */,
 				885CB0751B09FB0100AD2A7B /* APIClient.m in Sources */,
+				3D1964011B1305FC00766CFC /* PresentationServices.m in Sources */,
 				3D1963F31B0E1B6900766CFC /* PlayerProfileViewController.m in Sources */,
+				3D19641B1B130E3B00766CFC /* TPKeyboardAvoidingScrollView.m in Sources */,
+				3D1964271B13305200766CFC /* FaceBookAuthAgent.m in Sources */,
 				885CB07B1B0A117300AD2A7B /* GolfrzErrorResponse.m in Sources */,
-				885CB0471B09BA9D00AD2A7B /* XHTwitterPaggingViewer.m in Sources */,
-				885CB04C1B09BA9D00AD2A7B /* NetworkManager.m in Sources */,
-				3D1963D61B0DEBA100766CFC /* CalendarUtilities.m in Sources */,
+				3D1964161B130E3B00766CFC /* CalendarUtilities.m in Sources */,
 				3D1963F81B0E1F0500766CFC /* WeatherViewCell.m in Sources */,
 				3D1963EA1B0E1B5200766CFC /* ClubHouseContainerVC.m in Sources */,
-				889E1E5F1B0C7CC300F55B40 /* TPKeyboardAvoidingTableView.m in Sources */,
-				885CB0461B09BA9D00AD2A7B /* XHPaggingNavbar.m in Sources */,
 				3D1963EC1B0E1B5200766CFC /* ClubHouseViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -842,7 +893,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Abdullah Saeed (7983HQ379L)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/GolfersProject/Vendors",
+				);
 				INFOPLIST_FILE = GolfersProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -857,8 +912,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Golf Challenges LLC (X6K86D8S89)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Golf Challenges LLC (X6K86D8S89)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/GolfersProject/Vendors",
+				);
 				INFOPLIST_FILE = GolfersProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
