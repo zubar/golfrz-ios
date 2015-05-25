@@ -7,7 +7,6 @@
 //
 
 #import "ClubHouseContainerVC.h"
-#import "MainViewController.h"
 #import "ClubHouseViewController.h"
 #import "PlayerProfileViewController.h"
 #import "RewardViewController.h"

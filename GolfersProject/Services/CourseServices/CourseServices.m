@@ -15,6 +15,9 @@
 
 @implementation CourseServices
 
+static Course * currentCourse = nil;
+
+
 +(void)courseInfo:(void (^)(bool status, Course * currentCourse))successBlock failure:(void (^)(bool status, NSError * error))failureBlock{
     
     APIClient * apiClient = [APIClient sharedAPICLient];
@@ -23,11 +26,22 @@
         OVCResponse * resp = response;
         if (!error) {
             Course * mCourse = [resp result];
+            currentCourse = mCourse;
             successBlock(true, mCourse);
         }else
             failureBlock(false, error);
     }];
     
+}
+
+
++(void)setCurrentCourse:(Course *)mCourse{
+    currentCourse = nil;
+    currentCourse = mCourse;
+}
+
++(Course *)currentCourse{
+    return currentCourse;
 }
 
 

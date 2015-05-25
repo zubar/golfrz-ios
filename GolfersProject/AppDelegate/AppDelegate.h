@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MainViewController.h"
 #import "PlayerProfileViewController.h"
 #import "ClubHouseViewController.h"
 #import "RewardViewController.h"
@@ -16,7 +15,6 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
-@property (strong, nonatomic) MainViewController *mainController;
 @property (strong, nonatomic) ClubHouseViewController *greenViewController;
 @property (strong, nonatomic) PlayerProfileViewController *blueViewController;
 @property (strong, nonatomic) RewardViewController *grayViewController;

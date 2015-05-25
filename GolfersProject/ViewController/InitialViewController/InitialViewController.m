@@ -15,6 +15,11 @@
 #import "UserServices.h"
 #import "CourseServices.h"
 #import "WeatherServices.h"
+#import "Coordinates.h"
+#import "Course.h"
+
+#import "FaceBookAuthAgent.h"
+
 
 @interface InitialViewController ()
 
@@ -40,17 +45,26 @@
 //    
     
     [CourseServices courseInfo:^(bool status, Course *currentCourse) {
-        NSLog(@"%@", currentCourse);
+        
+        NSLog(@"%@", [[currentCourse.coordinates objectAtIndex:0] class]);
+        
+        if (status) {
+            [WeatherServices weatherInfo:^(bool status, NSArray *mWeatherData) {
+                NSLog(@"weather:%@", mWeatherData);
+            } failure:^(bool status, NSError *error) {
+                NSLog(@"%@", error);
+            }];
+        }
+        
     } failure:^(bool status, NSError *error) {
         //
     }];
     
     
-    [WeatherServices weatherInfo:^(bool status, NSArray *mWeatherData) {
-        NSLog(@"weather:%@", mWeatherData);
-    } failure:^(bool status, NSError *error) {
-        NSLog(@"%@", error);
-    }];
+    
+    
+    
+  //  [FaceBookAuthAgent signInWithFaceBook];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -73,6 +87,7 @@
 }
 
 - (void)signInTapped{
+    
     SignInViewController *signInViewController  = [self.storyboard instantiateViewControllerWithIdentifier:@"SignInViewController"];
     [self.navigationController pushViewController:signInViewController animated:YES];
 }
@@ -87,5 +102,6 @@
     // Pass the selected object to the new view controller.
 }
 */
+
 
 @end

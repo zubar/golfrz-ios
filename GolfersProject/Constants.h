@@ -19,8 +19,8 @@ static NSString * const kBaseImageUrl = @"https://powerful-plains-9156.herokuapp
 /*
  * Weather API
  */
-static NSString * const kWeatherAPI = @"http://api.openweathermap.org/data/2.5/forecast?lat=31&lon=139&units=metric&APPID=e5bfb7faf3d0c719e87f3e1300ad0739";
-
+static NSString * const kWeatherAPI = @"http://api.openweathermap.org/data/2.5/";
+static NSString * const kWeatherAPIKey = @"e5bfb7faf3d0c719e87f3e1300ad0739";
 
 /*
  *  Authentication Services
