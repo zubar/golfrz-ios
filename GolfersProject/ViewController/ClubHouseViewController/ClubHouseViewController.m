@@ -11,7 +11,7 @@
 #import "WeatherViewCell.h"
 #import "WeatherServices.h"
 #import <SDWebImage/UIImageView+WebCache.h>
-
+#import "MBProgressHUD.h"
 
 
 @interface ClubHouseViewController ()
@@ -22,15 +22,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [[self navigationItem] setTitle:@"Clubhouse"];
     
+    // Do any additional setup after loading the view.
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
     [WeatherServices weatherInfo:^(bool status, NSArray *mWeatherData) {
         if (status) {
             self.weatherList = mWeatherData;
             [self.weatherCollectionView reloadData];
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
         }
     } failure:^(bool status, NSError *error) {
         if (error) {
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
             [[[UIAlertView alloc]initWithTitle:@"Try Again" message:@"Failed to get weather" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil] show];
         }
     }];

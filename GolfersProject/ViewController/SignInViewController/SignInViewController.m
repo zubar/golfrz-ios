@@ -10,6 +10,9 @@
 #import "ForgotPasswordViewController.h"
 #import "AppDelegate.h"
 #import "ClubHouseContainerVC.h"
+#import "AuthenticationService.h"
+#import "User.h"
+#import "MBProgressHUD.h"
 
 @interface SignInViewController ()
 
@@ -55,8 +58,29 @@
 */
 
 - (IBAction)btnSignInTapped:(id)sender {
-    ClubHouseContainerVC *clubHouseContainerVC  = [self.storyboard instantiateViewControllerWithIdentifier:@"ClubHouseContainerVC"];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [AuthenticationService loginWithUserName:self.txtUsername.text password:self.txtPassword.text success:^(bool status, User *muser){
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+         ClubHouseContainerVC *clubHouseContainerVC  = [self.storyboard instantiateViewControllerWithIdentifier:@"ClubHouseContainerVC"];
+        [self.navigationController pushViewController:clubHouseContainerVC animated:YES];
+        [[[UIAlertView alloc]initWithTitle:@"Success" message:@"You have successfully logged in" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
+    } failure:^(bool status, NSError *error){
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [[[UIAlertView alloc]initWithTitle:@"Credentials Not Valid" message:@"Credentials not valid" delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:nil, nil] show];
+    }];
     
-    [self.navigationController pushViewController:clubHouseContainerVC animated:YES];
+//    [AuthenticationService loginWithUserName:self.txtUsername.text password:self.txtPassword.text success:^(bool status, User *muser){
+//        
+//            ClubHouseContainerVC *clubHouseContainerVC  = [self.storyboard instantiateViewControllerWithIdentifier:@"ClubHouseContainerVC"];
+//            
+//            [self.navigationController pushViewController:clubHouseContainerVC animated:YES];
+//        [[[UIAlertView alloc]initWithTitle:@"Authenticated" message:@"You have successfully logged in" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
+//    }
+//                                     failure:^(bool status, NSError *error){
+//                                         [[[UIAlertView alloc]initWithTitle:@"Error" message:@"Credentials not valid" delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:nil, nil] show];
+//                                     }
+//     
+//    ];
+   
 }
 @end

@@ -9,6 +9,7 @@
 #import "SignUpViewController.h"
 #import "InitialViewController.h"
 #import "AuthenticationService.h"
+#import "MBProgressHUD.h"
 
 @interface SignUpViewController ()
 
@@ -40,9 +41,11 @@
 #pragma ButtonActions
 
 - (IBAction)btnRegisterTapped:(UIButton *)sender {
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
    
     [AuthenticationService singUpUser:self.txtFirstName.text lastName:self.txtLastName.text email:self.txtEmail.text password:self.txtPassword.text passwordConfirmation:self.txtPassword.text memberId:self.txtMemberID.text completion:^(bool status, NSError *error) {
         if (status) {
+             [MBProgressHUD hideHUDForView:self.view animated:YES];
             [[[UIAlertView alloc]initWithTitle:@"Success" message:@"Please check your email to confirm " delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", @"Okay Comment") otherButtonTitles:nil, nil] show];
         }
     }];

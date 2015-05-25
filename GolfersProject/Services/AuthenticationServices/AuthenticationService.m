@@ -18,7 +18,7 @@
 
 @implementation AuthenticationService
 
-+(void)loginWithUserName:(NSString *)name password:(NSString *)password success:(void (^)(User *))success{
++(void)loginWithUserName:(NSString *)name password:(NSString *)password success:(void (^)(bool status, User *))successBlock failure:(void (^)(bool status, NSError *error))failureBlock{
 
 //Create our client
 APIClient *apiClient = [APIClient sharedAPICLient];
@@ -31,13 +31,15 @@ APIClient *apiClient = [APIClient sharedAPICLient];
             User * mUser =[resp result];
             //Setting current user
             [UserServices setCurrentUser:mUser];
-            success(mUser);
+            successBlock(true,mUser);
         }
+        else
+            failureBlock(false, error);
     }];
 }
 
 
-+(void)resetUserPassword:(NSString *)email completion:(void (^)(bool))successfullyPosted{
++(void)resetUserPassword:(NSString *)email completion:(void (^)(bool))successfullyPosted failure:(void (^)(bool status, NSError *error))failureBlock{
 
     APIClient *apiClient = [APIClient sharedAPICLient];
     
@@ -52,6 +54,8 @@ APIClient *apiClient = [APIClient sharedAPICLient];
             //TODO: in caller of that block show alert on success.
             successfullyPosted(true);
         }
+        else
+            failureBlock(false, error);
     }];
 }
 

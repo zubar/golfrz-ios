@@ -12,6 +12,8 @@
 
 @interface SignInViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UILabel *lblForgotPassword;
+@property (strong, nonatomic) IBOutlet UITextField *txtUsername;
+@property (strong, nonatomic) IBOutlet UITextField *txtPassword;
 
 - (IBAction)btnSignInTapped:(id)sender;
 

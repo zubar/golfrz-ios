@@ -8,6 +8,8 @@
 
 #import "ForgotPasswordViewController.h"
 #import "ForgotPasswordSViewController.h"
+#import "AuthenticationService.h"
+#import "MBProgressHUD.h"
 
 @interface ForgotPasswordViewController ()
 
@@ -34,8 +36,19 @@
 }
 */
 
+
 - (IBAction)btnResetPasswordTapped:(UIButton *)sender {
-    ForgotPasswordSViewController *forgotPasswordSViewController  = [self.storyboard instantiateViewControllerWithIdentifier:@"ForgotPasswordSViewController"];
-    [self.navigationController pushViewController:forgotPasswordSViewController animated:YES];
-}
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [AuthenticationService resetUserPassword:self.txtEmailAddress.text completion:^(bool status){
+        if (status) {
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            ForgotPasswordSViewController *forgotPasswordSViewController  = [self.storyboard instantiateViewControllerWithIdentifier:@"ForgotPasswordSViewController"];
+            [self.navigationController pushViewController:forgotPasswordSViewController animated:YES];
+
+        }
+    } failure:^(bool status, NSError *error){
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [[[UIAlertView alloc]initWithTitle:@"Error" message:@"Something went wrong" delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:nil, nil] show];
+    }];
+       }
 @end

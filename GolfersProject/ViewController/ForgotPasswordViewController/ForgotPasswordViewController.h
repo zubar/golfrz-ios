@@ -10,5 +10,6 @@
 
 @interface ForgotPasswordViewController : UIViewController
 - (IBAction)btnResetPasswordTapped:(UIButton *)sender;
+@property (strong, nonatomic) IBOutlet UITextField *txtEmailAddress;
 
 @end

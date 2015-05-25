@@ -31,7 +31,7 @@
     
     NSMutableArray *controllersArray = [NSMutableArray array];
     [controllersArray addObject:self.clubHouseViewController];
-    [controllersArray addObject:self.playerProfileViewController];
+    //[controllersArray addObject:self.playerProfileViewController];
     //[controllersArray addObject:self.rewardViewController];
     
     
@@ -41,8 +41,9 @@
     
     CGSize navBarSize = self.navController.navigationBar.bounds.size;
     self.navController.navigationBar.barTintColor = [UIColor redColor];
+    
 
-    CGPoint origin = CGPointMake( navBarSize.width/2, navBarSize.height/2 );
+    CGPoint origin = CGPointMake( navBarSize.width/2, navBarSize.height/1.5 );
     self.pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(origin.x, origin.y,
                                                                        0, 0)];
     
