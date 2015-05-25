@@ -45,6 +45,9 @@
 		886B9ED41B0B95900078B09D /* ForgotPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 886B9ED31B0B95900078B09D /* ForgotPasswordViewController.m */; };
 		88709E9E1B0DB600005DA345 /* ForgotPasswordSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88709E9D1B0DB600005DA345 /* ForgotPasswordSViewController.m */; };
 		88709EFB1B0F3C61005DA345 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 88709EFA1B0F3C61005DA345 /* MBProgressHUD.m */; };
+		889872BF1B13105C00D3C0E9 /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 889872BE1B13105C00D3C0E9 /* Utilities.m */; };
+		889872C91B13239400D3C0E9 /* SideNotificationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 889872C81B13239400D3C0E9 /* SideNotificationView.xib */; };
+		889872CC1B13437400D3C0E9 /* SideNotificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 889872CB1B13437400D3C0E9 /* SideNotificationView.m */; };
 		889E1E5D1B0C7CC300F55B40 /* TPKeyboardAvoidingCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 889E1E561B0C7CC300F55B40 /* TPKeyboardAvoidingCollectionView.m */; };
 		889E1E5E1B0C7CC300F55B40 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 889E1E581B0C7CC300F55B40 /* TPKeyboardAvoidingScrollView.m */; };
 		889E1E5F1B0C7CC300F55B40 /* TPKeyboardAvoidingTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 889E1E5A1B0C7CC300F55B40 /* TPKeyboardAvoidingTableView.m */; };
@@ -92,7 +95,6 @@
 		3D1963F21B0E1B6900766CFC /* RewardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RewardViewController.m; sourceTree = "<group>"; };
 		3D1963F61B0E1F0500766CFC /* WeatherViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherViewCell.h; sourceTree = "<group>"; };
 		3D1963F71B0E1F0500766CFC /* WeatherViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherViewCell.m; sourceTree = "<group>"; };
-		3D1963FC1B12FB4700766CFC /* Alert-Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Alert-Constants.h"; sourceTree = "<group>"; };
 		5A26DAF5CF62E34098597EA3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		88024F5D1AD29134004AC260 /* GolfersProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GolfersProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88024F611AD29134004AC260 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -136,6 +138,13 @@
 		88709E9D1B0DB600005DA345 /* ForgotPasswordSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgotPasswordSViewController.m; sourceTree = "<group>"; };
 		88709EF91B0F3C61005DA345 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		88709EFA1B0F3C61005DA345 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		889872BD1B13105C00D3C0E9 /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
+		889872BE1B13105C00D3C0E9 /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
+		889872C11B13111900D3C0E9 /* Alert-Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Alert-Constants.h"; sourceTree = "<group>"; };
+		889872C21B13111900D3C0E9 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		889872C81B13239400D3C0E9 /* SideNotificationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SideNotificationView.xib; path = Views/SideNotificationView.xib; sourceTree = "<group>"; };
+		889872CA1B13437400D3C0E9 /* SideNotificationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideNotificationView.h; sourceTree = "<group>"; };
+		889872CB1B13437400D3C0E9 /* SideNotificationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideNotificationView.m; sourceTree = "<group>"; };
 		889E1E551B0C7CC300F55B40 /* TPKeyboardAvoidingCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingCollectionView.h; sourceTree = "<group>"; };
 		889E1E561B0C7CC300F55B40 /* TPKeyboardAvoidingCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingCollectionView.m; sourceTree = "<group>"; };
 		889E1E571B0C7CC300F55B40 /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingScrollView.h; sourceTree = "<group>"; };
@@ -144,7 +153,6 @@
 		889E1E5A1B0C7CC300F55B40 /* TPKeyboardAvoidingTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingTableView.m; sourceTree = "<group>"; };
 		889E1E5B1B0C7CC300F55B40 /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
 		889E1E5C1B0C7CC300F55B40 /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
-		88FE3C281B03753500FDA253 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		D817BE50C16025D4FB4E4951 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		E15946F021CC95FC21355D7C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -298,8 +306,9 @@
 		88024F5F1AD29134004AC260 /* GolfersProject */ = {
 			isa = PBXGroup;
 			children = (
-				3D1963FC1B12FB4700766CFC /* Alert-Constants.h */,
-				88FE3C281B03753500FDA253 /* Constants.h */,
+				889872C71B13237F00D3C0E9 /* Views */,
+				889872C01B13111900D3C0E9 /* Constants */,
+				889872BC1B13103300D3C0E9 /* Utilities */,
 				3D1963F51B0E1F0500766CFC /* WeatherCell */,
 				885CB07C1B0A121300AD2A7B /* Services */,
 				885CB06C1B09BDCD00AD2A7B /* README.md */,
@@ -313,6 +322,7 @@
 				88024F6D1AD29134004AC260 /* Images.xcassets */,
 				88024F6F1AD29134004AC260 /* LaunchScreen.xib */,
 				88024F601AD29134004AC260 /* Supporting Files */,
+				889872C81B13239400D3C0E9 /* SideNotificationView.xib */,
 			);
 			path = GolfersProject;
 			sourceTree = "<group>";
@@ -500,6 +510,33 @@
 			path = MDProgressHUD;
 			sourceTree = "<group>";
 		};
+		889872BC1B13103300D3C0E9 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				889872BD1B13105C00D3C0E9 /* Utilities.h */,
+				889872BE1B13105C00D3C0E9 /* Utilities.m */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		889872C01B13111900D3C0E9 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				889872C11B13111900D3C0E9 /* Alert-Constants.h */,
+				889872C21B13111900D3C0E9 /* Constants.h */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		889872C71B13237F00D3C0E9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				889872CA1B13437400D3C0E9 /* SideNotificationView.h */,
+				889872CB1B13437400D3C0E9 /* SideNotificationView.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		889E1E541B0C7CC300F55B40 /* TPKeyboardAvoiding */ = {
 			isa = PBXGroup;
 			children = (
@@ -604,6 +641,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				889872C91B13239400D3C0E9 /* SideNotificationView.xib in Resources */,
 				88024F6C1AD29134004AC260 /* Main.storyboard in Resources */,
 				88024F711AD29134004AC260 /* LaunchScreen.xib in Resources */,
 				88024F6E1AD29134004AC260 /* Images.xcassets in Resources */,
@@ -646,9 +684,11 @@
 				3D1963F91B0E218B00766CFC /* User.m in Sources */,
 				889E1E5E1B0C7CC300F55B40 /* TPKeyboardAvoidingScrollView.m in Sources */,
 				885CB0681B09BADE00AD2A7B /* InitialViewController.m in Sources */,
+				889872BF1B13105C00D3C0E9 /* Utilities.m in Sources */,
 				3D1963F41B0E1B6900766CFC /* RewardViewController.m in Sources */,
 				3D1963BC1B0CE05700766CFC /* CourseServices.m in Sources */,
 				885CB06B1B09BADE00AD2A7B /* SignUpViewController.m in Sources */,
+				889872CC1B13437400D3C0E9 /* SideNotificationView.m in Sources */,
 				885CB0441B09BA9D00AD2A7B /* AppDelegate.m in Sources */,
 				3D1963CE1B0DBC8300766CFC /* Condition.m in Sources */,
 				885CB06D1B09BDCD00AD2A7B /* README.md in Sources */,
