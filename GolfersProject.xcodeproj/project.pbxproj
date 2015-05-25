@@ -92,6 +92,7 @@
 		3D1963F21B0E1B6900766CFC /* RewardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RewardViewController.m; sourceTree = "<group>"; };
 		3D1963F61B0E1F0500766CFC /* WeatherViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherViewCell.h; sourceTree = "<group>"; };
 		3D1963F71B0E1F0500766CFC /* WeatherViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherViewCell.m; sourceTree = "<group>"; };
+		3D1963FC1B12FB4700766CFC /* Alert-Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Alert-Constants.h"; sourceTree = "<group>"; };
 		5A26DAF5CF62E34098597EA3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		88024F5D1AD29134004AC260 /* GolfersProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GolfersProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88024F611AD29134004AC260 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -297,6 +298,8 @@
 		88024F5F1AD29134004AC260 /* GolfersProject */ = {
 			isa = PBXGroup;
 			children = (
+				3D1963FC1B12FB4700766CFC /* Alert-Constants.h */,
+				88FE3C281B03753500FDA253 /* Constants.h */,
 				3D1963F51B0E1F0500766CFC /* WeatherCell */,
 				885CB07C1B0A121300AD2A7B /* Services */,
 				885CB06C1B09BDCD00AD2A7B /* README.md */,
@@ -310,7 +313,6 @@
 				88024F6D1AD29134004AC260 /* Images.xcassets */,
 				88024F6F1AD29134004AC260 /* LaunchScreen.xib */,
 				88024F601AD29134004AC260 /* Supporting Files */,
-				88FE3C281B03753500FDA253 /* Constants.h */,
 			);
 			path = GolfersProject;
 			sourceTree = "<group>";
