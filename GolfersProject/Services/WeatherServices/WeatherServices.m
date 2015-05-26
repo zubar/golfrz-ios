@@ -25,7 +25,7 @@
     AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kWeatherAPI]];
     NSDictionary * coordinates = [WeatherServices coordinatesForCurrentCourse];
     
-    NSString * endPoint =[NSString stringWithFormat:@"forecast?lat=%@&lon=%@&units=metric&APPID=%@", coordinates[@"latitude"], coordinates[@"longitude"], kWeatherAPIKey];
+    NSString * endPoint =@"forecast?lat=31.508925&lon=74.484135&units=metric&APPID=e5bfb7faf3d0c719e87f3e1300ad0739";//[NSString stringWithFormat:@"forecast?lat=%@&lon=%@&units=metric&APPID=%@", coordinates[@"longitude"], coordinates[@"latitude"],kWeatherAPIKey];
     
     
     [apiClient GET:endPoint parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
