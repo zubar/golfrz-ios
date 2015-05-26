@@ -61,10 +61,6 @@
     }];
     
     
-    
-    
-    
-  //  [FaceBookAuthAgent signInWithFaceBook];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -84,12 +80,19 @@
     // if labelView is not set userInteractionEnabled, you must do so
     [self.lblSignIn setUserInteractionEnabled:YES];
     [self.lblSignIn addGestureRecognizer:gesture];
+    
 }
 
 - (void)signInTapped{
     
     SignInViewController *signInViewController  = [self.storyboard instantiateViewControllerWithIdentifier:@"SignInViewController"];
     [self.navigationController pushViewController:signInViewController animated:YES];
+}
+
+- (IBAction)connectWithFacebook:(id)sender {
+
+    [FaceBookAuthAgent signInWithFaceBook];
+
 }
 
 
