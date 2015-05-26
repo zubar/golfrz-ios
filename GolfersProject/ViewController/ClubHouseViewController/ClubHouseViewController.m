@@ -69,7 +69,10 @@
     
     WeatherViewCell *customCell = (WeatherViewCell *)cell;
     [customCell.lblTime setText:[self hoursFromDate:tempWeather.timeStamp]];
-    [customCell.lblTemperature setText:[NSString stringWithFormat:@"%@", tempWeather.temperature]];
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    [formatter setMaximumFractionDigits:0];
+    NSString *tempToDisplay = [formatter stringFromNumber:tempWeather.temperature];
+    [customCell.lblTemperature setText:[NSString stringWithFormat:@"%@", tempToDisplay]];
     
     [customCell.imgWeatherIcon sd_setImageWithURL:[NSURL URLWithString:tempWeather.condition.icon] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
       //  <#code#>

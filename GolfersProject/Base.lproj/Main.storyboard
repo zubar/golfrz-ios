@@ -877,18 +877,18 @@
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5au-vI-tRK">
-                                                                    <rect key="frame" x="18" y="23" width="20" height="20"/>
+                                                                    <rect key="frame" x="17" y="22" width="22" height="22"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="width" constant="20" id="nHd-iT-wxX"/>
-                                                                        <constraint firstAttribute="height" constant="20" id="uPq-iR-6b1"/>
+                                                                        <constraint firstAttribute="width" constant="22" id="nHd-iT-wxX"/>
+                                                                        <constraint firstAttribute="height" constant="22" id="uPq-iR-6b1"/>
                                                                     </constraints>
                                                                 </imageView>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lIk-oU-zrY">
-                                                                    <rect key="frame" x="13" y="8" width="29" height="14"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xRp-el-ZhR">
+                                                                    <rect key="frame" x="13" y="49" width="29" height="16"/>
                                                                     <attributedString key="attributedText">
                                                                         <fragment content="Label">
                                                                             <attributes>
-                                                                                <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 <font key="NSFont" size="11" name="HelveticaNeue-Bold"/>
                                                                                 <font key="NSOriginalFont" size="11" name="HelveticaNeue-Bold"/>
                                                                                 <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
@@ -897,12 +897,12 @@
                                                                     </attributedString>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xRp-el-ZhR">
-                                                                    <rect key="frame" x="13" y="51" width="29" height="14"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lIk-oU-zrY">
+                                                                    <rect key="frame" x="13" y="8" width="29" height="9"/>
                                                                     <attributedString key="attributedText">
                                                                         <fragment content="Label">
                                                                             <attributes>
-                                                                                <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                                <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                                 <font key="NSFont" size="11" name="HelveticaNeue-Bold"/>
                                                                                 <font key="NSOriginalFont" size="11" name="HelveticaNeue-Bold"/>
                                                                                 <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
@@ -918,10 +918,13 @@
                                                         <constraints>
                                                             <constraint firstAttribute="centerX" secondItem="lIk-oU-zrY" secondAttribute="centerX" id="1OW-WA-EiQ"/>
                                                             <constraint firstAttribute="centerX" secondItem="5au-vI-tRK" secondAttribute="centerX" id="F5b-Do-Izm"/>
+                                                            <constraint firstItem="5au-vI-tRK" firstAttribute="top" secondItem="lIk-oU-zrY" secondAttribute="bottom" constant="5" id="OFR-0f-NYx"/>
                                                             <constraint firstItem="lIk-oU-zrY" firstAttribute="top" secondItem="lwT-If-vQD" secondAttribute="topMargin" id="RxT-5X-8tD"/>
                                                             <constraint firstAttribute="bottom" secondItem="xRp-el-ZhR" secondAttribute="bottom" id="S4D-TP-1qo"/>
+                                                            <constraint firstItem="xRp-el-ZhR" firstAttribute="top" secondItem="5au-vI-tRK" secondAttribute="bottom" constant="5" id="WN0-Kw-7Do"/>
                                                             <constraint firstAttribute="centerX" secondItem="xRp-el-ZhR" secondAttribute="centerX" id="axo-SG-X5E"/>
                                                             <constraint firstAttribute="centerY" secondItem="5au-vI-tRK" secondAttribute="centerY" id="bE9-ho-1CV"/>
+                                                            <constraint firstAttribute="centerY" secondItem="5au-vI-tRK" secondAttribute="centerY" id="wOx-RO-HRf"/>
                                                         </constraints>
                                                         <size key="customSize" width="55" height="65"/>
                                                         <connections>
