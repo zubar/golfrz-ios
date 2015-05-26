@@ -59,6 +59,8 @@
 + (NSDate *)dateFromString:(NSString *)string {
 	NSDateFormatter *inputFormatter = [[NSDateFormatter alloc] init];
 	[inputFormatter setDateFormat:[NSDate dbFormatString]];
+    [inputFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
+    
 	NSDate *date = [inputFormatter dateFromString:string];
 	return date;
 }

@@ -83,7 +83,7 @@
 -(NSString *)hoursFromDate:(NSDate *)date{
 
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"h a"];
+    [dateFormatter setDateFormat:@"h a"];    
     NSString *formattedDateString = [dateFormatter stringFromDate:date];
     return formattedDateString;
     
