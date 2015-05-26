@@ -22,8 +22,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[self navigationItem] setTitle:@"Clubhouse"];
+    [[self navigationItem] setTitle:@"CLUBHOUSE"];
     
+    self.navigationController.navigationBar.titleTextAttributes = [NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName];
     // Do any additional setup after loading the view.
     [MBProgressHUD hideHUDForView:self.view animated:YES];
     [WeatherServices weatherInfo:^(bool status, NSArray *mWeatherData) {
@@ -81,14 +82,11 @@
 
 -(NSString *)hoursFromDate:(NSDate *)date{
 
-//    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-//    [dateFormatter setDateFormat:@"<your date format goes here"];
-//    NSDate *date = date;
-    NSCalendar *calendar = [NSCalendar currentCalendar];
-    NSDateComponents *components = [calendar components:(NSCalendarUnitHour | NSCalendarUnitMinute) fromDate:date];
-    NSInteger hour = [components hour];
-    NSInteger minute = [components minute];
-    return [NSString stringWithFormat:@"%ld", (long)hour];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"h a"];
+    NSString *formattedDateString = [dateFormatter stringFromDate:date];
+    return formattedDateString;
+    
 }
 
 
