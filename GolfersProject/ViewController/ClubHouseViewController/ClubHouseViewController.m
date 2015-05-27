@@ -22,9 +22,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    UIButton * imageButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 10, 22, 22)];
+    [imageButton setBackgroundImage:[UIImage imageNamed:@"contactus_button"] forState:UIControlStateNormal];
+    [imageButton addTarget:self action:@selector(test) forControlEvents:UIControlEventAllEvents];
+    
+    UIBarButtonItem *leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:imageButton];
+    
+    
+    self.navigationItem.leftBarButtonItem = leftBarButtonItem;
+    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
     [[self navigationItem] setTitle:@"CLUBHOUSE"];
     
     self.navigationController.navigationBar.titleTextAttributes = [NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName];
+    
     // Do any additional setup after loading the view.
     [MBProgressHUD hideHUDForView:self.view animated:YES];
     [WeatherServices weatherInfo:^(bool status, NSArray *mWeatherData) {
@@ -40,7 +51,9 @@
         }
     }];
 }
+-(void)test{
 
+}
 - (void)pushNextController{
     [self.navigationController pushViewController:self.containerVC.playerProfileViewController animated:YES];
 }
