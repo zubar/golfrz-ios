@@ -23,9 +23,6 @@
 		3D1963F91B0E218B00766CFC /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 885CB0711B09F93700AD2A7B /* User.m */; };
 		3D1963FA1B0E21B100766CFC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 88024F621AD29134004AC260 /* main.m */; };
 		3D1964011B1305FC00766CFC /* PresentationServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1964001B1305FC00766CFC /* PresentationServices.m */; };
-		3D1964161B130E3B00766CFC /* CalendarUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1964051B130E3B00766CFC /* CalendarUtilities.m */; };
-		3D1964171B130E3B00766CFC /* NSDate+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1964071B130E3B00766CFC /* NSDate+Helper.m */; };
-		3D1964181B130E3B00766CFC /* THCalendarInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1964091B130E3B00766CFC /* THCalendarInfo.m */; };
 		3D1964191B130E3B00766CFC /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D19640C1B130E3B00766CFC /* MBProgressHUD.m */; };
 		3D19641A1B130E3B00766CFC /* TPKeyboardAvoidingCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D19640F1B130E3B00766CFC /* TPKeyboardAvoidingCollectionView.m */; };
 		3D19641B1B130E3B00766CFC /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1964111B130E3B00766CFC /* TPKeyboardAvoidingScrollView.m */; };
@@ -36,6 +33,21 @@
 		3D1964231B13271000766CFC /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D1964201B13270F00766CFC /* FBSDKShareKit.framework */; };
 		3D1964271B13305200766CFC /* FaceBookAuthAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1964261B13305200766CFC /* FaceBookAuthAgent.m */; };
 		3D19642A1B13364B00766CFC /* Coordinates.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1964291B13364B00766CFC /* Coordinates.m */; };
+		3D87D8281B159FE00046BD60 /* EventCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D87D8271B159FE00046BD60 /* EventCalendarViewController.m */; };
+		3D87D82B1B15A0880046BD60 /* EventDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D87D82A1B15A0880046BD60 /* EventDetailViewController.m */; };
+		3D87D8321B15A5F50046BD60 /* CalendarEventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D87D8301B15A5F50046BD60 /* CalendarEventCell.m */; };
+		3D87D8331B15A5F50046BD60 /* CalendarEventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D87D8311B15A5F50046BD60 /* CalendarEventCell.xib */; };
+		3D87D8361B15E31D0046BD60 /* EventList.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D87D8351B15E31D0046BD60 /* EventList.m */; };
+		3DD9BD0D1B14BE1C00A2F296 /* CalendarUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD9BD081B14BE1C00A2F296 /* CalendarUtilities.m */; };
+		3DD9BD0E1B14BE1C00A2F296 /* NSDate+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD9BD0A1B14BE1C00A2F296 /* NSDate+Helper.m */; };
+		3DD9BD0F1B14BE1C00A2F296 /* THCalendarInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD9BD0C1B14BE1C00A2F296 /* THCalendarInfo.m */; };
+		3DD9BD1B1B14BE2C00A2F296 /* NSDate+convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD9BD121B14BE2C00A2F296 /* NSDate+convenience.m */; };
+		3DD9BD1C1B14BE2C00A2F296 /* NSMutableArray+convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD9BD141B14BE2C00A2F296 /* NSMutableArray+convenience.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3DD9BD1D1B14BE2C00A2F296 /* UIColor+expanded.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD9BD161B14BE2C00A2F296 /* UIColor+expanded.m */; };
+		3DD9BD1E1B14BE2C00A2F296 /* UIView+convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD9BD181B14BE2C00A2F296 /* UIView+convenience.m */; };
+		3DD9BD1F1B14BE2C00A2F296 /* VRGCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD9BD1A1B14BE2C00A2F296 /* VRGCalendarView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3DD9BD221B14C02100A2F296 /* CalendarEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD9BD211B14C02100A2F296 /* CalendarEvent.m */; };
+		3DD9BD261B14C39000A2F296 /* CalendarEventServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD9BD251B14C39000A2F296 /* CalendarEventServices.m */; };
 		88024F6C1AD29134004AC260 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88024F6A1AD29134004AC260 /* Main.storyboard */; };
 		88024F6E1AD29134004AC260 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88024F6D1AD29134004AC260 /* Images.xcassets */; };
 		88024F711AD29134004AC260 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88024F6F1AD29134004AC260 /* LaunchScreen.xib */; };
@@ -93,12 +105,6 @@
 		3D1963F71B0E1F0500766CFC /* WeatherViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherViewCell.m; sourceTree = "<group>"; };
 		3D1963FF1B1305FC00766CFC /* PresentationServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PresentationServices.h; sourceTree = "<group>"; };
 		3D1964001B1305FC00766CFC /* PresentationServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PresentationServices.m; sourceTree = "<group>"; };
-		3D1964041B130E3B00766CFC /* CalendarUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarUtilities.h; sourceTree = "<group>"; };
-		3D1964051B130E3B00766CFC /* CalendarUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarUtilities.m; sourceTree = "<group>"; };
-		3D1964061B130E3B00766CFC /* NSDate+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Helper.h"; sourceTree = "<group>"; };
-		3D1964071B130E3B00766CFC /* NSDate+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Helper.m"; sourceTree = "<group>"; };
-		3D1964081B130E3B00766CFC /* THCalendarInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THCalendarInfo.h; sourceTree = "<group>"; };
-		3D1964091B130E3B00766CFC /* THCalendarInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THCalendarInfo.m; sourceTree = "<group>"; };
 		3D19640B1B130E3B00766CFC /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		3D19640C1B130E3B00766CFC /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		3D19640E1B130E3B00766CFC /* TPKeyboardAvoidingCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingCollectionView.h; sourceTree = "<group>"; };
@@ -116,6 +122,35 @@
 		3D1964261B13305200766CFC /* FaceBookAuthAgent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaceBookAuthAgent.m; sourceTree = "<group>"; };
 		3D1964281B13364B00766CFC /* Coordinates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Coordinates.h; sourceTree = "<group>"; };
 		3D1964291B13364B00766CFC /* Coordinates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Coordinates.m; sourceTree = "<group>"; };
+		3D87D8261B159FE00046BD60 /* EventCalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventCalendarViewController.h; sourceTree = "<group>"; };
+		3D87D8271B159FE00046BD60 /* EventCalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventCalendarViewController.m; sourceTree = "<group>"; };
+		3D87D8291B15A0880046BD60 /* EventDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventDetailViewController.h; sourceTree = "<group>"; };
+		3D87D82A1B15A0880046BD60 /* EventDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventDetailViewController.m; sourceTree = "<group>"; };
+		3D87D82F1B15A5F50046BD60 /* CalendarEventCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarEventCell.h; sourceTree = "<group>"; };
+		3D87D8301B15A5F50046BD60 /* CalendarEventCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarEventCell.m; sourceTree = "<group>"; };
+		3D87D8311B15A5F50046BD60 /* CalendarEventCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarEventCell.xib; sourceTree = "<group>"; };
+		3D87D8341B15E31D0046BD60 /* EventList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventList.h; sourceTree = "<group>"; };
+		3D87D8351B15E31D0046BD60 /* EventList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventList.m; sourceTree = "<group>"; };
+		3DD9BD071B14BE1C00A2F296 /* CalendarUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarUtilities.h; sourceTree = "<group>"; };
+		3DD9BD081B14BE1C00A2F296 /* CalendarUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarUtilities.m; sourceTree = "<group>"; };
+		3DD9BD091B14BE1C00A2F296 /* NSDate+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Helper.h"; sourceTree = "<group>"; };
+		3DD9BD0A1B14BE1C00A2F296 /* NSDate+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Helper.m"; sourceTree = "<group>"; };
+		3DD9BD0B1B14BE1C00A2F296 /* THCalendarInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THCalendarInfo.h; sourceTree = "<group>"; };
+		3DD9BD0C1B14BE1C00A2F296 /* THCalendarInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THCalendarInfo.m; sourceTree = "<group>"; };
+		3DD9BD111B14BE2C00A2F296 /* NSDate+convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+convenience.h"; sourceTree = "<group>"; };
+		3DD9BD121B14BE2C00A2F296 /* NSDate+convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+convenience.m"; sourceTree = "<group>"; };
+		3DD9BD131B14BE2C00A2F296 /* NSMutableArray+convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+convenience.h"; sourceTree = "<group>"; };
+		3DD9BD141B14BE2C00A2F296 /* NSMutableArray+convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+convenience.m"; sourceTree = "<group>"; };
+		3DD9BD151B14BE2C00A2F296 /* UIColor+expanded.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+expanded.h"; sourceTree = "<group>"; };
+		3DD9BD161B14BE2C00A2F296 /* UIColor+expanded.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+expanded.m"; sourceTree = "<group>"; };
+		3DD9BD171B14BE2C00A2F296 /* UIView+convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+convenience.h"; sourceTree = "<group>"; };
+		3DD9BD181B14BE2C00A2F296 /* UIView+convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+convenience.m"; sourceTree = "<group>"; };
+		3DD9BD191B14BE2C00A2F296 /* VRGCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VRGCalendarView.h; sourceTree = "<group>"; };
+		3DD9BD1A1B14BE2C00A2F296 /* VRGCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VRGCalendarView.m; sourceTree = "<group>"; };
+		3DD9BD201B14C02100A2F296 /* CalendarEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarEvent.h; sourceTree = "<group>"; };
+		3DD9BD211B14C02100A2F296 /* CalendarEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarEvent.m; sourceTree = "<group>"; };
+		3DD9BD241B14C39000A2F296 /* CalendarEventServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarEventServices.h; sourceTree = "<group>"; };
+		3DD9BD251B14C39000A2F296 /* CalendarEventServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarEventServices.m; sourceTree = "<group>"; };
 		5A26DAF5CF62E34098597EA3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		88024F5D1AD29134004AC260 /* GolfersProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GolfersProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88024F611AD29134004AC260 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -286,27 +321,15 @@
 		3D1964021B130E3B00766CFC /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				3DD9BD101B14BE2C00A2F296 /* VurigCalendar */,
+				3DD9BD061B14BE1C00A2F296 /* CalenderUtils */,
 				3D19641E1B13270F00766CFC /* FBSDKCoreKit.framework */,
 				3D19641F1B13270F00766CFC /* FBSDKLoginKit.framework */,
 				3D1964201B13270F00766CFC /* FBSDKShareKit.framework */,
-				3D1964031B130E3B00766CFC /* Calender */,
 				3D19640A1B130E3B00766CFC /* MDProgressHUD */,
 				3D19640D1B130E3B00766CFC /* TPKeyboardAvoiding */,
 			);
 			path = Vendors;
-			sourceTree = "<group>";
-		};
-		3D1964031B130E3B00766CFC /* Calender */ = {
-			isa = PBXGroup;
-			children = (
-				3D1964041B130E3B00766CFC /* CalendarUtilities.h */,
-				3D1964051B130E3B00766CFC /* CalendarUtilities.m */,
-				3D1964061B130E3B00766CFC /* NSDate+Helper.h */,
-				3D1964071B130E3B00766CFC /* NSDate+Helper.m */,
-				3D1964081B130E3B00766CFC /* THCalendarInfo.h */,
-				3D1964091B130E3B00766CFC /* THCalendarInfo.m */,
-			);
-			path = Calender;
 			sourceTree = "<group>";
 		};
 		3D19640A1B130E3B00766CFC /* MDProgressHUD */ = {
@@ -340,6 +363,63 @@
 				3D1964261B13305200766CFC /* FaceBookAuthAgent.m */,
 			);
 			path = FBAuthenticationAgent;
+			sourceTree = "<group>";
+		};
+		3D87D8241B159FBB0046BD60 /* EventCalendarViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3D87D8261B159FE00046BD60 /* EventCalendarViewController.h */,
+				3D87D8271B159FE00046BD60 /* EventCalendarViewController.m */,
+			);
+			path = EventCalendarViewController;
+			sourceTree = "<group>";
+		};
+		3D87D8251B159FBB0046BD60 /* EventDetailViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3D87D8291B15A0880046BD60 /* EventDetailViewController.h */,
+				3D87D82A1B15A0880046BD60 /* EventDetailViewController.m */,
+			);
+			path = EventDetailViewController;
+			sourceTree = "<group>";
+		};
+		3DD9BD061B14BE1C00A2F296 /* CalenderUtils */ = {
+			isa = PBXGroup;
+			children = (
+				3DD9BD071B14BE1C00A2F296 /* CalendarUtilities.h */,
+				3DD9BD081B14BE1C00A2F296 /* CalendarUtilities.m */,
+				3DD9BD091B14BE1C00A2F296 /* NSDate+Helper.h */,
+				3DD9BD0A1B14BE1C00A2F296 /* NSDate+Helper.m */,
+				3DD9BD0B1B14BE1C00A2F296 /* THCalendarInfo.h */,
+				3DD9BD0C1B14BE1C00A2F296 /* THCalendarInfo.m */,
+			);
+			path = CalenderUtils;
+			sourceTree = "<group>";
+		};
+		3DD9BD101B14BE2C00A2F296 /* VurigCalendar */ = {
+			isa = PBXGroup;
+			children = (
+				3DD9BD111B14BE2C00A2F296 /* NSDate+convenience.h */,
+				3DD9BD121B14BE2C00A2F296 /* NSDate+convenience.m */,
+				3DD9BD131B14BE2C00A2F296 /* NSMutableArray+convenience.h */,
+				3DD9BD141B14BE2C00A2F296 /* NSMutableArray+convenience.m */,
+				3DD9BD151B14BE2C00A2F296 /* UIColor+expanded.h */,
+				3DD9BD161B14BE2C00A2F296 /* UIColor+expanded.m */,
+				3DD9BD171B14BE2C00A2F296 /* UIView+convenience.h */,
+				3DD9BD181B14BE2C00A2F296 /* UIView+convenience.m */,
+				3DD9BD191B14BE2C00A2F296 /* VRGCalendarView.h */,
+				3DD9BD1A1B14BE2C00A2F296 /* VRGCalendarView.m */,
+			);
+			path = VurigCalendar;
+			sourceTree = "<group>";
+		};
+		3DD9BD231B14C36D00A2F296 /* EventServices */ = {
+			isa = PBXGroup;
+			children = (
+				3DD9BD241B14C39000A2F296 /* CalendarEventServices.h */,
+				3DD9BD251B14C39000A2F296 /* CalendarEventServices.m */,
+			);
+			path = EventServices;
 			sourceTree = "<group>";
 		};
 		66D43E9E53452F667DDF180D /* Pods */ = {
@@ -432,6 +512,8 @@
 		885CB04F1B09BADE00AD2A7B /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				3D87D8241B159FBB0046BD60 /* EventCalendarViewController */,
+				3D87D8251B159FBB0046BD60 /* EventDetailViewController */,
 				3D1963ED1B0E1B6900766CFC /* PlayerProfileViewController */,
 				3D1963F01B0E1B6900766CFC /* RewardViewController */,
 				3D1963E21B0E1B5200766CFC /* ClubHouseContainerVC */,
@@ -494,6 +576,10 @@
 				885CB0791B0A117300AD2A7B /* GolfrzErrorResponse.m */,
 				885CB0701B09F93700AD2A7B /* User.h */,
 				885CB0711B09F93700AD2A7B /* User.m */,
+				3DD9BD201B14C02100A2F296 /* CalendarEvent.h */,
+				3DD9BD211B14C02100A2F296 /* CalendarEvent.m */,
+				3D87D8341B15E31D0046BD60 /* EventList.h */,
+				3D87D8351B15E31D0046BD60 /* EventList.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -501,6 +587,7 @@
 		885CB07C1B0A121300AD2A7B /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				3DD9BD231B14C36D00A2F296 /* EventServices */,
 				3D1964241B13302A00766CFC /* FBAuthenticationAgent */,
 				3D1963FD1B1305D500766CFC /* GeoLocationServices */,
 				3D1963FE1B1305D500766CFC /* PresentationServices */,
@@ -555,6 +642,9 @@
 			children = (
 				889872CA1B13437400D3C0E9 /* SideNotificationView.h */,
 				889872CB1B13437400D3C0E9 /* SideNotificationView.m */,
+				3D87D82F1B15A5F50046BD60 /* CalendarEventCell.h */,
+				3D87D8301B15A5F50046BD60 /* CalendarEventCell.m */,
+				3D87D8311B15A5F50046BD60 /* CalendarEventCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -650,6 +740,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				889872C91B13239400D3C0E9 /* SideNotificationView.xib in Resources */,
+				3D87D8331B15A5F50046BD60 /* CalendarEventCell.xib in Resources */,
 				88024F6C1AD29134004AC260 /* Main.storyboard in Resources */,
 				88024F711AD29134004AC260 /* LaunchScreen.xib in Resources */,
 				88024F6E1AD29134004AC260 /* Images.xcassets in Resources */,
@@ -695,37 +786,48 @@
 				3D19642A1B13364B00766CFC /* Coordinates.m in Sources */,
 				3D1963F41B0E1B6900766CFC /* RewardViewController.m in Sources */,
 				3D1963BC1B0CE05700766CFC /* CourseServices.m in Sources */,
-				3D1964181B130E3B00766CFC /* THCalendarInfo.m in Sources */,
 				885CB06B1B09BADE00AD2A7B /* SignUpViewController.m in Sources */,
 				889872CC1B13437400D3C0E9 /* SideNotificationView.m in Sources */,
 				885CB0441B09BA9D00AD2A7B /* AppDelegate.m in Sources */,
 				3D1963CE1B0DBC8300766CFC /* Condition.m in Sources */,
 				885CB06D1B09BDCD00AD2A7B /* README.md in Sources */,
+				3DD9BD0E1B14BE1C00A2F296 /* NSDate+Helper.m in Sources */,
 				3D1963CB1B0DBC2600766CFC /* WeatherData.m in Sources */,
 				3D1963C01B0CE08900766CFC /* Course.m in Sources */,
 				3D1963EB1B0E1B5200766CFC /* ClubHouseSubController.m in Sources */,
 				88709E9E1B0DB600005DA345 /* ForgotPasswordSViewController.m in Sources */,
 				3D1963C41B0DAECD00766CFC /* WeatherServices.m in Sources */,
+				3DD9BD221B14C02100A2F296 /* CalendarEvent.m in Sources */,
 				885CB07A1B0A117300AD2A7B /* GolfrzError.m in Sources */,
 				3D1963BD1B0CE05700766CFC /* UserServices.m in Sources */,
+				3DD9BD0F1B14BE1C00A2F296 /* THCalendarInfo.m in Sources */,
 				3D19641A1B130E3B00766CFC /* TPKeyboardAvoidingCollectionView.m in Sources */,
+				3D87D8361B15E31D0046BD60 /* EventList.m in Sources */,
 				3D19641C1B130E3B00766CFC /* TPKeyboardAvoidingTableView.m in Sources */,
-				3D1964171B130E3B00766CFC /* NSDate+Helper.m in Sources */,
+				3DD9BD1B1B14BE2C00A2F296 /* NSDate+convenience.m in Sources */,
 				885CB0801B0A128100AD2A7B /* AuthenticationService.m in Sources */,
 				886B9ED41B0B95900078B09D /* ForgotPasswordViewController.m in Sources */,
 				885CB06A1B09BADE00AD2A7B /* SignInViewController.m in Sources */,
 				3D19641D1B130E3B00766CFC /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
+				3D87D8281B159FE00046BD60 /* EventCalendarViewController.m in Sources */,
 				3D1964191B130E3B00766CFC /* MBProgressHUD.m in Sources */,
 				885CB0751B09FB0100AD2A7B /* APIClient.m in Sources */,
 				3D1964011B1305FC00766CFC /* PresentationServices.m in Sources */,
+				3DD9BD1F1B14BE2C00A2F296 /* VRGCalendarView.m in Sources */,
 				3D1963F31B0E1B6900766CFC /* PlayerProfileViewController.m in Sources */,
 				3D19641B1B130E3B00766CFC /* TPKeyboardAvoidingScrollView.m in Sources */,
+				3DD9BD1C1B14BE2C00A2F296 /* NSMutableArray+convenience.m in Sources */,
 				3D1964271B13305200766CFC /* FaceBookAuthAgent.m in Sources */,
+				3DD9BD1D1B14BE2C00A2F296 /* UIColor+expanded.m in Sources */,
 				885CB07B1B0A117300AD2A7B /* GolfrzErrorResponse.m in Sources */,
-				3D1964161B130E3B00766CFC /* CalendarUtilities.m in Sources */,
+				3DD9BD0D1B14BE1C00A2F296 /* CalendarUtilities.m in Sources */,
+				3DD9BD261B14C39000A2F296 /* CalendarEventServices.m in Sources */,
+				3D87D8321B15A5F50046BD60 /* CalendarEventCell.m in Sources */,
 				3D1963F81B0E1F0500766CFC /* WeatherViewCell.m in Sources */,
 				3D1963EA1B0E1B5200766CFC /* ClubHouseContainerVC.m in Sources */,
+				3DD9BD1E1B14BE2C00A2F296 /* UIView+convenience.m in Sources */,
 				3D1963EC1B0E1B5200766CFC /* ClubHouseViewController.m in Sources */,
+				3D87D82B1B15A0880046BD60 /* EventDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

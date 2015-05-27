@@ -11,7 +11,8 @@
 #import "GolfrzErrorResponse.h"
 #import "Constants.h"
 #import "Course.h"
-
+#import "CalendarEvent.h"
+#import "EventList.h"
 
 @implementation APIClient
 
@@ -39,7 +40,8 @@
 
     return @{
              kSignInURL : [User class],
-             kCourseInfo : [Course class]
+             kCourseInfo : [Course class],
+             kCalenderEventsList : [EventList class]
              };
 }
 

@@ -209,4 +209,41 @@
 	return [self stringForDisplayFromDate:date prefixed:NO];
 }
 
+
+static NSDateFormatter *sUserVisibleDateFormatter = nil;
+
++ (NSDate *)NSDateForRFC3339DateTimeString:(NSString *)rfc3339DateTimeString {
+    /*
+     Returns a user-visible date time string that corresponds to the specified
+     RFC 3339 date time string. Note that this does not handle all possible
+     RFC 3339 date time strings, just one of the most common styles.
+     */
+    
+    // If the date formatters aren't already set up, create them and cache them for reuse.
+    static NSDateFormatter *sRFC3339DateFormatter = nil;
+    if (sRFC3339DateFormatter == nil) {
+        sRFC3339DateFormatter = [[NSDateFormatter alloc] init];
+        NSLocale *enUSPOSIXLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
+        
+        [sRFC3339DateFormatter setLocale:enUSPOSIXLocale];
+        [sRFC3339DateFormatter setDateFormat:@"yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'"];
+        [sRFC3339DateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
+    }
+    
+    // Convert the RFC 3339 date time string to an NSDate.
+    NSDate *date = [sRFC3339DateFormatter dateFromString:rfc3339DateTimeString];
+    
+    
+//    NSString *userVisibleDateTimeString;
+//    if (date != nil) {
+//        if (sUserVisibleDateFormatter == nil) {
+//            sUserVisibleDateFormatter = [[NSDateFormatter alloc] init];
+//            [sUserVisibleDateFormatter setDateStyle:NSDateFormatterShortStyle];
+//            [sUserVisibleDateFormatter setTimeStyle:NSDateFormatterShortStyle];
+//        }
+//        // Convert the date object to a user-visible date string.
+//        userVisibleDateTimeString = [sUserVisibleDateFormatter stringFromDate:date];
+//    }
+    return date;
+}
 @end

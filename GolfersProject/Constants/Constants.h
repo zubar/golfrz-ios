@@ -13,7 +13,10 @@
 /*
  * BaseImageURLGolfrz
  */
-static NSString * const kBaseImageUrl = @"https://powerful-plains-9156.herokuapp.com/";
+//static NSString * const kBaseImageUrl = @"https://powerful-plains-9156.herokuapp.com/";
+static NSString * const kBaseImageUrl = @"http://golfrz-api.herokuapp.com/";
+
+static NSString * const kBaseURL = @"http://golfrz-api.herokuapp.com/api/0.1/";
 
 
 /*
@@ -26,24 +29,28 @@ static NSString * const kWeatherAPIKey = @"e5bfb7faf3d0c719e87f3e1300ad0739";
  *  Authentication Services
  *  SignIn, SignOut
  */
-static NSString * const kBaseURL = @"https://powerful-plains-9156.herokuapp.com/api/";
-static NSString * const kSignInURL = @"users/sign_in";
-static NSString * const kForgetPasswordURL = @"users/password";
-static NSString * const kSignOutURL = @"users/sign_out";
-static NSString * const kSignUpURL = @"users";
+static NSString * const kSignInURL = @"sessions";
+static NSString * const kForgetPasswordURL = @"users/forgot_password";
+static NSString * const kSignOutURL = @"sessions";
+static NSString * const kSignUpURL = @"users/sign_up";
 
 /*
  *  Golf Course Data Services
- *  SignIn, SignOut
  */
-static NSString * const kCourseInfo = @"course/info";
+static NSString * const kCourseInfo = @"courses/info";
+static NSString * const kCourseDetail = @"courses/course_detail";
+
+
 //TODO: get it from bundle id,
 #pragma warking - Automation issue.
-static NSString * const kAppBundleId = @"com.golfrz.sedona";
+static NSString * const kAppBundleId = @"org.golfrz.GolfrzProject";
 static NSString * const kUserAgent = @"iOS";
 
 
-
+/*
+ * Events
+ */
+static NSString * const kCalenderEventsList = @"events";
 
 #endif
 

@@ -30,4 +30,6 @@
 + (NSString*)monthNameFromIndex:(NSInteger)aIdx;
 + (NSString*)abbreviatedMonthNameFromIndex:(NSInteger)aIdx;
 
++ (NSDate *)NSDateForRFC3339DateTimeString:(NSString *)rfc3339DateTimeString;
+
 @end

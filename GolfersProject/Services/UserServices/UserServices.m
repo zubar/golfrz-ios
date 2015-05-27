@@ -21,4 +21,14 @@ static User * currentUser = nil;
 +(User *)currentUser{
     return currentUser;
 }
+
+//+(void)updateUserInfo:
+
+
+
+#pragma mark - Helper Methods
+
+//+(NSDictionary *)userInfo:(NSString *)userEmail
+
+
 @end

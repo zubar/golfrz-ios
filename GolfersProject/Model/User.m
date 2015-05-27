@@ -15,7 +15,8 @@
     return @{
              @"authToken" : @"auth_token",
              @"email" : @"email",
-             @"success" : @"success"
+             @"success" : @"success",
+             @"memberId" : @"id"
              //propertyName : json_key
              };
 }
