@@ -17,6 +17,7 @@
 #import "WeatherServices.h"
 #import "Coordinates.h"
 #import "Course.h"
+#import "CalendarEventServices.h"
 
 #import "FaceBookAuthAgent.h"
 
@@ -59,7 +60,6 @@
     } failure:^(bool status, NSError *error) {
         //
     }];
-    
     
 }
 
