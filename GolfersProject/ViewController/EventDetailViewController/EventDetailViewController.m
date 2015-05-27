@@ -7,6 +7,7 @@
 //
 
 #import "EventDetailViewController.h"
+#import "CalendarEvent.h"
 
 @interface EventDetailViewController ()
 
@@ -17,6 +18,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    NSLog(@"%@", self.currentEvent.name);
 }
 
 - (void)didReceiveMemoryWarning {

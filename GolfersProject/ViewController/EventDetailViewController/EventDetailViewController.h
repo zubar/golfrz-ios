@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+@class CalendarEvent;
 
 @interface EventDetailViewController : UIViewController
+
+@property (strong, nonatomic) CalendarEvent * currentEvent;
 
 @end

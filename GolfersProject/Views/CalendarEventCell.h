@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+
+#define CalendarEventCellHeight 99
 @class CalendarEvent;
 
 @protocol CalendarEventCellProtocol
@@ -19,12 +21,14 @@
 
 
 @property (retain, nonatomic) CalendarEvent * event;
-@property (weak, nonatomic) IBOutlet UILabel *eventName;
+@property (weak, nonatomic) IBOutlet UILabel *lbleventName;
 @property (weak, nonatomic) IBOutlet UIImageView *registerCheckMark;
 @property (weak, nonatomic) IBOutlet UIButton *detailDisclosureBtn;
-@property (weak, nonatomic) IBOutlet UILabel *eventTime;
+@property (weak, nonatomic) IBOutlet UILabel *lbleventTime;
 
 @property (weak, nonatomic) id<CalendarEventCellProtocol>delegate;
+
+-(void)configureViewWithEvent:(CalendarEvent *)event;
 
 - (IBAction)detailDisclosureTapped:(id)sender;
 

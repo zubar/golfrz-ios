@@ -33,7 +33,7 @@
 -(void)configureViewWithEvent:(CalendarEvent *)event{
     
     self.event =event;
-    self.eventName.text = self.event.summary;
-    self.eventTime.text = [NSDate stringFromDate:self.event.dateStart];
+    self.lbleventName.text = self.event.summary;
+    self.lbleventTime.text = [NSDate stringFromDate:self.event.dateStart];
 }
 @end

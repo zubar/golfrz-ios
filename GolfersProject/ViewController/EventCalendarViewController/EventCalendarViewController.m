@@ -12,6 +12,7 @@
 #import "CalendarEventCell.h"
 #import "CalendarEvent.h"
 #import "NSDate+Helper.h"
+#import "EventDetailViewController.h"
 
 @interface EventCalendarViewController ()
 
@@ -26,12 +27,15 @@
     self.calendar = [[VRGCalendarView alloc] init];
     [self.calendar setFrame:CGRectMake(0.0f, 60.0f, 320.0f, 320.0f)];
    // [self.calendar setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"CST"]];
+    [self.calendar setBackgroundColor:[UIColor clearColor]];
     
     [self.calendar setDelegate:self];
     [self.view addSubview:self.calendar];
     
     [self fetchEvents];
     
+    [self.eventsTableVeiw setBackgroundColor:[UIColor clearColor]];
+    [self.eventsTableVeiw setBackgroundView:nil];
     
 }
 
@@ -42,6 +46,7 @@
             self.eventslist = eventsArray;
             [self updateEventDates];
             [self reloadCalenderVeiw];
+            [self.eventsTableVeiw reloadData];
         }
     } failure:^(bool status, NSError *error) {
         if (!status) {
@@ -79,53 +84,67 @@
 -(void)calendarView:(VRGCalendarView *)calendarView switchedToMonth:(int)month targetHeight:(float)targetHeight animated:(BOOL)animated{
     [self.calendar markDates:self.eventDates withColors:self.colors];
 }
+
 -(void)calendarView:(VRGCalendarView *)calendarView dateSelected:(NSDate *)date{
 
 
 }
-//2015-05-27 19:00:00 +0000
+
+#pragma mark - CalendarEventCellDelegate
+
+-(void)tappedDetailedDisclosueForEvent:(CalendarEvent *)event{
+
+    [self performSegueWithIdentifier:@"segueToEventDetailController" sender:event];
+}
 
 
-/*
+#pragma mark - UITableViewController
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return [self.eventslist.items count];
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *cellIdentifier = @"leaveRequestCellIdentifier";
+  
+    static NSString *cellIdentifier = @"calendarCellIdentifier";
     
-    TACustomLeaveViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    CalendarEventCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
     if (!cell) {
-        [tableView registerNib:[UINib nibWithNibName:@"TACustomLeaveViewCell" bundle:nil] forCellReuseIdentifier:cellIdentifier];
+        [tableView registerNib:[UINib nibWithNibName:@"CalendarEventCell" bundle:nil] forCellReuseIdentifier:cellIdentifier];
         cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     }
     
-    DTOLeave * leaveObject = (DTOLeave *)[self.leavesArray objectAtIndex:indexPath.row];
+    CalendarEvent * eventObject = [self.eventslist.items objectAtIndex:indexPath.row];
+   // cell.lbleventName.text = eventObject.name;
+    [cell configureViewWithEvent:eventObject];
     
-    
-    [cell setDurationViewBoundary];
-    
-    NSArray * startDateComponents = [leaveObject.startDate componentsSeparatedByString:@"-"];
-    NSArray * endDateComponents = [leaveObject.endDate componentsSeparatedByString:@"-"];
-    
-    int leaveCount = [[endDateComponents objectAtIndex:2] intValue] - [[startDateComponents objectAtIndex:2] intValue] + 1;
-    
-    cell.nameLabel.text = leaveObject.studentName;
-    cell.monthLabel.text = [monthsNameArray objectAtIndex:[[startDateComponents objectAtIndex:1] intValue] - 1];
-    cell.detailLabel.text = [NSString stringWithFormat:@"%@ Leave , %dDays", leaveObject.type, leaveCount];
-    cell.dateLabel.text = [NSString stringWithFormat:@"%@-%@", [startDateComponents objectAtIndex:2], [endDateComponents objectAtIndex:2]];
-    
-    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+    //[cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+    cell.delegate = self;
     return cell;
 }
- */
 
-/*
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return CalendarEventCellHeight;
+}
+
+
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    
+    if ([[segue identifier] isEqualToString: @"segueToEventDetailController"]) {
+        EventDetailViewController *dest = (EventDetailViewController *)[segue destinationViewController];
+        dest.currentEvent=sender;
+    }
 }
-*/
+
 
 #pragma mark - MemoryManagement 
 - (void)didReceiveMemoryWarning {
