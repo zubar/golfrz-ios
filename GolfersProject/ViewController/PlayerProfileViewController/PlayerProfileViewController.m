@@ -58,4 +58,8 @@
 }
 */
 
+- (IBAction)btnSettingsTapped:(UIButton *)sender {
+}
+- (IBAction)btnStartRoundTapped:(UIButton *)sender {
+}
 @end

@@ -8,6 +8,7 @@
 
 #import "EventDetailViewController.h"
 #import "CalendarEvent.h"
+#import "CalendarUtilities.h"
 
 @interface EventDetailViewController ()
 
@@ -20,7 +21,21 @@
     // Do any additional setup after loading the view.
     
     NSLog(@"%@", self.currentEvent.name);
+    
+    //TODO: Event name in api.
+    
+    NSDateComponents * eventDate = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear | NSCalendarUnitHour | NSCalendarUnitMinute fromDate:self.currentEvent.dateStart];
+    
+    
+    [self.lblDay setText:[CalendarUtilities monthNameFromNum:eventDate.month]];
+    [self.lblTime setText:[NSString stringWithFormat:@"%ld:%ld", (long)eventDate.hour, (long)eventDate.minute]];
+    [self.lblEventName setText:self.currentEvent.name];
+    [self.lblEventDetails setText:self.currentEvent.breif];
+    [self.lblEventLocation setText:self.currentEvent.location];
+    
 }
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -37,4 +52,9 @@
 }
 */
 
+- (IBAction)btnContactAdminTapped:(UIButton *)sender {
+}
+
+- (IBAction)btnInviteFriendsTapped:(UIButton *)sender {
+}
 @end

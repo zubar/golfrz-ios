@@ -63,6 +63,7 @@
 		885CB0801B0A128100AD2A7B /* AuthenticationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 885CB07F1B0A128100AD2A7B /* AuthenticationService.m */; };
 		886B9ED41B0B95900078B09D /* ForgotPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 886B9ED31B0B95900078B09D /* ForgotPasswordViewController.m */; };
 		88709E9E1B0DB600005DA345 /* ForgotPasswordSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88709E9D1B0DB600005DA345 /* ForgotPasswordSViewController.m */; };
+		8873AA761B18C5F500E74C87 /* EventAdminViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8873AA751B18C5F500E74C87 /* EventAdminViewController.m */; };
 		889872BF1B13105C00D3C0E9 /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 889872BE1B13105C00D3C0E9 /* Utilities.m */; };
 		889872C91B13239400D3C0E9 /* SideNotificationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 889872C81B13239400D3C0E9 /* SideNotificationView.xib */; };
 		889872CC1B13437400D3C0E9 /* SideNotificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 889872CB1B13437400D3C0E9 /* SideNotificationView.m */; };
@@ -187,6 +188,8 @@
 		886B9ED31B0B95900078B09D /* ForgotPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgotPasswordViewController.m; sourceTree = "<group>"; };
 		88709E9C1B0DB600005DA345 /* ForgotPasswordSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgotPasswordSViewController.h; sourceTree = "<group>"; };
 		88709E9D1B0DB600005DA345 /* ForgotPasswordSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgotPasswordSViewController.m; sourceTree = "<group>"; };
+		8873AA741B18C5F500E74C87 /* EventAdminViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventAdminViewController.h; sourceTree = "<group>"; };
+		8873AA751B18C5F500E74C87 /* EventAdminViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventAdminViewController.m; sourceTree = "<group>"; };
 		889872BD1B13105C00D3C0E9 /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
 		889872BE1B13105C00D3C0E9 /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
 		889872C11B13111900D3C0E9 /* Alert-Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Alert-Constants.h"; sourceTree = "<group>"; };
@@ -522,6 +525,7 @@
 		885CB04F1B09BADE00AD2A7B /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				8873AA731B18C5D500E74C87 /* EventAdminViewController */,
 				88D813AA1B1762C000FD7D0E /* PlayerSettingsViewController */,
 				88B23C141B16E48200988908 /* ContactUsViewController */,
 				3D87D8241B159FBB0046BD60 /* EventCalendarViewController */,
@@ -629,6 +633,15 @@
 				88709E9D1B0DB600005DA345 /* ForgotPasswordSViewController.m */,
 			);
 			path = ForgotPasswordViewController;
+			sourceTree = "<group>";
+		};
+		8873AA731B18C5D500E74C87 /* EventAdminViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8873AA741B18C5F500E74C87 /* EventAdminViewController.h */,
+				8873AA751B18C5F500E74C87 /* EventAdminViewController.m */,
+			);
+			path = EventAdminViewController;
 			sourceTree = "<group>";
 		};
 		889872BC1B13103300D3C0E9 /* Utilities */ = {
@@ -842,6 +855,7 @@
 				3D1963C41B0DAECD00766CFC /* WeatherServices.m in Sources */,
 				3DD9BD221B14C02100A2F296 /* CalendarEvent.m in Sources */,
 				885CB07A1B0A117300AD2A7B /* GolfrzError.m in Sources */,
+				8873AA761B18C5F500E74C87 /* EventAdminViewController.m in Sources */,
 				3D1963BD1B0CE05700766CFC /* UserServices.m in Sources */,
 				3DD9BD0F1B14BE1C00A2F296 /* THCalendarInfo.m in Sources */,
 				3D19641A1B130E3B00766CFC /* TPKeyboardAvoidingCollectionView.m in Sources */,

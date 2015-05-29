@@ -10,4 +10,13 @@
 #import "ClubHouseSubController.h"
 
 @interface PlayerProfileViewController : ClubHouseSubController
+- (IBAction)btnSettingsTapped:(UIButton *)sender;
+@property (strong, nonatomic) IBOutlet UIImageView *imgUserPic;
+@property (strong, nonatomic) IBOutlet UILabel *lblUserName;
+@property (strong, nonatomic) IBOutlet UILabel *lblHandicap;
+@property (strong, nonatomic) IBOutlet UILabel *lblPoints;
+- (IBAction)btnStartRoundTapped:(UIButton *)sender;
+@property (strong, nonatomic) IBOutlet UIView *myScorecardsTapped;
+@property (strong, nonatomic) IBOutlet UILabel *lblCourseName;
+
 @end
