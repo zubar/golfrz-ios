@@ -13,6 +13,12 @@
 #import "CalendarEvent.h"
 #import "NSDate+Helper.h"
 #import "EventDetailViewController.h"
+#import "MBProgressHUD.h"
+
+#define kEventCalendarMarginLeft 10.0f
+#define kEventCalendarMarginTop 60.0f
+#define kEventCalendarWidth 300.0f // please it also depends on calendar height in VrgCalendar.h
+#define kEventCalendarHeight 320.0f
 
 @interface EventCalendarViewController ()
 
@@ -24,70 +30,124 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    [self setUpData];
+
+    [self updateCalendarEventTableViewForCalenderHeight:kEventCalendarHeight];
+    
     self.calendar = [[VRGCalendarView alloc] init];
-    [self.calendar setFrame:CGRectMake(10.0f, 60.0f, 300.0f, 320.0f)];
-   // [self.calendar setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"CST"]];
+    [self.calendar setFrame:CGRectMake(kEventCalendarMarginLeft, kEventCalendarMarginTop, kEventCalendarWidth, kEventCalendarHeight)];
     [self.calendar setBackgroundColor:[UIColor clearColor]];
     
     [self.calendar setDelegate:self];
     [self.view addSubview:self.calendar];
     
-    [self fetchEvents];
-    
     [self.eventsTableVeiw setBackgroundColor:[UIColor clearColor]];
     [self.eventsTableVeiw setBackgroundView:nil];
     
+    
 }
 
+-(void)setUpData{
+    
+    if (!self.eventDates) {
+        self.eventDates = [[NSMutableArray alloc]init];}
+    if (!self.colors) {
+        self.colors = [[NSMutableArray alloc]init];}
+    if (!self.todayEvents) {
+        self.todayEvents = [[NSMutableArray alloc]init];
+    }
+    [self fetchEvents];
+}
 
 -(void)fetchEvents{
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [CalendarEventServices getEvents:^(bool status, EventList *eventsArray) {
         if (status) {
             self.eventslist = eventsArray;
-            [self updateEventDates];
-            [self reloadCalenderVeiw];
+            [self.calendar reset];
             [self.eventsTableVeiw reloadData];
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
         }
     } failure:^(bool status, NSError *error) {
         if (!status) {
             NSLog(@"Error");
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+
         }
     }];
 }
 
--(void)updateEventDates{
-    
-    if (!self.eventDates) {
-        self.eventDates = [[NSMutableArray alloc]init];
-    }
-    if (!self.colors) {
-        self.colors = [[NSMutableArray alloc]init];
-    }
-    
-    [self.eventDates removeAllObjects];
-    [self.colors removeAllObjects];
-    
-    for (CalendarEvent * calEvent in self.eventslist.items) {
-        NSLog(@"%@", calEvent.dateStart);
-        [self.eventDates addObject:calEvent.dateStart];
-        [self.colors addObject:[UIColor redColor]];
-    }
-}
-
--(void)reloadCalenderVeiw{
-  //  NSArray *color = [NSArray arrayWithObjects:[UIColor redColor],nil];
-    [self.calendar markDates:self.eventDates withColors:self.colors];
-}
-
 #pragma mark - VRGCalendarView Delegate
 -(void)calendarView:(VRGCalendarView *)calendarView switchedToMonth:(int)month targetHeight:(float)targetHeight animated:(BOOL)animated{
-    [self.calendar markDates:self.eventDates withColors:self.colors];
+    
+    [self updateCalendarEventTableViewForCalenderHeight:targetHeight];
+    
+    
+    NSDateComponents *yourDate = [NSDateComponents new];
+    yourDate.calendar = [NSCalendar currentCalendar];
+    yourDate.year  = 2015;
+    yourDate.month = month;
+    yourDate.day   = 1;
+    
+    NSDate *startDate = [yourDate date];
+    // Add one day to the previous date. Note that  1 day != 24 h
+    NSDateComponents *oneDay = [NSDateComponents new];
+    oneDay.day = 30;
+    // one day after begin date
+    NSDate *endDate = [[NSCalendar currentCalendar] dateByAddingComponents:oneDay
+                                                                    toDate:startDate
+                                                                   options:0];
+    
+    [self updateEventsStartDate:startDate endDate:endDate];
+   
+}
+
+-(void)updateCalendarEventTableViewForCalenderHeight:(float)height{
+    
+    CGRect  appFrameSize = [[UIScreen mainScreen] applicationFrame];
+    
+    [self.eventsTableVeiw setFrame:CGRectMake(kEventCalendarMarginLeft, kEventCalendarMarginTop + height, kEventCalendarWidth, appFrameSize.size.height - kEventCalendarMarginTop - height)];
+
+}
+
+-(void)updateEventsStartDate:(NSDate * )startDate endDate:(NSDate *)endDate{
+   
+    // Predicate for all dates between startDate and endDate
+    if (self.eventslist) {
+        NSPredicate *datePredicate = [NSPredicate predicateWithFormat:@"dateStart >= %@ AND dateStart < %@",startDate, endDate];
+        NSArray * temp = [[self.eventslist.items filteredArrayUsingPredicate:datePredicate] mutableCopy];
+        
+        //        [self.eventDates removeAllObjects];
+        //        [self.colors removeAllObjects];
+        
+        self.eventDates = [temp valueForKeyPath:@"@distinctUnionOfObjects.dateStart"];
+        for (CalendarEvent * calEvent in temp) {
+            NSLog(@"%@", calEvent.dateStart);
+            [self.colors addObject:[UIColor redColor]];
+        }
+        [self.calendar markDates:self.eventDates withColors:self.colors];
+    }
 
 }
 
 -(void)calendarView:(VRGCalendarView *)calendarView dateSelected:(NSDate *)date{
 
-
+    
+    NSDateComponents * selectedDateComponents = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:date];
+    
+    NSDateComponents *todayComponents = [NSDateComponents new];
+    todayComponents.calendar = [NSCalendar currentCalendar];
+    todayComponents.year  = selectedDateComponents.year;
+    todayComponents.month = selectedDateComponents.month;
+    todayComponents.day   = selectedDateComponents.day;
+    
+    NSDate *today = [todayComponents date];
+    
+    if (self.eventslist) {
+        NSPredicate *datePredicate = [NSPredicate predicateWithFormat:@"dateStart == %@", today];
+        self.todayEvents = [[self.eventslist.items filteredArrayUsingPredicate:datePredicate] mutableCopy];
+        [self.eventsTableVeiw reloadData];
+    }
 }
 
 #pragma mark - CalendarEventCellDelegate
@@ -105,7 +165,7 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return [self.eventslist.items count];
+    return [self.todayEvents count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -119,7 +179,7 @@
         cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     }
     
-    CalendarEvent * eventObject = [self.eventslist.items objectAtIndex:indexPath.row];
+    CalendarEvent * eventObject = [self.todayEvents objectAtIndex:indexPath.row];
    // cell.lbleventName.text = eventObject.name;
     [cell configureViewWithEvent:eventObject];
     
@@ -133,6 +193,18 @@
 }
 
 
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    UIView * header = [[UIView alloc]init];
+    [header setBackgroundColor:[UIColor yellowColor]];
+    return header;
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    
+    UIView * header = [[UIView alloc]init];
+    [header setBackgroundColor:[UIColor greenColor]];
+    return header;
+}
 
 #pragma mark - Navigation
 
