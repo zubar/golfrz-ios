@@ -41,7 +41,8 @@
     return @{
              kSignInURL : [User class],
              kCourseInfo : [Course class],
-             kCalenderEventsList : [EventList class]
+             kCalenderEventsList : [EventList class],
+             kUserInfo : [User class]
              };
 }
 

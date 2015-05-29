@@ -82,7 +82,6 @@
     
     WeatherData * tempWeather = [self.weatherList objectAtIndex:indexPath.row];
     
-    NSLog(@"%@", tempWeather.condition.icon);
     
     WeatherViewCell *customCell = (WeatherViewCell *)cell;
     [customCell.lblTime setText:[self hoursFromDate:tempWeather.timeStamp]];

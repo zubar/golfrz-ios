@@ -17,6 +17,7 @@
 
 +(void)resetUserPassword:(NSString *)email completion:(void (^)(bool status))successfullyPosted failure:(void (^)(bool status, NSError *error))failureBlock;
 
-+(void)signOutUser:(void (^)(bool status))successfullyPosted;
++(void)signOutUser:(void (^)(bool status))successfullyPosted failureBlock:(void (^)(bool status, NSError * error))failureBlock;
+
 
 @end

@@ -7,6 +7,11 @@
 //
 
 #import "PlayerSettingsMainViewController.h"
+#import "AuthenticationService.h"
+#import "InitialViewController.h"
+#import "ForgotPasswordViewController.h"
+#import "UserServices.h"
+#import "User.h"
 
 @interface PlayerSettingsMainViewController ()
 
@@ -16,11 +21,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    //Assuming the view will always be created in non-editing mode.
+    isEditing = false;
+    
     [self addGestureToEditProfile];
     [self addGestureToLogout];
     [self addGestureToResetPassword];
     
-    // Do any additional setup after loading the view.
+    
+    
+}
+-(void)loadUserInfo{
+    User * mUser = [UserServices currentUser];
+    [self.txtFirstName setText:[mUser firstName]];
+    [self.txtLastName setText:[mUser firstName]];
+    [self.txtEmailAddress setText:[mUser email]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -55,14 +71,65 @@
 
 - (void) editProfileTapped{
     
-}
-
-- (void) resetPasswordTapped{
+    if (!isEditing) {
+        isEditing = true;
+        [self.lblEditProfile setText:@"Save Profile"];
+        [self makeUserInfoFieldsEditable:isEditing];
+        [self.txtFirstName becomeFirstResponder];
+    }else{
+        isEditing = false;
+        [self.lblEditProfile setText:@"Edit Profile"];
+        [self makeUserInfoFieldsEditable:isEditing];
+        [self.view.subviews makeObjectsPerformSelector:@selector(resignFirstResponder)];
+        [self upDateUserFirstName:[self.txtFirstName text] lastName:[self.txtLastName text] email:[self.txtEmailAddress text]];
+    }
     
 }
 
-- (void) logoutTapped {
+-(void)makeUserInfoFieldsEditable:(BOOL)yesNo{
+    [self.txtFirstName setEnabled:yesNo];
+    [self.txtLastName setEnabled:yesNo];
+    [self.txtEmailAddress setEnabled:yesNo];
+}
+
+- (void)resetPasswordTapped{
+   
+    ForgotPasswordViewController *forgetPasswordVC  = [self.storyboard instantiateViewControllerWithIdentifier:@"ForgotPasswordViewController"];
+    [self.navigationController pushViewController:forgetPasswordVC animated:YES];
     
+}
+
+- (void)logoutTapped {
+    [AuthenticationService signOutUser:^(bool status) {
+        if (status) {
+            //InitialViewController *initialVC  = [self.storyboard instantiateViewControllerWithIdentifier:@"InitialViewController"];
+            [self.navigationController popToRootViewControllerAnimated:YES];
+        }
+    } failureBlock:^(bool status, NSError *error) {
+       //TODO: show error alert
+    }];
+}
+
+-(void)upDateUserFirstName:(NSString *)firstName lastName:(NSString *)lastName email:(NSString *)email{
+    
+  __block  NSString * alertTitle = nil;
+  __block   NSString * alertMessage = nil;
+    
+    [UserServices updateUserInfo:firstName lastName:lastName email:email success:^(bool status, NSString *message) {
+        alertTitle = @"Success";
+        alertMessage = message;
+    } failure:^(bool status, NSError *error) {
+        alertTitle = @"Failure";
+        alertMessage = [error localizedDescription];
+    }];
+    if (alertTitle)
+        [[[UIAlertView  alloc] initWithTitle:alertTitle message:alertMessage delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil] show];
+}
+
+-(BOOL)isValidEmail:(NSString *)email{
+    
+    //TODO: create regix to validate
+    return true;
 }
 
 /*
@@ -78,6 +145,8 @@
 #pragma TextFieldMethods
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    
+    
     [textField resignFirstResponder];
     return NO;
 }

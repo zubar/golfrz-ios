@@ -59,7 +59,7 @@ APIClient *apiClient = [APIClient sharedAPICLient];
     }];
 }
 
-+(void)signOutUser:(void (^)(bool status))successfullyPosted{
++(void)signOutUser:(void (^)(bool status))successfullyPosted failureBlock:(void (^)(bool status, NSError * error))failureBlock{
   
     APIClient *apiClient = [APIClient sharedAPICLient];
     
@@ -68,6 +68,8 @@ APIClient *apiClient = [APIClient sharedAPICLient];
         if (!error) {
             //TODO: in caller of that block show alert on success.
             successfullyPosted(true);
+        }else{
+            failureBlock(false, error);
         }
     }];
     
