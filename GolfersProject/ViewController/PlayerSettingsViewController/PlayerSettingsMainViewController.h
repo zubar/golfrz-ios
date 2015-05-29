@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PlayerSettingsMainViewController : UIViewController<UITextFieldDelegate>
+@interface PlayerSettingsMainViewController : UIViewController<UITextFieldDelegate>{
+    bool isEditing;
+}
 @property (strong, nonatomic) IBOutlet UILabel *lblEditProfile;
 @property (strong, nonatomic) IBOutlet UIImageView *imgUserPic;
 @property (strong, nonatomic) IBOutlet UITextField *txtFirstName;

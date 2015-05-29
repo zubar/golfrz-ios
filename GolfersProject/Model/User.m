@@ -16,7 +16,8 @@
              @"authToken" : @"auth_token",
              @"email" : @"email",
              @"success" : @"success",
-             @"memberId" : @"id"
+             @"memberId" : @"id",
+             @"firstName" : @"first_name"
              //propertyName : json_key
              };
 }

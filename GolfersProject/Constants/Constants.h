@@ -33,7 +33,13 @@ static NSString * const kSignInURL = @"sessions";
 static NSString * const kForgetPasswordURL = @"users/forgot_password";
 static NSString * const kSignOutURL = @"sessions";
 static NSString * const kSignUpURL = @"users/sign_up";
+static NSString * const kUpdateUserInfo = @"users/";
 
+
+/*
+ * Users detail
+ */
+static NSString * const kUserInfo = @"users/";
 /*
  *  Golf Course Data Services
  */

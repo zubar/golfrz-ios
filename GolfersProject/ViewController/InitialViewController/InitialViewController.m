@@ -38,12 +38,19 @@
     [self addGestureToSignIn];
    
     
-//    [AuthenticationService loginWithUserName:@"admin@golfrz.com" password:@"password" success:^(User * muser){
-//        
-//        NSLog(@"%@",[UserServices currentUser]);
-//        [[[UIAlertView alloc]initWithTitle:@"Authenticated" message:muser.authToken delegate:nil cancelButtonTitle:@"Oky" otherButtonTitles:nil, nil] show];
-//    }];
-//    
+    [AuthenticationService loginWithUserName:@"admin@golfrz.com" password:@"password" success:^(bool status, User *user) {
+        if (status) {
+            [UserServices getUserInfo:^(bool status, User *mUser) {
+                
+            } failure:^(bool status, NSError *error) {
+                
+            }];
+        }
+    } failure:^(bool status, NSError *error) {
+      //  <#code#>
+    }
+    ];
+//
     
     [CourseServices courseInfo:^(bool status, Course *currentCourse) {
         
