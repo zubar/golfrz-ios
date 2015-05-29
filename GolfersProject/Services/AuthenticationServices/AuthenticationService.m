@@ -99,10 +99,8 @@ APIClient *apiClient = [APIClient sharedAPICLient];
 +(NSDictionary *)paramsForLogin:(NSString *)userName password:(NSString *)pwd{
     
     return    @{
-                @"user_login" : @{
-                        @"email": userName,
-                        @"password": pwd
-                        }
+                @"email": userName,
+                @"password": pwd
                 };
 }
 
