@@ -25,7 +25,7 @@
     // Do any additional setup after loading the view.
     
     self.calendar = [[VRGCalendarView alloc] init];
-    [self.calendar setFrame:CGRectMake(0.0f, 60.0f, 320.0f, 320.0f)];
+    [self.calendar setFrame:CGRectMake(10.0f, 60.0f, 300.0f, 320.0f)];
    // [self.calendar setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"CST"]];
     [self.calendar setBackgroundColor:[UIColor clearColor]];
     
