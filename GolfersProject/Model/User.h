@@ -18,5 +18,10 @@
 @property (assign, nonatomic, readonly) NSNumber * success;
 @property (copy, nonatomic, readonly) NSNumber * memberId;
 
+
+
+
+
+
 @end
 

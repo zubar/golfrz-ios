@@ -14,9 +14,9 @@
  * BaseImageURLGolfrz
  */
 //static NSString * const kBaseImageUrl = @"https://powerful-plains-9156.herokuapp.com/";
-static NSString * const kBaseImageUrl = @"http://golfrz-api.herokuapp.com/";
+static NSString * const kBaseImageUrl = @"https://golfrz-api.herokuapp.com/";
 
-static NSString * const kBaseURL = @"http://golfrz-api.herokuapp.com/api/0.1/";
+static NSString * const kBaseURL = @"https://golfrz-api.herokuapp.com/api/0.1/";
 
 
 /*

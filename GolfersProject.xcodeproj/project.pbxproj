@@ -66,6 +66,9 @@
 		889872BF1B13105C00D3C0E9 /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 889872BE1B13105C00D3C0E9 /* Utilities.m */; };
 		889872C91B13239400D3C0E9 /* SideNotificationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 889872C81B13239400D3C0E9 /* SideNotificationView.xib */; };
 		889872CC1B13437400D3C0E9 /* SideNotificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 889872CB1B13437400D3C0E9 /* SideNotificationView.m */; };
+		88B23C171B16E49800988908 /* ContactUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B23C161B16E49800988908 /* ContactUsViewController.m */; };
+		88B23C1C1B16E69D00988908 /* CourseDepartmentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B23C1B1B16E69D00988908 /* CourseDepartmentCell.m */; };
+		88D813AD1B17640E00FD7D0E /* PlayerSettingsMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D813AC1B17640E00FD7D0E /* PlayerSettingsMainViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -191,6 +194,12 @@
 		889872C81B13239400D3C0E9 /* SideNotificationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SideNotificationView.xib; path = Views/SideNotificationView.xib; sourceTree = "<group>"; };
 		889872CA1B13437400D3C0E9 /* SideNotificationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideNotificationView.h; sourceTree = "<group>"; };
 		889872CB1B13437400D3C0E9 /* SideNotificationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideNotificationView.m; sourceTree = "<group>"; };
+		88B23C151B16E49800988908 /* ContactUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactUsViewController.h; sourceTree = "<group>"; };
+		88B23C161B16E49800988908 /* ContactUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactUsViewController.m; sourceTree = "<group>"; };
+		88B23C1A1B16E69D00988908 /* CourseDepartmentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseDepartmentCell.h; sourceTree = "<group>"; };
+		88B23C1B1B16E69D00988908 /* CourseDepartmentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseDepartmentCell.m; sourceTree = "<group>"; };
+		88D813AB1B17640E00FD7D0E /* PlayerSettingsMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerSettingsMainViewController.h; sourceTree = "<group>"; };
+		88D813AC1B17640E00FD7D0E /* PlayerSettingsMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerSettingsMainViewController.m; sourceTree = "<group>"; };
 		D817BE50C16025D4FB4E4951 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		E15946F021CC95FC21355D7C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -454,6 +463,7 @@
 		88024F5F1AD29134004AC260 /* GolfersProject */ = {
 			isa = PBXGroup;
 			children = (
+				88B23C191B16E63B00988908 /* CourseDepartmentCell */,
 				889872C71B13237F00D3C0E9 /* Views */,
 				889872C01B13111900D3C0E9 /* Constants */,
 				889872BC1B13103300D3C0E9 /* Utilities */,
@@ -512,6 +522,8 @@
 		885CB04F1B09BADE00AD2A7B /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				88D813AA1B1762C000FD7D0E /* PlayerSettingsViewController */,
+				88B23C141B16E48200988908 /* ContactUsViewController */,
 				3D87D8241B159FBB0046BD60 /* EventCalendarViewController */,
 				3D87D8251B159FBB0046BD60 /* EventDetailViewController */,
 				3D1963ED1B0E1B6900766CFC /* PlayerProfileViewController */,
@@ -649,6 +661,33 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		88B23C141B16E48200988908 /* ContactUsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				88B23C151B16E49800988908 /* ContactUsViewController.h */,
+				88B23C161B16E49800988908 /* ContactUsViewController.m */,
+			);
+			path = ContactUsViewController;
+			sourceTree = "<group>";
+		};
+		88B23C191B16E63B00988908 /* CourseDepartmentCell */ = {
+			isa = PBXGroup;
+			children = (
+				88B23C1A1B16E69D00988908 /* CourseDepartmentCell.h */,
+				88B23C1B1B16E69D00988908 /* CourseDepartmentCell.m */,
+			);
+			path = CourseDepartmentCell;
+			sourceTree = "<group>";
+		};
+		88D813AA1B1762C000FD7D0E /* PlayerSettingsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				88D813AB1B17640E00FD7D0E /* PlayerSettingsMainViewController.h */,
+				88D813AC1B17640E00FD7D0E /* PlayerSettingsMainViewController.m */,
+			);
+			path = PlayerSettingsViewController;
+			sourceTree = "<group>";
+		};
 		C91B48159ABC56B52D213A0C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -782,6 +821,7 @@
 				3D1963FA1B0E21B100766CFC /* main.m in Sources */,
 				3D1963F91B0E218B00766CFC /* User.m in Sources */,
 				885CB0681B09BADE00AD2A7B /* InitialViewController.m in Sources */,
+				88D813AD1B17640E00FD7D0E /* PlayerSettingsMainViewController.m in Sources */,
 				889872BF1B13105C00D3C0E9 /* Utilities.m in Sources */,
 				3D19642A1B13364B00766CFC /* Coordinates.m in Sources */,
 				3D1963F41B0E1B6900766CFC /* RewardViewController.m in Sources */,
@@ -794,6 +834,7 @@
 				3DD9BD0E1B14BE1C00A2F296 /* NSDate+Helper.m in Sources */,
 				3D1963CB1B0DBC2600766CFC /* WeatherData.m in Sources */,
 				3D1963C01B0CE08900766CFC /* Course.m in Sources */,
+				88B23C171B16E49800988908 /* ContactUsViewController.m in Sources */,
 				3D1963EB1B0E1B5200766CFC /* ClubHouseSubController.m in Sources */,
 				88709E9E1B0DB600005DA345 /* ForgotPasswordSViewController.m in Sources */,
 				3D1963C41B0DAECD00766CFC /* WeatherServices.m in Sources */,
@@ -807,6 +848,7 @@
 				3DD9BD1B1B14BE2C00A2F296 /* NSDate+convenience.m in Sources */,
 				885CB0801B0A128100AD2A7B /* AuthenticationService.m in Sources */,
 				886B9ED41B0B95900078B09D /* ForgotPasswordViewController.m in Sources */,
+				88B23C1C1B16E69D00988908 /* CourseDepartmentCell.m in Sources */,
 				885CB06A1B09BADE00AD2A7B /* SignInViewController.m in Sources */,
 				3D19641D1B130E3B00766CFC /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				3D87D8281B159FE00046BD60 /* EventCalendarViewController.m in Sources */,
