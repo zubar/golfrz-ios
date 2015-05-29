@@ -7,9 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+@class Auth;
 @class User;
 
 @interface UserServices : NSObject
+
+
 
 +(void)setCurrentUser:(User *)mUser;
 +(User *)currentUser;

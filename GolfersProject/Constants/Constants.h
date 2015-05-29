@@ -39,7 +39,7 @@ static NSString * const kUpdateUserInfo = @"users/";
 /*
  * Users detail
  */
-static NSString * const kUserInfo = @"users/";
+static NSString * const kUserInfo = @"users";
 /*
  *  Golf Course Data Services
  */

@@ -11,10 +11,13 @@
 #import "APIClient.h"
 #import "Constants.h"
 #import "UserServices.h"
+#import "Auth.h"
+#import "AuthenticationService.h"
 
 @implementation UserServices
 
 static User * currentUser = nil;
+
 
 
 +(void)setCurrentUser:(User *)mUser{
@@ -24,6 +27,7 @@ static User * currentUser = nil;
 +(User *)currentUser{
     return currentUser;
 }
+
 
 +(void)updateUserInfo:(NSString *)fName lastName:(NSString *)lastName email:(NSString *)email success:(void (^)(bool status, NSString * message))successBlock failure:(void (^)(bool status, NSError * error))failureBlock{
     
@@ -54,17 +58,15 @@ static User * currentUser = nil;
     //Create our client
     APIClient *apiClient = [APIClient sharedAPICLient];
     //TODO: Write completion block here.
-    NSString * userInfoUrl = [NSString stringWithFormat:@"%@%@", kUserInfo, [[UserServices currentUser] memberId]];
+    NSString * userInfoUrl = [NSString stringWithFormat:@"%@/%@", kUserInfo, [[AuthenticationService currentAuth] memberId]];
     
     [apiClient GET:userInfoUrl parameters:[UserServices userToken] completion:^(id response, NSError *error) {
         OVCResponse * resp = response;
         if (!error) {
-            User * newInfo =[resp result];
-            //Setting current user
-            User * mUser = [UserServices currentUser];
-          //  mUser.firstName = newInfo.firstName;
-            
-            successBlock(true, newInfo);
+                //Setting current user
+                User * mUser = [resp result];
+                [UserServices setCurrentUser:mUser];
+            successBlock(true, mUser);
         }else{
             failureBlock(false, error);
         }

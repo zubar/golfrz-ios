@@ -63,7 +63,7 @@
 
 - (IBAction)btnSignInTapped:(id)sender {
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    [AuthenticationService loginWithUserName:self.txtUsername.text password:self.txtPassword.text success:^(bool status, User *muser){
+    [AuthenticationService loginWithUserName:self.txtUsername.text password:self.txtPassword.text success:^(bool status, Auth *muser){
         [MBProgressHUD hideHUDForView:self.view animated:YES];
          ClubHouseContainerVC *clubHouseContainerVC  = [self.storyboard instantiateViewControllerWithIdentifier:@"ClubHouseContainerVC"];
         [self.navigationController pushViewController:clubHouseContainerVC animated:YES];

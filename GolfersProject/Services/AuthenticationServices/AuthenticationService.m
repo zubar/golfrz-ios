@@ -13,12 +13,24 @@
 
 #import "User.h"
 #import "UserServices.h"
+#import "Auth.h"
 
 
 
 @implementation AuthenticationService
 
-+(void)loginWithUserName:(NSString *)name password:(NSString *)password success:(void (^)(bool status, User *))successBlock failure:(void (^)(bool status, NSError *error))failureBlock{
+static Auth * currentAuth = nil;
+
++(Auth *)currentAuth{
+    return currentAuth;
+}
+
++(void)setCurrentAuth:(Auth *)authObject{
+    currentAuth = authObject;
+}
+
+
++(void)loginWithUserName:(NSString *)name password:(NSString *)password success:(void (^)(bool status, Auth *))successBlock failure:(void (^)(bool status, NSError *error))failureBlock{
 
 //Create our client
 APIClient *apiClient = [APIClient sharedAPICLient];
@@ -28,10 +40,10 @@ APIClient *apiClient = [APIClient sharedAPICLient];
     [apiClient POST:kSignInURL parameters:[AuthenticationService paramsForLogin:name password:password] completion:^(id response, NSError *error) {
         OVCResponse * resp = response;
         if (!error) {
-            User * mUser =[resp result];
+            Auth * mAuth =[resp result];
             //Setting current user
-            [UserServices setCurrentUser:mUser];
-            successBlock(true,mUser);
+            [AuthenticationService setCurrentAuth:mAuth];
+            successBlock(true,mAuth);
         }
         else
             failureBlock(false, error);
@@ -111,7 +123,7 @@ APIClient *apiClient = [APIClient sharedAPICLient];
     
     return   @{
                @"user_login":@{
-                       @"auth_token" : [[UserServices currentUser] authToken]
+                       @"auth_token" : [[AuthenticationService currentAuth] authToken]
                        }
                };
 }
