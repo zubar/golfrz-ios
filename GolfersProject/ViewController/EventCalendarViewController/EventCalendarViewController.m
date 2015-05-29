@@ -80,9 +80,9 @@
 }
 
 #pragma mark - VRGCalendarView Delegate
-
 -(void)calendarView:(VRGCalendarView *)calendarView switchedToMonth:(int)month targetHeight:(float)targetHeight animated:(BOOL)animated{
     [self.calendar markDates:self.eventDates withColors:self.colors];
+
 }
 
 -(void)calendarView:(VRGCalendarView *)calendarView dateSelected:(NSDate *)date{

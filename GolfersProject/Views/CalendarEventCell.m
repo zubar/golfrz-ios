@@ -31,6 +31,8 @@
 
 
 -(void)configureViewWithEvent:(CalendarEvent *)event{
+    [self setBackgroundView:nil];
+    [self setBackgroundColor:[UIColor clearColor]];
     
     self.event =event;
     self.lbleventName.text = self.event.summary;
