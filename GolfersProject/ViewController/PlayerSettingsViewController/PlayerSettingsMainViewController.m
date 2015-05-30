@@ -33,10 +33,19 @@
     
 }
 -(void)loadUserInfo{
-    User * mUser = [UserServices currentUser];
-    [self.txtFirstName setText:[mUser firstName]];
-    [self.txtLastName setText:[mUser firstName]];
-    [self.txtEmailAddress setText:[mUser email]];
+    
+    
+    [UserServices getUserInfo:^(bool status, User *userInfo) {
+        if (status) {
+            User * mUser = userInfo;
+                [self.txtFirstName setText:[mUser firstName]];
+                [self.txtLastName setText:[mUser firstName]];
+                [self.txtEmailAddress setText:[mUser email]];
+        }
+    } failure:^(bool status, NSError *error) {
+        //
+        NSLog(@"Failure====================================================================================");
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -145,6 +154,7 @@
 #pragma TextFieldMethods
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    
     
     
     [textField resignFirstResponder];

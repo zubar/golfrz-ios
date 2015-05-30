@@ -13,6 +13,7 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "MBProgressHUD.h"
 
+#import "CourseServices.h"
 
 @interface ClubHouseViewController ()
 @property (nonatomic, retain) NSArray * weatherList;
@@ -26,11 +27,15 @@
     UIButton * imageButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 10, 22, 22)];
     [imageButton setBackgroundImage:[UIImage imageNamed:@"contactus_button"] forState:UIControlStateNormal];
     [imageButton addTarget:self action:@selector(test) forControlEvents:UIControlEventAllEvents];
-    
     UIBarButtonItem *leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:imageButton];
-    
-    
     self.navigationItem.leftBarButtonItem = leftBarButtonItem;
+    
+    UIButton * imageRightButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 10, 22, 22)];
+    [imageRightButton setBackgroundImage:[UIImage imageNamed:@"activity_icon"] forState:UIControlStateNormal];
+    [imageRightButton addTarget:self action:@selector(test) forControlEvents:UIControlEventAllEvents];
+    UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:imageRightButton];
+    self.navigationItem.rightBarButtonItem = rightBarButtonItem;
+    
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
     [[self navigationItem] setTitle:@"CLUBHOUSE"];
     
@@ -53,6 +58,13 @@
 }
 -(void)test{
 
+    [CourseServices courseInfo:^(bool status, Course *currentCourse) {
+        //
+    } failure:^(bool status, NSError *error) {
+        //
+    }];
+    
+    
 }
 - (void)pushNextController{
     [self.navigationController pushViewController:self.containerVC.playerProfileViewController animated:YES];
@@ -123,4 +135,6 @@
 }
 */
 
+- (IBAction)btnCheckedInTapped:(UIButton *)sender {
+}
 @end

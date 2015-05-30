@@ -20,7 +20,8 @@
 #import "CalendarEventServices.h"
 
 #import "FaceBookAuthAgent.h"
-
+#import "CalendarEventServices.h"
+#import "EventList.h"
 
 @interface InitialViewController ()
 
@@ -36,37 +37,6 @@
 
     //[self setImageCourseLogoRounded];
     [self addGestureToSignIn];
-   
-    
-    [AuthenticationService loginWithUserName:@"admin@golfrz.com" password:@"password" success:^(bool status, User *user) {
-        if (status) {
-            [UserServices getUserInfo:^(bool status, User *mUser) {
-                
-            } failure:^(bool status, NSError *error) {
-                
-            }];
-        }
-    } failure:^(bool status, NSError *error) {
-      //  <#code#>
-    }
-    ];
-//
-    
-    [CourseServices courseInfo:^(bool status, Course *currentCourse) {
-        
-        NSLog(@"%@", [[currentCourse.coordinates objectAtIndex:0] class]);
-        
-        if (status) {
-            [WeatherServices weatherInfo:^(bool status, NSArray *mWeatherData) {
-                NSLog(@"weather:%@", mWeatherData);
-            } failure:^(bool status, NSError *error) {
-                NSLog(@"%@", error);
-            }];
-        }
-        
-    } failure:^(bool status, NSError *error) {
-        //
-    }];
     
 }
 

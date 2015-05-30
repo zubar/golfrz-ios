@@ -9,6 +9,12 @@
 #import "PlayerProfileViewController.h"
 #import "ClubHouseContainerVC.h"
 
+#import "UserServices.h"
+#import "User.h"
+#import "MBProgressHUD.h"
+#import "CourseServices.h"
+#import "Course.h"
+
 @interface PlayerProfileViewController ()
 
 @end
@@ -18,7 +24,24 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [UserServices getUserInfo:^(bool status, User *mUser) {
+        
+        [self.lblUserName setText:mUser.firstName];
+        [self.lblHandicap setText:[mUser.handicap stringValue]];
+        //TODO: add pints in service 
+     //   [self.lblPoints setText:[mUser.points stringValue]];
+        [self.lblCourseName setText:[[CourseServices currentCourse] courseName]];
+        
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        
+    } failure:^(bool status, NSError *error) {
+        //TODO: add in a separate file all the alert messages.
+        [[[UIAlertView alloc] initWithTitle:@"Failure" message:@"Failed to get details" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil] show];
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
 
+    }];
 }
 
 - (void)pushNextController{
@@ -58,4 +81,8 @@
 }
 */
 
+- (IBAction)btnSettingsTapped:(UIButton *)sender {
+}
+- (IBAction)btnStartRoundTapped:(UIButton *)sender {
+}
 @end

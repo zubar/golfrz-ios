@@ -8,6 +8,7 @@
 
 #import "CourseServices.h"
 #import "Course.h"
+#import "UserServices.h"
 
 #import "APIClient.h"
 #import "Constants.h"
@@ -22,7 +23,7 @@ static Course * currentCourse = nil;
     
     APIClient * apiClient = [APIClient sharedAPICLient];
     
-    [apiClient POST:kCourseInfo parameters:[self paramsForCourseInfo] completion:^(id response, NSError *error) {
+    [apiClient GET:kCourseDetail parameters:[self paramsForCourseInfo] completion:^(id response, NSError *error) {
         OVCResponse * resp = response;
         if (!error) {
             Course * mCourse = [resp result];
@@ -50,7 +51,8 @@ static Course * currentCourse = nil;
 +(NSDictionary *)paramsForCourseInfo{
         return @{
                 @"app_bundle_id": kAppBundleId,
-                @"user_agent" : kUserAgent
+                @"user_agent" : kUserAgent,
+                @"auth_token" : [UserServices currentToken]
     };
 }
 

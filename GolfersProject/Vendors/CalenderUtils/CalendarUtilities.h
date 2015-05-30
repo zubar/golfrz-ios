@@ -36,4 +36,8 @@
 
 +(NSString *)dateMMDDFromMMDD:(NSString * )dateMMDD;
 +(NSInteger )mmddFromStringMMDD:(NSString *)dateMMDD;
+
++(NSString *)monthNameFromNum:(NSInteger )month;
+
+
 @end

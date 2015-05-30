@@ -55,7 +55,8 @@
 - (IBAction)btnBackTapped:(UIButton *)sender {
     //[self performSegueWithIdentifier:@"backToMainSegue" sender:nil];
     InitialViewController *initialViewController  = [self.storyboard instantiateViewControllerWithIdentifier:@"InitialViewController"];
-    [self.navigationController pushViewController:initialViewController animated:NO];
+    //[self.navigationController popViewController:initialViewController animated:NO];
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 #pragma TextFieldMethods

@@ -11,19 +11,54 @@
 #import "APIClient.h"
 #import "Constants.h"
 #import "UserServices.h"
+#import "AuthenticationService.h"
 
 @implementation UserServices
 
 static User * currentUser = nil;
 
 
-+(void)setCurrentUser:(User *)mUser{
-    currentUser = mUser;
+
+
++(void)setCurrentToken:(NSString *)token{
+
+    NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setValue:token forKey:kUSER_TOKEN];
+    [defaults synchronize];
+}
++(NSString *)currentToken{
+
+    NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
+    return   [defaults objectForKey:kUSER_TOKEN];
 }
 
-+(User *)currentUser{
-    return currentUser;
++(NSString *)currentUserId{
+
+    NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
+    return   [defaults objectForKey:kUSER_ID];
+
 }
++(void)setCurrentUserId:(NSString *)memberId{
+
+    NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setValue:memberId forKey:kUSER_TOKEN];
+    [defaults synchronize];
+}
+
++(NSString *)currentUserEmail{
+
+    NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
+    return   [defaults objectForKey:kUSER_EMAIL];
+}
+
++(void)setCurrentUserEmail:(NSString *)email{
+
+    NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setValue:email forKey:kUSER_TOKEN];
+    [defaults synchronize];
+    
+}
+
 
 +(void)updateUserInfo:(NSString *)fName lastName:(NSString *)lastName email:(NSString *)email success:(void (^)(bool status, NSString * message))successBlock failure:(void (^)(bool status, NSError * error))failureBlock{
     
@@ -31,7 +66,7 @@ static User * currentUser = nil;
     APIClient *apiClient = [APIClient sharedAPICLient];
     
     //TODO: Write completion block here.
-    NSString * updateInfoUrl = [NSString stringWithFormat:@"%@%@", kUpdateUserInfo, [[UserServices currentUser] memberId]];
+    NSString * updateInfoUrl = [NSString stringWithFormat:@"%@%@", kUpdateUserInfo, [UserServices currentUserId]];
     
     [apiClient PUT:updateInfoUrl parameters:[UserServices userFirstName:fName lastName:lastName email:email] completion:^(id response, NSError *error) {
        
@@ -53,18 +88,14 @@ static User * currentUser = nil;
    
     //Create our client
     APIClient *apiClient = [APIClient sharedAPICLient];
-    //TODO: Write completion block here.
-    NSString * userInfoUrl = [NSString stringWithFormat:@"%@%@", kUserInfo, [[UserServices currentUser] memberId]];
-    
+
+    NSString * userInfoUrl = [NSString stringWithFormat:@"%@%@", kUserInfo, [UserServices currentUserId]];
     [apiClient GET:userInfoUrl parameters:[UserServices userToken] completion:^(id response, NSError *error) {
         OVCResponse * resp = response;
         if (!error) {
-            User * newInfo =[resp result];
-            //Setting current user
-            User * mUser = [UserServices currentUser];
-          //  mUser.firstName = newInfo.firstName;
-            
-            successBlock(true, newInfo);
+                //Setting current user
+                User * mUser = [resp result];
+            successBlock(true, mUser);
         }else{
             failureBlock(false, error);
         }
@@ -84,8 +115,8 @@ static User * currentUser = nil;
 
 +(NSDictionary *)userFirstName:(NSString *)firstName lastName:(NSString *)lastName email:(NSString *)email{
     return @{
-        @"id" : [[UserServices currentUser] memberId],
-        @"auth_token" : @"h2_j_l-ZDOAAjCgVZ1zXHw", //TODO:
+        @"id" : [UserServices currentUserId],
+        @"auth_token" : [UserServices currentToken],
         @"first_name" : firstName,
         @"last_name" : lastName,
         @"email" : email
@@ -95,7 +126,7 @@ static User * currentUser = nil;
 
 +(NSDictionary *)userToken{
     return @{
-             @"auth_token" : @"-9FE6IF8OEUt_08CUVt7fw" //TODO:
+             @"auth_token" : [UserServices currentToken]
              };
 }
 

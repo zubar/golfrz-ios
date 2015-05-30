@@ -10,6 +10,13 @@
 #define GolfersProject_Constants_h
 
 
+#define kUSER_TOKEN @"user_token"
+#define kUSER_EMAIL @"user_email"
+#define kUSER_ID    @"user_id"
+
+
+
+
 /*
  * BaseImageURLGolfrz
  */
@@ -32,14 +39,14 @@ static NSString * const kWeatherAPIKey = @"e5bfb7faf3d0c719e87f3e1300ad0739";
 static NSString * const kSignInURL = @"sessions";
 static NSString * const kForgetPasswordURL = @"users/forgot_password";
 static NSString * const kSignOutURL = @"sessions";
-static NSString * const kSignUpURL = @"users/sign_up";
-static NSString * const kUpdateUserInfo = @"users/";
-
 
 /*
  * Users detail
  */
 static NSString * const kUserInfo = @"users/";
+static NSString * const kSignUpURL = @"users/sign_up";
+static NSString * const kUpdateUserInfo = @"users/";
+
 /*
  *  Golf Course Data Services
  */
@@ -57,6 +64,10 @@ static NSString * const kUserAgent = @"iOS";
  * Events
  */
 static NSString * const kCalenderEventsList = @"events";
+
+
+
+
 
 #endif
 
