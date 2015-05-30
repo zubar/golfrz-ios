@@ -8,6 +8,8 @@
 
 #import "Course.h"
 #import "Coordinates.h"
+#import "StaffMember.h"
+#import "Department.h"
 
 @implementation Course
 
@@ -20,7 +22,10 @@
              @"courseState" : @"course_state",
              @"courseCity"  : @"course_city",
              @"courseAddress" : @"course_address",
-             @"coordinates" : @"course_location"
+             @"coordinates" : @"course_location",
+             
+             @"departments" : @"course_departments",
+             @"staff" : @"course_staff"
              //propertyName : json_key
              };
 }
@@ -31,6 +36,13 @@
         //return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[Coordinates class]];
 }
 
++ (NSValueTransformer *)staffJSONTransformer {
+    return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[StaffMember class]];
+}
+
++ (NSValueTransformer *)departmentsJSONTransformer {
+    return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[Department class]];
+}
 
 
 @end

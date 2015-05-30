@@ -20,7 +20,8 @@
 #import "CalendarEventServices.h"
 
 #import "FaceBookAuthAgent.h"
-
+#import "CalendarEventServices.h"
+#import "EventList.h"
 
 @interface InitialViewController ()
 
@@ -35,7 +36,8 @@
     [super viewWillAppear:YES];
 
     //[self setImageCourseLogoRounded];
-    [self addGestureToSignIn];    
+    [self addGestureToSignIn];
+    
 }
 
 - (void)didReceiveMemoryWarning {

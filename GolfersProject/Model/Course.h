@@ -20,7 +20,9 @@
 @property (copy, nonatomic, readonly) NSString * courseCity;
 @property (copy, nonatomic, readonly) NSString * courseAddress;
 
-@property (copy, nonatomic, readonly) NSArray * coordinates; 
+@property (copy, nonatomic, readonly) NSArray * coordinates;
+@property (copy, nonatomic, readonly) NSArray * departments;
+@property (copy, nonatomic, readonly) NSArray * staff;
 
 @end
 

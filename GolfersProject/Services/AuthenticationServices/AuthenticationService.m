@@ -13,41 +13,31 @@
 
 #import "User.h"
 #import "UserServices.h"
-#import "Auth.h"
 
 
 
 @implementation AuthenticationService
 
-static Auth * currentAuth = nil;
 
-+(Auth *)currentAuth{
-    return currentAuth;
-}
++(void)loginWithUserName:(NSString *)name password:(NSString *)password success:(void (^)(bool status, NSDictionary * userInfo))successBlock failure:(void (^)(bool status, NSError *error))failureBlock{
 
-+(void)setCurrentAuth:(Auth *)authObject{
-    currentAuth = authObject;
-}
-
-
-+(void)loginWithUserName:(NSString *)name password:(NSString *)password success:(void (^)(bool status, Auth *))successBlock failure:(void (^)(bool status, NSError *error))failureBlock{
-
-//Create our client
-APIClient *apiClient = [APIClient sharedAPICLient];
+    AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
     
-//TODO: Write completion block here.
-    
-    [apiClient POST:kSignInURL parameters:[AuthenticationService paramsForLogin:name password:password] completion:^(id response, NSError *error) {
-        OVCResponse * resp = response;
-        if (!error) {
-            Auth * mAuth =[resp result];
-            //Setting current user
-            [AuthenticationService setCurrentAuth:mAuth];
-            successBlock(true,mAuth);
+    [apiClient POST:kSignInURL parameters:[AuthenticationService paramsForLogin:name password:password] success:^(NSURLSessionDataTask *task, id responseObject) {
+        
+        if (responseObject[@"status"]) {
+            NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
+            [defaults setValue:responseObject[@"token"] forKey:kUSER_TOKEN];
+            [defaults setValue:responseObject[@"email"] forKey:kUSER_EMAIL];
+            [defaults setValue:responseObject[@"id"] forKey:kUSER_ID];
+            [defaults synchronize];
         }
-        else
-            failureBlock(false, error);
+        successBlock(true, responseObject);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        failureBlock(false, error);
     }];
+    
+
 }
 
 
@@ -123,7 +113,7 @@ APIClient *apiClient = [APIClient sharedAPICLient];
     
     return   @{
                @"user_login":@{
-                       @"auth_token" : [[AuthenticationService currentAuth] authToken]
+                       @"auth_token" : [UserServices currentToken]
                        }
                };
 }

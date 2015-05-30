@@ -13,6 +13,7 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "MBProgressHUD.h"
 
+#import "CourseServices.h"
 
 @interface ClubHouseViewController ()
 @property (nonatomic, retain) NSArray * weatherList;
@@ -57,6 +58,13 @@
 }
 -(void)test{
 
+    [CourseServices courseInfo:^(bool status, Course *currentCourse) {
+        //
+    } failure:^(bool status, NSError *error) {
+        //
+    }];
+    
+    
 }
 - (void)pushNextController{
     [self.navigationController pushViewController:self.containerVC.playerProfileViewController animated:YES];

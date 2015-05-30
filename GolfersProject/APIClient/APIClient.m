@@ -7,7 +7,6 @@
 //
 
 #import "APIClient.h"
-#import "Auth.h"
 #import "GolfrzErrorResponse.h"
 #import "Constants.h"
 #import "Course.h"
@@ -38,13 +37,13 @@
 
 
 +(NSDictionary *)modelClassesByResourcePath{
-
+    
     return @{
-             kSignInURL : [Auth class],
-             kCourseInfo : [Course class],
+             kCourseDetail : [Course class],
              kCalenderEventsList : [EventList class],
-             kUserInfo : [User class]
+             @"users/*" : [User class]
              };
+    
 }
 
                       

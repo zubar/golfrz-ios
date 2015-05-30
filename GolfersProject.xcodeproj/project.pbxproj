@@ -20,7 +20,6 @@
 		3D1963F31B0E1B6900766CFC /* PlayerProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1963EF1B0E1B6900766CFC /* PlayerProfileViewController.m */; };
 		3D1963F41B0E1B6900766CFC /* RewardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1963F21B0E1B6900766CFC /* RewardViewController.m */; };
 		3D1963F81B0E1F0500766CFC /* WeatherViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1963F71B0E1F0500766CFC /* WeatherViewCell.m */; };
-		3D1963F91B0E218B00766CFC /* Auth.m in Sources */ = {isa = PBXBuildFile; fileRef = 885CB0711B09F93700AD2A7B /* Auth.m */; };
 		3D1963FA1B0E21B100766CFC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 88024F621AD29134004AC260 /* main.m */; };
 		3D1964011B1305FC00766CFC /* PresentationServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1964001B1305FC00766CFC /* PresentationServices.m */; };
 		3D1964191B130E3B00766CFC /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D19640C1B130E3B00766CFC /* MBProgressHUD.m */; };
@@ -70,7 +69,10 @@
 		88B23C171B16E49800988908 /* ContactUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B23C161B16E49800988908 /* ContactUsViewController.m */; };
 		88B23C1C1B16E69D00988908 /* CourseDepartmentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B23C1B1B16E69D00988908 /* CourseDepartmentCell.m */; };
 		88D813AD1B17640E00FD7D0E /* PlayerSettingsMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D813AC1B17640E00FD7D0E /* PlayerSettingsMainViewController.m */; };
-		88FBCCB11B18E22E005FD528 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 88FBCCB01B18E22E005FD528 /* User.m */; };
+		88FBCCB71B19A572005FD528 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 88FBCCB61B19A572005FD528 /* User.m */; };
+		88FBCCBA1B19AC08005FD528 /* Department.m in Sources */ = {isa = PBXBuildFile; fileRef = 88FBCCB91B19AC08005FD528 /* Department.m */; };
+		88FBCCBD1B19AC1F005FD528 /* StaffMember.m in Sources */ = {isa = PBXBuildFile; fileRef = 88FBCCBC1B19AC1F005FD528 /* StaffMember.m */; };
+		88FBCCC01B19BE2A005FD528 /* StaffType.m in Sources */ = {isa = PBXBuildFile; fileRef = 88FBCCBF1B19BE2A005FD528 /* StaffType.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -175,8 +177,6 @@
 		885CB0631B09BADE00AD2A7B /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
 		885CB0641B09BADE00AD2A7B /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 		885CB06C1B09BDCD00AD2A7B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		885CB0701B09F93700AD2A7B /* Auth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Auth.h; sourceTree = "<group>"; };
-		885CB0711B09F93700AD2A7B /* Auth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Auth.m; sourceTree = "<group>"; };
 		885CB0731B09FB0100AD2A7B /* APIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIClient.h; sourceTree = "<group>"; };
 		885CB0741B09FB0100AD2A7B /* APIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIClient.m; sourceTree = "<group>"; };
 		885CB0761B0A117300AD2A7B /* GolfrzError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GolfrzError.h; sourceTree = "<group>"; };
@@ -204,8 +204,14 @@
 		88B23C1B1B16E69D00988908 /* CourseDepartmentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseDepartmentCell.m; sourceTree = "<group>"; };
 		88D813AB1B17640E00FD7D0E /* PlayerSettingsMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerSettingsMainViewController.h; sourceTree = "<group>"; };
 		88D813AC1B17640E00FD7D0E /* PlayerSettingsMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerSettingsMainViewController.m; sourceTree = "<group>"; };
-		88FBCCAF1B18E22E005FD528 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		88FBCCB01B18E22E005FD528 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		88FBCCB51B19A572005FD528 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		88FBCCB61B19A572005FD528 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		88FBCCB81B19AC08005FD528 /* Department.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Department.h; sourceTree = "<group>"; };
+		88FBCCB91B19AC08005FD528 /* Department.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Department.m; sourceTree = "<group>"; };
+		88FBCCBB1B19AC1F005FD528 /* StaffMember.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StaffMember.h; sourceTree = "<group>"; };
+		88FBCCBC1B19AC1F005FD528 /* StaffMember.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StaffMember.m; sourceTree = "<group>"; };
+		88FBCCBE1B19BE2A005FD528 /* StaffType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StaffType.h; sourceTree = "<group>"; };
+		88FBCCBF1B19BE2A005FD528 /* StaffType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StaffType.m; sourceTree = "<group>"; };
 		D817BE50C16025D4FB4E4951 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		E15946F021CC95FC21355D7C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -584,23 +590,27 @@
 		885CB06F1B09F91700AD2A7B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				88FBCCB51B19A572005FD528 /* User.h */,
+				88FBCCB61B19A572005FD528 /* User.m */,
 				3D1963C81B0DBC2600766CFC /* WeatherModel */,
 				3D1963BE1B0CE08900766CFC /* Course.h */,
 				3D1963BF1B0CE08900766CFC /* Course.m */,
+				88FBCCB81B19AC08005FD528 /* Department.h */,
+				88FBCCB91B19AC08005FD528 /* Department.m */,
+				88FBCCBB1B19AC1F005FD528 /* StaffMember.h */,
+				88FBCCBC1B19AC1F005FD528 /* StaffMember.m */,
+				88FBCCBE1B19BE2A005FD528 /* StaffType.h */,
+				88FBCCBF1B19BE2A005FD528 /* StaffType.m */,
 				3D1964281B13364B00766CFC /* Coordinates.h */,
 				3D1964291B13364B00766CFC /* Coordinates.m */,
 				885CB0761B0A117300AD2A7B /* GolfrzError.h */,
 				885CB0771B0A117300AD2A7B /* GolfrzError.m */,
 				885CB0781B0A117300AD2A7B /* GolfrzErrorResponse.h */,
 				885CB0791B0A117300AD2A7B /* GolfrzErrorResponse.m */,
-				885CB0701B09F93700AD2A7B /* Auth.h */,
-				885CB0711B09F93700AD2A7B /* Auth.m */,
 				3DD9BD201B14C02100A2F296 /* CalendarEvent.h */,
 				3DD9BD211B14C02100A2F296 /* CalendarEvent.m */,
 				3D87D8341B15E31D0046BD60 /* EventList.h */,
 				3D87D8351B15E31D0046BD60 /* EventList.m */,
-				88FBCCAF1B18E22E005FD528 /* User.h */,
-				88FBCCB01B18E22E005FD528 /* User.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -838,8 +848,6 @@
 			files = (
 				3D1963FA1B0E21B100766CFC /* main.m in Sources */,
 				3D87D8431B1852120046BD60 /* NSMutableArray+convenience.m in Sources */,
-				88FBCCB11B18E22E005FD528 /* User.m in Sources */,
-				3D1963F91B0E218B00766CFC /* Auth.m in Sources */,
 				885CB0681B09BADE00AD2A7B /* InitialViewController.m in Sources */,
 				3D87D8461B1852120046BD60 /* VRGCalendarView.m in Sources */,
 				88D813AD1B17640E00FD7D0E /* PlayerSettingsMainViewController.m in Sources */,
@@ -852,6 +860,7 @@
 				885CB0441B09BA9D00AD2A7B /* AppDelegate.m in Sources */,
 				3D1963CE1B0DBC8300766CFC /* Condition.m in Sources */,
 				885CB06D1B09BDCD00AD2A7B /* README.md in Sources */,
+				88FBCCBD1B19AC1F005FD528 /* StaffMember.m in Sources */,
 				3DD9BD0E1B14BE1C00A2F296 /* NSDate+Helper.m in Sources */,
 				3D1963CB1B0DBC2600766CFC /* WeatherData.m in Sources */,
 				3D1963C01B0CE08900766CFC /* Course.m in Sources */,
@@ -859,6 +868,7 @@
 				3D1963EB1B0E1B5200766CFC /* ClubHouseSubController.m in Sources */,
 				88709E9E1B0DB600005DA345 /* ForgotPasswordSViewController.m in Sources */,
 				3D1963C41B0DAECD00766CFC /* WeatherServices.m in Sources */,
+				88FBCCBA1B19AC08005FD528 /* Department.m in Sources */,
 				3DD9BD221B14C02100A2F296 /* CalendarEvent.m in Sources */,
 				885CB07A1B0A117300AD2A7B /* GolfrzError.m in Sources */,
 				8873AA761B18C5F500E74C87 /* EventAdminViewController.m in Sources */,
@@ -868,6 +878,7 @@
 				3D87D8361B15E31D0046BD60 /* EventList.m in Sources */,
 				3D19641C1B130E3B00766CFC /* TPKeyboardAvoidingTableView.m in Sources */,
 				885CB0801B0A128100AD2A7B /* AuthenticationService.m in Sources */,
+				88FBCCB71B19A572005FD528 /* User.m in Sources */,
 				886B9ED41B0B95900078B09D /* ForgotPasswordViewController.m in Sources */,
 				3D87D8441B1852120046BD60 /* UIColor+expanded.m in Sources */,
 				88B23C1C1B16E69D00988908 /* CourseDepartmentCell.m in Sources */,
@@ -879,6 +890,7 @@
 				3D87D8451B1852120046BD60 /* UIView+convenience.m in Sources */,
 				3D1964011B1305FC00766CFC /* PresentationServices.m in Sources */,
 				3D1963F31B0E1B6900766CFC /* PlayerProfileViewController.m in Sources */,
+				88FBCCC01B19BE2A005FD528 /* StaffType.m in Sources */,
 				3D19641B1B130E3B00766CFC /* TPKeyboardAvoidingScrollView.m in Sources */,
 				3D87D8421B1852120046BD60 /* NSDate+convenience.m in Sources */,
 				3D1964271B13305200766CFC /* FaceBookAuthAgent.m in Sources */,
