@@ -17,4 +17,7 @@
 @property (nonatomic, retain) ClubHouseViewController *  clubHouseViewController;
 @property (nonatomic, retain) PlayerProfileViewController *  playerProfileViewController;
 @property (nonatomic, retain) RewardViewController * rewardViewController;
+
+
+
 @end

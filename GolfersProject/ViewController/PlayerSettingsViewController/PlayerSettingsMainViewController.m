@@ -13,6 +13,7 @@
 #import "UserServices.h"
 #import "User.h"
 #import "AppDelegate.h"
+#import "MBProgressHUD.h"
 
 @interface PlayerSettingsMainViewController ()
 
@@ -112,13 +113,19 @@
 }
 
 - (void)logoutTapped {
+    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+
     [AuthenticationService signOutUser:^(bool status) {
         if (status) {
-            //InitialViewController *initialVC  = [self.storyboard instantiateViewControllerWithIdentifier:@"InitialViewController"];
-            [self.navigationController popToRootViewControllerAnimated:YES];
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            [[[UIAlertView alloc]initWithTitle:@"Success" message:@"Please check your email to confirm " delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", @"Okay Comment") otherButtonTitles:nil, nil] show];
         }
     } failureBlock:^(bool status, NSError *error) {
-       //TODO: show error alert
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [[[UIAlertView alloc]initWithTitle:@"Error" message:@"Something went wrong" delegate:nil cancelButtonTitle:NSLocalizedString(@"CANCEL", @"Okay Comment") otherButtonTitles:nil, nil] show];
+        
+        
     }];
 }
 

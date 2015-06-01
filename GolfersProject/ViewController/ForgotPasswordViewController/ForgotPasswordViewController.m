@@ -11,6 +11,8 @@
 #import "AuthenticationService.h"
 #import "MBProgressHUD.h"
 #import "AppDelegate.h"
+#import "SignInViewController.h"
+#import "PlayerProfileViewController.h"
 #import "ClubHouseContainerVC.h"
 
 @interface ForgotPasswordViewController ()
@@ -21,6 +23,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
     // Do any additional setup after loading the view.
 }
 
@@ -53,7 +56,6 @@
         [[[UIAlertView alloc]initWithTitle:@"Error" message:@"Something went wrong" delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:nil, nil] show];
     }];
        }
-
 - (IBAction)backTapped:(id)sender {
     
     AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
@@ -64,5 +66,19 @@
         }
     }
 }
-
-@end
+/*
+- (IBAction)btnBackButtonTapped:(UIButton *)sender {
+    
+    for (UIViewController *controller in self.navigationController.viewControllers) {
+        if ([controller isKindOfClass:[SignInViewController class]]) {
+            [self.navigationController popToViewController:controller animated:YES];
+        }else if ([controller isKindOfClass:[PlayerProfileViewController class]])
+        {
+             [self.navigationController popToViewController:controller animated:YES];
+            return;
+        }
+    }
+    
+}
+*/
+ @end

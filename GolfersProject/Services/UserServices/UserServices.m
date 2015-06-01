@@ -73,7 +73,7 @@ static User * currentUser = nil;
         OVCResponse * resp = response;
         if (!error) {
             //Setting current user
-            NSString * msg = [[resp result] objectForKey:@"message"];
+            NSString * msg = @"Successfully updated";//[[resp result] objectForKey:@"message"];
             successBlock(true, msg);
         }else{
             failureBlock(false, error);

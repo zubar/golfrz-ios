@@ -25,10 +25,9 @@
 {
     [super viewDidLoad];
     
-    UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-     self.clubHouseViewController = (ClubHouseViewController *)[mainStoryBoard instantiateViewControllerWithIdentifier:@"ClubHouseViewController"];
-    self.playerProfileViewController = (PlayerProfileViewController *)[mainStoryBoard instantiateViewControllerWithIdentifier:@"PlayerProfileViewController"];
-    self.rewardViewController = (RewardViewController *)[mainStoryBoard instantiateViewControllerWithIdentifier:@"RewardViewController"];
+    self.clubHouseViewController = (ClubHouseViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"ClubHouseViewController"];
+    self.playerProfileViewController = (PlayerProfileViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"PlayerProfileViewController"];
+    self.rewardViewController = (RewardViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"RewardViewController"];
     
     NSMutableArray *controllersArray = [NSMutableArray array];
     [controllersArray addObject:self.clubHouseViewController];
