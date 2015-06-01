@@ -40,7 +40,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wpf-PC-5Va" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1837" y="255"/>
+            <point key="canvasLocation" x="-1923" y="132"/>
         </scene>
         <!--Splash Screen View Controller-->
         <scene sceneID="H31-Ub-Y7M">
@@ -81,7 +81,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JOb-DZ-lUN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1505" y="-256"/>
+            <point key="canvasLocation" x="-1497" y="-73"/>
         </scene>
         <!--Initial View Controller-->
         <scene sceneID="5Es-EW-CCa">
@@ -572,9 +572,6 @@
                                         <state key="normal" image="singup_backarrow">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <connections>
-                                            <segue destination="tyW-iC-uJ4" kind="push" id="nGb-Gm-afh"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1071,9 +1068,6 @@
                                             <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <connections>
-                                            <segue destination="yDI-f6-KoF" kind="push" id="lwE-th-cwI"/>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BjI-6u-of3">
                                         <rect key="frame" x="240" y="308" width="35" height="35"/>
@@ -1973,7 +1967,7 @@
                     <navigationItem key="navigationItem" id="Blf-Yv-W4r"/>
                     <connections>
                         <outlet property="eventsTableVeiw" destination="JTd-mL-cbY" id="gR2-MS-5LV"/>
-                        <segue destination="P0I-Et-RIr" kind="modal" identifier="segueToEventDetailController" id="rvv-FR-8ij"/>
+                        <segue destination="P0I-Et-RIr" kind="push" identifier="segueToEventDetailController" id="rvv-FR-8ij"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ex1-w0-nWI" userLabel="First Responder" sceneMemberID="firstResponder"/>

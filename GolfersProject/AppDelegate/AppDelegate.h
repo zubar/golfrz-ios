@@ -15,9 +15,5 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
-@property (strong, nonatomic) ClubHouseViewController *greenViewController;
-@property (strong, nonatomic) PlayerProfileViewController *blueViewController;
-@property (strong, nonatomic) RewardViewController *grayViewController;
-
 @end
 

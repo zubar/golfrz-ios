@@ -22,8 +22,17 @@
 @implementation PlayerProfileViewController
 
 - (void)viewDidLoad {
+    
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+    [[self navigationItem] setTitle:@"PLAYERPROFILE"];
+    UIButton * imageRightButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 10, 22, 22)];
+    [imageRightButton setBackgroundImage:[UIImage imageNamed:@"invite_icon"] forState:UIControlStateNormal];
+    [imageRightButton addTarget:self action:@selector(test) forControlEvents:UIControlEventAllEvents];
+    UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:imageRightButton];
+    self.navigationItem.rightBarButtonItem = rightBarButtonItem;
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [UserServices getUserInfo:^(bool status, User *mUser) {
@@ -46,6 +55,9 @@
 
 - (void)pushNextController{
         [self.navigationController pushViewController:self.containerVC.rewardViewController animated:YES];
+}
+
+- (void) test {
 }
 
 -(void)popToPreviousController{

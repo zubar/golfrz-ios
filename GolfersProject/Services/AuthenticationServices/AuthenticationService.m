@@ -30,6 +30,8 @@
             [defaults setValue:responseObject[@"token"] forKey:kUSER_TOKEN];
             [defaults setValue:responseObject[@"email"] forKey:kUSER_EMAIL];
             [defaults setValue:responseObject[@"id"] forKey:kUSER_ID];
+            NSLog(@"user_id: %@ email: %@, token: %@", responseObject[@"id"],responseObject[@"email"],responseObject[@"token"] );
+            
             [defaults synchronize];
         }
         successBlock(true, responseObject);
@@ -77,7 +79,7 @@
     
 }
 
-+(void)singUpUser:(NSString * )firstName lastName:(NSString *)lastName email:(NSString *)email password:(NSString *)password  passwordConfirmation:(NSString *)passwordConfirmation memberId:(NSString *)memberID completion:(void (^)(bool status, NSError * error))block{
++(void)singUpUser:(NSString * )firstName lastName:(NSString *)lastName email:(NSString *)email password:(NSString *)password  passwordConfirmation:(NSString *)passwordConfirmation memberId:(NSString *)memberID completion:(void (^)(bool status, NSError * error))block failure:(void (^)(bool status, NSError * error))failureBlock{
 
     APIClient *apiClient = [APIClient sharedAPICLient];
     
@@ -87,7 +89,7 @@
         if (!error) {
             block(true, nil);
         }else{
-            block(false, error);
+            failureBlock(false, error);
         }
         
     }];
