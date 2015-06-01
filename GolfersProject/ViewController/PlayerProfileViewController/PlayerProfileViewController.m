@@ -42,7 +42,7 @@
         
     } failure:^(bool status, NSError *error) {
         //TODO: add in a separate file all the alert messages.
-        [[[UIAlertView alloc] initWithTitle:@"Failure" message:@"Failed to get details" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil] show];
+        [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Failed to get details" delegate:nil cancelButtonTitle:@"CANCEL" otherButtonTitles:nil, nil] show];
         [MBProgressHUD hideHUDForView:self.view animated:YES];
 
     }];
