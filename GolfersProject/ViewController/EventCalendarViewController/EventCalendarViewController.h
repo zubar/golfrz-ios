@@ -22,4 +22,5 @@
 @property (nonatomic, retain) NSMutableArray * todayEvents;
 
 @property (weak, nonatomic) IBOutlet UITableView *eventsTableVeiw;
+
 @end

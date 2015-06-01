@@ -33,20 +33,21 @@
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
-    [CourseServices courseInfo:^(bool status, Course *currentCourse) {
-            Course * mCourse = currentCourse;
+    
+    [CourseServices courseInfo:^(bool status, id tObject) {
+        NSDictionary * mCourse = tObject;
         // Setting ThemeColor
-            UIColor * themeColor = [UIColor colorWithHexString:[NSString stringWithFormat:@"0x%@", mCourse.courseTheme]];
-            (themeColor != nil ? [sharedManager setThemeColor:themeColor] : [sharedManager setThemeColor:[UIColor colorWithHexString:kDefaultThemeColor]]);
-        // Setting 
-        
+        UIColor * themeColor = [UIColor colorWithHexString:[NSString stringWithFormat:@"0x%@", mCourse[@"course_theme"]]];
+        (themeColor != nil ? [sharedManager setThemeColor:themeColor] : [sharedManager setThemeColor:[UIColor colorWithHexString:kDefaultThemeColor]]);
+        // Setting
+        [sharedManager setCourseCity:mCourse[@"course_city"]];
+        [sharedManager setCourseName:mCourse[@"course_name"]];
         
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-
+        
         InitialViewController * initController = [self.storyboard instantiateViewControllerWithIdentifier:@"InitialViewController"];
         [self.navigationController pushViewController:initController animated:YES];
-        
-    } failure:^(bool status, NSError *error) {
+    } failure:^(bool status, NSError * error) {
         // Setting theme color
         [sharedManager setThemeColor:[UIColor colorWithHexString:kDefaultThemeColor]];
         //TODO:
@@ -58,7 +59,6 @@
         InitialViewController * initController = [self.storyboard instantiateViewControllerWithIdentifier:@"InitialViewController"];
         [self.navigationController pushViewController:initController animated:YES];
     }];
-    
 }
 
 -(void)viewWillAppear:(BOOL)animated{

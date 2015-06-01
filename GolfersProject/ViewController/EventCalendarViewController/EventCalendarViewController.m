@@ -14,6 +14,9 @@
 #import "NSDate+Helper.h"
 #import "EventDetailViewController.h"
 #import "MBProgressHUD.h"
+#import "GolfrzErrorResponse.h"
+#import "GolfrzError.h"
+
 
 #define kEventCalendarMarginLeft 10.0f
 #define kEventCalendarMarginTop 60.0f
@@ -71,6 +74,7 @@
     } failure:^(bool status, NSError *error) {
         if (!status) {
             NSLog(@"Error");
+                        
             [MBProgressHUD hideHUDForView:self.view animated:YES];
 
         }
@@ -106,7 +110,7 @@
     
     CGRect  appFrameSize = [[UIScreen mainScreen] applicationFrame];
     
-    [self.eventsTableVeiw setFrame:CGRectMake(kEventCalendarMarginLeft, kEventCalendarMarginTop + height, kEventCalendarWidth, appFrameSize.size.height - kEventCalendarMarginTop - height)];
+    [self.eventsTableVeiw setFrame:CGRectMake(kEventCalendarMarginLeft, appFrameSize.origin.y + kEventCalendarMarginTop + height, kEventCalendarWidth, appFrameSize.size.height - kEventCalendarMarginTop - height)];
 
 }
 
@@ -199,11 +203,19 @@
     return header;
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 25.0f;
+}
+
 -(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
     
     UIView * header = [[UIView alloc]init];
     [header setBackgroundColor:[UIColor greenColor]];
     return header;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return 25.0f;
 }
 
 #pragma mark - Navigation
