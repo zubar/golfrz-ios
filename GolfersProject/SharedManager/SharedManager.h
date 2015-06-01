@@ -15,6 +15,10 @@
 @property (strong, nonatomic) UIColor * themeColor;
 @property (strong, nonatomic) NSString * backgroundImagePath;
 @property (strong, nonatomic) NSString * logoImagePath;
+@property (strong, nonatomic) NSString * courseState;
+@property (strong, nonatomic) NSString * courseCity;
+@property (strong, nonatomic) NSString * courseName;
+
 
 + (SharedManager *)sharedInstance;
 

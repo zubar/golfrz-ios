@@ -27,6 +27,10 @@
     return sharedInstance;
 }
 
+-(void)getCourseInfo:(void (^)(bool status, id jsonObject))successBlock{
+
+
+}
 
 
 @end

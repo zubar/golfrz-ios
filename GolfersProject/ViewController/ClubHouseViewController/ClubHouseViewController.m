@@ -59,7 +59,7 @@
 
 -(void)test{
 
-    [CourseServices courseInfo:^(bool status, Course *currentCourse) {
+    [CourseServices courseDetailInfo:^(bool status, Course *currentCourse) {
         //
         
     } failure:^(bool status, NSError *error) {

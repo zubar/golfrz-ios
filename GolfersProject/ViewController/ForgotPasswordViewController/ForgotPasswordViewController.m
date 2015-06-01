@@ -10,6 +10,9 @@
 #import "ForgotPasswordSViewController.h"
 #import "AuthenticationService.h"
 #import "MBProgressHUD.h"
+#import "SignInViewController.h"
+#import "PlayerProfileViewController.h"
+#import "ClubHouseContainerVC.h"
 
 @interface ForgotPasswordViewController ()
 
@@ -52,4 +55,17 @@
         [[[UIAlertView alloc]initWithTitle:@"Error" message:@"Something went wrong" delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:nil, nil] show];
     }];
        }
+- (IBAction)btnBackButtonTapped:(UIButton *)sender {
+    
+    for (UIViewController *controller in self.navigationController.viewControllers) {
+        if ([controller isKindOfClass:[SignInViewController class]]) {
+            [self.navigationController popToViewController:controller animated:YES];
+        }else if ([controller isKindOfClass:[PlayerProfileViewController class]])
+        {
+             [self.navigationController popToViewController:controller animated:YES];
+            return;
+        }
+    }
+    
+}
 @end

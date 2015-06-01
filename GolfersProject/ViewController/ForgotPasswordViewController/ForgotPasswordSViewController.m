@@ -45,6 +45,7 @@
         }else{
             SignInViewController *signInVC  = [self.storyboard instantiateViewControllerWithIdentifier:@"SignInViewController"];
             [self.navigationController pushViewController:signInVC animated:YES];
+            return;
 
         }
     }
