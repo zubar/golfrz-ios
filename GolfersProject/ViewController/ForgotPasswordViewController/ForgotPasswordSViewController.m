@@ -36,8 +36,17 @@
 }
 
 - (void)backToLoginTapped{
-    SignInViewController *signInViewController  = [self.storyboard instantiateViewControllerWithIdentifier:@"SignInViewController"];
-    [self.navigationController pushViewController:signInViewController animated:YES];
+    
+    for (UIViewController *controller in self.navigationController.viewControllers) {
+        
+        if ([controller isKindOfClass:[SignInViewController class]]) {
+            
+            [self.navigationController popToViewController:controller animated:YES];
+        }
+        
+    }
+//    SignInViewController *signInViewController  = [self.storyboard instantiateViewControllerWithIdentifier:@"SignInViewController"];
+//    [self.navigationController pushViewController:signInViewController animated:YES];
 }
 
 
