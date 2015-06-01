@@ -12,6 +12,7 @@
 #import "ForgotPasswordViewController.h"
 #import "UserServices.h"
 #import "User.h"
+#import "AppDelegate.h"
 
 @interface PlayerSettingsMainViewController ()
 
@@ -103,8 +104,10 @@
 
 - (void)resetPasswordTapped{
    
+    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+    
     ForgotPasswordViewController *forgetPasswordVC  = [self.storyboard instantiateViewControllerWithIdentifier:@"ForgotPasswordViewController"];
-    [self.navigationController pushViewController:forgetPasswordVC animated:YES];
+    [delegate.appDelegateNavController pushViewController:forgetPasswordVC animated:YES];
     
 }
 

@@ -15,7 +15,7 @@
 #import "SharedManager.h"
 #import "MBProgressHUD.h"
 #import "InitialViewController.h"
-
+#import "AppDelegate.h"
 
 @interface SplashScreenViewController ()
 
@@ -26,6 +26,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+    
    
     [self.imgSplash setImage:[UIImage imageNamed:@"background_image"]];
 
@@ -46,7 +48,7 @@
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         
         InitialViewController * initController = [self.storyboard instantiateViewControllerWithIdentifier:@"InitialViewController"];
-        [self.navigationController pushViewController:initController animated:YES];
+        [delegate.appDelegateNavController pushViewController:initController animated:YES];
     } failure:^(bool status, NSError * error) {
         // Setting theme color
         [sharedManager setThemeColor:[UIColor colorWithHexString:kDefaultThemeColor]];
@@ -57,7 +59,7 @@
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         
         InitialViewController * initController = [self.storyboard instantiateViewControllerWithIdentifier:@"InitialViewController"];
-        [self.navigationController pushViewController:initController animated:YES];
+        [delegate.appDelegateNavController pushViewController:initController animated:YES];
     }];
 }
 

@@ -22,6 +22,7 @@
 #import "FaceBookAuthAgent.h"
 #import "CalendarEventServices.h"
 #import "EventList.h"
+#import "AppDelegate.h"
 
 @interface InitialViewController ()
 
@@ -62,8 +63,10 @@
 
 - (void)signInTapped{
     
+    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+    
     SignInViewController *signInViewController  = [self.storyboard instantiateViewControllerWithIdentifier:@"SignInViewController"];
-    [self.navigationController pushViewController:signInViewController animated:YES];
+    [delegate.appDelegateNavController pushViewController:signInViewController animated:YES];
 }
 
 - (IBAction)connectWithFacebook:(id)sender {

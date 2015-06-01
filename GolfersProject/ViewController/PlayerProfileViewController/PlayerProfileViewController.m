@@ -14,6 +14,8 @@
 #import "MBProgressHUD.h"
 #import "CourseServices.h"
 #import "Course.h"
+#import "PlayerSettingsMainViewController.h"
+#import "AppDelegate.h"
 
 @interface PlayerProfileViewController ()
 
@@ -82,6 +84,11 @@
 */
 
 - (IBAction)btnSettingsTapped:(UIButton *)sender {
+    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+    
+    PlayerSettingsMainViewController * mainSettingsController = [self.storyboard instantiateViewControllerWithIdentifier:@"PlayerSettingsMainViewController"];
+    [delegate.appDelegateNavController pushViewController:mainSettingsController animated:YES];
+    
 }
 - (IBAction)btnStartRoundTapped:(UIButton *)sender {
 }

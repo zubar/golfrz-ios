@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="1gL-qd-nhi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
@@ -34,9 +34,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
-                    <connections>
-                        <segue destination="7Xa-5q-5iG" kind="relationship" relationship="rootViewController" id="1er-58-KiX"/>
-                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wpf-PC-5Va" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -45,7 +42,7 @@
         <!--Splash Screen View Controller-->
         <scene sceneID="H31-Ub-Y7M">
             <objects>
-                <viewController id="7Xa-5q-5iG" customClass="SplashScreenViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SplashScreenViewController" id="7Xa-5q-5iG" customClass="SplashScreenViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="URV-JV-JFc"/>
                         <viewControllerLayoutGuide type="bottom" id="zcb-w1-MBE"/>
@@ -573,7 +570,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="tyW-iC-uJ4" kind="push" id="nGb-Gm-afh"/>
+                                            <action selector="backTapped:" destination="yeR-kG-pgd" eventType="touchUpInside" id="uN9-iE-snX"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -2155,7 +2152,7 @@
         <!--Player Settings Main View Controller-->
         <scene sceneID="kKA-qe-TxH">
             <objects>
-                <viewController id="Na0-YF-aOj" customClass="PlayerSettingsMainViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PlayerSettingsMainViewController" id="Na0-YF-aOj" customClass="PlayerSettingsMainViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5Kd-xP-cNK"/>
                         <viewControllerLayoutGuide type="bottom" id="2HK-Nx-DSo"/>
@@ -2540,7 +2537,6 @@
                                         </state>
                                         <connections>
                                             <action selector="btnSettingsTapped:" destination="TbR-hG-38y" eventType="touchUpInside" id="7wy-Hb-JUO"/>
-                                            <segue destination="Na0-YF-aOj" kind="push" id="9oY-Ro-zcA"/>
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oPn-0R-QDb">

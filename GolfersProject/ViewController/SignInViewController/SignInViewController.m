@@ -62,11 +62,15 @@
 */
 
 - (IBAction)btnSignInTapped:(id)sender {
+    
+    
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [AuthenticationService loginWithUserName:self.txtUsername.text password:self.txtPassword.text success:^(bool status, NSDictionary *muser){
+        AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+        
         [MBProgressHUD hideHUDForView:self.view animated:YES];
          ClubHouseContainerVC *clubHouseContainerVC  = [self.storyboard instantiateViewControllerWithIdentifier:@"ClubHouseContainerVC"];
-        [self.navigationController pushViewController:clubHouseContainerVC animated:YES];
+        [delegate.appDelegateNavController pushViewController:clubHouseContainerVC animated:YES];
         [[[UIAlertView alloc]initWithTitle:@"Success" message:@"You have successfully logged in" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
     } failure:^(bool status, NSError *error){
         [MBProgressHUD hideHUDForView:self.view animated:YES];

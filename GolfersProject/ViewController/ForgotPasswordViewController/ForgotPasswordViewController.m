@@ -10,6 +10,8 @@
 #import "ForgotPasswordSViewController.h"
 #import "AuthenticationService.h"
 #import "MBProgressHUD.h"
+#import "AppDelegate.h"
+#import "ClubHouseContainerVC.h"
 
 @interface ForgotPasswordViewController ()
 
@@ -51,4 +53,16 @@
         [[[UIAlertView alloc]initWithTitle:@"Error" message:@"Something went wrong" delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:nil, nil] show];
     }];
        }
+
+- (IBAction)backTapped:(id)sender {
+    
+    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+    for (id controller in delegate.appDelegateNavController.viewControllers) {
+        if ([controller isKindOfClass:[ClubHouseContainerVC class]]) {
+            [delegate.appDelegateNavController popToViewController:controller animated:YES];
+            return;
+        }
+    }
+}
+
 @end

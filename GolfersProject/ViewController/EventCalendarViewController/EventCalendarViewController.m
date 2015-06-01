@@ -34,8 +34,6 @@
     // Do any additional setup after loading the view.
     
     [self setUpData];
-
-    
     CGRect appFrame = [[UIScreen mainScreen] applicationFrame];
     
     self.calendar = [[VRGCalendarView alloc] init];
@@ -54,8 +52,6 @@
     self.eventsTableVeiw.delegate = self;
     [self.view addSubview:self.eventsTableVeiw];
     
-    
-    //[self.eventsTableVeiw setFrame:CGRectMake(kEventCalendarMarginLeft, kEventCalendarMarginTop + kEventCalendarHeight - 20 , kEventCalendarWidth, 200)];
 }
 
 -(void)setUpData{
