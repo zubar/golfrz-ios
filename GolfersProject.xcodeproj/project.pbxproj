@@ -66,6 +66,7 @@
 		889872BF1B13105C00D3C0E9 /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 889872BE1B13105C00D3C0E9 /* Utilities.m */; };
 		889872C91B13239400D3C0E9 /* SideNotificationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 889872C81B13239400D3C0E9 /* SideNotificationView.xib */; };
 		889872CC1B13437400D3C0E9 /* SideNotificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 889872CB1B13437400D3C0E9 /* SideNotificationView.m */; };
+		88B21DEB1B1C390100AFC6D2 /* SplashScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B21DEA1B1C390100AFC6D2 /* SplashScreenViewController.m */; };
 		88B23C171B16E49800988908 /* ContactUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B23C161B16E49800988908 /* ContactUsViewController.m */; };
 		88B23C1C1B16E69D00988908 /* CourseDepartmentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B23C1B1B16E69D00988908 /* CourseDepartmentCell.m */; };
 		88D813AD1B17640E00FD7D0E /* PlayerSettingsMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D813AC1B17640E00FD7D0E /* PlayerSettingsMainViewController.m */; };
@@ -198,6 +199,8 @@
 		889872C81B13239400D3C0E9 /* SideNotificationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SideNotificationView.xib; path = Views/SideNotificationView.xib; sourceTree = "<group>"; };
 		889872CA1B13437400D3C0E9 /* SideNotificationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideNotificationView.h; sourceTree = "<group>"; };
 		889872CB1B13437400D3C0E9 /* SideNotificationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideNotificationView.m; sourceTree = "<group>"; };
+		88B21DE91B1C390100AFC6D2 /* SplashScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashScreenViewController.h; sourceTree = "<group>"; };
+		88B21DEA1B1C390100AFC6D2 /* SplashScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashScreenViewController.m; sourceTree = "<group>"; };
 		88B23C151B16E49800988908 /* ContactUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactUsViewController.h; sourceTree = "<group>"; };
 		88B23C161B16E49800988908 /* ContactUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactUsViewController.m; sourceTree = "<group>"; };
 		88B23C1A1B16E69D00988908 /* CourseDepartmentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseDepartmentCell.h; sourceTree = "<group>"; };
@@ -534,6 +537,7 @@
 		885CB04F1B09BADE00AD2A7B /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				88B21DE81B1C38DA00AFC6D2 /* SplashScreenViewController */,
 				8873AA731B18C5D500E74C87 /* EventAdminViewController */,
 				88D813AA1B1762C000FD7D0E /* PlayerSettingsViewController */,
 				88B23C141B16E48200988908 /* ContactUsViewController */,
@@ -687,6 +691,15 @@
 				3D87D8311B15A5F50046BD60 /* CalendarEventCell.xib */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		88B21DE81B1C38DA00AFC6D2 /* SplashScreenViewController */ = {
+			isa = PBXGroup;
+			children = (
+				88B21DE91B1C390100AFC6D2 /* SplashScreenViewController.h */,
+				88B21DEA1B1C390100AFC6D2 /* SplashScreenViewController.m */,
+			);
+			path = SplashScreenViewController;
 			sourceTree = "<group>";
 		};
 		88B23C141B16E48200988908 /* ContactUsViewController */ = {
@@ -869,6 +882,7 @@
 				88709E9E1B0DB600005DA345 /* ForgotPasswordSViewController.m in Sources */,
 				3D1963C41B0DAECD00766CFC /* WeatherServices.m in Sources */,
 				88FBCCBA1B19AC08005FD528 /* Department.m in Sources */,
+				88B21DEB1B1C390100AFC6D2 /* SplashScreenViewController.m in Sources */,
 				3DD9BD221B14C02100A2F296 /* CalendarEvent.m in Sources */,
 				885CB07A1B0A117300AD2A7B /* GolfrzError.m in Sources */,
 				8873AA761B18C5F500E74C87 /* EventAdminViewController.m in Sources */,
