@@ -25,7 +25,7 @@
 {
     [super viewDidLoad];
     
-     self.clubHouseViewController = (ClubHouseViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"ClubHouseViewController"];
+    self.clubHouseViewController = (ClubHouseViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"ClubHouseViewController"];
     self.playerProfileViewController = (PlayerProfileViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"PlayerProfileViewController"];
     self.rewardViewController = (RewardViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"RewardViewController"];
     
