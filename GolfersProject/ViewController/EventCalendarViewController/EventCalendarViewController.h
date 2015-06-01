@@ -21,6 +21,6 @@
 @property (nonatomic, retain) NSMutableArray * colors;
 @property (nonatomic, retain) NSMutableArray * todayEvents;
 
-@property (weak, nonatomic) IBOutlet UITableView *eventsTableVeiw;
+@property (retain, nonatomic) IBOutlet UITableView *eventsTableVeiw;
 
 @end

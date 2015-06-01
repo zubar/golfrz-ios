@@ -35,7 +35,8 @@
     
     [self setUpData];
 
-    [self updateCalendarEventTableViewForCalenderHeight:kEventCalendarHeight];
+    
+    CGRect appFrame = [[UIScreen mainScreen] applicationFrame];
     
     self.calendar = [[VRGCalendarView alloc] init];
     [self.calendar setFrame:CGRectMake(kEventCalendarMarginLeft, kEventCalendarMarginTop, kEventCalendarWidth, kEventCalendarHeight)];
@@ -47,7 +48,14 @@
     [self.eventsTableVeiw setBackgroundColor:[UIColor clearColor]];
     [self.eventsTableVeiw setBackgroundView:nil];
     
+    self.eventsTableVeiw = [[UITableView alloc]initWithFrame:CGRectMake(kEventCalendarMarginLeft, 22 + kEventCalendarHeight  , kEventCalendarWidth - 4, appFrame.size.height - self.eventsTableVeiw.frame.origin.y) style:UITableViewStylePlain];
     
+    self.eventsTableVeiw.dataSource = self;
+    self.eventsTableVeiw.delegate = self;
+    [self.view addSubview:self.eventsTableVeiw];
+    
+    
+    //[self.eventsTableVeiw setFrame:CGRectMake(kEventCalendarMarginLeft, kEventCalendarMarginTop + kEventCalendarHeight - 20 , kEventCalendarWidth, 200)];
 }
 
 -(void)setUpData{
@@ -108,10 +116,11 @@
 
 -(void)updateCalendarEventTableViewForCalenderHeight:(float)height{
     
-    CGRect  appFrameSize = [[UIScreen mainScreen] applicationFrame];
-    
-    [self.eventsTableVeiw setFrame:CGRectMake(kEventCalendarMarginLeft, appFrameSize.origin.y + kEventCalendarMarginTop + height, kEventCalendarWidth, appFrameSize.size.height - kEventCalendarMarginTop - height)];
-
+    CGRect  appFrame = [[UIScreen mainScreen] applicationFrame];
+    CGRect finalFrame =  CGRectMake(kEventCalendarMarginLeft, height + 61 , kEventCalendarWidth - 4, appFrame.size.height - height - 41);
+    [UIView animateWithDuration:0.35 animations:^{
+        [self.eventsTableVeiw setFrame:finalFrame];
+    }];
 }
 
 -(void)updateEventsStartDate:(NSDate * )startDate endDate:(NSDate *)endDate{
