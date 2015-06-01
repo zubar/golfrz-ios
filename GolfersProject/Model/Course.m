@@ -10,6 +10,7 @@
 #import "Coordinates.h"
 #import "StaffMember.h"
 #import "Department.h"
+#import "Constants.h"
 
 @implementation Course
 
@@ -44,6 +45,26 @@
     return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[Department class]];
 }
 
+
+// Making image path absolute URL:
++ (NSValueTransformer *)courseLogoJSONTransformer {
+    
+  return [MTLValueTransformer transformerWithBlock:^id(id relativePath) {
+        return [self absoluteImageURLfromRelativeUR:relativePath ];
+    }];
+}
+
++ (NSValueTransformer *)courseBackgroundImageJSONTransformer {
+    
+    return [MTLValueTransformer transformerWithBlock:^id(id relativePath) {
+        return [self absoluteImageURLfromRelativeUR:relativePath ];
+    }];
+}
+
++ (NSString *)absoluteImageURLfromRelativeUR:(NSString *)relativePath {
+    
+    return [NSString stringWithFormat:@"%@%@", kBaseImageUrl, relativePath];
+}
 
 @end
 

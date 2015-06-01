@@ -176,7 +176,7 @@
 		885CB0611B09BADE00AD2A7B /* SignInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignInViewController.m; sourceTree = "<group>"; };
 		885CB0631B09BADE00AD2A7B /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
 		885CB0641B09BADE00AD2A7B /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
-		885CB06C1B09BDCD00AD2A7B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		885CB06C1B09BDCD00AD2A7B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = GolfersProject/README.md; sourceTree = "<group>"; };
 		885CB0731B09FB0100AD2A7B /* APIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIClient.h; sourceTree = "<group>"; };
 		885CB0741B09FB0100AD2A7B /* APIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIClient.m; sourceTree = "<group>"; };
 		885CB0761B0A117300AD2A7B /* GolfrzError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GolfrzError.h; sourceTree = "<group>"; };
@@ -455,6 +455,7 @@
 		88024F541AD29134004AC260 = {
 			isa = PBXGroup;
 			children = (
+				885CB06C1B09BDCD00AD2A7B /* README.md */,
 				88024F5F1AD29134004AC260 /* GolfersProject */,
 				88024F791AD29134004AC260 /* GolfersProjectTests */,
 				88024F5E1AD29134004AC260 /* Products */,
@@ -479,7 +480,6 @@
 				889872C71B13237F00D3C0E9 /* Views */,
 				889872C01B13111900D3C0E9 /* Constants */,
 				889872BC1B13103300D3C0E9 /* Utilities */,
-				885CB06C1B09BDCD00AD2A7B /* README.md */,
 				3D1963F51B0E1F0500766CFC /* WeatherCell */,
 				885CB07C1B0A121300AD2A7B /* Services */,
 				885CB04F1B09BADE00AD2A7B /* ViewController */,
@@ -1044,7 +1044,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Abdullah Saeed (7983HQ379L)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Abdullah Saeed (7983HQ379L)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
