@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="1gL-qd-nhi">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -592,7 +593,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background_image" translatesAutoresizingMaskIntoConstraints="NO" id="gfO-8c-wnk">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" bounces="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wEY-5X-3Xs" customClass="TPKeyboardAvoidingScrollView">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wEY-5X-3Xs" customClass="TPKeyboardAvoidingScrollView">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="grB-Vy-hrn">
@@ -822,11 +823,13 @@
                             <constraint firstAttribute="bottom" secondItem="gfO-8c-wnk" secondAttribute="bottom" id="Uip-Er-3uN"/>
                             <constraint firstItem="gfO-8c-wnk" firstAttribute="leading" secondItem="dYo-Ow-dJB" secondAttribute="leading" id="VPX-WN-L4b"/>
                             <constraint firstAttribute="trailing" secondItem="wEY-5X-3Xs" secondAttribute="trailing" id="VtA-8j-w8k"/>
+                            <constraint firstItem="grB-Vy-hrn" firstAttribute="height" secondItem="dYo-Ow-dJB" secondAttribute="height" id="bXV-RI-Cpr"/>
                             <constraint firstItem="gRi-n2-oOe" firstAttribute="top" secondItem="FBc-1V-sru" secondAttribute="bottom" id="cPW-Bp-e2J"/>
                             <constraint firstItem="grB-Vy-hrn" firstAttribute="height" secondItem="dYo-Ow-dJB" secondAttribute="height" id="e0s-nA-cTY"/>
                             <constraint firstItem="grB-Vy-hrn" firstAttribute="width" secondItem="dYo-Ow-dJB" secondAttribute="width" id="eTL-BF-JAg"/>
                             <constraint firstItem="wEY-5X-3Xs" firstAttribute="leading" secondItem="dYo-Ow-dJB" secondAttribute="leading" id="kK1-FW-qc4"/>
                             <constraint firstItem="gRi-n2-oOe" firstAttribute="top" secondItem="wEY-5X-3Xs" secondAttribute="bottom" id="lLY-oV-PN3"/>
+                            <constraint firstItem="grB-Vy-hrn" firstAttribute="width" secondItem="dYo-Ow-dJB" secondAttribute="width" id="m7O-Ac-mRx"/>
                             <constraint firstItem="wEY-5X-3Xs" firstAttribute="top" secondItem="a8B-kB-sq6" secondAttribute="bottom" id="ogg-kG-B9A"/>
                             <constraint firstAttribute="trailing" secondItem="gfO-8c-wnk" secondAttribute="trailing" id="xqf-QQ-AwC"/>
                         </constraints>
@@ -1027,6 +1030,9 @@
                                             <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="yDI-f6-KoF" kind="push" id="lwE-th-cwI"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BjI-6u-of3">
                                         <rect key="frame" x="240" y="308" width="35" height="35"/>
@@ -1801,6 +1807,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Blf-Yv-W4r"/>
                     <connections>
                         <outlet property="eventsTableVeiw" destination="JTd-mL-cbY" id="gR2-MS-5LV"/>
                         <segue destination="P0I-Et-RIr" kind="modal" identifier="segueToEventDetailController" id="rvv-FR-8ij"/>
@@ -2221,6 +2228,7 @@
                             <constraint firstItem="rHB-45-0e7" firstAttribute="top" secondItem="DTJ-kd-v1K" secondAttribute="top" constant="64" id="l3f-pr-dD7"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="uWS-3l-HLl"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <connections>
                         <outlet property="imgUserPic" destination="q3W-YF-wpN" id="IgX-ki-kn1"/>
@@ -2378,6 +2386,7 @@
                                         </state>
                                         <connections>
                                             <action selector="btnSettingsTapped:" destination="TbR-hG-38y" eventType="touchUpInside" id="7wy-Hb-JUO"/>
+                                            <segue destination="Na0-YF-aOj" kind="push" id="9oY-Ro-zcA"/>
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oPn-0R-QDb">
@@ -2535,6 +2544,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="d9n-A9-t3x"/>
+        <segue reference="CXT-sc-l7C"/>
     </inferredMetricsTieBreakers>
 </document>

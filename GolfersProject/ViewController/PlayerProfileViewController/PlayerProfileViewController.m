@@ -29,9 +29,9 @@
     [UserServices getUserInfo:^(bool status, User *mUser) {
         
         [self.lblUserName setText:mUser.firstName];
-        [self.lblHandicap setText:[mUser.handicap stringValue]];
+        [self.lblHandicap setText:@"0"];
         //TODO: add pints in service 
-     //   [self.lblPoints setText:[mUser.points stringValue]];
+        [self.lblPoints setText:@"0"];
         [self.lblCourseName setText:[[CourseServices currentCourse] courseName]];
         
         [MBProgressHUD hideHUDForView:self.view animated:YES];
