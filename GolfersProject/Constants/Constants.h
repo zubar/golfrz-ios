@@ -66,6 +66,9 @@ static NSString * const kUserAgent = @"iOS";
 static NSString * const kCalenderEventsList = @"events";
 
 
+//================================= Presentation ======================================
+
+static NSString * const kDefaultThemeColor = @"0xFF0000";
 
 
 
