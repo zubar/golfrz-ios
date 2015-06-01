@@ -16,7 +16,8 @@
 #import "MBProgressHUD.h"
 #import "GolfrzErrorResponse.h"
 #import "GolfrzError.h"
-
+#import "EventHeaderView.h"
+#import "AppDelegate.h"
 
 #define kEventCalendarMarginLeft 10.0f
 #define kEventCalendarMarginTop 60.0f
@@ -52,6 +53,13 @@
     self.eventsTableVeiw.delegate = self;
     [self.view addSubview:self.eventsTableVeiw];
     
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+
+    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+    
+    [delegate.appDelegateNavController setNavigationBarHidden:NO];
 }
 
 -(void)setUpData{
@@ -150,13 +158,26 @@
     todayComponents.month = selectedDateComponents.month;
     todayComponents.day   = selectedDateComponents.day;
     
-    NSDate *today = [todayComponents date];
+    NSDate * today = [todayComponents date];
+
+    NSDateComponents *oneDay = [NSDateComponents new];
+    oneDay.day = 30;
+    // one day after begin date
+    NSDate *endDate = [[NSCalendar currentCalendar] dateByAddingComponents:oneDay
+                                                                    toDate:today
+                                                                   options:0];
+    
     
     if (self.eventslist) {
-        NSPredicate *datePredicate = [NSPredicate predicateWithFormat:@"dateStart == %@", today];
+        NSPredicate *datePredicate = [NSPredicate predicateWithFormat:@"dateStart >= %@ AND dateStart < %@",today, endDate];
         self.todayEvents = [[self.eventslist.items filteredArrayUsingPredicate:datePredicate] mutableCopy];
         [self.eventsTableVeiw reloadData];
     }
+}
+
+-(void)updateTodayEvents{
+
+
 }
 
 #pragma mark - CalendarEventCellDelegate
@@ -189,10 +210,11 @@
     }
     
     CalendarEvent * eventObject = [self.todayEvents objectAtIndex:indexPath.row];
-   // cell.lbleventName.text = eventObject.name;
     [cell configureViewWithEvent:eventObject];
     
-    //[cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+    [tableView setBackgroundColor:[UIColor clearColor]];
+    [tableView setBackgroundView:nil];
     cell.delegate = self;
     return cell;
 }
@@ -203,25 +225,14 @@
 
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    UIView * header = [[UIView alloc]init];
-    [header setBackgroundColor:[UIColor yellowColor]];
-    return header;
+    EventHeaderView * headerView = [[EventHeaderView alloc]init];
+    return headerView;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     return 25.0f;
 }
 
--(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
-    
-    UIView * header = [[UIView alloc]init];
-    [header setBackgroundColor:[UIColor greenColor]];
-    return header;
-}
-
--(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    return 25.0f;
-}
 
 #pragma mark - Navigation
 

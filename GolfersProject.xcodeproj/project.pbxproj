@@ -33,6 +33,8 @@
 		3D1964231B13271000766CFC /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D1964201B13270F00766CFC /* FBSDKShareKit.framework */; };
 		3D1964271B13305200766CFC /* FaceBookAuthAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1964261B13305200766CFC /* FaceBookAuthAgent.m */; };
 		3D19642A1B13364B00766CFC /* Coordinates.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1964291B13364B00766CFC /* Coordinates.m */; };
+		3D841D281B1CD97D00A267DE /* EventHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D841D271B1CD97D00A267DE /* EventHeaderView.m */; };
+		3D841D2A1B1CD98800A267DE /* EventHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D841D291B1CD98800A267DE /* EventHeaderView.xib */; };
 		3D87D8281B159FE00046BD60 /* EventCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D87D8271B159FE00046BD60 /* EventCalendarViewController.m */; };
 		3D87D82B1B15A0880046BD60 /* EventDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D87D82A1B15A0880046BD60 /* EventDetailViewController.m */; };
 		3D87D8321B15A5F50046BD60 /* CalendarEventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D87D8301B15A5F50046BD60 /* CalendarEventCell.m */; };
@@ -133,6 +135,9 @@
 		3D1964261B13305200766CFC /* FaceBookAuthAgent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaceBookAuthAgent.m; sourceTree = "<group>"; };
 		3D1964281B13364B00766CFC /* Coordinates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Coordinates.h; sourceTree = "<group>"; };
 		3D1964291B13364B00766CFC /* Coordinates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Coordinates.m; sourceTree = "<group>"; };
+		3D841D261B1CD97D00A267DE /* EventHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventHeaderView.h; sourceTree = "<group>"; };
+		3D841D271B1CD97D00A267DE /* EventHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventHeaderView.m; sourceTree = "<group>"; };
+		3D841D291B1CD98800A267DE /* EventHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventHeaderView.xib; sourceTree = "<group>"; };
 		3D87D8261B159FE00046BD60 /* EventCalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventCalendarViewController.h; sourceTree = "<group>"; };
 		3D87D8271B159FE00046BD60 /* EventCalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventCalendarViewController.m; sourceTree = "<group>"; };
 		3D87D8291B15A0880046BD60 /* EventDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventDetailViewController.h; sourceTree = "<group>"; };
@@ -697,6 +702,9 @@
 		889872C71B13237F00D3C0E9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3D841D291B1CD98800A267DE /* EventHeaderView.xib */,
+				3D841D261B1CD97D00A267DE /* EventHeaderView.h */,
+				3D841D271B1CD97D00A267DE /* EventHeaderView.m */,
 				889872CA1B13437400D3C0E9 /* SideNotificationView.h */,
 				889872CB1B13437400D3C0E9 /* SideNotificationView.m */,
 				3D87D82F1B15A5F50046BD60 /* CalendarEventCell.h */,
@@ -832,6 +840,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D841D2A1B1CD98800A267DE /* EventHeaderView.xib in Resources */,
 				889872C91B13239400D3C0E9 /* SideNotificationView.xib in Resources */,
 				3D87D8331B15A5F50046BD60 /* CalendarEventCell.xib in Resources */,
 				88024F6C1AD29134004AC260 /* Main.storyboard in Resources */,
@@ -883,6 +892,7 @@
 				3D1963BC1B0CE05700766CFC /* CourseServices.m in Sources */,
 				885CB06B1B09BADE00AD2A7B /* SignUpViewController.m in Sources */,
 				889872CC1B13437400D3C0E9 /* SideNotificationView.m in Sources */,
+				3D841D281B1CD97D00A267DE /* EventHeaderView.m in Sources */,
 				885CB0441B09BA9D00AD2A7B /* AppDelegate.m in Sources */,
 				3D1963CE1B0DBC8300766CFC /* Condition.m in Sources */,
 				885CB06D1B09BDCD00AD2A7B /* README.md in Sources */,

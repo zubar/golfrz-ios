@@ -14,6 +14,9 @@
 #import "MBProgressHUD.h"
 
 #import "CourseServices.h"
+#import "EventCalendarViewController.h"
+#import "EventDetailViewController.h"
+#import "AppDelegate.h"
 
 @interface ClubHouseViewController ()
 @property (nonatomic, retain) NSArray * weatherList;
@@ -119,10 +122,14 @@
 }
 
 
--(void)btnTapped{
-
-    NSLog(@"Tapped Green");
+- (IBAction)btnEventsTapped:(id)sender {
+    
+    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+    EventCalendarViewController * controller = [self.storyboard instantiateViewControllerWithIdentifier:@"EventCalendarViewController"];
+    [delegate.appDelegateNavController pushViewController:controller animated:YES];
 }
+
+
 
 #pragma mark - NavBarButtonsDelegate
 

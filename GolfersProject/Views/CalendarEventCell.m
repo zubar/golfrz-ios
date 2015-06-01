@@ -35,7 +35,7 @@
     [self setBackgroundColor:[UIColor clearColor]];
     
     self.event =event;
-    self.lbleventName.text = self.event.summary;
+    self.lbleventName.text = self.event.name;
     self.lbleventTime.text = [NSDate stringFromDate:self.event.dateStart];
 }
 @end

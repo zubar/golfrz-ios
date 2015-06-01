@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
@@ -1098,6 +1098,9 @@
                                             <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="btnEventsTapped:" destination="iSr-ry-nVa" eventType="touchUpInside" id="GdC-MR-Vgz"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BjI-6u-of3">
                                         <rect key="frame" x="240" y="308" width="35" height="35"/>
@@ -1971,7 +1974,7 @@
         <!--Event Calendar View Controller-->
         <scene sceneID="VxD-Uc-v5F">
             <objects>
-                <viewController id="yDI-f6-KoF" customClass="EventCalendarViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EventCalendarViewController" id="yDI-f6-KoF" customClass="EventCalendarViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="C2k-rd-9Fz"/>
                         <viewControllerLayoutGuide type="bottom" id="whm-58-Ql4"/>
