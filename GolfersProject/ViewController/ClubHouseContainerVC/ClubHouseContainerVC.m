@@ -10,7 +10,9 @@
 #import "ClubHouseViewController.h"
 #import "PlayerProfileViewController.h"
 #import "RewardViewController.h"
+#import "SharedManager.h"
 
+#import "AppDelegate.h"
 
 @interface ClubHouseContainerVC ()<UINavigationControllerDelegate>
 @property (nonatomic, strong) UINavigationController * navController;
@@ -36,10 +38,9 @@
     
     self.navController = [[UINavigationController alloc]init];
     [self.navController setViewControllers:controllersArray];
-    
-    
+        
     CGSize navBarSize = self.navController.navigationBar.bounds.size;
-    self.navController.navigationBar.barTintColor = [UIColor redColor];
+    self.navController.navigationBar.barTintColor = [[SharedManager sharedInstance] themeColor];
     
 
     CGPoint origin = CGPointMake( navBarSize.width/2, navBarSize.height/1.5 );

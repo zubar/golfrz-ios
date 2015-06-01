@@ -21,7 +21,7 @@
  * BaseImageURLGolfrz
  */
 //static NSString * const kBaseImageUrl = @"https://powerful-plains-9156.herokuapp.com/";
-static NSString * const kBaseImageUrl = @"https://golfrz-api.herokuapp.com/";
+static NSString * const kBaseImageUrl = @"https://golfrz-api.herokuapp.com";
 
 static NSString * const kBaseURL = @"https://golfrz-api.herokuapp.com/api/0.1/";
 
@@ -66,6 +66,9 @@ static NSString * const kUserAgent = @"iOS";
 static NSString * const kCalenderEventsList = @"events";
 
 
+//================================= Presentation ======================================
+
+static NSString * const kDefaultThemeColor = @"0xFF0000";
 
 
 
