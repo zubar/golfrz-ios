@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface CourseDepartmentCell : UITableViewCell
+@property (strong, nonatomic) IBOutlet UILabel *lblDptName;
+@property (strong, nonatomic) IBOutlet UILabel *lblDptContact;
+@property (strong, nonatomic) IBOutlet UILabel *lblDptDays;
+@property (strong, nonatomic) IBOutlet UILabel *lblDptTimings;
 
 @end
