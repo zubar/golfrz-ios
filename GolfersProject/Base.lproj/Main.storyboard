@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="1gL-qd-nhi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
@@ -24,28 +24,10 @@
             </objects>
             <point key="canvasLocation" x="534" y="-574"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="L7o-iW-NcC">
-            <objects>
-                <navigationController id="1gL-qd-nhi" sceneMemberID="viewController">
-                    <nil key="simulatedStatusBarMetrics"/>
-                    <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1gr-jF-w0E">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="7Xa-5q-5iG" kind="relationship" relationship="rootViewController" id="1er-58-KiX"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wpf-PC-5Va" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1923" y="132"/>
-        </scene>
         <!--Splash Screen View Controller-->
         <scene sceneID="H31-Ub-Y7M">
             <objects>
-                <viewController id="7Xa-5q-5iG" customClass="SplashScreenViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SplashScreenViewController" id="7Xa-5q-5iG" customClass="SplashScreenViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="URV-JV-JFc"/>
                         <viewControllerLayoutGuide type="bottom" id="zcb-w1-MBE"/>
@@ -2197,7 +2179,7 @@
         <!--Player Settings Main View Controller-->
         <scene sceneID="kKA-qe-TxH">
             <objects>
-                <viewController id="Na0-YF-aOj" customClass="PlayerSettingsMainViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PlayerSettingsMainViewController" id="Na0-YF-aOj" customClass="PlayerSettingsMainViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5Kd-xP-cNK"/>
                         <viewControllerLayoutGuide type="bottom" id="2HK-Nx-DSo"/>
@@ -2743,6 +2725,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="CXT-sc-l7C"/>
+        <segue reference="xtw-lR-mbk"/>
     </inferredMetricsTieBreakers>
 </document>

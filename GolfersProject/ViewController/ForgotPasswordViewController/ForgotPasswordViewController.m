@@ -56,6 +56,7 @@
         [[[UIAlertView alloc]initWithTitle:@"Error" message:@"Something went wrong" delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:nil, nil] show];
     }];
        }
+
 - (IBAction)backTapped:(id)sender {
     
     AppDelegate * delegate = [[UIApplication sharedApplication] delegate];

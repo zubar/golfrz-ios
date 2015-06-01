@@ -30,10 +30,13 @@
     [self addGestureToEditProfile];
     [self addGestureToLogout];
     [self addGestureToResetPassword];
-    
-    
-    
 }
+-(void)viewWillAppear:(BOOL)animated{
+    
+    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+    [self.navigationController setNavigationBarHidden:NO];
+}
+
 -(void)loadUserInfo{
     
     
