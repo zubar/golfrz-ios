@@ -35,7 +35,6 @@
 		3D19642A1B13364B00766CFC /* Coordinates.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1964291B13364B00766CFC /* Coordinates.m */; };
 		3D841D281B1CD97D00A267DE /* EventHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D841D271B1CD97D00A267DE /* EventHeaderView.m */; };
 		3D841D2A1B1CD98800A267DE /* EventHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D841D291B1CD98800A267DE /* EventHeaderView.xib */; };
-		3D841D311B1D7BA600A267DE /* UINavigationController+AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D841D301B1D7BA600A267DE /* UINavigationController+AppDelegate.m */; };
 		3D841D341B1D91FA00A267DE /* EventWeather.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D841D331B1D91FA00A267DE /* EventWeather.m */; };
 		3D87D8281B159FE00046BD60 /* EventCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D87D8271B159FE00046BD60 /* EventCalendarViewController.m */; };
 		3D87D82B1B15A0880046BD60 /* EventDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D87D82A1B15A0880046BD60 /* EventDetailViewController.m */; };
@@ -140,8 +139,6 @@
 		3D841D261B1CD97D00A267DE /* EventHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventHeaderView.h; sourceTree = "<group>"; };
 		3D841D271B1CD97D00A267DE /* EventHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventHeaderView.m; sourceTree = "<group>"; };
 		3D841D291B1CD98800A267DE /* EventHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventHeaderView.xib; sourceTree = "<group>"; };
-		3D841D2F1B1D7BA600A267DE /* UINavigationController+AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+AppDelegate.h"; sourceTree = "<group>"; };
-		3D841D301B1D7BA600A267DE /* UINavigationController+AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+AppDelegate.m"; sourceTree = "<group>"; };
 		3D841D321B1D91FA00A267DE /* EventWeather.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventWeather.h; sourceTree = "<group>"; };
 		3D841D331B1D91FA00A267DE /* EventWeather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventWeather.m; sourceTree = "<group>"; };
 		3D87D8261B159FE00046BD60 /* EventCalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventCalendarViewController.h; sourceTree = "<group>"; };
@@ -412,15 +409,6 @@
 			path = FBAuthenticationAgent;
 			sourceTree = "<group>";
 		};
-		3D841D2E1B1D7BA600A267DE /* UINavigationController+AppDelegate */ = {
-			isa = PBXGroup;
-			children = (
-				3D841D2F1B1D7BA600A267DE /* UINavigationController+AppDelegate.h */,
-				3D841D301B1D7BA600A267DE /* UINavigationController+AppDelegate.m */,
-			);
-			path = "UINavigationController+AppDelegate";
-			sourceTree = "<group>";
-		};
 		3D87D8241B159FBB0046BD60 /* EventCalendarViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -570,7 +558,6 @@
 		885CB04F1B09BADE00AD2A7B /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				3D841D2E1B1D7BA600A267DE /* UINavigationController+AppDelegate */,
 				88B21DE81B1C38DA00AFC6D2 /* SplashScreenViewController */,
 				8873AA731B18C5D500E74C87 /* EventAdminViewController */,
 				88D813AA1B1762C000FD7D0E /* PlayerSettingsViewController */,
@@ -952,7 +939,6 @@
 				3D1964271B13305200766CFC /* FaceBookAuthAgent.m in Sources */,
 				885CB07B1B0A117300AD2A7B /* GolfrzErrorResponse.m in Sources */,
 				3DD9BD0D1B14BE1C00A2F296 /* CalendarUtilities.m in Sources */,
-				3D841D311B1D7BA600A267DE /* UINavigationController+AppDelegate.m in Sources */,
 				3DD9BD261B14C39000A2F296 /* CalendarEventServices.m in Sources */,
 				3D16D0841B1C3FFB00A582A3 /* SharedManager.m in Sources */,
 				3D87D8321B15A5F50046BD60 /* CalendarEventCell.m in Sources */,

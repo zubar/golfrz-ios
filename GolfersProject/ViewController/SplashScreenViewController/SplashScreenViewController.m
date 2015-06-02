@@ -33,6 +33,8 @@
 
     SharedManager * sharedManager = [SharedManager sharedInstance];
     
+
+    
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
     
@@ -45,6 +47,10 @@
         [sharedManager setCourseCity:mCourse[@"course_city"]];
         [sharedManager setCourseName:mCourse[@"course_name"]];
         
+        self.navigationController.navigationBar.barTintColor = [[SharedManager sharedInstance] themeColor];
+        [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+
+        
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         
         InitialViewController * initController = [self.storyboard instantiateViewControllerWithIdentifier:@"InitialViewController"];
@@ -52,6 +58,10 @@
     } failure:^(bool status, NSError * error) {
         // Setting theme color
         [sharedManager setThemeColor:[UIColor colorWithHexString:kDefaultThemeColor]];
+        self.navigationController.navigationBar.barTintColor = [[SharedManager sharedInstance] themeColor];
+        [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+
+
         //TODO:
         // Setting Background Image
         // Setting Course Logo

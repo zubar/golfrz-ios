@@ -27,6 +27,16 @@
     //Assuming the view will always be created in non-editing mode.
     isEditing = false;
     
+    
+    UIButton * imageButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 10, 10, 14)];
+    [imageButton setBackgroundImage:[UIImage imageNamed:@"back_btn"] forState:UIControlStateNormal];
+    [imageButton addTarget:self action:@selector(backBtnTapped) forControlEvents:UIControlEventAllEvents];
+    UIBarButtonItem *leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:imageButton];
+    self.navigationItem.leftBarButtonItem = leftBarButtonItem;
+  
+    self.navigationItem.title = @"Settings";
+
+    
     [self addGestureToEditProfile];
     [self addGestureToLogout];
     [self addGestureToResetPassword];
@@ -34,30 +44,50 @@
 -(void)viewWillAppear:(BOOL)animated{
     
     AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
-    [self.navigationController setNavigationBarHidden:NO];
+    [delegate.appDelegateNavController setNavigationBarHidden:NO];
+    
+    [self loadUserInfo];
+    
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+    [delegate.appDelegateNavController setNavigationBarHidden:YES];
+
+
 }
 
 -(void)loadUserInfo{
     
-    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [UserServices getUserInfo:^(bool status, User *userInfo) {
         if (status) {
             User * mUser = userInfo;
                 [self.txtFirstName setText:[mUser firstName]];
                 [self.txtLastName setText:[mUser firstName]];
                 [self.txtEmailAddress setText:[mUser email]];
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
         }
     } failure:^(bool status, NSError *error) {
         //
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
         NSLog(@"Failure====================================================================================");
     }];
 }
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
+-(void)backBtnTapped{
+    
+    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+    [delegate.appDelegateNavController popViewControllerAnimated:YES];
+    
+}
 
 -(void) addGestureToEditProfile{
     UITapGestureRecognizer* gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(editProfileTapped)];

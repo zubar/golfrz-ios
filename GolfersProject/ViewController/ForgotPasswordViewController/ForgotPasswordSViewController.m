@@ -9,6 +9,7 @@
 #import "ForgotPasswordSViewController.h"
 #import "SignInViewController.h"
 #import "ClubHouseContainerVC.h"
+#import "AppDelegate.h"
 
 @interface ForgotPasswordSViewController ()
 
@@ -38,19 +39,14 @@
 
 - (void)backToLoginTapped{
     
+    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
     
-    for (UIViewController *controller in self.navigationController.viewControllers) {
+    for (UIViewController *controller in delegate.appDelegateNavController.viewControllers) {
         if ([controller isKindOfClass:[SignInViewController class]]) {
-            [self.navigationController popToViewController:controller animated:YES];
-        }else{
-            SignInViewController *signInVC  = [self.storyboard instantiateViewControllerWithIdentifier:@"SignInViewController"];
-            [self.navigationController pushViewController:signInVC animated:YES];
+            [delegate.appDelegateNavController popToViewController:controller animated:YES];
             return;
-
         }
     }
-
-    
 }
 
 

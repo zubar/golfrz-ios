@@ -10,6 +10,7 @@
 #import "CalendarEvent.h"
 #import "CalendarUtilities.h"
 #import "ClubHouseSubController.h"
+#import "AppDelegate.h"
 
 @interface EventDetailViewController ()
 
@@ -22,6 +23,18 @@
     // Do any additional setup after loading the view.
     
     NSLog(@"%@", self.currentEvent.name);
+    
+    
+    UIButton * imageButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 10, 10, 14)];
+    [imageButton setBackgroundImage:[UIImage imageNamed:@"back_btn"] forState:UIControlStateNormal];
+    
+    [imageButton addTarget:self action:@selector(backBtnTapped) forControlEvents:UIControlEventAllEvents];
+    
+    UIBarButtonItem *leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:imageButton];
+    self.navigationItem.leftBarButtonItem = leftBarButtonItem;
+    
+    self.navigationItem.title = @"EVENT DETAIL";
+    
     
     //TODO: Event name in api.
     
@@ -38,24 +51,31 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     
+    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+    [delegate.appDelegateNavController setNavigationBarHidden:NO];
     
-    UIPageControl * pageControl = (UIPageControl *)[self.navigationController.navigationBar viewWithTag:89];
-    if (pageControl && ![self isKindOfClass:[ClubHouseSubController class]]) {
-        [pageControl setHidden:YES];
-    }else{
-        [pageControl setHidden:NO];
-    }
+    
+//    UIPageControl * pageControl = (UIPageControl *)[self.navigationController.navigationBar viewWithTag:89];
+//    if (pageControl && ![self isKindOfClass:[ClubHouseSubController class]]) {
+//        [pageControl setHidden:YES];
+//    }else{
+//        [pageControl setHidden:NO];
+//    }
     
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
     
-    UIPageControl * pageControl = (UIPageControl *)[self.navigationController.navigationBar viewWithTag:89];
-    if (pageControl && ![self isKindOfClass:[ClubHouseSubController class]]) {
-        [pageControl setHidden:YES];
-    }else{
-        [pageControl setHidden:NO];
-    }
+    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+    [delegate.appDelegateNavController setNavigationBarHidden:NO];
+
+    
+//    UIPageControl * pageControl = (UIPageControl *)[self.navigationController.navigationBar viewWithTag:89];
+//    if (pageControl && ![self isKindOfClass:[ClubHouseSubController class]]) {
+//        [pageControl setHidden:YES];
+//    }else{
+//        [pageControl setHidden:NO];
+//    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -72,6 +92,11 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+-(void)backBtnTapped{
+    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+    [delegate.appDelegateNavController popViewControllerAnimated:YES];
+}
 
 - (IBAction)btnContactAdminTapped:(UIButton *)sender {
 }

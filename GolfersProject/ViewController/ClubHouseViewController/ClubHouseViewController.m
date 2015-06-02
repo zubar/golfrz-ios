@@ -17,6 +17,8 @@
 #import "EventCalendarViewController.h"
 #import "EventDetailViewController.h"
 #import "AppDelegate.h"
+#import "ContactUsViewController.h"
+
 
 @interface ClubHouseViewController ()
 @property (nonatomic, retain) NSArray * weatherList;
@@ -29,13 +31,13 @@
     
     UIButton * imageButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 10, 22, 22)];
     [imageButton setBackgroundImage:[UIImage imageNamed:@"contactus_button"] forState:UIControlStateNormal];
-    [imageButton addTarget:self action:@selector(test) forControlEvents:UIControlEventAllEvents];
+    [imageButton addTarget:self action:@selector(btnContactUsTap) forControlEvents:UIControlEventAllEvents];
     UIBarButtonItem *leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:imageButton];
     self.navigationItem.leftBarButtonItem = leftBarButtonItem;
     
     UIButton * imageRightButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 10, 22, 22)];
     [imageRightButton setBackgroundImage:[UIImage imageNamed:@"activity_icon"] forState:UIControlStateNormal];
-    [imageRightButton addTarget:self action:@selector(test) forControlEvents:UIControlEventAllEvents];
+    [imageRightButton addTarget:self action:nil forControlEvents:UIControlEventAllEvents];
     UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:imageRightButton];
     self.navigationItem.rightBarButtonItem = rightBarButtonItem;
     
@@ -60,16 +62,35 @@
     }];
 }
 
--(void)test{
 
-    [CourseServices courseDetailInfo:^(bool status, Course *currentCourse) {
-        //
-        
-    } failure:^(bool status, NSError *error) {
-        //
-    }];
+-(void)viewWillAppear:(BOOL)animated{
     
     
+    UIPageControl * pageControl = (UIPageControl *)[self.navigationController.navigationBar viewWithTag:89];
+    if (pageControl && ![self isKindOfClass:[ClubHouseSubController class]]) {
+        [pageControl setHidden:YES];
+    }else{
+        [pageControl setHidden:NO];
+    }
+    
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    
+    UIPageControl * pageControl = (UIPageControl *)[self.navigationController.navigationBar viewWithTag:89];
+    if (pageControl && ![self isKindOfClass:[ClubHouseSubController class]]) {
+        [pageControl setHidden:YES];
+    }else{
+        [pageControl setHidden:NO];
+    }
+}
+-(void)btnContactUsTap{
+
+    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+    
+    ContactUsViewController * contactController = [self.storyboard instantiateViewControllerWithIdentifier:@"ContactUsViewController"];
+    [delegate.appDelegateNavController pushViewController:contactController animated:YES];
+    return;
 }
 - (void)pushNextController{
     [self.navigationController pushViewController:self.containerVC.playerProfileViewController animated:YES];
@@ -126,8 +147,7 @@
     
     AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
     EventCalendarViewController * controller = [self.storyboard instantiateViewControllerWithIdentifier:@"EventCalendarViewController"];
-    [self.navigationController pushViewController:controller animated:YES];
-  //  [delegate.appDelegateNavController pushViewController:controller animated:YES];
+    [delegate.appDelegateNavController pushViewController:controller animated:YES];
 }
 
 

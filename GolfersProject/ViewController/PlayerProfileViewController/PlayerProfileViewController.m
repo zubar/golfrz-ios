@@ -104,6 +104,7 @@
 */
 
 - (IBAction)btnSettingsTapped:(UIButton *)sender {
+    
     AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
     
     PlayerSettingsMainViewController * mainSettingsController = [self.storyboard instantiateViewControllerWithIdentifier:@"PlayerSettingsMainViewController"];

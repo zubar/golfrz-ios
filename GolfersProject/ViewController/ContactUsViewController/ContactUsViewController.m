@@ -12,6 +12,7 @@
 #import "CourseServices.h"
 #import "Course.h"
 #import "Department.h"
+#import "AppDelegate.h"
 
 @interface ContactUsViewController ()
 
@@ -21,6 +22,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    UIButton * imageButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 10, 10, 14)];
+    [imageButton setBackgroundImage:[UIImage imageNamed:@"back_btn"] forState:UIControlStateNormal];
+    [imageButton addTarget:self action:@selector(backBtnTapped) forControlEvents:UIControlEventAllEvents];
+    UIBarButtonItem *leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:imageButton];
+    self.navigationItem.leftBarButtonItem = leftBarButtonItem;
+    
+    self.navigationItem.title= @"Contact Us";
+    
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [CourseServices courseDetailInfo:^(bool status, Course *currentCourse){
         [MBProgressHUD hideHUDForView:self.view animated:YES];
@@ -32,6 +42,19 @@
         [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Failed to get details" delegate:nil cancelButtonTitle:@"CANCEL" otherButtonTitles:nil, nil] show];
     }];
     // Do any additional setup after loading the view.
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+
+    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+    [delegate.appDelegateNavController setNavigationBarHidden:NO];
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+
+    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+    [delegate.appDelegateNavController setNavigationBarHidden:YES];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -71,4 +94,10 @@
 }
 */
 
+-(void)backBtnTapped{
+    
+    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+    [delegate.appDelegateNavController popViewControllerAnimated:YES];
+    
+}
 @end
