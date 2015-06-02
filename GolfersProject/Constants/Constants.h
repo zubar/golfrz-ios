@@ -20,11 +20,11 @@
 /*
  * BaseImageURLGolfrz
  */
-static NSString * const kBaseImageUrl = @"https://powerful-plains-9156.herokuapp.com/";
-//static NSString * const kBaseImageUrl = @"https://golfrz-api.herokuapp.com";
+//static NSString * const kBaseImageUrl = @"https://powerful-plains-9156.herokuapp.com/";
+static NSString * const kBaseImageUrl = @"https://golfrz-api.herokuapp.com";
 
-//static NSString * const kBaseURL = @"https://golfrz-api.herokuapp.com/api/0.1/";
-static NSString * const kBaseURL = @"https://powerful-plains-9156.herokuapp.com/api/0.1/";
+static NSString * const kBaseURL = @"https://golfrz-api.herokuapp.com/api/0.1/";
+//static NSString * const kBaseURL = @"https://powerful-plains-9156.herokuapp.com/api/0.1/";
 
 
 
@@ -58,7 +58,7 @@ static NSString * const kCourseDetail = @"courses/course_detail";
 
 //TODO: get it from bundle id,
 #pragma warking - Automation issue.
-static NSString * const kAppBundleId = @"org.golfrz.GolfrzProject";
+static NSString * const kAppBundleId = @"org.golfrz.GolferzProject";
 static NSString * const kUserAgent = @"iOS";
 
 

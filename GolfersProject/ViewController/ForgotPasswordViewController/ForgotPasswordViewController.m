@@ -58,14 +58,16 @@
        }
 
 - (IBAction)backTapped:(id)sender {
-    
     AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
-    for (id controller in delegate.appDelegateNavController.viewControllers) {
-        if ([controller isKindOfClass:[ClubHouseContainerVC class]]) {
-            [delegate.appDelegateNavController popToViewController:controller animated:YES];
-            return;
-        }
-    }
+    [delegate.appDelegateNavController popViewControllerAnimated:YES];
+    
+    
+//    for (id controller in delegate.appDelegateNavController.viewControllers) {
+//        if ([controller isKindOfClass:[ClubHouseContainerVC class]]) {
+//            [self.navigationController popToAppDelegateNavController:controller animated:YES];
+//            return;
+//        }
+//    }
 }
 /*
 - (IBAction)btnBackButtonTapped:(UIButton *)sender {

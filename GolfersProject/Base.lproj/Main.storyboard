@@ -333,7 +333,7 @@
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="tyW-iC-uJ4" kind="push" id="xtw-lR-mbk"/>
+                                                    <action selector="btnBackTapped:" destination="deD-pV-SFJ" eventType="touchUpInside" id="WMT-kg-aiZ"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -570,7 +570,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="btnBackButtonTapped:" destination="yeR-kG-pgd" eventType="touchUpInside" id="1KX-W3-xyt"/>
+                                            <action selector="backTapped:" destination="yeR-kG-pgd" eventType="touchUpInside" id="fiS-p4-nnh"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1168,7 +1168,7 @@
         <!--Contact Us View Controller-->
         <scene sceneID="ido-Ym-Rw9">
             <objects>
-                <viewController id="o4e-6f-Edf" customClass="ContactUsViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ContactUsViewController" id="o4e-6f-Edf" customClass="ContactUsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PVz-kJ-ZcR"/>
                         <viewControllerLayoutGuide type="bottom" id="Ee1-1N-Hr4"/>
@@ -1226,14 +1226,14 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="signup_location" translatesAutoresizingMaskIntoConstraints="NO" id="noR-nP-E06">
-                                                        <rect key="frame" x="5" y="36" width="10" height="15"/>
+                                                        <rect key="frame" x="5" y="38" width="10" height="15"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="10" id="A9f-aC-fLc"/>
                                                             <constraint firstAttribute="height" constant="15" id="lrk-aq-QMe"/>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sedona" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j9e-cQ-DFd">
-                                                        <rect key="frame" x="20" y="36" width="53" height="18"/>
+                                                        <rect key="frame" x="20" y="38" width="53" height="18"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -1245,7 +1245,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Arizona" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bf3-4d-ziN">
-                                                        <rect key="frame" x="80" y="36" width="52" height="18"/>
+                                                        <rect key="frame" x="80" y="38" width="52" height="18"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -1253,15 +1253,15 @@
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstItem="noR-nP-E06" firstAttribute="top" secondItem="3No-2F-llJ" secondAttribute="bottom" id="5QE-ni-ODy"/>
+                                                    <constraint firstItem="noR-nP-E06" firstAttribute="top" secondItem="3No-2F-llJ" secondAttribute="bottom" constant="2" id="5QE-ni-ODy"/>
                                                     <constraint firstItem="noR-nP-E06" firstAttribute="leading" secondItem="dpS-6s-U9n" secondAttribute="leading" constant="5" id="7oA-Sf-sXl"/>
                                                     <constraint firstItem="bf3-4d-ziN" firstAttribute="leading" secondItem="piN-Sw-NiC" secondAttribute="trailing" constant="2" id="Jo9-QJ-LH2"/>
                                                     <constraint firstItem="3No-2F-llJ" firstAttribute="leading" secondItem="dpS-6s-U9n" secondAttribute="leading" constant="5" id="Mr1-pl-Tkj"/>
                                                     <constraint firstItem="piN-Sw-NiC" firstAttribute="top" secondItem="3No-2F-llJ" secondAttribute="bottom" id="Vfe-U9-F18"/>
-                                                    <constraint firstItem="bf3-4d-ziN" firstAttribute="top" secondItem="3No-2F-llJ" secondAttribute="bottom" id="i9c-BC-AIO"/>
+                                                    <constraint firstItem="bf3-4d-ziN" firstAttribute="top" secondItem="3No-2F-llJ" secondAttribute="bottom" constant="2" id="i9c-BC-AIO"/>
                                                     <constraint firstItem="piN-Sw-NiC" firstAttribute="leading" secondItem="j9e-cQ-DFd" secondAttribute="trailing" id="jJD-iL-vr7"/>
                                                     <constraint firstItem="j9e-cQ-DFd" firstAttribute="leading" secondItem="noR-nP-E06" secondAttribute="trailing" constant="5" id="jXg-Z7-uHj"/>
-                                                    <constraint firstItem="j9e-cQ-DFd" firstAttribute="top" secondItem="3No-2F-llJ" secondAttribute="bottom" id="nW5-KL-QcN"/>
+                                                    <constraint firstItem="j9e-cQ-DFd" firstAttribute="top" secondItem="3No-2F-llJ" secondAttribute="bottom" constant="2" id="nW5-KL-QcN"/>
                                                     <constraint firstItem="3No-2F-llJ" firstAttribute="top" secondItem="dpS-6s-U9n" secondAttribute="top" constant="15" id="sw7-dg-14Y"/>
                                                 </constraints>
                                             </view>
@@ -1606,6 +1606,8 @@
                         <outlet property="lblHdrCourseState" destination="j9e-cQ-DFd" id="25r-fH-03A"/>
                         <outlet property="lblPostalCode" destination="K4E-m6-VSK" id="25H-Xy-OWd"/>
                         <outlet property="lblViewMap" destination="Skv-KD-9D9" id="RK2-40-rUH"/>
+                        <outlet property="staffView" destination="ZLh-9E-DYo" id="ce0-ZN-eA4"/>
+                        <outlet property="tblDept" destination="vak-o6-3f5" id="ved-hE-kan"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l7d-FV-uc2" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2068,7 +2070,7 @@
                                                 <attributes>
                                                     <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <font key="NSFont" size="15" name="HelveticaNeue"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
                                                 </attributes>
                                             </fragment>
                                             <fragment>
@@ -2076,7 +2078,7 @@
                                                 <attributes>
                                                     <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <font key="NSFont" size="15" name="HelveticaNeue"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
                                                 </attributes>
                                             </fragment>
                                         </attributedString>
@@ -2134,11 +2136,13 @@
                                     <constraint firstAttribute="trailing" secondItem="o6N-yi-3OS" secondAttribute="trailing" constant="20" id="2MD-hL-Tso"/>
                                     <constraint firstItem="xGK-U6-PmD" firstAttribute="leading" secondItem="5uK-j8-igg" secondAttribute="leading" constant="70" id="4bS-bq-oq9"/>
                                     <constraint firstItem="Y5h-Y3-c5G" firstAttribute="top" secondItem="Typ-Y3-8NV" secondAttribute="bottom" constant="5" id="9fO-y3-c68"/>
+                                    <constraint firstItem="igt-aX-oaE" firstAttribute="top" secondItem="xXS-a3-cTF" secondAttribute="bottom" constant="5" id="FJ9-B1-Yjp"/>
                                     <constraint firstAttribute="centerX" secondItem="uEZ-2V-omX" secondAttribute="centerX" id="Fd4-sC-JK3"/>
                                     <constraint firstItem="Typ-Y3-8NV" firstAttribute="centerX" secondItem="Y5h-Y3-c5G" secondAttribute="centerX" constant="-3.5" id="LqY-B1-pFt"/>
                                     <constraint firstAttribute="centerX" secondItem="o6N-yi-3OS" secondAttribute="centerX" id="Nr3-Cm-jI0"/>
                                     <constraint firstAttribute="centerX" secondItem="7JI-Tz-vaP" secondAttribute="centerX" id="Oi2-hf-nlW"/>
                                     <constraint firstItem="Typ-Y3-8NV" firstAttribute="centerY" secondItem="xGK-U6-PmD" secondAttribute="centerY" constant="0.5" id="OjL-GH-LEE"/>
+                                    <constraint firstItem="igt-aX-oaE" firstAttribute="leading" secondItem="5uK-j8-igg" secondAttribute="leading" constant="126" id="Uuf-ag-apN"/>
                                     <constraint firstItem="l9h-AI-B2m" firstAttribute="top" secondItem="uEZ-2V-omX" secondAttribute="bottom" constant="10" id="XQs-rO-BZy"/>
                                     <constraint firstAttribute="bottom" secondItem="xGK-U6-PmD" secondAttribute="bottom" constant="66" id="ZQI-Xe-7OV"/>
                                     <constraint firstItem="Ryg-gA-Ild" firstAttribute="centerY" secondItem="7JI-Tz-vaP" secondAttribute="centerY" constant="-0.5" id="bRa-Ka-mil"/>
@@ -2590,7 +2594,6 @@
                                         </state>
                                         <connections>
                                             <action selector="btnSettingsTapped:" destination="TbR-hG-38y" eventType="touchUpInside" id="7wy-Hb-JUO"/>
-                                            <segue destination="Na0-YF-aOj" kind="push" id="9oY-Ro-zcA"/>
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oPn-0R-QDb">
@@ -2750,7 +2753,4 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="xtw-lR-mbk"/>
-    </inferredMetricsTieBreakers>
 </document>

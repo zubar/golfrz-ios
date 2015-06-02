@@ -14,8 +14,7 @@
 #import "Department.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "StaffMember.h"
-
-
+#import "AppDelegate.h"
 
 @interface ContactUsViewController ()
 
@@ -25,19 +24,45 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.staffView setHidden:YES];
+    UIButton * imageButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 10, 10, 14)];
+    [imageButton setBackgroundImage:[UIImage imageNamed:@"back_btn"] forState:UIControlStateNormal];
+    [imageButton addTarget:self action:@selector(backBtnTapped) forControlEvents:UIControlEventAllEvents];
+    UIBarButtonItem *leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:imageButton];
+    self.navigationItem.leftBarButtonItem = leftBarButtonItem;
+    
+    self.navigationItem.title= @"Contact Us";
+    
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    [self populateCourseFields];
-    [self populateStaffFields];
+    
+    
     [CourseServices courseDetailInfo:^(bool status, Course *currentCourse){
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         self.courseDepartments = currentCourse.departments;
         self.courseStaff = currentCourse.staff;
+        [self.tblDept reloadData];
+        [self populateStaffFields];
+        [self populateCourseFields];
+        [self.staffView setHidden:NO];
     }
     failure:^(bool status, NSError *error){
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Failed to get details" delegate:nil cancelButtonTitle:@"CANCEL" otherButtonTitles:nil, nil] show];
     }];
     // Do any additional setup after loading the view.
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+
+    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+    [delegate.appDelegateNavController setNavigationBarHidden:NO];
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+
+    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+    [delegate.appDelegateNavController setNavigationBarHidden:YES];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -68,6 +93,7 @@
     [self.lblCourseCity setText:[[CourseServices currentCourse] courseCity]];
     //[[self.lblPostalCode setText:[[CourseServices currentCourse] coursePostalCode] ];
     [self.lblCourseName setText:[[CourseServices currentCourse] courseName]];
+    [self.lblPostalCode setText:[NSString stringWithFormat:@"%@",[[CourseServices currentCourse] postalCode]]];
 }
 
 
@@ -85,8 +111,9 @@
     
     CourseDepartmentCell *customViewCell = (CourseDepartmentCell *)customCell;
     
-    customViewCell.currentDepartment = [self.courseDepartments objectAtIndexedSubscript:indexPath.row];
-   
+    //customViewCell.currentDepartment = [self.courseDepartments objectAtIndexedSubscript:indexPath.row];
+    
+    [customViewCell configureViewForDepartment:[self.courseDepartments objectAtIndex:indexPath.row]];
     return customViewCell;
 }
 
@@ -100,4 +127,10 @@
 }
 */
 
+-(void)backBtnTapped{
+    
+    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+    [delegate.appDelegateNavController popViewControllerAnimated:YES];
+    
+}
 @end

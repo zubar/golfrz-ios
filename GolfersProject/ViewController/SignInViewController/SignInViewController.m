@@ -13,6 +13,7 @@
 #import "AuthenticationService.h"
 #import "User.h"
 #import "MBProgressHUD.h"
+#import "InitialViewController.h"
 
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
@@ -91,4 +92,16 @@
 //    ];
    
 }
+
+- (IBAction)btnBackTapped:(id)sender {
+    
+    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+    for (id controller  in [self.navigationController viewControllers]) {
+        if ([controller isKindOfClass:[InitialViewController class]]) {
+            [delegate.appDelegateNavController popViewControllerAnimated:YES];
+        }
+    }
+}
+
+
 @end

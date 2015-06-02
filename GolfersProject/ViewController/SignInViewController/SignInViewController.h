@@ -16,4 +16,5 @@
 
 - (IBAction)btnSignInTapped:(id)sender;
 
+- (IBAction)btnBackTapped:(id)sender;
 @end

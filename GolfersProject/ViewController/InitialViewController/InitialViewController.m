@@ -64,7 +64,6 @@
 - (void)signInTapped{
     
     AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
-    
     SignInViewController *signInViewController  = [self.storyboard instantiateViewControllerWithIdentifier:@"SignInViewController"];
     [delegate.appDelegateNavController pushViewController:signInViewController animated:YES];
 }

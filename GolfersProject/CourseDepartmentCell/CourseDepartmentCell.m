@@ -7,7 +7,7 @@
 //
 
 #import "CourseDepartmentCell.h"
-
+#import "Department.h"
 
 @implementation CourseDepartmentCell
 
@@ -23,10 +23,10 @@
 
 
 -(void)configureViewForDepartment:(Department *)departmant{
-
     self.currentDepartment = departmant;
     
-    
+    self.lblDptContact.text = departmant.phone;
+    self.lblDptName.text = departmant.name;
 }
 
 @end
