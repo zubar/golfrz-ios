@@ -8,6 +8,10 @@
 
 #import "ContactUsViewController.h"
 #import "CourseDepartmentCell.h"
+#import "MBProgressHUD.h"
+#import "CourseServices.h"
+#import "Course.h"
+#import "Department.h"
 
 @interface ContactUsViewController ()
 
@@ -17,6 +21,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [CourseServices courseDetailInfo:^(bool status, Course *currentCourse){
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        self.courseDepartments = currentCourse.departments;
+        self.courseStaff = currentCourse.staff;
+    }
+    failure:^(bool status, NSError *error){
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Failed to get details" delegate:nil cancelButtonTitle:@"CANCEL" otherButtonTitles:nil, nil] show];
+    }];
     // Do any additional setup after loading the view.
 }
 
@@ -25,13 +39,10 @@
     // Dispose of any resources that can be recreated.
 }
 
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 1;
-}
 
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 1;
+    return self.courseDepartments.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -42,6 +53,11 @@
     }
     
     CourseDepartmentCell *customViewCell = (CourseDepartmentCell *)customCell;
+    
+    Department *currentDepartment = [self.courseDepartments objectAtIndex:indexPath.row];
+    customViewCell.lblDptName.text = currentDepartment.name;
+    customViewCell.lblDptContact.text = currentDepartment.phone;
+    
     return customViewCell;
 }
 
