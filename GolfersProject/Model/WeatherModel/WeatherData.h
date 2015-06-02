@@ -13,7 +13,7 @@
 
 @interface WeatherData : NSObject
 
-@property (retain, nonatomic ) NSNumber * temperature;   //kelvin
+@property (retain, nonatomic ) NSNumber * temperature;   //Celcius
 @property (retain, nonatomic ) NSNumber * minimumTemperature;
 @property (retain, nonatomic ) NSNumber * maximumTemperature;
 @property (retain, nonatomic ) NSNumber * atmosphericPressure;

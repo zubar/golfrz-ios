@@ -30,7 +30,6 @@
     [[self view] addGestureRecognizer:leftRecognizer];
 }
 
-
 - (void)pushNextController{
 //subclass will override
 }

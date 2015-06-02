@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#define CalendarEventCellHeight 99
+#define CalendarEventCellHeight 75
 @class CalendarEvent;
 
 @protocol CalendarEventCellProtocol

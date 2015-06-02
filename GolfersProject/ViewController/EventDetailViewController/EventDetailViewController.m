@@ -9,6 +9,7 @@
 #import "EventDetailViewController.h"
 #import "CalendarEvent.h"
 #import "CalendarUtilities.h"
+#import "ClubHouseSubController.h"
 
 @interface EventDetailViewController ()
 
@@ -35,7 +36,27 @@
     
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    
+    
+    UIPageControl * pageControl = (UIPageControl *)[self.navigationController.navigationBar viewWithTag:89];
+    if (pageControl && ![self isKindOfClass:[ClubHouseSubController class]]) {
+        [pageControl setHidden:YES];
+    }else{
+        [pageControl setHidden:NO];
+    }
+    
+}
 
+-(void)viewWillDisappear:(BOOL)animated{
+    
+    UIPageControl * pageControl = (UIPageControl *)[self.navigationController.navigationBar viewWithTag:89];
+    if (pageControl && ![self isKindOfClass:[ClubHouseSubController class]]) {
+        [pageControl setHidden:YES];
+    }else{
+        [pageControl setHidden:NO];
+    }
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -126,7 +126,8 @@
     
     AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
     EventCalendarViewController * controller = [self.storyboard instantiateViewControllerWithIdentifier:@"EventCalendarViewController"];
-    [delegate.appDelegateNavController pushViewController:controller animated:YES];
+    [self.navigationController pushViewController:controller animated:YES];
+  //  [delegate.appDelegateNavController pushViewController:controller animated:YES];
 }
 
 

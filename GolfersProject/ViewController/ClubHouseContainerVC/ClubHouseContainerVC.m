@@ -46,10 +46,12 @@
     self.pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(origin.x, origin.y,
                                                                        0, 0)];
     
+    [self.pageControl setTag:89];
     //Or whatever number of viewcontrollers you have
     [self.pageControl setNumberOfPages:3];
     [self.navController setNavigationBarHidden:NO];
     [self.navController.navigationBar addSubview:self.pageControl];
+    
     
     self.navController.delegate = self;
     

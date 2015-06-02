@@ -18,6 +18,7 @@
 #import "GolfrzError.h"
 #import "EventHeaderView.h"
 #import "AppDelegate.h"
+#import "ClubHouseSubController.h"
 
 #define kEventCalendarMarginLeft 10.0f
 #define kEventCalendarMarginTop 60.0f
@@ -25,6 +26,13 @@
 #define kEventCalendarHeight 320.0f
 
 @interface EventCalendarViewController ()
+
+//To mark the dates in calendar
+@property (nonatomic, retain) NSMutableArray * eventDates;
+@property (nonatomic, retain) NSMutableArray * colors;
+
+//To populate today events in table
+@property (nonatomic, retain) NSMutableArray * todayEvents;
 
 @end
 
@@ -34,7 +42,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [self setUpData];
+    
     CGRect appFrame = [[UIScreen mainScreen] applicationFrame];
     
     self.calendar = [[VRGCalendarView alloc] init];
@@ -44,25 +52,44 @@
     [self.calendar setDelegate:self];
     [self.view addSubview:self.calendar];
     
-    [self.eventsTableVeiw setBackgroundColor:[UIColor clearColor]];
-    [self.eventsTableVeiw setBackgroundView:nil];
-    
     self.eventsTableVeiw = [[UITableView alloc]initWithFrame:CGRectMake(kEventCalendarMarginLeft, 22 + kEventCalendarHeight  , kEventCalendarWidth - 4, appFrame.size.height - self.eventsTableVeiw.frame.origin.y) style:UITableViewStylePlain];
     
+    [self.eventsTableVeiw setBackgroundColor:[UIColor clearColor]];
+    [self.eventsTableVeiw setBackgroundView:nil];
+    [self.eventsTableVeiw setHidden:YES];
     self.eventsTableVeiw.dataSource = self;
     self.eventsTableVeiw.delegate = self;
     [self.view addSubview:self.eventsTableVeiw];
+    
+    [self initializeDataStructures];
+    [self fetchEvents];
+
     
 }
 
 -(void)viewWillAppear:(BOOL)animated{
 
-    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
     
-    [delegate.appDelegateNavController setNavigationBarHidden:NO];
+    UIPageControl * pageControl = (UIPageControl *)[self.navigationController.navigationBar viewWithTag:89];
+    if (pageControl && ![self isKindOfClass:[ClubHouseSubController class]]) {
+        [pageControl setHidden:YES];
+    }else{
+        [pageControl setHidden:NO];
+    }
+
 }
 
--(void)setUpData{
+-(void)viewWillDisappear:(BOOL)animated{
+    
+    UIPageControl * pageControl = (UIPageControl *)[self.navigationController.navigationBar viewWithTag:89];
+    if (pageControl && ![self isKindOfClass:[ClubHouseSubController class]]) {
+        [pageControl setHidden:YES];
+    }else{
+        [pageControl setHidden:NO];
+    }
+}
+
+-(void)initializeDataStructures{
     
     if (!self.eventDates) {
         self.eventDates = [[NSMutableArray alloc]init];}
@@ -71,7 +98,17 @@
     if (!self.todayEvents) {
         self.todayEvents = [[NSMutableArray alloc]init];
     }
-    [self fetchEvents];
+}
+
+-(void)reloadCalendarAndEventTable{
+    [self.calendar reset];
+    [self.calendar markDates:self.eventDates withColors:self.colors];
+    [self.eventsTableVeiw reloadData];
+}
+
+-(void)updateAllDataStructures{
+
+
 }
 
 -(void)fetchEvents{
@@ -79,19 +116,18 @@
     [CalendarEventServices getEvents:^(bool status, EventList *eventsArray) {
         if (status) {
             self.eventslist = eventsArray;
-            [self.calendar reset];
-            [self.eventsTableVeiw reloadData];
+            [self reloadCalendarAndEventTable];
             [MBProgressHUD hideHUDForView:self.view animated:YES];
         }
     } failure:^(bool status, NSError *error) {
         if (!status) {
             NSLog(@"Error");
-                        
             [MBProgressHUD hideHUDForView:self.view animated:YES];
 
         }
     }];
 }
+
 
 #pragma mark - VRGCalendarView Delegate
 -(void)calendarView:(VRGCalendarView *)calendarView switchedToMonth:(int)month targetHeight:(float)targetHeight animated:(BOOL)animated{
@@ -115,7 +151,7 @@
                                                                    options:0];
     
     [self updateEventsStartDate:startDate endDate:endDate];
-   
+    [self.calendar markDates:self.eventDates withColors:self.colors];
 }
 
 -(void)updateCalendarEventTableViewForCalenderHeight:(float)height{
@@ -134,15 +170,11 @@
         NSPredicate *datePredicate = [NSPredicate predicateWithFormat:@"dateStart >= %@ AND dateStart < %@",startDate, endDate];
         NSArray * temp = [[self.eventslist.items filteredArrayUsingPredicate:datePredicate] mutableCopy];
         
-        //        [self.eventDates removeAllObjects];
-        //        [self.colors removeAllObjects];
-        
         self.eventDates = [temp valueForKeyPath:@"@distinctUnionOfObjects.dateStart"];
         for (CalendarEvent * calEvent in temp) {
             NSLog(@"%@", calEvent.dateStart);
             [self.colors addObject:[UIColor redColor]];
         }
-        [self.calendar markDates:self.eventDates withColors:self.colors];
     }
 
 }
@@ -171,14 +203,17 @@
     if (self.eventslist) {
         NSPredicate *datePredicate = [NSPredicate predicateWithFormat:@"dateStart >= %@ AND dateStart < %@",today, endDate];
         self.todayEvents = [[self.eventslist.items filteredArrayUsingPredicate:datePredicate] mutableCopy];
+        if ([self.todayEvents count] > 0) {
+            [self.lblNoEvents setHidden:YES];
+            [self.eventsTableVeiw setHidden:NO];
+        }else{
+            [self.lblNoEvents setHidden:NO];
+            [self.eventsTableVeiw setHidden:YES];
+        }
         [self.eventsTableVeiw reloadData];
     }
 }
 
--(void)updateTodayEvents{
-
-
-}
 
 #pragma mark - CalendarEventCellDelegate
 
@@ -188,7 +223,7 @@
 }
 
 
-#pragma mark - UITableViewController
+#pragma mark - UITableViewController DataSource & Delegate
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
@@ -217,6 +252,14 @@
     [tableView setBackgroundView:nil];
     cell.delegate = self;
     return cell;
+}
+
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    CalendarEvent * eventObject = [self.todayEvents objectAtIndex:indexPath.row];
+    [self performSegueWithIdentifier:@"segueToEventDetailController" sender:eventObject];
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
