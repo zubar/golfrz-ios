@@ -23,6 +23,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *lblAdminContact;
 @property (strong, nonatomic) NSArray *courseStaff;
 @property (strong, nonatomic) NSArray *courseDepartments;
+@property (strong, nonatomic) IBOutlet UIImageView *imgCourseLogo;
 
 @property (strong, nonatomic) IBOutlet UILabel *lblCourseState;
 @end

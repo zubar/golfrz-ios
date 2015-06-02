@@ -12,6 +12,10 @@
 #import "CourseServices.h"
 #import "Course.h"
 #import "Department.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+#import "StaffMember.h"
+
+
 
 @interface ContactUsViewController ()
 
@@ -22,6 +26,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [self populateCourseFields];
+    [self populateStaffFields];
     [CourseServices courseDetailInfo:^(bool status, Course *currentCourse){
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         self.courseDepartments = currentCourse.departments;
@@ -39,6 +45,31 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)populateStaffFields{
+    StaffMember *currentStaffMember = [self.courseStaff objectAtIndex:0];
+    //StaffType *currentStafType = currentStaffMember.type;
+    [self.imgAdminPic sd_setImageWithURL:[NSURL URLWithString:[currentStaffMember imageUrl]] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        [self.imgAdminPic setImage:image];
+    }];
+    [self.lblAdminName setText:[currentStaffMember name]];
+    [self.lblAdminContact setText:[currentStaffMember phone]];
+    [self.lblAdminEmail setText:[currentStaffMember email]];
+    
+}
+
+- (void) populateCourseFields{
+    [self.lblHdrCourseCity setText:[[CourseServices currentCourse]courseCity ] ];
+    [self.lblHdrCourseState setText:[[CourseServices currentCourse] courseState]];
+    [self.lblCourseStAddress setText:[[CourseServices currentCourse] courseAddress]];
+    [self.imgCourseLogo sd_setImageWithURL:[NSURL URLWithString:[[CourseServices currentCourse] courseLogo]] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        [self.imgCourseLogo setImage:image];
+    }];
+    [self.lblCourseState setText:[[CourseServices currentCourse] courseState]];
+    [self.lblCourseCity setText:[[CourseServices currentCourse] courseCity]];
+    //[[self.lblPostalCode setText:[[CourseServices currentCourse] coursePostalCode] ];
+    [self.lblCourseName setText:[[CourseServices currentCourse] courseName]];
+}
+
 
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -54,10 +85,8 @@
     
     CourseDepartmentCell *customViewCell = (CourseDepartmentCell *)customCell;
     
-    Department *currentDepartment = [self.courseDepartments objectAtIndex:indexPath.row];
-    customViewCell.lblDptName.text = currentDepartment.name;
-    customViewCell.lblDptContact.text = currentDepartment.phone;
-    
+    customViewCell.currentDepartment = [self.courseDepartments objectAtIndexedSubscript:indexPath.row];
+   
     return customViewCell;
 }
 

@@ -24,7 +24,7 @@
              @"courseCity"  : @"course_city",
              @"courseAddress" : @"course_address",
              @"coordinates" : @"course_location",
-             
+             @"postalCode" : @"course_postal_code",
              @"departments" : @"course_departments",
              @"staff" : @"course_staff"
              //propertyName : json_key

@@ -8,6 +8,7 @@
 
 #import "CourseDepartmentCell.h"
 
+
 @implementation CourseDepartmentCell
 
 - (void)awakeFromNib {
@@ -18,6 +19,14 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+
+-(void)configureViewForDepartment:(Department *)departmant{
+
+    self.currentDepartment = departmant;
+    
+    
 }
 
 @end

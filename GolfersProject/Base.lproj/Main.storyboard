@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
@@ -1593,6 +1593,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <connections>
                         <outlet property="imgAdminPic" destination="fkJ-uO-CLM" id="yE0-kN-ZE7"/>
+                        <outlet property="imgCourseLogo" destination="7iR-gm-vDf" id="1bA-cj-iC7"/>
                         <outlet property="lblAdminContact" destination="J1V-7V-P03" id="fMZ-KE-pUd"/>
                         <outlet property="lblAdminEmail" destination="KY2-qG-JCL" id="Bys-Hk-A99"/>
                         <outlet property="lblAdminName" destination="RVw-br-HhP" id="2Ga-Qr-mTY"/>
@@ -2120,7 +2121,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="signup_location" translatesAutoresizingMaskIntoConstraints="NO" id="igt-aX-oaE">
-                                        <rect key="frame" x="126" y="141" width="10" height="15"/>
+                                        <rect key="frame" x="126" y="143" width="10" height="15"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="10" id="AqW-TS-Nhf"/>
                                             <constraint firstAttribute="height" constant="15" id="kud-9w-Mr3"/>
@@ -2142,7 +2143,7 @@
                                     <constraint firstAttribute="bottom" secondItem="xGK-U6-PmD" secondAttribute="bottom" constant="66" id="ZQI-Xe-7OV"/>
                                     <constraint firstItem="Ryg-gA-Ild" firstAttribute="centerY" secondItem="7JI-Tz-vaP" secondAttribute="centerY" constant="-0.5" id="bRa-Ka-mil"/>
                                     <constraint firstItem="odj-Hy-qRs" firstAttribute="top" secondItem="xGK-U6-PmD" secondAttribute="bottom" constant="5" id="dK2-oc-4rR"/>
-                                    <constraint firstItem="igt-aX-oaE" firstAttribute="centerY" secondItem="GUe-0b-ROn" secondAttribute="centerY" constant="-1.5" id="ejE-g0-BCm"/>
+                                    <constraint firstItem="igt-aX-oaE" firstAttribute="centerY" secondItem="GUe-0b-ROn" secondAttribute="centerY" id="ejE-g0-BCm"/>
                                     <constraint firstItem="xXS-a3-cTF" firstAttribute="centerY" secondItem="7JI-Tz-vaP" secondAttribute="centerY" constant="-1.5" id="exr-VW-Cop"/>
                                     <constraint firstItem="Typ-Y3-8NV" firstAttribute="leading" secondItem="xGK-U6-PmD" secondAttribute="trailing" constant="100" id="gQI-qo-cTc"/>
                                     <constraint firstItem="o6N-yi-3OS" firstAttribute="leading" secondItem="5uK-j8-igg" secondAttribute="leading" constant="20" id="jN6-La-ctG"/>
@@ -2209,6 +2210,11 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                                <color key="value" red="1" green="1" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <outlet property="delegate" destination="Na0-YF-aOj" id="fIq-rr-BjB"/>
                                         </connections>
@@ -2222,7 +2228,7 @@
                                             <outlet property="delegate" destination="Na0-YF-aOj" id="8fL-L6-GMt"/>
                                         </connections>
                                     </textField>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ryq-dn-zp2">
+                                    <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ryq-dn-zp2">
                                         <rect key="frame" x="15" y="151" width="290" height="1"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -2234,6 +2240,11 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                                <color key="value" red="1" green="1" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <outlet property="delegate" destination="ELW-JL-N0d" id="9A3-nu-bie"/>
                                         </connections>
@@ -2247,7 +2258,7 @@
                                             <outlet property="delegate" destination="Na0-YF-aOj" id="cKE-2X-JTn"/>
                                         </connections>
                                     </textField>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jWb-Q3-fZm">
+                                    <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jWb-Q3-fZm">
                                         <rect key="frame" x="15" y="195" width="290" height="1"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -2259,6 +2270,11 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                                <color key="value" red="1" green="1" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <outlet property="delegate" destination="ELW-JL-N0d" id="isZ-MK-GcN"/>
                                         </connections>
@@ -2272,7 +2288,7 @@
                                             <outlet property="delegate" destination="Na0-YF-aOj" id="sbc-ZX-ITO"/>
                                         </connections>
                                     </textField>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mbW-UW-ugB">
+                                    <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mbW-UW-ugB">
                                         <rect key="frame" x="15" y="239" width="290" height="1"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
