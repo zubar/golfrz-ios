@@ -14,6 +14,7 @@
 #import "User.h"
 #import "AppDelegate.h"
 #import "MBProgressHUD.h"
+#import "SignInViewController.h"
 
 @interface PlayerSettingsMainViewController ()
 
@@ -50,8 +51,8 @@
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
-    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
-    [delegate.appDelegateNavController setNavigationBarHidden:YES];
+//    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+//    [delegate.appDelegateNavController setNavigationBarHidden:YES];
 
 
 }
@@ -151,7 +152,7 @@
     [AuthenticationService signOutUser:^(bool status) {
         if (status) {
             [MBProgressHUD hideHUDForView:self.view animated:YES];
-            [[[UIAlertView alloc]initWithTitle:@"Success" message:@"Please check your email to confirm " delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", @"Okay Comment") otherButtonTitles:nil, nil] show];
+            [self popToSignInViewController];
         }
     } failureBlock:^(bool status, NSError *error) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
@@ -159,6 +160,17 @@
         
         
     }];
+}
+
+-(void)popToSignInViewController{
+    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+    
+    for (UIViewController *controller in delegate.appDelegateNavController.viewControllers) {
+        if ([controller isKindOfClass:[SignInViewController class]]) {
+            [delegate.appDelegateNavController popToViewController:controller animated:YES];
+            return;
+        }
+    }
 }
 
 -(void)upDateUserFirstName:(NSString *)firstName lastName:(NSString *)lastName email:(NSString *)email{

@@ -51,7 +51,10 @@
     [self.navigationController pushViewController:forgotPasswordViewController animated:YES];
 }
 
-
+-(void)viewWillAppear:(BOOL)animated{
+    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+    [delegate.appDelegateNavController setNavigationBarHidden:YES];
+}
 /*
 #pragma mark - Navigation
 

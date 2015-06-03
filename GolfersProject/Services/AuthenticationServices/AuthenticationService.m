@@ -67,8 +67,9 @@
 +(void)signOutUser:(void (^)(bool status))successfullyPosted failureBlock:(void (^)(bool status, NSError * error))failureBlock{
   
     APIClient *apiClient = [APIClient sharedAPICLient];
+    NSString * signOutUrl = [NSString stringWithFormat:@"%@%@", kSignOutURL, [UserServices currentToken]];
     
-    [apiClient DELETE:kSignOutURL parameters:[AuthenticationService paramsForSignOut] completion:^(id response, NSError *error) {
+    [apiClient DELETE:signOutUrl parameters:nil completion:^(id response, NSError *error) {
         //OVCResponse * resp = response;
         if (!error) {
             //TODO: in caller of that block show alert on success.
@@ -94,13 +95,7 @@
         }
         
     }];
-
-
 }
-
-//TODO: Create password reset, sign out method calls same way.
-
-
 
 #pragma mark - Helper Methods
 +(NSDictionary *)paramsForLogin:(NSString *)userName password:(NSString *)pwd{
