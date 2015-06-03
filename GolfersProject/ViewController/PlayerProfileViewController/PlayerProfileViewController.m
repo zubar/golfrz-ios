@@ -56,7 +56,7 @@
     [[self navigationItem] setTitle:@"PLAYERPROFILE"];
     UIButton * imageRightButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 10, 22, 22)];
     [imageRightButton setBackgroundImage:[UIImage imageNamed:@"invite_icon"] forState:UIControlStateNormal];
-    [imageRightButton addTarget:self action:@selector(test) forControlEvents:UIControlEventAllEvents];
+    [imageRightButton addTarget:self action:@selector(test) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:imageRightButton];
     self.navigationItem.rightBarButtonItem = rightBarButtonItem;
 

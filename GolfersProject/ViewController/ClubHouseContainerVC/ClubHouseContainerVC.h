@@ -11,7 +11,10 @@
 #import "PlayerProfileViewController.h"
 #import "RewardViewController.h"
 
-@interface ClubHouseContainerVC : UIViewController
+@interface ClubHouseContainerVC : UIViewController{
+
+}
+
 @property (nonatomic, strong) UIPageControl *pageControl;
 
 @property (nonatomic, retain) ClubHouseViewController *  clubHouseViewController;

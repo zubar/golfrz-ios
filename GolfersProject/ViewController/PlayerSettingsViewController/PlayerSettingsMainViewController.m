@@ -30,12 +30,11 @@
     
     UIButton * imageButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 10, 10, 14)];
     [imageButton setBackgroundImage:[UIImage imageNamed:@"back_btn"] forState:UIControlStateNormal];
-    [imageButton addTarget:self action:@selector(backBtnTapped) forControlEvents:UIControlEventAllEvents];
+    [imageButton addTarget:self action:@selector(backBtnTapped) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:imageButton];
     self.navigationItem.leftBarButtonItem = leftBarButtonItem;
   
     self.navigationItem.title = @"Settings";
-
     
     [self addGestureToEditProfile];
     [self addGestureToLogout];
