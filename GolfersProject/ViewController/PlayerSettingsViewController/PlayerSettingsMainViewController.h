@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
-@interface PlayerSettingsMainViewController : UIViewController<UITextFieldDelegate>{
+@interface PlayerSettingsMainViewController : BaseViewController <UITextFieldDelegate>{
     bool isEditing;
 }
 @property (strong, nonatomic) IBOutlet UILabel *lblEditProfile;

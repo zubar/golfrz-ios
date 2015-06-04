@@ -53,12 +53,14 @@
     [self.navigationController.navigationBar setHidden:NO];
     
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
-    [[self navigationItem] setTitle:@"PLAYERPROFILE"];
+    [[self navigationItem] setTitle:@"PLAYER PROFILE"];
     UIButton * imageRightButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 10, 22, 22)];
     [imageRightButton setBackgroundImage:[UIImage imageNamed:@"invite_icon"] forState:UIControlStateNormal];
     [imageRightButton addTarget:self action:@selector(test) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:imageRightButton];
     self.navigationItem.rightBarButtonItem = rightBarButtonItem;
+
+    [[UINavigationBar appearance] setTitleVerticalPositionAdjustment:-10.0 forBarMetrics:UIBarMetricsDefault];
 
 
 }

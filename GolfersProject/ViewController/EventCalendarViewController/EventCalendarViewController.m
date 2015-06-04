@@ -50,7 +50,7 @@
     self.navigationItem.leftBarButtonItem = leftBarButtonItem;
     
     self.navigationItem.title = @"EVENT CALENDAR";
-    
+    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
     
     CGRect appFrame = [[UIScreen mainScreen] applicationFrame];
     
@@ -80,7 +80,8 @@
 
     AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
     [delegate.appDelegateNavController setNavigationBarHidden:NO];
-    
+    [[UINavigationBar appearance] setTitleVerticalPositionAdjustment:-10.0 forBarMetrics:UIBarMetricsDefault];
+
     
 //    UIPageControl * pageControl = (UIPageControl *)[self.navigationController.navigationBar viewWithTag:89];
 //    if (pageControl && ![self isKindOfClass:[ClubHouseSubController class]]) {

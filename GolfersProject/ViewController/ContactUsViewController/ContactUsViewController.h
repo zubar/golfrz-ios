@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
-@interface ContactUsViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+@interface ContactUsViewController : BaseViewController <UITableViewDataSource, UITableViewDelegate>
+
+
 @property (strong, nonatomic) IBOutlet UILabel *lblCourseName;
 @property (strong, nonatomic) IBOutlet UILabel *lblHdrCourseState;
 @property (strong, nonatomic) IBOutlet UILabel *lblHdrCourseCity;
@@ -21,8 +24,12 @@
 @property (strong, nonatomic) IBOutlet UILabel *lblAdminPost;
 @property (strong, nonatomic) IBOutlet UILabel *lblAdminEmail;
 @property (strong, nonatomic) IBOutlet UILabel *lblAdminContact;
+
+
 @property (strong, nonatomic) NSArray *courseStaff;
 @property (strong, nonatomic) NSArray *courseDepartments;
+
+
 @property (strong, nonatomic) IBOutlet UIImageView *imgCourseLogo;
 @property (strong, nonatomic) IBOutlet UIView *staffView;
 

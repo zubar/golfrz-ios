@@ -31,7 +31,7 @@
     
     UIButton * imageButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 10, 10, 14)];
     [imageButton setBackgroundImage:[UIImage imageNamed:@"back_btn"] forState:UIControlStateNormal];
-    [imageButton addTarget:self action:@selector(backBtnTapped) forControlEvents:UIControlEventTouchUpInside];
+    [imageButton addTarget:self action:@selector(playerSettingBackBtnTapped) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:imageButton];
     self.navigationItem.leftBarButtonItem = leftBarButtonItem;
   
@@ -51,8 +51,8 @@
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
-//    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
-//    [delegate.appDelegateNavController setNavigationBarHidden:YES];
+    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+    [delegate.appDelegateNavController setNavigationBarHidden:YES];
 
 
 }
@@ -82,7 +82,7 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)backBtnTapped{
+-(void)playerSettingBackBtnTapped{
     
     AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
     [delegate.appDelegateNavController popViewControllerAnimated:YES];

@@ -72,7 +72,8 @@
     }else{
         [pageControl setHidden:NO];
     }
-    
+    [[UINavigationBar appearance] setTitleVerticalPositionAdjustment:-10.0 forBarMetrics:UIBarMetricsDefault];
+
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
