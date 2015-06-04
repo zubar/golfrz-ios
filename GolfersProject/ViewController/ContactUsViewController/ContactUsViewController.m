@@ -15,6 +15,7 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "StaffMember.h"
 #import "AppDelegate.h"
+#import "StaffType.h"
 
 @interface ContactUsViewController ()
 
@@ -25,13 +26,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.staffView setHidden:YES];
-    UIButton * imageButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 10, 10, 14)];
-    [imageButton setBackgroundImage:[UIImage imageNamed:@"back_btn"] forState:UIControlStateNormal];
-    [imageButton addTarget:self action:@selector(backBtnTapped) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:imageButton];
-    self.navigationItem.leftBarButtonItem = leftBarButtonItem;
     
-    self.navigationItem.title= @"Contact Us";
+    //self.navigationItem.title= @"Contact Us";
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
@@ -53,7 +49,23 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
+    
+     [self.navigationController.navigationBar setHidden:NO];
+    
+    NSDictionary *titleAttributes =@{
+                                     NSFontAttributeName :[UIFont fontWithName:@"Helvetica-Bold" size:14.0],
+                                     NSForegroundColorAttributeName : [UIColor whiteColor]
+                                     };
 
+    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+    [[self navigationItem] setTitle:@"CONTACT US"];
+    self.navigationController.navigationBar.titleTextAttributes = titleAttributes;
+    UIButton * imageButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 10, 10, 14)];
+    [imageButton setBackgroundImage:[UIImage imageNamed:@"back_btn"] forState:UIControlStateNormal];
+    [imageButton addTarget:self action:@selector(backBtnTapped) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:imageButton];
+    self.navigationItem.leftBarButtonItem = leftBarButtonItem;
+   
     AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
     [delegate.appDelegateNavController setNavigationBarHidden:NO];
 }
@@ -79,7 +91,7 @@
     [self.lblAdminName setText:[currentStaffMember name]];
     [self.lblAdminContact setText:[currentStaffMember phone]];
     [self.lblAdminEmail setText:[currentStaffMember email]];
-    
+    [self.lblAdminPost setText:((StaffType*)[currentStaffMember type]).name];
 }
 
 - (void) populateCourseFields{

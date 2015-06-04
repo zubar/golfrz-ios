@@ -48,9 +48,16 @@
     NSLog(@"%ld, %ld", startComponents.day, (long)startComponents.hour);
     
     self.lblDptDays.text = [NSString stringWithFormat:@"%@-%@", [self dayName:startComponents.day], [self dayName:endComponents.day]];
-    self.lblDptTimings.text = [NSString stringWithFormat:@"(%@-%@)", [self timeInAMPMfrom24hour:startComponents.hour], [self timeInAMPMfrom24hour:endComponents.hour]];
-
-    self.lblDptContact.text = departmant.phone;
+    self.lblDptTimings.text = [NSString stringWithFormat:@"(%@ - %@)", [self timeInAMPMfrom24hour:startComponents.hour], [self timeInAMPMfrom24hour:endComponents.hour]];
+    
+    
+    NSDictionary *contactAttributes =@{NSUnderlineStyleAttributeName:@(NSUnderlineStyleSingle),
+                                     NSFontAttributeName :[UIFont fontWithName:@"Helvetica" size:17.0],
+                                     NSForegroundColorAttributeName : [UIColor whiteColor]
+                                     };
+    
+    NSAttributedString * dptContact  = [[NSAttributedString alloc] initWithString:departmant.phone attributes:contactAttributes];
+    [self.lblDptContact setAttributedText:dptContact];
     self.lblDptName.text = departmant.name;
 }
 
@@ -83,9 +90,9 @@
 -(NSString *)timeInAMPMfrom24hour:(int)hour{
     (hour > 11 && hour <= 23 ? --hour : ++hour);
      if (hour > 11 && hour <= 23 ) {
-        return [NSString stringWithFormat:@"%d PM", hour-11];
+        return [NSString stringWithFormat:@"%dPM", hour-11];
     }else{
-        return [NSString stringWithFormat:@"%d AM", hour];
+        return [NSString stringWithFormat:@"%dAM", hour];
     }
 }
 
