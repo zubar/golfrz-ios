@@ -51,9 +51,13 @@
 }
 -(void)viewWillAppear:(BOOL)animated{
     
+    
     AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
     [delegate.appDelegateNavController setNavigationBarHidden:NO];
+    [[UINavigationBar appearance] setTitleVerticalPositionAdjustment:0.0 forBarMetrics:UIBarMetricsDefault];
+    
     [self loadUserInfo];
+    [self makeUserInfoFieldsEditable:NO];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
