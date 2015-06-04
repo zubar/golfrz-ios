@@ -51,7 +51,10 @@
     [self.navigationController pushViewController:forgotPasswordViewController animated:YES];
 }
 
-
+-(void)viewWillAppear:(BOOL)animated{
+    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+    [delegate.appDelegateNavController setNavigationBarHidden:YES];
+}
 /*
 #pragma mark - Navigation
 
@@ -72,7 +75,6 @@
         [MBProgressHUD hideHUDForView:self.view animated:YES];
          ClubHouseContainerVC *clubHouseContainerVC  = [self.storyboard instantiateViewControllerWithIdentifier:@"ClubHouseContainerVC"];
         [delegate.appDelegateNavController pushViewController:clubHouseContainerVC animated:YES];
-        [[[UIAlertView alloc]initWithTitle:@"Success" message:@"You have successfully logged in" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
     } failure:^(bool status, NSError *error){
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         [[[UIAlertView alloc]initWithTitle:@"Credentials Not Valid" message:@"Credentials not valid" delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:nil, nil] show];

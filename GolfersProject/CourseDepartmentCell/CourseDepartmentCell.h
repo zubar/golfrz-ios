@@ -20,7 +20,8 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *lblDptName;
 @property (strong, nonatomic) IBOutlet UILabel *lblDptContact;
-@property (strong, nonatomic) IBOutlet UILabel *lblDptDays;
-@property (strong, nonatomic) IBOutlet UILabel *lblDptTimings;
+@property (strong, nonatomic) IBOutlet UILabel *lblDptDays; // Mon - Fri
+@property (strong, nonatomic) IBOutlet UILabel *lblDptTimings; // (7am - 7pm)
+
 
 @end

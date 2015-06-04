@@ -40,7 +40,7 @@ static NSString * const kWeatherAPIKey = @"e5bfb7faf3d0c719e87f3e1300ad0739";
  */
 static NSString * const kSignInURL = @"sessions";
 static NSString * const kForgetPasswordURL = @"users/forgot_password";
-static NSString * const kSignOutURL = @"sessions";
+static NSString * const kSignOutURL = @"sessions/";
 
 /*
  * Users detail

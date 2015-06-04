@@ -10,8 +10,9 @@
 #import "VRGCalendarView.h"
 #import "EventList.h"
 #import "CalendarEventCell.h"
+#import "BaseViewController.h"
 
-@interface EventCalendarViewController : UIViewController<VRGCalendarViewDelegate, UITableViewDataSource, UITableViewDelegate, CalendarEventCellProtocol>
+@interface EventCalendarViewController : BaseViewController <VRGCalendarViewDelegate, UITableViewDataSource, UITableViewDelegate, CalendarEventCellProtocol>
 
 
 @property (nonatomic, retain) VRGCalendarView * calendar;
