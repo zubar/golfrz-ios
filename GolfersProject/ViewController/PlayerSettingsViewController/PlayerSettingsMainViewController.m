@@ -36,25 +36,29 @@
     self.navigationItem.leftBarButtonItem = leftBarButtonItem;
   
     self.navigationItem.title = @"Settings";
-    
     [self addGestureToEditProfile];
-    [self addGestureToLogout];
-    [self addGestureToResetPassword];
+    
+    
+    
+    NSDictionary *titleAttributes =@{NSUnderlineStyleAttributeName:@(NSUnderlineStyleSingle),
+                                     NSFontAttributeName :[UIFont fontWithName:@"Helvetica" size:14.0],
+                                     NSForegroundColorAttributeName : [UIColor whiteColor]
+                                     };
+    
+    NSAttributedString * saveTitle  = [[NSAttributedString alloc] initWithString:@"Edit Profile" attributes:titleAttributes];
+    [self.lblEditProfile setAttributedText:saveTitle];
+
 }
 -(void)viewWillAppear:(BOOL)animated{
     
     AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
     [delegate.appDelegateNavController setNavigationBarHidden:NO];
-    
     [self loadUserInfo];
-    
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
     AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
     [delegate.appDelegateNavController setNavigationBarHidden:YES];
-
-
 }
 
 -(void)loadUserInfo{
@@ -64,8 +68,9 @@
         if (status) {
             User * mUser = userInfo;
                 [self.txtFirstName setText:[mUser firstName]];
-                [self.txtLastName setText:[mUser firstName]];
+                [self.txtLastName setText:[mUser lastName]];
                 [self.txtEmailAddress setText:[mUser email]];
+                [self makeUserInfoFieldsEditable:NO];
             [MBProgressHUD hideHUDForView:self.view animated:YES];
         }
     } failure:^(bool status, NSError *error) {
@@ -75,18 +80,14 @@
     }];
 }
 
-
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
 -(void)playerSettingBackBtnTapped{
-    
     AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
     [delegate.appDelegateNavController popViewControllerAnimated:YES];
-    
 }
 
 -(void) addGestureToEditProfile{
@@ -96,38 +97,29 @@
     [self.lblEditProfile addGestureRecognizer:gesture];
 }
 
-
--(void) addGestureToResetPassword{
-    UITapGestureRecognizer* gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(resetPasswordTapped)];
-    // if labelView is not set userInteractionEnabled, you must do so
-    [self.lblResetPassword setUserInteractionEnabled:YES];
-    [self.lblResetPassword addGestureRecognizer:gesture];
-}
-
-
--(void) addGestureToLogout{
-    UITapGestureRecognizer* gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(logoutTapped)];
-    // if labelView is not set userInteractionEnabled, you must do so
-    [self.lblLogout setUserInteractionEnabled:YES];
-    [self.lblLogout addGestureRecognizer:gesture];
-}
-
-
 - (void) editProfileTapped{
+    
+    NSDictionary *titleAttributes =@{NSUnderlineStyleAttributeName:@(NSUnderlineStyleSingle),
+                                     NSFontAttributeName :[UIFont fontWithName:@"Helvetica" size:14.0],
+                                     NSForegroundColorAttributeName : [UIColor whiteColor]
+                                     };
+    NSAttributedString * saveTitle = nil;
     
     if (!isEditing) {
         isEditing = true;
-        [self.lblEditProfile setText:@"Save Profile"];
-        [self makeUserInfoFieldsEditable:isEditing];
+        saveTitle  = [[NSAttributedString alloc] initWithString:@"Save Profile" attributes:titleAttributes];
         [self.txtFirstName becomeFirstResponder];
     }else{
         isEditing = false;
-        [self.lblEditProfile setText:@"Edit Profile"];
-        [self makeUserInfoFieldsEditable:isEditing];
-        [self.view.subviews makeObjectsPerformSelector:@selector(resignFirstResponder)];
+        saveTitle = [[NSAttributedString alloc] initWithString:@"Edit Profile" attributes:titleAttributes];
+        [self.txtFirstName resignFirstResponder];
+        [self.txtLastName resignFirstResponder];
+        [self.txtEmailAddress resignFirstResponder];
         [self upDateUserFirstName:[self.txtFirstName text] lastName:[self.txtLastName text] email:[self.txtEmailAddress text]];
     }
     
+    [self.lblEditProfile setAttributedText:saveTitle];
+    [self makeUserInfoFieldsEditable:isEditing];
 }
 
 -(void)makeUserInfoFieldsEditable:(BOOL)yesNo{
@@ -136,19 +128,17 @@
     [self.txtEmailAddress setEnabled:yesNo];
 }
 
-- (void)resetPasswordTapped{
+
+- (IBAction)btnResetPasswordTap:(id)sender {
    
     AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
-    
     ForgotPasswordViewController *forgetPasswordVC  = [self.storyboard instantiateViewControllerWithIdentifier:@"ForgotPasswordViewController"];
     [delegate.appDelegateNavController pushViewController:forgetPasswordVC animated:YES];
-    
 }
 
 - (void)logoutTapped {
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-
     [AuthenticationService signOutUser:^(bool status) {
         if (status) {
             [MBProgressHUD hideHUDForView:self.view animated:YES];
@@ -160,6 +150,9 @@
         
         
     }];
+}
+- (IBAction)btnLogOutTap:(id)sender {
+    [self logoutTapped];
 }
 
 -(void)popToSignInViewController{
@@ -176,17 +169,19 @@
 -(void)upDateUserFirstName:(NSString *)firstName lastName:(NSString *)lastName email:(NSString *)email{
     
   __block  NSString * alertTitle = nil;
-  __block   NSString * alertMessage = nil;
+  __block  NSString * alertMessage = nil;
     
     [UserServices updateUserInfo:firstName lastName:lastName email:email success:^(bool status, NSString *message) {
         alertTitle = @"Success";
         alertMessage = message;
+        if (alertTitle)
+            [[[UIAlertView  alloc] initWithTitle:alertTitle message:alertMessage delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil] show];
     } failure:^(bool status, NSError *error) {
         alertTitle = @"Failure";
         alertMessage = [error localizedDescription];
+        if (alertTitle)
+            [[[UIAlertView  alloc] initWithTitle:alertTitle message:alertMessage delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil] show];
     }];
-    if (alertTitle)
-        [[[UIAlertView  alloc] initWithTitle:alertTitle message:alertMessage delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil] show];
 }
 
 -(BOOL)isValidEmail:(NSString *)email{
@@ -208,12 +203,10 @@
 #pragma TextFieldMethods
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    
-    
-    
     [textField resignFirstResponder];
-    return NO;
+    return YES;
 }
+
 
 
 @end

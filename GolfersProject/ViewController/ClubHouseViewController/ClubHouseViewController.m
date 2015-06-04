@@ -43,9 +43,10 @@
     
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
    
-    NSDictionary *titleAttributes = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Helvetica-Bold" size:14.0], NSFontAttributeName,
-                          [UIColor yellowColor],  NSForegroundColorAttributeName,
-                          nil];
+    NSDictionary *titleAttributes =@{
+                                    NSFontAttributeName :[UIFont fontWithName:@"Helvetica-Bold" size:14.0],
+                                     NSForegroundColorAttributeName : [UIColor whiteColor]
+                                    };
    
 //    NSDictionary *attributes=[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],UITextAttributeTextColor, nil];
     

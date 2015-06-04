@@ -13,11 +13,13 @@
     bool isEditing;
 }
 @property (strong, nonatomic) IBOutlet UILabel *lblEditProfile;
+
 @property (strong, nonatomic) IBOutlet UIImageView *imgUserPic;
+
 @property (strong, nonatomic) IBOutlet UITextField *txtFirstName;
 @property (strong, nonatomic) IBOutlet UITextField *txtLastName;
 @property (strong, nonatomic) IBOutlet UITextField *txtEmailAddress;
-@property (strong, nonatomic) IBOutlet UILabel *lblResetPassword;
-@property (strong, nonatomic) IBOutlet UIImageView *lblLogout;
+
+@property (strong, nonatomic) IBOutlet UIImageView *backgroundImg;
 
 @end

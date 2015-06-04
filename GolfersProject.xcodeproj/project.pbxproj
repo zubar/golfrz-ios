@@ -34,6 +34,7 @@
 		3D1964271B13305200766CFC /* FaceBookAuthAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1964261B13305200766CFC /* FaceBookAuthAgent.m */; };
 		3D19642A1B13364B00766CFC /* Coordinates.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1964291B13364B00766CFC /* Coordinates.m */; };
 		3D5CA5D61B1F332B00CB6ED7 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D5CA5D51B1F332B00CB6ED7 /* BaseViewController.m */; };
+		3D5CA5D81B20572E00CB6ED7 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D5CA5D71B20572E00CB6ED7 /* SystemConfiguration.framework */; };
 		3D841D281B1CD97D00A267DE /* EventHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D841D271B1CD97D00A267DE /* EventHeaderView.m */; };
 		3D841D2A1B1CD98800A267DE /* EventHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D841D291B1CD98800A267DE /* EventHeaderView.xib */; };
 		3D841D341B1D91FA00A267DE /* EventWeather.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D841D331B1D91FA00A267DE /* EventWeather.m */; };
@@ -139,6 +140,7 @@
 		3D1964291B13364B00766CFC /* Coordinates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Coordinates.m; sourceTree = "<group>"; };
 		3D5CA5D41B1F332B00CB6ED7 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		3D5CA5D51B1F332B00CB6ED7 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		3D5CA5D71B20572E00CB6ED7 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		3D841D261B1CD97D00A267DE /* EventHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventHeaderView.h; sourceTree = "<group>"; };
 		3D841D271B1CD97D00A267DE /* EventHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventHeaderView.m; sourceTree = "<group>"; };
 		3D841D291B1CD98800A267DE /* EventHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventHeaderView.xib; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D5CA5D81B20572E00CB6ED7 /* SystemConfiguration.framework in Frameworks */,
 				3D1964231B13271000766CFC /* FBSDKShareKit.framework in Frameworks */,
 				32B56928BD94CBDCCDA0C43B /* libPods.a in Frameworks */,
 				3D1964211B13270F00766CFC /* FBSDKCoreKit.framework in Frameworks */,
@@ -771,6 +774,7 @@
 		C91B48159ABC56B52D213A0C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3D5CA5D71B20572E00CB6ED7 /* SystemConfiguration.framework */,
 				5A26DAF5CF62E34098597EA3 /* libPods.a */,
 			);
 			name = Frameworks;

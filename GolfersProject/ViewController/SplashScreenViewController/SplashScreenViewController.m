@@ -51,7 +51,7 @@
         [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
 
         
-        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         
         InitialViewController * initController = [self.storyboard instantiateViewControllerWithIdentifier:@"InitialViewController"];
         [delegate.appDelegateNavController pushViewController:initController animated:YES];
@@ -66,7 +66,7 @@
         // Setting Background Image
         // Setting Course Logo
         
-        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         
         InitialViewController * initController = [self.storyboard instantiateViewControllerWithIdentifier:@"InitialViewController"];
         [delegate.appDelegateNavController pushViewController:initController animated:YES];

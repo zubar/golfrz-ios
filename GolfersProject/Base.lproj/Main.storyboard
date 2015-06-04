@@ -2209,7 +2209,7 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background_image" translatesAutoresizingMaskIntoConstraints="NO" id="d1z-7w-e0D">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                                     </imageView>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LOE-x9-UjR">
+                                    <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LOE-x9-UjR">
                                         <rect key="frame" x="15" y="130" width="95" height="18"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -2239,7 +2239,7 @@
                                             <constraint firstAttribute="height" constant="1" id="uR1-rr-IJO"/>
                                         </constraints>
                                     </view>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z4a-0E-kS3">
+                                    <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z4a-0E-kS3">
                                         <rect key="frame" x="15" y="174" width="95" height="18"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -2269,7 +2269,7 @@
                                             <constraint firstAttribute="height" constant="1" id="0GN-WP-MMF"/>
                                         </constraints>
                                     </view>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="E-mail" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="paQ-2b-uYB">
+                                    <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="E-mail" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="paQ-2b-uYB">
                                         <rect key="frame" x="15" y="218" width="95" height="18"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -2343,36 +2343,44 @@
                                         </attributedString>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lWn-c0-84R">
-                                        <rect key="frame" x="40" y="450" width="108" height="14"/>
-                                        <attributedString key="attributedText">
-                                            <fragment content="RESET PASSWORD">
-                                                <attributes>
-                                                    <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <font key="NSFont" size="12" name="HelveticaNeue"/>
-                                                    <font key="NSOriginalFont" size="12" name="HelveticaNeue"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                    <integer key="NSUnderline" value="1"/>
-                                                </attributes>
-                                            </fragment>
-                                        </attributedString>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x0x-yo-QC5">
-                                        <rect key="frame" x="230" y="450" width="50" height="14"/>
-                                        <attributedString key="attributedText">
-                                            <fragment content="LOGOUT">
-                                                <attributes>
-                                                    <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <font key="NSFont" size="12" name="HelveticaNeue"/>
-                                                    <font key="NSOriginalFont" size="12" name="HelveticaNeue"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                    <integer key="NSUnderline" value="1"/>
-                                                </attributes>
-                                            </fragment>
-                                        </attributedString>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fP7-am-xIw">
+                                        <rect key="frame" x="40" y="442" width="113" height="30"/>
+                                        <state key="normal">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="RESET PASSWORD">
+                                                    <attributes>
+                                                        <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <font key="NSFont" size="12" name="HelveticaNeue"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                        <integer key="NSUnderline" value="1"/>
+                                                        <color key="NSUnderlineColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnResetPasswordTap:" destination="Na0-YF-aOj" eventType="touchUpInside" id="uUT-Rv-gN8"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zCm-kr-wNQ">
+                                        <rect key="frame" x="223" y="442" width="57" height="30"/>
+                                        <state key="normal">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="LOGOUT">
+                                                    <attributes>
+                                                        <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <font key="NSFont" size="12" name="HelveticaNeue"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                        <integer key="NSUnderline" value="1"/>
+                                                        <color key="NSUnderlineColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnLogOutTap:" destination="Na0-YF-aOj" eventType="touchUpInside" id="Iew-bs-bsl"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -2385,7 +2393,6 @@
                                     <constraint firstItem="mbW-UW-ugB" firstAttribute="leading" secondItem="rHB-45-0e7" secondAttribute="leading" constant="15" id="Csw-AC-TmY"/>
                                     <constraint firstItem="Z4a-0E-kS3" firstAttribute="top" secondItem="Ryq-dn-zp2" secondAttribute="bottom" constant="22" id="DZf-Lu-K2R"/>
                                     <constraint firstItem="jWb-Q3-fZm" firstAttribute="top" secondItem="Z4a-0E-kS3" secondAttribute="bottom" constant="3" id="Gdj-j6-yao"/>
-                                    <constraint firstItem="lWn-c0-84R" firstAttribute="top" secondItem="Ss3-Tu-ZY5" secondAttribute="bottom" constant="35" id="GgA-qZ-IUw"/>
                                     <constraint firstItem="Ss3-Tu-ZY5" firstAttribute="leading" secondItem="rHB-45-0e7" secondAttribute="leading" constant="40" id="Gp1-Bb-iIT"/>
                                     <constraint firstItem="LOE-x9-UjR" firstAttribute="leading" secondItem="rHB-45-0e7" secondAttribute="leading" constant="15" id="H7A-jh-ZXH"/>
                                     <constraint firstItem="raq-Aq-Xrb" firstAttribute="baseline" secondItem="Z4a-0E-kS3" secondAttribute="baseline" constant="-4" id="HiI-h6-maU"/>
@@ -2393,7 +2400,6 @@
                                     <constraint firstAttribute="trailing" secondItem="Z4a-0E-kS3" secondAttribute="trailing" constant="210" id="JNn-fT-ReR"/>
                                     <constraint firstItem="Ss3-Tu-ZY5" firstAttribute="top" secondItem="GCu-gw-zkB" secondAttribute="bottom" constant="10" id="Jzp-W4-iVG"/>
                                     <constraint firstItem="Ffl-MI-QBz" firstAttribute="baseline" secondItem="paQ-2b-uYB" secondAttribute="baseline" constant="-5" id="PJi-p0-rLY"/>
-                                    <constraint firstItem="lWn-c0-84R" firstAttribute="centerY" secondItem="x0x-yo-QC5" secondAttribute="centerY" id="Pxr-5j-m79"/>
                                     <constraint firstItem="mbW-UW-ugB" firstAttribute="top" secondItem="paQ-2b-uYB" secondAttribute="bottom" constant="3" id="Qch-fa-wUN"/>
                                     <constraint firstItem="d1z-7w-e0D" firstAttribute="top" secondItem="rHB-45-0e7" secondAttribute="top" id="Qhh-Qm-Vp4"/>
                                     <constraint firstAttribute="trailing" secondItem="GCu-gw-zkB" secondAttribute="trailing" constant="40" id="RQx-TD-0yZ"/>
@@ -2405,7 +2411,6 @@
                                     <constraint firstItem="Mzb-4r-QUn" firstAttribute="top" secondItem="rHB-45-0e7" secondAttribute="top" constant="14" id="WMr-K7-Aiz"/>
                                     <constraint firstItem="paQ-2b-uYB" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="rHB-45-0e7" secondAttribute="leading" id="Y7B-Ap-O1O"/>
                                     <constraint firstItem="Ryq-dn-zp2" firstAttribute="leading" secondItem="rHB-45-0e7" secondAttribute="leading" constant="15" id="aMC-hc-vQB"/>
-                                    <constraint firstItem="lWn-c0-84R" firstAttribute="leading" secondItem="rHB-45-0e7" secondAttribute="leading" constant="40" id="aP0-TC-ZoY"/>
                                     <constraint firstItem="q3W-YF-wpN" firstAttribute="top" secondItem="rHB-45-0e7" secondAttribute="top" constant="25" id="b8E-69-MaQ"/>
                                     <constraint firstAttribute="trailing" secondItem="LOE-x9-UjR" secondAttribute="trailing" constant="210" id="bMj-7P-4hw"/>
                                     <constraint firstItem="raq-Aq-Xrb" firstAttribute="centerY" secondItem="Z4a-0E-kS3" secondAttribute="centerY" constant="-4" id="buB-tT-ct3"/>
@@ -2422,7 +2427,6 @@
                                     <constraint firstAttribute="bottom" secondItem="d1z-7w-e0D" secondAttribute="bottom" id="p4N-DM-p5C"/>
                                     <constraint firstAttribute="trailing" secondItem="Ryq-dn-zp2" secondAttribute="trailing" constant="15" id="q5h-3w-0ig"/>
                                     <constraint firstItem="Z4a-0E-kS3" firstAttribute="leading" secondItem="rHB-45-0e7" secondAttribute="leading" constant="15" id="tko-ib-Ep0"/>
-                                    <constraint firstAttribute="trailing" secondItem="x0x-yo-QC5" secondAttribute="trailing" constant="40" id="ts1-3k-Kph"/>
                                     <constraint firstItem="GCu-gw-zkB" firstAttribute="top" secondItem="mbW-UW-ugB" secondAttribute="bottom" constant="65" id="wHd-AW-XAF"/>
                                     <constraint firstItem="jWb-Q3-fZm" firstAttribute="leading" secondItem="rHB-45-0e7" secondAttribute="leading" constant="15" id="yv7-HR-tTh"/>
                                 </constraints>
@@ -2431,18 +2435,17 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="rHB-45-0e7" firstAttribute="leading" secondItem="DTJ-kd-v1K" secondAttribute="leading" id="6R3-A4-1nO"/>
-                            <constraint firstItem="2HK-Nx-DSo" firstAttribute="top" secondItem="rHB-45-0e7" secondAttribute="bottom" id="Jmt-0Q-JuM"/>
                             <constraint firstAttribute="trailing" secondItem="rHB-45-0e7" secondAttribute="trailing" id="LC6-IU-gSA"/>
+                            <constraint firstItem="2HK-Nx-DSo" firstAttribute="top" secondItem="rHB-45-0e7" secondAttribute="bottom" id="RwL-AY-pCF"/>
                             <constraint firstItem="rHB-45-0e7" firstAttribute="top" secondItem="DTJ-kd-v1K" secondAttribute="top" constant="64" id="l3f-pr-dD7"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="uWS-3l-HLl"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <connections>
+                        <outlet property="backgroundImg" destination="d1z-7w-e0D" id="KoC-R7-y63"/>
                         <outlet property="imgUserPic" destination="q3W-YF-wpN" id="IgX-ki-kn1"/>
                         <outlet property="lblEditProfile" destination="Mzb-4r-QUn" id="q4C-2b-A0g"/>
-                        <outlet property="lblLogout" destination="d1z-7w-e0D" id="UBl-18-N1o"/>
-                        <outlet property="lblResetPassword" destination="lWn-c0-84R" id="4Ie-ga-xXd"/>
                         <outlet property="txtEmailAddress" destination="Ffl-MI-QBz" id="tgq-X3-TXR"/>
                         <outlet property="txtFirstName" destination="Eae-IT-UuM" id="HbR-0c-O16"/>
                         <outlet property="txtLastName" destination="raq-Aq-Xrb" id="hbV-Tr-FDg"/>
