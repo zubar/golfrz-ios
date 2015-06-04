@@ -14,6 +14,8 @@
 #import "AuthenticationService.h"
 #import "UserServices.h"
 #import "SignInViewController.h"
+#import "ClubHouseContainerVC.h"
+#import "AppDelegate.h"
 
 @interface SignUpViewController ()
 
@@ -53,6 +55,7 @@
         return;
     }
     
+    // calling signup service method
     [AuthenticationService singUpUser:[self.txtFirstName text]
                              lastName:[self.txtLastName text]
                                 email:[self.txtEmail text]
@@ -60,12 +63,15 @@
                  passwordConfirmation:[self.txtPassword text]
                              memberId:[self.txtMemberID text]
                              handicap:[self.txtHandicapNo text]
-    completion:^(bool status, NSError *error) {
+    completion:^(bool status, NSDictionary *userinfo) {
         
         [MBProgressHUD hideHUDForView:self.view animated:YES];
-        [[[UIAlertView alloc]initWithTitle:@"Success" message:@"You have successfully registered" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
-        SignInViewController *signInVC  = [self.storyboard instantiateViewControllerWithIdentifier:@"SignInViewController"];
-        [self.navigationController pushViewController:signInVC animated:YES];
+        
+        AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+        ClubHouseContainerVC *clubHouseContainerVC  = [self.storyboard instantiateViewControllerWithIdentifier:@"ClubHouseContainerVC"];
+        [delegate.appDelegateNavController pushViewController:clubHouseContainerVC animated:YES];
+        
+
     } failure:^(bool status, NSError *error) {
          [MBProgressHUD hideHUDForView:self.view animated:YES];
          [[[UIAlertView alloc]initWithTitle:@"Error" message:@"Something went wrong" delegate:nil cancelButtonTitle:@"CANCEL" otherButtonTitles:nil, nil] show];
@@ -93,11 +99,14 @@
     
     if (!(self.txtFirstName.text.length >= 1)){
         errorMessage = @"Please enter a first name";
-    } else if (!(self.txtLastName.text.length >= 1)){
+    } else
+        if (!(self.txtLastName.text.length >= 1)){
         errorMessage = @"Please enter a last name";
-    } else if (![emailPredicate evaluateWithObject:self.txtEmail.text]){
+    } else
+        if (![emailPredicate evaluateWithObject:self.txtEmail.text]){
         errorMessage = @"Please enter a valid email address";
-    } else if (![pswdPredicate evaluateWithObject:self.txtPassword.text]){
+    } else
+        if (![pswdPredicate evaluateWithObject:self.txtPassword.text]){
         errorMessage = @"Password must be between 8 and 12 digits long and include at least one numeric digit.";
     }
     

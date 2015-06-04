@@ -33,8 +33,6 @@
 
     SharedManager * sharedManager = [SharedManager sharedInstance];
     
-
-    
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
     

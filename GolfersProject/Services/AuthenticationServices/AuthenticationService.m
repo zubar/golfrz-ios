@@ -19,10 +19,12 @@
 @implementation AuthenticationService
 
 
-+(void)loginWithUserName:(NSString *)name password:(NSString *)password success:(void (^)(bool status, NSDictionary * userInfo))successBlock failure:(void (^)(bool status, NSError *error))failureBlock{
++(void)loginWithUserName:(NSString *)name
+                password:(NSString *)password
+                 success:(void (^)(bool status, NSDictionary * userInfo))successBlock
+                 failure:(void (^)(bool status, NSError *error))failureBlock{
 
     AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
-    
     [apiClient POST:kSignInURL parameters:[AuthenticationService paramsForLogin:name password:password] success:^(NSURLSessionDataTask *task, id responseObject) {
         
         if (responseObject[@"status"]) {
@@ -44,7 +46,9 @@
 }
 
 
-+(void)resetUserPassword:(NSString *)email completion:(void (^)(bool))successfullyPosted failure:(void (^)(bool status, NSError *error))failureBlock{
++(void)resetUserPassword:(NSString *)email
+              completion:(void (^)(bool))successfullyPosted
+                 failure:(void (^)(bool status, NSError *error))failureBlock{
 
     APIClient *apiClient = [APIClient sharedAPICLient];
     
@@ -64,7 +68,8 @@
     }];
 }
 
-+(void)signOutUser:(void (^)(bool status))successfullyPosted failureBlock:(void (^)(bool status, NSError * error))failureBlock{
++(void)signOutUser:(void (^)(bool status))successfullyPosted
+      failureBlock:(void (^)(bool status, NSError * error))failureBlock{
   
     APIClient *apiClient = [APIClient sharedAPICLient];
     NSString * signOutUrl = [NSString stringWithFormat:@"%@%@", kSignOutURL, [UserServices currentToken]];
@@ -83,19 +88,35 @@
 
 
 
-+(void)singUpUser:(NSString * )firstName lastName:(NSString *)lastName email:(NSString *)email password:(NSString *)password  passwordConfirmation:(NSString *)passwordConfirmation memberId:(NSString *)memberID handicap:(NSString *)handicap completion:(void (^)(bool status, NSError * error))block failure:(void (^)(bool status, NSError * error))failureBlock{
++(void)singUpUser:(NSString * )firstName
+         lastName:(NSString *)lastName
+            email:(NSString *)email
+         password:(NSString *)password
+passwordConfirmation:(NSString *)passwordConfirmation
+         memberId:(NSString *)memberID
+         handicap:(NSString *)handicap
+       completion:(void (^)(bool status, NSDictionary * userInfo))successBlock
+          failure:(void (^)(bool status, NSError * error))failureBlock{
 
-    APIClient *apiClient = [APIClient sharedAPICLient];
+    AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
     
     NSDictionary * params = [AuthenticationService paramsForSignUp:firstName lastName:lastName email:email password:password passwordConfirmation:passwordConfirmation memberId:memberID handicap:handicap];
     
-    [apiClient POST:kSignUpURL parameters:params completion:^(id response, NSError *error) {
-        if (!error) {
-            block(true, nil);
-        }else{
-            failureBlock(false, error);
-        }
+    [apiClient POST:kSignUpURL parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
         
+        if (responseObject[@"status"]) {
+            NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
+            [defaults setValue:responseObject[@"token"] forKey:kUSER_TOKEN];
+            [defaults setValue:responseObject[@"email"] forKey:kUSER_EMAIL];
+            [defaults setValue:responseObject[@"id"] forKey:kUSER_ID];
+            
+            NSLog(@"Email: %@, Token: %@, User_Id: %@", responseObject[@"email"], responseObject[@"token"], responseObject[@"id"]);
+            
+            [defaults synchronize];
+        }
+        successBlock(true, responseObject);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        failureBlock(false, error);
     }];
 }
 
@@ -110,7 +131,6 @@
 
 +(NSDictionary *)paramsForSignOut{
     
-    
     return   @{
                @"user_login":@{
                        @"auth_token" : [UserServices currentToken]
@@ -118,7 +138,13 @@
                };
 }
 
-+(NSDictionary *)paramsForSignUp:(NSString * )firstName lastName:(NSString *)lastName email:(NSString *)email password:(NSString *)password  passwordConfirmation:(NSString *)passwordConfirmation memberId:(NSString *)memberID handicap:(NSString *)handicap{
++(NSDictionary *)paramsForSignUp:(NSString * )firstName
+                        lastName:(NSString *)lastName
+                           email:(NSString *)email
+                        password:(NSString *)password
+            passwordConfirmation:(NSString *)passwordConfirmation
+                        memberId:(NSString *)memberID
+                        handicap:(NSString *)handicap{
     
     return @{
         @"email": email,

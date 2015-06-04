@@ -11,6 +11,7 @@
 
 @interface WeatherServices : NSObject
 
-+(void)weatherInfo:(void (^)(bool status, NSArray * mWeatherData))successBlock failure:(void (^)(bool status, NSError * error))failureBlock;
++(void)weatherInfo:(void (^)(bool status, NSArray * mWeatherData))successBlock
+           failure:(void (^)(bool status, NSError * error))failureBlock;
 
 @end

@@ -10,6 +10,7 @@
 @class EventList;
 
 @interface CalendarEventServices : NSObject
-+(void)getEvents:(void (^)(bool status, EventList * eventsArray))successBlock failure:(void (^)(bool status, NSError * error))failureBlock;
++(void)getEvents:(void (^)(bool status, EventList * eventsArray))successBlock
+         failure:(void (^)(bool status, NSError * error))failureBlock;
 
 @end

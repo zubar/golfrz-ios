@@ -33,7 +33,7 @@
     [UserServices getUserInfo:^(bool status, User *mUser) {
         
         [self.lblUserName setText:mUser.firstName];
-        [self.lblHandicap setText:@"0"];
+        [self.lblHandicap setText:[mUser.handicap stringValue]];
         //TODO: add pints in service 
         [self.lblPoints setText:@"0"];
         [self.lblCourseName setText:[[CourseServices currentCourse] courseName]];
