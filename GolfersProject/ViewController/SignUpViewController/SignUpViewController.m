@@ -46,6 +46,12 @@
 
 - (IBAction)btnRegisterTapped:(UIButton *)sender {
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    NSString *errorMessage = [self validateForm];
+    if (errorMessage) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [[[UIAlertView alloc] initWithTitle:nil message:errorMessage delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] show];
+        return;
+    }
     
     [AuthenticationService singUpUser:[self.txtFirstName text] lastName:[self.txtLastName text] email:[self.txtEmail text] password:[self.txtPassword text] passwordConfirmation:[self.txtPassword text] memberId:[self.txtMemberID text]completion:^(bool status, NSError *error) {
          [MBProgressHUD hideHUDForView:self.view animated:YES];
@@ -69,6 +75,27 @@
             [self.navigationController popToViewController:controller animated:YES];
         }
     }
+}
+
+- (NSString *)validateForm {
+    NSString *errorMessage;
+    
+    NSString *emailRegex = @"[^@]+@[A-Za-z0-9.-]+\\.[A-Za-z]+";
+    NSString *passwordRegex =@"/^[a-zA-Z0-9]{8,20}$/";
+    NSPredicate *emailPredicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
+    NSPredicate *pswdPredicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", passwordRegex];
+    
+    if (!(self.txtFirstName.text.length >= 1)){
+        errorMessage = @"Please enter a first name";
+    } else if (!(self.txtLastName.text.length >= 1)){
+        errorMessage = @"Please enter a last name";
+    } else if (![emailPredicate evaluateWithObject:self.txtEmail.text]){
+        errorMessage = @"Please enter a valid email address";
+    } else if (![pswdPredicate evaluateWithObject:self.txtPassword.text]){
+        errorMessage = @"Please enter a valid password";
+    }
+    
+    return errorMessage;
 }
 
 #pragma TextFieldMethods

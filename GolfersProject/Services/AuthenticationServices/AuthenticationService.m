@@ -80,6 +80,8 @@
     
 }
 
+
+
 +(void)singUpUser:(NSString * )firstName lastName:(NSString *)lastName email:(NSString *)email password:(NSString *)password  passwordConfirmation:(NSString *)passwordConfirmation memberId:(NSString *)memberID completion:(void (^)(bool status, NSError * error))block failure:(void (^)(bool status, NSError * error))failureBlock{
 
     APIClient *apiClient = [APIClient sharedAPICLient];

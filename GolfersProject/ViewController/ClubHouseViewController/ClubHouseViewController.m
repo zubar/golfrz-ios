@@ -42,9 +42,18 @@
     self.navigationItem.rightBarButtonItem = rightBarButtonItem;
     
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+   
+    NSDictionary *titleAttributes = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Helvetica-Bold" size:14.0], NSFontAttributeName,
+                          [UIColor yellowColor],  NSForegroundColorAttributeName,
+                          nil];
+   
+//    NSDictionary *attributes=[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],UITextAttributeTextColor, nil];
+    
+   // self.navigationController.navigationBar.titleTextAttributes = attributes;
+    self.navigationController.navigationBar.titleTextAttributes = titleAttributes;
     [[self navigationItem] setTitle:@"CLUBHOUSE"];
     
-    self.navigationController.navigationBar.titleTextAttributes = [NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName];
+    //self.navigationController.navigationBar.titleTextAttributes = [NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName];
     
     // Do any additional setup after loading the view.
     [MBProgressHUD hideHUDForView:self.view animated:YES];
