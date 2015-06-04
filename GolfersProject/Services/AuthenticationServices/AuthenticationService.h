@@ -14,7 +14,7 @@
 
 +(void)loginWithUserName:(NSString *)name password:(NSString *)password success:(void (^)(bool status, NSDictionary * userInfo))successBlock failure:(void (^)(bool status, NSError *error))failureBlock;
     
-+(void)singUpUser:(NSString * )firstName lastName:(NSString *)lastName email:(NSString *)email password:(NSString *)password  passwordConfirmation:(NSString *)passwordConfirmation memberId:(NSString *)memberID completion:(void (^)(bool status, NSError * error))block failure:(void (^)(bool status, NSError * error))failureBlock;
++(void)singUpUser:(NSString * )firstName lastName:(NSString *)lastName email:(NSString *)email password:(NSString *)password  passwordConfirmation:(NSString *)passwordConfirmation memberId:(NSString *)memberID handicap:(NSString *)handicap completion:(void (^)(bool status, NSError * error))block failure:(void (^)(bool status, NSError * error))failureBlock;
 
 +(void)resetUserPassword:(NSString *)email completion:(void (^)(bool status))successfullyPosted failure:(void (^)(bool status, NSError *error))failureBlock;
 

@@ -80,7 +80,7 @@
     } failure:^(bool status, NSError *error) {
         //
         [MBProgressHUD hideHUDForView:self.view animated:YES];
-        NSLog(@"Failure====================================================================================");
+        NSLog(@"Failure==================================================================================");
     }];
 }
 
@@ -190,7 +190,12 @@
 
 -(BOOL)isValidEmail:(NSString *)email{
     
-    //TODO: create regix to validate
+    NSString *emailRegex = @"[^@]+@[A-Za-z0-9.-]+\\.[A-Za-z]+";
+    NSPredicate *emailPredicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
+    
+    if (![emailPredicate evaluateWithObject:self.txtEmailAddress.text]){
+        return false;//errorMessage = @"Please enter a valid email address";
+    }else
     return true;
 }
 

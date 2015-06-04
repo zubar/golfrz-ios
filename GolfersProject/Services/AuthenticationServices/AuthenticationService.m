@@ -83,11 +83,11 @@
 
 
 
-+(void)singUpUser:(NSString * )firstName lastName:(NSString *)lastName email:(NSString *)email password:(NSString *)password  passwordConfirmation:(NSString *)passwordConfirmation memberId:(NSString *)memberID completion:(void (^)(bool status, NSError * error))block failure:(void (^)(bool status, NSError * error))failureBlock{
++(void)singUpUser:(NSString * )firstName lastName:(NSString *)lastName email:(NSString *)email password:(NSString *)password  passwordConfirmation:(NSString *)passwordConfirmation memberId:(NSString *)memberID handicap:(NSString *)handicap completion:(void (^)(bool status, NSError * error))block failure:(void (^)(bool status, NSError * error))failureBlock{
 
     APIClient *apiClient = [APIClient sharedAPICLient];
     
-    NSDictionary * params = [AuthenticationService paramsForSignUp:firstName lastName:lastName email:email password:password passwordConfirmation:passwordConfirmation memberId:memberID];
+    NSDictionary * params = [AuthenticationService paramsForSignUp:firstName lastName:lastName email:email password:password passwordConfirmation:passwordConfirmation memberId:memberID handicap:handicap];
     
     [apiClient POST:kSignUpURL parameters:params completion:^(id response, NSError *error) {
         if (!error) {
@@ -118,7 +118,7 @@
                };
 }
 
-+(NSDictionary *)paramsForSignUp:(NSString * )firstName lastName:(NSString *)lastName email:(NSString *)email password:(NSString *)password  passwordConfirmation:(NSString *)passwordConfirmation memberId:(NSString *)memberID{
++(NSDictionary *)paramsForSignUp:(NSString * )firstName lastName:(NSString *)lastName email:(NSString *)email password:(NSString *)password  passwordConfirmation:(NSString *)passwordConfirmation memberId:(NSString *)memberID handicap:(NSString *)handicap{
     
     return @{
         @"email": email,
@@ -126,7 +126,10 @@
         @"password_confirmation": passwordConfirmation,
         @"member_id": memberID,
         @"first_name": firstName,
-        @"last_name": lastName
+        @"last_name": lastName,
+        @"user_agent" : kUserAgent,
+        @"app_bundle_id" : kAppBundleId,
+        @"handicap" : handicap
         };
 }
 

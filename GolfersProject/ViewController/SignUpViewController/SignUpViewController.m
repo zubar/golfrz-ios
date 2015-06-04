@@ -53,13 +53,19 @@
         return;
     }
     
-    [AuthenticationService singUpUser:[self.txtFirstName text] lastName:[self.txtLastName text] email:[self.txtEmail text] password:[self.txtPassword text] passwordConfirmation:[self.txtPassword text] memberId:[self.txtMemberID text]completion:^(bool status, NSError *error) {
-         [MBProgressHUD hideHUDForView:self.view animated:YES];
+    [AuthenticationService singUpUser:[self.txtFirstName text]
+                             lastName:[self.txtLastName text]
+                                email:[self.txtEmail text]
+                             password:[self.txtPassword text]
+                 passwordConfirmation:[self.txtPassword text]
+                             memberId:[self.txtMemberID text]
+                             handicap:[self.txtHandicapNo text]
+    completion:^(bool status, NSError *error) {
+        
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
         [[[UIAlertView alloc]initWithTitle:@"Success" message:@"You have successfully registered" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
         SignInViewController *signInVC  = [self.storyboard instantiateViewControllerWithIdentifier:@"SignInViewController"];
-        
         [self.navigationController pushViewController:signInVC animated:YES];
-
     } failure:^(bool status, NSError *error) {
          [MBProgressHUD hideHUDForView:self.view animated:YES];
          [[[UIAlertView alloc]initWithTitle:@"Error" message:@"Something went wrong" delegate:nil cancelButtonTitle:@"CANCEL" otherButtonTitles:nil, nil] show];
@@ -81,7 +87,7 @@
     NSString *errorMessage;
     
     NSString *emailRegex = @"[^@]+@[A-Za-z0-9.-]+\\.[A-Za-z]+";
-    NSString *passwordRegex =@"/^[a-zA-Z0-9]{8,20}$/";
+    NSString *passwordRegex =@"^(?=.*\\d).{8,12}$";
     NSPredicate *emailPredicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
     NSPredicate *pswdPredicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", passwordRegex];
     
@@ -92,7 +98,7 @@
     } else if (![emailPredicate evaluateWithObject:self.txtEmail.text]){
         errorMessage = @"Please enter a valid email address";
     } else if (![pswdPredicate evaluateWithObject:self.txtPassword.text]){
-        errorMessage = @"Please enter a valid password";
+        errorMessage = @"Password must be between 8 and 12 digits long and include at least one numeric digit.";
     }
     
     return errorMessage;
