@@ -35,9 +35,10 @@
     UIBarButtonItem *leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:imageButton];
     self.navigationItem.leftBarButtonItem = leftBarButtonItem;
   
-    self.navigationItem.title = @"Settings";
+    self.navigationItem.title = @"SETTINGS";
     [self addGestureToEditProfile];
     
+ 
     
     
     NSDictionary *titleAttributes =@{NSUnderlineStyleAttributeName:@(NSUnderlineStyleSingle),
@@ -45,7 +46,13 @@
                                      NSForegroundColorAttributeName : [UIColor whiteColor]
                                      };
     
+    NSDictionary *navTitleAttributes =@{NSUnderlineStyleAttributeName:@(NSUnderlineStyleSingle),
+                                     NSFontAttributeName :[UIFont fontWithName:@"Helvetica-Bold" size:14.0],
+                                     NSForegroundColorAttributeName : [UIColor whiteColor]
+                                     };
     NSAttributedString * saveTitle  = [[NSAttributedString alloc] initWithString:@"Edit Profile" attributes:titleAttributes];
+    self.navigationController.navigationBar.titleTextAttributes = navTitleAttributes;
+
     [self.lblEditProfile setAttributedText:saveTitle];
 
 }
