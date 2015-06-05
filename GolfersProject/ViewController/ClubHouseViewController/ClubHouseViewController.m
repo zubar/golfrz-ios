@@ -18,6 +18,10 @@
 #import "EventDetailViewController.h"
 #import "AppDelegate.h"
 #import "ContactUsViewController.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+#import "SharedManager.h"
+
+
 
 
 @interface ClubHouseViewController ()
@@ -47,14 +51,10 @@
                                     NSFontAttributeName :[UIFont fontWithName:@"Helvetica-Bold" size:14.0],
                                      NSForegroundColorAttributeName : [UIColor whiteColor]
                                     };
-   
-//    NSDictionary *attributes=[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],UITextAttributeTextColor, nil];
     
-   // self.navigationController.navigationBar.titleTextAttributes = attributes;
     self.navigationController.navigationBar.titleTextAttributes = titleAttributes;
     [[self navigationItem] setTitle:@"CLUBHOUSE"];
     
-    //self.navigationController.navigationBar.titleTextAttributes = [NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName];
     
     // Do any additional setup after loading the view.
     [MBProgressHUD hideHUDForView:self.view animated:YES];
@@ -70,8 +70,21 @@
             [[[UIAlertView alloc]initWithTitle:@"Try Again" message:@"Failed to get weather" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
         }
     }];
+    
+    [self loadDataForCurrentCourse];
 }
 
+
+-(void)loadDataForCurrentCourse{
+    SharedManager * manager = [SharedManager sharedInstance];
+    [self.lblCourseName setText:[manager courseName]];
+   
+    [self.imgCourseLogo sd_setImageWithURL:[NSURL URLWithString:[manager logoImagePath]] placeholderImage:[UIImage imageNamed:@"event_placeholder"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        if (image) {
+            [self.imgCourseLogo setImage:image];
+        }
+    }];
+}
 
 -(void)viewWillAppear:(BOOL)animated{
     
@@ -153,6 +166,7 @@
     
 }
 
+#pragma mark - Navigation
 
 - (IBAction)btnEventsTapped:(id)sender {
     

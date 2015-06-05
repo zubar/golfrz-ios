@@ -16,6 +16,7 @@
 #import "StaffMember.h"
 #import "AppDelegate.h"
 #import "StaffType.h"
+#import "SharedManager.h"
 
 @interface ContactUsViewController ()
 
@@ -27,8 +28,8 @@
     [super viewDidLoad];
     [self.staffView setHidden:YES];
     [self.courseInfoView setHidden:YES];
-    [self.courseDetailsView makeObjectsPerformSelector:@selector(setHidden:) withObject:[NSNumber numberWithBool:YES]];
-    
+
+    [self setHiddenAddressFields:YES];
     //self.navigationItem.title= @"Contact Us";
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
@@ -43,13 +44,22 @@
         [self populateCourseFields];
         [self.staffView setHidden:NO];
         [self.courseInfoView setHidden:NO];
-        [self.courseDetailsView makeObjectsPerformSelector:@selector(setHidden:) withObject:[NSNumber numberWithBool:NO]];
+        [self setHiddenAddressFields:NO];
+
     }
     failure:^(bool status, NSError *error){
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Failed to get details" delegate:nil cancelButtonTitle:@"CANCEL" otherButtonTitles:nil, nil] show];
     }];
-    // Do any additional setup after loading the view.
+    
+}
+
+-(void)setHiddenAddressFields:(BOOL)yesNo{
+    [self.lblCourseStAddress setHidden:yesNo];
+    [self.lblCourseState setHidden:yesNo];
+    [self.lblCourseCity setHidden:yesNo];
+    [self.lblPostalCode setHidden:yesNo];
+    [self.lblViewMap setHidden:yesNo];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -88,10 +98,13 @@
 
 - (void)populateStaffFields{
     StaffMember *currentStaffMember = [self.courseStaff objectAtIndex:0];
-    //StaffType *currentStafType = currentStaffMember.type;
-    [self.imgAdminPic sd_setImageWithURL:[NSURL URLWithString:[currentStaffMember imageUrl]] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-        [self.imgAdminPic setImage:image];
+    //StaffType *currentStafType = currentStaffMember.type;    
+    [self.imgAdminPic sd_setImageWithURL:[NSURL URLWithString:[currentStaffMember imageUrl]] placeholderImage:[UIImage imageNamed:@"person_placeholder"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        if (image) {
+            [self.imgAdminPic setImage:image];
+        }
     }];
+    
     [self.lblAdminName setText:[currentStaffMember name]];
     [self.lblAdminContact setText:[currentStaffMember phone]];
     [self.lblAdminEmail setText:[currentStaffMember email]];
@@ -102,9 +115,15 @@
     [self.lblHdrCourseCity setText:[[CourseServices currentCourse]courseCity ] ];
     [self.lblHdrCourseState setText:[[CourseServices currentCourse] courseState]];
     [self.lblCourseStAddress setText:[[CourseServices currentCourse] courseAddress]];
-    [self.imgCourseLogo sd_setImageWithURL:[NSURL URLWithString:[[CourseServices currentCourse] courseLogo]] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-        [self.imgCourseLogo setImage:image];
+   
+    
+    // Setting course logo
+    [self.imgCourseLogo sd_setImageWithURL:[NSURL URLWithString:[[CourseServices currentCourse] courseLogo]] placeholderImage:[UIImage imageNamed:@"event_placeholder"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        if (image) {
+            [self.imgCourseLogo setImage:image];
+        }
     }];
+    
     [self.lblCourseState setText:[[CourseServices currentCourse] courseState]];
     [self.lblCourseCity setText:[[CourseServices currentCourse] courseCity]];
     //[[self.lblPostalCode setText:[[CourseServices currentCourse] coursePostalCode] ];

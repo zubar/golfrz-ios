@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
@@ -188,6 +188,8 @@
                     <connections>
                         <outlet property="backGroundView" destination="dR7-tE-Y6e" id="b4d-qk-rOJ"/>
                         <outlet property="imgCourseLogo" destination="EYD-nb-sGi" id="ISZ-cV-Zij"/>
+                        <outlet property="lblCityState" destination="p1f-zK-ZO9" id="H64-Kh-23a"/>
+                        <outlet property="lblCourseName" destination="HWg-hq-Sen" id="cwT-1R-OuT"/>
                         <outlet property="lblSignIn" destination="Lpc-N6-l6W" id="HH4-cC-foZ"/>
                     </connections>
                 </viewController>
@@ -397,6 +399,9 @@
                     <nil key="simulatedStatusBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="imgCourseLogo" destination="dUU-nt-AdR" id="r0O-Xg-AmO"/>
+                        <outlet property="lblCourseCityState" destination="q75-gd-veD" id="Tbq-De-aYH"/>
+                        <outlet property="lblCourseName" destination="iyw-e6-GLN" id="Ip9-av-Eu6"/>
                         <outlet property="lblForgotPassword" destination="FPt-Wc-jVz" id="j7X-aK-CXP"/>
                         <outlet property="txtPassword" destination="3Ld-aI-8an" id="Slg-dQ-HDE"/>
                         <outlet property="txtUsername" destination="TJt-vN-YGJ" id="Nr9-Lf-Hbe"/>
@@ -485,6 +490,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="hJw-KJ-giF"/>
                     <connections>
+                        <outlet property="imgCourseLogo" destination="fJJ-Rg-dlQ" id="uXT-X2-Dq6"/>
                         <outlet property="lblBackToLogin" destination="ngA-A3-29x" id="tHg-Lu-GV1"/>
                     </connections>
                 </viewController>
@@ -511,22 +517,26 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="golfcourse_logo" translatesAutoresizingMaskIntoConstraints="NO" id="TI8-4c-Zjm">
-                                        <rect key="frame" x="110" y="50" width="100" height="101"/>
+                                        <rect key="frame" x="110" y="50" width="100" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="PWJ-u5-vAT"/>
+                                            <constraint firstAttribute="width" constant="100" id="er4-6e-KxD"/>
+                                        </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your email and we'll send you" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1re-lr-61j">
-                                        <rect key="frame" x="38" y="171" width="244" height="18"/>
+                                        <rect key="frame" x="38" y="170" width="244" height="18"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="a link to reset your password." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w2C-Rq-oYk">
-                                        <rect key="frame" x="59" y="189" width="202" height="18"/>
+                                        <rect key="frame" x="59" y="188" width="202" height="18"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="EMAIL ADDRESS" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9J7-np-jiF">
-                                        <rect key="frame" x="15" y="227" width="290" height="18"/>
+                                        <rect key="frame" x="15" y="226" width="290" height="18"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="done"/>
@@ -540,14 +550,14 @@
                                         </connections>
                                     </textField>
                                     <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VWk-UG-XFY">
-                                        <rect key="frame" x="15" y="248" width="290" height="1"/>
+                                        <rect key="frame" x="15" y="247" width="290" height="1"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="SkI-UB-mYE"/>
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yQl-Pb-YkL">
-                                        <rect key="frame" x="60" y="269" width="200" height="50"/>
+                                        <rect key="frame" x="60" y="268" width="200" height="50"/>
                                         <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="k0A-dL-0hO"/>
@@ -611,6 +621,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="imgCourseLogo" destination="TI8-4c-Zjm" id="JfW-5i-1fq"/>
                         <outlet property="txtEmailAddress" destination="9J7-np-jiF" id="Y6q-0C-XvD"/>
                     </connections>
                 </viewController>
@@ -1605,11 +1616,6 @@
                         <outlet property="lblViewMap" destination="Skv-KD-9D9" id="RK2-40-rUH"/>
                         <outlet property="staffView" destination="ZLh-9E-DYo" id="ce0-ZN-eA4"/>
                         <outlet property="tblDept" destination="vak-o6-3f5" id="ved-hE-kan"/>
-                        <outletCollection property="courseDetailsView" destination="NKm-XZ-c2f" id="1vw-5B-H6n"/>
-                        <outletCollection property="courseDetailsView" destination="Oh4-et-0jd" id="e53-1t-jTk"/>
-                        <outletCollection property="courseDetailsView" destination="MeT-TB-Ccg" id="zKA-Sg-NUO"/>
-                        <outletCollection property="courseDetailsView" destination="K4E-m6-VSK" id="iiw-OL-2bc"/>
-                        <outletCollection property="courseDetailsView" destination="Skv-KD-9D9" id="Aem-X8-DMi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l7d-FV-uc2" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2191,7 +2197,7 @@
                     <navigationItem key="navigationItem" id="S0p-Aw-pPl"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <connections>
-                        <outlet property="imgCourseLogo" destination="uEZ-2V-omX" id="VLF-O8-nTW"/>
+                        <outlet property="imgEventLogo" destination="uEZ-2V-omX" id="zJh-PD-M3U"/>
                         <outlet property="lblDay" destination="xXS-a3-cTF" id="gfc-rS-vla"/>
                         <outlet property="lblEventDetails" destination="o6N-yi-3OS" id="aNb-jl-5H4"/>
                         <outlet property="lblEventLocation" destination="GUe-0b-ROn" id="3Jq-BY-uFC"/>

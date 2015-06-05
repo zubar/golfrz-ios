@@ -14,6 +14,9 @@
 #import "User.h"
 #import "MBProgressHUD.h"
 #import "InitialViewController.h"
+#import "SharedManager.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+
 
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
@@ -31,6 +34,18 @@
     //[super viewWillAppear:YES];
     [self addGestureToForgotPassword];
     // Do any additional setup after loading the view.
+    
+
+    SharedManager * manager = [SharedManager sharedInstance];
+    
+    [self.imgCourseLogo sd_setImageWithURL:[NSURL URLWithString:manager.logoImagePath] placeholderImage:[UIImage imageNamed:@"event_placeholder"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        if (image) {
+            [self.imgCourseLogo setImage:image];
+        }
+    }];
+    [self.lblCourseName setText:[manager courseName]];
+    [self.lblCourseCityState setText:[NSString stringWithFormat:@"%@, %@", manager.courseCity, manager.courseState]];
+
 }
 
 - (void)didReceiveMemoryWarning {

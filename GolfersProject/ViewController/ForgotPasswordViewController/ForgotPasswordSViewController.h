@@ -11,4 +11,6 @@
 @interface ForgotPasswordSViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UILabel *lblBackToLogin;
 
+@property (weak, nonatomic) IBOutlet UIImageView *imgCourseLogo;
+
 @end
