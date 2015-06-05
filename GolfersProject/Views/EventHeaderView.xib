@@ -14,14 +14,8 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Hm-np-iDn">
                     <rect key="frame" x="0.0" y="0.0" width="300" height="25"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="December, May 4" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JW3-TQ-gQ9">
-                            <rect key="frame" x="10" y="2" width="135" height="21"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="foZ-x9-x7z">
-                            <rect key="frame" x="212" y="0.0" width="25" height="25"/>
+                            <rect key="frame" x="224" y="0.0" width="25" height="25"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="25" id="Prb-V8-0K1"/>
                                 <constraint firstAttribute="width" constant="25" id="kCc-yQ-cIn"/>
@@ -29,6 +23,12 @@
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="32 F" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="siC-Uh-TvV">
                             <rect key="frame" x="250" y="2" width="34" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="December, May 4" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JW3-TQ-gQ9">
+                            <rect key="frame" x="10" y="2" width="135" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
@@ -43,7 +43,7 @@
                         <constraint firstAttribute="centerY" secondItem="foZ-x9-x7z" secondAttribute="centerY" id="RfG-Ll-FVw"/>
                         <constraint firstItem="JW3-TQ-gQ9" firstAttribute="centerY" secondItem="foZ-x9-x7z" secondAttribute="centerY" id="SR7-pb-r6e"/>
                         <constraint firstItem="JW3-TQ-gQ9" firstAttribute="leading" secondItem="7Hm-np-iDn" secondAttribute="leading" constant="10" id="cyG-6c-Udp"/>
-                        <constraint firstItem="siC-Uh-TvV" firstAttribute="leading" secondItem="foZ-x9-x7z" secondAttribute="trailing" constant="13" id="oYP-kg-Z4K"/>
+                        <constraint firstItem="siC-Uh-TvV" firstAttribute="leading" secondItem="foZ-x9-x7z" secondAttribute="trailing" constant="1" id="oYP-kg-Z4K"/>
                         <constraint firstAttribute="trailing" secondItem="siC-Uh-TvV" secondAttribute="trailing" constant="16" id="qXU-Ca-aGT"/>
                         <constraint firstAttribute="height" constant="25" id="zBM-n7-Gtu"/>
                         <constraint firstAttribute="width" constant="300" id="zCi-iB-emd"/>
