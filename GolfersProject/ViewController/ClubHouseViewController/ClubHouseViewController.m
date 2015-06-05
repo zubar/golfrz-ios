@@ -67,7 +67,7 @@
     } failure:^(bool status, NSError *error) {
         if (error) {
             [MBProgressHUD hideHUDForView:self.view animated:YES];
-            [[[UIAlertView alloc]initWithTitle:@"Try Again" message:@"Failed to get weather" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil] show];
+            [[[UIAlertView alloc]initWithTitle:@"Try Again" message:@"Failed to get weather" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
         }
     }];
 }

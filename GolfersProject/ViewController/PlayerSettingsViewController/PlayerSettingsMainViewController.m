@@ -186,12 +186,12 @@
         alertTitle = @"Success";
         alertMessage = message;
         if (alertTitle)
-            [[[UIAlertView  alloc] initWithTitle:alertTitle message:alertMessage delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil] show];
+            [[[UIAlertView  alloc] initWithTitle:alertTitle message:alertMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
     } failure:^(bool status, NSError *error) {
         alertTitle = @"Failure";
         alertMessage = [error localizedDescription];
         if (alertTitle)
-            [[[UIAlertView  alloc] initWithTitle:alertTitle message:alertMessage delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil] show];
+            [[[UIAlertView  alloc] initWithTitle:alertTitle message:alertMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
     }];
 }
 

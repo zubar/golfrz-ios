@@ -256,7 +256,7 @@ static SDCalendarHourFormat MyDefaultHourFormat;
 
 - (NSDate *) date
 {
-	// This looks weird to me, but this doc says it's okay:
+	// This looks weird to me, but this doc says it's OK:
 	// http://developer.apple.com/documentation/Cocoa/Conceptual/MemoryMgmt/Concepts/CFObjects.html
 	
 	NSDate * newDate = (NSDate *) CFBridgingRelease(CFDateCreate( NULL, [self absoluteTime] ));
