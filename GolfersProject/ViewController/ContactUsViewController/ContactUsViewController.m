@@ -84,10 +84,13 @@
 
 - (void)populateStaffFields{
     StaffMember *currentStaffMember = [self.courseStaff objectAtIndex:0];
-    //StaffType *currentStafType = currentStaffMember.type;
-    [self.imgAdminPic sd_setImageWithURL:[NSURL URLWithString:[currentStaffMember imageUrl]] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-        [self.imgAdminPic setImage:image];
+    //StaffType *currentStafType = currentStaffMember.type;    
+    [self.imgAdminPic sd_setImageWithURL:[NSURL URLWithString:[currentStaffMember imageUrl]] placeholderImage:[UIImage imageNamed:@"person_placeholder"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        if (image) {
+            [self.imgAdminPic setImage:image];
+        }
     }];
+    
     [self.lblAdminName setText:[currentStaffMember name]];
     [self.lblAdminContact setText:[currentStaffMember phone]];
     [self.lblAdminEmail setText:[currentStaffMember email]];
