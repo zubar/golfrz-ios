@@ -20,4 +20,5 @@
 +(void)setCurrentCourse:(Course *)mCourse;
 +(Course *)currentCourse;
 
+
 @end

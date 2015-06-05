@@ -14,6 +14,9 @@
 @property (strong, nonatomic) IBOutlet UITextField *txtUsername;
 @property (strong, nonatomic) IBOutlet UITextField *txtPassword;
 
+@property (weak, nonatomic) IBOutlet UIImageView *imgCourseLogo;
+
+
 - (IBAction)btnSignInTapped:(id)sender;
 
 - (IBAction)btnBackTapped:(id)sender;

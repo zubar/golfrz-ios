@@ -16,6 +16,8 @@
 #import "Course.h"
 #import "PlayerSettingsMainViewController.h"
 #import "AppDelegate.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+
 
 @interface PlayerProfileViewController ()
 
@@ -44,6 +46,14 @@
         [self.lblCourseName setText:[[CourseServices currentCourse] courseName]];
         
         [MBProgressHUD hideHUDForView:self.view animated:YES];
+        
+        //TODO: get img form FaceBook
+        [self.imgUserPic sd_setImageWithURL:[NSURL URLWithString:@""] placeholderImage:[UIImage imageNamed:@"person_placeholder"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+            if (image) {
+                [self.imgUserPic setImage:image];
+            }
+        }];
+        
         
     } failure:^(bool status, NSError *error) {
         //TODO: add in a separate file all the alert messages.

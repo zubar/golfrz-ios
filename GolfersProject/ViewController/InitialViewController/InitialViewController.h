@@ -10,7 +10,7 @@
 
 @interface InitialViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UIImageView *imgCourseLogo;
-@property (strong, nonatomic) IBOutlet UILabel *lblSignIn;
+@property (strong, nonatomic) IBOutlet UILabel *lblSignIn; // city, state. 
 
 //- (void) setImageCourseLogoRounded;
 @property (strong, nonatomic) IBOutlet UIView *backGroundView;

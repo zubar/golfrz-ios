@@ -397,6 +397,7 @@
                     <nil key="simulatedStatusBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="imgCourseLogo" destination="dUU-nt-AdR" id="r0O-Xg-AmO"/>
                         <outlet property="lblForgotPassword" destination="FPt-Wc-jVz" id="j7X-aK-CXP"/>
                         <outlet property="txtPassword" destination="3Ld-aI-8an" id="Slg-dQ-HDE"/>
                         <outlet property="txtUsername" destination="TJt-vN-YGJ" id="Nr9-Lf-Hbe"/>
@@ -485,6 +486,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="hJw-KJ-giF"/>
                     <connections>
+                        <outlet property="imgCourseLogo" destination="fJJ-Rg-dlQ" id="uXT-X2-Dq6"/>
                         <outlet property="lblBackToLogin" destination="ngA-A3-29x" id="tHg-Lu-GV1"/>
                     </connections>
                 </viewController>
@@ -611,6 +613,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="imgCourseLogo" destination="TI8-4c-Zjm" id="JfW-5i-1fq"/>
                         <outlet property="txtEmailAddress" destination="9J7-np-jiF" id="Y6q-0C-XvD"/>
                     </connections>
                 </viewController>
@@ -2185,7 +2188,7 @@
                     <navigationItem key="navigationItem" id="S0p-Aw-pPl"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <connections>
-                        <outlet property="imgCourseLogo" destination="uEZ-2V-omX" id="VLF-O8-nTW"/>
+                        <outlet property="imgEventLogo" destination="uEZ-2V-omX" id="zJh-PD-M3U"/>
                         <outlet property="lblDay" destination="xXS-a3-cTF" id="gfc-rS-vla"/>
                         <outlet property="lblEventDetails" destination="o6N-yi-3OS" id="aNb-jl-5H4"/>
                         <outlet property="lblEventLocation" destination="GUe-0b-ROn" id="3Jq-BY-uFC"/>

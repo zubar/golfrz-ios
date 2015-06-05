@@ -12,7 +12,7 @@
 @interface EventDetailViewController : UIViewController
 
 @property (strong, nonatomic) CalendarEvent * currentEvent;
-@property (strong, nonatomic) IBOutlet UIImageView *imgCourseLogo;
+@property (strong, nonatomic) IBOutlet UIImageView *imgEventLogo;
 @property (strong, nonatomic) IBOutlet UILabel *lblEventName;
 @property (strong, nonatomic) IBOutlet UILabel *lblDay;
 @property (strong, nonatomic) IBOutlet UILabel *lblTime;

@@ -12,6 +12,8 @@
 #import "ClubHouseSubController.h"
 #import "AppDelegate.h"
 #import "Utilities.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+
 
 @interface EventDetailViewController ()
 
@@ -36,11 +38,12 @@
     
     self.navigationItem.title = @"EVENT DETAIL";
     
-    
-    //TODO: Event name in api.
-    
-   // NSDateComponents * eventDate = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear | NSCalendarUnitHour | NSCalendarUnitMinute fromDate:self.currentEvent.dateStart];
-    
+    //TODO:
+    [self.imgEventLogo sd_setImageWithURL:[NSURL URLWithString:@""] placeholderImage:[UIImage imageNamed:@"event_placeholder"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        if (image) {
+            [self.imgEventLogo setImage:image];
+        }
+    }];
     
     [Utilities dateComponentsFromNSDate:self.currentEvent.dateStart components:^(NSString *dayName, NSString *monthName, NSString *day, NSString *time) {
         [self.lblDay setText:[NSString stringWithFormat:@"%@ %@", monthName, day]];

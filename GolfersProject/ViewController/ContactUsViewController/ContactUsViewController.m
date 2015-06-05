@@ -16,6 +16,7 @@
 #import "StaffMember.h"
 #import "AppDelegate.h"
 #import "StaffType.h"
+#import "SharedManager.h"
 
 @interface ContactUsViewController ()
 
@@ -45,7 +46,7 @@
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Failed to get details" delegate:nil cancelButtonTitle:@"CANCEL" otherButtonTitles:nil, nil] show];
     }];
-    // Do any additional setup after loading the view.
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -101,9 +102,15 @@
     [self.lblHdrCourseCity setText:[[CourseServices currentCourse]courseCity ] ];
     [self.lblHdrCourseState setText:[[CourseServices currentCourse] courseState]];
     [self.lblCourseStAddress setText:[[CourseServices currentCourse] courseAddress]];
-    [self.imgCourseLogo sd_setImageWithURL:[NSURL URLWithString:[[CourseServices currentCourse] courseLogo]] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-        [self.imgCourseLogo setImage:image];
+   
+    
+    // Setting course logo
+    [self.imgCourseLogo sd_setImageWithURL:[NSURL URLWithString:[[CourseServices currentCourse] courseLogo]] placeholderImage:[UIImage imageNamed:@"event_placeholder"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        if (image) {
+            [self.imgCourseLogo setImage:image];
+        }
     }];
+    
     [self.lblCourseState setText:[[CourseServices currentCourse] courseState]];
     [self.lblCourseCity setText:[[CourseServices currentCourse] courseCity]];
     //[[self.lblPostalCode setText:[[CourseServices currentCourse] coursePostalCode] ];

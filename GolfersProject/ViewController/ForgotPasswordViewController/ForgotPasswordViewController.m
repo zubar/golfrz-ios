@@ -14,6 +14,10 @@
 #import "SignInViewController.h"
 #import "PlayerProfileViewController.h"
 #import "ClubHouseContainerVC.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+#import "CourseServices.h"
+#import "Course.h"
+
 
 @interface ForgotPasswordViewController ()
 
@@ -25,6 +29,13 @@
     [super viewDidLoad];
     [self.navigationController setNavigationBarHidden:YES animated:YES];
     // Do any additional setup after loading the view.
+    
+    // Setting course logo
+    [self.imgCourseLogo sd_setImageWithURL:[NSURL URLWithString:[[CourseServices currentCourse] courseLogo]] placeholderImage:[UIImage imageNamed:@"event_placeholder"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        if (image) {
+            [self.imgCourseLogo setImage:image];
+        }
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
