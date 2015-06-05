@@ -517,22 +517,26 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="golfcourse_logo" translatesAutoresizingMaskIntoConstraints="NO" id="TI8-4c-Zjm">
-                                        <rect key="frame" x="110" y="50" width="100" height="101"/>
+                                        <rect key="frame" x="110" y="50" width="100" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="PWJ-u5-vAT"/>
+                                            <constraint firstAttribute="width" constant="100" id="er4-6e-KxD"/>
+                                        </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your email and we'll send you" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1re-lr-61j">
-                                        <rect key="frame" x="38" y="171" width="244" height="18"/>
+                                        <rect key="frame" x="38" y="170" width="244" height="18"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="a link to reset your password." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w2C-Rq-oYk">
-                                        <rect key="frame" x="59" y="189" width="202" height="18"/>
+                                        <rect key="frame" x="59" y="188" width="202" height="18"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="EMAIL ADDRESS" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9J7-np-jiF">
-                                        <rect key="frame" x="15" y="227" width="290" height="18"/>
+                                        <rect key="frame" x="15" y="226" width="290" height="18"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="done"/>
@@ -546,14 +550,14 @@
                                         </connections>
                                     </textField>
                                     <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VWk-UG-XFY">
-                                        <rect key="frame" x="15" y="248" width="290" height="1"/>
+                                        <rect key="frame" x="15" y="247" width="290" height="1"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="SkI-UB-mYE"/>
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yQl-Pb-YkL">
-                                        <rect key="frame" x="60" y="269" width="200" height="50"/>
+                                        <rect key="frame" x="60" y="268" width="200" height="50"/>
                                         <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="k0A-dL-0hO"/>
@@ -1612,11 +1616,6 @@
                         <outlet property="lblViewMap" destination="Skv-KD-9D9" id="RK2-40-rUH"/>
                         <outlet property="staffView" destination="ZLh-9E-DYo" id="ce0-ZN-eA4"/>
                         <outlet property="tblDept" destination="vak-o6-3f5" id="ved-hE-kan"/>
-                        <outletCollection property="courseDetailsView" destination="NKm-XZ-c2f" id="1vw-5B-H6n"/>
-                        <outletCollection property="courseDetailsView" destination="Oh4-et-0jd" id="e53-1t-jTk"/>
-                        <outletCollection property="courseDetailsView" destination="MeT-TB-Ccg" id="zKA-Sg-NUO"/>
-                        <outletCollection property="courseDetailsView" destination="K4E-m6-VSK" id="iiw-OL-2bc"/>
-                        <outletCollection property="courseDetailsView" destination="Skv-KD-9D9" id="Aem-X8-DMi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l7d-FV-uc2" userLabel="First Responder" sceneMemberID="firstResponder"/>

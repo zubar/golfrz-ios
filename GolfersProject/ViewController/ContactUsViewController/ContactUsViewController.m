@@ -28,8 +28,8 @@
     [super viewDidLoad];
     [self.staffView setHidden:YES];
     [self.courseInfoView setHidden:YES];
-    [self.courseDetailsView makeObjectsPerformSelector:@selector(setHidden:) withObject:[NSNumber numberWithBool:YES]];
-    
+
+    [self setHiddenAddressFields:YES];
     //self.navigationItem.title= @"Contact Us";
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
@@ -44,13 +44,22 @@
         [self populateCourseFields];
         [self.staffView setHidden:NO];
         [self.courseInfoView setHidden:NO];
-        [self.courseDetailsView makeObjectsPerformSelector:@selector(setHidden:) withObject:[NSNumber numberWithBool:NO]];
+        [self setHiddenAddressFields:NO];
+
     }
     failure:^(bool status, NSError *error){
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Failed to get details" delegate:nil cancelButtonTitle:@"CANCEL" otherButtonTitles:nil, nil] show];
     }];
     
+}
+
+-(void)setHiddenAddressFields:(BOOL)yesNo{
+    [self.lblCourseStAddress setHidden:yesNo];
+    [self.lblCourseState setHidden:yesNo];
+    [self.lblCourseCity setHidden:yesNo];
+    [self.lblPostalCode setHidden:yesNo];
+    [self.lblViewMap setHidden:yesNo];
 }
 
 -(void)viewWillAppear:(BOOL)animated{

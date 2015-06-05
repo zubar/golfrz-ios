@@ -38,9 +38,4 @@
 @property (strong, nonatomic) IBOutlet UILabel *lblCourseState;
 
 
-@property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *courseDetailsView;
-
-
-
-
 @end
