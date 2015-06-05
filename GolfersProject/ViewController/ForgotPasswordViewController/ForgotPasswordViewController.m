@@ -17,7 +17,7 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "CourseServices.h"
 #import "Course.h"
-
+#import "SharedManager.h"
 
 @interface ForgotPasswordViewController ()
 
@@ -31,11 +31,14 @@
     // Do any additional setup after loading the view.
     
     // Setting course logo
-    [self.imgCourseLogo sd_setImageWithURL:[NSURL URLWithString:[[CourseServices currentCourse] courseLogo]] placeholderImage:[UIImage imageNamed:@"event_placeholder"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+    SharedManager * manager = [SharedManager sharedInstance];
+
+    [self.imgCourseLogo sd_setImageWithURL:[NSURL URLWithString:manager.logoImagePath] placeholderImage:[UIImage imageNamed:@"event_placeholder"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         if (image) {
             [self.imgCourseLogo setImage:image];
         }
     }];
+    
 }
 
 - (void)didReceiveMemoryWarning {

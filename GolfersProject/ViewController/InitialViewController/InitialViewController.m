@@ -49,7 +49,8 @@
             [self.imgCourseLogo setImage:image];
         }
     }];
-    [self.lblSignIn setText:[NSString stringWithFormat:@"%@, %@", manager.courseCity, manager.courseState]];
+    [self.lblCourseName setText:[manager courseName]];
+    [self.lblCityState setText:[NSString stringWithFormat:@"%@, %@", manager.courseCity, manager.courseState]];
     
     
 }

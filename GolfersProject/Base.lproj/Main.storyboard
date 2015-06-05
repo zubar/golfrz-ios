@@ -188,6 +188,8 @@
                     <connections>
                         <outlet property="backGroundView" destination="dR7-tE-Y6e" id="b4d-qk-rOJ"/>
                         <outlet property="imgCourseLogo" destination="EYD-nb-sGi" id="ISZ-cV-Zij"/>
+                        <outlet property="lblCityState" destination="p1f-zK-ZO9" id="H64-Kh-23a"/>
+                        <outlet property="lblCourseName" destination="HWg-hq-Sen" id="cwT-1R-OuT"/>
                         <outlet property="lblSignIn" destination="Lpc-N6-l6W" id="HH4-cC-foZ"/>
                     </connections>
                 </viewController>
@@ -398,6 +400,8 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="imgCourseLogo" destination="dUU-nt-AdR" id="r0O-Xg-AmO"/>
+                        <outlet property="lblCourseCityState" destination="q75-gd-veD" id="Tbq-De-aYH"/>
+                        <outlet property="lblCourseName" destination="iyw-e6-GLN" id="Ip9-av-Eu6"/>
                         <outlet property="lblForgotPassword" destination="FPt-Wc-jVz" id="j7X-aK-CXP"/>
                         <outlet property="txtPassword" destination="3Ld-aI-8an" id="Slg-dQ-HDE"/>
                         <outlet property="txtUsername" destination="TJt-vN-YGJ" id="Nr9-Lf-Hbe"/>

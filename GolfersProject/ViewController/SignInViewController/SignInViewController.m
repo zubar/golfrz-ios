@@ -43,6 +43,9 @@
             [self.imgCourseLogo setImage:image];
         }
     }];
+    [self.lblCourseName setText:[manager courseName]];
+    [self.lblCourseCityState setText:[NSString stringWithFormat:@"%@, %@", manager.courseCity, manager.courseState]];
+
 }
 
 - (void)didReceiveMemoryWarning {
