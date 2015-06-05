@@ -44,6 +44,12 @@
 
 - (IBAction)btnResetPasswordTapped:(UIButton *)sender {
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    NSString *errorMessage = [self validateForm];
+    if (errorMessage) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [[[UIAlertView alloc] initWithTitle:nil message:errorMessage delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] show];
+        return;
+    }
     [AuthenticationService resetUserPassword:self.txtEmailAddress.text completion:^(bool status){
         if (status) {
             [MBProgressHUD hideHUDForView:self.view animated:YES];
@@ -69,6 +75,27 @@
 //        }
 //    }
 }
+
+
+
+- (NSString *)validateForm {
+    NSString *errorMessage;
+    NSString *emailRegex = @"[^@]+@[A-Za-z0-9.-]+\\.[A-Za-z]+";
+    NSPredicate *emailPredicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
+  if (![emailPredicate evaluateWithObject:self.txtEmailAddress.text]){
+      errorMessage = @"Please enter a valid email address";
+        }
+                return errorMessage;
+            }
+
+
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return NO;
+}
+
+
 /*
 - (IBAction)btnBackButtonTapped:(UIButton *)sender {
     

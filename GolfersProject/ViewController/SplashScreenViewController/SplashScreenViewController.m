@@ -46,6 +46,7 @@
         [sharedManager setCourseName:mCourse[@"course_name"]];
         
         self.navigationController.navigationBar.barTintColor = [[SharedManager sharedInstance] themeColor];
+        self.navigationController.navigationBar.barTintColor = [UIColor redColor];
         [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
 
         
