@@ -8,6 +8,7 @@
 
 #import "BaseViewController.h"
 #import "AppDelegate.h"
+#import "SharedManager.h"
 
 @interface BaseViewController ()
 
@@ -19,6 +20,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [[UINavigationBar appearance] setTitleVerticalPositionAdjustment:0.0 forBarMetrics:UIBarMetricsDefault];
+    self.navigationController.navigationBar.barTintColor = [[SharedManager sharedInstance] themeColor];
+
 }
 
 - (void)didReceiveMemoryWarning {
