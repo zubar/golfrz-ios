@@ -19,6 +19,10 @@
 #import "EventHeaderView.h"
 #import "AppDelegate.h"
 #import "ClubHouseSubController.h"
+#import "Utilities.h"
+#import "WeatherServices.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+
 
 #define kEventCalendarMarginLeft 10.0f
 #define kEventCalendarMarginTop 60.0f
@@ -291,7 +295,38 @@
 
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    
     EventHeaderView * headerView = [[EventHeaderView alloc]init];
+    [headerView.imgWeather setHidden:YES];
+    [headerView.lblTemperature setHidden:YES];
+
+    
+    
+    
+    if ([self.calendar selectedDate]) 
+    [Utilities dateComponentsFromNSDate:[self.calendar selectedDate] components:^(NSString *dayName, NSString *monthName, NSString *day, NSString *time) {
+        [headerView.lblDate setText:[NSString stringWithFormat:@"%@, %@ %@", dayName, monthName, day]];
+        
+        
+        [WeatherServices dailyWeather:^(bool status, NSDictionary *weatherData) {
+            if (status) {
+                [headerView.imgWeather sd_setImageWithURL:weatherData[@"icon"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                    //  <#code#>
+                    [headerView.imgWeather setImage:image];
+                    [headerView.imgWeather setHidden:NO];
+                } ];
+                
+                [headerView.lblTemperature setText:[NSString stringWithFormat:@"%@ C", [weatherData[@"temp"] stringValue]]];
+                [headerView.lblTemperature setHidden:NO];
+            }
+        } failure:^(bool status, NSError *error) {
+            if (!status) {
+                [headerView.imgWeather setHidden:YES];
+                [headerView.lblTemperature setHidden:YES];
+            }
+        }];
+        
+    }];
     return headerView;
 }
 
