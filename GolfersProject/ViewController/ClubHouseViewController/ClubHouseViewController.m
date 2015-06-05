@@ -20,8 +20,7 @@
 #import "ContactUsViewController.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "SharedManager.h"
-
-
+#import "UIImageView+RoundedImage.h"
 
 
 @interface ClubHouseViewController ()
@@ -81,13 +80,12 @@
    
     [self.imgCourseLogo sd_setImageWithURL:[NSURL URLWithString:[manager logoImagePath]] placeholderImage:[UIImage imageNamed:@"event_placeholder"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         if (image) {
-            [self.imgCourseLogo setImage:image];
+            [self.imgCourseLogo setRoundedImage:image];
         }
     }];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-    
     
     UIPageControl * pageControl = (UIPageControl *)[self.navigationController.navigationBar viewWithTag:89];
     if (pageControl && ![self isKindOfClass:[ClubHouseSubController class]]) {
@@ -192,4 +190,5 @@
 
 - (IBAction)btnCheckedInTapped:(UIButton *)sender {
 }
+
 @end

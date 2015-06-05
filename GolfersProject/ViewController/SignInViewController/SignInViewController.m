@@ -16,6 +16,7 @@
 #import "InitialViewController.h"
 #import "SharedManager.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "UIImageView+RoundedImage.h"
 
 
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
@@ -40,7 +41,7 @@
     
     [self.imgCourseLogo sd_setImageWithURL:[NSURL URLWithString:manager.logoImagePath] placeholderImage:[UIImage imageNamed:@"event_placeholder"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         if (image) {
-            [self.imgCourseLogo setImage:image];
+            [self.imgCourseLogo setRoundedImage:image];
         }
     }];
     [self.lblCourseName setText:[manager courseName]];

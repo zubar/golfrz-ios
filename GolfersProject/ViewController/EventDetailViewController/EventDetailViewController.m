@@ -13,6 +13,7 @@
 #import "AppDelegate.h"
 #import "Utilities.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "UIImageView+RoundedImage.h"
 
 
 @interface EventDetailViewController ()
@@ -41,7 +42,7 @@
     //TODO:
     [self.imgEventLogo sd_setImageWithURL:[NSURL URLWithString:@""] placeholderImage:[UIImage imageNamed:@"event_placeholder"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         if (image) {
-            [self.imgEventLogo setImage:image];
+            [self.imgEventLogo setRoundedImage:image];
         }
     }];
     

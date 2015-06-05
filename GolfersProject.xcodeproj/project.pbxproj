@@ -69,6 +69,7 @@
 		886B9ED41B0B95900078B09D /* ForgotPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 886B9ED31B0B95900078B09D /* ForgotPasswordViewController.m */; };
 		88709E9E1B0DB600005DA345 /* ForgotPasswordSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88709E9D1B0DB600005DA345 /* ForgotPasswordSViewController.m */; };
 		8873AA761B18C5F500E74C87 /* EventAdminViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8873AA751B18C5F500E74C87 /* EventAdminViewController.m */; };
+		887C51311B21C9E300C778D7 /* UIImageView+RoundedImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 887C51301B21C9E300C778D7 /* UIImageView+RoundedImage.m */; };
 		889872BF1B13105C00D3C0E9 /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 889872BE1B13105C00D3C0E9 /* Utilities.m */; };
 		889872C91B13239400D3C0E9 /* SideNotificationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 889872C81B13239400D3C0E9 /* SideNotificationView.xib */; };
 		889872CC1B13437400D3C0E9 /* SideNotificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 889872CB1B13437400D3C0E9 /* SideNotificationView.m */; };
@@ -208,6 +209,8 @@
 		88709E9D1B0DB600005DA345 /* ForgotPasswordSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgotPasswordSViewController.m; sourceTree = "<group>"; };
 		8873AA741B18C5F500E74C87 /* EventAdminViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventAdminViewController.h; sourceTree = "<group>"; };
 		8873AA751B18C5F500E74C87 /* EventAdminViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventAdminViewController.m; sourceTree = "<group>"; };
+		887C512F1B21C9E300C778D7 /* UIImageView+RoundedImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+RoundedImage.h"; sourceTree = "<group>"; };
+		887C51301B21C9E300C778D7 /* UIImageView+RoundedImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+RoundedImage.m"; sourceTree = "<group>"; };
 		889872BD1B13105C00D3C0E9 /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
 		889872BE1B13105C00D3C0E9 /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
 		889872C11B13111900D3C0E9 /* Alert-Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Alert-Constants.h"; sourceTree = "<group>"; };
@@ -573,6 +576,8 @@
 		885CB04F1B09BADE00AD2A7B /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				887C512F1B21C9E300C778D7 /* UIImageView+RoundedImage.h */,
+				887C51301B21C9E300C778D7 /* UIImageView+RoundedImage.m */,
 				3D5CA5D31B1F332B00CB6ED7 /* BaseViewController */,
 				88B21DE81B1C38DA00AFC6D2 /* SplashScreenViewController */,
 				8873AA731B18C5D500E74C87 /* EventAdminViewController */,
@@ -905,6 +910,7 @@
 			files = (
 				3D1963FA1B0E21B100766CFC /* main.m in Sources */,
 				3D87D8431B1852120046BD60 /* NSMutableArray+convenience.m in Sources */,
+				887C51311B21C9E300C778D7 /* UIImageView+RoundedImage.m in Sources */,
 				885CB0681B09BADE00AD2A7B /* InitialViewController.m in Sources */,
 				3D87D8461B1852120046BD60 /* VRGCalendarView.m in Sources */,
 				88D813AD1B17640E00FD7D0E /* PlayerSettingsMainViewController.m in Sources */,

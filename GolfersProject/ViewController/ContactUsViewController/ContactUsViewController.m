@@ -17,6 +17,7 @@
 #import "AppDelegate.h"
 #import "StaffType.h"
 #import "SharedManager.h"
+#import "UIImageView+RoundedImage.h"
 
 @interface ContactUsViewController ()
 
@@ -101,7 +102,7 @@
     //StaffType *currentStafType = currentStaffMember.type;    
     [self.imgAdminPic sd_setImageWithURL:[NSURL URLWithString:[currentStaffMember imageUrl]] placeholderImage:[UIImage imageNamed:@"person_placeholder"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         if (image) {
-            [self.imgAdminPic setImage:image];
+            [self.imgAdminPic setRoundedImage:image];
         }
     }];
     
@@ -120,7 +121,7 @@
     // Setting course logo
     [self.imgCourseLogo sd_setImageWithURL:[NSURL URLWithString:[[CourseServices currentCourse] courseLogo]] placeholderImage:[UIImage imageNamed:@"event_placeholder"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         if (image) {
-            [self.imgCourseLogo setImage:image];
+            [self.imgCourseLogo setRoundedImage:image];
         }
     }];
     

@@ -24,8 +24,9 @@
 #import "EventList.h"
 #import "AppDelegate.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "UIImageView+RoundedImage.h"
 #import "SharedManager.h"
-
+#import "UIImageView+RoundedImage.h"
 
 @interface InitialViewController ()
 
@@ -39,14 +40,13 @@
     [self.navigationController setNavigationBarHidden:YES animated:YES];
     [super viewWillAppear:YES];
 
-    [self setImageCourseLogoRounded];
     [self addGestureToSignIn];
     
     SharedManager * manager = [SharedManager sharedInstance];
     
     [self.imgCourseLogo sd_setImageWithURL:[NSURL URLWithString:manager.logoImagePath] placeholderImage:[UIImage imageNamed:@"event_placeholder"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         if (image) {
-            [self.imgCourseLogo setImage:image];
+            [self.imgCourseLogo setRoundedImage:image];
         }
     }];
     [self.lblCourseName setText:[manager courseName]];
@@ -59,13 +59,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/* method to make the image rounded if not provided */
--(void)setImageCourseLogoRounded{
-    [self.imgCourseLogo.layer setCornerRadius:(CGRectGetWidth(self.imgCourseLogo.frame) / 2)];
-    [self.imgCourseLogo setClipsToBounds:YES];
-}
- 
 
 -(void) addGestureToSignIn{
     UITapGestureRecognizer* gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(signInTapped)];

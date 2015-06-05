@@ -63,6 +63,8 @@
     NSString * endPoint =[NSString stringWithFormat:@"forecast/daily?lat=%@&lon=%@&units=metric&APPID=%@&mode=json&cnt=%d", coordinates[@"latitude"], coordinates[@"longitude"], kWeatherAPIKey, 1];
     //http://api.openweathermap.org/data/2.5/forecast/daily?lat=31.558868&lon=74.366853&cnt=1&mode=json&units=metric
     
+    NSLog(@"dailyWeather: %@%@", kWeatherAPI, endPoint);
+    
     [apiClient GET:endPoint parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         
             NSMutableDictionary * weatherObject = [NSMutableDictionary dictionary];

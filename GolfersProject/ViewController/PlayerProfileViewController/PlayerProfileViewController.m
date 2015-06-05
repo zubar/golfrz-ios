@@ -17,6 +17,7 @@
 #import "PlayerSettingsMainViewController.h"
 #import "AppDelegate.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "UIImageView+RoundedImage.h"
 
 
 @interface PlayerProfileViewController ()
@@ -50,7 +51,7 @@
         //TODO: get img form FaceBook
         [self.imgUserPic sd_setImageWithURL:[NSURL URLWithString:@""] placeholderImage:[UIImage imageNamed:@"person_placeholder"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
             if (image) {
-                [self.imgUserPic setImage:image];
+                [self.imgUserPic setRoundedImage:image];
             }
         }];
         
