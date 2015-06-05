@@ -83,7 +83,7 @@
         [delegate.appDelegateNavController pushViewController:clubHouseContainerVC animated:YES];
     } failure:^(bool status, NSError *error){
         [MBProgressHUD hideHUDForView:self.view animated:YES];
-        [[[UIAlertView alloc]initWithTitle:@"Credentials Not Valid" message:@"Credentials not valid" delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:nil, nil] show];
+        [[[UIAlertView alloc]initWithTitle:@"Error" message:@"Credentials not valid" delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:nil, nil] show];
     }];
     
 //    [AuthenticationService loginWithUserName:self.txtUsername.text password:self.txtPassword.text success:^(bool status, User *muser){
