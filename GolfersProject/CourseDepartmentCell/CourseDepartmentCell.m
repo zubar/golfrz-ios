@@ -40,9 +40,9 @@
     
     
     
-    NSDateComponents *startComponents = [[NSCalendar currentCalendar] components: NSCalendarUnitHour| NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:departmant.startTime];
+    NSDateComponents *startComponents = [[NSCalendar currentCalendar] components: NSCalendarUnitWeekday | NSCalendarUnitHour| NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:departmant.startTime];
     
-     NSDateComponents *endComponents = [cal components: NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear | NSCalendarUnitHour fromDate:departmant.endTime];
+     NSDateComponents *endComponents = [cal components: NSCalendarUnitWeekday | NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear | NSCalendarUnitHour fromDate:departmant.endTime];
 
     
     NSLog(@"%ld, %ld", startComponents.day, (long)startComponents.hour);
@@ -83,7 +83,7 @@
         default:
             break;
     }
-    return @"Unknown";
+    return @"N/A";
 }
 
 

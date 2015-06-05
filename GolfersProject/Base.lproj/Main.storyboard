@@ -432,18 +432,18 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We have sent you an email with a link " lineBreakMode="middleTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KaJ-ej-TPp">
-                                        <rect key="frame" x="30" y="240" width="260" height="18"/>
+                                        <rect key="frame" x="30" y="220" width="260" height="18"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ngA-A3-29x">
-                                        <rect key="frame" x="95" y="288" width="131" height="20"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ngA-A3-29x">
+                                        <rect key="frame" x="102" y="307" width="116" height="18"/>
                                         <attributedString key="attributedText">
                                             <fragment content="BACK TO LOGIN">
                                                 <attributes>
                                                     <color key="NSColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
-                                                    <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                                    <font key="NSFont" size="15" name="HelveticaNeue"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
                                                     <integer key="NSUnderline" value="1"/>
                                                 </attributes>
@@ -452,7 +452,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="to reset your password." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w66-dq-5qp">
-                                        <rect key="frame" x="79" y="259" width="162" height="18"/>
+                                        <rect key="frame" x="79" y="239" width="162" height="18"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -462,8 +462,10 @@
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="UqU-Nr-8Y4" secondAttribute="trailing" id="EvQ-Um-jAq"/>
                                     <constraint firstItem="UqU-Nr-8Y4" firstAttribute="top" secondItem="UyJ-8w-Nx2" secondAttribute="top" id="IO2-Yv-V7o"/>
+                                    <constraint firstItem="ngA-A3-29x" firstAttribute="top" secondItem="w66-dq-5qp" secondAttribute="bottom" constant="50" id="J6y-jn-rLm"/>
                                     <constraint firstAttribute="bottom" secondItem="UqU-Nr-8Y4" secondAttribute="bottom" id="OfL-hU-d0R"/>
-                                    <constraint firstItem="KaJ-ej-TPp" firstAttribute="top" secondItem="fJJ-Rg-dlQ" secondAttribute="bottom" constant="80" id="cQO-Wx-jbp"/>
+                                    <constraint firstItem="KaJ-ej-TPp" firstAttribute="top" secondItem="fJJ-Rg-dlQ" secondAttribute="bottom" constant="60" id="cQO-Wx-jbp"/>
+                                    <constraint firstAttribute="centerX" secondItem="ngA-A3-29x" secondAttribute="centerX" id="cfs-CT-ciY"/>
                                     <constraint firstItem="fJJ-Rg-dlQ" firstAttribute="top" secondItem="UyJ-8w-Nx2" secondAttribute="top" constant="50" id="gEA-4L-7OE"/>
                                     <constraint firstItem="w66-dq-5qp" firstAttribute="top" secondItem="KaJ-ej-TPp" secondAttribute="bottom" constant="1" id="hFB-hf-ppV"/>
                                     <constraint firstAttribute="centerX" secondItem="fJJ-Rg-dlQ" secondAttribute="centerX" id="hXT-1m-eDM"/>
@@ -512,21 +514,21 @@
                                         <rect key="frame" x="110" y="50" width="100" height="101"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your email and we'll send you" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1re-lr-61j">
-                                        <rect key="frame" x="24" y="173" width="273" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <rect key="frame" x="38" y="171" width="244" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="a link to reset your password." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w2C-Rq-oYk">
-                                        <rect key="frame" x="47" y="194" width="226" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <rect key="frame" x="59" y="189" width="202" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="E-mail Address" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9J7-np-jiF">
-                                        <rect key="frame" x="15" y="228" width="290" height="24"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="EMAIL ADDRESS" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9J7-np-jiF">
+                                        <rect key="frame" x="15" y="227" width="290" height="18"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="done"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
@@ -538,14 +540,14 @@
                                         </connections>
                                     </textField>
                                     <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VWk-UG-XFY">
-                                        <rect key="frame" x="15" y="255" width="290" height="1"/>
+                                        <rect key="frame" x="15" y="248" width="290" height="1"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="SkI-UB-mYE"/>
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yQl-Pb-YkL">
-                                        <rect key="frame" x="60" y="271" width="200" height="50"/>
+                                        <rect key="frame" x="60" y="269" width="200" height="50"/>
                                         <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="k0A-dL-0hO"/>
@@ -583,14 +585,14 @@
                                     <constraint firstAttribute="bottom" secondItem="OVh-1U-y3q" secondAttribute="bottom" id="N4D-OU-uhN"/>
                                     <constraint firstAttribute="trailing" secondItem="9J7-np-jiF" secondAttribute="trailing" constant="15" id="V4B-6U-GtY"/>
                                     <constraint firstAttribute="centerX" secondItem="1re-lr-61j" secondAttribute="centerX" id="YGX-3y-zZD"/>
-                                    <constraint firstItem="9J7-np-jiF" firstAttribute="top" secondItem="w2C-Rq-oYk" secondAttribute="bottom" constant="13" id="emL-bR-flO"/>
+                                    <constraint firstItem="9J7-np-jiF" firstAttribute="top" secondItem="w2C-Rq-oYk" secondAttribute="bottom" constant="20" id="emL-bR-flO"/>
                                     <constraint firstAttribute="trailing" secondItem="VWk-UG-XFY" secondAttribute="trailing" constant="15" id="fmK-yo-8QI"/>
                                     <constraint firstAttribute="centerX" secondItem="TI8-4c-Zjm" secondAttribute="centerX" id="jZQ-WR-7If"/>
                                     <constraint firstItem="d1H-A4-g4o" firstAttribute="leading" secondItem="xlH-dA-bvo" secondAttribute="leading" constant="15" id="kPv-6W-aZ1"/>
                                     <constraint firstItem="yQl-Pb-YkL" firstAttribute="leading" secondItem="xlH-dA-bvo" secondAttribute="leading" constant="60" id="l3L-8E-HNg"/>
-                                    <constraint firstItem="yQl-Pb-YkL" firstAttribute="top" secondItem="VWk-UG-XFY" secondAttribute="bottom" constant="15" id="lCB-uU-KDt"/>
+                                    <constraint firstItem="yQl-Pb-YkL" firstAttribute="top" secondItem="VWk-UG-XFY" secondAttribute="bottom" constant="20" id="lCB-uU-KDt"/>
                                     <constraint firstItem="OVh-1U-y3q" firstAttribute="top" secondItem="xlH-dA-bvo" secondAttribute="top" id="lFs-vw-Y07"/>
-                                    <constraint firstItem="1re-lr-61j" firstAttribute="top" secondItem="TI8-4c-Zjm" secondAttribute="bottom" constant="22" id="mtv-OV-XN6"/>
+                                    <constraint firstItem="1re-lr-61j" firstAttribute="top" secondItem="TI8-4c-Zjm" secondAttribute="bottom" constant="20" id="mtv-OV-XN6"/>
                                     <constraint firstItem="VWk-UG-XFY" firstAttribute="top" secondItem="9J7-np-jiF" secondAttribute="bottom" constant="3" id="ofs-ne-NRr"/>
                                     <constraint firstItem="w2C-Rq-oYk" firstAttribute="top" secondItem="1re-lr-61j" secondAttribute="bottom" id="u7T-Gw-EgR"/>
                                     <constraint firstItem="VWk-UG-XFY" firstAttribute="leading" secondItem="xlH-dA-bvo" secondAttribute="leading" constant="15" id="v8P-CV-Eyd"/>
@@ -1984,7 +1986,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Events for Selected Date." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rsg-Sg-MG2">
-                                <rect key="frame" x="49" y="477" width="222" height="21"/>
+                                <rect key="frame" x="49" y="427" width="222" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -1993,7 +1995,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="rsg-Sg-MG2" secondAttribute="centerX" id="5Pv-d2-nK7"/>
-                            <constraint firstItem="whm-58-Ql4" firstAttribute="top" secondItem="rsg-Sg-MG2" secondAttribute="bottom" constant="70" id="d8Z-2u-FDD"/>
+                            <constraint firstItem="whm-58-Ql4" firstAttribute="top" secondItem="rsg-Sg-MG2" secondAttribute="bottom" constant="120" id="d8Z-2u-FDD"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Blf-Yv-W4r"/>

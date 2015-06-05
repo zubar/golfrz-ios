@@ -11,6 +11,7 @@
 #import "CalendarUtilities.h"
 #import "ClubHouseSubController.h"
 #import "AppDelegate.h"
+#import "Utilities.h"
 
 @interface EventDetailViewController ()
 
@@ -38,11 +39,17 @@
     
     //TODO: Event name in api.
     
-    NSDateComponents * eventDate = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear | NSCalendarUnitHour | NSCalendarUnitMinute fromDate:self.currentEvent.dateStart];
+   // NSDateComponents * eventDate = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear | NSCalendarUnitHour | NSCalendarUnitMinute fromDate:self.currentEvent.dateStart];
     
     
-    [self.lblDay setText:[CalendarUtilities monthNameFromNum:eventDate.month]];
-    [self.lblTime setText:[NSString stringWithFormat:@"%ld:%ld", (long)eventDate.hour, (long)eventDate.minute]];
+    [Utilities dateComponentsFromNSDate:self.currentEvent.dateStart components:^(NSString *dayName, NSString *monthName, NSString *day, NSString *time) {
+        [self.lblDay setText:[NSString stringWithFormat:@"%@ %@", monthName, day]];
+        [self.lblTime setText:time];
+    }];
+    
+    
+    //[self.lblDay setText:[CalendarUtilities monthNameFromNum:eventDate.month]];
+    //[self.lblTime setText:[NSString stringWithFormat:@"%ld:%ld", (long)eventDate.hour, (long)eventDate.minute]];
     [self.lblEventName setText:self.currentEvent.name];
     [self.lblEventDetails setText:self.currentEvent.breif];
     [self.lblEventLocation setText:self.currentEvent.location];
