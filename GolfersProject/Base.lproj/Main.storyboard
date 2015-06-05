@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
@@ -2038,7 +2038,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xXS-a3-cTF">
-                                        <rect key="frame" x="113" y="120" width="38" height="18"/>
+                                        <rect key="frame" x="113" y="119" width="38" height="22"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -2055,10 +2055,17 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GUe-0b-ROn">
-                                        <rect key="frame" x="141" y="141" width="38" height="18"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GUe-0b-ROn">
+                                        <rect key="frame" x="142" y="144" width="37" height="18"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="Label">
+                                                <attributes>
+                                                    <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <font key="NSFont" size="15" name="HelveticaNeue"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o6N-yi-3OS">
@@ -2121,7 +2128,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="signup_location" translatesAutoresizingMaskIntoConstraints="NO" id="igt-aX-oaE">
-                                        <rect key="frame" x="126" y="143" width="10" height="15"/>
+                                        <rect key="frame" x="126" y="146" width="10" height="15"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="10" id="AqW-TS-Nhf"/>
                                             <constraint firstAttribute="height" constant="15" id="kud-9w-Mr3"/>
@@ -2136,28 +2143,27 @@
                                     <constraint firstItem="Y5h-Y3-c5G" firstAttribute="top" secondItem="Typ-Y3-8NV" secondAttribute="bottom" constant="5" id="9fO-y3-c68"/>
                                     <constraint firstItem="igt-aX-oaE" firstAttribute="top" secondItem="xXS-a3-cTF" secondAttribute="bottom" constant="5" id="FJ9-B1-Yjp"/>
                                     <constraint firstAttribute="centerX" secondItem="uEZ-2V-omX" secondAttribute="centerX" id="Fd4-sC-JK3"/>
+                                    <constraint firstItem="GUe-0b-ROn" firstAttribute="leading" secondItem="igt-aX-oaE" secondAttribute="trailing" constant="6" id="GPG-dP-K3V"/>
                                     <constraint firstItem="Typ-Y3-8NV" firstAttribute="centerX" secondItem="Y5h-Y3-c5G" secondAttribute="centerX" constant="-3.5" id="LqY-B1-pFt"/>
                                     <constraint firstAttribute="centerX" secondItem="o6N-yi-3OS" secondAttribute="centerX" id="Nr3-Cm-jI0"/>
                                     <constraint firstAttribute="centerX" secondItem="7JI-Tz-vaP" secondAttribute="centerX" id="Oi2-hf-nlW"/>
                                     <constraint firstItem="Typ-Y3-8NV" firstAttribute="centerY" secondItem="xGK-U6-PmD" secondAttribute="centerY" constant="0.5" id="OjL-GH-LEE"/>
-                                    <constraint firstItem="igt-aX-oaE" firstAttribute="leading" secondItem="5uK-j8-igg" secondAttribute="leading" constant="126" id="Uuf-ag-apN"/>
+                                    <constraint firstItem="GUe-0b-ROn" firstAttribute="centerY" secondItem="igt-aX-oaE" secondAttribute="centerY" id="X7Z-DP-TqB"/>
                                     <constraint firstItem="l9h-AI-B2m" firstAttribute="top" secondItem="uEZ-2V-omX" secondAttribute="bottom" constant="10" id="XQs-rO-BZy"/>
                                     <constraint firstAttribute="bottom" secondItem="xGK-U6-PmD" secondAttribute="bottom" constant="66" id="ZQI-Xe-7OV"/>
-                                    <constraint firstItem="Ryg-gA-Ild" firstAttribute="centerY" secondItem="7JI-Tz-vaP" secondAttribute="centerY" constant="-0.5" id="bRa-Ka-mil"/>
+                                    <constraint firstItem="Ryg-gA-Ild" firstAttribute="centerY" secondItem="7JI-Tz-vaP" secondAttribute="centerY" id="bRa-Ka-mil"/>
+                                    <constraint firstItem="GUe-0b-ROn" firstAttribute="top" secondItem="Ryg-gA-Ild" secondAttribute="bottom" constant="5" id="cZQ-om-Np3"/>
                                     <constraint firstItem="odj-Hy-qRs" firstAttribute="top" secondItem="xGK-U6-PmD" secondAttribute="bottom" constant="5" id="dK2-oc-4rR"/>
-                                    <constraint firstItem="igt-aX-oaE" firstAttribute="centerY" secondItem="GUe-0b-ROn" secondAttribute="centerY" id="ejE-g0-BCm"/>
-                                    <constraint firstItem="xXS-a3-cTF" firstAttribute="centerY" secondItem="7JI-Tz-vaP" secondAttribute="centerY" constant="-1.5" id="exr-VW-Cop"/>
+                                    <constraint firstItem="xXS-a3-cTF" firstAttribute="centerY" secondItem="7JI-Tz-vaP" secondAttribute="centerY" id="exr-VW-Cop"/>
                                     <constraint firstItem="Typ-Y3-8NV" firstAttribute="leading" secondItem="xGK-U6-PmD" secondAttribute="trailing" constant="100" id="gQI-qo-cTc"/>
                                     <constraint firstItem="o6N-yi-3OS" firstAttribute="leading" secondItem="5uK-j8-igg" secondAttribute="leading" constant="20" id="jN6-La-ctG"/>
                                     <constraint firstItem="uEZ-2V-omX" firstAttribute="top" secondItem="5uK-j8-igg" secondAttribute="top" constant="15" id="lhv-Ly-wTT"/>
                                     <constraint firstAttribute="centerY" secondItem="o6N-yi-3OS" secondAttribute="centerY" id="mx3-eI-h42"/>
                                     <constraint firstItem="odj-Hy-qRs" firstAttribute="centerX" secondItem="xGK-U6-PmD" secondAttribute="centerX" constant="-0.5" id="pfZ-9Y-tiJ"/>
                                     <constraint firstItem="7JI-Tz-vaP" firstAttribute="leading" secondItem="xXS-a3-cTF" secondAttribute="trailing" constant="3" id="qqW-K4-hcg"/>
-                                    <constraint firstItem="GUe-0b-ROn" firstAttribute="leading" secondItem="igt-aX-oaE" secondAttribute="trailing" constant="5" id="tfW-Sz-NBo"/>
+                                    <constraint firstAttribute="centerX" secondItem="GUe-0b-ROn" secondAttribute="centerX" id="uJ7-4E-LOW"/>
                                     <constraint firstItem="Ryg-gA-Ild" firstAttribute="leading" secondItem="7JI-Tz-vaP" secondAttribute="trailing" constant="3" id="wWg-q6-hI3"/>
                                     <constraint firstAttribute="centerX" secondItem="l9h-AI-B2m" secondAttribute="centerX" id="wm9-gx-KAs"/>
-                                    <constraint firstAttribute="centerX" secondItem="GUe-0b-ROn" secondAttribute="centerX" id="x57-hv-53M"/>
-                                    <constraint firstItem="GUe-0b-ROn" firstAttribute="top" secondItem="Ryg-gA-Ild" secondAttribute="bottom" constant="2" id="xwe-bh-mMP"/>
                                     <constraint firstItem="7JI-Tz-vaP" firstAttribute="top" secondItem="l9h-AI-B2m" secondAttribute="bottom" constant="5" id="yJ0-p4-YgK"/>
                                 </constraints>
                             </view>
