@@ -27,6 +27,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.staffView setHidden:YES];
+    [self.courseInfoView setHidden:YES];
+    [self.courseDetailsView makeObjectsPerformSelector:@selector(setHidden:) withObject:[NSNumber numberWithBool:YES]];
     
     //self.navigationItem.title= @"Contact Us";
     
@@ -41,6 +43,8 @@
         [self populateStaffFields];
         [self populateCourseFields];
         [self.staffView setHidden:NO];
+        [self.courseInfoView setHidden:NO];
+        [self.courseDetailsView makeObjectsPerformSelector:@selector(setHidden:) withObject:[NSNumber numberWithBool:NO]];
     }
     failure:^(bool status, NSError *error){
         [MBProgressHUD hideHUDForView:self.view animated:YES];

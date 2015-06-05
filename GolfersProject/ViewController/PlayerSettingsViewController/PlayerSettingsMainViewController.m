@@ -37,12 +37,9 @@
   
     self.navigationItem.title = @"SETTINGS";
     [self addGestureToEditProfile];
-    
- 
-    
-    
+        
     NSDictionary *titleAttributes =@{NSUnderlineStyleAttributeName:@(NSUnderlineStyleSingle),
-                                     NSFontAttributeName :[UIFont fontWithName:@"Helvetica" size:14.0],
+                                     NSFontAttributeName :[UIFont fontWithName:@"Helvetica" size:12.0],
                                      NSForegroundColorAttributeName : [UIColor whiteColor]
                                      };
     
@@ -50,7 +47,7 @@
                                      NSFontAttributeName :[UIFont fontWithName:@"Helvetica-Bold" size:14.0],
                                      NSForegroundColorAttributeName : [UIColor whiteColor]
                                      };
-    NSAttributedString * saveTitle  = [[NSAttributedString alloc] initWithString:@"Edit Profile" attributes:titleAttributes];
+    NSAttributedString * saveTitle  = [[NSAttributedString alloc] initWithString:@"EDIT PROFILE" attributes:titleAttributes];
     self.navigationController.navigationBar.titleTextAttributes = navTitleAttributes;
 
     [self.lblEditProfile setAttributedText:saveTitle];
@@ -111,26 +108,52 @@
 - (void) editProfileTapped{
     
     NSDictionary *titleAttributes =@{NSUnderlineStyleAttributeName:@(NSUnderlineStyleSingle),
-                                     NSFontAttributeName :[UIFont fontWithName:@"Helvetica" size:14.0],
+                                     NSFontAttributeName :[UIFont fontWithName:@"Helvetica" size:12.0],
                                      NSForegroundColorAttributeName : [UIColor whiteColor]
                                      };
     NSAttributedString * saveTitle = nil;
     
     if (!isEditing) {
         isEditing = true;
-        saveTitle  = [[NSAttributedString alloc] initWithString:@"Save Profile" attributes:titleAttributes];
+        saveTitle  = [[NSAttributedString alloc] initWithString:@"SAVE PROFILE" attributes:titleAttributes];
         [self.txtFirstName becomeFirstResponder];
     }else{
         isEditing = false;
-        saveTitle = [[NSAttributedString alloc] initWithString:@"Edit Profile" attributes:titleAttributes];
+        saveTitle = [[NSAttributedString alloc] initWithString:@"EDIT PROFILE" attributes:titleAttributes];
         [self.txtFirstName resignFirstResponder];
         [self.txtLastName resignFirstResponder];
         [self.txtEmailAddress resignFirstResponder];
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        NSString *errorMessage = [self validateForm];
+        if (errorMessage) {
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            [[[UIAlertView alloc] initWithTitle:nil message:errorMessage delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] show];
+            return;
+        }
         [self upDateUserFirstName:[self.txtFirstName text] lastName:[self.txtLastName text] email:[self.txtEmailAddress text]];
     }
     
     [self.lblEditProfile setAttributedText:saveTitle];
     [self makeUserInfoFieldsEditable:isEditing];
+}
+
+
+- (NSString *)validateForm {
+    NSString *errorMessage;
+    
+    NSString *emailRegex = @"[^@]+@[A-Za-z0-9.-]+\\.[A-Za-z]+";
+    NSPredicate *emailPredicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
+    
+    if (!(self.txtFirstName.text.length >= 1)){
+        errorMessage = @"Please enter a first name";
+    } else
+        if (!(self.txtLastName.text.length >= 1)){
+            errorMessage = @"Please enter a last name";
+        } else
+            if (![emailPredicate evaluateWithObject:self.txtEmailAddress.text]){
+                errorMessage = @"Please enter a valid email address";
+            }
+    return errorMessage;
 }
 
 -(void)makeUserInfoFieldsEditable:(BOOL)yesNo{
@@ -183,6 +206,7 @@
   __block  NSString * alertMessage = nil;
     
     [UserServices updateUserInfo:firstName lastName:lastName email:email success:^(bool status, NSString *message) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
         alertTitle = @"Success";
         alertMessage = message;
         if (alertTitle)

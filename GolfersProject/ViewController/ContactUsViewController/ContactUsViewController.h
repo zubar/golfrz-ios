@@ -29,10 +29,18 @@
 @property (strong, nonatomic) NSArray *courseStaff;
 @property (strong, nonatomic) NSArray *courseDepartments;
 
+@property (strong, nonatomic) IBOutlet UIView *courseInfoView;
 
 @property (strong, nonatomic) IBOutlet UIImageView *imgCourseLogo;
 @property (strong, nonatomic) IBOutlet UIView *staffView;
 
 @property (strong, nonatomic) IBOutlet UITableView *tblDept;
 @property (strong, nonatomic) IBOutlet UILabel *lblCourseState;
+
+
+@property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *courseDetailsView;
+
+
+
+
 @end

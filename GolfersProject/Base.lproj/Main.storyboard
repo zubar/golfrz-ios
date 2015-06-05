@@ -1297,21 +1297,6 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Skv-KD-9D9">
-                                        <rect key="frame" x="125" y="205" width="70" height="18"/>
-                                        <attributedString key="attributedText">
-                                            <fragment content="View Map">
-                                                <attributes>
-                                                    <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                                    <font key="NSFont" size="15" name="HelveticaNeue-Bold"/>
-                                                    <font key="NSOriginalFont" size="17" name="HelveticaNeue-Bold"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                    <integer key="NSUnderline" value="1"/>
-                                                </attributes>
-                                            </fragment>
-                                        </attributedString>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kzu-Yn-JcB">
                                         <rect key="frame" x="0.0" y="468" width="320" height="100"/>
                                         <subviews>
@@ -1553,6 +1538,21 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Skv-KD-9D9">
+                                        <rect key="frame" x="125" y="205" width="70" height="18"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="View Map">
+                                                <attributes>
+                                                    <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                    <font key="NSFont" size="15" name="HelveticaNeue-Bold"/>
+                                                    <font key="NSOriginalFont" size="17" name="HelveticaNeue-Bold"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                    <integer key="NSUnderline" value="1"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -1595,6 +1595,7 @@
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <connections>
+                        <outlet property="courseInfoView" destination="LZQ-Xu-6Zf" id="OTJ-da-7ey"/>
                         <outlet property="imgAdminPic" destination="fkJ-uO-CLM" id="yE0-kN-ZE7"/>
                         <outlet property="imgCourseLogo" destination="7iR-gm-vDf" id="1bA-cj-iC7"/>
                         <outlet property="lblAdminContact" destination="J1V-7V-P03" id="fMZ-KE-pUd"/>
@@ -1611,6 +1612,11 @@
                         <outlet property="lblViewMap" destination="Skv-KD-9D9" id="RK2-40-rUH"/>
                         <outlet property="staffView" destination="ZLh-9E-DYo" id="ce0-ZN-eA4"/>
                         <outlet property="tblDept" destination="vak-o6-3f5" id="ved-hE-kan"/>
+                        <outletCollection property="courseDetailsView" destination="NKm-XZ-c2f" id="1vw-5B-H6n"/>
+                        <outletCollection property="courseDetailsView" destination="Oh4-et-0jd" id="e53-1t-jTk"/>
+                        <outletCollection property="courseDetailsView" destination="MeT-TB-Ccg" id="zKA-Sg-NUO"/>
+                        <outletCollection property="courseDetailsView" destination="K4E-m6-VSK" id="iiw-OL-2bc"/>
+                        <outletCollection property="courseDetailsView" destination="Skv-KD-9D9" id="Aem-X8-DMi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l7d-FV-uc2" userLabel="First Responder" sceneMemberID="firstResponder"/>
