@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface EventHeaderView : UIView
+
 @property (weak, nonatomic) IBOutlet UILabel *lblDate;
 @property (weak, nonatomic) IBOutlet UIImageView *imgWeather;
 @property (weak, nonatomic) IBOutlet UILabel *lblTemperature;

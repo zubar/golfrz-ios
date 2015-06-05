@@ -69,8 +69,6 @@ static User * currentUser = nil;
     NSString * updateInfoUrl = [NSString stringWithFormat:@"%@%@", kUpdateUserInfo, [UserServices currentUserId]];
     
     [apiClient PUT:updateInfoUrl parameters:[UserServices userFirstName:fName lastName:lastName email:email] completion:^(id response, NSError *error) {
-       
-        OVCResponse * resp = response;
         if (!error) {
             //Setting current user
             NSString * msg = @"Successfully updated";//[[resp result] objectForKey:@"message"];

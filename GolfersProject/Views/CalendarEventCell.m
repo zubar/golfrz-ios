@@ -9,6 +9,7 @@
 #import "CalendarEventCell.h"
 #import "CalendarEvent.h"
 #import "NSDate+Helper.h"
+#import "Utilities.h"
 
 @implementation CalendarEventCell
 
@@ -35,7 +36,11 @@
     [self setBackgroundColor:[UIColor clearColor]];
     
     self.event =event;
-    self.lbleventName.text = self.event.name;
-    self.lbleventTime.text = [NSDate stringFromDate:self.event.dateStart];
+    
+    [Utilities dateComponentsFromNSDate:self.event.dateStart components:^(NSString *dayName, NSString *monthName, NSString *day, NSString *time) {
+        
+        self.lbleventName.text = self.event.name;
+        [self.lbleventTime setText:time];
+    }];
 }
 @end

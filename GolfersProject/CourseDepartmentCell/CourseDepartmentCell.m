@@ -47,8 +47,8 @@
     
     NSLog(@"%ld, %ld", startComponents.day, (long)startComponents.hour);
     
-    self.lblDptDays.text = [NSString stringWithFormat:@"%@-%@", [self dayName:startComponents.day], [self dayName:endComponents.day]];
-    self.lblDptTimings.text = [NSString stringWithFormat:@"(%@ - %@)", [self timeInAMPMfrom24hour:startComponents.hour], [self timeInAMPMfrom24hour:endComponents.hour]];
+    self.lblDptDays.text = [NSString stringWithFormat:@"%@-%@", [self dayName:startComponents.weekday], [self dayName:endComponents.weekday]];
+    self.lblDptTimings.text = [NSString stringWithFormat:@"(%@ - %@)", [self timeInAMPMfrom24hour:(int)startComponents.hour], [self timeInAMPMfrom24hour:(int)endComponents.hour]];
     
     
     NSDictionary *contactAttributes =@{NSUnderlineStyleAttributeName:@(NSUnderlineStyleSingle),

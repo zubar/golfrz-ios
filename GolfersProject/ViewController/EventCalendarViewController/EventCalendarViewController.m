@@ -19,6 +19,8 @@
 #import "EventHeaderView.h"
 #import "AppDelegate.h"
 #import "ClubHouseSubController.h"
+#import "Utilities.h"
+
 
 #define kEventCalendarMarginLeft 10.0f
 #define kEventCalendarMarginTop 60.0f
@@ -292,6 +294,11 @@
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     EventHeaderView * headerView = [[EventHeaderView alloc]init];
+    
+    if ([self.calendar selectedDate]) 
+    [Utilities dateComponentsFromNSDate:[self.calendar selectedDate] components:^(NSString *dayName, NSString *monthName, NSString *day, NSString *time) {
+        [headerView.lblDate setText:[NSString stringWithFormat:@"%@, %@ %@", dayName, monthName, day]];
+    }];
     return headerView;
 }
 
