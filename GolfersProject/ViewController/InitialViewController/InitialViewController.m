@@ -36,7 +36,7 @@
     [self.navigationController setNavigationBarHidden:YES animated:YES];
     [super viewWillAppear:YES];
 
-    //[self setImageCourseLogoRounded];
+    [self setImageCourseLogoRounded];
     [self addGestureToSignIn];
     
 }
@@ -46,12 +46,12 @@
     // Dispose of any resources that can be recreated.
 }
 
-/* method to make the image rounded if not provided
+/* method to make the image rounded if not provided */
 -(void)setImageCourseLogoRounded{
     [self.imgCourseLogo.layer setCornerRadius:(CGRectGetWidth(self.imgCourseLogo.frame) / 2)];
     [self.imgCourseLogo setClipsToBounds:YES];
 }
- */
+ 
 
 -(void) addGestureToSignIn{
     UITapGestureRecognizer* gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(signInTapped)];
