@@ -69,6 +69,12 @@
     
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    NSString *errorMessage = [self validateForm];
+    if (errorMessage) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [[[UIAlertView alloc] initWithTitle:nil message:errorMessage delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] show];
+        return;
+    }
     [AuthenticationService loginWithUserName:self.txtUsername.text password:self.txtPassword.text success:^(bool status, NSDictionary *muser){
         AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
         
@@ -94,6 +100,30 @@
 //    ];
    
 }
+
+-(NSString *)validateForm {
+    NSString *errorMessage;
+    
+    NSString *emailRegex = @"[^@]+@[A-Za-z0-9.-]+\\.[A-Za-z]+";
+    //NSString *passwordRegex =@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).";
+    NSPredicate *emailPredicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
+    //NSPredicate *pswdPredicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", passwordRegex];
+    
+    if (!(self.txtUsername.text.length >= 1)){
+        errorMessage = @"Please enter a valid e-mail address";
+    }else
+        if (![emailPredicate evaluateWithObject:self.txtUsername.text]){
+            errorMessage = @"Please enter valid e-mail address";
+        }
+    else
+           if (!(self.txtPassword.text.length >= 1) && [self.txtPassword.text containsString:@" "]){
+                   errorMessage = @"Please enter valid password";
+             }
+    
+    return errorMessage;
+}
+
+
 
 - (IBAction)btnBackTapped:(id)sender {
     
