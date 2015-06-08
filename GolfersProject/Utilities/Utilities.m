@@ -10,8 +10,6 @@
 
 @implementation Utilities
 
-// According to georgian calendar 
-
 
 +(void)dateComponentsFromNSDate:(NSDate *)mDate components:(void (^)(NSString * dayName, NSString * monthName, NSString * day, NSString * time) )dateComponents{
 
@@ -97,6 +95,7 @@
         return [NSString stringWithFormat:@"%d AM", hour];
     }
 }
+
 
 
 @end

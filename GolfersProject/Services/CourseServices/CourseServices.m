@@ -27,7 +27,7 @@ static Course * currentCourse = nil;
         OVCResponse * resp = response;
         if (!error) {
             Course * mCourse = [resp result];
-            currentCourse = mCourse;
+            [self setCurrentCourse:mCourse];
             successBlock(true, mCourse);
         }else
             failureBlock(false, error);

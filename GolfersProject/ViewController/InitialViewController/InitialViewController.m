@@ -15,7 +15,7 @@
 #import "UserServices.h"
 #import "CourseServices.h"
 #import "WeatherServices.h"
-#import "Coordinates.h"
+#import "Coordinate.h"
 #import "Course.h"
 #import "CalendarEventServices.h"
 

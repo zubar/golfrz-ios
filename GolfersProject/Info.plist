@@ -41,6 +41,10 @@
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>To enable check-in feature app uses location services. </string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>To enable check-in feature app uses location services. </string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

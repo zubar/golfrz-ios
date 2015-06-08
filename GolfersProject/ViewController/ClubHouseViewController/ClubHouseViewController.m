@@ -71,6 +71,7 @@
     }];
     
     [self loadDataForCurrentCourse];
+    
 }
 
 
@@ -85,6 +86,20 @@
     }];
 }
 
+-(void)loadCourseDetailsCompletionBlock:(void (^)(Course *currentCourse))completionBlock{
+    
+    [CourseServices courseDetailInfo:^(bool status, Course *currentCourse) {
+        if (status) {
+            //TODO: any business logic on it to apply.
+            if (status) {
+                completionBlock(currentCourse);
+            }
+        }
+    } failure:^(bool status, NSError *error) {
+        //
+    }];
+}
+
 -(void)viewWillAppear:(BOOL)animated{
     
     UIPageControl * pageControl = (UIPageControl *)[self.navigationController.navigationBar viewWithTag:89];
@@ -94,7 +109,15 @@
         [pageControl setHidden:NO];
     }
     [[UINavigationBar appearance] setTitleVerticalPositionAdjustment:-10.0 forBarMetrics:UIBarMetricsDefault];
-
+    
+    SharedManager * manager = [SharedManager sharedInstance];
+    if ([CourseServices currentCourse]) {
+        [self enableCheckInButton:![manager isUserLocationInCourse]];
+    }else{
+        [self loadCourseDetailsCompletionBlock:^(Course *currentCourse) {
+            [self enableCheckInButton:![manager isUserLocationInCourse]];
+        }];
+    }
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -189,6 +212,13 @@
 */
 
 - (IBAction)btnCheckedInTapped:(UIButton *)sender {
+    
+    
+}
+
+-(void)enableCheckInButton:(BOOL)yesNo{
+    
+    [self.btnCheckIn setHidden:yesNo];
 }
 
 @end

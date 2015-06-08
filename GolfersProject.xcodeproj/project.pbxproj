@@ -32,7 +32,7 @@
 		3D1964221B13271000766CFC /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D19641F1B13270F00766CFC /* FBSDKLoginKit.framework */; };
 		3D1964231B13271000766CFC /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D1964201B13270F00766CFC /* FBSDKShareKit.framework */; };
 		3D1964271B13305200766CFC /* FaceBookAuthAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1964261B13305200766CFC /* FaceBookAuthAgent.m */; };
-		3D19642A1B13364B00766CFC /* Coordinates.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1964291B13364B00766CFC /* Coordinates.m */; };
+		3D19642A1B13364B00766CFC /* Coordinate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1964291B13364B00766CFC /* Coordinate.m */; };
 		3D5CA5D61B1F332B00CB6ED7 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D5CA5D51B1F332B00CB6ED7 /* BaseViewController.m */; };
 		3D5CA5D81B20572E00CB6ED7 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D5CA5D71B20572E00CB6ED7 /* SystemConfiguration.framework */; };
 		3D841D281B1CD97D00A267DE /* EventHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D841D271B1CD97D00A267DE /* EventHeaderView.m */; };
@@ -55,6 +55,7 @@
 		3DD9BD261B14C39000A2F296 /* CalendarEventServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD9BD251B14C39000A2F296 /* CalendarEventServices.m */; };
 		3DF9936F1B256999006EBC39 /* PushManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF9936E1B256999006EBC39 /* PushManager.m */; };
 		3DF993721B256A4A006EBC39 /* AppDelegate+Push.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF993711B256A4A006EBC39 /* AppDelegate+Push.m */; };
+		3DFD15B61B25B2AB008F76D8 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DFD15B51B25B2AA008F76D8 /* CoreLocation.framework */; };
 		88024F6C1AD29134004AC260 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88024F6A1AD29134004AC260 /* Main.storyboard */; };
 		88024F6E1AD29134004AC260 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88024F6D1AD29134004AC260 /* Images.xcassets */; };
 		88024F711AD29134004AC260 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88024F6F1AD29134004AC260 /* LaunchScreen.xib */; };
@@ -139,8 +140,8 @@
 		3D1964201B13270F00766CFC /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		3D1964251B13305200766CFC /* FaceBookAuthAgent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceBookAuthAgent.h; sourceTree = "<group>"; };
 		3D1964261B13305200766CFC /* FaceBookAuthAgent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaceBookAuthAgent.m; sourceTree = "<group>"; };
-		3D1964281B13364B00766CFC /* Coordinates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Coordinates.h; sourceTree = "<group>"; };
-		3D1964291B13364B00766CFC /* Coordinates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Coordinates.m; sourceTree = "<group>"; };
+		3D1964281B13364B00766CFC /* Coordinate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Coordinate.h; sourceTree = "<group>"; };
+		3D1964291B13364B00766CFC /* Coordinate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Coordinate.m; sourceTree = "<group>"; };
 		3D5CA5D41B1F332B00CB6ED7 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		3D5CA5D51B1F332B00CB6ED7 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		3D5CA5D71B20572E00CB6ED7 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -182,6 +183,7 @@
 		3DF9936E1B256999006EBC39 /* PushManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushManager.m; sourceTree = "<group>"; };
 		3DF993701B256A4A006EBC39 /* AppDelegate+Push.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+Push.h"; sourceTree = "<group>"; };
 		3DF993711B256A4A006EBC39 /* AppDelegate+Push.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+Push.m"; sourceTree = "<group>"; };
+		3DFD15B51B25B2AA008F76D8 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		5A26DAF5CF62E34098597EA3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		88024F5D1AD29134004AC260 /* GolfersProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GolfersProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88024F611AD29134004AC260 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -249,6 +251,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DFD15B61B25B2AB008F76D8 /* CoreLocation.framework in Frameworks */,
 				3D5CA5D81B20572E00CB6ED7 /* SystemConfiguration.framework in Frameworks */,
 				3D1964231B13271000766CFC /* FBSDKShareKit.framework in Frameworks */,
 				32B56928BD94CBDCCDA0C43B /* libPods.a in Frameworks */,
@@ -665,8 +668,8 @@
 				88FBCCBC1B19AC1F005FD528 /* StaffMember.m */,
 				88FBCCBE1B19BE2A005FD528 /* StaffType.h */,
 				88FBCCBF1B19BE2A005FD528 /* StaffType.m */,
-				3D1964281B13364B00766CFC /* Coordinates.h */,
-				3D1964291B13364B00766CFC /* Coordinates.m */,
+				3D1964281B13364B00766CFC /* Coordinate.h */,
+				3D1964291B13364B00766CFC /* Coordinate.m */,
 				885CB0761B0A117300AD2A7B /* GolfrzError.h */,
 				885CB0771B0A117300AD2A7B /* GolfrzError.m */,
 				885CB0781B0A117300AD2A7B /* GolfrzErrorResponse.h */,
@@ -797,6 +800,7 @@
 		C91B48159ABC56B52D213A0C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3DFD15B51B25B2AA008F76D8 /* CoreLocation.framework */,
 				3D5CA5D71B20572E00CB6ED7 /* SystemConfiguration.framework */,
 				5A26DAF5CF62E34098597EA3 /* libPods.a */,
 			);
@@ -933,7 +937,7 @@
 				3D87D8461B1852120046BD60 /* VRGCalendarView.m in Sources */,
 				88D813AD1B17640E00FD7D0E /* PlayerSettingsMainViewController.m in Sources */,
 				889872BF1B13105C00D3C0E9 /* Utilities.m in Sources */,
-				3D19642A1B13364B00766CFC /* Coordinates.m in Sources */,
+				3D19642A1B13364B00766CFC /* Coordinate.m in Sources */,
 				3D1963F41B0E1B6900766CFC /* RewardViewController.m in Sources */,
 				3D1963BC1B0CE05700766CFC /* CourseServices.m in Sources */,
 				885CB06B1B09BADE00AD2A7B /* SignUpViewController.m in Sources */,

@@ -7,7 +7,7 @@
 //
 
 #import "Course.h"
-#import "Coordinates.h"
+#import "Coordinate.h"
 #import "StaffMember.h"
 #import "Department.h"
 #import "Constants.h"
@@ -33,7 +33,7 @@
 
 + (NSValueTransformer *)coordinatesJSONTransformer {
     
-    return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[Coordinates class]];
+    return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[Coordinate class]];
         //return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[Coordinates class]];
 }
 

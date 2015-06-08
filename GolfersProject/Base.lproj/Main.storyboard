@@ -1166,6 +1166,7 @@
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <connections>
+                        <outlet property="btnCheckIn" destination="A6e-HL-Fpl" id="gIZ-AP-4hu"/>
                         <outlet property="btnEventsTapped" destination="OE6-OW-hIc" id="798-ef-kb7"/>
                         <outlet property="btnFoodBevTapped" destination="BjI-6u-of3" id="abs-gB-Uzo"/>
                         <outlet property="btnTeeTimesTapped" destination="4LY-P4-oVD" id="srg-wB-vjN"/>

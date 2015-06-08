@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 Abdullah Saeed. All rights reserved.
 //
 
-#import "Coordinates.h"
+#import "Coordinate.h"
 
-@implementation Coordinates
+@implementation Coordinate
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
     return @{
