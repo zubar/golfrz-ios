@@ -70,6 +70,7 @@
 		88709E9E1B0DB600005DA345 /* ForgotPasswordSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88709E9D1B0DB600005DA345 /* ForgotPasswordSViewController.m */; };
 		8873AA761B18C5F500E74C87 /* EventAdminViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8873AA751B18C5F500E74C87 /* EventAdminViewController.m */; };
 		887C51311B21C9E300C778D7 /* UIImageView+RoundedImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 887C51301B21C9E300C778D7 /* UIImageView+RoundedImage.m */; };
+		88855DD21B256F5A00E164D6 /* FoodBeveragesMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88855DD11B256F5A00E164D6 /* FoodBeveragesMainViewController.m */; };
 		889872BF1B13105C00D3C0E9 /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 889872BE1B13105C00D3C0E9 /* Utilities.m */; };
 		889872C91B13239400D3C0E9 /* SideNotificationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 889872C81B13239400D3C0E9 /* SideNotificationView.xib */; };
 		889872CC1B13437400D3C0E9 /* SideNotificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 889872CB1B13437400D3C0E9 /* SideNotificationView.m */; };
@@ -211,6 +212,8 @@
 		8873AA751B18C5F500E74C87 /* EventAdminViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventAdminViewController.m; sourceTree = "<group>"; };
 		887C512F1B21C9E300C778D7 /* UIImageView+RoundedImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+RoundedImage.h"; sourceTree = "<group>"; };
 		887C51301B21C9E300C778D7 /* UIImageView+RoundedImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+RoundedImage.m"; sourceTree = "<group>"; };
+		88855DD01B256F5A00E164D6 /* FoodBeveragesMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodBeveragesMainViewController.h; sourceTree = "<group>"; };
+		88855DD11B256F5A00E164D6 /* FoodBeveragesMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodBeveragesMainViewController.m; sourceTree = "<group>"; };
 		889872BD1B13105C00D3C0E9 /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
 		889872BE1B13105C00D3C0E9 /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
 		889872C11B13111900D3C0E9 /* Alert-Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Alert-Constants.h"; sourceTree = "<group>"; };
@@ -576,6 +579,7 @@
 		885CB04F1B09BADE00AD2A7B /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				88855DCF1B256F3500E164D6 /* FoodsBeveragesMainViewController */,
 				887C512F1B21C9E300C778D7 /* UIImageView+RoundedImage.h */,
 				887C51301B21C9E300C778D7 /* UIImageView+RoundedImage.m */,
 				3D5CA5D31B1F332B00CB6ED7 /* BaseViewController */,
@@ -705,6 +709,15 @@
 				8873AA751B18C5F500E74C87 /* EventAdminViewController.m */,
 			);
 			path = EventAdminViewController;
+			sourceTree = "<group>";
+		};
+		88855DCF1B256F3500E164D6 /* FoodsBeveragesMainViewController */ = {
+			isa = PBXGroup;
+			children = (
+				88855DD01B256F5A00E164D6 /* FoodBeveragesMainViewController.h */,
+				88855DD11B256F5A00E164D6 /* FoodBeveragesMainViewController.m */,
+			);
+			path = FoodsBeveragesMainViewController;
 			sourceTree = "<group>";
 		};
 		889872BC1B13103300D3C0E9 /* Utilities */ = {
@@ -948,6 +961,7 @@
 				88FBCCB71B19A572005FD528 /* User.m in Sources */,
 				886B9ED41B0B95900078B09D /* ForgotPasswordViewController.m in Sources */,
 				3D87D8441B1852120046BD60 /* UIColor+expanded.m in Sources */,
+				88855DD21B256F5A00E164D6 /* FoodBeveragesMainViewController.m in Sources */,
 				88B23C1C1B16E69D00988908 /* CourseDepartmentCell.m in Sources */,
 				885CB06A1B09BADE00AD2A7B /* SignInViewController.m in Sources */,
 				3D19641D1B130E3B00766CFC /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
