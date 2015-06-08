@@ -7,7 +7,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSDate (Convenience)
+@interface App (Convenience)
 
 -(NSDate *)offsetMonth:(int)numMonths;
 -(NSDate *)offsetDay:(int)numDays;

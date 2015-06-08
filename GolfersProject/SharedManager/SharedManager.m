@@ -28,7 +28,7 @@
 }
 
 -(void)getCourseInfo:(void (^)(bool status, id jsonObject))successBlock{
-
+    NSLog(@"-------------------------- NO Implementation----------------------------------------------------")
 
 }
 
