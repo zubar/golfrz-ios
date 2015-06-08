@@ -18,28 +18,37 @@
 
 @implementation AuthenticationService
 
-+(void)loginWithUserName:(NSString *)name password:(NSString *)password success:(void (^)(bool status, User *))successBlock failure:(void (^)(bool status, NSError *error))failureBlock{
 
-//Create our client
-APIClient *apiClient = [APIClient sharedAPICLient];
-    
-//TODO: Write completion block here.
-    
-    [apiClient POST:kSignInURL parameters:[AuthenticationService paramsForLogin:name password:password] completion:^(id response, NSError *error) {
-        OVCResponse * resp = response;
-        if (!error) {
-            User * mUser =[resp result];
-            //Setting current user
-            [UserServices setCurrentUser:mUser];
-            successBlock(true,mUser);
++(void)loginWithUserName:(NSString *)name
+                password:(NSString *)password
+                 success:(void (^)(bool status, NSDictionary * userInfo))successBlock
+                 failure:(void (^)(bool status, NSError *error))failureBlock{
+
+    AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
+    [apiClient POST:kSignInURL parameters:[AuthenticationService paramsForLogin:name password:password] success:^(NSURLSessionDataTask *task, id responseObject) {
+        
+        if (responseObject[@"status"]) {
+            NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
+            [defaults setValue:responseObject[@"token"] forKey:kUSER_TOKEN];
+            [defaults setValue:responseObject[@"email"] forKey:kUSER_EMAIL];
+            [defaults setValue:responseObject[@"id"] forKey:kUSER_ID];
+
+            NSLog(@"Email: %@, Token: %@, User_Id: %@", responseObject[@"email"], responseObject[@"token"], responseObject[@"id"]);
+
+            [defaults synchronize];
         }
-        else
-            failureBlock(false, error);
+        successBlock(true, responseObject);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        failureBlock(false, error);
     }];
+    
+
 }
 
 
-+(void)resetUserPassword:(NSString *)email completion:(void (^)(bool))successfullyPosted failure:(void (^)(bool status, NSError *error))failureBlock{
++(void)resetUserPassword:(NSString *)email
+              completion:(void (^)(bool))successfullyPosted
+                 failure:(void (^)(bool status, NSError *error))failureBlock{
 
     APIClient *apiClient = [APIClient sharedAPICLient];
     
@@ -59,11 +68,13 @@ APIClient *apiClient = [APIClient sharedAPICLient];
     }];
 }
 
-+(void)signOutUser:(void (^)(bool status))successfullyPosted failureBlock:(void (^)(bool status, NSError * error))failureBlock{
++(void)signOutUser:(void (^)(bool status))successfullyPosted
+      failureBlock:(void (^)(bool status, NSError * error))failureBlock{
   
     APIClient *apiClient = [APIClient sharedAPICLient];
+    NSString * signOutUrl = [NSString stringWithFormat:@"%@%@", kSignOutURL, [UserServices currentToken]];
     
-    [apiClient DELETE:kSignOutURL parameters:[AuthenticationService paramsForSignOut] completion:^(id response, NSError *error) {
+    [apiClient DELETE:signOutUrl parameters:nil completion:^(id response, NSError *error) {
         //OVCResponse * resp = response;
         if (!error) {
             //TODO: in caller of that block show alert on success.
@@ -75,27 +86,39 @@ APIClient *apiClient = [APIClient sharedAPICLient];
     
 }
 
-+(void)singUpUser:(NSString * )firstName lastName:(NSString *)lastName email:(NSString *)email password:(NSString *)password  passwordConfirmation:(NSString *)passwordConfirmation memberId:(NSString *)memberID completion:(void (^)(bool status, NSError * error))block{
 
-    APIClient *apiClient = [APIClient sharedAPICLient];
+
++(void)singUpUser:(NSString * )firstName
+         lastName:(NSString *)lastName
+            email:(NSString *)email
+         password:(NSString *)password
+passwordConfirmation:(NSString *)passwordConfirmation
+         memberId:(NSString *)memberID
+         handicap:(NSString *)handicap
+       completion:(void (^)(bool status, NSDictionary * userInfo))successBlock
+          failure:(void (^)(bool status, NSError * error))failureBlock{
+
+    AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
     
-    NSDictionary * params = [AuthenticationService paramsForSignUp:firstName lastName:lastName email:email password:password passwordConfirmation:passwordConfirmation memberId:memberID];
+    NSDictionary * params = [AuthenticationService paramsForSignUp:firstName lastName:lastName email:email password:password passwordConfirmation:passwordConfirmation memberId:memberID handicap:handicap];
     
-    [apiClient POST:kSignUpURL parameters:params completion:^(id response, NSError *error) {
-        if (!error) {
-            block(true, nil);
-        }else{
-            block(false, error);
-        }
+    [apiClient POST:kSignUpURL parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
         
+        if (responseObject[@"status"]) {
+            NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
+            [defaults setValue:responseObject[@"token"] forKey:kUSER_TOKEN];
+            [defaults setValue:responseObject[@"email"] forKey:kUSER_EMAIL];
+            [defaults setValue:responseObject[@"id"] forKey:kUSER_ID];
+            
+            NSLog(@"Email: %@, Token: %@, User_Id: %@", responseObject[@"email"], responseObject[@"token"], responseObject[@"id"]);
+            
+            [defaults synchronize];
+        }
+        successBlock(true, responseObject);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        failureBlock(false, error);
     }];
-
-
 }
-
-//TODO: Create password reset, sign out method calls same way.
-
-
 
 #pragma mark - Helper Methods
 +(NSDictionary *)paramsForLogin:(NSString *)userName password:(NSString *)pwd{
@@ -108,15 +131,20 @@ APIClient *apiClient = [APIClient sharedAPICLient];
 
 +(NSDictionary *)paramsForSignOut{
     
-    
     return   @{
                @"user_login":@{
-                       @"auth_token" : [[UserServices currentUser] authToken]
+                       @"auth_token" : [UserServices currentToken]
                        }
                };
 }
 
-+(NSDictionary *)paramsForSignUp:(NSString * )firstName lastName:(NSString *)lastName email:(NSString *)email password:(NSString *)password  passwordConfirmation:(NSString *)passwordConfirmation memberId:(NSString *)memberID{
++(NSDictionary *)paramsForSignUp:(NSString * )firstName
+                        lastName:(NSString *)lastName
+                           email:(NSString *)email
+                        password:(NSString *)password
+            passwordConfirmation:(NSString *)passwordConfirmation
+                        memberId:(NSString *)memberID
+                        handicap:(NSString *)handicap{
     
     return @{
         @"email": email,
@@ -124,7 +152,10 @@ APIClient *apiClient = [APIClient sharedAPICLient];
         @"password_confirmation": passwordConfirmation,
         @"member_id": memberID,
         @"first_name": firstName,
-        @"last_name": lastName
+        @"last_name": lastName,
+        @"user_agent" : kUserAgent,
+        @"app_bundle_id" : kAppBundleId,
+        @"handicap" : handicap
         };
 }
 

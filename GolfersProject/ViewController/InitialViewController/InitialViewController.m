@@ -20,7 +20,13 @@
 #import "CalendarEventServices.h"
 
 #import "FaceBookAuthAgent.h"
-
+#import "CalendarEventServices.h"
+#import "EventList.h"
+#import "AppDelegate.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+#import "UIImageView+RoundedImage.h"
+#import "SharedManager.h"
+#import "UIImageView+RoundedImage.h"
 
 @interface InitialViewController ()
 
@@ -34,39 +40,18 @@
     [self.navigationController setNavigationBarHidden:YES animated:YES];
     [super viewWillAppear:YES];
 
-    //[self setImageCourseLogoRounded];
     [self addGestureToSignIn];
-   
     
-    [AuthenticationService loginWithUserName:@"admin@golfrz.com" password:@"password" success:^(bool status, User *user) {
-        if (status) {
-            [UserServices getUserInfo:^(bool status, User *mUser) {
-                
-            } failure:^(bool status, NSError *error) {
-                
-            }];
-        }
-    } failure:^(bool status, NSError *error) {
-      //  <#code#>
-    }
-    ];
-//
+    SharedManager * manager = [SharedManager sharedInstance];
     
-    [CourseServices courseInfo:^(bool status, Course *currentCourse) {
-        
-        NSLog(@"%@", [[currentCourse.coordinates objectAtIndex:0] class]);
-        
-        if (status) {
-            [WeatherServices weatherInfo:^(bool status, NSArray *mWeatherData) {
-                NSLog(@"weather:%@", mWeatherData);
-            } failure:^(bool status, NSError *error) {
-                NSLog(@"%@", error);
-            }];
+    [self.imgCourseLogo sd_setImageWithURL:[NSURL URLWithString:manager.logoImagePath] placeholderImage:[UIImage imageNamed:@"event_placeholder"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        if (image) {
+            [self.imgCourseLogo setRoundedImage:image];
         }
-        
-    } failure:^(bool status, NSError *error) {
-        //
     }];
+    [self.lblCourseName setText:[manager courseName]];
+    [self.lblCityState setText:[NSString stringWithFormat:@"%@, %@", manager.courseCity, manager.courseState]];
+    
     
 }
 
@@ -74,13 +59,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/* method to make the image rounded if not provided
--(void)setImageCourseLogoRounded{
-    [self.imgCourseLogo.layer setCornerRadius:(CGRectGetWidth(self.imgCourseLogo.frame) / 2)];
-    [self.imgCourseLogo setClipsToBounds:YES];
-}
- */
 
 -(void) addGestureToSignIn{
     UITapGestureRecognizer* gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(signInTapped)];
@@ -92,8 +70,9 @@
 
 - (void)signInTapped{
     
+    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
     SignInViewController *signInViewController  = [self.storyboard instantiateViewControllerWithIdentifier:@"SignInViewController"];
-    [self.navigationController pushViewController:signInViewController animated:YES];
+    [delegate.appDelegateNavController pushViewController:signInViewController animated:YES];
 }
 
 - (IBAction)connectWithFacebook:(id)sender {

@@ -10,6 +10,8 @@
 #import "RewardViewController.h"
 #import "ClubHouseViewController.h"
 #import "PlayerProfileViewController.h"
+#import "SplashScreenViewController.h"
+
 #define MAIN_CONTROL_IDENTIFIER @"mainPagingController"
 
 
@@ -27,10 +29,18 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     [[UINavigationBar appearance] setTitleVerticalPositionAdjustment:-10.0 forBarMetrics:UIBarMetricsDefault];
-  
-   
-    
 
+    
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+    
+    
+    SplashScreenViewController * splashController = (SplashScreenViewController *)[mainStoryboard instantiateViewControllerWithIdentifier:@"SplashScreenViewController"];
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.appDelegateNavController = [[UINavigationController alloc]initWithRootViewController:splashController];
+    self.window.rootViewController = self.appDelegateNavController;
+    [self.window makeKeyAndVisible];
+    
     return [[FBSDKApplicationDelegate sharedInstance] application:application
                                     didFinishLaunchingWithOptions:launchOptions];
 }

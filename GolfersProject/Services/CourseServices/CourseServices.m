@@ -8,6 +8,7 @@
 
 #import "CourseServices.h"
 #import "Course.h"
+#import "UserServices.h"
 
 #import "APIClient.h"
 #import "Constants.h"
@@ -18,11 +19,11 @@
 static Course * currentCourse = nil;
 
 
-+(void)courseInfo:(void (^)(bool status, Course * currentCourse))successBlock failure:(void (^)(bool status, NSError * error))failureBlock{
++(void)courseDetailInfo:(void (^)(bool status, Course * currentCourse))successBlock failure:(void (^)(bool status, NSError * error))failureBlock{
     
     APIClient * apiClient = [APIClient sharedAPICLient];
     
-    [apiClient POST:kCourseInfo parameters:[self paramsForCourseInfo] completion:^(id response, NSError *error) {
+    [apiClient GET:kCourseDetail parameters:[self paramsCourseDetailInfo] completion:^(id response, NSError *error) {
         OVCResponse * resp = response;
         if (!error) {
             Course * mCourse = [resp result];
@@ -34,6 +35,18 @@ static Course * currentCourse = nil;
     
 }
 
+
++(void)courseInfo:(void (^)(bool, id tObject))successBlock failure:(void (^)(bool, NSError *))failureBlock{
+    
+    
+    AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
+    
+    [apiClient GET:kCourseInfo parameters:[CourseServices paramsCourseInfo] success:^(NSURLSessionDataTask *task, id responseObject) {
+            successBlock(true, responseObject);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"%@", error);
+    }];
+}
 
 +(void)setCurrentCourse:(Course *)mCourse{
     currentCourse = nil;
@@ -47,11 +60,20 @@ static Course * currentCourse = nil;
 
 #pragma mark - Helper Methods
 
-+(NSDictionary *)paramsForCourseInfo{
++(NSDictionary *)paramsCourseDetailInfo{
         return @{
                 @"app_bundle_id": kAppBundleId,
-                @"user_agent" : kUserAgent
+                @"user_agent" : kUserAgent,
+                @"auth_token" : [UserServices currentToken]
     };
 }
 
+
+
++(NSDictionary *)paramsCourseInfo{
+    return @{
+             @"app_bundle_id": kAppBundleId,
+             @"user_agent" : kUserAgent
+             };
+}
 @end

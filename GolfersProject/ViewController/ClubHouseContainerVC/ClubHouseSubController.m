@@ -28,6 +28,7 @@
     UISwipeGestureRecognizer *  leftRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(pushNextController)];
     [leftRecognizer setDirection:(UISwipeGestureRecognizerDirectionLeft)];
     [[self view] addGestureRecognizer:leftRecognizer];
+    
 }
 
 

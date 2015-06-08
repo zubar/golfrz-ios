@@ -11,6 +11,7 @@
 #import "NSDate+convenience.h"
 #import "NSMutableArray+convenience.h"
 #import "UIView+convenience.h"
+#import "SharedManager.h"
 
 @implementation VRGCalendarView
 @synthesize currentMonth,delegate,labelCurrentMonth, animationView_A,animationView_B;
@@ -468,7 +469,10 @@
         } else if (todayBlock==i) {
             CGRect rectangleGrid = CGRectMake(targetX,targetY,kVRGCalendarViewDayWidth+2,kVRGCalendarViewDayHeight+2);
             CGContextAddRect(context, rectangleGrid);
-            CGContextSetFillColorWithColor(context, [UIColor redColor].CGColor);
+            
+            // Setting current day color to theme color.
+            SharedManager * sharedInstance = [SharedManager sharedInstance];
+            CGContextSetFillColorWithColor(context, [sharedInstance themeColor].CGColor);
             CGContextFillPath(context);
             
             CGContextSetFillColorWithColor(context, 

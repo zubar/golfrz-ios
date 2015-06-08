@@ -10,7 +10,9 @@
 #import "ClubHouseViewController.h"
 #import "PlayerProfileViewController.h"
 #import "RewardViewController.h"
+#import "SharedManager.h"
 
+#import "AppDelegate.h"
 
 @interface ClubHouseContainerVC ()<UINavigationControllerDelegate>
 @property (nonatomic, strong) UINavigationController * navController;
@@ -23,10 +25,9 @@
 {
     [super viewDidLoad];
     
-    UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-     self.clubHouseViewController = (ClubHouseViewController *)[mainStoryBoard instantiateViewControllerWithIdentifier:@"ClubHouseViewController"];
-    self.playerProfileViewController = (PlayerProfileViewController *)[mainStoryBoard instantiateViewControllerWithIdentifier:@"PlayerProfileViewController"];
-    self.rewardViewController = (RewardViewController *)[mainStoryBoard instantiateViewControllerWithIdentifier:@"RewardViewController"];
+    self.clubHouseViewController = (ClubHouseViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"ClubHouseViewController"];
+    self.playerProfileViewController = (PlayerProfileViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"PlayerProfileViewController"];
+    self.rewardViewController = (RewardViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"RewardViewController"];
     
     NSMutableArray *controllersArray = [NSMutableArray array];
     [controllersArray addObject:self.clubHouseViewController];
@@ -36,20 +37,21 @@
     
     self.navController = [[UINavigationController alloc]init];
     [self.navController setViewControllers:controllersArray];
-    
-    
+        
     CGSize navBarSize = self.navController.navigationBar.bounds.size;
-    self.navController.navigationBar.barTintColor = [UIColor redColor];
+    self.navController.navigationBar.barTintColor = [[SharedManager sharedInstance] themeColor];
     
 
     CGPoint origin = CGPointMake( navBarSize.width/2, navBarSize.height/1.5 );
     self.pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(origin.x, origin.y,
                                                                        0, 0)];
     
+    [self.pageControl setTag:89];
     //Or whatever number of viewcontrollers you have
     [self.pageControl setNumberOfPages:3];
     [self.navController setNavigationBarHidden:NO];
     [self.navController.navigationBar addSubview:self.pageControl];
+    
     
     self.navController.delegate = self;
     

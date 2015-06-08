@@ -13,6 +13,15 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "MBProgressHUD.h"
 
+#import "CourseServices.h"
+#import "EventCalendarViewController.h"
+#import "EventDetailViewController.h"
+#import "AppDelegate.h"
+#import "ContactUsViewController.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+#import "SharedManager.h"
+#import "UIImageView+RoundedImage.h"
+
 
 @interface ClubHouseViewController ()
 @property (nonatomic, retain) NSArray * weatherList;
@@ -25,16 +34,26 @@
     
     UIButton * imageButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 10, 22, 22)];
     [imageButton setBackgroundImage:[UIImage imageNamed:@"contactus_button"] forState:UIControlStateNormal];
-    [imageButton addTarget:self action:@selector(test) forControlEvents:UIControlEventAllEvents];
-    
+    [imageButton addTarget:self action:@selector(btnContactUsTap) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:imageButton];
-    
-    
     self.navigationItem.leftBarButtonItem = leftBarButtonItem;
+    
+    UIButton * imageRightButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 10, 22, 22)];
+    [imageRightButton setBackgroundImage:[UIImage imageNamed:@"activity_icon"] forState:UIControlStateNormal];
+    [imageRightButton addTarget:self action:nil forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:imageRightButton];
+    self.navigationItem.rightBarButtonItem = rightBarButtonItem;
+    
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+   
+    NSDictionary *titleAttributes =@{
+                                    NSFontAttributeName :[UIFont fontWithName:@"Helvetica-Bold" size:14.0],
+                                     NSForegroundColorAttributeName : [UIColor whiteColor]
+                                    };
+    
+    self.navigationController.navigationBar.titleTextAttributes = titleAttributes;
     [[self navigationItem] setTitle:@"CLUBHOUSE"];
     
-    self.navigationController.navigationBar.titleTextAttributes = [NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName];
     
     // Do any additional setup after loading the view.
     [MBProgressHUD hideHUDForView:self.view animated:YES];
@@ -47,12 +66,53 @@
     } failure:^(bool status, NSError *error) {
         if (error) {
             [MBProgressHUD hideHUDForView:self.view animated:YES];
-            [[[UIAlertView alloc]initWithTitle:@"Try Again" message:@"Failed to get weather" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil] show];
+            [[[UIAlertView alloc]initWithTitle:@"Try Again" message:@"Failed to get weather" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+        }
+    }];
+    
+    [self loadDataForCurrentCourse];
+}
+
+
+-(void)loadDataForCurrentCourse{
+    SharedManager * manager = [SharedManager sharedInstance];
+    [self.lblCourseName setText:[manager courseName]];
+   
+    [self.imgCourseLogo sd_setImageWithURL:[NSURL URLWithString:[manager logoImagePath]] placeholderImage:[UIImage imageNamed:@"event_placeholder"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        if (image) {
+            [self.imgCourseLogo setRoundedImage:image];
         }
     }];
 }
--(void)test{
 
+-(void)viewWillAppear:(BOOL)animated{
+    
+    UIPageControl * pageControl = (UIPageControl *)[self.navigationController.navigationBar viewWithTag:89];
+    if (pageControl && ![self isKindOfClass:[ClubHouseSubController class]]) {
+        [pageControl setHidden:YES];
+    }else{
+        [pageControl setHidden:NO];
+    }
+    [[UINavigationBar appearance] setTitleVerticalPositionAdjustment:-10.0 forBarMetrics:UIBarMetricsDefault];
+
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    
+    UIPageControl * pageControl = (UIPageControl *)[self.navigationController.navigationBar viewWithTag:89];
+    if (pageControl && ![self isKindOfClass:[ClubHouseSubController class]]) {
+        [pageControl setHidden:YES];
+    }else{
+        [pageControl setHidden:NO];
+    }
+}
+-(void)btnContactUsTap{
+
+    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+    
+    ContactUsViewController * contactController = [self.storyboard instantiateViewControllerWithIdentifier:@"ContactUsViewController"];
+    [delegate.appDelegateNavController pushViewController:contactController animated:YES];
+    return;
 }
 - (void)pushNextController{
     [self.navigationController pushViewController:self.containerVC.playerProfileViewController animated:YES];
@@ -98,17 +158,22 @@
 -(NSString *)hoursFromDate:(NSDate *)date{
 
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"h a"];    
+    [dateFormatter setDateFormat:@"h a"];
     NSString *formattedDateString = [dateFormatter stringFromDate:date];
     return formattedDateString;
     
 }
 
+#pragma mark - Navigation
 
--(void)btnTapped{
-
-    NSLog(@"Tapped Green");
+- (IBAction)btnEventsTapped:(id)sender {
+    
+    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+    EventCalendarViewController * controller = [self.storyboard instantiateViewControllerWithIdentifier:@"EventCalendarViewController"];
+    [delegate.appDelegateNavController pushViewController:controller animated:YES];
 }
+
+
 
 #pragma mark - NavBarButtonsDelegate
 
@@ -122,5 +187,8 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (IBAction)btnCheckedInTapped:(UIButton *)sender {
+}
 
 @end

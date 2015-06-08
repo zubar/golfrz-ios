@@ -36,11 +36,10 @@
 
 +(NSDictionary *)paramsForEventList{
     
-    User * mUser = [UserServices currentUser];
     return @{
              @"app_bundle_id" : kAppBundleId,
              @"user_agent" : kUserAgent,
-             @"auth_token" : @"h2_j_l-ZDOAAjCgVZ1zXHw"//[mUser authToken]
+             @"auth_token" : [UserServices currentToken]
              };
 
 }

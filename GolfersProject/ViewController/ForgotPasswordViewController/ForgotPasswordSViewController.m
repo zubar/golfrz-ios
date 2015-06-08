@@ -8,6 +8,14 @@
 
 #import "ForgotPasswordSViewController.h"
 #import "SignInViewController.h"
+#import "ClubHouseContainerVC.h"
+#import "AppDelegate.h"
+#import "CourseServices.h"
+#import "Course.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+#import "SharedManager.h"
+#import "UIImageView+RoundedImage.h"
+
 
 @interface ForgotPasswordSViewController ()
 
@@ -21,6 +29,14 @@
     [super viewWillAppear:YES];
     [self addGestureToSignIn];
     // Do any additional setup after loading the view.
+    
+    // Setting course logo
+    SharedManager * manager = [SharedManager sharedInstance];
+    [self.imgCourseLogo sd_setImageWithURL:[NSURL URLWithString:manager.logoImagePath] placeholderImage:[UIImage imageNamed:@"event_placeholder"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        if (image) {
+            [self.imgCourseLogo setRoundedImage:image];
+        }
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -36,8 +52,15 @@
 }
 
 - (void)backToLoginTapped{
-    SignInViewController *signInViewController  = [self.storyboard instantiateViewControllerWithIdentifier:@"SignInViewController"];
-    [self.navigationController pushViewController:signInViewController animated:YES];
+    
+    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+    
+    for (UIViewController *controller in delegate.appDelegateNavController.viewControllers) {
+        if ([controller isKindOfClass:[SignInViewController class]]) {
+            [delegate.appDelegateNavController popToViewController:controller animated:YES];
+            return;
+        }
+    }
 }
 
 

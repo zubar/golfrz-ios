@@ -12,6 +12,9 @@
 #import "ForgotPasswordViewController.h"
 #import "UserServices.h"
 #import "User.h"
+#import "AppDelegate.h"
+#import "MBProgressHUD.h"
+#import "SignInViewController.h"
 
 @interface PlayerSettingsMainViewController ()
 
@@ -25,18 +28,64 @@
     //Assuming the view will always be created in non-editing mode.
     isEditing = false;
     
+    
+    UIButton * imageButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 10, 10, 14)];
+    [imageButton setBackgroundImage:[UIImage imageNamed:@"back_btn"] forState:UIControlStateNormal];
+    [imageButton addTarget:self action:@selector(playerSettingBackBtnTapped) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:imageButton];
+    self.navigationItem.leftBarButtonItem = leftBarButtonItem;
+  
+    self.navigationItem.title = @"SETTINGS";
     [self addGestureToEditProfile];
-    [self addGestureToLogout];
-    [self addGestureToResetPassword];
+        
+    NSDictionary *titleAttributes =@{NSUnderlineStyleAttributeName:@(NSUnderlineStyleSingle),
+                                     NSFontAttributeName :[UIFont fontWithName:@"Helvetica" size:12.0],
+                                     NSForegroundColorAttributeName : [UIColor whiteColor]
+                                     };
     
-    
-    
+    NSDictionary *navTitleAttributes =@{NSUnderlineStyleAttributeName:@(NSUnderlineStyleSingle),
+                                     NSFontAttributeName :[UIFont fontWithName:@"Helvetica-Bold" size:14.0],
+                                     NSForegroundColorAttributeName : [UIColor whiteColor]
+                                     };
+    NSAttributedString * saveTitle  = [[NSAttributedString alloc] initWithString:@"EDIT PROFILE" attributes:titleAttributes];
+    self.navigationController.navigationBar.titleTextAttributes = navTitleAttributes;
+
+    [self.lblEditProfile setAttributedText:saveTitle];
+
 }
+-(void)viewWillAppear:(BOOL)animated{
+    
+    
+    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+    [delegate.appDelegateNavController setNavigationBarHidden:NO];
+    [[UINavigationBar appearance] setTitleVerticalPositionAdjustment:0.0 forBarMetrics:UIBarMetricsDefault];
+    
+    [self loadUserInfo];
+    [self makeUserInfoFieldsEditable:NO];
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+    [delegate.appDelegateNavController setNavigationBarHidden:YES];
+}
+
 -(void)loadUserInfo{
-    User * mUser = [UserServices currentUser];
-    [self.txtFirstName setText:[mUser firstName]];
-    [self.txtLastName setText:[mUser firstName]];
-    [self.txtEmailAddress setText:[mUser email]];
+    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [UserServices getUserInfo:^(bool status, User *userInfo) {
+        if (status) {
+            User * mUser = userInfo;
+                [self.txtFirstName setText:[mUser firstName]];
+                [self.txtLastName setText:[mUser lastName]];
+                [self.txtEmailAddress setText:[mUser email]];
+                [self makeUserInfoFieldsEditable:NO];
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+        }
+    } failure:^(bool status, NSError *error) {
+        //
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        NSLog(@"Failure==================================================================================");
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -44,6 +93,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)playerSettingBackBtnTapped{
+    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+    [delegate.appDelegateNavController popViewControllerAnimated:YES];
+}
 
 -(void) addGestureToEditProfile{
     UITapGestureRecognizer* gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(editProfileTapped)];
@@ -52,38 +105,55 @@
     [self.lblEditProfile addGestureRecognizer:gesture];
 }
 
-
--(void) addGestureToResetPassword{
-    UITapGestureRecognizer* gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(resetPasswordTapped)];
-    // if labelView is not set userInteractionEnabled, you must do so
-    [self.lblResetPassword setUserInteractionEnabled:YES];
-    [self.lblResetPassword addGestureRecognizer:gesture];
-}
-
-
--(void) addGestureToLogout{
-    UITapGestureRecognizer* gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(logoutTapped)];
-    // if labelView is not set userInteractionEnabled, you must do so
-    [self.lblLogout setUserInteractionEnabled:YES];
-    [self.lblLogout addGestureRecognizer:gesture];
-}
-
-
 - (void) editProfileTapped{
+    
+    NSDictionary *titleAttributes =@{NSUnderlineStyleAttributeName:@(NSUnderlineStyleSingle),
+                                     NSFontAttributeName :[UIFont fontWithName:@"Helvetica" size:12.0],
+                                     NSForegroundColorAttributeName : [UIColor whiteColor]
+                                     };
+    NSAttributedString * saveTitle = nil;
     
     if (!isEditing) {
         isEditing = true;
-        [self.lblEditProfile setText:@"Save Profile"];
-        [self makeUserInfoFieldsEditable:isEditing];
+        saveTitle  = [[NSAttributedString alloc] initWithString:@"SAVE PROFILE" attributes:titleAttributes];
         [self.txtFirstName becomeFirstResponder];
     }else{
         isEditing = false;
-        [self.lblEditProfile setText:@"Edit Profile"];
-        [self makeUserInfoFieldsEditable:isEditing];
-        [self.view.subviews makeObjectsPerformSelector:@selector(resignFirstResponder)];
+        saveTitle = [[NSAttributedString alloc] initWithString:@"EDIT PROFILE" attributes:titleAttributes];
+        [self.txtFirstName resignFirstResponder];
+        [self.txtLastName resignFirstResponder];
+        [self.txtEmailAddress resignFirstResponder];
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        NSString *errorMessage = [self validateForm];
+        if (errorMessage) {
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            [[[UIAlertView alloc] initWithTitle:nil message:errorMessage delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] show];
+            return;
+        }
         [self upDateUserFirstName:[self.txtFirstName text] lastName:[self.txtLastName text] email:[self.txtEmailAddress text]];
     }
     
+    [self.lblEditProfile setAttributedText:saveTitle];
+    [self makeUserInfoFieldsEditable:isEditing];
+}
+
+
+- (NSString *)validateForm {
+    NSString *errorMessage;
+    
+    NSString *emailRegex = @"[^@]+@[A-Za-z0-9.-]+\\.[A-Za-z]+";
+    NSPredicate *emailPredicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
+    
+    if (!(self.txtFirstName.text.length >= 1)){
+        errorMessage = @"Please enter a first name";
+    } else
+        if (!(self.txtLastName.text.length >= 1)){
+            errorMessage = @"Please enter a last name";
+        } else
+            if (![emailPredicate evaluateWithObject:self.txtEmailAddress.text]){
+                errorMessage = @"Please enter a valid email address";
+            }
+    return errorMessage;
 }
 
 -(void)makeUserInfoFieldsEditable:(BOOL)yesNo{
@@ -92,43 +162,71 @@
     [self.txtEmailAddress setEnabled:yesNo];
 }
 
-- (void)resetPasswordTapped{
+
+- (IBAction)btnResetPasswordTap:(id)sender {
    
+    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
     ForgotPasswordViewController *forgetPasswordVC  = [self.storyboard instantiateViewControllerWithIdentifier:@"ForgotPasswordViewController"];
-    [self.navigationController pushViewController:forgetPasswordVC animated:YES];
-    
+    [delegate.appDelegateNavController pushViewController:forgetPasswordVC animated:YES];
 }
 
 - (void)logoutTapped {
+    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [AuthenticationService signOutUser:^(bool status) {
         if (status) {
-            //InitialViewController *initialVC  = [self.storyboard instantiateViewControllerWithIdentifier:@"InitialViewController"];
-            [self.navigationController popToRootViewControllerAnimated:YES];
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            [self popToSignInViewController];
         }
     } failureBlock:^(bool status, NSError *error) {
-       //TODO: show error alert
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [[[UIAlertView alloc]initWithTitle:@"Error" message:@"Something went wrong" delegate:nil cancelButtonTitle:NSLocalizedString(@"CANCEL", @"Okay Comment") otherButtonTitles:nil, nil] show];
+        
+        
     }];
+}
+- (IBAction)btnLogOutTap:(id)sender {
+    [self logoutTapped];
+}
+
+-(void)popToSignInViewController{
+    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+    
+    for (UIViewController *controller in delegate.appDelegateNavController.viewControllers) {
+        if ([controller isKindOfClass:[SignInViewController class]]) {
+            [delegate.appDelegateNavController popToViewController:controller animated:YES];
+            return;
+        }
+    }
 }
 
 -(void)upDateUserFirstName:(NSString *)firstName lastName:(NSString *)lastName email:(NSString *)email{
     
   __block  NSString * alertTitle = nil;
-  __block   NSString * alertMessage = nil;
+  __block  NSString * alertMessage = nil;
     
     [UserServices updateUserInfo:firstName lastName:lastName email:email success:^(bool status, NSString *message) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
         alertTitle = @"Success";
         alertMessage = message;
+        if (alertTitle)
+            [[[UIAlertView  alloc] initWithTitle:alertTitle message:alertMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
     } failure:^(bool status, NSError *error) {
         alertTitle = @"Failure";
         alertMessage = [error localizedDescription];
+        if (alertTitle)
+            [[[UIAlertView  alloc] initWithTitle:alertTitle message:alertMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
     }];
-    if (alertTitle)
-        [[[UIAlertView  alloc] initWithTitle:alertTitle message:alertMessage delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil] show];
 }
 
 -(BOOL)isValidEmail:(NSString *)email{
     
-    //TODO: create regix to validate
+    NSString *emailRegex = @"[^@]+@[A-Za-z0-9.-]+\\.[A-Za-z]+";
+    NSPredicate *emailPredicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
+    
+    if (![emailPredicate evaluateWithObject:self.txtEmailAddress.text]){
+        return false;//errorMessage = @"Please enter a valid email address";
+    }else
     return true;
 }
 
@@ -145,11 +243,10 @@
 #pragma TextFieldMethods
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    
-    
     [textField resignFirstResponder];
-    return NO;
+    return YES;
 }
+
 
 
 @end

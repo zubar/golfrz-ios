@@ -10,16 +10,13 @@
 #import "VRGCalendarView.h"
 #import "EventList.h"
 #import "CalendarEventCell.h"
+#import "BaseViewController.h"
 
-@interface EventCalendarViewController : UIViewController<VRGCalendarViewDelegate, UITableViewDataSource, UITableViewDelegate, CalendarEventCellProtocol>
+@interface EventCalendarViewController : BaseViewController <VRGCalendarViewDelegate, UITableViewDataSource, UITableViewDelegate, CalendarEventCellProtocol>
 
 
 @property (nonatomic, retain) VRGCalendarView * calendar;
 @property (nonatomic, retain) EventList * eventslist;
-
-@property (nonatomic, retain) NSMutableArray * eventDates;
-@property (nonatomic, retain) NSMutableArray * colors;
-@property (nonatomic, retain) NSMutableArray * todayEvents;
-
-@property (weak, nonatomic) IBOutlet UITableView *eventsTableVeiw;
+@property (retain, nonatomic) IBOutlet UITableView *eventsTableVeiw;
+@property (weak, nonatomic) IBOutlet UILabel *lblNoEvents;
 @end

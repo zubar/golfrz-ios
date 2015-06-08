@@ -14,6 +14,15 @@
 #import "NSDate+Helper.h"
 #import "EventDetailViewController.h"
 #import "MBProgressHUD.h"
+#import "GolfrzErrorResponse.h"
+#import "GolfrzError.h"
+#import "EventHeaderView.h"
+#import "AppDelegate.h"
+#import "ClubHouseSubController.h"
+#import "Utilities.h"
+#import "WeatherServices.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+
 
 #define kEventCalendarMarginLeft 10.0f
 #define kEventCalendarMarginTop 60.0f
@@ -22,6 +31,13 @@
 
 @interface EventCalendarViewController ()
 
+//To mark the dates in calendar
+@property (nonatomic, retain) NSMutableArray * eventDates;
+@property (nonatomic, retain) NSMutableArray * colors;
+
+//To populate today events in table
+@property (nonatomic, retain) NSMutableArray * todayEvents;
+
 @end
 
 @implementation EventCalendarViewController
@@ -29,10 +45,25 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    [self setUpData];
+    UIButton * imageButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 10, 10, 14)];
+    [imageButton setBackgroundImage:[UIImage imageNamed:@"back_btn"] forState:UIControlStateNormal];
 
-    [self updateCalendarEventTableViewForCalenderHeight:kEventCalendarHeight];
+    [imageButton addTarget:self action:@selector(backBtnTapped) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIBarButtonItem *leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:imageButton];
+    self.navigationItem.leftBarButtonItem = leftBarButtonItem;
+    
+    NSDictionary *navTitleAttributes =@{NSUnderlineStyleAttributeName:@(NSUnderlineStyleSingle),
+                                        NSFontAttributeName :[UIFont fontWithName:@"Helvetica-Bold" size:14.0],
+                                        NSForegroundColorAttributeName : [UIColor whiteColor]
+                                        };
+
+    
+    self.navigationItem.title = @"EVENT CALENDAR";
+    self.navigationController.navigationBar.titleTextAttributes = navTitleAttributes;
+    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+    
+    CGRect appFrame = [[UIScreen mainScreen] applicationFrame];
     
     self.calendar = [[VRGCalendarView alloc] init];
     [self.calendar setFrame:CGRectMake(kEventCalendarMarginLeft, kEventCalendarMarginTop, kEventCalendarWidth, kEventCalendarHeight)];
@@ -41,13 +72,51 @@
     [self.calendar setDelegate:self];
     [self.view addSubview:self.calendar];
     
+    self.eventsTableVeiw = [[UITableView alloc]initWithFrame:CGRectMake(kEventCalendarMarginLeft, 22 + kEventCalendarHeight  , kEventCalendarWidth - 4, appFrame.size.height - self.eventsTableVeiw.frame.origin.y) style:UITableViewStylePlain];
+    
     [self.eventsTableVeiw setBackgroundColor:[UIColor clearColor]];
     [self.eventsTableVeiw setBackgroundView:nil];
+    [self.eventsTableVeiw setHidden:YES];
+    self.eventsTableVeiw.dataSource = self;
+    self.eventsTableVeiw.delegate = self;
+    [self.view addSubview:self.eventsTableVeiw];
     
+    [self initializeDataStructures];
+    [self fetchEvents];
+
     
 }
 
--(void)setUpData{
+-(void)viewWillAppear:(BOOL)animated{
+
+    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+    [delegate.appDelegateNavController setNavigationBarHidden:NO];
+    [[UINavigationBar appearance] setTitleVerticalPositionAdjustment:-10.0 forBarMetrics:UIBarMetricsDefault];
+
+    
+//    UIPageControl * pageControl = (UIPageControl *)[self.navigationController.navigationBar viewWithTag:89];
+//    if (pageControl && ![self isKindOfClass:[ClubHouseSubController class]]) {
+//        [pageControl setHidden:YES];
+//    }else{
+//        [pageControl setHidden:NO];
+//    }
+
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    
+    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+    [delegate.appDelegateNavController setNavigationBarHidden:YES];
+    
+//    UIPageControl * pageControl = (UIPageControl *)[self.navigationController.navigationBar viewWithTag:89];
+//    if (pageControl && ![self isKindOfClass:[ClubHouseSubController class]]) {
+//        [pageControl setHidden:YES];
+//    }else{
+//        [pageControl setHidden:NO];
+//    }
+}
+
+-(void)initializeDataStructures{
     
     if (!self.eventDates) {
         self.eventDates = [[NSMutableArray alloc]init];}
@@ -56,7 +125,17 @@
     if (!self.todayEvents) {
         self.todayEvents = [[NSMutableArray alloc]init];
     }
-    [self fetchEvents];
+}
+
+-(void)reloadCalendarAndEventTable{
+    [self.calendar reset];
+    [self.calendar markDates:self.eventDates withColors:self.colors];
+    [self.eventsTableVeiw reloadData];
+}
+
+-(void)updateAllDataStructures{
+
+
 }
 
 -(void)fetchEvents{
@@ -64,8 +143,7 @@
     [CalendarEventServices getEvents:^(bool status, EventList *eventsArray) {
         if (status) {
             self.eventslist = eventsArray;
-            [self.calendar reset];
-            [self.eventsTableVeiw reloadData];
+            [self reloadCalendarAndEventTable];
             [MBProgressHUD hideHUDForView:self.view animated:YES];
         }
     } failure:^(bool status, NSError *error) {
@@ -76,6 +154,7 @@
         }
     }];
 }
+
 
 #pragma mark - VRGCalendarView Delegate
 -(void)calendarView:(VRGCalendarView *)calendarView switchedToMonth:(int)month targetHeight:(float)targetHeight animated:(BOOL)animated{
@@ -99,15 +178,16 @@
                                                                    options:0];
     
     [self updateEventsStartDate:startDate endDate:endDate];
-   
+    [self.calendar markDates:self.eventDates withColors:self.colors];
 }
 
 -(void)updateCalendarEventTableViewForCalenderHeight:(float)height{
     
-    CGRect  appFrameSize = [[UIScreen mainScreen] applicationFrame];
-    
-    [self.eventsTableVeiw setFrame:CGRectMake(kEventCalendarMarginLeft, kEventCalendarMarginTop + height, kEventCalendarWidth, appFrameSize.size.height - kEventCalendarMarginTop - height)];
-
+    CGRect  appFrame = [[UIScreen mainScreen] applicationFrame];
+    CGRect finalFrame =  CGRectMake(kEventCalendarMarginLeft, height + 61 , kEventCalendarWidth - 4, appFrame.size.height - height - 41);
+    [UIView animateWithDuration:0.35 animations:^{
+        [self.eventsTableVeiw setFrame:finalFrame];
+    }];
 }
 
 -(void)updateEventsStartDate:(NSDate * )startDate endDate:(NSDate *)endDate{
@@ -117,15 +197,11 @@
         NSPredicate *datePredicate = [NSPredicate predicateWithFormat:@"dateStart >= %@ AND dateStart < %@",startDate, endDate];
         NSArray * temp = [[self.eventslist.items filteredArrayUsingPredicate:datePredicate] mutableCopy];
         
-        //        [self.eventDates removeAllObjects];
-        //        [self.colors removeAllObjects];
-        
         self.eventDates = [temp valueForKeyPath:@"@distinctUnionOfObjects.dateStart"];
         for (CalendarEvent * calEvent in temp) {
             NSLog(@"%@", calEvent.dateStart);
             [self.colors addObject:[UIColor redColor]];
         }
-        [self.calendar markDates:self.eventDates withColors:self.colors];
     }
 
 }
@@ -141,14 +217,30 @@
     todayComponents.month = selectedDateComponents.month;
     todayComponents.day   = selectedDateComponents.day;
     
-    NSDate *today = [todayComponents date];
+    NSDate * today = [todayComponents date];
+
+    NSDateComponents *oneDay = [NSDateComponents new];
+    oneDay.day = 30;
+    // one day after begin date
+    NSDate *endDate = [[NSCalendar currentCalendar] dateByAddingComponents:oneDay
+                                                                    toDate:today
+                                                                   options:0];
+    
     
     if (self.eventslist) {
-        NSPredicate *datePredicate = [NSPredicate predicateWithFormat:@"dateStart == %@", today];
+        NSPredicate *datePredicate = [NSPredicate predicateWithFormat:@"dateStart >= %@ AND dateStart < %@",today, endDate];
         self.todayEvents = [[self.eventslist.items filteredArrayUsingPredicate:datePredicate] mutableCopy];
+        if ([self.todayEvents count] > 0) {
+            [self.lblNoEvents setHidden:YES];
+            [self.eventsTableVeiw setHidden:NO];
+        }else{
+            [self.lblNoEvents setHidden:NO];
+            [self.eventsTableVeiw setHidden:YES];
+        }
         [self.eventsTableVeiw reloadData];
     }
 }
+
 
 #pragma mark - CalendarEventCellDelegate
 
@@ -158,7 +250,7 @@
 }
 
 
-#pragma mark - UITableViewController
+#pragma mark - UITableViewController DataSource & Delegate
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
@@ -180,12 +272,21 @@
     }
     
     CalendarEvent * eventObject = [self.todayEvents objectAtIndex:indexPath.row];
-   // cell.lbleventName.text = eventObject.name;
     [cell configureViewWithEvent:eventObject];
     
-    //[cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+    [tableView setBackgroundColor:[UIColor clearColor]];
+    [tableView setBackgroundView:nil];
     cell.delegate = self;
     return cell;
+}
+
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    CalendarEvent * eventObject = [self.todayEvents objectAtIndex:indexPath.row];
+    [self performSegueWithIdentifier:@"segueToEventDetailController" sender:eventObject];
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -194,17 +295,45 @@
 
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    UIView * header = [[UIView alloc]init];
-    [header setBackgroundColor:[UIColor yellowColor]];
-    return header;
+    
+    EventHeaderView * headerView = [[EventHeaderView alloc]init];
+    [headerView.imgWeather setHidden:YES];
+    [headerView.lblTemperature setHidden:YES];
+
+    
+    
+    
+    if ([self.calendar selectedDate]) 
+    [Utilities dateComponentsFromNSDate:[self.calendar selectedDate] components:^(NSString *dayName, NSString *monthName, NSString *day, NSString *time) {
+        [headerView.lblDate setText:[NSString stringWithFormat:@"%@, %@ %@", dayName, monthName, day]];
+        
+        
+        [WeatherServices dailyWeather:^(bool status, NSDictionary *weatherData) {
+            if (status) {
+                [headerView.imgWeather sd_setImageWithURL:weatherData[@"icon"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                    //  <#code#>
+                    [headerView.imgWeather setImage:image];
+                    [headerView.imgWeather setHidden:NO];
+                } ];
+                
+                [headerView.lblTemperature setText:[NSString stringWithFormat:@"%@ C", [weatherData[@"temp"] stringValue]]];
+                [headerView.lblTemperature setHidden:NO];
+            }
+        } failure:^(bool status, NSError *error) {
+            if (!status) {
+                [headerView.imgWeather setHidden:YES];
+                [headerView.lblTemperature setHidden:YES];
+            }
+        }];
+        
+    }];
+    return headerView;
 }
 
--(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
-    
-    UIView * header = [[UIView alloc]init];
-    [header setBackgroundColor:[UIColor greenColor]];
-    return header;
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 25.0f;
 }
+
 
 #pragma mark - Navigation
 
@@ -217,6 +346,11 @@
     }
 }
 
+
+-(void)backBtnTapped{
+    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+    [delegate.appDelegateNavController popViewControllerAnimated:YES];
+}
 
 #pragma mark - MemoryManagement 
 - (void)didReceiveMemoryWarning {

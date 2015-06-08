@@ -10,10 +10,19 @@
 
 
 @interface SignInViewController : UIViewController
+
 @property (strong, nonatomic) IBOutlet UILabel *lblForgotPassword;
 @property (strong, nonatomic) IBOutlet UITextField *txtUsername;
 @property (strong, nonatomic) IBOutlet UITextField *txtPassword;
 
+@property (weak, nonatomic) IBOutlet UILabel *lblCourseName;
+@property (weak, nonatomic) IBOutlet UILabel *lblCourseCityState;
+
+
+@property (weak, nonatomic) IBOutlet UIImageView *imgCourseLogo;
+
+
 - (IBAction)btnSignInTapped:(id)sender;
 
+- (IBAction)btnBackTapped:(id)sender;
 @end
