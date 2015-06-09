@@ -110,14 +110,6 @@
     }
     [[UINavigationBar appearance] setTitleVerticalPositionAdjustment:-10.0 forBarMetrics:UIBarMetricsDefault];
     
-    SharedManager * manager = [SharedManager sharedInstance];
-    if ([CourseServices currentCourse]) {
-        [self enableCheckInButton:![manager isUserLocationInCourse]];
-    }else{
-        [self loadCourseDetailsCompletionBlock:^(Course *currentCourse) {
-            [self enableCheckInButton:![manager isUserLocationInCourse]];
-        }];
-    }
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -154,13 +146,13 @@
 
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"WeatherCell" forIndexPath:indexPath];
     if (cell == nil) {
         cell = [[UICollectionViewCell alloc] init];
     }
     
     WeatherData * tempWeather = [self.weatherList objectAtIndex:indexPath.row];
-    
     
     WeatherViewCell *customCell = (WeatherViewCell *)cell;
     [customCell.lblTime setText:[self hoursFromDate:tempWeather.timeStamp]];
@@ -213,11 +205,33 @@
 
 - (IBAction)btnCheckedInTapped:(UIButton *)sender {
     
+    if ([CourseServices currentCourse]) {
+            [self checkInToCurrentCourse];
+    }else{
+        [self loadCourseDetailsCompletionBlock:^(Course *currentCourse) {
+                [self checkInToCurrentCourse];
+        }];
+    }
+}
+
+-(void)checkInToCurrentCourse{
     
+    SharedManager * manager = [SharedManager sharedInstance];
+    if([manager isUserLocationInCourse]){
+        
+        [CourseServices checkInToCurrentCourse:^(bool status, id responseObject) {
+            if (status) {
+                [[[UIAlertView alloc]initWithTitle:@"Success" message:responseObject[@"message"] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
+            }
+        } failure:^(bool status, NSError * error) {
+            if (status) {
+                [[[UIAlertView alloc]initWithTitle:@"Try Again" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
+            }
+        }];
+    }
 }
 
 -(void)enableCheckInButton:(BOOL)yesNo{
-    
     [self.btnCheckIn setHidden:yesNo];
 }
 

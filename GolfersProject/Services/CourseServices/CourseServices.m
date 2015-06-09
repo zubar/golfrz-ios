@@ -48,6 +48,17 @@ static Course * currentCourse = nil;
     }];
 }
 
++(void)checkInToCurrentCourse:(void(^)(bool status, id responseObject))successBlock failure:(void (^)(bool, NSError *))failureBlock{
+
+    AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
+    [apiClient POST:kCheckInUrl parameters:[CourseServices paramsCourseDetailInfo] success:^(NSURLSessionDataTask *task, id responseObject) {
+        successBlock(true, responseObject);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        failureBlock(false, error);
+    }];
+
+}
+
 +(void)setCurrentCourse:(Course *)mCourse{
     currentCourse = nil;
     currentCourse = mCourse;

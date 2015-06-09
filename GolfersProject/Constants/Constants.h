@@ -54,6 +54,7 @@ static NSString * const kUpdateUserInfo = @"users/";
  */
 static NSString * const kCourseInfo = @"courses/info";
 static NSString * const kCourseDetail = @"courses/course_detail";
+static NSString * const kCheckInUrl = @"check_in";
 
 
 //TODO: get it from bundle id,
