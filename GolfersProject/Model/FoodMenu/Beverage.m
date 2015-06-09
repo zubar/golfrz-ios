@@ -15,8 +15,8 @@
              @"foodId" : @"id",
              @"name" : @"name",
              @"price" : @"price",
-             @"imageUrl" : @"image_url"
-             //             @"details" : @"description"
+             @"imageUrl" : @"image_path",
+             @"details" : @"description",
              //propertyName : json_key
              };
 }

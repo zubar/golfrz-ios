@@ -19,7 +19,9 @@
 @property (strong, nonatomic) IBOutlet UILabel *lblCourseCity;
 @property (strong, nonatomic) IBOutlet UILabel *lblPostalCode;
 
-@property (strong, nonatomic) IBOutlet UILabel *lblViewMap;
+@property (weak, nonatomic) IBOutlet UIButton *btnViewMap;
+- (IBAction)viewMapTapped:(id)sender;
+
 
 @property (strong, nonatomic) IBOutlet UIImageView *imgAdminPic;
 @property (strong, nonatomic) IBOutlet UILabel *lblAdminName;

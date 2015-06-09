@@ -17,9 +17,7 @@
              @"name" : @"name",
              @"price" : @"price",
              @"details" : @"description"
-             //             @"sideItems" : @"menu_side_items"
              //propertyName : json_key
              };
 }
 @end
-

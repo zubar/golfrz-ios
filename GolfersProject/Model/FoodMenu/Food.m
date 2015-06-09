@@ -16,14 +16,16 @@
              @"foodId" : @"id",
              @"name" : @"name",
              @"price" : @"price",
-             @"imageUrl" : @"image_url"
-//             @"details" : @"description",
-//             @"sideItems" : @"menu_side_items"
+             @"imageUrl" : @"image_path",
+             @"details" : @"description",
+             @"sideItems" : @"menus_side_items"
              //propertyName : json_key
              };
 }
 + (NSValueTransformer *)sideItemsJSONTransformer {
+   // return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[SideItem class]];
     return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[SideItem class]];
 }
+
 
 @end

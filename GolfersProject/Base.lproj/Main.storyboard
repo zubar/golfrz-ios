@@ -1296,7 +1296,7 @@
                                             <constraint firstItem="pl0-6n-x25" firstAttribute="top" secondItem="LZQ-Xu-6Zf" secondAttribute="top" id="xaa-MA-vNm"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sedona" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8VN-hK-Fom">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sedona" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8VN-hK-Fom">
                                         <rect key="frame" x="0.0" y="0.0" width="59" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -1543,35 +1543,39 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Skv-KD-9D9">
-                                        <rect key="frame" x="125" y="205" width="70" height="18"/>
-                                        <attributedString key="attributedText">
-                                            <fragment content="View Map">
-                                                <attributes>
-                                                    <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                                    <font key="NSFont" size="15" name="HelveticaNeue-Bold"/>
-                                                    <font key="NSOriginalFont" size="17" name="HelveticaNeue-Bold"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                    <integer key="NSUnderline" value="1"/>
-                                                </attributes>
-                                            </fragment>
-                                        </attributedString>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4sJ-7N-NtY">
+                                        <rect key="frame" x="125" y="199" width="70" height="30"/>
+                                        <state key="normal">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="View Map">
+                                                    <attributes>
+                                                        <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <font key="NSFont" size="15" name="HelveticaNeue-Bold"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                        <integer key="NSUnderline" value="1"/>
+                                                        <color key="NSUnderlineColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </state>
+                                        <connections>
+                                            <action selector="viewMapTapped:" destination="o4e-6f-Edf" eventType="touchUpInside" id="tdw-f6-ppl"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="centerX" secondItem="Skv-KD-9D9" secondAttribute="centerX" id="1bh-Ig-6VE"/>
                                     <constraint firstItem="LZQ-Xu-6Zf" firstAttribute="leading" secondItem="3Ll-34-LQQ" secondAttribute="leading" id="2SQ-WO-LS0"/>
                                     <constraint firstItem="MeT-TB-Ccg" firstAttribute="top" secondItem="NKm-XZ-c2f" secondAttribute="bottom" constant="6" id="78G-4g-sRa"/>
-                                    <constraint firstItem="Skv-KD-9D9" firstAttribute="top" secondItem="NKm-XZ-c2f" secondAttribute="bottom" constant="40" id="8kj-Fs-Gea"/>
+                                    <constraint firstItem="3TR-cx-DC1" firstAttribute="leading" secondItem="8VN-hK-Fom" secondAttribute="leading" id="BvC-Ve-zd9"/>
                                     <constraint firstItem="NKm-XZ-c2f" firstAttribute="top" secondItem="LZQ-Xu-6Zf" secondAttribute="bottom" constant="17" id="Hxf-J6-hWJ"/>
                                     <constraint firstItem="kzu-Yn-JcB" firstAttribute="top" secondItem="3TR-cx-DC1" secondAttribute="bottom" constant="35" id="KIm-7T-EIW"/>
                                     <constraint firstItem="K4E-m6-VSK" firstAttribute="leading" secondItem="MeT-TB-Ccg" secondAttribute="trailing" constant="10" id="OQn-e8-Vcw"/>
+                                    <constraint firstItem="3TR-cx-DC1" firstAttribute="top" secondItem="3Ll-34-LQQ" secondAttribute="top" constant="258" id="P3C-8r-Xq1"/>
                                     <constraint firstItem="K4E-m6-VSK" firstAttribute="centerY" secondItem="MeT-TB-Ccg" secondAttribute="centerY" id="Pqh-cm-EXW"/>
                                     <constraint firstItem="LZQ-Xu-6Zf" firstAttribute="top" secondItem="3Ll-34-LQQ" secondAttribute="top" constant="64" id="Pxi-R8-ieS"/>
-                                    <constraint firstItem="3TR-cx-DC1" firstAttribute="top" secondItem="Skv-KD-9D9" secondAttribute="bottom" constant="35" id="QN2-w3-L4W"/>
                                     <constraint firstAttribute="centerX" secondItem="MeT-TB-Ccg" secondAttribute="centerX" id="SnV-nm-wea"/>
+                                    <constraint firstItem="3TR-cx-DC1" firstAttribute="top" secondItem="4sJ-7N-NtY" secondAttribute="bottom" constant="29" id="VbB-vZ-sW5"/>
                                     <constraint firstAttribute="centerX" secondItem="NKm-XZ-c2f" secondAttribute="centerX" id="WFt-Ai-3Ab"/>
                                     <constraint firstItem="Oh4-et-0jd" firstAttribute="centerY" secondItem="MeT-TB-Ccg" secondAttribute="centerY" id="YKA-yf-RYT"/>
                                     <constraint firstItem="3TR-cx-DC1" firstAttribute="leading" secondItem="3Ll-34-LQQ" secondAttribute="leading" id="b3e-kl-O0c"/>
@@ -1583,6 +1587,8 @@
                                     <constraint firstItem="Oh4-et-0jd" firstAttribute="top" secondItem="NKm-XZ-c2f" secondAttribute="bottom" constant="6" id="uDg-ai-RHk"/>
                                     <constraint firstAttribute="trailing" secondItem="kzu-Yn-JcB" secondAttribute="trailing" id="uxQ-fc-iLA"/>
                                     <constraint firstItem="K4E-m6-VSK" firstAttribute="top" secondItem="NKm-XZ-c2f" secondAttribute="bottom" constant="6" id="wJS-LV-8Ns"/>
+                                    <constraint firstItem="3TR-cx-DC1" firstAttribute="centerX" secondItem="4sJ-7N-NtY" secondAttribute="centerX" id="xcL-6b-HwY"/>
+                                    <constraint firstItem="8VN-hK-Fom" firstAttribute="top" secondItem="3Ll-34-LQQ" secondAttribute="top" id="yh7-ft-ihu"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -1600,6 +1606,7 @@
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <connections>
+                        <outlet property="btnViewMap" destination="4sJ-7N-NtY" id="GWu-0M-lim"/>
                         <outlet property="courseInfoView" destination="LZQ-Xu-6Zf" id="OTJ-da-7ey"/>
                         <outlet property="imgAdminPic" destination="fkJ-uO-CLM" id="yE0-kN-ZE7"/>
                         <outlet property="imgCourseLogo" destination="7iR-gm-vDf" id="1bA-cj-iC7"/>
@@ -1614,7 +1621,6 @@
                         <outlet property="lblHdrCourseCity" destination="bf3-4d-ziN" id="CFp-7z-5vL"/>
                         <outlet property="lblHdrCourseState" destination="j9e-cQ-DFd" id="25r-fH-03A"/>
                         <outlet property="lblPostalCode" destination="K4E-m6-VSK" id="25H-Xy-OWd"/>
-                        <outlet property="lblViewMap" destination="Skv-KD-9D9" id="RK2-40-rUH"/>
                         <outlet property="staffView" destination="ZLh-9E-DYo" id="ce0-ZN-eA4"/>
                         <outlet property="tblDept" destination="vak-o6-3f5" id="ved-hE-kan"/>
                     </connections>

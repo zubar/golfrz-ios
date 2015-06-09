@@ -15,8 +15,8 @@
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
     return @{
-             @"foodItems" : @"food",
-             @"beverageItems" : @"beverage"
+             @"foodItems" : @"Food",
+             @"beverageItems" : @"Beverage"
              //propertyName : json_key
              };
 }

@@ -69,6 +69,13 @@ static NSString * const kUserAgent = @"iOS";
 static NSString * const kCalenderEventsList = @"events";
 
 
+/*
+ *  Food & Beverage
+ */
+
+static NSString * const kFoodAndBeverage = @"menus/get_menu_list";
+static NSString * const kAddItemToCart = @"menus/add_to_cart";
+
 //================================= Presentation ======================================
 
 static NSString * const kDefaultThemeColor = @"0xFF0000";
