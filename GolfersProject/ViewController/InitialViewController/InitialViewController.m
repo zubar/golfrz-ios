@@ -53,44 +53,8 @@
     [self.lblCourseName setText:[manager courseName]];
     [self.lblCityState setText:[NSString stringWithFormat:@"%@, %@", manager.courseCity, manager.courseState]];
     
-    [FoodBeverageServices getMenu:^(bool status, Menu *currentMenu) {
-        
-    } failure:^(bool status, NSError *error) {
-        
-    }];
 }
 
-
--(void)testMethod{
-    NSDictionary * data_dict =  @{ @"id" : @12,
-                                   @"name": @"Zinger",
-                                   @"description": @"zinger hot burger",
-                                   @"price": @23,
-                                   @"image_path": @"default.jpg",
-                                   @"menus_side_items": [NSArray arrayWithObjects:@{
-                                                                                   @"id": @5,
-                                                                                   @"name": @"Orange Juice",
-                                                                                   @"description": @"Liquid",
-                                                                                   @"price": @3
-                                                                                   },
-                                                         @{
-                                                           @"id": @13,
-                                                           @"name": @"Orange Juice",
-                                                           @"description": @"Liquid",
-                                                           @"price": @3
-                                                           },
-                                                         nil
-                                                         ]
-                                   
-                                   
-                                   };
-        
-    NSMutableArray * ids_arry = [[data_dict valueForKeyPath:@"menus_side_items.@distinctUnionOfObjects.id"] mutableCopy];
-    [ids_arry addObject:data_dict[@"id"]];
-    
-    NSLog(@"%@", ids_arry);
-
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

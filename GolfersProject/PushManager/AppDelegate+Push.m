@@ -27,7 +27,7 @@
 
     const void *devTokenBytes = [deviceToken bytes];
     //self.registered = YES;
-    NSLog(@"PushToken: %@", devTokenBytes);
+   // NSLog(@"PushToken: %@", devTokenBytes);
     //[self sendProviderDeviceToken:devTokenBytes]; // custom method
     
 }
