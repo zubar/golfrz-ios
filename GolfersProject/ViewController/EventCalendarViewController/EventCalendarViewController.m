@@ -305,8 +305,8 @@
     
     if ([self.calendar selectedDate]) 
     [Utilities dateComponentsFromNSDate:[self.calendar selectedDate] components:^(NSString *dayName, NSString *monthName, NSString *day, NSString *time) {
-        [headerView.lblDate setText:[NSString stringWithFormat:@"%@, %@ %@", dayName, monthName, day]];
-        
+        [headerView.lblDate setText:[[NSString stringWithFormat:@"%@, %@ %@", dayName, monthName, day] uppercaseString]];
+        [headerView.lblDate setFont:[UIFont fontWithName:@"Helvetica" size:12.0f]];
         
         [WeatherServices dailyWeather:^(bool status, NSDictionary *weatherData) {
             if (status) {
@@ -317,6 +317,8 @@
                 } ];
                 
                 [headerView.lblTemperature setText:[NSString stringWithFormat:@"%@ C", [weatherData[@"temp"] stringValue]]];
+                [headerView.lblTemperature setFont:[UIFont fontWithName:@"Helvetica" size:12.0f]];
+
                 [headerView.lblTemperature setHidden:NO];
             }
         } failure:^(bool status, NSError *error) {
