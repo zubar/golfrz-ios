@@ -304,7 +304,7 @@
     
     
     if ([self.calendar selectedDate]) 
-    [Utilities dateComponentsFromNSDate:[self.calendar selectedDate] components:^(NSString *dayName, NSString *monthName, NSString *day, NSString *time) {
+    [Utilities dateComponentsFromNSDate:[self.calendar selectedDate] components:^(NSString *dayName, NSString *monthName, NSString *day, NSString *time, NSString * minutes) {
         [headerView.lblDate setText:[[NSString stringWithFormat:@"%@, %@ %@", dayName, monthName, day] uppercaseString]];
         [headerView.lblDate setFont:[UIFont fontWithName:@"Helvetica" size:12.0f]];
         

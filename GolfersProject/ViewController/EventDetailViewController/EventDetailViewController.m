@@ -46,9 +46,10 @@
         }
     }];
     
-    [Utilities dateComponentsFromNSDate:self.currentEvent.dateStart components:^(NSString *dayName, NSString *monthName, NSString *day, NSString *time) {
+    [Utilities dateComponentsFromNSDate:self.currentEvent.dateStart components:^(NSString *dayName, NSString *monthName, NSString *day, NSString *time, NSString * minutes) {
         [self.lblDay setText:[NSString stringWithFormat:@"%@ %@", monthName, day]];
-        [self.lblTime setText:time];
+        //TODO: Update the dateComponentsFromNSDate utility method to return time without am/ pm or in both formats
+        [self.lblTime setText:[NSString stringWithFormat:@"%@:%@ am", [[time stringByReplacingOccurrencesOfString:@"AM" withString:@""] stringByReplacingOccurrencesOfString:@" " withString:@""], minutes]];
     }];
     
     
@@ -73,28 +74,13 @@
     
     [[UINavigationBar appearance] setTitleVerticalPositionAdjustment:-10.0 forBarMetrics:UIBarMetricsDefault];
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
-    
-//    UIPageControl * pageControl = (UIPageControl *)[self.navigationController.navigationBar viewWithTag:89];
-//    if (pageControl && ![self isKindOfClass:[ClubHouseSubController class]]) {
-//        [pageControl setHidden:YES];
-//    }else{
-//        [pageControl setHidden:NO];
-//    }
-    
+
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
     
     AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
     [delegate.appDelegateNavController setNavigationBarHidden:NO];
-
-    
-//    UIPageControl * pageControl = (UIPageControl *)[self.navigationController.navigationBar viewWithTag:89];
-//    if (pageControl && ![self isKindOfClass:[ClubHouseSubController class]]) {
-//        [pageControl setHidden:YES];
-//    }else{
-//        [pageControl setHidden:NO];
-//    }
 }
 
 - (void)didReceiveMemoryWarning {

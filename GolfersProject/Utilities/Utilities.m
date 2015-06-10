@@ -11,18 +11,19 @@
 @implementation Utilities
 
 
-+(void)dateComponentsFromNSDate:(NSDate *)mDate components:(void (^)(NSString * dayName, NSString * monthName, NSString * day, NSString * time) )dateComponents{
++(void)dateComponentsFromNSDate:(NSDate *)mDate components:(void (^)(NSString * dayName, NSString * monthName, NSString * day, NSString * time, NSString * minutes) )dateComponents{
 
     NSCalendar *cal = [NSCalendar currentCalendar];
     [cal setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
     [cal setLocale:[NSLocale currentLocale]];
 
-    NSDateComponents *timeStamp = [[NSCalendar currentCalendar] components: NSCalendarUnitWeekday | NSCalendarUnitHour| NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:mDate];
+    NSDateComponents *timeStamp = [[NSCalendar currentCalendar] components: NSCalendarUnitWeekday | NSCalendarUnitHour| NSCalendarUnitMinute | NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:mDate];
 
     dateComponents([Utilities dayName:timeStamp.weekday],
                    [Utilities monthName:timeStamp.month],
                    [NSString stringWithFormat:@"%ld", (long)timeStamp.day],
-                   [Utilities timeInAMPMfrom24hour:(int)timeStamp.hour]
+                   [Utilities timeInAMPMfrom24hour:(int)timeStamp.hour],
+                   [NSString stringWithFormat:@"%.2ld",(long)[timeStamp minute]]
                    );
 
 }

@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface Utilities : NSObject
-+(void)dateComponentsFromNSDate:(NSDate *)mDate components:(void (^)(NSString * dayName, NSString * monthName, NSString * day, NSString * time) )dateComponents;
+
++(void)dateComponentsFromNSDate:(NSDate *)mDate components:(void (^)(NSString * dayName, NSString * monthName, NSString * day, NSString * time, NSString * minutes) )dateComponents;
 
 @end
