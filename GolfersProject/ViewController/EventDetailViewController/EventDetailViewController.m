@@ -61,6 +61,7 @@
         [self.lblEventLocation setText:self.currentEvent.location];
     }else{
         [self.imgLocation setHidden:YES];
+        [self.lblEventLocation setText:@""];
     }
     
 }
