@@ -37,4 +37,24 @@
     }];
 }
 
+-(void)testParamCardItem{
+
+    /*
+    NSDictionary * data_dict =  @{ @"id" : @12,
+                                   @"name": @"Zinger",
+                                   @"description": @"zinger hot burger",
+                                   @"price": @23,
+                                   @"image_path": @"default.jpg",
+                                   @"menus_side_items": [
+                                                            @{
+                                                              @"id": @5,
+                                                              @"name": @"Orange Juice",
+                                                              @"description": @"Liquid",
+                                                              @"price": @3
+                                                              }]
+                                                         };
+    
+ */        
+}
+
 @end

@@ -13,6 +13,7 @@
 #import "CalendarEvent.h"
 #import "EventList.h"
 #import "User.h"
+#import "Menu.h"
 
 @implementation APIClient
 
@@ -41,7 +42,10 @@
     return @{
              kCourseDetail : [Course class],
              kCalenderEventsList : [EventList class],
-             @"users/*" : [User class]
+             @"users/*" : [User class],
+             //@"menus/get_menu_list" : [Menu class],
+             kFoodAndBeverage : [Menu class]
+
              };
     
 }

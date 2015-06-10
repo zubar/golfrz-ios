@@ -17,6 +17,10 @@
 @property (strong, nonatomic) IBOutlet UILabel *lblDay;
 @property (strong, nonatomic) IBOutlet UILabel *lblTime;
 @property (strong, nonatomic) IBOutlet UILabel *lblEventLocation;
+
+
+@property (weak, nonatomic) IBOutlet UIImageView *imgLocation;
+
 @property (strong, nonatomic) IBOutlet UILabel *lblEventDetails;
 - (IBAction)btnContactAdminTapped:(UIButton *)sender;
 - (IBAction)btnInviteFriendsTapped:(UIButton *)sender;
