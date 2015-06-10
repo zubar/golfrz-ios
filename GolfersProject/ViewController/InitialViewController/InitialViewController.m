@@ -15,7 +15,7 @@
 #import "UserServices.h"
 #import "CourseServices.h"
 #import "WeatherServices.h"
-#import "Coordinates.h"
+#import "Coordinate.h"
 #import "Course.h"
 #import "CalendarEventServices.h"
 
@@ -27,6 +27,7 @@
 #import "UIImageView+RoundedImage.h"
 #import "SharedManager.h"
 #import "UIImageView+RoundedImage.h"
+#import "FoodBeverageServices.h"
 
 @interface InitialViewController ()
 
@@ -52,8 +53,8 @@
     [self.lblCourseName setText:[manager courseName]];
     [self.lblCityState setText:[NSString stringWithFormat:@"%@, %@", manager.courseCity, manager.courseState]];
     
-    
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

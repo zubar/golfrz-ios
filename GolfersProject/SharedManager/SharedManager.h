@@ -8,9 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 
 
-@interface SharedManager : NSObject
+@interface SharedManager : NSObject<CLLocationManagerDelegate>{
+    CLLocationManager * sharedLocationManager;
+}
 
 @property (strong, nonatomic) UIColor * themeColor;
 @property (strong, nonatomic) NSString * backgroundImagePath;
@@ -22,5 +25,5 @@
 
 + (SharedManager *)sharedInstance;
 
-
+-(BOOL)isUserLocationInCourse;
 @end

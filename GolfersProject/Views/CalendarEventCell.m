@@ -37,7 +37,7 @@
     
     self.event =event;
     
-    [Utilities dateComponentsFromNSDate:self.event.dateStart components:^(NSString *dayName, NSString *monthName, NSString *day, NSString *time) {
+    [Utilities dateComponentsFromNSDate:self.event.dateStart components:^(NSString *dayName, NSString *monthName, NSString *day, NSString *time, NSString * minutes) {
         
         self.lbleventName.text = self.event.name;
         [self.lbleventTime setText:time];

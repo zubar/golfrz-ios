@@ -27,7 +27,7 @@ static Course * currentCourse = nil;
         OVCResponse * resp = response;
         if (!error) {
             Course * mCourse = [resp result];
-            currentCourse = mCourse;
+            [self setCurrentCourse:mCourse];
             successBlock(true, mCourse);
         }else
             failureBlock(false, error);
@@ -46,6 +46,17 @@ static Course * currentCourse = nil;
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         NSLog(@"%@", error);
     }];
+}
+
++(void)checkInToCurrentCourse:(void(^)(bool status, id responseObject))successBlock failure:(void (^)(bool, NSError *))failureBlock{
+
+    AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
+    [apiClient POST:kCheckInUrl parameters:[CourseServices paramsCourseDetailInfo] success:^(NSURLSessionDataTask *task, id responseObject) {
+        successBlock(true, responseObject);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        failureBlock(false, error);
+    }];
+
 }
 
 +(void)setCurrentCourse:(Course *)mCourse{

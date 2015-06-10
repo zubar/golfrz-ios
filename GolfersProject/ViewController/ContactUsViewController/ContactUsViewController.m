@@ -60,7 +60,7 @@
     [self.lblCourseState setHidden:yesNo];
     [self.lblCourseCity setHidden:yesNo];
     [self.lblPostalCode setHidden:yesNo];
-    [self.lblViewMap setHidden:yesNo];
+    [self.btnViewMap setHidden:yesNo];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -168,5 +168,21 @@
     AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
     [delegate.appDelegateNavController popViewControllerAnimated:YES];
     
+}
+- (IBAction)viewMapTapped:(id)sender {
+    
+    //TODO: Open Map
+    
+   // NSString * destinationAddress = [NSString stringWithFormat:@"http://maps.apple.com/?ll=%@" , @"31.501452,74.315775"];
+    
+    NSString * destinationAddress = [NSString stringWithFormat:@"http://maps.apple.com/?daddr=%@" , @"Kalma+Chowk+Bus+Stop,+Lahore,+Punjab,+Pakistan&saddr=31-b+3,+Lahore,+Punjab,+Pakistan"];
+
+    
+    //NSString * destSafariAddress = [NSString stringWithFormat:@"<a href=http://maps.apple.com/?daddr=%@> GolfCourse</a>" , @"31 B-III, Gulberg-III, Lahore, Pakistan"];
+    
+    NSURL * destUrl = [NSURL URLWithString:destinationAddress];
+    if (destUrl) {
+       // [[UIApplication sharedApplication] openURL:destUrl];
+    }
 }
 @end
