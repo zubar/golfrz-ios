@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
@@ -2488,7 +2488,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                     </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="q3W-YF-wpN">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="q3W-YF-wpN">
                                         <rect key="frame" x="125" y="25" width="70" height="70"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="70" id="6lq-S1-4m5"/>
@@ -2924,6 +2924,7 @@
         <image name="go_button" width="20" height="20"/>
         <image name="golfcourse_logo" width="100" height="101"/>
         <image name="invite_icon" width="51" height="50"/>
+        <image name="person_placeholder" width="150" height="150"/>
         <image name="red_circle" width="15" height="15"/>
         <image name="settings_button" width="15" height="15"/>
         <image name="signup_location" width="23" height="31"/>

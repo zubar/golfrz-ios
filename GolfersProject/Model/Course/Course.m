@@ -63,7 +63,7 @@
 
 + (NSString *)absoluteImageURLfromRelativeUR:(NSString *)relativePath {
     
-    return [NSString stringWithFormat:@"%@%@", kBaseImageUrl, relativePath];
+    return [NSString stringWithFormat:@"%@%@", kBaseImageUrl, relativePath]; // KBaseImageUrl
 }
 
 @end
