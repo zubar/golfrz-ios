@@ -2116,11 +2116,11 @@
                                             <constraint firstAttribute="width" constant="35" id="NQ7-1d-HiC"/>
                                             <constraint firstAttribute="height" constant="35" id="fDl-vb-65M"/>
                                         </constraints>
-                                        <state key="normal" backgroundImage="eventadmin_btn">
+                                        <state key="normal" backgroundImage="invite_icon">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="btnContactAdminTapped:" destination="P0I-Et-RIr" eventType="touchUpInside" id="RHz-MM-a6y"/>
+                                            <action selector="btnInviteFriendsTapped:" destination="P0I-Et-RIr" eventType="touchUpInside" id="Wfw-UJ-NHm"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Typ-Y3-8NV">
@@ -2129,21 +2129,15 @@
                                             <constraint firstAttribute="width" constant="35" id="XYt-hr-l8d"/>
                                             <constraint firstAttribute="height" constant="35" id="k0A-uv-gbh"/>
                                         </constraints>
-                                        <state key="normal" title="Button" backgroundImage="invite_icon">
+                                        <state key="normal" title="Button" backgroundImage="eventadmin_btn">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="btnInviteFriendsTapped:" destination="P0I-Et-RIr" eventType="touchUpInside" id="QkU-5W-Z8u"/>
+                                            <action selector="btnContactAdminTapped:" destination="P0I-Et-RIr" eventType="touchUpInside" id="R0Z-4F-lle"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CONTACT ADMIN" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="odj-Hy-qRs">
-                                        <rect key="frame" x="37" y="443" width="101" height="15"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="INVITE FRIENDS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y5h-Y3-c5G">
-                                        <rect key="frame" x="179" y="444" width="94" height="15"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CONTACT ADMIN" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y5h-Y3-c5G">
+                                        <rect key="frame" x="172" y="443" width="101" height="15"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -2155,17 +2149,23 @@
                                             <constraint firstAttribute="height" constant="15" id="kud-9w-Mr3"/>
                                         </constraints>
                                     </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="INVITE FRIENDS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="odj-Hy-qRs">
+                                        <rect key="frame" x="40" y="443" width="94" height="15"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="o6N-yi-3OS" secondAttribute="trailing" constant="20" id="2MD-hL-Tso"/>
                                     <constraint firstItem="xGK-U6-PmD" firstAttribute="leading" secondItem="5uK-j8-igg" secondAttribute="leading" constant="70" id="4bS-bq-oq9"/>
-                                    <constraint firstItem="Y5h-Y3-c5G" firstAttribute="top" secondItem="Typ-Y3-8NV" secondAttribute="bottom" constant="5" id="9fO-y3-c68"/>
+                                    <constraint firstItem="Y5h-Y3-c5G" firstAttribute="top" secondItem="Typ-Y3-8NV" secondAttribute="bottom" constant="4" id="9fO-y3-c68"/>
                                     <constraint firstItem="igt-aX-oaE" firstAttribute="top" secondItem="xXS-a3-cTF" secondAttribute="bottom" constant="5" id="FJ9-B1-Yjp"/>
                                     <constraint firstAttribute="centerX" secondItem="uEZ-2V-omX" secondAttribute="centerX" id="Fd4-sC-JK3"/>
                                     <constraint firstItem="GUe-0b-ROn" firstAttribute="leading" secondItem="igt-aX-oaE" secondAttribute="trailing" constant="6" id="GPG-dP-K3V"/>
-                                    <constraint firstItem="Typ-Y3-8NV" firstAttribute="centerX" secondItem="Y5h-Y3-c5G" secondAttribute="centerX" constant="-3.5" id="LqY-B1-pFt"/>
+                                    <constraint firstItem="Typ-Y3-8NV" firstAttribute="centerX" secondItem="Y5h-Y3-c5G" secondAttribute="centerX" id="LqY-B1-pFt"/>
                                     <constraint firstAttribute="centerX" secondItem="o6N-yi-3OS" secondAttribute="centerX" id="Nr3-Cm-jI0"/>
                                     <constraint firstAttribute="centerX" secondItem="7JI-Tz-vaP" secondAttribute="centerX" id="Oi2-hf-nlW"/>
                                     <constraint firstItem="Typ-Y3-8NV" firstAttribute="centerY" secondItem="xGK-U6-PmD" secondAttribute="centerY" constant="0.5" id="OjL-GH-LEE"/>
@@ -2215,7 +2215,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BlT-nm-62A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="863" y="1091"/>
+            <point key="canvasLocation" x="754" y="1080"/>
         </scene>
         <!--Player Settings Main View Controller-->
         <scene sceneID="kKA-qe-TxH">
