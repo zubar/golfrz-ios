@@ -2205,6 +2205,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <connections>
                         <outlet property="imgEventLogo" destination="uEZ-2V-omX" id="zJh-PD-M3U"/>
+                        <outlet property="imgLocation" destination="igt-aX-oaE" id="6hl-GL-ons"/>
                         <outlet property="lblDay" destination="xXS-a3-cTF" id="gfc-rS-vla"/>
                         <outlet property="lblEventDetails" destination="o6N-yi-3OS" id="aNb-jl-5H4"/>
                         <outlet property="lblEventLocation" destination="GUe-0b-ROn" id="3Jq-BY-uFC"/>

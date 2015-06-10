@@ -56,7 +56,12 @@
     //[self.lblTime setText:[NSString stringWithFormat:@"%ld:%ld", (long)eventDate.hour, (long)eventDate.minute]];
     [self.lblEventName setText:self.currentEvent.name];
     [self.lblEventDetails setText:self.currentEvent.breif];
-    [self.lblEventLocation setText:self.currentEvent.location];
+    if( self.currentEvent.location && [self.currentEvent location].length >=1 ){
+        [self.imgLocation setHidden:NO];
+        [self.lblEventLocation setText:self.currentEvent.location];
+    }else{
+        [self.imgLocation setHidden:YES];
+    }
     
 }
 
