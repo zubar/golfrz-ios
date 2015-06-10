@@ -61,6 +61,7 @@
     [self.lblCourseCity setHidden:yesNo];
     [self.lblPostalCode setHidden:yesNo];
     [self.btnViewMap setHidden:yesNo];
+    [self.lblComma setHidden:yesNo];
 }
 
 -(void)viewWillAppear:(BOOL)animated{

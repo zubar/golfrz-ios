@@ -1754,6 +1754,7 @@
                         <outlet property="lblAdminEmail" destination="KY2-qG-JCL" id="Bys-Hk-A99"/>
                         <outlet property="lblAdminName" destination="RVw-br-HhP" id="2Ga-Qr-mTY"/>
                         <outlet property="lblAdminPost" destination="oKg-ub-OoL" id="oIh-iJ-Su4"/>
+                        <outlet property="lblComma" destination="W94-at-swA" id="YTm-3L-rNm"/>
                         <outlet property="lblCourseCity" destination="MeT-TB-Ccg" id="p1J-0f-UC3"/>
                         <outlet property="lblCourseName" destination="3No-2F-llJ" id="78a-sT-5FB"/>
                         <outlet property="lblCourseStAddress" destination="NKm-XZ-c2f" id="i4j-0W-aTb"/>
