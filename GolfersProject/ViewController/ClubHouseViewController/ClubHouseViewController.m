@@ -21,6 +21,7 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "SharedManager.h"
 #import "UIImageView+RoundedImage.h"
+#import "SideNotificationView.h"
 
 
 @interface ClubHouseViewController ()
@@ -235,4 +236,8 @@
     [self.btnCheckIn setHidden:yesNo];
 }
 
+- (IBAction)btnTeeTimeTap:(id)sender {
+ 
+    
+}
 @end

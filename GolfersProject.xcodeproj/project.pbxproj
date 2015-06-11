@@ -59,6 +59,8 @@
 		3DCA44D81B26CB3400B66BD2 /* Menu.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DCA44C41B26CB3400B66BD2 /* Menu.m */; };
 		3DCA44D91B26CB3400B66BD2 /* SideItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DCA44C61B26CB3400B66BD2 /* SideItem.m */; };
 		3DCA44DF1B2709BF00B66BD2 /* FoodBeverageServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DCA44DE1B2709BF00B66BD2 /* FoodBeverageServices.m */; };
+		3DD3CA381B2863CF00767BCF /* SideNotificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD3CA361B2863CF00767BCF /* SideNotificationView.m */; };
+		3DD3CA391B2863CF00767BCF /* SideNotificationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DD3CA371B2863CF00767BCF /* SideNotificationView.xib */; };
 		3DD9BD0D1B14BE1C00A2F296 /* CalendarUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD9BD081B14BE1C00A2F296 /* CalendarUtilities.m */; };
 		3DD9BD0E1B14BE1C00A2F296 /* NSDate+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD9BD0A1B14BE1C00A2F296 /* NSDate+Helper.m */; };
 		3DD9BD0F1B14BE1C00A2F296 /* THCalendarInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD9BD0C1B14BE1C00A2F296 /* THCalendarInfo.m */; };
@@ -83,8 +85,6 @@
 		887C51311B21C9E300C778D7 /* UIImageView+RoundedImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 887C51301B21C9E300C778D7 /* UIImageView+RoundedImage.m */; };
 		88855DD21B256F5A00E164D6 /* FoodBeveragesMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88855DD11B256F5A00E164D6 /* FoodBeveragesMainViewController.m */; };
 		889872BF1B13105C00D3C0E9 /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 889872BE1B13105C00D3C0E9 /* Utilities.m */; };
-		889872C91B13239400D3C0E9 /* SideNotificationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 889872C81B13239400D3C0E9 /* SideNotificationView.xib */; };
-		889872CC1B13437400D3C0E9 /* SideNotificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 889872CB1B13437400D3C0E9 /* SideNotificationView.m */; };
 		88B21DEB1B1C390100AFC6D2 /* SplashScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B21DEA1B1C390100AFC6D2 /* SplashScreenViewController.m */; };
 		88B23C171B16E49800988908 /* ContactUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B23C161B16E49800988908 /* ContactUsViewController.m */; };
 		88B23C1C1B16E69D00988908 /* CourseDepartmentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B23C1B1B16E69D00988908 /* CourseDepartmentCell.m */; };
@@ -201,6 +201,9 @@
 		3DCA44CB1B26CB3400B66BD2 /* WeatherData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherData.m; sourceTree = "<group>"; };
 		3DCA44DD1B2709BF00B66BD2 /* FoodBeverageServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodBeverageServices.h; sourceTree = "<group>"; };
 		3DCA44DE1B2709BF00B66BD2 /* FoodBeverageServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodBeverageServices.m; sourceTree = "<group>"; };
+		3DD3CA351B2863CF00767BCF /* SideNotificationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideNotificationView.h; sourceTree = "<group>"; };
+		3DD3CA361B2863CF00767BCF /* SideNotificationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideNotificationView.m; sourceTree = "<group>"; };
+		3DD3CA371B2863CF00767BCF /* SideNotificationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SideNotificationView.xib; sourceTree = "<group>"; };
 		3DD9BD071B14BE1C00A2F296 /* CalendarUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarUtilities.h; sourceTree = "<group>"; };
 		3DD9BD081B14BE1C00A2F296 /* CalendarUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarUtilities.m; sourceTree = "<group>"; };
 		3DD9BD091B14BE1C00A2F296 /* NSDate+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Helper.h"; sourceTree = "<group>"; };
@@ -251,9 +254,6 @@
 		889872BE1B13105C00D3C0E9 /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
 		889872C11B13111900D3C0E9 /* Alert-Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Alert-Constants.h"; sourceTree = "<group>"; };
 		889872C21B13111900D3C0E9 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
-		889872C81B13239400D3C0E9 /* SideNotificationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SideNotificationView.xib; path = Views/SideNotificationView.xib; sourceTree = "<group>"; };
-		889872CA1B13437400D3C0E9 /* SideNotificationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideNotificationView.h; sourceTree = "<group>"; };
-		889872CB1B13437400D3C0E9 /* SideNotificationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideNotificationView.m; sourceTree = "<group>"; };
 		88B21DE91B1C390100AFC6D2 /* SplashScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashScreenViewController.h; sourceTree = "<group>"; };
 		88B21DEA1B1C390100AFC6D2 /* SplashScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashScreenViewController.m; sourceTree = "<group>"; };
 		88B23C151B16E49800988908 /* ContactUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactUsViewController.h; sourceTree = "<group>"; };
@@ -569,6 +569,16 @@
 			path = "Food+BeverageService";
 			sourceTree = "<group>";
 		};
+		3DD3CA341B2863CF00767BCF /* SideNotificationView */ = {
+			isa = PBXGroup;
+			children = (
+				3DD3CA351B2863CF00767BCF /* SideNotificationView.h */,
+				3DD3CA361B2863CF00767BCF /* SideNotificationView.m */,
+				3DD3CA371B2863CF00767BCF /* SideNotificationView.xib */,
+			);
+			path = SideNotificationView;
+			sourceTree = "<group>";
+		};
 		3DD9BD061B14BE1C00A2F296 /* CalenderUtils */ = {
 			isa = PBXGroup;
 			children = (
@@ -652,7 +662,6 @@
 				88024F6D1AD29134004AC260 /* Images.xcassets */,
 				88024F6F1AD29134004AC260 /* LaunchScreen.xib */,
 				88024F601AD29134004AC260 /* Supporting Files */,
-				889872C81B13239400D3C0E9 /* SideNotificationView.xib */,
 			);
 			path = GolfersProject;
 			sourceTree = "<group>";
@@ -843,11 +852,10 @@
 		889872C71B13237F00D3C0E9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3DD3CA341B2863CF00767BCF /* SideNotificationView */,
 				3D841D291B1CD98800A267DE /* EventHeaderView.xib */,
 				3D841D261B1CD97D00A267DE /* EventHeaderView.h */,
 				3D841D271B1CD97D00A267DE /* EventHeaderView.m */,
-				889872CA1B13437400D3C0E9 /* SideNotificationView.h */,
-				889872CB1B13437400D3C0E9 /* SideNotificationView.m */,
 				3D87D82F1B15A5F50046BD60 /* CalendarEventCell.h */,
 				3D87D8301B15A5F50046BD60 /* CalendarEventCell.m */,
 				3D87D8311B15A5F50046BD60 /* CalendarEventCell.xib */,
@@ -984,8 +992,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D841D2A1B1CD98800A267DE /* EventHeaderView.xib in Resources */,
-				889872C91B13239400D3C0E9 /* SideNotificationView.xib in Resources */,
 				3D87D8331B15A5F50046BD60 /* CalendarEventCell.xib in Resources */,
+				3DD3CA391B2863CF00767BCF /* SideNotificationView.xib in Resources */,
 				88024F6C1AD29134004AC260 /* Main.storyboard in Resources */,
 				88024F711AD29134004AC260 /* LaunchScreen.xib in Resources */,
 				88024F6E1AD29134004AC260 /* Images.xcassets in Resources */,
@@ -1036,9 +1044,9 @@
 				88D813AD1B17640E00FD7D0E /* PlayerSettingsMainViewController.m in Sources */,
 				889872BF1B13105C00D3C0E9 /* Utilities.m in Sources */,
 				3D1963F41B0E1B6900766CFC /* RewardViewController.m in Sources */,
+				3DD3CA381B2863CF00767BCF /* SideNotificationView.m in Sources */,
 				3D1963BC1B0CE05700766CFC /* CourseServices.m in Sources */,
 				885CB06B1B09BADE00AD2A7B /* SignUpViewController.m in Sources */,
-				889872CC1B13437400D3C0E9 /* SideNotificationView.m in Sources */,
 				3D841D281B1CD97D00A267DE /* EventHeaderView.m in Sources */,
 				3DCA44D61B26CB3400B66BD2 /* Beverage.m in Sources */,
 				3DCA44D91B26CB3400B66BD2 /* SideItem.m in Sources */,

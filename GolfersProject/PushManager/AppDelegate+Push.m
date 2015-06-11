@@ -6,20 +6,24 @@
 //
 
 #import "AppDelegate+Push.h"
+#import "SideNotificationView.h"
 
 @implementation AppDelegate (Push)
 
 
 -(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo{
 
-
+    //TODO: See if we need to check localNotif: 
     UILocalNotification *localNotif =
     [userInfo objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
-    if (localNotif) {
-     //   NSString *itemName = [localNotif.userInfo objectForKey:ToDoItemKey];
-       // [viewController displayItem:itemName];  // custom method
-       // app.applicationIconBadgeNumber = localNotif.applicationIconBadgeNumber-1;
-    }
+    
+    
+        SideNotificationView * sideView = [SideNotificationView sharedInstance];
+        [sideView addNotificationsArrayObject:userInfo];
+    
+        //NSString *itemName = [localNotif.userInfo objectForKey:ToDoItemKey];
+        //[viewController displayItem:itemName];  // custom method
+        //app.applicationIconBadgeNumber = localNotif.applicationIconBadgeNumber-1;
 }
 
 
