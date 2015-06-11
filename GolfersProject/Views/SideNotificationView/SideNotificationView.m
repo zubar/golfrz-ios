@@ -10,11 +10,6 @@
 
 
 
-#define kSideAnimationDuration 0.5f
-#define kSideViewHeight 90
-#define kSideViewWidth 300
-#define kSideViewOriginYPercent 0.8f
-
 @implementation SideNotificationView (private)
 bool isDisplaying;
 @end
@@ -22,6 +17,10 @@ bool isDisplaying;
 
 @interface SideNotificationView (private_methods)
 -(instancetype)init;
+-(void)showNotificationInView:(UIView*)view title:(NSString *)title detail:(NSString *)description;
+-(void)populateNotificationAndShow;
+-(UIViewController*)topMostController;
+
 @end
 
 @implementation SideNotificationView
@@ -69,13 +68,7 @@ bool isDisplaying;
 
 -(void)addNotificationsArrayObject:(NSDictionary *)object{
     
-    //Extracts notification payload.
-    NSDictionary * notif = @{
-                             @"description" : object[@"description"],
-                             @"title" : object[@"title"]
-                             };
-    
-    [self.notificationsArray addObject:notif];
+    [self.notificationsArray addObject:object];
     [self populateNotificationAndShow];
 }
 
@@ -91,7 +84,7 @@ bool isDisplaying;
     NSDictionary * notif = [NSDictionary dictionaryWithDictionary:[self.notificationsArray firstObject]];
     [self.notificationsArray removeObject:[self.notificationsArray firstObject]];
     
-    [self showNotificationInView:controller.view title:notif[@"title"] detail:notif[@"description"]];
+    [self showNotificationInView:controller.view title:notif[kNotificationTitle] detail:notif[kNotificaationDescription]];
 }
 
 

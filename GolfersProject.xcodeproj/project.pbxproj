@@ -61,6 +61,7 @@
 		3DCA44DF1B2709BF00B66BD2 /* FoodBeverageServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DCA44DE1B2709BF00B66BD2 /* FoodBeverageServices.m */; };
 		3DD3CA381B2863CF00767BCF /* SideNotificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD3CA361B2863CF00767BCF /* SideNotificationView.m */; };
 		3DD3CA391B2863CF00767BCF /* SideNotificationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DD3CA371B2863CF00767BCF /* SideNotificationView.xib */; };
+		3DD3CA401B297AD300767BCF /* UtilityServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD3CA3F1B297AD300767BCF /* UtilityServices.m */; };
 		3DD9BD0D1B14BE1C00A2F296 /* CalendarUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD9BD081B14BE1C00A2F296 /* CalendarUtilities.m */; };
 		3DD9BD0E1B14BE1C00A2F296 /* NSDate+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD9BD0A1B14BE1C00A2F296 /* NSDate+Helper.m */; };
 		3DD9BD0F1B14BE1C00A2F296 /* THCalendarInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD9BD0C1B14BE1C00A2F296 /* THCalendarInfo.m */; };
@@ -204,6 +205,8 @@
 		3DD3CA351B2863CF00767BCF /* SideNotificationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideNotificationView.h; sourceTree = "<group>"; };
 		3DD3CA361B2863CF00767BCF /* SideNotificationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideNotificationView.m; sourceTree = "<group>"; };
 		3DD3CA371B2863CF00767BCF /* SideNotificationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SideNotificationView.xib; sourceTree = "<group>"; };
+		3DD3CA3E1B297AD300767BCF /* UtilityServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UtilityServices.h; sourceTree = "<group>"; };
+		3DD3CA3F1B297AD300767BCF /* UtilityServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UtilityServices.m; sourceTree = "<group>"; };
 		3DD9BD071B14BE1C00A2F296 /* CalendarUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarUtilities.h; sourceTree = "<group>"; };
 		3DD9BD081B14BE1C00A2F296 /* CalendarUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarUtilities.m; sourceTree = "<group>"; };
 		3DD9BD091B14BE1C00A2F296 /* NSDate+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Helper.h"; sourceTree = "<group>"; };
@@ -579,6 +582,15 @@
 			path = SideNotificationView;
 			sourceTree = "<group>";
 		};
+		3DD3CA3D1B297AD300767BCF /* UtilityServices */ = {
+			isa = PBXGroup;
+			children = (
+				3DD3CA3E1B297AD300767BCF /* UtilityServices.h */,
+				3DD3CA3F1B297AD300767BCF /* UtilityServices.m */,
+			);
+			path = UtilityServices;
+			sourceTree = "<group>";
+		};
 		3DD9BD061B14BE1C00A2F296 /* CalenderUtils */ = {
 			isa = PBXGroup;
 			children = (
@@ -780,6 +792,7 @@
 		885CB07C1B0A121300AD2A7B /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				3DD3CA3D1B297AD300767BCF /* UtilityServices */,
 				3DCA44DC1B27097F00B66BD2 /* Food+BeverageService */,
 				3DD9BD231B14C36D00A2F296 /* EventServices */,
 				3D1964241B13302A00766CFC /* FBAuthenticationAgent */,
@@ -1096,6 +1109,7 @@
 				3D87D8321B15A5F50046BD60 /* CalendarEventCell.m in Sources */,
 				3D1963F81B0E1F0500766CFC /* WeatherViewCell.m in Sources */,
 				3DCA44DF1B2709BF00B66BD2 /* FoodBeverageServices.m in Sources */,
+				3DD3CA401B297AD300767BCF /* UtilityServices.m in Sources */,
 				3D1963EA1B0E1B5200766CFC /* ClubHouseContainerVC.m in Sources */,
 				3D1963EC1B0E1B5200766CFC /* ClubHouseViewController.m in Sources */,
 				3DCA44D81B26CB3400B66BD2 /* Menu.m in Sources */,

@@ -8,6 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+
+
+#define kSideAnimationDuration 0.5f
+#define kSideViewHeight 90
+#define kSideViewWidth 300
+#define kSideViewOriginYPercent 0.8f
+
+#define kNotificationTitle @"title"
+#define kNotificaationDescription @"description"
+
 @interface SideNotificationView : UIView
 @property (strong, nonatomic) IBOutlet UILabel *lblTypeOfUpdate;
 @property (strong, nonatomic) IBOutlet UILabel *lblTagNo;
@@ -21,7 +31,6 @@
 
 @property (strong, nonatomic) NSMutableArray * notificationsArray;
 
--(void)showNotificationInView:(UIView*)view title:(NSString *)title detail:(NSString *)description;
 + (SideNotificationView *)sharedInstance;
 -(void)addNotificationsArrayObject:(NSDictionary *)object;
 

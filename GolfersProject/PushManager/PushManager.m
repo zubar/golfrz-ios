@@ -7,6 +7,8 @@
 //
 
 #import "PushManager.h"
+#import "SideNotificationView.h"
+#import "UtilityServices.h"
 
 @implementation PushManager
 
@@ -26,6 +28,15 @@
     return sharedInstance;
 }
 
+-(void)setPushToken:(NSString *)tokenString{
+    if (!tokenString) {
+        tokenString = [[NSString alloc] initWithString:tokenString];
+    }
+    tokenString = tokenString;
+    self.isRegisteredForPush = TRUE;
+    [self postTokenToServer];
+}
+
 -(void)registerForPushMessages{
 
     UIUserNotificationType types = UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert;
@@ -34,11 +45,32 @@
     [[UIApplication sharedApplication] registerForRemoteNotifications];
 }
 
--(void)displayNotification{
+-(void)addNotificationToList:(NSDictionary *)object{
 
-//TODO: check before you post notif
-//currentUserNotificationSettings
+    //TODO: check before you post notif
+    //currentUserNotificationSettings
     
+    //Extracts notification payload.
+    NSDictionary * notif = @{
+                             kNotificationTitle : object[@"title"],
+                             kNotificaationDescription : object[@"description"]
+                             };
+    
+    SideNotificationView * notifView = [SideNotificationView sharedInstance];
+    [notifView addNotificationsArrayObject:notif];
+}
+
+-(void)postTokenToServer{
+    
+    NSDictionary * params = @{
+                              @"token": self.pushToken
+                              };
+    
+    [UtilityServices postData:params toURL:@"some-URL" success:^(bool status, NSDictionary *userInfo) {
+        // Good keep chill.
+    } failure:^(bool status, NSError *error) {
+        //TODO: Try again to post.
+    }];
 }
 
 @end

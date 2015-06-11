@@ -7,6 +7,7 @@
 
 #import "AppDelegate+Push.h"
 #import "SideNotificationView.h"
+#import "PushManager.h"
 
 @implementation AppDelegate (Push)
 
@@ -18,8 +19,8 @@
     [userInfo objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
     
     
-        SideNotificationView * sideView = [SideNotificationView sharedInstance];
-        [sideView addNotificationsArrayObject:userInfo];
+    PushManager * sharedPushManager = [PushManager sharedInstance];
+    [sharedPushManager addNotificationToList:userInfo];
     
         //NSString *itemName = [localNotif.userInfo objectForKey:ToDoItemKey];
         //[viewController displayItem:itemName];  // custom method
@@ -29,11 +30,13 @@
 
 -(void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken{
 
-    const void *devTokenBytes = [deviceToken bytes];
-    //self.registered = YES;
-   // NSLog(@"PushToken: %@", devTokenBytes);
-    //[self sendProviderDeviceToken:devTokenBytes]; // custom method
+    //const void *devTokenBytes = [deviceToken bytes];
+    NSString *token = [[deviceToken description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
+    token = [token stringByReplacingOccurrencesOfString:@" " withString:@""];
+    NSLog(@"PushToken---%@", token);
     
+    PushManager * sharedPushManager = [PushManager sharedInstance];
+    [sharedPushManager setPushToken:token];
 }
 
 -(void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings{
