@@ -54,7 +54,7 @@
     return @{
              @"app_bundle_id" : kAppBundleId,
              @"user_agent" : kUserAgent,
-             @"auth_token" : @"MEW4Qd7Lp1J3IM_eh5gl-w"//[UserServices currentToken]
+             @"auth_token" : [UserServices currentToken]
              };
     
 }

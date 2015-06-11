@@ -21,6 +21,7 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "SharedManager.h"
 #import "UIImageView+RoundedImage.h"
+#import "FoodBeveragesMainViewController.h"
 
 
 @interface ClubHouseViewController ()
@@ -56,7 +57,7 @@
     
     
     // Do any additional setup after loading the view.
-    [MBProgressHUD hideHUDForView:self.view animated:YES];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [WeatherServices weatherInfo:^(bool status, NSArray *mWeatherData) {
         if (status) {
             self.weatherList = mWeatherData;
@@ -188,6 +189,12 @@
     [delegate.appDelegateNavController pushViewController:controller animated:YES];
 }
 
+
+- (IBAction)btnFoodBevTapped:(id)sender {
+    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+    FoodBeveragesMainViewController * controller = [self.storyboard instantiateViewControllerWithIdentifier:@"FoodBeveragesMainViewController"];
+    [delegate.appDelegateNavController pushViewController:controller animated:YES];
+}
 
 
 #pragma mark - NavBarButtonsDelegate

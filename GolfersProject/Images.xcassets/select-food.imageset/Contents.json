@@ -7,18 +7,18 @@
     {
       "idiom" : "iphone",
       "scale" : "2x",
-      "filename" : "Selected Tab-FOOD.png"
+      "filename" : "selected-food@2x.png"
     },
     {
       "idiom" : "iphone",
-      "filename" : "Selected Tab-FOOD-1.png",
+      "filename" : "selected-food@2x-1.png",
       "subtype" : "retina4",
       "scale" : "2x"
     },
     {
       "idiom" : "iphone",
       "scale" : "3x",
-      "filename" : "Selected Tab-FOOD-2.png"
+      "filename" : "selected-food@3x.png"
     }
   ],
   "info" : {

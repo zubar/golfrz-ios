@@ -20,6 +20,7 @@
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *btnEventsTapped;
 @property (strong, nonatomic) IBOutlet UIButton *btnFoodBevTapped;
 
+
 @property (weak, nonatomic) IBOutlet UIButton *btnCheckIn;
 
 @end

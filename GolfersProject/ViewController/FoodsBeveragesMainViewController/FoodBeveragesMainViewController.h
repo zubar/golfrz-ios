@@ -8,6 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FoodBeveragesMainViewController : UIViewController
+@interface FoodBeveragesMainViewController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
+@property (strong, nonatomic) NSMutableArray *foodArray;
+@property (strong, nonatomic) NSMutableArray *bevArray;
+@property (strong, nonatomic) IBOutlet UICollectionView *foodBevCollectionView;
+
+- (IBAction)btnFoodTapped:(UIButton *)sender;
+
+- (IBAction)btnBevTapped:(UIButton *)sender;
+
+@property (strong, nonatomic) IBOutlet UIButton *buttonFood;
+@property (strong, nonatomic) IBOutlet UIButton *buttonBeverage;
+
 
 @end

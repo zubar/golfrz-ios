@@ -7,18 +7,18 @@
     {
       "idiom" : "iphone",
       "scale" : "2x",
-      "filename" : "Unselected Tab.png"
+      "filename" : "unchecked_checkbox@2x.png"
     },
     {
       "idiom" : "iphone",
-      "filename" : "Unselected Tab-1.png",
+      "filename" : "unchecked_checkbox@2x-1.png",
       "subtype" : "retina4",
       "scale" : "2x"
     },
     {
       "idiom" : "iphone",
       "scale" : "3x",
-      "filename" : "Unselected Tab-2.png"
+      "filename" : "unchecked_checkbox@3x.png"
     }
   ],
   "info" : {
