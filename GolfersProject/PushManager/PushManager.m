@@ -49,7 +49,6 @@
 
     //TODO: check before you post notif
     //currentUserNotificationSettings
-    
     //Extracts notification payload.
     NSDictionary * notif = @{
                              kNotificationTitle : object[@"title"],
