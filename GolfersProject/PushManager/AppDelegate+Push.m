@@ -15,8 +15,7 @@
 -(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo{
 
     //TODO: See if we need to check localNotif: 
-    UILocalNotification *localNotif =
-    [userInfo objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
+    //UILocalNotification *localNotif = [userInfo objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
     
     NSLog(@"PushReceived: %@", userInfo);
     

@@ -10,8 +10,7 @@
 #import "FoodBevViewCell.h"
 #import "FoodBeverageServices.h"
 #import "Menu.h"
-#import "Food.h"
-#import "Beverage.h"
+#import "FoodBeverage.h"
 #import "MBProgressHUD.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 
@@ -79,29 +78,17 @@
     {
         cell = [[UICollectionViewCell alloc]init];
     }
-    
     FoodBevViewCell *customCell = (FoodBevViewCell *)cell;
-    if (isFoodItemSelected) {
-        Food *food_bev_item = [self.foodArray objectAtIndex:indexPath.row];
-        [customCell.imgFoodBev sd_setImageWithURL:[NSURL URLWithString:food_bev_item.imageUrl] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL)
-         {
-             [customCell.imgFoodBev setImage:image];
-         }];
-        [customCell.lblItemName setText:food_bev_item.name];
-        [customCell.lblItemPrice setText:food_bev_item.price.stringValue];
-        return customCell;
-    }
-    else{
-        Beverage *food_bev_item = [self.bevArray objectAtIndex:indexPath.row];
-        [customCell.imgFoodBev sd_setImageWithURL:[NSURL URLWithString:food_bev_item.imageUrl] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL)
-         {
-             [customCell.imgFoodBev setImage:image];
-         }];
-        [customCell.lblItemName setText:food_bev_item.name];
-        [customCell.lblItemPrice setText:food_bev_item.price.stringValue];
-        return customCell;
-        
-    }
+    
+    FoodBeverage * food_bev_item = (isFoodItemSelected ? [self.foodArray objectAtIndex:indexPath.row] : [self.bevArray objectAtIndex:indexPath.row] );
+    
+    [customCell.imgFoodBev sd_setImageWithURL:[NSURL URLWithString:food_bev_item.imageUrl] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL)
+     {
+         [customCell.imgFoodBev setImage:image];
+     }];
+    [customCell.lblItemName setText:food_bev_item.name];
+    [customCell.lblItemPrice setText:food_bev_item.price.stringValue];
+    return customCell;
 }
 
 /*
@@ -121,12 +108,6 @@
             [self reverseSelectedStateOfButtons:YES];
         [self.foodBevCollectionView reloadData];
     }
-    /*
-    else{
-        [self.buttonFood setImage:[UIImage imageNamed:@"unselected-food.png"] forState:UIControlStateNormal];
-        [self.foodBevCollectionView reloadData];
-    }
-     */
 }
 
 - (IBAction)btnBevTapped:(UIButton *)sender {
@@ -136,12 +117,6 @@
         [self reverseSelectedStateOfButtons:NO];
         [self.foodBevCollectionView reloadData];
     }
-    
-//    else{
-//        [sender setImage:[UIImage imageNamed:@"Bev_Unselected"] forState:UIControlStateNormal];
-//        //[sender setImage:[UIImage imageNamed:@"Bev_Unselected"] forState:UIControlStateDisabled];
-//        [self.foodBevCollectionView reloadData];
-//    }
 }
 
 #pragma mark - Helper Method
