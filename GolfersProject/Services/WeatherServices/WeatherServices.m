@@ -13,7 +13,7 @@
 #import "NSDate+Helper.h"
 #import "Constants.h"
 #import "Course.h"
-#import "Coordinates.h"
+#import "Coordinate.h"
 
 #import "CourseServices.h"
 
@@ -112,7 +112,7 @@
 
 +(NSDictionary *)coordinatesForCurrentCourse{
     if ([CourseServices currentCourse]) {
-        Coordinates * mCourse = [[CourseServices currentCourse].coordinates objectAtIndex:0];
+        Coordinate * mCourse = [[CourseServices currentCourse].coordinates objectAtIndex:0];
         return  @{
                   @"latitude" : mCourse.latitude,
                   @"longitude" : mCourse.longitude

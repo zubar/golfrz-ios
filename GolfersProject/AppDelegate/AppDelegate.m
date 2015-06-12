@@ -18,7 +18,7 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
-
+#import "PushManager.h"
 
 @interface AppDelegate ()
 
@@ -40,6 +40,9 @@
     self.appDelegateNavController = [[UINavigationController alloc]initWithRootViewController:splashController];
     self.window.rootViewController = self.appDelegateNavController;
     [self.window makeKeyAndVisible];
+    
+    [[PushManager sharedInstance] registerForPushMessages];
+    
     
     return [[FBSDKApplicationDelegate sharedInstance] application:application
                                     didFinishLaunchingWithOptions:launchOptions];

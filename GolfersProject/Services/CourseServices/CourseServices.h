@@ -17,6 +17,11 @@
 +(void)courseDetailInfo:(void (^)(bool status, Course * currentCourse))successBlock
                 failure:(void (^)(bool status, NSError * error))failureBlock;
 
+
++(void)checkInToCurrentCourse:(void(^)(bool status, id responseObject))successBlock
+                      failure:(void (^)(bool, NSError *))failureBlock;
+
+
 +(void)setCurrentCourse:(Course *)mCourse;
 +(Course *)currentCourse;
 

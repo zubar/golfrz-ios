@@ -54,6 +54,7 @@ static NSString * const kUpdateUserInfo = @"users/";
  */
 static NSString * const kCourseInfo = @"courses/info";
 static NSString * const kCourseDetail = @"courses/course_detail";
+static NSString * const kCheckInUrl = @"check_in";
 
 
 //TODO: get it from bundle id,
@@ -67,6 +68,13 @@ static NSString * const kUserAgent = @"iOS";
  */
 static NSString * const kCalenderEventsList = @"events";
 
+
+/*
+ *  Food & Beverage
+ */
+
+static NSString * const kFoodAndBeverage = @"menus/get_menu_list";
+static NSString * const kAddItemToCart = @"menus/add_to_cart";
 
 //================================= Presentation ======================================
 

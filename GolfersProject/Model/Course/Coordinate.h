@@ -10,7 +10,7 @@
 #import <Mantle/Mantle.h>
 
 
-@interface Coordinates : MTLModel<MTLJSONSerializing>
+@interface Coordinate : MTLModel<MTLJSONSerializing>
 
 @property (copy, nonatomic, readonly) NSString * latitude;
 @property (copy, nonatomic, readonly) NSString * longitude;
