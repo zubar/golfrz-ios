@@ -18,6 +18,7 @@
     UILocalNotification *localNotif =
     [userInfo objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
     
+    NSLog(@"PushReceived: %@", userInfo);
     
     PushManager * sharedPushManager = [PushManager sharedInstance];
     [sharedPushManager addNotificationToList:userInfo];

@@ -11,69 +11,180 @@
 #import "UserServices.h"
 #import "APIClient.h"
 #import "Menu.h"
+#import "FoodBeverage.h"
+#import "SharedManager.h"
+#import "UtilityServices.h"
+#import "Order.h"
+#import "UserServices.h"
 
 @implementation FoodBeverageServices
 
 
 
-+(void)getMenu:(void (^)(bool status, Menu * currentMenu))successBlock failure:(void (^)(bool status, NSError * error))failureBlock{
++(void)getMenu:(void (^)(bool status, Menu * currentMenu))successBlock
+       failure:(void (^)(bool status, NSError * error))failureBlock{
     
     APIClient * apiClient = [APIClient sharedAPICLient];
-    [apiClient GET:kFoodAndBeverage parameters:[FoodBeverageServices paramsForItemList] completion:^(id response, NSError *error) {
-        OVCResponse * resp = response;
-        if (!error) {
-            Menu * tMenu = [resp result];
-            successBlock(true, tMenu);
-        }else
-            failureBlock(false, error);
-    }];
+    [apiClient GET:kFoodAndBeverage
+        parameters:[FoodBeverageServices paramsForItemList]
+        completion:^(id response, NSError *error) {
+            
+            OVCResponse * resp = response;
+            if (!error) {
+                Menu * tMenu = [resp result];
+                successBlock(true, tMenu);
+            }else
+                failureBlock(false, error);
+        }];
     
 }
 
 
-+(void)addItemsToCart:(NSArray *)arrayOfiTems  quantity:(NSUInteger )quantity withBlock:(void (^)(bool status, Menu * currentMenu))successBlock failure:(void (^)(bool status, NSError * error))failureBlock{
++(void)addItemToCart:(FoodBeverage *)item
+            quantity:(NSUInteger )quantity
+           withBlock:(void (^)(bool status, NSDictionary * response))successBlock
+             failure:(void (^)(bool status, NSError * error))failureBlock{
 
-    AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
-    [apiClient POST:kAddItemToCart parameters:[FoodBeverageServices paramsForCartItem:arrayOfiTems quantity:quantity] success:^(NSURLSessionDataTask *task, id responseObject) {
-        
-        if (responseObject[@"status"]) {
-            
-        }
-        successBlock(true, responseObject);
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        failureBlock(false, error);
-    }];
-   
-
+    APIClient * apiClient = [APIClient sharedAPICLient];
+    [apiClient POST:kAddItemToCart
+         parameters:[FoodBeverageServices paramsForCartItem:item quantity:quantity]
+            success:^(NSURLSessionDataTask *task, id responseObject) {
+                
+                if ((NSDictionary *)responseObject[@"success_message"] ) {
+                    successBlock(true, responseObject);
+                }
+            }failure:^(NSURLSessionDataTask *task, NSError *error) {
+                if (error) {
+                    failureBlock(false, error);
+                }else{
+                    failureBlock(false, [NSError errorWithDomain:@"ios-app" code:0 userInfo:@{@"error_message":@"Un-known"}]);
+                }
+            }];
 }
 
++(void)removeItemFromCart:(Order *)item
+                withBlock:(void (^)(bool status, NSDictionary * response))successBlock
+                  failure:(void (^)(bool status, NSError * error))failureBlock{
+    
+    
+    APIClient * apiClient = [APIClient sharedAPICLient];
+   
+    [apiClient GET:kViewCart
+         parameters:[FoodBeverageServices paramsForRemoveCartItem:item]
+            success:^(NSURLSessionDataTask *task, id responseObject) {
+                
+                if ((NSDictionary *)responseObject[@"success_message"] ) {
+                    successBlock(true, responseObject);
+                }
+            } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                if (error) {
+                    failureBlock(false, error);
+                }else{
+                    failureBlock(false, [NSError errorWithDomain:@"ios-app" code:0 userInfo:@{@"error_message":@"Un-known"}]);
+                }
+            }];
+     
+}
+
++(void)cartItemsForCurrentUser:(void (^)(bool status, NSDictionary * response))successBlock
+                       failure:(void (^)(bool status, NSError * error))failureBlock{
+    
+    
+    APIClient * apiClient = [APIClient sharedAPICLient];
+    
+    [apiClient GET:kViewCart
+        parameters:[FoodBeverageServices paramsForItemList]
+           success:^(NSURLSessionDataTask *task, id responseObject) {
+               
+               if ((NSDictionary *)responseObject[@"success_message"] ) {
+                   successBlock(true, responseObject);
+               }
+           } failure:^(NSURLSessionDataTask *task, NSError *error) {
+               if (error) {
+                   failureBlock(false, error);
+               }else{
+                   failureBlock(false, [NSError errorWithDomain:@"ios-app" code:0 userInfo:@{@"error_message":@"Un-known"}]);
+               }
+           }];
+    
+}
+
+
+
+
+/*
+ 
+ +(void)addItemToCart:(FoodBeverage *)item{
+ 
+ SharedManager * manager = [SharedManager sharedInstance];
+ if (item && [item isKindOfClass:[FoodBeverage class]]) {
+ [manager addItemInCart:item];
+ }
+ }
+ 
+ +(void)removeItemFromCart:(FoodBeverage *)item{
+ 
+ SharedManager * manager = [SharedManager sharedInstance];
+ if (item && [item isKindOfClass:[FoodBeverage class]]) {
+ [manager removeItemFromCart:item];
+ }
+ }
+ 
+ +(NSArray *)cartItemsList{
+ SharedManager * manager = [SharedManager sharedInstance];
+ return [manager cartList];
+ }
+
+ */
 #pragma mark - Helper Methods
 
 +(NSDictionary *)paramsForItemList{
     
-    return @{
-             @"app_bundle_id" : kAppBundleId,
+    return @{@"app_bundle_id" : kAppBundleId,
              @"user_agent" : kUserAgent,
-             @"auth_token" : @"MEW4Qd7Lp1J3IM_eh5gl-w"//[UserServices currentToken]
+             @"auth_token" : [UserServices currentToken]
              };
     
 }
 
 
-+(NSDictionary *)paramsForCartItem:(NSArray *)items quantity:(NSUInteger)quantity{
++(NSDictionary *)paramsForCartItem:(FoodBeverage *)item quantity:(NSUInteger)quantity{
    
+    NSDictionary *foodItem = [MTLJSONAdapter JSONDictionaryFromModel:item];
     
-//    NSMutableArray * ids_arry = [[item valueForKeyPath:@"sideItems.@distinctUnionOfObjects.foodId"] mutableCopy];
-//    [ids_arry addObject:item[@"id"]];
-    
+    NSMutableArray * ids_arry = nil;
+    if (foodItem[@"id"] && foodItem[@"menus_side_items"]) {
+        ids_arry  =[[NSMutableArray alloc] initWithArray:[foodItem valueForKeyPath:@"sideItems.@distinctUnionOfObjects.foodId"]];
+        [ids_arry addObject:foodItem[@"id"]];
+    }
     
     return @{
              @"app_bundle_id" : kAppBundleId,
              @"user_agent" : kUserAgent,
              @"auth_token" : [UserServices currentToken],
-             @"menu_item_ids" : items,
+             @"menu_item_ids" : ids_arry,
              @"quantity" : [NSNumber numberWithInteger:quantity]
              };
-
 }
+
+
++(NSDictionary *)paramsForRemoveCartItem:(Order *)order{
+    
+    return @{@"app_bundle_id" : kAppBundleId,
+             @"user_agent" : kUserAgent,
+             @"auth_token" : [UserServices currentToken],
+             @"order_id" : [order orderId]
+             };
+}
+
++(NSDictionary *)paramsForSubmitOrder{
+   
+    
+    return @{@"app_bundle_id" : kAppBundleId,
+             @"user_agent" : kUserAgent,
+             @"auth_token" : [UserServices currentToken],
+             @"member_id" : [UserServices currentUserId]
+             };
+}
+
 @end

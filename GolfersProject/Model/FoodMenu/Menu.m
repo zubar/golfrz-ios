@@ -7,8 +7,7 @@
 //
 
 #import "Menu.h"
-#import "Food.h"
-#import "Beverage.h"
+#import "FoodBeverage.h"
 
 @implementation Menu
 
@@ -21,10 +20,10 @@
              };
 }
 + (NSValueTransformer *)foodItemsJSONTransformer {
-    return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[Food class]];
+    return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[FoodBeverage class]];
 }
 + (NSValueTransformer *)beverageItemsJSONTransformer {
-    return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[Beverage class]];
+    return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[FoodBeverage class]];
 }
 
 @end

@@ -29,12 +29,16 @@
 }
 
 -(void)setPushToken:(NSString *)tokenString{
-    if (!tokenString) {
-        tokenString = [[NSString alloc] initWithString:tokenString];
+   /*
+    if (!self.pushToken) {
+        self.pushToken = [[NSString alloc] init];
     }
-    tokenString = tokenString;
+    self.pushToken = tokenString;
     self.isRegisteredForPush = TRUE;
-    [self postTokenToServer];
+
+    if (self.pushToken)
+        [self postTokenToServer];
+    */
 }
 
 -(void)registerForPushMessages{
@@ -50,13 +54,15 @@
     //TODO: check before you post notif
     //currentUserNotificationSettings
     //Extracts notification payload.
-    NSDictionary * notif = @{
-                             kNotificationTitle : object[@"title"],
-                             kNotificaationDescription : object[@"description"]
-                             };
-    
-    SideNotificationView * notifView = [SideNotificationView sharedInstance];
-    [notifView addNotificationsArrayObject:notif];
+    if (object[@"title"] && object[@"description"]) {
+        NSDictionary * notif = @{
+                                 kNotificationTitle : object[@"title"],
+                                 kNotificaationDescription : object[@"description"]
+                                 };
+        
+        SideNotificationView * notifView = [SideNotificationView sharedInstance];
+        [notifView addNotificationsArrayObject:notif];
+    }
 }
 
 -(void)postTokenToServer{

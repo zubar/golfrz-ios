@@ -41,6 +41,7 @@ static NSString * const kWeatherAPIKey = @"e5bfb7faf3d0c719e87f3e1300ad0739";
 static NSString * const kSignInURL = @"sessions";
 static NSString * const kForgetPasswordURL = @"users/forgot_password";
 static NSString * const kSignOutURL = @"sessions/";
+static NSString * const kSignUpWithFacebook = @"users/sign_up_facebook";
 
 /*
  * Users detail
@@ -72,9 +73,10 @@ static NSString * const kCalenderEventsList = @"events";
 /*
  *  Food & Beverage
  */
-
 static NSString * const kFoodAndBeverage = @"menus/get_menu_list";
 static NSString * const kAddItemToCart = @"menus/add_to_cart";
+static NSString * const kRemoveFromCart = @"menus/remove_from_cart";
+static NSString * const kViewCart = @"menus/view_user_cart";
 
 //================================= Presentation ======================================
 

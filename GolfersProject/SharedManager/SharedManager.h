@@ -26,4 +26,10 @@
 + (SharedManager *)sharedInstance;
 
 -(BOOL)isUserLocationInCourse;
+
+
+-(void)addItemInCart:(id)item;
+-(void)removeItemFromCart:(id)item;
+-(NSArray *)cartList;
+
 @end

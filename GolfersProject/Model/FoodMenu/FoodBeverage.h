@@ -9,7 +9,7 @@
 #import "MTLModel.h"
 #import <Mantle/Mantle.h>
 
-@interface Food : MTLModel<MTLJSONSerializing>
+@interface FoodBeverage : MTLModel<MTLJSONSerializing>
 
 @property (copy, nonatomic, readonly) NSNumber * foodId;
 @property (copy, nonatomic, readonly) NSString * name;
