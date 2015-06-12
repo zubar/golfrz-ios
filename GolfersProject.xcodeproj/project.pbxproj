@@ -86,6 +86,8 @@
 		889872BF1B13105C00D3C0E9 /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 889872BE1B13105C00D3C0E9 /* Utilities.m */; };
 		889872C91B13239400D3C0E9 /* SideNotificationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 889872C81B13239400D3C0E9 /* SideNotificationView.xib */; };
 		889872CC1B13437400D3C0E9 /* SideNotificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 889872CB1B13437400D3C0E9 /* SideNotificationView.m */; };
+		88A48EFD1B2B006F006CEC42 /* FoodBevItemDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88A48EFC1B2B006F006CEC42 /* FoodBevItemDetailViewController.m */; };
+		88A48F011B2B0167006CEC42 /* FoodBevItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88A48F001B2B0167006CEC42 /* FoodBevItemCell.m */; };
 		88B21DEB1B1C390100AFC6D2 /* SplashScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B21DEA1B1C390100AFC6D2 /* SplashScreenViewController.m */; };
 		88B23C171B16E49800988908 /* ContactUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B23C161B16E49800988908 /* ContactUsViewController.m */; };
 		88B23C1C1B16E69D00988908 /* CourseDepartmentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B23C1B1B16E69D00988908 /* CourseDepartmentCell.m */; };
@@ -257,6 +259,10 @@
 		889872C81B13239400D3C0E9 /* SideNotificationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SideNotificationView.xib; path = Views/SideNotificationView.xib; sourceTree = "<group>"; };
 		889872CA1B13437400D3C0E9 /* SideNotificationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideNotificationView.h; sourceTree = "<group>"; };
 		889872CB1B13437400D3C0E9 /* SideNotificationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideNotificationView.m; sourceTree = "<group>"; };
+		88A48EFB1B2B006F006CEC42 /* FoodBevItemDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodBevItemDetailViewController.h; sourceTree = "<group>"; };
+		88A48EFC1B2B006F006CEC42 /* FoodBevItemDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodBevItemDetailViewController.m; sourceTree = "<group>"; };
+		88A48EFF1B2B0167006CEC42 /* FoodBevItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodBevItemCell.h; sourceTree = "<group>"; };
+		88A48F001B2B0167006CEC42 /* FoodBevItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodBevItemCell.m; sourceTree = "<group>"; };
 		88B21DE91B1C390100AFC6D2 /* SplashScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashScreenViewController.h; sourceTree = "<group>"; };
 		88B21DEA1B1C390100AFC6D2 /* SplashScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashScreenViewController.m; sourceTree = "<group>"; };
 		88B23C151B16E49800988908 /* ContactUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactUsViewController.h; sourceTree = "<group>"; };
@@ -707,6 +713,7 @@
 		885CB04F1B09BADE00AD2A7B /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				88A48EFA1B2AFA04006CEC42 /* FoodBevItemDetailViewController */,
 				88855DCF1B256F3500E164D6 /* FoodsBeveragesMainViewController */,
 				887C512F1B21C9E300C778D7 /* UIImageView+RoundedImage.h */,
 				887C51301B21C9E300C778D7 /* UIImageView+RoundedImage.m */,
@@ -855,6 +862,7 @@
 		889872C71B13237F00D3C0E9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				88A48EFE1B2B0146006CEC42 /* FoodBevItemCell */,
 				88243AF31B28436200E600D6 /* FoodBevCell */,
 				3D841D291B1CD98800A267DE /* EventHeaderView.xib */,
 				3D841D261B1CD97D00A267DE /* EventHeaderView.h */,
@@ -866,6 +874,24 @@
 				3D87D8311B15A5F50046BD60 /* CalendarEventCell.xib */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		88A48EFA1B2AFA04006CEC42 /* FoodBevItemDetailViewController */ = {
+			isa = PBXGroup;
+			children = (
+				88A48EFB1B2B006F006CEC42 /* FoodBevItemDetailViewController.h */,
+				88A48EFC1B2B006F006CEC42 /* FoodBevItemDetailViewController.m */,
+			);
+			path = FoodBevItemDetailViewController;
+			sourceTree = "<group>";
+		};
+		88A48EFE1B2B0146006CEC42 /* FoodBevItemCell */ = {
+			isa = PBXGroup;
+			children = (
+				88A48EFF1B2B0167006CEC42 /* FoodBevItemCell.h */,
+				88A48F001B2B0167006CEC42 /* FoodBevItemCell.m */,
+			);
+			path = FoodBevItemCell;
 			sourceTree = "<group>";
 		};
 		88B21DE81B1C38DA00AFC6D2 /* SplashScreenViewController */ = {
@@ -1043,6 +1069,7 @@
 				3DCA44CF1B26CB3400B66BD2 /* Coordinate.m in Sources */,
 				3D87D8431B1852120046BD60 /* NSMutableArray+convenience.m in Sources */,
 				887C51311B21C9E300C778D7 /* UIImageView+RoundedImage.m in Sources */,
+				88A48EFD1B2B006F006CEC42 /* FoodBevItemDetailViewController.m in Sources */,
 				885CB0681B09BADE00AD2A7B /* InitialViewController.m in Sources */,
 				3DCA44CE1B26CB3400B66BD2 /* EventWeather.m in Sources */,
 				3D87D8461B1852120046BD60 /* VRGCalendarView.m in Sources */,
@@ -1074,6 +1101,7 @@
 				3D19641C1B130E3B00766CFC /* TPKeyboardAvoidingTableView.m in Sources */,
 				3DCA44CD1B26CB3400B66BD2 /* EventList.m in Sources */,
 				885CB0801B0A128100AD2A7B /* AuthenticationService.m in Sources */,
+				88A48F011B2B0167006CEC42 /* FoodBevItemCell.m in Sources */,
 				88FBCCB71B19A572005FD528 /* User.m in Sources */,
 				886B9ED41B0B95900078B09D /* ForgotPasswordViewController.m in Sources */,
 				3DCA44D11B26CB3400B66BD2 /* Department.m in Sources */,
