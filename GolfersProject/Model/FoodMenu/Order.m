@@ -1,22 +1,23 @@
 //
-//  Beverage.m
+//  Order.m
 //  GolfersProject
 //
-//  Created by Zubair on 6/9/15.
+//  Created by Zubair on 6/12/15.
 //  Copyright (c) 2015 Abdullah Saeed. All rights reserved.
 //
 
-#import "Beverage.h"
+#import "Order.h"
 
-@implementation Beverage
+@implementation Order
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
     return @{
-             @"foodId" : @"id",
+             @"orderId" : @"order_id",
              @"name" : @"name",
              @"price" : @"price",
-             @"imageUrl" : @"image_path",
+             @"quantity" : @"quantity",
              @"details" : @"description",
+             @"imageUrl" : @"menu_image_path"
              //propertyName : json_key
              };
 }

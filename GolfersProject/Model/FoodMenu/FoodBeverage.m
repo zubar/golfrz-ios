@@ -6,10 +6,10 @@
 //  Copyright (c) 2015 Abdullah Saeed. All rights reserved.
 //
 
-#import "Food.h"
+#import "FoodBeverage.h"
 #import "SideItem.h"
 
-@implementation Food
+@implementation FoodBeverage
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
     return @{
@@ -26,6 +26,7 @@
    // return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[SideItem class]];
     return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[SideItem class]];
 }
+
 
 
 @end

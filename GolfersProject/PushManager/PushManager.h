@@ -14,6 +14,11 @@
 
 + (PushManager *)sharedInstance;
 
+@property (assign, nonatomic) BOOL isRegisteredForPush;
+@property (strong, nonatomic, setter=setPushToken:) NSString * pushToken;
+
 -(void)registerForPushMessages;
+-(void)addNotificationToList:(NSDictionary *)object;
+
 
 @end

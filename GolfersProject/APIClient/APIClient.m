@@ -14,6 +14,7 @@
 #import "EventList.h"
 #import "User.h"
 #import "Menu.h"
+#import "Cart.h"
 
 @implementation APIClient
 
@@ -44,7 +45,8 @@
              kCalenderEventsList : [EventList class],
              @"users/*" : [User class],
              //@"menus/get_menu_list" : [Menu class],
-             kFoodAndBeverage : [Menu class]
+             kFoodAndBeverage : [Menu class],
+             kViewCart : [Cart class]
 
              };
     

@@ -40,6 +40,7 @@
 
 @property (strong, nonatomic) IBOutlet UITableView *tblDept;
 @property (strong, nonatomic) IBOutlet UILabel *lblCourseState;
+@property (strong, nonatomic) IBOutlet UILabel *lblComma;
 
 
 @end

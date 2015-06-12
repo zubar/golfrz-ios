@@ -10,6 +10,8 @@
 
 @interface FaceBookAuthAgent : NSObject
 
-+(void)signInWithFaceBook;
++(void)signInWithFacebook:(void (^)(bool status, NSDictionary * userInfo))successBlock
+                  failure:(void (^)(bool status, NSError * error))failureBlock;
+
 
 @end

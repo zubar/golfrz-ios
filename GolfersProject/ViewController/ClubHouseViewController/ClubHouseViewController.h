@@ -22,5 +22,6 @@
 
 
 @property (weak, nonatomic) IBOutlet UIButton *btnCheckIn;
+- (IBAction)btnTeeTimeTap:(id)sender;
 
 @end

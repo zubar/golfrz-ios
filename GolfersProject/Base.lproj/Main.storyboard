@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
@@ -719,6 +719,9 @@
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="connectWithFacebook:" destination="tyW-iC-uJ4" eventType="touchUpInside" id="PYb-d3-DMg"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HLG-ob-VZ0">
                                         <rect key="frame" x="30" y="391" width="260" height="50"/>
@@ -1693,6 +1696,9 @@
                                             <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="btnTeeTimeTap:" destination="iSr-ry-nVa" eventType="touchUpInside" id="Lja-EH-mrw"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bFJ-A9-os7">
                                         <rect key="frame" x="143" y="308" width="35" height="35"/>
@@ -2218,6 +2224,7 @@
                         <outlet property="lblAdminEmail" destination="KY2-qG-JCL" id="Bys-Hk-A99"/>
                         <outlet property="lblAdminName" destination="RVw-br-HhP" id="2Ga-Qr-mTY"/>
                         <outlet property="lblAdminPost" destination="oKg-ub-OoL" id="oIh-iJ-Su4"/>
+                        <outlet property="lblComma" destination="W94-at-swA" id="YTm-3L-rNm"/>
                         <outlet property="lblCourseCity" destination="MeT-TB-Ccg" id="p1J-0f-UC3"/>
                         <outlet property="lblCourseName" destination="3No-2F-llJ" id="78a-sT-5FB"/>
                         <outlet property="lblCourseStAddress" destination="NKm-XZ-c2f" id="i4j-0W-aTb"/>
@@ -2951,7 +2958,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                     </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="q3W-YF-wpN">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="q3W-YF-wpN">
                                         <rect key="frame" x="125" y="25" width="70" height="70"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="70" id="6lq-S1-4m5"/>
@@ -3389,6 +3396,7 @@
         <image name="go_button" width="20" height="20"/>
         <image name="golfcourse_logo" width="100" height="101"/>
         <image name="invite_icon" width="51" height="50"/>
+        <image name="person_placeholder" width="150" height="150"/>
         <image name="red_circle" width="15" height="15"/>
         <image name="settings_button" width="15" height="15"/>
         <image name="signup_location" width="23" height="31"/>

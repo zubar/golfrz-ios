@@ -22,6 +22,7 @@
 #import "SharedManager.h"
 #import "UIImageView+RoundedImage.h"
 #import "FoodBeveragesMainViewController.h"
+#import "SideNotificationView.h"
 
 
 @interface ClubHouseViewController ()
@@ -242,4 +243,8 @@
     [self.btnCheckIn setHidden:yesNo];
 }
 
+- (IBAction)btnTeeTimeTap:(id)sender {
+ 
+    
+}
 @end

@@ -53,6 +53,7 @@ bool pointInPolygon(int polyCorners, float polyX[], float polyY[], float x, floa
 @interface SharedManager (){
     CGPoint lastKnownLocation;
 }
+@property (strong, nonatomic) NSMutableArray * cardItems;
 @end
 
 @implementation SharedManager
@@ -81,6 +82,8 @@ bool pointInPolygon(int polyCorners, float polyX[], float polyY[], float x, floa
         sharedLocationManager = [[CLLocationManager alloc]init];
         sharedLocationManager.delegate = self;
         sharedLocationManager.desiredAccuracy = kCLLocationAccuracyBest;
+        
+        self.cardItems = [[NSMutableArray alloc]initWithCapacity:0];
     }
     return self;
 }
@@ -90,6 +93,18 @@ bool pointInPolygon(int polyCorners, float polyX[], float polyY[], float x, floa
 
 }
 
+-(void)addItemInCart:(id)item{
+    [self.cardItems addObject:item];
+}
+
+-(void)removeItemFromCart:(id)item{
+    //TODO: see if the axact item is removed or not. make object comparision.
+    [self.cardItems removeObject:item];
+}
+
+-(NSArray *)cartList{
+    return self.cardItems;
+}
 
 -(BOOL)isUserLocationInCourse{
    

@@ -6,30 +6,38 @@
 //
 
 #import "AppDelegate+Push.h"
+#import "SideNotificationView.h"
+#import "PushManager.h"
 
 @implementation AppDelegate (Push)
 
 
 -(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo{
 
-
+    //TODO: See if we need to check localNotif: 
     UILocalNotification *localNotif =
     [userInfo objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
-    if (localNotif) {
-     //   NSString *itemName = [localNotif.userInfo objectForKey:ToDoItemKey];
-       // [viewController displayItem:itemName];  // custom method
-       // app.applicationIconBadgeNumber = localNotif.applicationIconBadgeNumber-1;
-    }
+    
+    NSLog(@"PushReceived: %@", userInfo);
+    
+    PushManager * sharedPushManager = [PushManager sharedInstance];
+    [sharedPushManager addNotificationToList:userInfo];
+    
+        //NSString *itemName = [localNotif.userInfo objectForKey:ToDoItemKey];
+        //[viewController displayItem:itemName];  // custom method
+        //app.applicationIconBadgeNumber = localNotif.applicationIconBadgeNumber-1;
 }
 
 
 -(void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken{
 
-    const void *devTokenBytes = [deviceToken bytes];
-    //self.registered = YES;
-   // NSLog(@"PushToken: %@", devTokenBytes);
-    //[self sendProviderDeviceToken:devTokenBytes]; // custom method
+    //const void *devTokenBytes = [deviceToken bytes];
+    NSString *token = [[deviceToken description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
+    token = [token stringByReplacingOccurrencesOfString:@" " withString:@""];
+    NSLog(@"PushToken---%@", token);
     
+    PushManager * sharedPushManager = [PushManager sharedInstance];
+    [sharedPushManager setPushToken:token];
 }
 
 -(void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings{
