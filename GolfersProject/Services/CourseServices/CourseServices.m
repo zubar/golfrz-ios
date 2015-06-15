@@ -42,9 +42,13 @@ static Course * currentCourse = nil;
     AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
     
     [apiClient GET:kCourseInfo parameters:[CourseServices paramsCourseInfo] success:^(NSURLSessionDataTask *task, id responseObject) {
+        if (responseObject) {
             successBlock(true, responseObject);
+        }
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        NSLog(@"%@", error);
+        if (error) {
+            failureBlock(false, error);
+        }
     }];
 }
 

@@ -24,6 +24,8 @@
 #import "FoodBeveragesMainViewController.h"
 #import "SideNotificationView.h"
 #import "FoodBeverageServices.h"
+#import "ContactServices.h"
+#import "APContact+convenience.h"
 
 @interface ClubHouseViewController ()
 @property (nonatomic, retain) NSArray * weatherList;
@@ -255,7 +257,14 @@
 }
 
 - (IBAction)btnTeeTimeTap:(id)sender {
- 
+    
+    [ContactServices getAddressbookContactsFiltered:ContactFilterEmail sortedByName:YES success:^(bool status, NSArray *contactsArray) {
+        NSLog(@"contacts: %@", contactsArray);
+        NSString * name = [((id)contactsArray[0]) cfirstName];
+        NSLog(@"firstName: %@", name);
+    } failure:^(bool status, NSError *error) {
+        //
+    }];
     
 }
 @end

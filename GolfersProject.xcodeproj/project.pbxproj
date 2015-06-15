@@ -46,6 +46,9 @@
 		3D87D8461B1852120046BD60 /* VRGCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D87D8411B1852120046BD60 /* VRGCalendarView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3DA7CB851B2AF0C800B5BAFF /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA7CB841B2AF0C800B5BAFF /* Order.m */; };
 		3DA7CB881B2B13FC00B5BAFF /* Cart.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA7CB871B2B13FC00B5BAFF /* Cart.m */; };
+		3DC1161D1B2ED8A500E83F4F /* ContactServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC1161C1B2ED8A500E83F4F /* ContactServices.m */; };
+		3DC1161F1B2EE21F00E83F4F /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DC1161E1B2EE21F00E83F4F /* AddressBook.framework */; };
+		3DC116231B2EF4AD00E83F4F /* APContact+convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC116221B2EF4AD00E83F4F /* APContact+convenience.m */; };
 		3DCA44CC1B26CB3400B66BD2 /* CalendarEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DCA44A91B26CB3400B66BD2 /* CalendarEvent.m */; };
 		3DCA44CD1B26CB3400B66BD2 /* EventList.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DCA44AB1B26CB3400B66BD2 /* EventList.m */; };
 		3DCA44CE1B26CB3400B66BD2 /* EventWeather.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DCA44AD1B26CB3400B66BD2 /* EventWeather.m */; };
@@ -88,8 +91,6 @@
 		887C51311B21C9E300C778D7 /* UIImageView+RoundedImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 887C51301B21C9E300C778D7 /* UIImageView+RoundedImage.m */; };
 		88855DD21B256F5A00E164D6 /* FoodBeveragesMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88855DD11B256F5A00E164D6 /* FoodBeveragesMainViewController.m */; };
 		889872BF1B13105C00D3C0E9 /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 889872BE1B13105C00D3C0E9 /* Utilities.m */; };
-		889872C91B13239400D3C0E9 /* SideNotificationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 889872C81B13239400D3C0E9 /* SideNotificationView.xib */; };
-		889872CC1B13437400D3C0E9 /* SideNotificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 889872CB1B13437400D3C0E9 /* SideNotificationView.m */; };
 		88A48EFD1B2B006F006CEC42 /* FoodBevItemDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88A48EFC1B2B006F006CEC42 /* FoodBevItemDetailViewController.m */; };
 		88A48F011B2B0167006CEC42 /* FoodBevItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88A48F001B2B0167006CEC42 /* FoodBevItemCell.m */; };
 		88B21DEB1B1C390100AFC6D2 /* SplashScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B21DEA1B1C390100AFC6D2 /* SplashScreenViewController.m */; };
@@ -178,6 +179,11 @@
 		3DA7CB841B2AF0C800B5BAFF /* Order.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Order.m; sourceTree = "<group>"; };
 		3DA7CB861B2B13FC00B5BAFF /* Cart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cart.h; sourceTree = "<group>"; };
 		3DA7CB871B2B13FC00B5BAFF /* Cart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cart.m; sourceTree = "<group>"; };
+		3DC1161B1B2ED8A500E83F4F /* ContactServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactServices.h; sourceTree = "<group>"; };
+		3DC1161C1B2ED8A500E83F4F /* ContactServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactServices.m; sourceTree = "<group>"; };
+		3DC1161E1B2EE21F00E83F4F /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		3DC116211B2EF4AD00E83F4F /* APContact+convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "APContact+convenience.h"; sourceTree = "<group>"; };
+		3DC116221B2EF4AD00E83F4F /* APContact+convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "APContact+convenience.m"; sourceTree = "<group>"; };
 		3DCA44A81B26CB3400B66BD2 /* CalendarEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarEvent.h; sourceTree = "<group>"; };
 		3DCA44A91B26CB3400B66BD2 /* CalendarEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarEvent.m; sourceTree = "<group>"; };
 		3DCA44AA1B26CB3400B66BD2 /* EventList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventList.h; sourceTree = "<group>"; };
@@ -267,9 +273,6 @@
 		889872BE1B13105C00D3C0E9 /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
 		889872C11B13111900D3C0E9 /* Alert-Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Alert-Constants.h"; sourceTree = "<group>"; };
 		889872C21B13111900D3C0E9 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
-		889872C81B13239400D3C0E9 /* SideNotificationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SideNotificationView.xib; path = Views/SideNotificationView.xib; sourceTree = "<group>"; };
-		889872CA1B13437400D3C0E9 /* SideNotificationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideNotificationView.h; sourceTree = "<group>"; };
-		889872CB1B13437400D3C0E9 /* SideNotificationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideNotificationView.m; sourceTree = "<group>"; };
 		88A48EFB1B2B006F006CEC42 /* FoodBevItemDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodBevItemDetailViewController.h; sourceTree = "<group>"; };
 		88A48EFC1B2B006F006CEC42 /* FoodBevItemDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodBevItemDetailViewController.m; sourceTree = "<group>"; };
 		88A48EFF1B2B0167006CEC42 /* FoodBevItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodBevItemCell.h; sourceTree = "<group>"; };
@@ -293,6 +296,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DC1161F1B2EE21F00E83F4F /* AddressBook.framework in Frameworks */,
 				3DFD15B61B25B2AB008F76D8 /* CoreLocation.framework in Frameworks */,
 				3D5CA5D81B20572E00CB6ED7 /* SystemConfiguration.framework in Frameworks */,
 				3D1964231B13271000766CFC /* FBSDKShareKit.framework in Frameworks */,
@@ -511,6 +515,24 @@
 				3D87D8411B1852120046BD60 /* VRGCalendarView.m */,
 			);
 			path = VurigCalendar;
+			sourceTree = "<group>";
+		};
+		3DC1161A1B2ED86E00E83F4F /* ContactServices */ = {
+			isa = PBXGroup;
+			children = (
+				3DC1161B1B2ED8A500E83F4F /* ContactServices.h */,
+				3DC1161C1B2ED8A500E83F4F /* ContactServices.m */,
+			);
+			path = ContactServices;
+			sourceTree = "<group>";
+		};
+		3DC116201B2EF3E400E83F4F /* APContact+Extension */ = {
+			isa = PBXGroup;
+			children = (
+				3DC116211B2EF4AD00E83F4F /* APContact+convenience.h */,
+				3DC116221B2EF4AD00E83F4F /* APContact+convenience.m */,
+			);
+			path = "APContact+Extension";
 			sourceTree = "<group>";
 		};
 		3DCA44A71B26CB3400B66BD2 /* CalendarEvent */ = {
@@ -806,6 +828,7 @@
 		885CB06F1B09F91700AD2A7B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3DC116201B2EF3E400E83F4F /* APContact+Extension */,
 				3DCA44A71B26CB3400B66BD2 /* CalendarEvent */,
 				3DCA44AE1B26CB3400B66BD2 /* Course */,
 				3DCA44B91B26CB3400B66BD2 /* ErrorHandling */,
@@ -821,6 +844,7 @@
 		885CB07C1B0A121300AD2A7B /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				3DC1161A1B2ED86E00E83F4F /* ContactServices */,
 				3DD3CA3D1B297AD300767BCF /* UtilityServices */,
 				3DCA44DC1B27097F00B66BD2 /* Food+BeverageService */,
 				3DD9BD231B14C36D00A2F296 /* EventServices */,
@@ -964,6 +988,7 @@
 		C91B48159ABC56B52D213A0C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3DC1161E1B2EE21F00E83F4F /* AddressBook.framework */,
 				3DFD15B51B25B2AA008F76D8 /* CoreLocation.framework */,
 				3D5CA5D71B20572E00CB6ED7 /* SystemConfiguration.framework */,
 				5A26DAF5CF62E34098597EA3 /* libPods.a */,
@@ -1094,6 +1119,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DC1161D1B2ED8A500E83F4F /* ContactServices.m in Sources */,
 				3DCA44D41B26CB3400B66BD2 /* GolfrzError.m in Sources */,
 				3D1963FA1B0E21B100766CFC /* main.m in Sources */,
 				3DCA44D01B26CB3400B66BD2 /* Course.m in Sources */,
@@ -1103,6 +1129,7 @@
 				88A48EFD1B2B006F006CEC42 /* FoodBevItemDetailViewController.m in Sources */,
 				885CB0681B09BADE00AD2A7B /* InitialViewController.m in Sources */,
 				3DCA44CE1B26CB3400B66BD2 /* EventWeather.m in Sources */,
+				3DC116231B2EF4AD00E83F4F /* APContact+convenience.m in Sources */,
 				3D87D8461B1852120046BD60 /* VRGCalendarView.m in Sources */,
 				88D813AD1B17640E00FD7D0E /* PlayerSettingsMainViewController.m in Sources */,
 				889872BF1B13105C00D3C0E9 /* Utilities.m in Sources */,
