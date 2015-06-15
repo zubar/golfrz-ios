@@ -132,6 +132,7 @@
                             <constraint firstItem="ffs-Za-qEk" firstAttribute="top" secondItem="V8G-ND-cLA" secondAttribute="top" id="vQ4-SY-rIc"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="zUj-Sb-Hbr"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z4m-rb-G8b" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1263,6 +1264,9 @@
                                             <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="btnFoodAndBeverageTap:" destination="iSr-ry-nVa" eventType="touchUpInside" id="Hsg-FY-rqY"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1306,7 +1310,6 @@
                     <connections>
                         <outlet property="btnCheckIn" destination="A6e-HL-Fpl" id="gIZ-AP-4hu"/>
                         <outlet property="btnEventsTapped" destination="OE6-OW-hIc" id="798-ef-kb7"/>
-                        <outlet property="btnFoodBevTapped" destination="BjI-6u-of3" id="abs-gB-Uzo"/>
                         <outlet property="btnTeeTimesTapped" destination="4LY-P4-oVD" id="srg-wB-vjN"/>
                         <outlet property="imgCourseLogo" destination="yUd-U0-aX0" id="lTv-ru-ObJ"/>
                         <outlet property="lblCourseName" destination="ttc-5C-ber" id="fRr-sj-EHK"/>
