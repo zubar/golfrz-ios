@@ -23,7 +23,7 @@
 #import "UIImageView+RoundedImage.h"
 #import "FoodBeveragesMainViewController.h"
 #import "SideNotificationView.h"
-
+#import "FoodBeverageServices.h"
 
 @interface ClubHouseViewController ()
 @property (nonatomic, retain) NSArray * weatherList;
@@ -220,6 +220,17 @@
                 [self checkInToCurrentCourse];
         }];
     }
+}
+
+- (IBAction)btnFoodAndBeverageTap:(id)sender {
+    
+    
+    [FoodBeverageServices cartItemsForCurrentUser:^(bool status, Cart *response) {
+        NSLog(@"%@", response);
+    } failure:^(bool status, NSError *error) {
+        NSLog(@"%@", error);
+    }];
+    
 }
 
 -(void)checkInToCurrentCourse{

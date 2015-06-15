@@ -588,6 +588,7 @@
                             <constraint firstItem="ffs-Za-qEk" firstAttribute="top" secondItem="V8G-ND-cLA" secondAttribute="top" id="vQ4-SY-rIc"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="zUj-Sb-Hbr"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <connections>
                         <outlet property="buttonBeverage" destination="lq0-xG-eT2" id="28k-hu-E8R"/>

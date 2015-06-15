@@ -16,6 +16,7 @@
 #import "UtilityServices.h"
 #import "Order.h"
 #import "UserServices.h"
+#import "Cart.h"
 
 @implementation FoodBeverageServices
 
@@ -86,7 +87,7 @@
      
 }
 
-+(void)cartItemsForCurrentUser:(void (^)(bool status, NSDictionary * response))successBlock
++(void)cartItemsForCurrentUser:(void (^)(bool status, Cart * response))successBlock
                        failure:(void (^)(bool status, NSError * error))failureBlock{
     
     
@@ -96,17 +97,18 @@
         parameters:[FoodBeverageServices paramsForItemList]
            success:^(NSURLSessionDataTask *task, id responseObject) {
                
-               if ((NSDictionary *)responseObject[@"success_message"] ) {
-                   successBlock(true, responseObject);
-               }
-           } failure:^(NSURLSessionDataTask *task, NSError *error) {
-               if (error) {
-                   failureBlock(false, error);
-               }else{
-                   failureBlock(false, [NSError errorWithDomain:@"ios-app" code:0 userInfo:@{@"error_message":@"Un-known"}]);
-               }
+               OVCResponse * resp = responseObject;
+                    if ([resp result]) {
+                        Cart * tempCart = [resp result];
+                        successBlock(true, tempCart);
+                    }
+            }failure:^(NSURLSessionDataTask *task, NSError *error) {
+                    if (error) {
+                        failureBlock(false, error);
+                    }else{
+                        failureBlock(false, [NSError errorWithDomain:@"ios-app" code:0 userInfo:@{@"error_message":@"Un-known"}]);
+                    }
            }];
-    
 }
 
 
