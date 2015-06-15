@@ -252,6 +252,7 @@
     }
 }
 
+
 -(void)enableCheckInButton:(BOOL)yesNo{
     [self.btnCheckIn setHidden:yesNo];
 }
@@ -260,8 +261,10 @@
     
     [ContactServices getAddressbookContactsFiltered:ContactFilterEmail sortedByName:YES success:^(bool status, NSArray *contactsArray) {
         NSLog(@"contacts: %@", contactsArray);
+        
         NSString * name = [((id)contactsArray[0]) cfirstName];
         NSLog(@"firstName: %@", name);
+        
     } failure:^(bool status, NSError *error) {
         //
     }];
