@@ -1,22 +1,23 @@
 //
-//  FoodBevItemDetailViewController.m
+//  FoodBevCartViewController.m
 //  GolfersProject
 //
-//  Created by Abdullah Saeed on 6/12/15.
+//  Created by Abdullah Saeed on 6/15/15.
 //  Copyright (c) 2015 Abdullah Saeed. All rights reserved.
 //
 
-#import "FoodBevItemDetailViewController.h"
-#import "FoodBevItemCell.h"
+#import "FoodBevCartViewController.h"
+#import "FoodBevCartCell.h"
 
-@interface FoodBevItemDetailViewController ()
+@interface FoodBevCartViewController ()
 
 @end
 
-@implementation FoodBevItemDetailViewController
+@implementation FoodBevCartViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //self.scrollView.translatesAutoresizingMaskIntoConstraints = NO;
     // Do any additional setup after loading the view.
 }
 
@@ -29,15 +30,14 @@
     return 1;
 }
 
-
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *customCell = [tableView dequeueReusableCellWithIdentifier:@"FoodBevItemCell"];
+    UITableViewCell *customCell = [tableView dequeueReusableCellWithIdentifier:@"FoodBevCartCell"];
     
     if (customCell == nil) {
-        customCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"FoodBevItemCell"];
+        customCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"FoodBevCartCell"];
     }
     
-    FoodBevItemCell *customViewCell = (FoodBevItemCell *)customCell;
+    FoodBevCartCell *customViewCell = (FoodBevCartCell *)customCell;
     return customViewCell;
 }
 

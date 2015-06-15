@@ -17,6 +17,9 @@
 - (IBAction)btnCheckedInTapped:(UIButton *)sender;
 - (IBAction)btnFoodAndBeverageTap:(id)sender;
 
+- (IBAction)btnFoodBevTapped:(UIButton *)sender;
+
+
 @property (strong, nonatomic) IBOutlet UIButton *btnTeeTimesTapped;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *btnEventsTapped;
 

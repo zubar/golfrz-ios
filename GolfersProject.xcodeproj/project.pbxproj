@@ -74,6 +74,8 @@
 		88024F6E1AD29134004AC260 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88024F6D1AD29134004AC260 /* Images.xcassets */; };
 		88024F711AD29134004AC260 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88024F6F1AD29134004AC260 /* LaunchScreen.xib */; };
 		88024F7D1AD29134004AC260 /* GolfersProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 88024F7C1AD29134004AC260 /* GolfersProjectTests.m */; };
+		880A97D91B2F090F001D97F0 /* FoodBevCartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 880A97D81B2F090F001D97F0 /* FoodBevCartViewController.m */; };
+		880A97DD1B2F0ED4001D97F0 /* FoodBevCartCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 880A97DC1B2F0ED4001D97F0 /* FoodBevCartCell.m */; };
 		88243AF61B28437C00E600D6 /* FoodBevViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88243AF51B28437C00E600D6 /* FoodBevViewCell.m */; };
 		885CB0441B09BA9D00AD2A7B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 885CB0251B09BA9D00AD2A7B /* AppDelegate.m */; };
 		885CB0681B09BADE00AD2A7B /* InitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 885CB05B1B09BADE00AD2A7B /* InitialViewController.m */; };
@@ -88,8 +90,6 @@
 		887C51311B21C9E300C778D7 /* UIImageView+RoundedImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 887C51301B21C9E300C778D7 /* UIImageView+RoundedImage.m */; };
 		88855DD21B256F5A00E164D6 /* FoodBeveragesMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88855DD11B256F5A00E164D6 /* FoodBeveragesMainViewController.m */; };
 		889872BF1B13105C00D3C0E9 /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 889872BE1B13105C00D3C0E9 /* Utilities.m */; };
-		889872C91B13239400D3C0E9 /* SideNotificationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 889872C81B13239400D3C0E9 /* SideNotificationView.xib */; };
-		889872CC1B13437400D3C0E9 /* SideNotificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 889872CB1B13437400D3C0E9 /* SideNotificationView.m */; };
 		88A48EFD1B2B006F006CEC42 /* FoodBevItemDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88A48EFC1B2B006F006CEC42 /* FoodBevItemDetailViewController.m */; };
 		88A48F011B2B0167006CEC42 /* FoodBevItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88A48F001B2B0167006CEC42 /* FoodBevItemCell.m */; };
 		88B21DEB1B1C390100AFC6D2 /* SplashScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B21DEA1B1C390100AFC6D2 /* SplashScreenViewController.m */; };
@@ -238,6 +238,10 @@
 		88024F761AD29134004AC260 /* GolfersProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GolfersProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		88024F7B1AD29134004AC260 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88024F7C1AD29134004AC260 /* GolfersProjectTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GolfersProjectTests.m; sourceTree = "<group>"; };
+		880A97D71B2F090F001D97F0 /* FoodBevCartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodBevCartViewController.h; sourceTree = "<group>"; };
+		880A97D81B2F090F001D97F0 /* FoodBevCartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodBevCartViewController.m; sourceTree = "<group>"; };
+		880A97DB1B2F0ED4001D97F0 /* FoodBevCartCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodBevCartCell.h; sourceTree = "<group>"; };
+		880A97DC1B2F0ED4001D97F0 /* FoodBevCartCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodBevCartCell.m; sourceTree = "<group>"; };
 		88243AF41B28437C00E600D6 /* FoodBevViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodBevViewCell.h; sourceTree = "<group>"; };
 		88243AF51B28437C00E600D6 /* FoodBevViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodBevViewCell.m; sourceTree = "<group>"; };
 		885CB0241B09BA9D00AD2A7B /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -267,9 +271,6 @@
 		889872BE1B13105C00D3C0E9 /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
 		889872C11B13111900D3C0E9 /* Alert-Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Alert-Constants.h"; sourceTree = "<group>"; };
 		889872C21B13111900D3C0E9 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
-		889872C81B13239400D3C0E9 /* SideNotificationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SideNotificationView.xib; path = Views/SideNotificationView.xib; sourceTree = "<group>"; };
-		889872CA1B13437400D3C0E9 /* SideNotificationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideNotificationView.h; sourceTree = "<group>"; };
-		889872CB1B13437400D3C0E9 /* SideNotificationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideNotificationView.m; sourceTree = "<group>"; };
 		88A48EFB1B2B006F006CEC42 /* FoodBevItemDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodBevItemDetailViewController.h; sourceTree = "<group>"; };
 		88A48EFC1B2B006F006CEC42 /* FoodBevItemDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodBevItemDetailViewController.m; sourceTree = "<group>"; };
 		88A48EFF1B2B0167006CEC42 /* FoodBevItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodBevItemCell.h; sourceTree = "<group>"; };
@@ -723,6 +724,24 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		880A97D61B2F08F2001D97F0 /* FoodBevCartViewController */ = {
+			isa = PBXGroup;
+			children = (
+				880A97D71B2F090F001D97F0 /* FoodBevCartViewController.h */,
+				880A97D81B2F090F001D97F0 /* FoodBevCartViewController.m */,
+			);
+			path = FoodBevCartViewController;
+			sourceTree = "<group>";
+		};
+		880A97DA1B2F0E8E001D97F0 /* FoodBevCartCell */ = {
+			isa = PBXGroup;
+			children = (
+				880A97DB1B2F0ED4001D97F0 /* FoodBevCartCell.h */,
+				880A97DC1B2F0ED4001D97F0 /* FoodBevCartCell.m */,
+			);
+			path = FoodBevCartCell;
+			sourceTree = "<group>";
+		};
 		88243AF31B28436200E600D6 /* FoodBevCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -744,6 +763,7 @@
 		885CB04F1B09BADE00AD2A7B /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				880A97D61B2F08F2001D97F0 /* FoodBevCartViewController */,
 				88A48EFA1B2AFA04006CEC42 /* FoodBevItemDetailViewController */,
 				88855DCF1B256F3500E164D6 /* FoodsBeveragesMainViewController */,
 				887C512F1B21C9E300C778D7 /* UIImageView+RoundedImage.h */,
@@ -894,6 +914,7 @@
 		889872C71B13237F00D3C0E9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				880A97DA1B2F0E8E001D97F0 /* FoodBevCartCell */,
 				88A48EFE1B2B0146006CEC42 /* FoodBevItemCell */,
 				88243AF31B28436200E600D6 /* FoodBevCell */,
 				3DD3CA341B2863CF00767BCF /* SideNotificationView */,
@@ -1103,6 +1124,7 @@
 				88A48EFD1B2B006F006CEC42 /* FoodBevItemDetailViewController.m in Sources */,
 				885CB0681B09BADE00AD2A7B /* InitialViewController.m in Sources */,
 				3DCA44CE1B26CB3400B66BD2 /* EventWeather.m in Sources */,
+				880A97DD1B2F0ED4001D97F0 /* FoodBevCartCell.m in Sources */,
 				3D87D8461B1852120046BD60 /* VRGCalendarView.m in Sources */,
 				88D813AD1B17640E00FD7D0E /* PlayerSettingsMainViewController.m in Sources */,
 				889872BF1B13105C00D3C0E9 /* Utilities.m in Sources */,
@@ -1166,6 +1188,7 @@
 				3D1963EA1B0E1B5200766CFC /* ClubHouseContainerVC.m in Sources */,
 				3D1963EC1B0E1B5200766CFC /* ClubHouseViewController.m in Sources */,
 				3DCA44D81B26CB3400B66BD2 /* Menu.m in Sources */,
+				880A97D91B2F090F001D97F0 /* FoodBevCartViewController.m in Sources */,
 				3DCA44D51B26CB3400B66BD2 /* GolfrzErrorResponse.m in Sources */,
 				3DCA44D21B26CB3400B66BD2 /* StaffMember.m in Sources */,
 				3D87D82B1B15A0880046BD60 /* EventDetailViewController.m in Sources */,
