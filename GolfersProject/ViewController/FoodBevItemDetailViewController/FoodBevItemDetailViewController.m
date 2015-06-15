@@ -51,4 +51,11 @@
 }
 */
 
+- (IBAction)btnAddTapped:(UIButton *)sender {
+}
+- (IBAction)btnAddToCartTapped:(UIButton *)sender {
+}
+
+- (IBAction)btnDecrementTapped:(UIButton *)sender {
+}
 @end

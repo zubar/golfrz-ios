@@ -275,6 +275,9 @@
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="btnPlaceOrderTapped:" destination="jiO-Go-HZx" eventType="touchUpInside" id="PIb-Mn-Gab"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -331,7 +334,11 @@
                     <navigationItem key="navigationItem" id="bpy-em-llu"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <connections>
+                        <outlet property="cartTableView" destination="AkT-9h-sOl" id="jLt-LR-SjH"/>
+                        <outlet property="lblTotalOrder" destination="BSH-fi-O3U" id="g1C-9v-qJG"/>
                         <outlet property="scrollView" destination="oHw-Wq-jAq" id="t9Z-ne-cb9"/>
+                        <outlet property="txtLocation" destination="LF0-XP-SXx" id="czF-Zk-pLu"/>
+                        <outlet property="txtMemberNo" destination="EdC-Pt-AWO" id="Qoz-tN-DlL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sx8-WE-VYg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -557,6 +564,9 @@
                                             <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="btnAddTapped:" destination="6hG-38-W9l" eventType="touchUpInside" id="wRk-x0-Dxm"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gVS-aL-ASf">
                                         <rect key="frame" x="68" y="413" width="20" height="20"/>
@@ -568,6 +578,9 @@
                                             <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="btnDecrementTapped:" destination="6hG-38-W9l" eventType="touchUpInside" id="BcV-El-n8O"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wTM-2V-8GV">
                                         <rect key="frame" x="98" y="459" width="125" height="30"/>
@@ -580,6 +593,9 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="btnAddToCartTapped:" destination="6hG-38-W9l" eventType="touchUpInside" id="U2S-nz-zXm"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -628,6 +644,10 @@
                     <navigationItem key="navigationItem" id="jvI-lj-Svp"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="imgItemPic" destination="iNv-KC-tNf" id="xJh-Qf-q16"/>
+                        <outlet property="lblIngredients" destination="L5t-b8-Efc" id="MVk-GX-hzs"/>
+                        <outlet property="optionsTableView" destination="PEi-8B-pad" id="ABj-mR-7WL"/>
+                        <outlet property="txtCount" destination="VNr-C1-ftu" id="IVq-zY-efM"/>
                         <segue destination="jiO-Go-HZx" kind="push" identifier="segueCart" id="diY-YP-V0e"/>
                     </connections>
                 </viewController>
