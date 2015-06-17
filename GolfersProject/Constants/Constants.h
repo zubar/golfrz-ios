@@ -61,7 +61,7 @@ static NSString * const kCheckInUrl = @"check_in";
 //TODO: get it from bundle id,
 #pragma warking - Automation issue.
 static NSString * const kAppBundleId = @"org.golfrz.GolferzProject";
-static NSString * const kUserAgent = @"iOS";
+static NSString * const kUserAgent = @"ios";
 
 
 /*

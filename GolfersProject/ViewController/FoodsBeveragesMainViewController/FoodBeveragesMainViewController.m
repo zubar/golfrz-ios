@@ -13,6 +13,7 @@
 #import "FoodBeverage.h"
 #import "MBProgressHUD.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "FoodBevItemDetailViewController.h"
 
 @interface FoodBeveragesMainViewController (){
     bool isFoodItemSelected;
@@ -91,15 +92,24 @@
     return customCell;
 }
 
-/*
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    [collectionView deselectItemAtIndexPath:indexPath animated:YES];
+    FoodBeverage * foodBevObject = [self.foodArray objectAtIndex:indexPath.row];
+    [self performSegueWithIdentifier:@"segueItemDetail" sender:foodBevObject];
+    
+}
+
+
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"segueItemDetail"]) {
+        FoodBevItemDetailViewController *foodBevItemDetailViewController = segue.destinationViewController;
+        foodBevItemDetailViewController.selectedItem = sender;
+   }    
 }
-*/
+
 
 - (IBAction)btnFoodTapped:(UIButton *)sender {
 

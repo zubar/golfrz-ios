@@ -464,11 +464,12 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ioS-gB-fHJ">
                                         <rect key="frame" x="0.0" y="303" width="320" height="80"/>
                                         <subviews>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="PEi-8B-pad">
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="25" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="PEi-8B-pad">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <prototypes>
-                                                    <tableViewCell contentMode="scaleToFill" restorationIdentifier="FoodBevItemCell" selectionStyle="default" indentationWidth="10" rowHeight="21" id="ReU-xi-NKm" customClass="FoodBevItemCell">
+                                                    <tableViewCell contentMode="scaleToFill" restorationIdentifier="FoodBevItemCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="FoodBevItemCell" rowHeight="21" id="ReU-xi-NKm" customClass="FoodBevItemCell">
                                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ReU-xi-NKm" id="07o-zu-WA0">
@@ -544,14 +545,14 @@
                                             <constraint firstItem="ePy-kV-4ng" firstAttribute="leading" secondItem="63f-UQ-mVA" secondAttribute="leading" constant="8" id="xoU-Xq-6me"/>
                                         </constraints>
                                     </view>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" background="smalltxt_bg" translatesAutoresizingMaskIntoConstraints="NO" id="VNr-C1-ftu">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" textAlignment="center" minimumFontSize="17" background="smalltxt_bg" translatesAutoresizingMaskIntoConstraints="NO" id="VNr-C1-ftu">
                                         <rect key="frame" x="8" y="414" width="20" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="20" id="5C8-Ll-kaa"/>
                                             <constraint firstAttribute="height" constant="20" id="O2l-YF-jA1"/>
                                         </constraints>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4pf-J5-o9f">
