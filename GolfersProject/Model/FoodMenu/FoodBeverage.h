@@ -17,6 +17,6 @@
 @property (copy, nonatomic, readonly) NSString * imageUrl;
 @property (copy, nonatomic, readonly) NSString * details;
 
-@property (copy, nonatomic, readonly) NSArray * sideItems;
+@property (copy, nonatomic) NSArray * sideItems;
 
 @end

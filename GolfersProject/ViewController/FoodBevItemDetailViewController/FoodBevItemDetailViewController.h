@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FoodBevItemCell.h"
 @class FoodBeverage;
 
-@interface FoodBevItemDetailViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+@interface FoodBevItemDetailViewController : UIViewController<UITableViewDataSource, UITableViewDelegate,FoodCellDelegate>
 @property (strong, nonatomic) IBOutlet UIImageView *imgItemPic;
 @property (strong, nonatomic) IBOutlet UILabel *lblIngredients;
 @property (strong, nonatomic) IBOutlet UITableView *optionsTableView;
@@ -19,7 +20,9 @@
 - (IBAction)btnAddToCartTapped:(UIButton *)sender;
 - (IBAction)btnDecrementTapped:(UIButton *)sender;
 @property (strong, nonatomic) FoodBeverage *selectedItem;
-@property (strong, nonatomic) NSNumber *quantity;
 
+
+@property (strong, nonatomic) IBOutlet UILabel *lblItemName;
+@property (strong, nonatomic) IBOutlet UILabel *lblItemPrice;
 
 @end

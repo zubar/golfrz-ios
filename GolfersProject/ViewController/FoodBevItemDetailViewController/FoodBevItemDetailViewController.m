@@ -11,26 +11,29 @@
 #import "FoodBeverage.h"
 #import "SideItem.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "FoodBeverageServices.h"
 
 @interface FoodBevItemDetailViewController ()
 
-
+@property (strong, nonatomic) NSMutableArray *selectedArray;
 
 @end
 
-BOOL isNotSelected = false;
 
 @implementation FoodBevItemDetailViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.quantity = 0;
+    self.selectedArray = [NSMutableArray array];
+    //self.quantity = 0;
     self.sideItems = self.selectedItem.sideItems;
     [self.imgItemPic sd_setImageWithURL:[NSURL URLWithString:self.selectedItem.imageUrl] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         //  <#code#>
         [self.imgItemPic setImage:image];
     } ];
+    self.lblItemName.text = self.selectedItem.name;
+    self.lblItemPrice.text = self.selectedItem.price.stringValue;
     [self.optionsTableView reloadData];
     // Do any additional setup after loading the view.
 }
@@ -55,38 +58,12 @@ BOOL isNotSelected = false;
     }
    
     FoodBevItemCell *customViewCell = (FoodBevItemCell *)customCell;
+    customViewCell.indexPath = indexPath;
+    [customViewCell setDelegate:self];
     SideItem *sideItem = [self.sideItems objectAtIndex:indexPath.row];
-    //NSString *sideItemName =
     [customViewCell.lblSideItem setText:sideItem.name];
-    //[customViewCell.imgCheckBox setImage:[UIImage imageNamed:@"unchecked_checkbox"]];
-    customViewCell.imgCheckBox.image = [UIImage imageNamed:@"unchecked_checkbox"];
-    UITapGestureRecognizer *tapped = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageTapped:)];
-    tapped.numberOfTapsRequired = 1;
-    [customViewCell.imgCheckBox addGestureRecognizer:tapped];
-    customViewCell.imgCheckBox.userInteractionEnabled = YES;
+   
     return customViewCell;
-}
-
--(void)imageTapped:(UIGestureRecognizer*)gesture
-{
-    
-    UIImageView *selectedImageView=(UIImageView*)[gesture view];
-    
-    //UIImage *imageDefault = [UIImage imageNamed:@"checkmark.png"];
-    UIImage *imageNotSelected = [UIImage imageNamed:@"unchecked_checkbox"];
-    UIImage *imageSelected = [UIImage imageNamed:@"checked_checkbox"];
-    //BOOL isSelected = false;
-    if (isNotSelected) {
-        selectedImageView.image = imageSelected;
-        //cell.selected = true;
-        isNotSelected = false;
-        NSLog(@"Selected");
-    } else {
-        selectedImageView.image = imageNotSelected;
-        isNotSelected = true;
-        //cell.selected = false;
-        NSLog(@"Deselected");
-    }
 }
 
 /*
@@ -107,7 +84,11 @@ BOOL isNotSelected = false;
     [self.txtCount setText:[NSString stringWithFormat:@"%d",count]];
 }
 - (IBAction)btnAddToCartTapped:(UIButton *)sender {
-    
+    self.selectedItem.sideItems = self.selectedArray;
+    [FoodBeverageServices addItemToCart:self.selectedItem quantity:self.txtCount.text.intValue withBlock:^(bool status, NSDictionary *response){
+        NSLog(@"Success");
+    } failure:^(bool status, NSError *error){
+    }];
 }
 
 - (IBAction)btnDecrementTapped:(UIButton *)sender {
@@ -121,5 +102,25 @@ BOOL isNotSelected = false;
     
     count--;
     [self.txtCount setText:[NSString stringWithFormat:@"%d",count]];
+}
+
+#pragma mark --  Food cell delegate
+
+-(void)didTapCheckedButtonAtIndexPath:(NSIndexPath *)indexPath
+{
+    FoodBevItemCell* cell = (FoodBevItemCell*) [self.optionsTableView cellForRowAtIndexPath:indexPath];
+
+    SideItem *sideItem = [self.selectedItem.sideItems objectAtIndex:indexPath.row];
+    
+    if([self.selectedArray containsObject:sideItem])
+    {
+        [self.selectedArray removeObject:sideItem];
+        [cell.btnChecked setImage:[UIImage imageNamed:@"unchecked_checkbox"] forState:UIControlStateNormal];
+    }
+    else
+    {
+        [self.selectedArray addObject:sideItem];
+        [cell.btnChecked setImage:[UIImage imageNamed:@"checked_checkbox"] forState:UIControlStateNormal];
+    }
 }
 @end
