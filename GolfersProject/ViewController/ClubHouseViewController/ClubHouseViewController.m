@@ -10,7 +10,6 @@
 #import "ClubHouseContainerVC.h"
 #import "WeatherViewCell.h"
 #import "WeatherServices.h"
-#import <SDWebImage/UIImageView+WebCache.h>
 #import "MBProgressHUD.h"
 
 #import "CourseServices.h"
@@ -261,7 +260,7 @@
     [ContactServices getAddressbookContactsFiltered:ContactFilterEmail sortedByName:YES success:^(bool status, NSArray *contactsArray) {
         NSLog(@"contacts: %@", contactsArray);
         
-        NSString * name = [((id)contactsArray[0]) cfirstName];
+        NSString * name = [((id)contactsArray[0]) contactFirstName];
         NSLog(@"firstName: %@", name);
         
     } failure:^(bool status, NSError *error) {

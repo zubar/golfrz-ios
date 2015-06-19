@@ -10,27 +10,32 @@
 
 @implementation APContact (Convenience)
 
-- (NSString *)cfirstName;
+- (NSString *)contactFirstName;
 {
     return self.firstName;
 }
 
--(NSString *)lastName{
+-(NSString *)contactLastName{
     return self.lastName;
 }
 
--(NSString *)phoneNumber{
+-(NSString *)contactPhoneNumber{
     if ([self.phones firstObject]) {
         return [self.phones firstObject];
     }
     return @"+00 000 0000000";
 }
 
--(NSString *)email{
+-(NSString *)contactEmail{
     if ([self.emails firstObject]) {
         return [self.emails firstObject];
     }
     return @"no email exists";
+}
+
+-(NSString *)contactImageURL{
+    //TODO: 
+return @"";
 }
 
 @end

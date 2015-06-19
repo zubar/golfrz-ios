@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="7Xa-5q-5iG">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
@@ -3638,7 +3638,7 @@
         <!--Invite Main View Controller-->
         <scene sceneID="u7S-bF-dXe">
             <objects>
-                <viewController id="DOC-LT-BEA" customClass="InviteMainViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="InviteMainViewController" id="DOC-LT-BEA" customClass="InviteMainViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="LTy-oE-Itk"/>
                         <viewControllerLayoutGuide type="bottom" id="PKL-Q4-VO3"/>
@@ -3696,6 +3696,8 @@
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="hhQ-gP-vv3">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="404"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <prototypes>
                                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ContactCell" rowHeight="65" id="6DF-3d-SAp" customClass="ContactCell">
                                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -3784,8 +3786,9 @@
                                                             </constraints>
                                                         </tableViewCellContentView>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <connections>
-                                                            <outlet property="imgContactPic" destination="h39-aI-ba8" id="yF3-3h-JtP"/>
+                                                            <outlet property="imgContactPic" destination="NDm-uH-9Go" id="arq-Vd-eON"/>
                                                             <outlet property="lblContactName" destination="cyA-8g-gcz" id="ktI-kX-9ES"/>
                                                         </connections>
                                                     </tableViewCell>
@@ -3840,7 +3843,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CIX-Cg-i3G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="512" y="167"/>
+            <point key="canvasLocation" x="379" y="134"/>
         </scene>
         <!--Reward View Controller-->
         <scene sceneID="hTy-NE-a2Y">

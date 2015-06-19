@@ -9,8 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @interface ContactCell : UITableViewCell
-@property (strong, nonatomic) IBOutlet UIView *imgContactPic;
-@property (strong, nonatomic) IBOutlet UILabel *lblContactName;
-- (IBAction)btnAdd:(UIButton *)sender;
 
+@property (strong, nonatomic) IBOutlet UIImageView *imgContactPic;
+@property (strong, nonatomic) IBOutlet UILabel *lblContactName;
+
+
+//UI Actions
+- (IBAction)btnAdd:(UIButton *)sender;
+-(void)configureContactCellViewForContact:(id)contact;
 @end

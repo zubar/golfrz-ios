@@ -18,6 +18,7 @@
 #import "AppDelegate.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "UIImageView+RoundedImage.h"
+#import "InviteMainViewController.h"
 
 
 @interface PlayerProfileViewController ()
@@ -72,7 +73,7 @@
     [[self navigationItem] setTitle:@"PLAYER PROFILE"];
     UIButton * imageRightButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 10, 22, 22)];
     [imageRightButton setBackgroundImage:[UIImage imageNamed:@"invite_icon"] forState:UIControlStateNormal];
-    [imageRightButton addTarget:self action:@selector(test) forControlEvents:UIControlEventTouchUpInside];
+    [imageRightButton addTarget:self action:@selector(inviteFriendTap) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:imageRightButton];
     self.navigationItem.rightBarButtonItem = rightBarButtonItem;
 
@@ -85,7 +86,12 @@
         [self.navigationController pushViewController:self.containerVC.rewardViewController animated:YES];
 }
 
-- (void) test {
+- (void)inviteFriendTap{
+    
+    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+    InviteMainViewController * friendsController = [self.storyboard instantiateViewControllerWithIdentifier:@"InviteMainViewController"];
+    [delegate.appDelegateNavController pushViewController:friendsController animated:YES];
+
 }
 
 -(void)popToPreviousController{
@@ -109,7 +115,6 @@
 //    NSDictionary * dict=[[NSDictionary alloc]initWithObjectsAndKeys:barBtn, @"left_btn",nil];
 //    return dict;
 //}
-//
 
 /*
 #pragma mark - Navigation

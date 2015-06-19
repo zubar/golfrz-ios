@@ -11,10 +11,10 @@
 
 @interface APContact (Convenience)
 
-- (NSString *)cfirstName;
-/*
-- (NSString *)lastName;
-- (NSString *)phoneNumber;
-- (NSString *)email;
-*/
+- (NSString *)contactFirstName;
+- (NSString *)contactLastName;
+- (NSString *)contactPhoneNumber;
+- (NSString *)contactEmail;
+- (NSString *)contactImageURL;
+
 @end
