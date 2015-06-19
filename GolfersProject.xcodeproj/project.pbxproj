@@ -49,6 +49,7 @@
 		3DC1161D1B2ED8A500E83F4F /* ContactServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC1161C1B2ED8A500E83F4F /* ContactServices.m */; };
 		3DC1161F1B2EE21F00E83F4F /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DC1161E1B2EE21F00E83F4F /* AddressBook.framework */; };
 		3DC116231B2EF4AD00E83F4F /* APContact+convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC116221B2EF4AD00E83F4F /* APContact+convenience.m */; };
+		3DC116271B3426E300E83F4F /* InviteMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC116261B3426E300E83F4F /* InviteMainViewController.m */; };
 		3DCA44CC1B26CB3400B66BD2 /* CalendarEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DCA44A91B26CB3400B66BD2 /* CalendarEvent.m */; };
 		3DCA44CD1B26CB3400B66BD2 /* EventList.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DCA44AB1B26CB3400B66BD2 /* EventList.m */; };
 		3DCA44CE1B26CB3400B66BD2 /* EventWeather.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DCA44AD1B26CB3400B66BD2 /* EventWeather.m */; };
@@ -92,7 +93,6 @@
 		8873AA761B18C5F500E74C87 /* EventAdminViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8873AA751B18C5F500E74C87 /* EventAdminViewController.m */; };
 		887C51311B21C9E300C778D7 /* UIImageView+RoundedImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 887C51301B21C9E300C778D7 /* UIImageView+RoundedImage.m */; };
 		88855DD21B256F5A00E164D6 /* FoodBeveragesMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88855DD11B256F5A00E164D6 /* FoodBeveragesMainViewController.m */; };
-		8890E4CF1B3067D900A11BBF /* InviteMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8890E4CE1B3067D900A11BBF /* InviteMainViewController.m */; };
 		8890E4D31B307A5500A11BBF /* ContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8890E4D21B307A5500A11BBF /* ContactCell.m */; };
 		889872BF1B13105C00D3C0E9 /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 889872BE1B13105C00D3C0E9 /* Utilities.m */; };
 		88A48EFD1B2B006F006CEC42 /* FoodBevItemDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88A48EFC1B2B006F006CEC42 /* FoodBevItemDetailViewController.m */; };
@@ -188,6 +188,8 @@
 		3DC1161E1B2EE21F00E83F4F /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		3DC116211B2EF4AD00E83F4F /* APContact+convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "APContact+convenience.h"; sourceTree = "<group>"; };
 		3DC116221B2EF4AD00E83F4F /* APContact+convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "APContact+convenience.m"; sourceTree = "<group>"; };
+		3DC116251B3426E300E83F4F /* InviteMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InviteMainViewController.h; sourceTree = "<group>"; };
+		3DC116261B3426E300E83F4F /* InviteMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InviteMainViewController.m; sourceTree = "<group>"; };
 		3DCA44A81B26CB3400B66BD2 /* CalendarEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarEvent.h; sourceTree = "<group>"; };
 		3DCA44A91B26CB3400B66BD2 /* CalendarEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarEvent.m; sourceTree = "<group>"; };
 		3DCA44AA1B26CB3400B66BD2 /* EventList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventList.h; sourceTree = "<group>"; };
@@ -277,8 +279,6 @@
 		887C51301B21C9E300C778D7 /* UIImageView+RoundedImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+RoundedImage.m"; sourceTree = "<group>"; };
 		88855DD01B256F5A00E164D6 /* FoodBeveragesMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodBeveragesMainViewController.h; sourceTree = "<group>"; };
 		88855DD11B256F5A00E164D6 /* FoodBeveragesMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodBeveragesMainViewController.m; sourceTree = "<group>"; };
-		8890E4CD1B3067D900A11BBF /* InviteMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InviteMainViewController.h; sourceTree = "<group>"; };
-		8890E4CE1B3067D900A11BBF /* InviteMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InviteMainViewController.m; sourceTree = "<group>"; };
 		8890E4D11B307A5500A11BBF /* ContactCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactCell.h; sourceTree = "<group>"; };
 		8890E4D21B307A5500A11BBF /* ContactCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactCell.m; sourceTree = "<group>"; };
 		889872BD1B13105C00D3C0E9 /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
@@ -547,6 +547,15 @@
 			path = "APContact+Extension";
 			sourceTree = "<group>";
 		};
+		3DC116241B3426E300E83F4F /* InviteMainViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3DC116251B3426E300E83F4F /* InviteMainViewController.h */,
+				3DC116261B3426E300E83F4F /* InviteMainViewController.m */,
+			);
+			path = InviteMainViewController;
+			sourceTree = "<group>";
+		};
 		3DCA44A71B26CB3400B66BD2 /* CalendarEvent */ = {
 			isa = PBXGroup;
 			children = (
@@ -796,7 +805,7 @@
 		885CB04F1B09BADE00AD2A7B /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				8890E4CC1B3067B100A11BBF /* InviteMainViewController */,
+				3DC116241B3426E300E83F4F /* InviteMainViewController */,
 				880A97D61B2F08F2001D97F0 /* FoodBevCartViewController */,
 				88A48EFA1B2AFA04006CEC42 /* FoodBevItemDetailViewController */,
 				88855DCF1B256F3500E164D6 /* FoodsBeveragesMainViewController */,
@@ -927,15 +936,6 @@
 				88855DD11B256F5A00E164D6 /* FoodBeveragesMainViewController.m */,
 			);
 			path = FoodsBeveragesMainViewController;
-			sourceTree = "<group>";
-		};
-		8890E4CC1B3067B100A11BBF /* InviteMainViewController */ = {
-			isa = PBXGroup;
-			children = (
-				8890E4CD1B3067D900A11BBF /* InviteMainViewController.h */,
-				8890E4CE1B3067D900A11BBF /* InviteMainViewController.m */,
-			);
-			path = InviteMainViewController;
 			sourceTree = "<group>";
 		};
 		8890E4D01B307A3A00A11BBF /* ContactCell */ = {
@@ -1176,7 +1176,6 @@
 				3D1963FA1B0E21B100766CFC /* main.m in Sources */,
 				3DCA44D01B26CB3400B66BD2 /* Course.m in Sources */,
 				3DCA44CF1B26CB3400B66BD2 /* Coordinate.m in Sources */,
-				8890E4CF1B3067D900A11BBF /* InviteMainViewController.m in Sources */,
 				3D87D8431B1852120046BD60 /* NSMutableArray+convenience.m in Sources */,
 				887C51311B21C9E300C778D7 /* UIImageView+RoundedImage.m in Sources */,
 				88A48EFD1B2B006F006CEC42 /* FoodBevItemDetailViewController.m in Sources */,
@@ -1227,6 +1226,7 @@
 				885CB0751B09FB0100AD2A7B /* APIClient.m in Sources */,
 				3D87D8451B1852120046BD60 /* UIView+convenience.m in Sources */,
 				3D1964011B1305FC00766CFC /* PresentationServices.m in Sources */,
+				3DC116271B3426E300E83F4F /* InviteMainViewController.m in Sources */,
 				3DCA44CC1B26CB3400B66BD2 /* CalendarEvent.m in Sources */,
 				3D1963F31B0E1B6900766CFC /* PlayerProfileViewController.m in Sources */,
 				3D19641B1B130E3B00766CFC /* TPKeyboardAvoidingScrollView.m in Sources */,

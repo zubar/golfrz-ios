@@ -21,4 +21,8 @@ typedef enum : NSUInteger {
                          sortedByName:(BOOL)yesNo success:(void (^)(bool status, NSArray * contactsArray))successBlock
                               failure:(void (^)(bool status, NSError * error))failureBlock;
 
++(void)getFacebookFriendsFiltered:(ContactFilterOption)filterProperty
+                     sortedbyName:(BOOL)yesNo
+                          success:(void (^)(bool status, NSArray * friendsArray))successBlock
+                          failure:(void (^)(bool status, NSError * error))failureBlock;
 @end

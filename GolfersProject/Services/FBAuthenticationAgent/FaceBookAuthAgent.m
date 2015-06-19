@@ -32,7 +32,7 @@
             // should check if specific permissions missing
             if ([result.grantedPermissions containsObject:@"email"]) {
                 // Do work
-                NSLog(@"Profile- %@ Token- %@",[FBSDKProfile currentProfile], [FBSDKAccessToken currentAccessToken]);
+                NSLog(@"Profile- %@ Token- %@",[[FBSDKProfile currentProfile] userID], [[FBSDKAccessToken currentAccessToken] tokenString]);
                 
                 [FaceBookAuthAgent postFBTokenToServer:[[FBSDKAccessToken currentAccessToken] tokenString] success:^(bool status, NSDictionary *userInfo){
                     if (status) {
@@ -52,6 +52,15 @@
     }];
 }
 
+
+
++(BOOL)hasValidToken{
+
+    if ([FBSDKAccessToken currentAccessToken] != nil) {
+        return TRUE;
+    }else
+        return FALSE;
+}
 
 +(void)postFBTokenToServer:(NSString *)token
                  success:(void (^)(bool status, NSDictionary * userInfo))successBlock

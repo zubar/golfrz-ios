@@ -13,6 +13,11 @@
 #import <APAddressBook/APContact.h>
 #import "Constants.h"
 #import "UserServices.h"
+#import "FaceBookAuthAgent.h"
+
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
 
 @implementation ContactServices
 static     APAddressBook *addressBook;
@@ -57,6 +62,44 @@ static     APAddressBook *addressBook;
         }
     }];
 }
+
++(void)getFacebookFriendsFiltered:(ContactFilterOption)filterProperty
+                     sortedbyName:(BOOL)yesNo
+                          success:(void (^)(bool status, NSArray * friendsArray))successBlock
+                          failure:(void (^)(bool status, NSError * error))failureBlock{
+
+    FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc] initWithGraphPath:@"me/friends"
+                                                                   parameters:nil];
+    
+    if ([FaceBookAuthAgent hasValidToken]) {
+        [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+            // TODO: handle results or error of request.
+        }];
+    }else{
+        [FaceBookAuthAgent signInWithFacebook:^(bool status, NSDictionary *userInfo) {
+            [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+                // TODO: handle results or error of request.
+            }];
+        } failure:^(bool status, NSError *error) {
+//
+        }];
+    }
+    
+   
+  
+}
+
++(void)getInAppFriendsFiltered:(ContactFilterOption)filterProperty
+                  sortedbyName:(BOOL)yesNo
+                       success:(void(^)(bool status, NSArray * contactsArray))successBlock
+                       failure:(void(^)(bool status, NSError * error))failureBlock{
+    
+    /*
+    AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc]initWithBaseURL:[NSURL URLWithString:kBaseURL]];
+    apiClient GET:<#(NSString *)#> parameters:<#(id)#> success:<#^(NSURLSessionDataTask *task, id responseObject)success#> failure:<#^(NSURLSessionDataTask *task, NSError *error)failure#>
+*/
+}
+
 
 
 +(void)inviteContactViaEmail:(id)contact success:(void (^)(bool status, id response))successBlock failure:(void (^)(bool status, NSError * error))failureBlock{

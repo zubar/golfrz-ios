@@ -56,8 +56,27 @@
             completionBlock();
         }];
     }
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
 
 }
+
+-(void)loadFacebookFriendsCompletion:(void (^)(void))completionBlock{
+    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [ContactServices getFacebookFriendsFiltered:ContactFilterEmail sortedbyName:YES success:^(bool status, NSArray *friendsArray) {
+        if (status) {
+            [self.fbFriends addObjectsFromArray:friendsArray];
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            completionBlock();
+        }
+    } failure:^(bool status, NSError *error) {
+            NSLog(@"error: %@", error);
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            completionBlock();
+    }];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -98,6 +117,10 @@
     
     switch ([sender selectedSegmentIndex]) {
         case 0:{
+            [self loadFacebookFriendsCompletion:^{
+                contacts = self.fbFriends;
+                [self.contactsTable reloadData];
+            }];
             contacts = self.fbFriends;
             break;
         }
@@ -109,11 +132,15 @@
             break;
         }
         case 2:{
-            contacts = self.addressbookContacts;
-            break;
+            //TODO: set filter option phone number.
+            [self loadAddressbookContactsCompletion:^{
+                contacts = self.addressbookContacts;
+                [self.contactsTable reloadData];
+            }];            break;
         }
         case 3:{
             contacts = self.inappContacts;
+            
             break;
         }
         default:

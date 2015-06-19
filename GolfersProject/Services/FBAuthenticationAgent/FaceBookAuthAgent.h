@@ -13,5 +13,5 @@
 +(void)signInWithFacebook:(void (^)(bool status, NSDictionary * userInfo))successBlock
                   failure:(void (^)(bool status, NSError * error))failureBlock;
 
-
++(BOOL)hasValidToken;
 @end
