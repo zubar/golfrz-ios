@@ -193,13 +193,6 @@
 }
 
 
-- (IBAction)btnFoodBevTapped:(id)sender {
-    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
-    FoodBeveragesMainViewController * controller = [self.storyboard instantiateViewControllerWithIdentifier:@"FoodBeveragesMainViewController"];
-    [delegate.appDelegateNavController pushViewController:controller animated:YES];
-}
-
-
 #pragma mark - NavBarButtonsDelegate
 
 
@@ -233,6 +226,12 @@
         NSLog(@"%@", error);
     }];
     
+}
+
+- (IBAction)btnFoodBevTapped:(UIButton *)sender {
+    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+    FoodBeveragesMainViewController * controller = [self.storyboard instantiateViewControllerWithIdentifier:@"FoodBeveragesMainViewController"];
+    [delegate.appDelegateNavController pushViewController:controller animated:YES];
 }
 
 -(void)checkInToCurrentCourse{

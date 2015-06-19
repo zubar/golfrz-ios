@@ -8,8 +8,22 @@
 
 #import <UIKit/UIKit.h>
 
+
+@protocol  FoodCellDelegate <NSObject>
+
+-(void) didTapCheckedButtonAtIndexPath:(NSIndexPath*) indexPath;
+
+@end
+
 @interface FoodBevItemCell : UITableViewCell
-@property (strong, nonatomic) IBOutlet UIImageView *imgCheckBox;
+
+- (IBAction)btnCheckedTapped:(UIButton *)sender;
+
+@property (weak, nonatomic) id<FoodCellDelegate> delegate;
+@property (strong, nonatomic) IBOutlet UIButton *btnChecked;
 @property (strong, nonatomic) IBOutlet UILabel *lblSideItem;
+
+@property (strong, nonatomic) NSIndexPath *indexPath;
+
 
 @end

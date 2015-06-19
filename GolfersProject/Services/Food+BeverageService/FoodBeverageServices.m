@@ -63,6 +63,30 @@
             }];
 }
 
++(void)addItemsToCartWithIds:(NSArray *)items
+            quantity:(NSUInteger )quantity
+           withBlock:(void (^)(bool status, NSDictionary * response))successBlock
+             failure:(void (^)(bool status, NSError * error))failureBlock{
+    
+    APIClient * apiClient = [APIClient sharedAPICLient];
+    [apiClient POST:kAddItemToCart
+         parameters:[FoodBeverageServices paramsForItemIds:items quantity:quantity]
+            success:^(NSURLSessionDataTask *task, id responseObject) {
+                
+                if ((NSDictionary *)responseObject[@"success_message"] ) {
+                    successBlock(true, responseObject);
+                }
+            }failure:^(NSURLSessionDataTask *task, NSError *error) {
+                if (error) {
+                    failureBlock(false, error);
+                }else{
+                    failureBlock(false, [NSError errorWithDomain:@"ios-app" code:0 userInfo:@{@"error_message":@"Un-known"}]);
+                }
+            }];
+}
+
+
+
 +(void)removeItemFromCart:(Order *)item
                 withBlock:(void (^)(bool status, NSDictionary * response))successBlock
                   failure:(void (^)(bool status, NSError * error))failureBlock{
@@ -169,6 +193,17 @@
              };
 }
 
+
++(NSDictionary *)paramsForItemIds:(NSArray *)items quantity:(NSUInteger)quantity{
+    
+    return @{
+             @"app_bundle_id" : kAppBundleId,
+             @"user_agent" : kUserAgent,
+             @"auth_token" : [UserServices currentToken],
+             @"menu_item_ids" : items,
+             @"quantity" : [NSNumber numberWithInteger:quantity]
+             };
+}
 
 +(NSDictionary *)paramsForRemoveCartItem:(Order *)order{
     

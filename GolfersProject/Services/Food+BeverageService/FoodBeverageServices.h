@@ -30,6 +30,11 @@
 +(void)cartItemsForCurrentUser:(void (^)(bool status, Cart * response))successBlock
                        failure:(void (^)(bool status, NSError * error))failureBlock;
     
+
++(void)addItemsToCartWithIds:(NSArray *)items
+                    quantity:(NSUInteger )quantity
+                   withBlock:(void (^)(bool status, NSDictionary * response))successBlock
+                     failure:(void (^)(bool status, NSError * error))failureBlock;
 /*
 +(void)addItemToCart:(FoodBeverage *)item;
 +(void)removeItemFromCart:(FoodBeverage *)item;
