@@ -8,6 +8,10 @@
 
 #import "FoodBevCartViewController.h"
 #import "FoodBevCartCell.h"
+#import "FoodBeverageServices.h"
+#import "Cart.h"
+#import "Order.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface FoodBevCartViewController ()
 
@@ -17,6 +21,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [FoodBeverageServices cartItemsForCurrentUser:^(bool status, Cart* responseCart){
+        
+        self.cartArray = (NSMutableArray* )responseCart.orders;
+        
+    }failure:^(bool status, NSError* error){
+        
+    }];
     //self.scrollView.translatesAutoresizingMaskIntoConstraints = NO;
     // Do any additional setup after loading the view.
 }
@@ -27,7 +38,7 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 1;
+     return [self.cartArray count];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -38,6 +49,14 @@
     }
     
     FoodBevCartCell *customViewCell = (FoodBevCartCell *)customCell;
+    Order *cartItem = [self.cartArray objectAtIndex:indexPath.row];
+    [customViewCell.imgFoodBevItemPic sd_setImageWithURL:[NSURL URLWithString:cartItem.imageUrl] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        //  <#code#>
+        [customViewCell.imgFoodBevItemPic setImage:image];
+    } ];
+    customViewCell.lblFoodBevItemName.text = cartItem.name;
+    customViewCell.lblPrice.text = cartItem.price.stringValue;
+    customViewCell.lblQuantity.text = cartItem.quantity.stringValue;
     return customViewCell;
 }
 

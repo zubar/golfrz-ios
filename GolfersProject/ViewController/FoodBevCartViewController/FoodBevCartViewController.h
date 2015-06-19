@@ -14,7 +14,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *txtLocation;
 @property (strong, nonatomic) IBOutlet UITextField *txtMemberNo;
 @property (strong, nonatomic) IBOutlet UILabel *lblTotalOrder;
-
+@property (strong, nonatomic) NSMutableArray *cartArray;
 - (IBAction)btnPlaceOrderTapped:(UIButton *)sender;
 
 @end

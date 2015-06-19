@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="7Xa-5q-5iG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="7Xa-5q-5iG">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
@@ -35,10 +35,13 @@
                                                         <subviews>
                                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="AkT-9h-sOl">
                                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="245"/>
-                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="245" id="bQ7-2O-lsB"/>
                                                                 </constraints>
+                                                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <prototypes>
                                                                     <tableViewCell contentMode="scaleToFill" restorationIdentifier="FoodBevCartCell" selectionStyle="default" indentationWidth="10" rowHeight="80" id="4d2-cu-Kxb" customClass="FoodBevCartCell">
                                                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -49,6 +52,7 @@
                                                                                 <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="s0B-Wb-iYB">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="79"/>
                                                                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                                                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                                 </imageView>
                                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BlD-ns-KqP">
                                                                                     <rect key="frame" x="8" y="10" width="90" height="60"/>
@@ -107,6 +111,7 @@
                                                                                     </connections>
                                                                                 </button>
                                                                             </subviews>
+                                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                             <constraints>
                                                                                 <constraint firstItem="3GS-OG-ZOr" firstAttribute="leading" secondItem="4SC-hy-Fzc" secondAttribute="trailing" constant="2" id="0qe-rf-LH9"/>
                                                                                 <constraint firstAttribute="bottom" secondItem="s0B-Wb-iYB" secondAttribute="bottom" id="7IG-hK-ts8"/>
@@ -130,6 +135,7 @@
                                                                                 <constraint firstItem="Hfi-4Y-mPa" firstAttribute="leading" secondItem="nis-Qe-mIc" secondAttribute="trailing" constant="2" id="sSr-Og-a1p"/>
                                                                             </constraints>
                                                                         </tableViewCellContentView>
+                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                         <connections>
                                                                             <outlet property="imgFoodBevItemPic" destination="BlD-ns-KqP" id="7gu-Zc-Hu3"/>
                                                                             <outlet property="lblFoodBevItemName" destination="ZA9-p0-kq2" id="LFF-aI-gQ3"/>
@@ -3638,7 +3644,7 @@
         <!--Invite Main View Controller-->
         <scene sceneID="u7S-bF-dXe">
             <objects>
-                <viewController storyboardIdentifier="InviteMainViewController" id="DOC-LT-BEA" customClass="InviteMainViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="InviteMainViewController" automaticallyAdjustsScrollViewInsets="NO" id="DOC-LT-BEA" customClass="InviteMainViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="LTy-oE-Itk"/>
                         <viewControllerLayoutGuide type="bottom" id="PKL-Q4-VO3"/>
@@ -3695,7 +3701,7 @@
                                         <subviews>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="hhQ-gP-vv3">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="404"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <prototypes>
@@ -3705,8 +3711,10 @@
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6DF-3d-SAp" id="h39-aI-ba8">
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
-                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hvk-rI-d82">
+                                                                <imageView userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hvk-rI-d82">
                                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+                                                                    <color key="backgroundColor" red="0.094488196074962616" green="0.094488196074962616" blue="0.094488196074962616" alpha="0.49803924560546875" colorSpace="deviceRGB"/>
+                                                                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 </imageView>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LX7-YK-4kq">
                                                                     <rect key="frame" x="0.0" y="0.0" width="70" height="64"/>
@@ -3745,13 +3753,13 @@
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oeX-og-OPG">
                                                                     <rect key="frame" x="263" y="0.0" width="57" height="64"/>
                                                                     <subviews>
-                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iTx-sb-QTB">
+                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iTx-sb-QTB">
                                                                             <rect key="frame" x="16" y="20" width="25" height="25"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="25" id="OaE-ph-eo5"/>
                                                                                 <constraint firstAttribute="width" constant="25" id="S5w-xw-4Ro"/>
                                                                             </constraints>
-                                                                            <state key="normal">
+                                                                            <state key="normal" image="invitefriend_uncheckded">
                                                                                 <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                                             </state>
@@ -3768,6 +3776,7 @@
                                                                     </constraints>
                                                                 </view>
                                                             </subviews>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                             <constraints>
                                                                 <constraint firstItem="oeX-og-OPG" firstAttribute="leading" secondItem="Gh8-Ux-NZu" secondAttribute="trailing" id="0h2-zC-0Yk"/>
                                                                 <constraint firstItem="LX7-YK-4kq" firstAttribute="leading" secondItem="h39-aI-ba8" secondAttribute="leading" id="4pQ-OG-uV9"/>
@@ -3894,6 +3903,7 @@
         <image name="go_button" width="20" height="20"/>
         <image name="golfcourse_logo" width="100" height="101"/>
         <image name="invite_icon" width="51" height="50"/>
+        <image name="invitefriend_uncheckded" width="24" height="25"/>
         <image name="person_placeholder" width="150" height="150"/>
         <image name="red_circle" width="15" height="15"/>
         <image name="settings_button" width="15" height="15"/>
