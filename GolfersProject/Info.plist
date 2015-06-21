@@ -23,14 +23,14 @@
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>fb1579340818994876</string>
+				<string>fb330966780302453</string>
 			</array>
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>4</string>
 	<key>FacebookAppID</key>
-	<string>1579340818994876</string>
+	<string>330966780302453</string>
 	<key>FacebookDisplayName</key>
 	<string>Golfrz-ios</string>
 	<key>LSRequiresIPhoneOS</key>

@@ -38,7 +38,10 @@
     self.inappContacts = [NSMutableArray array];
     
     [self.searchBar setDelegate:self];
-    //[self segmentControlTapped:self.segmentControl];
+    
+    [self.segmentControl setSelectedSegmentIndex:1];
+    [self setSegmentControlImagesForSelectedSegment:1];
+    [self loadDataForSegemnt:1];
 
 }
 
@@ -94,8 +97,12 @@
 #pragma mark - UIActions
 
 - (IBAction)segmentControlTapped:(UISegmentedControl *)sender {
+    [self loadDataForSegemnt:[sender selectedSegmentIndex]];
     
-    switch ([sender selectedSegmentIndex]) {
+}
+
+-(void)loadDataForSegemnt:(NSInteger)index{
+    switch (index) {
         case 0:{
             [self loadFacebookFriendsCompletion:^{
                 contacts = self.fbFriends;
@@ -208,7 +215,7 @@
     [ContactServices getFacebookFriendsFiltered:ContactFilterEmail sortedbyName:YES success:^(bool status, NSArray *friendsArray) {
         if (status) {
             [self.fbFriends addObjectsFromArray:friendsArray];
-            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
             completionBlock();
         }
     } failure:^(bool status, NSError *error) {

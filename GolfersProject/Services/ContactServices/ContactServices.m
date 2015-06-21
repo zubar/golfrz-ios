@@ -75,7 +75,7 @@ static     APAddressBook *addressBook;
         [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
             if (!error) {
                 //TODO: parse friends
-                successBlock(true, nil);
+                successBlock(true, result[@"data"]);
             }else{
                 failureBlock(false, error);
             }
