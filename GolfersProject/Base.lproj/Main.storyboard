@@ -3681,7 +3681,7 @@
                                         <subviews>
                                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="DbQ-fN-sNl">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="search"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="DOC-LT-BEA" id="A7n-vq-tqF"/>
                                                 </connections>
@@ -3764,7 +3764,7 @@
                                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                                             </state>
                                                                             <connections>
-                                                                                <action selector="btnAdd:" destination="6DF-3d-SAp" eventType="touchUpInside" id="oz4-MI-M7F"/>
+                                                                                <action selector="btnAdd:" destination="6DF-3d-SAp" eventType="touchUpInside" id="XTm-3H-weg"/>
                                                                             </connections>
                                                                         </button>
                                                                     </subviews>
@@ -3797,6 +3797,7 @@
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <connections>
+                                                            <outlet property="addbtn" destination="iTx-sb-QTB" id="DDV-6A-bDa"/>
                                                             <outlet property="imgContactPic" destination="NDm-uH-9Go" id="arq-Vd-eON"/>
                                                             <outlet property="lblContactName" destination="cyA-8g-gcz" id="ktI-kX-9ES"/>
                                                         </connections>

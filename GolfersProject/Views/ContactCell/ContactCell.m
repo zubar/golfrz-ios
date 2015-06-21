@@ -25,17 +25,23 @@
     // Configure the view for the selected state
 }
 
-- (IBAction)btnAdd:(UIButton *)sender {
+- (IBAction)btnAdd:(UIButton *)sender{
+
+    if (self.delegate && [self.delegate respondsToSelector:@selector(addBtnTapped:)]) {
+        [self.delegate addBtnTapped:currentContact];
+    }
 }
+
 
 -(void)configureContactCellViewForContact:(id)contact{
  
-    [self.lblContactName setText:[contact contactFirstName]];
+    currentContact = contact;
+    [self.lblContactName setText:[currentContact contactFirstName]];
     
-    if (![contact contactImage]) {
+    if (![currentContact contactImage]) {
         [self.imgContactPic setRoundedImage:[UIImage imageNamed:@"person_placeholder"]];
     }else{
-        [self.imgContactPic setRoundedImage:[contact contactImage]];
+        [self.imgContactPic setRoundedImage:[currentContact contactImage]];
     }
     
     /*

@@ -10,6 +10,8 @@
 #import "ContactCell.h"
 #import "ContactServices.h"
 #import "MBProgressHUD.h"
+#import "APContact+convenience.h"
+
 
 @interface InviteMainViewController (){
     NSMutableString * searchString;
@@ -36,46 +38,10 @@
     self.inappContacts = [NSMutableArray array];
     
     [self.searchBar setDelegate:self];
-    [self.segmentControl setSelectedSegmentIndex:1];
+    //[self segmentControlTapped:self.segmentControl];
 
 }
 
--(void)loadAddressbookContactsFilterOption:(ContactFilterOption)option completion:(void(^)(void))completionBlock{
-    
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    if ([self.addressbookContacts count] <=0 ) {
-        [ContactServices getAddressbookContactsFiltered:option sortedByName:YES success:^(bool status, NSArray *contactsArray) {
-            [self.addressbookContacts addObjectsFromArray:contactsArray];
-            [MBProgressHUD hideHUDForView:self.view animated:YES];
-            //Run the completion block
-            completionBlock();
-        } failure:^(bool status, NSError *error) {
-            //
-            NSLog(@"error: %@", error);
-            [MBProgressHUD hideHUDForView:self.view animated:YES];
-            completionBlock();
-        }];
-    }
-    [MBProgressHUD hideHUDForView:self.view animated:YES];
-
-}
-
--(void)loadFacebookFriendsCompletion:(void (^)(void))completionBlock{
-    
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    [ContactServices getFacebookFriendsFiltered:ContactFilterEmail sortedbyName:YES success:^(bool status, NSArray *friendsArray) {
-        if (status) {
-            [self.fbFriends addObjectsFromArray:friendsArray];
-            [MBProgressHUD hideHUDForView:self.view animated:YES];
-            completionBlock();
-        }
-    } failure:^(bool status, NSError *error) {
-            NSLog(@"error: %@", error);
-            [MBProgressHUD hideHUDForView:self.view animated:YES];
-            completionBlock();
-    }];
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-}
 
 
 - (void)didReceiveMemoryWarning {
@@ -83,6 +49,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - UITableViewDelagate
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
    
     return (isSearching ? [searchResults count] : [contacts count]);
@@ -99,10 +66,21 @@
     
     ContactCell *customViewCell = (ContactCell *)customCell;
     [customViewCell configureContactCellViewForContact:contact];
+    [customViewCell setSelectionStyle:UITableViewCellSelectionStyleNone];
+    [customViewCell setDelegate:self];
+    
     return customViewCell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
 }
 
+#pragma mark - ContactCell Delegate
+-(void)addBtnTapped:(id)contact{
+
+    
+}
 /*
 #pragma mark - Navigation
 
@@ -112,6 +90,8 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+#pragma mark - UIActions
 
 - (IBAction)segmentControlTapped:(UISegmentedControl *)sender {
     
@@ -171,6 +151,74 @@
     }
 }
 
+#pragma mark - HelperMethods
+
+-(void)sendSMSToContacts:(NSArray *)contacts{
+    
+    MFMessageComposeViewController *controller = [[MFMessageComposeViewController alloc] init];
+    if([MFMessageComposeViewController canSendText])
+    {
+        controller.body = @"Hello from Mugunth";
+        controller.recipients = [NSArray arrayWithObjects:@"+923339775901", @"87654321", nil];
+        controller.messageComposeDelegate = self;
+        [self presentViewController:controller animated:YES completion:^{
+            nil;
+        }];
+    }
+}
+
+//TODO: we shall use backend email service instead. 
+-(void)sendEmailToContacts:(NSArray *)contacts{
+   
+    MFMailComposeViewController* controller = [[MFMailComposeViewController alloc] init];
+    controller.mailComposeDelegate = self;
+    [controller setSubject:@"My Subject"];
+    [controller setMessageBody:@"Hello there." isHTML:NO];
+    [controller setToRecipients:[NSArray arrayWithObjects:@"muhammad.zubair@tkxel.com", @"abdullah.Saeed@tkxel.com", nil]];
+    if (controller)
+        [self presentViewController:controller animated:YES completion:^{
+            nil;
+        }];
+}
+
+-(void)loadAddressbookContactsFilterOption:(ContactFilterOption)option completion:(void(^)(void))completionBlock{
+    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
+    [self.addressbookContacts removeAllObjects];
+    
+        [ContactServices getAddressbookContactsFiltered:option sortedByName:YES success:^(bool status, NSArray *contactsArray) {
+            [self.addressbookContacts addObjectsFromArray:contactsArray];
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            //Run the completion block
+            completionBlock();
+        } failure:^(bool status, NSError *error) {
+            //
+            NSLog(@"error: %@", error);
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            completionBlock();
+        }];
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
+    
+}
+
+-(void)loadFacebookFriendsCompletion:(void (^)(void))completionBlock{
+    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [ContactServices getFacebookFriendsFiltered:ContactFilterEmail sortedbyName:YES success:^(bool status, NSArray *friendsArray) {
+        if (status) {
+            [self.fbFriends addObjectsFromArray:friendsArray];
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            completionBlock();
+        }
+    } failure:^(bool status, NSError *error) {
+        NSLog(@"error: %@", error);
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        completionBlock();
+    }];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+}
+
 
 #pragma mark - SearchBarDelegate
 // called when text changes (including clear)
@@ -183,6 +231,7 @@
         [self.contactsTable reloadData];
     }else{
         isSearching = false;
+        [self.contactsTable reloadData];
     }
 }
 
@@ -204,6 +253,39 @@
 {
     NSPredicate *resultPredicate = [NSPredicate predicateWithFormat:@"contactFirstName contains[c] %@", searchText];
     searchResults = [contacts filteredArrayUsingPredicate:resultPredicate];
+}
+
+-(BOOL)searchBarShouldEndEditing:(UISearchBar *)searchBar{
+    [searchBar resignFirstResponder];
+    return YES;
+}
+
+#pragma mark - SMS Delegate
+
+
+
+- (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result{
+
+    switch (result) {
+        case MessageComposeResultCancelled:
+            
+            break;
+        case MessageComposeResultFailed:
+            break;
+        case MessageComposeResultSent:
+            break;
+            
+        default:
+            break;
+    }
+    [controller dismissViewControllerAnimated:YES completion:^{
+        nil;
+    }];
+}
+
+#pragma mark - Email Delegate
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error{
+
 }
 
 @end

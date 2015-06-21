@@ -7,8 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ContactCell.h"
+#import <MessageUI/MessageUI.h>
 
-@interface InviteMainViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate>
+
+@interface InviteMainViewController : UIViewController<UITableViewDataSource,
+                                                       UITableViewDelegate,
+                                                       UISearchBarDelegate,
+                                                       ContactCellDelegate,
+                                                       MFMessageComposeViewControllerDelegate,
+                                                       MFMailComposeViewControllerDelegate >
 
 - (IBAction)segmentControlTapped:(UISegmentedControl *)sender;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *segmentControl;
