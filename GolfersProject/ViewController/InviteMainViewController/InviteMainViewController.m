@@ -36,15 +36,15 @@
     self.inappContacts = [NSMutableArray array];
     
     [self.searchBar setDelegate:self];
-    
+    [self.segmentControl setSelectedSegmentIndex:1];
+
 }
 
-
--(void)loadAddressbookContactsCompletion:(void(^)(void))completionBlock{
+-(void)loadAddressbookContactsFilterOption:(ContactFilterOption)option completion:(void(^)(void))completionBlock{
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     if ([self.addressbookContacts count] <=0 ) {
-        [ContactServices getAddressbookContactsFiltered:ContactFilterEmail sortedByName:YES success:^(bool status, NSArray *contactsArray) {
+        [ContactServices getAddressbookContactsFiltered:option sortedByName:YES success:^(bool status, NSArray *contactsArray) {
             [self.addressbookContacts addObjectsFromArray:contactsArray];
             [MBProgressHUD hideHUDForView:self.view animated:YES];
             //Run the completion block
@@ -121,32 +121,56 @@
                 contacts = self.fbFriends;
                 [self.contactsTable reloadData];
             }];
-            contacts = self.fbFriends;
+            //update buttons
+            [self setSegmentControlImagesForSelectedSegment:0];
             break;
         }
         case 1:{
-            [self loadAddressbookContactsCompletion:^{
+            [self loadAddressbookContactsFilterOption:ContactFilterEmail completion:^{
                 contacts = self.addressbookContacts;
                 [self.contactsTable reloadData];
             }];
+            [self setSegmentControlImagesForSelectedSegment:1];
             break;
         }
         case 2:{
-            //TODO: set filter option phone number.
-            [self loadAddressbookContactsCompletion:^{
+            [self loadAddressbookContactsFilterOption:ContactFilterPhoneNumber completion:^{
                 contacts = self.addressbookContacts;
                 [self.contactsTable reloadData];
-            }];            break;
-        }
-        case 3:{
-            contacts = self.inappContacts;
-            
+            }];
+            [self setSegmentControlImagesForSelectedSegment:2];
             break;
         }
         default:
             break;
     }
 }
+
+-(void)setSegmentControlImagesForSelectedSegment:(NSUInteger)index{
+    switch (index) {
+        case 0:{
+            [self.segmentControl setImage:[UIImage imageNamed:@"fb_invite_selected"] forSegmentAtIndex:0];
+            [self.segmentControl setImage:[UIImage imageNamed:@"email_invite_unselected"] forSegmentAtIndex:1];
+            [self.segmentControl setImage:[UIImage imageNamed:@"sms_invite_unselected"] forSegmentAtIndex:2];
+            break;
+        }
+        case 1:{
+            [self.segmentControl setImage:[UIImage imageNamed:@"fb_invite_unselected"] forSegmentAtIndex:0];
+            [self.segmentControl setImage:[UIImage imageNamed:@"email_invite_selected"] forSegmentAtIndex:1];
+            [self.segmentControl setImage:[UIImage imageNamed:@"sms_invite_unselected"] forSegmentAtIndex:2];
+            break;
+        }
+        case 2:{
+            [self.segmentControl setImage:[UIImage imageNamed:@"fb_invite_unselected"] forSegmentAtIndex:0];
+            [self.segmentControl setImage:[UIImage imageNamed:@"email_invite_unselected"] forSegmentAtIndex:1];
+            [self.segmentControl setImage:[UIImage imageNamed:@"sms_invite_selected"] forSegmentAtIndex:2];
+            break;
+        }
+        default:
+            break;
+    }
+}
+
 
 #pragma mark - SearchBarDelegate
 // called when text changes (including clear)

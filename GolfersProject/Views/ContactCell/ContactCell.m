@@ -32,9 +32,17 @@
  
     [self.lblContactName setText:[contact contactFirstName]];
     
+    if (![contact contactImage]) {
+        [self.imgContactPic setRoundedImage:[UIImage imageNamed:@"person_placeholder"]];
+    }else{
+        [self.imgContactPic setRoundedImage:[contact contactImage]];
+    }
+    
+    /*
     [self.imgContactPic sd_setImageWithURL:[NSURL  URLWithString:[contact contactImageURL]] placeholderImage:[UIImage imageNamed:@"person_placeholder"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         [self.imgContactPic setRoundedImage:image];
     }];
+     */
 }
 
 @end

@@ -33,9 +33,8 @@
     return @"no email exists";
 }
 
--(NSString *)contactImageURL{
-    //TODO: 
-return @"";
+-(UIImage *)contactImage{
+    return self.thumbnail;
 }
 
 @end

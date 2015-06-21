@@ -15,6 +15,6 @@
 - (NSString *)contactLastName;
 - (NSString *)contactPhoneNumber;
 - (NSString *)contactEmail;
-- (NSString *)contactImageURL;
+- (UIImage *)contactImage;
 
 @end

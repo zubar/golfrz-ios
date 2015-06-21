@@ -33,7 +33,7 @@ static     APAddressBook *addressBook;
     });
     
     // Setting which properties are needed. 
-    [addressBook setFieldsMask: APContactFieldRecordID | APContactFieldEmails | APContactFieldPhones | APContactFieldFirstName | APContactFieldLastName];
+    [addressBook setFieldsMask: APContactFieldRecordID | APContactFieldEmails | APContactFieldPhones | APContactFieldFirstName | APContactFieldLastName | APContactFieldThumbnail];
     
     // Setting filter
     if (property == ContactFilterEmail) {
@@ -73,20 +73,29 @@ static     APAddressBook *addressBook;
     
     if ([FaceBookAuthAgent hasValidToken]) {
         [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
-            // TODO: handle results or error of request.
+            if (!error) {
+                //TODO: parse friends
+                successBlock(true, nil);
+            }else{
+                failureBlock(false, error);
+            }
+            
         }];
     }else{
         [FaceBookAuthAgent signInWithFacebook:^(bool status, NSDictionary *userInfo) {
             [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
-                // TODO: handle results or error of request.
+                if (!error) {
+                    //TODO: parse friends
+                    successBlock(true, nil);
+                }else{
+                    failureBlock(false, error);
+                }
             }];
         } failure:^(bool status, NSError *error) {
-//
+            //TODO: authentication failed
+            failureBlock(false, error);
         }];
     }
-    
-   
-  
 }
 
 +(void)getInAppFriendsFiltered:(ContactFilterOption)filterProperty
