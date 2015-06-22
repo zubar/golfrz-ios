@@ -94,21 +94,19 @@
     
     
     APIClient * apiClient = [APIClient sharedAPICLient];
-   
-    [apiClient GET:kViewCart
-         parameters:[FoodBeverageServices paramsForRemoveCartItem:item]
-            success:^(NSURLSessionDataTask *task, id responseObject) {
-                
-                if ((NSDictionary *)responseObject[@"success_message"] ) {
-                    successBlock(true, responseObject);
-                }
-            } failure:^(NSURLSessionDataTask *task, NSError *error) {
-                if (error) {
-                    failureBlock(false, error);
-                }else{
-                    failureBlock(false, [NSError errorWithDomain:@"ios-app" code:0 userInfo:@{@"error_message":@"Un-known"}]);
-                }
-            }];
+   [apiClient POST:kRemoveFromCart
+        parameters:[FoodBeverageServices paramsForRemoveCartItem:item] success:^(NSURLSessionDataTask *task, id responseObject) {
+       OVCResponse * resp = responseObject;
+       if ((NSDictionary *)resp.result[@"success_message"] ) {
+           successBlock(true, responseObject);
+       }
+   } failure:^(NSURLSessionDataTask *task, NSError *error) {
+       if (error) {
+           failureBlock(false, error);
+       }else{
+           failureBlock(false, [NSError errorWithDomain:@"ios-app" code:0 userInfo:@{@"error_message":@"Un-known"}]);
+       }
+   }];
      
 }
 

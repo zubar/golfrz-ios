@@ -15,7 +15,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *lblCourseName;
 
 - (IBAction)btnCheckedInTapped:(UIButton *)sender;
-- (IBAction)btnFoodAndBeverageTap:(id)sender;
+//- (IBAction)btnFoodAndBeverageTap:(id)sender;
 
 - (IBAction)btnFoodBevTapped:(UIButton *)sender;
 
