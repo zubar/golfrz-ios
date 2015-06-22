@@ -215,17 +215,17 @@
         }];
     }
 }
-
-- (IBAction)btnFoodAndBeverageTap:(id)sender {
-    
-    
-    [FoodBeverageServices cartItemsForCurrentUser:^(bool status, Cart *response) {
-        NSLog(@"%@", response);
-    } failure:^(bool status, NSError *error) {
-        NSLog(@"%@", error);
-    }];
-    
-}
+//
+//- (IBAction)btnFoodAndBeverageTap:(id)sender {
+//    
+//    
+//    [FoodBeverageServices cartItemsForCurrentUser:^(bool status, Cart *response) {
+//        NSLog(@"%@", response);
+//    } failure:^(bool status, NSError *error) {
+//        NSLog(@"%@", error);
+//    }];
+//    
+//}
 
 - (IBAction)btnFoodBevTapped:(UIButton *)sender {
     AppDelegate * delegate = [[UIApplication sharedApplication] delegate];

@@ -73,7 +73,8 @@
          parameters:[FoodBeverageServices paramsForItemIds:items quantity:quantity]
             success:^(NSURLSessionDataTask *task, id responseObject) {
                 
-                if ((NSDictionary *)responseObject[@"success_message"] ) {
+                OVCResponse * resp = responseObject;
+                if ((NSDictionary *)resp.result[@"success_message"] ) {
                     successBlock(true, responseObject);
                 }
             }failure:^(NSURLSessionDataTask *task, NSError *error) {
@@ -200,7 +201,7 @@
              @"app_bundle_id" : kAppBundleId,
              @"user_agent" : kUserAgent,
              @"auth_token" : [UserServices currentToken],
-             @"menu_item_ids" : items,
+             @"menu_item_ids" : [items componentsJoinedByString:@","],
              @"quantity" : [NSNumber numberWithInteger:quantity]
              };
 }
