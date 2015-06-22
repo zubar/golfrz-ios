@@ -27,6 +27,25 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    // Setting up Nav-Bar.
+    UIButton * imageButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 10, 10, 14)];
+    [imageButton setBackgroundImage:[UIImage imageNamed:@"back_btn"] forState:UIControlStateNormal];
+    
+    [imageButton addTarget:self action:@selector(foodBevbackBtnTapped) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIBarButtonItem *leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:imageButton];
+    self.navigationItem.leftBarButtonItem = leftBarButtonItem;
+    
+    NSDictionary *navTitleAttributes =@{NSUnderlineStyleAttributeName:@(NSUnderlineStyleSingle),
+                                        NSFontAttributeName :[UIFont fontWithName:@"Helvetica-Bold" size:14.0],
+                                        NSForegroundColorAttributeName : [UIColor whiteColor]
+                                        };
+    
+    self.navigationItem.title = @"FOOD & BEVERAGES";
+    self.navigationController.navigationBar.titleTextAttributes = navTitleAttributes;
+    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+
+    
     isFoodItemSelected = true;
     [self reverseSelectedStateOfButtons:YES];
     
@@ -48,27 +67,25 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-    [self.navigationController.navigationBar setHidden:NO];
-    
-    NSDictionary *titleAttributes =@{
-                                     NSFontAttributeName :[UIFont fontWithName:@"Helvetica-Bold" size:14.0],
-                                     NSForegroundColorAttributeName : [UIColor whiteColor]
-                                     };
-    
-    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
-    [[self navigationItem] setTitle:@"FOOD & BEV"];
-    self.navigationController.navigationBar.titleTextAttributes = titleAttributes;
-    UIButton * imageButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 10, 10, 14)];
-    [imageButton setBackgroundImage:[UIImage imageNamed:@"back_btn"] forState:UIControlStateNormal];
-    [imageButton addTarget:self action:@selector(backBtnTapped) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:imageButton];
-    self.navigationItem.leftBarButtonItem = leftBarButtonItem;
     
     AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
     [delegate.appDelegateNavController setNavigationBarHidden:NO];
+    [[UINavigationBar appearance] setTitleVerticalPositionAdjustment:-10.0 forBarMetrics:UIBarMetricsDefault];
+}
 
+-(void)viewWillDisappear:(BOOL)animated{
+    
+    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+    [delegate.appDelegateNavController setNavigationBarHidden:YES];
     
 }
+
+-(void)foodBevbackBtnTapped{
+    
+    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+    [delegate.appDelegateNavController popViewControllerAnimated:YES];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
