@@ -108,12 +108,6 @@
     AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
     [delegate.appDelegateNavController setNavigationBarHidden:YES];
     
-//    UIPageControl * pageControl = (UIPageControl *)[self.navigationController.navigationBar viewWithTag:89];
-//    if (pageControl && ![self isKindOfClass:[ClubHouseSubController class]]) {
-//        [pageControl setHidden:YES];
-//    }else{
-//        [pageControl setHidden:NO];
-//    }
 }
 
 -(void)initializeDataStructures{

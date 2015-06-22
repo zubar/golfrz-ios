@@ -191,6 +191,11 @@
     [delegate.appDelegateNavController pushViewController:controller animated:YES];
 }
 
+- (IBAction)btnFoodBevTapped:(UIButton *)sender {
+    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+    FoodBeveragesMainViewController * controller = [self.storyboard instantiateViewControllerWithIdentifier:@"FoodBeveragesMainViewController"];
+    [delegate.appDelegateNavController pushViewController:controller animated:YES];
+}
 
 #pragma mark - NavBarButtonsDelegate
 
@@ -227,11 +232,7 @@
 //    
 //}
 
-- (IBAction)btnFoodBevTapped:(UIButton *)sender {
-    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
-    FoodBeveragesMainViewController * controller = [self.storyboard instantiateViewControllerWithIdentifier:@"FoodBeveragesMainViewController"];
-    [delegate.appDelegateNavController pushViewController:controller animated:YES];
-}
+
 
 -(void)checkInToCurrentCourse{
     
@@ -257,15 +258,6 @@
 
 - (IBAction)btnTeeTimeTap:(id)sender {
     
-    [ContactServices getAddressbookContactsFiltered:ContactFilterEmail sortedByName:YES success:^(bool status, NSArray *contactsArray) {
-        NSLog(@"contacts: %@", contactsArray);
-        
-        NSString * name = [((id)contactsArray[0]) contactFirstName];
-        NSLog(@"firstName: %@", name);
-        
-    } failure:^(bool status, NSError *error) {
-        //
-    }];
     
 }
 @end
