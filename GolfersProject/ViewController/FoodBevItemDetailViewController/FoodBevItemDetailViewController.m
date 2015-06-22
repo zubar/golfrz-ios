@@ -88,11 +88,32 @@
     [self.selectedIds addObject:self.selectedItem.foodId];
     [FoodBeverageServices addItemsToCartWithIds:self.selectedIds quantity:[self.txtCount.text integerValue] withBlock:^(bool status, NSDictionary *response) {
         NSLog(@"Success");
+        
+         NSString *successMessage = [NSString stringWithFormat:@"You have added %@ %@ to the cart", self.txtCount.text, self.selectedItem.name];
+        [[[UIAlertView alloc] initWithTitle:nil message:successMessage delegate:nil cancelButtonTitle:nil otherButtonTitles:@"CHECK", @"CONT", nil] show];
 
+       
+        
+        
     } failure:^(bool status, NSError *error) {
         
     }];
 }
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
+    
+    if([title isEqualToString:@"CHECKOUT"])
+    {
+        
+    }
+    else if([title isEqualToString:@"CONTINUE SHOPPING"])
+    {
+        NSLog(@"Button 2 was selected.");
+    }
+    
+    }
 
 - (IBAction)btnDecrementTapped:(UIButton *)sender {
     int count;
