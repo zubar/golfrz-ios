@@ -11,6 +11,7 @@
 #import "ContactServices.h"
 #import "MBProgressHUD.h"
 #import "APContact+convenience.h"
+#import "Constants.h"
 
 
 @interface InviteMainViewController (){
@@ -18,7 +19,8 @@
     NSArray * searchResults;
     bool isSearching;
     
-    NSMutableArray * contacts; // this array will be pointing to the current array whose contacts are displayed. 
+    NSMutableArray * contacts; // this array will be pointing to the current array whose contacts are displayed.
+    NSMutableArray * invities;
 }
 @end
 
@@ -30,6 +32,7 @@
     searchString = [NSMutableString string];
     searchResults = [NSArray array];
     contacts = [NSMutableArray array];
+    invities = [NSMutableArray array];
     isSearching = false;
     
     //properties to hold data
@@ -81,8 +84,17 @@
 
 #pragma mark - ContactCell Delegate
 -(void)addBtnTapped:(id)contact{
-
     
+    switch ([self.segmentControl selectedSegmentIndex]) {
+        case 1:
+            [invities addObject:[contact contactEmail]];
+            break;
+        case 2:
+            [invities addObject:[contact contactPhoneNumber]];
+            break;
+        default:
+            break;
+    }
 }
 /*
 #pragma mark - Navigation
@@ -97,6 +109,7 @@
 #pragma mark - UIActions
 
 - (IBAction)segmentControlTapped:(UISegmentedControl *)sender {
+    [invities removeAllObjects];
     [self loadDataForSegemnt:[sender selectedSegmentIndex]];
     
 }
@@ -104,12 +117,21 @@
 -(void)loadDataForSegemnt:(NSInteger)index{
     switch (index) {
         case 0:{
+            
+            FBSDKAppInviteContent * content =[[FBSDKAppInviteContent alloc] init];
+            content.appLinkURL = [NSURL URLWithString:kAppStoreUrl];
+            content.previewImageURL = [NSURL URLWithString:kAppPreviewImage];
+            // present the dialog. Assumes self implements protocol `FBSDKAppInviteDialogDelegate`
+            [FBSDKAppInviteDialog showWithContent:content
+                                         delegate:self];
+            /*
             [self loadFacebookFriendsCompletion:^{
                 contacts = self.fbFriends;
                 [self.contactsTable reloadData];
             }];
             //update buttons
             [self setSegmentControlImagesForSelectedSegment:0];
+             */
             break;
         }
         case 1:{
@@ -121,11 +143,13 @@
             break;
         }
         case 2:{
+            
             [self loadAddressbookContactsFilterOption:ContactFilterPhoneNumber completion:^{
                 contacts = self.addressbookContacts;
                 [self.contactsTable reloadData];
             }];
             [self setSegmentControlImagesForSelectedSegment:2];
+            
             break;
         }
         default:
@@ -165,8 +189,8 @@
     MFMessageComposeViewController *controller = [[MFMessageComposeViewController alloc] init];
     if([MFMessageComposeViewController canSendText])
     {
-        controller.body = @"Hello from Mugunth";
-        controller.recipients = [NSArray arrayWithObjects:@"+923339775901", @"87654321", nil];
+        controller.body = [NSString stringWithFormat:@"Hey lets play Golf by downloading :%@", kAppStoreUrl];
+        controller.recipients = invities;
         controller.messageComposeDelegate = self;
         [self presentViewController:controller animated:YES completion:^{
             nil;
@@ -179,9 +203,9 @@
    
     MFMailComposeViewController* controller = [[MFMailComposeViewController alloc] init];
     controller.mailComposeDelegate = self;
-    [controller setSubject:@"My Subject"];
-    [controller setMessageBody:@"Hello there." isHTML:NO];
-    [controller setToRecipients:[NSArray arrayWithObjects:@"muhammad.zubair@tkxel.com", @"abdullah.Saeed@tkxel.com", nil]];
+    [controller setSubject:@"Invitation to play Golf"];
+    [controller setMessageBody:[NSString stringWithFormat:@"Hey lets play Golf by downloading :%@", kAppStoreUrl] isHTML:NO];
+    [controller setToRecipients:invities];
     if (controller)
         [self presentViewController:controller animated:YES completion:^{
             nil;
@@ -269,30 +293,92 @@
 
 #pragma mark - SMS Delegate
 
-
-
 - (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result{
 
+   __block NSString * alertTitle = nil;
+   __block NSString * alertMessage = nil;
+    
     switch (result) {
         case MessageComposeResultCancelled:
-            
+            [invities  removeAllObjects];
+            alertTitle = @"User Cancel Action";
+            alertMessage = @"You canceled the invitation.";
             break;
         case MessageComposeResultFailed:
+            [invities  removeAllObjects];
+            alertTitle = @"Failed to send";
+            alertMessage = @"Please try again.";
             break;
         case MessageComposeResultSent:
+            [invities  removeAllObjects];
+            alertTitle = @"Invitation Send.";
+            alertMessage = @"Send the invitation successfully.";
             break;
             
         default:
             break;
     }
     [controller dismissViewControllerAnimated:YES completion:^{
-        nil;
+        if (alertTitle && alertMessage) {
+            [[[UIAlertView alloc]initWithTitle:alertTitle message:alertMessage delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
+        }
     }];
 }
 
 #pragma mark - Email Delegate
 - (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error{
+    
+     NSString * alertTitle = nil;
+     NSString * alertMessage = nil;
+    
+    switch (result) {
+        case MFMailComposeResultCancelled:
+            [invities  removeAllObjects];
+            alertTitle = @"User Cancel Action";
+            alertMessage = @"You canceled the invitation.";
+            break;
+        case MFMailComposeResultFailed:
+            [invities  removeAllObjects];
+            alertTitle = @"Failed to send";
+            alertMessage = @"Please try again.";
+            break;
+        case MFMailComposeResultSaved:
+            [invities  removeAllObjects];
+            alertTitle = @"Draft Saved.";
+            alertMessage = @"Invitation email is saved in drafts.";
+            break;
+        case MFMailComposeResultSent:
+            [invities  removeAllObjects];
+            alertTitle = @"Invitation Send.";
+            alertMessage = @"Send the invitation successfully.";
+            break;
+        default:
+            break;
+    }
+    
+    if (error) {
+        alertTitle = @"Error";
+        alertMessage = [error localizedDescription];
+    }
+    
+    if (alertTitle && alertMessage) {
+        [[[UIAlertView alloc]initWithTitle:alertTitle message:alertMessage delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
+    }
+    
+}
 
+
+#pragma mark - FBInviteFriendDialogue
+- (void)appInviteDialog:(FBSDKAppInviteDialog *)appInviteDialog didCompleteWithResults:(NSDictionary *)results{
+    
+}
+
+
+- (void)appInviteDialog:(FBSDKAppInviteDialog *)appInviteDialog didFailWithError:(NSError *)error{
+    
+    if (error) {
+        [[[UIAlertView alloc] initWithTitle:@"Try Again" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
+    }
 }
 
 @end

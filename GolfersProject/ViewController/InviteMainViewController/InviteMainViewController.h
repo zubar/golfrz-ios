@@ -9,6 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "ContactCell.h"
 #import <MessageUI/MessageUI.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
+
+#import <FBSDKShareKit/FBSDKAppInviteContent.h>
+#import <FBSDKShareKit/FBSDKAppInviteDialog.h>
 
 
 @interface InviteMainViewController : UIViewController<UITableViewDataSource,
@@ -16,7 +22,8 @@
                                                        UISearchBarDelegate,
                                                        ContactCellDelegate,
                                                        MFMessageComposeViewControllerDelegate,
-                                                       MFMailComposeViewControllerDelegate >
+                                                       MFMailComposeViewControllerDelegate,
+                                                        FBSDKAppInviteDialogDelegate>
 
 - (IBAction)segmentControlTapped:(UISegmentedControl *)sender;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *segmentControl;
