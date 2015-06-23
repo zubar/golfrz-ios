@@ -78,6 +78,7 @@ static NSString * const kFoodAndBeverage = @"menus/get_menu_list";
 static NSString * const kAddItemToCart = @"menus/add_to_cart"; 
 static NSString * const kRemoveFromCart = @"menus/remove_from_cart";
 static NSString * const kViewCart = @"menus/view_user_cart";
+static NSString * const kConfirmCartOrder = @"menus/place_order";
 
 //================================= Presentation ======================================
 

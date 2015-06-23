@@ -35,6 +35,10 @@
                     quantity:(NSUInteger )quantity
                    withBlock:(void (^)(bool status, NSDictionary * response))successBlock
                      failure:(void (^)(bool status, NSError * error))failureBlock;
+
++(void)confirmOrderWithLocation:(NSString *)deliveryLocation
+                        success:(void (^)(bool status, NSString * response))successBlock
+                        failure:(void (^)(bool status, NSError * error))failureBlock;
 /*
 +(void)addItemToCart:(FoodBeverage *)item;
 +(void)removeItemFromCart:(FoodBeverage *)item;

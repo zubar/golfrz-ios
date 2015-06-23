@@ -97,5 +97,10 @@
 }
 
 - (IBAction)btnPlaceOrderTapped:(UIButton *)sender {
+    
+    [FoodBeverageServices confirmOrderWithLocation:self.txtLocation.text success:^(bool status, NSString* successMessage){
+        NSLog(@"Successfully ordered");
+    } failure:^(bool status, NSError* error){
+    }];
 }
 @end

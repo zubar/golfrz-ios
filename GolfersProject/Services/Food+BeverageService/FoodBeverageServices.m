@@ -27,7 +27,7 @@
     
     APIClient * apiClient = [APIClient sharedAPICLient];
     [apiClient GET:kFoodAndBeverage
-        parameters:[FoodBeverageServices paramsForItemList]
+        parameters:[FoodBeverageServices userAuthParams]
         completion:^(id response, NSError *error) {
             
             OVCResponse * resp = response;
@@ -117,7 +117,7 @@
     APIClient * apiClient = [APIClient sharedAPICLient];
     
     [apiClient GET:kViewCart
-        parameters:[FoodBeverageServices paramsForItemList]
+        parameters:[FoodBeverageServices userAuthParams]
            success:^(NSURLSessionDataTask *task, id responseObject) {
                
                OVCResponse * resp = responseObject;
@@ -135,7 +135,27 @@
 }
 
 
-
++(void)confirmOrderWithLocation:(NSString *)deliveryLocation
+                        success:(void (^)(bool status, NSString * response))successBlock
+                       failure:(void (^)(bool status, NSError * error))failureBlock{
+    
+    
+    APIClient * apiClient = [APIClient sharedAPICLient];
+    
+    [apiClient POST:kConfirmCartOrder
+         parameters:[FoodBeverageServices confirmOrderParams:deliveryLocation] success:^(NSURLSessionDataTask *task, id responseObject) {
+             OVCResponse * resp = responseObject;
+             if ((NSDictionary *)resp.result[@"success_message"] ) {
+                 successBlock(true, responseObject);
+             }
+         } failure:^(NSURLSessionDataTask *task, NSError *error) {
+             if (error) {
+                 failureBlock(false, error);
+             }else{
+                 failureBlock(false, [NSError errorWithDomain:@"ios-app" code:0 userInfo:@{@"error_message":@"Un-known"}]);
+             }
+         }];
+}
 
 /*
  
@@ -163,11 +183,23 @@
  */
 #pragma mark - Helper Methods
 
-+(NSDictionary *)paramsForItemList{
+
+
++(NSDictionary *)userAuthParams{
     
     return @{@"app_bundle_id" : kAppBundleId,
              @"user_agent" : kUserAgent,
              @"auth_token" : [UserServices currentToken]
+             };
+    
+}
+
++(NSDictionary *)confirmOrderParams:(NSString *)place{
+    
+    return @{@"app_bundle_id" : kAppBundleId,
+             @"user_agent" : kUserAgent,
+             @"auth_token" : [UserServices currentToken],
+             @"location" : place
              };
     
 }

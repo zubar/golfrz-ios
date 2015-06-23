@@ -41,7 +41,7 @@
                                         NSForegroundColorAttributeName : [UIColor whiteColor]
                                         };
     
-    self.navigationItem.title = @"FOOD & BEVERAGES";
+    self.navigationItem.title = @"FOOD & BEV";
     self.navigationController.navigationBar.titleTextAttributes = navTitleAttributes;
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
 
@@ -70,7 +70,7 @@
     
     AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
     [delegate.appDelegateNavController setNavigationBarHidden:NO];
-    [[UINavigationBar appearance] setTitleVerticalPositionAdjustment:-10.0 forBarMetrics:UIBarMetricsDefault];
+   // [[UINavigationBar appearance] setTitleVerticalPositionAdjustment:0.0 forBarMetrics:UIBarMetricsDefault];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -130,9 +130,9 @@
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    [collectionView deselectItemAtIndexPath:indexPath animated:YES];
-    FoodBeverage * foodBevObject = [self.foodArray objectAtIndex:indexPath.row];
-    [self performSegueWithIdentifier:@"segueItemDetail" sender:foodBevObject];
+    [collectionView deselectItemAtIndexPath:indexPath animated:YES];    
+    FoodBeverage * food_bev_item = (isFoodItemSelected ? [self.foodArray objectAtIndex:indexPath.row] : [self.bevArray objectAtIndex:indexPath.row] );
+    [self performSegueWithIdentifier:@"segueItemDetail" sender:food_bev_item];
     
 }
 
