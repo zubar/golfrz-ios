@@ -21,6 +21,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    UIButton * imageButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 10, 10, 14)];
+    [imageButton setBackgroundImage:[UIImage imageNamed:@"back_btn"] forState:UIControlStateNormal];
+    [imageButton addTarget:self action:@selector(foodItemBackBtnTap) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIBarButtonItem *leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:imageButton];
+    self.navigationItem.leftBarButtonItem = leftBarButtonItem;
+    NSDictionary *navTitleAttributes =@{
+                                        NSFontAttributeName :[UIFont fontWithName:@"Helvetica-Bold" size:14.0],
+                                        NSForegroundColorAttributeName : [UIColor whiteColor]
+                                        };
+    
+    self.navigationItem.title = @"YOUR CART";
+    self.navigationController.navigationBar.titleTextAttributes = navTitleAttributes;
+    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
    
     //self.scrollView.translatesAutoresizingMaskIntoConstraints = NO;
     // Do any additional setup after loading the view.
@@ -30,9 +45,18 @@
     }];
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [self.navigationController setNavigationBarHidden:NO];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+-(void)foodItemBackBtnTap{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(void)loadDataForCartCompletion:(void(^)(void))completionHandler{
@@ -104,6 +128,8 @@
         NSLog(@"Success");
         [self loadDataForCartCompletion:^{
             [self.cartTableView  reloadData];
+            //CGRect frame = CGRectMake(self.cartTableView.frame.origin.x, self.cartTableView.frame.origin.y, self.cartTableView.frame.size.width, self.cartTableView.frame.size.height - 82);
+            //[self.cartTableView setFrame:frame];
             [self updateTotalCartPrice];
         }];
     } failure:^(bool status, NSError* error){

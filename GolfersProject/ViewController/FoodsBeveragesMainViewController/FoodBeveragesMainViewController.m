@@ -40,7 +40,7 @@
     // Right nav-bar.
     UIImage *image = [UIImage imageNamed:@"cart_icon"];
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    button.frame = CGRectMake(0,0,25, 25);
+    button.frame = CGRectMake(0,0,22, 22);
     [button addTarget:self action:@selector(displayCart) forControlEvents:UIControlEventTouchUpInside];
     [button setBackgroundImage:image forState:UIControlStateNormal];
     
@@ -56,7 +56,7 @@
                                         NSForegroundColorAttributeName : [UIColor whiteColor]
                                         };
     
-    self.navigationItem.title = @"FOOD & BEVERAGE";
+    self.navigationItem.title = @"FOOD & BEV";
     self.navigationController.navigationBar.titleTextAttributes = navTitleAttributes;
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
 
