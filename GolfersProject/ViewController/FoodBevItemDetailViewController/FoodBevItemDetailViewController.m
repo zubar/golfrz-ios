@@ -12,6 +12,8 @@
 #import "SideItem.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "FoodBeverageServices.h"
+#import "AppDelegate.h"
+#import "FoodBevCartViewController.h"
 
 @interface FoodBevItemDetailViewController ()
 
@@ -90,7 +92,7 @@
         NSLog(@"Success");
         
          NSString *successMessage = [NSString stringWithFormat:@"You have added %@ %@ to the cart", self.txtCount.text, self.selectedItem.name];
-        [[[UIAlertView alloc] initWithTitle:nil message:successMessage delegate:nil cancelButtonTitle:nil otherButtonTitles:@"CHECK", @"CONT", nil] show];
+        [[[UIAlertView alloc] initWithTitle:nil message:successMessage delegate:self cancelButtonTitle:nil otherButtonTitles:@"CHECK", @"CONT", nil] show];
 
        
         
@@ -104,11 +106,16 @@
 {
     NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
     
-    if([title isEqualToString:@"CHECKOUT"])
+    if([title isEqualToString:@"CHECK"])
     {
         
+        AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+        FoodBevCartViewController * controller = [self.storyboard instantiateViewControllerWithIdentifier:@"FoodBevCartViewController"];
+        [delegate.appDelegateNavController pushViewController:controller animated:YES];
+
+        
     }
-    else if([title isEqualToString:@"CONTINUE SHOPPING"])
+    else if([title isEqualToString:@"CONT"])
     {
         NSLog(@"Button 2 was selected.");
     }

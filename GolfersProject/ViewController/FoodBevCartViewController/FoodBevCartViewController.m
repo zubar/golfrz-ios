@@ -21,21 +21,29 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [FoodBeverageServices cartItemsForCurrentUser:^(bool status, Cart* responseCart){
-        
-        self.cartArray = (NSMutableArray* )responseCart.orders;
-        
-    }failure:^(bool status, NSError* error){
-        
-    }];
+   
     //self.scrollView.translatesAutoresizingMaskIntoConstraints = NO;
     // Do any additional setup after loading the view.
+    [self loadDataForCartCompletion:^{
+        [self.cartTableView reloadData];
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+-(void)loadDataForCartCompletion:(void(^)(void))completionHandler{
+    [FoodBeverageServices cartItemsForCurrentUser:^(bool status, Cart* responseCart){
+        self.cartArray = (NSMutableArray* )responseCart.orders;
+        completionHandler();
+    }failure:^(bool status, NSError* error){
+        
+    }];
+}
+
+#pragma mark - UITableViewDelegate
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
      return [self.cartArray count];
@@ -57,8 +65,14 @@
     customViewCell.lblFoodBevItemName.text = cartItem.name;
     customViewCell.lblPrice.text = cartItem.price.stringValue;
     customViewCell.lblQuantity.text = cartItem.quantity.stringValue;
+    
+    [customViewCell setCurrentOrder:cartItem];
+    [customViewCell setDelegate:self];
+    
     return customViewCell;
 }
+
+
 
 /*
 #pragma mark - Navigation
@@ -70,6 +84,23 @@
 }
 */
 
+-(void)removeButtonTappedForItem:(Order *)item{
+    
+    [FoodBeverageServices removeItemFromCart:item withBlock:^(bool status, NSDictionary* response){
+        NSLog(@"Success");
+        [self loadDataForCartCompletion:^{
+            [self.cartTableView  reloadData];
+        }];
+    } failure:^(bool status, NSError* error){
+        
+    }];
+}
+
 - (IBAction)btnPlaceOrderTapped:(UIButton *)sender {
+    
+    [FoodBeverageServices confirmOrderWithLocation:self.txtLocation.text success:^(bool status, NSString* successMessage){
+        NSLog(@"Successfully ordered");
+    } failure:^(bool status, NSError* error){
+    }];
 }
 @end

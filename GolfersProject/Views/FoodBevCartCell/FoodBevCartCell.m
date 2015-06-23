@@ -21,5 +21,11 @@
 }
 
 - (IBAction)btnDismiss:(UIButton *)sender {
+    
+    if(self.delegate && [self.delegate respondsToSelector:@selector(removeButtonTappedForItem:)])
+    {
+        [self.delegate removeButtonTappedForItem:_currentOrder];
+    }
+
 }
 @end
