@@ -14,6 +14,7 @@
 #import "FoodBeverageServices.h"
 #import "AppDelegate.h"
 #import "FoodBevCartViewController.h"
+#import "FoodBeveragesMainViewController.h"
 
 @interface FoodBevItemDetailViewController ()
 
@@ -26,10 +27,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    
-    
-    
     
     UIButton * imageButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 10, 10, 14)];
     [imageButton setBackgroundImage:[UIImage imageNamed:@"back_btn"] forState:UIControlStateNormal];
@@ -48,7 +45,7 @@
     
     
     // Right nav-bar.
-    UIButton * rightBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 25, 25)];
+    UIButton * rightBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 22, 22)];
     [rightBtn setBackgroundImage:[UIImage imageNamed:@"cart_icon"] forState:UIControlStateNormal];
     [rightBtn addTarget:self action:@selector(displayCart) forControlEvents:UIControlEventTouchUpInside];
     
@@ -64,6 +61,7 @@
         [self.imgItemPic setImage:image];
     } ];
     self.lblItemName.text = self.selectedItem.name;
+    self.lblIngredients.text = self.selectedItem.details;
     self.lblItemPrice.text = self.selectedItem.price.stringValue;
     [self.optionsTableView reloadData];
     // Do any additional setup after loading the view.
@@ -134,7 +132,7 @@
         NSLog(@"Success");
         
          NSString *successMessage = [NSString stringWithFormat:@"You have added %@ %@ to the cart", self.txtCount.text, self.selectedItem.name];
-        [[[UIAlertView alloc] initWithTitle:nil message:successMessage delegate:self cancelButtonTitle:nil otherButtonTitles:@"CHECK", @"CONT", nil] show];
+        [[[UIAlertView alloc] initWithTitle:nil message:successMessage delegate:self cancelButtonTitle:nil otherButtonTitles:@"CHECKOUT", @"CONTINUE", nil] show];
 
        
         
@@ -148,7 +146,7 @@
 {
     NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
     
-    if([title isEqualToString:@"CHECK"])
+    if([title isEqualToString:@"CHECKOUT"])
     {
         
         AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
@@ -157,9 +155,14 @@
 
         
     }
-    else if([title isEqualToString:@"CONT"])
+    else if([title isEqualToString:@"CONTINUE"])
     {
-        NSLog(@"Button 2 was selected.");
+        //NSLog(@"Button 2 was selected.");
+        
+        AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+        FoodBeveragesMainViewController * controller = [self.storyboard instantiateViewControllerWithIdentifier:@"FoodBeveragesMainViewController"];
+        [delegate.appDelegateNavController pushViewController:controller animated:YES];
+
     }
     
     }
