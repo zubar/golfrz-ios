@@ -44,6 +44,9 @@
 		3D87D8441B1852120046BD60 /* UIColor+expanded.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D87D83D1B1852120046BD60 /* UIColor+expanded.m */; };
 		3D87D8451B1852120046BD60 /* UIView+convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D87D83F1B1852120046BD60 /* UIView+convenience.m */; };
 		3D87D8461B1852120046BD60 /* VRGCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D87D8411B1852120046BD60 /* VRGCalendarView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3DA70A3C1B3972B900D3ABEC /* UIBarButtonItem+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA70A391B3972B900D3ABEC /* UIBarButtonItem+Badge.m */; };
+		3DA70A3D1B3972B900D3ABEC /* UIButton+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA70A3B1B3972B900D3ABEC /* UIButton+Badge.m */; };
+		3DA70A401B3981AB00D3ABEC /* BBBadgeBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA70A3F1B3981AB00D3ABEC /* BBBadgeBarButtonItem.m */; };
 		3DA7CB851B2AF0C800B5BAFF /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA7CB841B2AF0C800B5BAFF /* Order.m */; };
 		3DA7CB881B2B13FC00B5BAFF /* Cart.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA7CB871B2B13FC00B5BAFF /* Cart.m */; };
 		3DC1161D1B2ED8A500E83F4F /* ContactServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC1161C1B2ED8A500E83F4F /* ContactServices.m */; };
@@ -180,6 +183,12 @@
 		3D87D83F1B1852120046BD60 /* UIView+convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+convenience.m"; sourceTree = "<group>"; };
 		3D87D8401B1852120046BD60 /* VRGCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VRGCalendarView.h; sourceTree = "<group>"; };
 		3D87D8411B1852120046BD60 /* VRGCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VRGCalendarView.m; sourceTree = "<group>"; };
+		3DA70A381B3972B900D3ABEC /* UIBarButtonItem+Badge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Badge.h"; sourceTree = "<group>"; };
+		3DA70A391B3972B900D3ABEC /* UIBarButtonItem+Badge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Badge.m"; sourceTree = "<group>"; };
+		3DA70A3A1B3972B900D3ABEC /* UIButton+Badge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Badge.h"; sourceTree = "<group>"; };
+		3DA70A3B1B3972B900D3ABEC /* UIButton+Badge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Badge.m"; sourceTree = "<group>"; };
+		3DA70A3E1B3981AB00D3ABEC /* BBBadgeBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBBadgeBarButtonItem.h; sourceTree = "<group>"; };
+		3DA70A3F1B3981AB00D3ABEC /* BBBadgeBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBBadgeBarButtonItem.m; sourceTree = "<group>"; };
 		3DA7CB831B2AF0C800B5BAFF /* Order.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Order.h; sourceTree = "<group>"; };
 		3DA7CB841B2AF0C800B5BAFF /* Order.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Order.m; sourceTree = "<group>"; };
 		3DA7CB861B2B13FC00B5BAFF /* Cart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cart.h; sourceTree = "<group>"; };
@@ -444,6 +453,7 @@
 		3D1964021B130E3B00766CFC /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				3DA70A371B3972B900D3ABEC /* UIBarButtonItem+Badge */,
 				3D87D8371B1852120046BD60 /* VurigCalendar */,
 				3DD9BD061B14BE1C00A2F296 /* CalenderUtils */,
 				3D19641E1B13270F00766CFC /* FBSDKCoreKit.framework */,
@@ -530,6 +540,19 @@
 				3D87D8411B1852120046BD60 /* VRGCalendarView.m */,
 			);
 			path = VurigCalendar;
+			sourceTree = "<group>";
+		};
+		3DA70A371B3972B900D3ABEC /* UIBarButtonItem+Badge */ = {
+			isa = PBXGroup;
+			children = (
+				3DA70A3E1B3981AB00D3ABEC /* BBBadgeBarButtonItem.h */,
+				3DA70A3F1B3981AB00D3ABEC /* BBBadgeBarButtonItem.m */,
+				3DA70A381B3972B900D3ABEC /* UIBarButtonItem+Badge.h */,
+				3DA70A391B3972B900D3ABEC /* UIBarButtonItem+Badge.m */,
+				3DA70A3A1B3972B900D3ABEC /* UIButton+Badge.h */,
+				3DA70A3B1B3972B900D3ABEC /* UIButton+Badge.m */,
+			);
+			path = "UIBarButtonItem+Badge";
 			sourceTree = "<group>";
 		};
 		3DC1161A1B2ED86E00E83F4F /* ContactServices */ = {
@@ -1207,6 +1230,7 @@
 				3D1963EB1B0E1B5200766CFC /* ClubHouseSubController.m in Sources */,
 				88709E9E1B0DB600005DA345 /* ForgotPasswordSViewController.m in Sources */,
 				3D1963C41B0DAECD00766CFC /* WeatherServices.m in Sources */,
+				3DA70A3C1B3972B900D3ABEC /* UIBarButtonItem+Badge.m in Sources */,
 				88B21DEB1B1C390100AFC6D2 /* SplashScreenViewController.m in Sources */,
 				8873AA761B18C5F500E74C87 /* EventAdminViewController.m in Sources */,
 				3D1963BD1B0CE05700766CFC /* UserServices.m in Sources */,
@@ -1218,6 +1242,7 @@
 				885CB0801B0A128100AD2A7B /* AuthenticationService.m in Sources */,
 				88A48F011B2B0167006CEC42 /* FoodBevItemCell.m in Sources */,
 				88FBCCB71B19A572005FD528 /* User.m in Sources */,
+				3DA70A401B3981AB00D3ABEC /* BBBadgeBarButtonItem.m in Sources */,
 				886B9ED41B0B95900078B09D /* ForgotPasswordViewController.m in Sources */,
 				3DCA44D11B26CB3400B66BD2 /* Department.m in Sources */,
 				3D87D8441B1852120046BD60 /* UIColor+expanded.m in Sources */,
@@ -1235,6 +1260,7 @@
 				3D1963F31B0E1B6900766CFC /* PlayerProfileViewController.m in Sources */,
 				3D19641B1B130E3B00766CFC /* TPKeyboardAvoidingScrollView.m in Sources */,
 				3D87D8421B1852120046BD60 /* NSDate+convenience.m in Sources */,
+				3DA70A3D1B3972B900D3ABEC /* UIButton+Badge.m in Sources */,
 				3DF993721B256A4A006EBC39 /* AppDelegate+Push.m in Sources */,
 				3DCA44D31B26CB3400B66BD2 /* StaffType.m in Sources */,
 				3D1964271B13305200766CFC /* FaceBookAuthAgent.m in Sources */,

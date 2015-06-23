@@ -5,7 +5,6 @@
 //  Created by Abdullah Saeed on 6/8/15.
 //  Copyright (c) 2015 Abdullah Saeed. All rights reserved.
 //
-
 #import "FoodBeveragesMainViewController.h"
 #import "FoodBevViewCell.h"
 #import "FoodBeverageServices.h"
@@ -15,6 +14,9 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "FoodBevItemDetailViewController.h"
 #import "AppDelegate.h"
+#import "SharedManager.h"
+#import <QuartzCore/QuartzCore.h>
+#import "BBBadgeBarButtonItem.h"
 
 @interface FoodBeveragesMainViewController (){
     bool isFoodItemSelected;
@@ -36,14 +38,19 @@
     self.navigationItem.leftBarButtonItem = leftBarButtonItem;
     
     // Right nav-bar.
-    UIButton * rightBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 25, 25)];
-    [rightBtn setBackgroundImage:[UIImage imageNamed:@"cart_icon"] forState:UIControlStateNormal];
-    [rightBtn addTarget:self action:@selector(displayCart) forControlEvents:UIControlEventTouchUpInside];
+    UIImage *image = [UIImage imageNamed:@"cart_icon"];
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    button.frame = CGRectMake(0,0,25, 25);
+    [button addTarget:self action:@selector(displayCart) forControlEvents:UIControlEventTouchUpInside];
+    [button setBackgroundImage:image forState:UIControlStateNormal];
     
-    UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
-    self.navigationItem.rightBarButtonItem = rightBarButtonItem;
+    // Create and add our custom BBBadgeBarButtonItem
+    BBBadgeBarButtonItem *barButton = [[BBBadgeBarButtonItem alloc] initWithCustomUIButton:button];
+    barButton.badgeValue = [NSString stringWithFormat:@"%lu",(unsigned long)[[SharedManager sharedInstance] cartBadgeCount]];
+    barButton.badgeBGColor = [UIColor greenColor];
+    self.navigationItem.rightBarButtonItem = barButton;
     
-    
+    //Title
     NSDictionary *navTitleAttributes =@{
                                         NSFontAttributeName :[UIFont fontWithName:@"Helvetica-Bold" size:14.0],
                                         NSForegroundColorAttributeName : [UIColor whiteColor]

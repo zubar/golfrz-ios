@@ -14,6 +14,7 @@
 #import "FoodBeverageServices.h"
 #import "AppDelegate.h"
 #import "FoodBevCartViewController.h"
+#import "UIBarButtonItem+Badge.h"
 
 @interface FoodBevItemDetailViewController ()
 
@@ -27,35 +28,35 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
-    
-    
-    
+    // left nav-button
     UIButton * imageButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 10, 10, 14)];
     [imageButton setBackgroundImage:[UIImage imageNamed:@"back_btn"] forState:UIControlStateNormal];
     [imageButton addTarget:self action:@selector(foodItemBackBtnTap) forControlEvents:UIControlEventTouchUpInside];
     
     UIBarButtonItem *leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:imageButton];
     self.navigationItem.leftBarButtonItem = leftBarButtonItem;
+  
+    // Right nav-bar.
+    UIImage *rightBtnImg = [UIImage imageNamed:@"cart_icon"];
+    UIBarButtonItem *navRightButton = [[UIBarButtonItem alloc] initWithImage:rightBtnImg
+                                                                       style:UIBarButtonItemStylePlain
+                                                                      target:self
+                                                                      action:@selector(displayCart)];
+    self.navigationItem.rightBarButtonItem = navRightButton;
+    self.navigationItem.rightBarButtonItem.badgeValue = @"2";
+    self.navigationItem.rightBarButtonItem.badgeBGColor = [UIColor orangeColor];
+    
+    // Title
     NSDictionary *navTitleAttributes =@{
                                         NSFontAttributeName :[UIFont fontWithName:@"Helvetica-Bold" size:14.0],
                                         NSForegroundColorAttributeName : [UIColor whiteColor]
                                         };
-    
     self.navigationItem.title = @"FOOD ITEM";
     self.navigationController.navigationBar.titleTextAttributes = navTitleAttributes;
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
     
     
-    // Right nav-bar.
-    UIButton * rightBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 25, 25)];
-    [rightBtn setBackgroundImage:[UIImage imageNamed:@"cart_icon"] forState:UIControlStateNormal];
-    [rightBtn addTarget:self action:@selector(displayCart) forControlEvents:UIControlEventTouchUpInside];
-    
-    UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
-    self.navigationItem.rightBarButtonItem = rightBarButtonItem;
-    
-    
+   // Fetchingn data
     self.selectedIds = [NSMutableArray array];
     //self.quantity = 0;
     self.sideItems = self.selectedItem.sideItems;
