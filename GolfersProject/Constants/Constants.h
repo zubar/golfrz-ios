@@ -79,6 +79,17 @@ static NSString * const kAddItemToCart = @"menus/add_to_cart";
 static NSString * const kRemoveFromCart = @"menus/remove_from_cart";
 static NSString * const kViewCart = @"menus/view_user_cart";
 
+
+/*
+ *  Push notification token registeration
+ */
+static NSString * const kPushRegURL = @"push_registrations/register";
+
+/*
+ * Notif
+ */
+static NSString * const kUserLoginSuccessful = @"UserLoginSuccessfulWithServerTokenAcquired";
+
 //================================= Presentation ======================================
 
 static NSString * const kDefaultThemeColor = @"0xFF0000";

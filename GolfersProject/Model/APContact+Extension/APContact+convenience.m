@@ -7,8 +7,12 @@
 //
 
 #import "APContact+convenience.h"
+#import <objc/runtime.h>
+
 
 @implementation APContact (Convenience)
+@dynamic associatedObject;
+
 
 - (NSString *)contactFirstName;
 {
@@ -36,5 +40,14 @@
 -(UIImage *)contactImage{
     return self.thumbnail;
 }
+
+- (void)setAssociatedObject:(id)object {
+    objc_setAssociatedObject(self, @selector(associatedObject), object, OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+
+- (id)associatedObject {
+    return objc_getAssociatedObject(self, @selector(associatedObject));
+}
+
 
 @end

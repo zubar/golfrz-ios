@@ -12,7 +12,11 @@
 #import "MBProgressHUD.h"
 #import "APContact+convenience.h"
 #import "Constants.h"
+#import "AppDelegate.h"
 
+
+#define kSMSInvites @"phone_Invites"
+#define kEmailInvites @"email_Invites"
 
 @interface InviteMainViewController (){
     NSMutableString * searchString;
@@ -20,7 +24,7 @@
     bool isSearching;
     
     NSMutableArray * contacts; // this array will be pointing to the current array whose contacts are displayed.
-    NSMutableArray * invities;
+    NSMutableDictionary * invities;
 }
 @end
 
@@ -28,11 +32,42 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    // Left bar button
+    
+    UIButton * imageButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 10, 10, 14)];
+    [imageButton setBackgroundImage:[UIImage imageNamed:@"back_btn"] forState:UIControlStateNormal];
+    [imageButton addTarget:self action:@selector(InviteFriendbackBtnTapped) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIBarButtonItem *leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:imageButton];
+    self.navigationItem.leftBarButtonItem = leftBarButtonItem;
+    
+    // Right bar button
+    UIBarButtonItem * rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(sendInvites)];
+    self.navigationItem.rightBarButtonItem = rightBarButtonItem;
+    
+    
+    // Title
+    NSDictionary *navTitleAttributes =@{
+                                        NSFontAttributeName :[UIFont fontWithName:@"Helvetica-Bold" size:14.0],
+                                        NSForegroundColorAttributeName : [UIColor whiteColor]
+                                        };
+    
+    
+    self.navigationItem.title = @"INVITE FRIENDS";
+    self.navigationController.navigationBar.titleTextAttributes = navTitleAttributes;
+    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+    
+    
+    
+    
     // Do any additional setup after loading the view.
     searchString = [NSMutableString string];
     searchResults = [NSArray array];
     contacts = [NSMutableArray array];
-    invities = [NSMutableArray array];
+    invities = [[NSMutableDictionary alloc] initWithObjectsAndKeys:[[NSMutableArray alloc]init], kEmailInvites,
+                                                                    [[NSMutableArray alloc]init], kSMSInvites,
+                                                                    nil];
     isSearching = false;
     
     //properties to hold data
@@ -48,11 +83,59 @@
 
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    
+    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+    [delegate.appDelegateNavController setNavigationBarHidden:NO];
+    [delegate.appDelegateNavController.navigationBar setTitleVerticalPositionAdjustment:0.0 forBarMetrics:UIBarMetricsDefault];
+   
+    //[[UINavigationBar appearance] setTitleVerticalPositionAdjustment:-10.0 forBarMetrics:UIBarMetricsDefault];
+}
 
+-(void)viewWillDisappear:(BOOL)animated{
+    
+    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+    [delegate.appDelegateNavController setNavigationBarHidden:YES];
+    
+}
+
+-(void)InviteFriendbackBtnTapped{
+    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+    [delegate.appDelegateNavController popViewControllerAnimated:YES];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)sendInvites{
+    
+    
+    switch ([self.segmentControl selectedSegmentIndex]) {
+        case 1:
+            if ([invities[kEmailInvites] count] <= 0) {
+                [self errorMessageNoContactSelected];
+                return;
+            }
+            [self sendEmailToContacts:invities[kEmailInvites]];
+            break;
+        case 2:
+            if ([invities[kSMSInvites] count] <= 0) {
+                [self errorMessageNoContactSelected];
+                return;
+            }
+            [self sendSMSToContacts:invities[kSMSInvites]];
+            break;
+        default:
+            break;
+    }
+    
+}
+
+-(void)errorMessageNoContactSelected{
+    
+    [[[UIAlertView alloc] initWithTitle:@"No Contacts Selected" message:@"Please select atlest one contact to send invite" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
 }
 
 #pragma mark - UITableViewDelagate
@@ -69,9 +152,31 @@
     }
     
     id contact = (isSearching ? searchResults[indexPath.row] : contacts[indexPath.row]);
-    
+    if ([contact associatedObject] == nil) {
+        [contact setAssociatedObject:[NSNumber numberWithBool:NO]];
+    }
+
+
     ContactCell *customViewCell = (ContactCell *)customCell;
     [customViewCell configureContactCellViewForContact:contact];
+    
+    switch ([self.segmentControl selectedSegmentIndex]) {
+        case 1:
+            if ([invities[kEmailInvites] containsObject:[contact contactEmail]]) {
+                [customViewCell.addbtn setImage:[UIImage imageNamed:@"invitefriend_checked"] forState:UIControlStateNormal];
+            }
+            break;
+        case 2:
+            if ([invities[kSMSInvites] containsObject:[contact contactPhoneNumber]]) {
+                [customViewCell.addbtn setImage:[UIImage imageNamed:@"invitefriend_checked"] forState:UIControlStateNormal];
+            }
+            break;
+            
+        default:
+            break;
+    }
+    
+    
     [customViewCell setSelectionStyle:UITableViewCellSelectionStyleNone];
     [customViewCell setDelegate:self];
     
@@ -85,12 +190,21 @@
 #pragma mark - ContactCell Delegate
 -(void)addBtnTapped:(id)contact{
     
+    
     switch ([self.segmentControl selectedSegmentIndex]) {
         case 1:
-            [invities addObject:[contact contactEmail]];
+            if ([contact associatedObject] == [NSNumber numberWithBool:YES]) {
+                [invities[kEmailInvites] addObject:[contact contactEmail]];
+            }else{
+                [invities[kEmailInvites] removeObject:[contact contactEmail]];
+            }
             break;
         case 2:
-            [invities addObject:[contact contactPhoneNumber]];
+            if ([contact associatedObject] == [NSNumber numberWithBool:YES]) {
+                [invities[kSMSInvites] addObject:[contact contactPhoneNumber]];
+            }else{
+                [invities[kSMSInvites] removeObject:[contact contactPhoneNumber]];
+            }
             break;
         default:
             break;
@@ -109,7 +223,8 @@
 #pragma mark - UIActions
 
 - (IBAction)segmentControlTapped:(UISegmentedControl *)sender {
-    [invities removeAllObjects];
+//    [invities removeAllObjects];
+    [contacts removeAllObjects];
     [self loadDataForSegemnt:[sender selectedSegmentIndex]];
     
 }
@@ -124,14 +239,6 @@
             // present the dialog. Assumes self implements protocol `FBSDKAppInviteDialogDelegate`
             [FBSDKAppInviteDialog showWithContent:content
                                          delegate:self];
-            /*
-            [self loadFacebookFriendsCompletion:^{
-                contacts = self.fbFriends;
-                [self.contactsTable reloadData];
-            }];
-            //update buttons
-            [self setSegmentControlImagesForSelectedSegment:0];
-             */
             break;
         }
         case 1:{
@@ -184,13 +291,13 @@
 
 #pragma mark - HelperMethods
 
--(void)sendSMSToContacts:(NSArray *)contacts{
+-(void)sendSMSToContacts:(NSArray *)mContacts{
     
     MFMessageComposeViewController *controller = [[MFMessageComposeViewController alloc] init];
     if([MFMessageComposeViewController canSendText])
     {
         controller.body = [NSString stringWithFormat:@"Hey lets play Golf by downloading :%@", kAppStoreUrl];
-        controller.recipients = invities;
+        controller.recipients = mContacts;
         controller.messageComposeDelegate = self;
         [self presentViewController:controller animated:YES completion:^{
             nil;
@@ -199,13 +306,13 @@
 }
 
 //TODO: we shall use backend email service instead. 
--(void)sendEmailToContacts:(NSArray *)contacts{
+-(void)sendEmailToContacts:(NSArray *)mContacts{
    
     MFMailComposeViewController* controller = [[MFMailComposeViewController alloc] init];
     controller.mailComposeDelegate = self;
     [controller setSubject:@"Invitation to play Golf"];
     [controller setMessageBody:[NSString stringWithFormat:@"Hey lets play Golf by downloading :%@", kAppStoreUrl] isHTML:NO];
-    [controller setToRecipients:invities];
+    [controller setToRecipients:mContacts];
     if (controller)
         [self presentViewController:controller animated:YES completion:^{
             nil;
@@ -267,10 +374,13 @@
 }
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    [searchBar resignFirstResponder];
 
 } // called when keyboard search button pressed
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
+    [searchBar resignFirstResponder];
     [searchString  setString:@""];
+    [searchBar setText:searchString];
     isSearching = false;
     [self.contactsTable reloadData];
 
@@ -300,17 +410,14 @@
     
     switch (result) {
         case MessageComposeResultCancelled:
-            [invities  removeAllObjects];
             alertTitle = @"User Cancel Action";
             alertMessage = @"You canceled the invitation.";
             break;
         case MessageComposeResultFailed:
-            [invities  removeAllObjects];
             alertTitle = @"Failed to send";
             alertMessage = @"Please try again.";
             break;
         case MessageComposeResultSent:
-            [invities  removeAllObjects];
             alertTitle = @"Invitation Send.";
             alertMessage = @"Send the invitation successfully.";
             break;
@@ -322,6 +429,8 @@
         if (alertTitle && alertMessage) {
             [[[UIAlertView alloc]initWithTitle:alertTitle message:alertMessage delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
         }
+        [self removeAllEmailInvites];
+        [self.contactsTable reloadData];
     }];
 }
 
@@ -333,22 +442,18 @@
     
     switch (result) {
         case MFMailComposeResultCancelled:
-            [invities  removeAllObjects];
             alertTitle = @"User Cancel Action";
             alertMessage = @"You canceled the invitation.";
             break;
         case MFMailComposeResultFailed:
-            [invities  removeAllObjects];
             alertTitle = @"Failed to send";
             alertMessage = @"Please try again.";
             break;
         case MFMailComposeResultSaved:
-            [invities  removeAllObjects];
             alertTitle = @"Draft Saved.";
             alertMessage = @"Invitation email is saved in drafts.";
             break;
         case MFMailComposeResultSent:
-            [invities  removeAllObjects];
             alertTitle = @"Invitation Send.";
             alertMessage = @"Send the invitation successfully.";
             break;
@@ -361,16 +466,41 @@
         alertMessage = [error localizedDescription];
     }
     
-    if (alertTitle && alertMessage) {
-        [[[UIAlertView alloc]initWithTitle:alertTitle message:alertMessage delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
-    }
+    [controller dismissViewControllerAnimated:YES completion:^{
+        if (alertTitle && alertMessage) {
+            [[[UIAlertView alloc]initWithTitle:alertTitle message:alertMessage delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
+        };
+        [self removeAllEmailInvites];
+        [self.contactsTable reloadData];
+    }];
     
 }
+-(void)removeAllEmailInvites{
+    [invities[kEmailInvites] removeAllObjects];
+}
 
+-(void)removeAllSMSInvites{
+    [invities[kSMSInvites] removeAllObjects];
+}
 
 #pragma mark - FBInviteFriendDialogue
 - (void)appInviteDialog:(FBSDKAppInviteDialog *)appInviteDialog didCompleteWithResults:(NSDictionary *)results{
-    
+ 
+    //Checking error
+    if ([results[@"didComplete"] integerValue] ==1) {
+        if ([results[@"completionGesture"] isEqualToString:@"Cancel"]) {
+            [[[UIAlertView alloc] initWithTitle:@"User Cancelled" message:@"User cancelled the action" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
+        }
+        
+        if ([[results allKeys] count] == 1){
+            [[[UIAlertView alloc] initWithTitle:@"Inivites Send" message:@"Send invitations successfully" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
+            // TODO:
+        }
+    }
+    [self.segmentControl setSelectedSegmentIndex:1];
+    [self setSegmentControlImagesForSelectedSegment:1];
+    [self loadDataForSegemnt:1];
+
 }
 
 
@@ -379,6 +509,9 @@
     if (error) {
         [[[UIAlertView alloc] initWithTitle:@"Try Again" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
     }
+    [self.segmentControl setSelectedSegmentIndex:1];
+    [self setSegmentControlImagesForSelectedSegment:1];
+    [self loadDataForSegemnt:1];
 }
 
 @end

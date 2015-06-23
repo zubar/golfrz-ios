@@ -9,6 +9,8 @@
 #import "PushManager.h"
 #import "SideNotificationView.h"
 #import "UtilityServices.h"
+#import "Constants.h"
+#import "UserServices.h"
 
 @implementation PushManager
 
@@ -28,17 +30,26 @@
     return sharedInstance;
 }
 
--(void)setPushToken:(NSString *)tokenString{
-   /*
-    if (!self.pushToken) {
-        self.pushToken = [[NSString alloc] init];
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(postTokenToServer) name:kUserLoginSuccessful object:nil];
     }
-    self.pushToken = tokenString;
-    self.isRegisteredForPush = TRUE;
+    return self;
+}
 
-    if (self.pushToken)
+-(void)setToken:(NSString *)tokenString{
+   
+    if (!self.pushToken) {
+        self.pushToken = [[NSString alloc] initWithString:tokenString];
+    }else{
+        self.pushToken = tokenString;
+    }
+
+    if (self.pushToken && [UserServices currentToken])
         [self postTokenToServer];
-    */
+    
 }
 
 -(void)registerForPushMessages{
@@ -67,12 +78,25 @@
 
 -(void)postTokenToServer{
     
-    NSDictionary * params = @{
-                              @"token": self.pushToken
-                              };
+    if (!(self.pushToken.length >=48) || ![UserServices currentToken]) {
+        return;
+    }
     
-    [UtilityServices postData:params toURL:@"some-URL" success:^(bool status, NSDictionary *userInfo) {
+    NSDictionary * params = @{
+                              @"reg_id": self.pushToken,
+                              @"app_bundle_id": kAppBundleId,
+                              @"auth_token" : [UserServices currentToken],
+                              @"user_agent" : kUserAgent
+                              };
+    NSString * pushUrl = [NSString stringWithFormat:@"%@%@",kBaseURL, kPushRegURL];
+    
+    //TODO: try sending the message again if some error occurs.
+    [UtilityServices postData:params toURL:pushUrl success:^(bool status, NSDictionary *userInfo) {
         // Good keep chill.
+        if (status) {
+            self.isRegisteredForPush = TRUE;
+        }
+        
     } failure:^(bool status, NSError *error) {
         //TODO: Try again to post.
     }];

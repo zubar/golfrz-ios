@@ -17,4 +17,7 @@
 - (NSString *)contactEmail;
 - (UIImage *)contactImage;
 
+@property (nonatomic, strong) NSNumber * associatedObject;
+
+
 @end

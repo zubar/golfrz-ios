@@ -92,15 +92,6 @@
     AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
     [delegate.appDelegateNavController setNavigationBarHidden:NO];
     [[UINavigationBar appearance] setTitleVerticalPositionAdjustment:-10.0 forBarMetrics:UIBarMetricsDefault];
-
-    
-//    UIPageControl * pageControl = (UIPageControl *)[self.navigationController.navigationBar viewWithTag:89];
-//    if (pageControl && ![self isKindOfClass:[ClubHouseSubController class]]) {
-//        [pageControl setHidden:YES];
-//    }else{
-//        [pageControl setHidden:NO];
-//    }
-
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -341,7 +332,6 @@
         dest.currentEvent=sender;
     }
 }
-
 
 -(void)backBtnTapped{
     AppDelegate * delegate = [[UIApplication sharedApplication] delegate];

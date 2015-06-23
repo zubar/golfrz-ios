@@ -34,8 +34,10 @@
             [defaults setValue:responseObject[@"id"] forKey:kUSER_ID];
 
             NSLog(@"Email: %@, Token: %@, User_Id: %@", responseObject[@"email"], responseObject[@"token"], responseObject[@"id"]);
-
             [defaults synchronize];
+            
+            // push manager will receive this notificationa and post the notif to server.
+            [[NSNotificationCenter defaultCenter] postNotificationName:kUserLoginSuccessful object:nil];
         }
         successBlock(true, responseObject);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {

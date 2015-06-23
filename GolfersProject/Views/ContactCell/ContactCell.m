@@ -26,7 +26,16 @@
 }
 
 - (IBAction)btnAdd:(UIButton *)sender{
-
+    
+    if ([currentContact associatedObject] == [NSNumber numberWithBool:YES]) {
+        [currentContact setAssociatedObject:[NSNumber numberWithBool:NO]];
+        [self.addbtn setImage:[UIImage imageNamed:@"invitefriend_unchecked"] forState:UIControlStateNormal];
+    }else{
+        [currentContact setAssociatedObject:[NSNumber numberWithBool:YES]];
+        [self.addbtn setImage:[UIImage imageNamed:@"invitefriend_checked"] forState:UIControlStateNormal];
+    }
+    
+    
     if (self.delegate && [self.delegate respondsToSelector:@selector(addBtnTapped:)]) {
         [self.delegate addBtnTapped:currentContact];
     }
@@ -34,9 +43,19 @@
 
 
 -(void)configureContactCellViewForContact:(id)contact{
- 
+    
+    // By Default every contact is unchecked.
     currentContact = contact;
-    [self.lblContactName setText:[currentContact contactFirstName]];
+    
+    
+    if ([currentContact associatedObject] == [NSNumber numberWithBool:YES]) {
+        [self.addbtn setImage:[UIImage imageNamed:@"invitefriend_checked"] forState:UIControlStateNormal];
+    }else{
+        [self.addbtn setImage:[UIImage imageNamed:@"invitefriend_unchecked"] forState:UIControlStateNormal];
+    }
+
+    NSString * fullName = [NSString stringWithFormat:@"%@ %@", [currentContact contactFirstName], [currentContact contactLastName]];
+    [self.lblContactName setText:fullName];
     
     if (![currentContact contactImage]) {
         [self.imgContactPic setRoundedImage:[UIImage imageNamed:@"person_placeholder"]];
