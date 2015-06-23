@@ -26,6 +26,7 @@
     // Do any additional setup after loading the view.
     [self loadDataForCartCompletion:^{
         [self.cartTableView reloadData];
+        [self  updateTotalCartPrice];
     }];
 }
 
@@ -40,6 +41,19 @@
         completionHandler();
     }failure:^(bool status, NSError* error){
         
+    }];
+}
+
+-(void)updateTotalCartPrice{
+    
+    FoodBevCartViewController * __weak weakSelf = self;
+    __block float cartTotlPrice = 0;
+    
+    [self.cartArray enumerateObjectsWithOptions:NSEnumerationConcurrent usingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        Order * order = obj;
+        cartTotlPrice += [[order price] floatValue] * [[order quantity] integerValue];
+        if (stop)
+            [weakSelf.lblTotalOrder setText:[NSString stringWithFormat:@"%0.2f", cartTotlPrice]];
     }];
 }
 
@@ -90,6 +104,7 @@
         NSLog(@"Success");
         [self loadDataForCartCompletion:^{
             [self.cartTableView  reloadData];
+            [self updateTotalCartPrice];
         }];
     } failure:^(bool status, NSError* error){
         

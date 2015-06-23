@@ -27,6 +27,35 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    
+    
+    
+    
+    UIButton * imageButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 10, 10, 14)];
+    [imageButton setBackgroundImage:[UIImage imageNamed:@"back_btn"] forState:UIControlStateNormal];
+    [imageButton addTarget:self action:@selector(foodItemBackBtnTap) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIBarButtonItem *leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:imageButton];
+    self.navigationItem.leftBarButtonItem = leftBarButtonItem;
+    NSDictionary *navTitleAttributes =@{
+                                        NSFontAttributeName :[UIFont fontWithName:@"Helvetica-Bold" size:14.0],
+                                        NSForegroundColorAttributeName : [UIColor whiteColor]
+                                        };
+    
+    self.navigationItem.title = @"FOOD ITEM";
+    self.navigationController.navigationBar.titleTextAttributes = navTitleAttributes;
+    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+    
+    
+    // Right nav-bar.
+    UIButton * rightBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 25, 25)];
+    [rightBtn setBackgroundImage:[UIImage imageNamed:@"cart_icon"] forState:UIControlStateNormal];
+    [rightBtn addTarget:self action:@selector(displayCart) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
+    self.navigationItem.rightBarButtonItem = rightBarButtonItem;
+    
+    
     self.selectedIds = [NSMutableArray array];
     //self.quantity = 0;
     self.sideItems = self.selectedItem.sideItems;
@@ -38,6 +67,19 @@
     self.lblItemPrice.text = self.selectedItem.price.stringValue;
     [self.optionsTableView reloadData];
     // Do any additional setup after loading the view.
+}
+
+
+-(void)viewWillAppear:(BOOL)animated{
+    [self.navigationController setNavigationBarHidden:NO]; 
+}
+
+-(void)displayCart{
+    NSLog(@"display cart- FoodBev detail");
+}
+
+-(void)foodItemBackBtnTap{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

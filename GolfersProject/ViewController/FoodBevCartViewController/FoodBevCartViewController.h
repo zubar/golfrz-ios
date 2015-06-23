@@ -11,12 +11,16 @@
 
 @interface FoodBevCartViewController : UIViewController<UITableViewDelegate, UITableViewDataSource,FoodBevCartCellDelegate>
 
+
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) IBOutlet UITableView *cartTableView;
 @property (strong, nonatomic) IBOutlet UITextField *txtLocation;
 @property (strong, nonatomic) IBOutlet UITextField *txtMemberNo;
 @property (strong, nonatomic) IBOutlet UILabel *lblTotalOrder;
+
+
 @property (strong, nonatomic) NSMutableArray *cartArray;
+
 - (IBAction)btnPlaceOrderTapped:(UIButton *)sender;
 
 @end

@@ -27,21 +27,29 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Setting up Nav-Bar.
+    // Left nav-bar.
     UIButton * imageButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 10, 10, 14)];
     [imageButton setBackgroundImage:[UIImage imageNamed:@"back_btn"] forState:UIControlStateNormal];
-    
     [imageButton addTarget:self action:@selector(foodBevbackBtnTapped) forControlEvents:UIControlEventTouchUpInside];
     
     UIBarButtonItem *leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:imageButton];
     self.navigationItem.leftBarButtonItem = leftBarButtonItem;
     
-    NSDictionary *navTitleAttributes =@{NSUnderlineStyleAttributeName:@(NSUnderlineStyleSingle),
+    // Right nav-bar.
+    UIButton * rightBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 25, 25)];
+    [rightBtn setBackgroundImage:[UIImage imageNamed:@"cart_icon"] forState:UIControlStateNormal];
+    [rightBtn addTarget:self action:@selector(displayCart) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
+    self.navigationItem.rightBarButtonItem = rightBarButtonItem;
+    
+    
+    NSDictionary *navTitleAttributes =@{
                                         NSFontAttributeName :[UIFont fontWithName:@"Helvetica-Bold" size:14.0],
                                         NSForegroundColorAttributeName : [UIColor whiteColor]
                                         };
     
-    self.navigationItem.title = @"FOOD & BEV";
+    self.navigationItem.title = @"FOOD & BEVERAGE";
     self.navigationController.navigationBar.titleTextAttributes = navTitleAttributes;
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
 
@@ -70,7 +78,7 @@
     
     AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
     [delegate.appDelegateNavController setNavigationBarHidden:NO];
-   // [[UINavigationBar appearance] setTitleVerticalPositionAdjustment:0.0 forBarMetrics:UIBarMetricsDefault];
+    [delegate.appDelegateNavController.navigationBar setTitleVerticalPositionAdjustment:0.0 forBarMetrics:UIBarMetricsDefault];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -78,6 +86,10 @@
     AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
     [delegate.appDelegateNavController setNavigationBarHidden:YES];
     
+}
+
+-(void)displayCart{
+    NSLog(@"cart icon in FoodBeveragesMainViewController");
 }
 
 -(void)foodBevbackBtnTapped{
