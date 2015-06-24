@@ -12,16 +12,14 @@
 #import "Cart.h"
 #import "Order.h"
 #import <SDWebImage/UIImageView+WebCache.h>
-<<<<<<< HEAD
 #import "SharedManager.h"
 #import "MBProgressHUD.h"
 #import "UserServices.h"
-=======
 #import "UserServices.h"
 #import "MBProgressHUD.h"
 #import "AppDelegate.h"
 #import "FoodBeveragesMainViewController.h"
->>>>>>> feat/GOLFRZ-284
+
 
 @interface FoodBevCartViewController ()
 
