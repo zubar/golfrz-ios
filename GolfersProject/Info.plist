@@ -36,9 +36,9 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>To enable check-in feature app uses location services. </string>
+	<string>GolfRz would like to use your current location so you can receive course specific messages, accurate pin locations during your round and last to reward you for checking in at the club.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>To enable check-in feature app uses location services. </string>
+	<string>GolfRz would like to use your current location so you can receive course specific messages, accurate pin locations during your round and last to reward you for checking in at the club.</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>

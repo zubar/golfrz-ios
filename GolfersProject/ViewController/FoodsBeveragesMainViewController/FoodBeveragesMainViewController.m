@@ -29,37 +29,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Left nav-bar.
-    UIButton * imageButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 10, 10, 14)];
-    [imageButton setBackgroundImage:[UIImage imageNamed:@"back_btn"] forState:UIControlStateNormal];
-    [imageButton addTarget:self action:@selector(foodBevbackBtnTapped) forControlEvents:UIControlEventTouchUpInside];
-    
-    UIBarButtonItem *leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:imageButton];
-    self.navigationItem.leftBarButtonItem = leftBarButtonItem;
-    
-    // Right nav-bar.
-    UIImage *image = [UIImage imageNamed:@"cart_icon"];
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    button.frame = CGRectMake(0,0,22, 22);
-    [button addTarget:self action:@selector(displayCart) forControlEvents:UIControlEventTouchUpInside];
-    [button setBackgroundImage:image forState:UIControlStateNormal];
-    
-    // Create and add our custom BBBadgeBarButtonItem
-    BBBadgeBarButtonItem *barButton = [[BBBadgeBarButtonItem alloc] initWithCustomUIButton:button];
-    barButton.badgeValue = [NSString stringWithFormat:@"%lu",(unsigned long)[[SharedManager sharedInstance] cartBadgeCount]];
-    barButton.badgeBGColor = [UIColor greenColor];
-    self.navigationItem.rightBarButtonItem = barButton;
-    
-    //Title
-    NSDictionary *navTitleAttributes =@{
-                                        NSFontAttributeName :[UIFont fontWithName:@"Helvetica-Bold" size:14.0],
-                                        NSForegroundColorAttributeName : [UIColor whiteColor]
-                                        };
-    
     self.navigationItem.title = @"FOOD & BEV";
-    self.navigationController.navigationBar.titleTextAttributes = navTitleAttributes;
-    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
-
+   
+    
     
     isFoodItemSelected = true;
     [self reverseSelectedStateOfButtons:YES];
@@ -82,21 +54,21 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-    
-    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
-    [delegate.appDelegateNavController setNavigationBarHidden:NO];
-    [delegate.appDelegateNavController.navigationBar setTitleVerticalPositionAdjustment:0.0 forBarMetrics:UIBarMetricsDefault];
+    [super viewWillAppear:animated];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
-    
-    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
-    [delegate.appDelegateNavController setNavigationBarHidden:YES];
+    [super viewWillDisappear:animated];
     
 }
 
--(void)displayCart{
-    NSLog(@"cart icon in FoodBeveragesMainViewController");
+-(void)backButtonTap{
+    
+}
+
+
+-(void)cartButtonTap{
+    
 }
 
 -(void)foodBevbackBtnTapped{
@@ -149,7 +121,8 @@
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    [collectionView deselectItemAtIndexPath:indexPath animated:YES];    
+    
+    [collectionView deselectItemAtIndexPath:indexPath animated:YES];
     FoodBeverage * food_bev_item = (isFoodItemSelected ? [self.foodArray objectAtIndex:indexPath.row] : [self.bevArray objectAtIndex:indexPath.row] );
     [self performSegueWithIdentifier:@"segueItemDetail" sender:food_bev_item];
     

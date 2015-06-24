@@ -31,6 +31,7 @@
 		3D1964221B13271000766CFC /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D19641F1B13270F00766CFC /* FBSDKLoginKit.framework */; };
 		3D1964231B13271000766CFC /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D1964201B13270F00766CFC /* FBSDKShareKit.framework */; };
 		3D1964271B13305200766CFC /* FaceBookAuthAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1964261B13305200766CFC /* FaceBookAuthAgent.m */; };
+		3D1C8E541B3A8D7D004AAD30 /* FoodBeverageBaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1C8E531B3A8D7D004AAD30 /* FoodBeverageBaseVC.m */; };
 		3D5CA5D61B1F332B00CB6ED7 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D5CA5D51B1F332B00CB6ED7 /* BaseViewController.m */; };
 		3D5CA5D81B20572E00CB6ED7 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D5CA5D71B20572E00CB6ED7 /* SystemConfiguration.framework */; };
 		3D841D281B1CD97D00A267DE /* EventHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D841D271B1CD97D00A267DE /* EventHeaderView.m */; };
@@ -160,6 +161,8 @@
 		3D1964201B13270F00766CFC /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		3D1964251B13305200766CFC /* FaceBookAuthAgent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceBookAuthAgent.h; sourceTree = "<group>"; };
 		3D1964261B13305200766CFC /* FaceBookAuthAgent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaceBookAuthAgent.m; sourceTree = "<group>"; };
+		3D1C8E521B3A8D7D004AAD30 /* FoodBeverageBaseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodBeverageBaseVC.h; sourceTree = "<group>"; };
+		3D1C8E531B3A8D7D004AAD30 /* FoodBeverageBaseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodBeverageBaseVC.m; sourceTree = "<group>"; };
 		3D5CA5D41B1F332B00CB6ED7 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		3D5CA5D51B1F332B00CB6ED7 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		3D5CA5D71B20572E00CB6ED7 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -498,6 +501,15 @@
 			path = FBAuthenticationAgent;
 			sourceTree = "<group>";
 		};
+		3D1C8E511B3A8D59004AAD30 /* FoodBeverageBaseVC */ = {
+			isa = PBXGroup;
+			children = (
+				3D1C8E521B3A8D7D004AAD30 /* FoodBeverageBaseVC.h */,
+				3D1C8E531B3A8D7D004AAD30 /* FoodBeverageBaseVC.m */,
+			);
+			path = FoodBeverageBaseVC;
+			sourceTree = "<group>";
+		};
 		3D5CA5D31B1F332B00CB6ED7 /* BaseViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -831,6 +843,7 @@
 		885CB04F1B09BADE00AD2A7B /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				3D1C8E511B3A8D59004AAD30 /* FoodBeverageBaseVC */,
 				3DC116241B3426E300E83F4F /* InviteMainViewController */,
 				880A97D61B2F08F2001D97F0 /* FoodBevCartViewController */,
 				88A48EFA1B2AFA04006CEC42 /* FoodBevItemDetailViewController */,
@@ -1213,6 +1226,7 @@
 				3D87D8461B1852120046BD60 /* VRGCalendarView.m in Sources */,
 				88D813AD1B17640E00FD7D0E /* PlayerSettingsMainViewController.m in Sources */,
 				889872BF1B13105C00D3C0E9 /* Utilities.m in Sources */,
+				3D1C8E541B3A8D7D004AAD30 /* FoodBeverageBaseVC.m in Sources */,
 				3D1963F41B0E1B6900766CFC /* RewardViewController.m in Sources */,
 				3DD3CA381B2863CF00767BCF /* SideNotificationView.m in Sources */,
 				3D1963BC1B0CE05700766CFC /* CourseServices.m in Sources */,

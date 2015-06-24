@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FoodBeverageBaseVC.h"
 
-@interface FoodBeveragesMainViewController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
+@interface FoodBeveragesMainViewController : FoodBeverageBaseVC <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 @property (strong, nonatomic) NSMutableArray *foodArray;
 @property (strong, nonatomic) NSMutableArray *bevArray;
 @property (strong, nonatomic) IBOutlet UICollectionView *foodBevCollectionView;

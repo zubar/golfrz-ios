@@ -12,6 +12,9 @@
 #import "Cart.h"
 #import "Order.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "SharedManager.h"
+#import "MBProgressHUD.h"
+#import "UserServices.h"
 
 @interface FoodBevCartViewController ()
 
@@ -42,15 +45,18 @@
     [self loadDataForCartCompletion:^{
         [self.cartTableView reloadData];
         [self  updateTotalCartPrice];
+        [[SharedManager sharedInstance]setCartBadgeCount:[self.cartArray count]];
     }];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
+    //NSLog(@"%@", [UserServices currentUserId]);
+    [self.txtMemberNo setText:[NSString stringWithFormat:@"%@",[UserServices currentUserId]]];
     [self.navigationController setNavigationBarHidden:NO];
 }
 
 - (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
+    [super didReceiveMemoryWarning]; 
     // Dispose of any resources that can be recreated.
 }
 
@@ -70,15 +76,11 @@
 
 -(void)updateTotalCartPrice{
     
-    FoodBevCartViewController * __weak weakSelf = self;
-    __block float cartTotlPrice = 0;
-    
-    [self.cartArray enumerateObjectsWithOptions:NSEnumerationConcurrent usingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        Order * order = obj;
+    float cartTotlPrice = 0;
+    for (Order * order in self.cartArray) {
         cartTotlPrice += [[order price] floatValue] * [[order quantity] integerValue];
-        if (stop)
-            [weakSelf.lblTotalOrder setText:[NSString stringWithFormat:@"%0.2f", cartTotlPrice]];
-    }];
+    }
+    [self.lblTotalOrder setText:[NSString stringWithFormat:@"%0.2f", cartTotlPrice]];
 }
 
 #pragma mark - UITableViewDelegate
@@ -124,6 +126,7 @@
 
 -(void)removeButtonTappedForItem:(Order *)item{
     
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [FoodBeverageServices removeItemFromCart:item withBlock:^(bool status, NSDictionary* response){
         NSLog(@"Success");
         [self loadDataForCartCompletion:^{
@@ -131,9 +134,11 @@
             //CGRect frame = CGRectMake(self.cartTableView.frame.origin.x, self.cartTableView.frame.origin.y, self.cartTableView.frame.size.width, self.cartTableView.frame.size.height - 82);
             //[self.cartTableView setFrame:frame];
             [self updateTotalCartPrice];
+            [[SharedManager sharedInstance]setCartBadgeCount:[self.cartArray count]];
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
         }];
     } failure:^(bool status, NSError* error){
-        
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
     }];
 }
 

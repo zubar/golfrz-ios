@@ -25,12 +25,7 @@
 @property (assign, nonatomic) NSUInteger cartBadgeCount;
 
 + (SharedManager *)sharedInstance;
-
 -(BOOL)isUserLocationInCourse;
 
-
--(void)addItemInCart:(id)item;
--(void)removeItemFromCart:(id)item;
--(NSArray *)cartList;
-
+-(void)updateCartItemsCountCompletion:(void(^)(void))completion;
 @end

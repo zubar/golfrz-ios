@@ -10,6 +10,8 @@
 #import "CourseServices.h"
 #import "Course.h"
 #import "Coordinate.h"
+#import "FoodBeverageServices.h"
+#import "Cart.h"
 
 /*
  http://alienryderflex.com/polygon/
@@ -53,7 +55,6 @@ bool pointInPolygon(int polyCorners, float polyX[], float polyY[], float x, floa
 @interface SharedManager (){
     CGPoint lastKnownLocation;
 }
-@property (strong, nonatomic) NSMutableArray * cardItems;
 @end
 
 @implementation SharedManager
@@ -83,8 +84,7 @@ bool pointInPolygon(int polyCorners, float polyX[], float polyY[], float x, floa
         sharedLocationManager.delegate = self;
         sharedLocationManager.desiredAccuracy = kCLLocationAccuracyBest;
         
-        self.cardItems = [[NSMutableArray alloc]initWithCapacity:0];
-        self.cartBadgeCount = 1;
+        self.cartBadgeCount = 0;
     }
     return self;
 }
@@ -92,19 +92,6 @@ bool pointInPolygon(int polyCorners, float polyX[], float polyY[], float x, floa
 -(void)getCourseInfo:(void (^)(bool status, id jsonObject))successBlock{
     NSLog(@"---------------------------------------------------- NO Implementation ----------------------------------------------------");
 
-}
-
--(void)addItemInCart:(id)item{
-    [self.cardItems addObject:item];
-}
-
--(void)removeItemFromCart:(id)item{
-    //TODO: see if the axact item is removed or not. make object comparision.
-    [self.cardItems removeObject:item];
-}
-
--(NSArray *)cartList{
-    return self.cardItems;
 }
 
 -(BOOL)isUserLocationInCourse{
@@ -129,7 +116,17 @@ bool pointInPolygon(int polyCorners, float polyX[], float polyY[], float x, floa
     return pointInPolygon(polyCorners, polyX, polyY, currentCoordinates.x, currentCoordinates.y);
 }
 
+-(void)updateCartItemsCountCompletion:(void(^)(void))completion{
+    [FoodBeverageServices cartItemsForCurrentUser:^(bool status, Cart *response) {
+        if(status)
+            self.cartBadgeCount = [response.orders count];
+        completion();
+    } failure:^(bool status, NSError *error) {
+        if (error)
+            NSLog(@"can't update cart count");
+    }];
 
+}
 
 
 #pragma mark - LocationHelper
