@@ -15,8 +15,10 @@
 #import "AppDelegate.h"
 #import "FoodBevCartViewController.h"
 #import "FoodBeveragesMainViewController.h"
+#import "MBProgressHUD.h"
 #import "BBBadgeBarButtonItem.h"
 #import "SharedManager.h"
+
 
 @interface FoodBevItemDetailViewController ()
 
@@ -34,7 +36,13 @@
     self.navigationItem.title = @"FOOD ITEM";
     
     self.selectedIds = [NSMutableArray array];
+    [self populateFields];
     //self.quantity = 0;
+   
+    // Do any additional setup after loading the view.
+}
+
+-(void)populateFields{
     self.sideItems = self.selectedItem.sideItems;
     [self.imgItemPic sd_setImageWithURL:[NSURL URLWithString:self.selectedItem.imageUrl] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         //  <#code#>
@@ -44,7 +52,7 @@
     self.lblIngredients.text = self.selectedItem.details;
     self.lblItemPrice.text = self.selectedItem.price.stringValue;
     [self.optionsTableView reloadData];
-    // Do any additional setup after loading the view.
+    
 }
 
 
@@ -116,8 +124,11 @@
 - (IBAction)btnAddToCartTapped:(UIButton *)sender {
     
     [self.selectedIds addObject:self.selectedItem.foodId];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [FoodBeverageServices addItemsToCartWithIds:self.selectedIds quantity:[self.txtCount.text integerValue] withBlock:^(bool status, NSDictionary *response) {
         NSLog(@"Success");
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+
         
          NSString *successMessage = [NSString stringWithFormat:@"You have added %@ %@ to the cart", self.txtCount.text, self.selectedItem.name];
         [[[UIAlertView alloc] initWithTitle:nil message:successMessage delegate:self cancelButtonTitle:nil otherButtonTitles:@"CHECKOUT", @"CONTINUE", nil] show];

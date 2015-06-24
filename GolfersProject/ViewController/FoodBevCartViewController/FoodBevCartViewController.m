@@ -12,9 +12,16 @@
 #import "Cart.h"
 #import "Order.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+<<<<<<< HEAD
 #import "SharedManager.h"
 #import "MBProgressHUD.h"
 #import "UserServices.h"
+=======
+#import "UserServices.h"
+#import "MBProgressHUD.h"
+#import "AppDelegate.h"
+#import "FoodBeveragesMainViewController.h"
+>>>>>>> feat/GOLFRZ-284
 
 @interface FoodBevCartViewController ()
 
@@ -50,7 +57,7 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-    //NSLog(@"%@", [UserServices currentUserId]);
+
     [self.txtMemberNo setText:[NSString stringWithFormat:@"%@",[UserServices currentUserId]]];
     [self.navigationController setNavigationBarHidden:NO];
 }
@@ -144,9 +151,42 @@
 
 - (IBAction)btnPlaceOrderTapped:(UIButton *)sender {
     
-    [FoodBeverageServices confirmOrderWithLocation:self.txtLocation.text success:^(bool status, NSString* successMessage){
-        NSLog(@"Successfully ordered");
-    } failure:^(bool status, NSError* error){
-    }];
+    if (self.cartArray.count && (self.txtLocation.text.length >= 1)){
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        [FoodBeverageServices confirmOrderWithLocation:[self.txtLocation text] success:^(bool status, NSString* successMessage){
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+            [self.cartArray removeAllObjects];
+            [self.cartTableView reloadData];
+            [self.lblTotalOrder setText:@"0"];
+            [[[UIAlertView alloc] initWithTitle:nil message:@"Your order has been placed." delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil] show];
+            NSLog(@"Successfully ordered");
+        } failure:^(bool status, NSError* error){
+        }];
+    }else{
+        [[[UIAlertView alloc] initWithTitle:nil message:@"Please add at least 1 item in cart and add location" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil, nil] show];
+    }
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
+    
+    if([title isEqualToString:@"OK"])
+        
+    {
+        AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+        for (UIViewController *controller in [delegate.appDelegateNavController viewControllers]) {
+            
+            if ([controller isKindOfClass:[FoodBeveragesMainViewController class]]) {
+                
+                [delegate.appDelegateNavController popToViewController:controller animated:YES];
+            }
+            
+        }
+        
+      
+        
+    }
+       
 }
 @end
