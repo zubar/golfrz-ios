@@ -84,6 +84,7 @@ bool pointInPolygon(int polyCorners, float polyX[], float polyY[], float x, floa
         sharedLocationManager.desiredAccuracy = kCLLocationAccuracyBest;
         
         self.cardItems = [[NSMutableArray alloc]initWithCapacity:0];
+        self.cartBadgeCount = 1;
     }
     return self;
 }

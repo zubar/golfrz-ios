@@ -16,6 +16,9 @@
 #import "FoodBevCartViewController.h"
 #import "FoodBeveragesMainViewController.h"
 #import "MBProgressHUD.h"
+#import "BBBadgeBarButtonItem.h"
+#import "SharedManager.h"
+
 
 @interface FoodBevItemDetailViewController ()
 
@@ -29,29 +32,34 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    // left nav-button
     UIButton * imageButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 10, 10, 14)];
     [imageButton setBackgroundImage:[UIImage imageNamed:@"back_btn"] forState:UIControlStateNormal];
     [imageButton addTarget:self action:@selector(foodItemBackBtnTap) forControlEvents:UIControlEventTouchUpInside];
     
     UIBarButtonItem *leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:imageButton];
     self.navigationItem.leftBarButtonItem = leftBarButtonItem;
-    NSDictionary *navTitleAttributes =@{
-                                        NSFontAttributeName :[UIFont fontWithName:@"Helvetica-Bold" size:14.0],
-                                        NSForegroundColorAttributeName : [UIColor whiteColor]
-                                        };
-    
-    self.navigationItem.title = @"FOOD ITEM";
-    self.navigationController.navigationBar.titleTextAttributes = navTitleAttributes;
-    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
-    
-    
+  
     // Right nav-bar.
     UIButton * rightBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 22, 22)];
     [rightBtn setBackgroundImage:[UIImage imageNamed:@"cart_icon"] forState:UIControlStateNormal];
     [rightBtn addTarget:self action:@selector(displayCart) forControlEvents:UIControlEventTouchUpInside];
+
+    BBBadgeBarButtonItem *rightbarButton = [[BBBadgeBarButtonItem alloc] initWithCustomUIButton:rightBtn];
+    rightbarButton.badgeValue = [NSString stringWithFormat:@"%lu",(unsigned long)[[SharedManager sharedInstance] cartBadgeCount]];
+    [rightbarButton setBadgeBGColor:[UIColor greenColor]];
+    self.navigationItem.rightBarButtonItem = rightbarButton;
     
-    UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
-    self.navigationItem.rightBarButtonItem = rightBarButtonItem;
+    // Title
+    NSDictionary *navTitleAttributes =@{
+                                        NSFontAttributeName :[UIFont fontWithName:@"Helvetica-Bold" size:14.0],
+                                        NSForegroundColorAttributeName : [UIColor whiteColor]
+                                        };
+    self.navigationItem.title = @"FOOD ITEM";
+    self.navigationController.navigationBar.titleTextAttributes = navTitleAttributes;
+    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+
+
     self.selectedIds = [NSMutableArray array];
     [self populateFields];
     //self.quantity = 0;

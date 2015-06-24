@@ -22,6 +22,7 @@
 @property (strong, nonatomic) NSString * courseCity;
 @property (strong, nonatomic) NSString * courseName;
 
+@property (assign, nonatomic) NSUInteger cartBadgeCount;
 
 + (SharedManager *)sharedInstance;
 
