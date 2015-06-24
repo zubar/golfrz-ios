@@ -10,10 +10,19 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 
+#define kAccuracyGPS 40
+
+
+@protocol SharedManagerDelegate <NSObject>
+-(void)IsUserInCourseWithRequiredAccuracy:(BOOL)yesNo;
+@end
+
 
 @interface SharedManager : NSObject<CLLocationManagerDelegate>{
     CLLocationManager * sharedLocationManager;
 }
+
+@property (assign, nonatomic) id<SharedManagerDelegate>delegate;
 
 @property (strong, nonatomic) UIColor * themeColor;
 @property (strong, nonatomic) NSString * backgroundImagePath;
@@ -26,6 +35,7 @@
 
 + (SharedManager *)sharedInstance;
 -(BOOL)isUserLocationInCourse;
+-(void)triggerLocationServices;
 
 -(void)updateCartItemsCountCompletion:(void(^)(void))completion;
 @end

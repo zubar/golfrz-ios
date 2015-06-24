@@ -25,6 +25,7 @@
 #import "FoodBeverageServices.h"
 #import "ContactServices.h"
 #import "APContact+convenience.h"
+#import "Constants.h"
 
 @interface ClubHouseViewController ()
 @property (nonatomic, retain) NSArray * weatherList;
@@ -224,8 +225,13 @@
 -(void)checkInToCurrentCourse{
     
     SharedManager * manager = [SharedManager sharedInstance];
-    if([manager isUserLocationInCourse]){
-        
+    [manager triggerLocationServices];
+    manager.delegate = self;
+}
+
+-(void)IsUserInCourseWithRequiredAccuracy:(BOOL)yesNo{
+    
+    if (yesNo) {
         [CourseServices checkInToCurrentCourse:^(bool status, id responseObject) {
             if (status) {
                 [[[UIAlertView alloc]initWithTitle:@"Success" message:responseObject[@"message"] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
@@ -235,9 +241,13 @@
                 [[[UIAlertView alloc]initWithTitle:@"Try Again" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
             }
         }];
+    }else{
+        NSString * message = [NSString stringWithFormat:@"You are not %d meter inside the course perimeter.",kAccuracyGPS];
+        [[[UIAlertView alloc]initWithTitle:@"" message:message delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
     }
-}
+    
 
+}
 
 -(void)enableCheckInButton:(BOOL)yesNo{
     [self.btnCheckIn setHidden:yesNo];

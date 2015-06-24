@@ -13,7 +13,7 @@
 #import "APContact+convenience.h"
 #import "Constants.h"
 #import "AppDelegate.h"
-
+#import "SharedManager.h"
 
 #define kSMSInvites @"phone_Invites"
 #define kEmailInvites @"email_Invites"
@@ -56,7 +56,7 @@
     
     self.navigationItem.title = @"INVITE FRIENDS";
     self.navigationController.navigationBar.titleTextAttributes = navTitleAttributes;
-    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+    self.navigationController.navigationBar.barTintColor = [[SharedManager sharedInstance] themeColor];
     
     
     

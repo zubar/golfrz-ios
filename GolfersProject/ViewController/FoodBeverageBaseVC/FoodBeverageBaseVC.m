@@ -49,7 +49,7 @@
     
     self.navigationItem.title = @"FOOD & BEV BASE";
     self.navigationController.navigationBar.titleTextAttributes = navTitleAttributes;
-    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+    self.navigationController.navigationBar.barTintColor = [[SharedManager sharedInstance] themeColor];
 }
 
 

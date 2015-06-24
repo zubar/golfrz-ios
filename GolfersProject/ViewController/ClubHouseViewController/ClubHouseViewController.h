@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "ClubHouseSubController.h"
+#import "SharedManager.h"
 
-@interface ClubHouseViewController : ClubHouseSubController<UICollectionViewDelegate, UICollectionViewDataSource>
+@interface ClubHouseViewController : ClubHouseSubController<UICollectionViewDelegate, UICollectionViewDataSource, SharedManagerDelegate>
 @property (strong, nonatomic) IBOutlet UICollectionView *weatherCollectionView;
 @property (strong, nonatomic) IBOutlet UIImageView *imgCourseLogo;
 @property (strong, nonatomic) IBOutlet UILabel *lblCourseName;
