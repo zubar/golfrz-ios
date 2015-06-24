@@ -225,8 +225,13 @@
 - (IBAction)segmentControlTapped:(UISegmentedControl *)sender {
 //    [invities removeAllObjects];
     [contacts removeAllObjects];
-    [self loadDataForSegemnt:[sender selectedSegmentIndex]];
     
+    [self.searchBar resignFirstResponder];
+    [searchString  setString:@""];
+    [self.searchBar setText:searchString];
+    isSearching = false;
+    
+    [self loadDataForSegemnt:[sender selectedSegmentIndex]];
 }
 
 -(void)loadDataForSegemnt:(NSInteger)index{

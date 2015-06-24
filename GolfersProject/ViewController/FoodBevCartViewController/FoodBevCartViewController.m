@@ -12,16 +12,11 @@
 #import "Cart.h"
 #import "Order.h"
 #import <SDWebImage/UIImageView+WebCache.h>
-<<<<<<< HEAD
 #import "SharedManager.h"
 #import "MBProgressHUD.h"
 #import "UserServices.h"
-=======
-#import "UserServices.h"
-#import "MBProgressHUD.h"
 #import "AppDelegate.h"
 #import "FoodBeveragesMainViewController.h"
->>>>>>> feat/GOLFRZ-284
 
 @interface FoodBevCartViewController ()
 
@@ -171,22 +166,14 @@
 {
     NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
     
-    if([title isEqualToString:@"OK"])
-        
-    {
+    if([title isEqualToString:@"OK"]){
         AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
         for (UIViewController *controller in [delegate.appDelegateNavController viewControllers]) {
             
             if ([controller isKindOfClass:[FoodBeveragesMainViewController class]]) {
-                
                 [delegate.appDelegateNavController popToViewController:controller animated:YES];
-            }
-            
-        }
-        
-      
-        
+            }//end if
+        }// end for
     }
-       
 }
 @end

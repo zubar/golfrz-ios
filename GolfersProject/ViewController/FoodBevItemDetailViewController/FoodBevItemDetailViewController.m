@@ -65,17 +65,6 @@
 }
 
 
-
--(void)backButtonTap{
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
-
--(void)cartButtonTap{
-    NSLog(@"display cart- FoodBev detail");
-}
-
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     
@@ -104,15 +93,26 @@
     return customViewCell;
 }
 
-/*
+
 #pragma mark - Navigation
 
+-(void)backButtonTap{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+-(void)cartButtonTap{
+    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+    FoodBevCartViewController * controller = [self.storyboard instantiateViewControllerWithIdentifier:@"FoodBevCartViewController"];
+    [delegate.appDelegateNavController pushViewController:controller animated:YES];
+}
+
+
 // In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-}
-*/
+//}
+
 
 - (IBAction)btnAddTapped:(UIButton *)sender {
     
@@ -141,6 +141,8 @@
     }];
 }
 
+#pragma mark - UIAlertViewDelegate
+
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
@@ -158,9 +160,12 @@
     {
         //NSLog(@"Button 2 was selected.");
         
+        
+        
         AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
         FoodBeveragesMainViewController * controller = [self.storyboard instantiateViewControllerWithIdentifier:@"FoodBeveragesMainViewController"];
-        [delegate.appDelegateNavController pushViewController:controller animated:YES];
+        [delegate.appDelegateNavController popViewControllerAnimated:YES];
+        //[delegate.appDelegateNavController pushViewController:controller animated:YES];
 
     }
     
@@ -174,7 +179,6 @@
     else{
         count = [self.txtCount.text intValue];
     }
-    
     count--;
     [self.txtCount setText:[NSString stringWithFormat:@"%d",count]];
 }
