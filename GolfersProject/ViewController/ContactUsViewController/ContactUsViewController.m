@@ -99,8 +99,12 @@
 }
 
 - (void)populateStaffFields{
-    ([self.courseStaff count] <= 0 ?
-    [self.staffView setHidden:YES] : [self.staffView setHidden:NO]);
+    if([self.courseStaff count] <= 0 ){
+        [self.staffView setHidden:YES];
+         return;
+        }else{
+            [self.staffView setHidden:NO];
+        }
     
     
     StaffMember *currentStaffMember = [self.courseStaff objectAtIndex:0];
