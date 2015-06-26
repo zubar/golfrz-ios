@@ -6,16 +6,18 @@
 //  Copyright (c) 2015 Abdullah Saeed. All rights reserved.
 //
 
-#import "HorizontalSelectionContentController.h"
+#import "ScoreSelectionContentController.h"
+#import "ScoreSelectionCell.h"
 
-@interface HorizontalSelectionContentController ()
+@interface ScoreSelectionContentController ()
 
 @end
 
-@implementation HorizontalSelectionContentController
+@implementation ScoreSelectionContentController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.scores = [NSMutableArray arrayWithObjects:@"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", nil];
     // Do any additional setup after loading the view.
 }
 
@@ -37,30 +39,24 @@
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
 
-    return 1;
+    return [self.scores count];
 }
 
 // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
 
-    static NSString * cellId = @"cellIdentifier";
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ScoreSelectionCell" forIndexPath:indexPath];
+    if (cell == nil) {
+        cell = [[UICollectionViewCell alloc] init];
+    }   
+   
+    ScoreSelectionCell *customCell = (ScoreSelectionCell *)cell;
+    customCell.lblScore = [self.scores objectAtIndex:indexPath.row];
+    return customCell;
     
-    UICollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
-    if (!cell) {
-        cell = [[UICollectionViewCell alloc]initWithFrame:CGRectMake(0, 0, 50, 50)];
-    }
-    
-    return cell;
 }
 
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
 
-}
-
-// The view that is returned must be retrieved from a call to -dequeueReusableSupplementaryViewOfKind:withReuseIdentifier:forIndexPath:
-- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
-
-}
 
 
 @end
