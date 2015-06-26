@@ -47,7 +47,7 @@
 			text = @"Yesterday";
 			break;
 		default:
-			text = [NSString stringWithFormat:@"%d days ago", daysAgo];
+			text = [NSString stringWithFormat:@"%lu days ago", (unsigned long)daysAgo];
 	}
 	return text;
 }
@@ -82,7 +82,7 @@
 	NSInteger theDD   = ( aYYYYMMDD % 100 );
 	
 	theYYYY = [THCalendarInfo currentYear];
-	return [NSDate dateFromString:[NSString stringWithFormat:@"%04d-%02d-%02d 00:00:00 +0000", theYYYY, theMM, theDD]];
+	return [NSDate dateFromString:[NSString stringWithFormat:@"%04ld-%02ld-%02ld 00:00:00 +0000", (long)theYYYY, (long)theMM, (long)theDD]];
 }
 + (NSInteger)yyyymmddFromDate:(NSDate*)aDate {
 	NSString *theResult = [NSDate stringFromDate:aDate withFormat:@"yyyyMMdd"];	
@@ -96,13 +96,13 @@
 	NSInteger theDD   = ( aYYYYMMDD % 100 );
 	
 	if ( aAbbr )
-		return [NSString stringWithFormat:@"%@ %d", 
+		return [NSString stringWithFormat:@"%@ %ld", 
 				[[NSDate abbreviatedMonthNameFromIndex:theMM] uppercaseString],
-				theDD];
+				(long)theDD];
 	else
-		return [NSString stringWithFormat:@"%@ %d", 
+		return [NSString stringWithFormat:@"%@ %ld", 
 				[[NSDate monthNameFromIndex:theMM] uppercaseString],
-				theDD];	
+				(long)theDD];
 }
 
 + (NSString*)abbreviatedMonthNameFromIndex:(NSInteger)aIdx {

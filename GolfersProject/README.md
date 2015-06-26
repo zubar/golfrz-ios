@@ -6,11 +6,13 @@ This README would normally document whatever steps are necessary to get your app
 
 * Quick summary
 * Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+* [Golfrz iOS-App](https://zmuhammad@bitbucket.org/zmuhammad/schooldiary_parent_app_android.git)
 
 ### How do I get set up? ###
 
 * Summary of set up
+- Install cocoaPods. 
+
 * Configuration
 * Dependencies
 * Database configuration
@@ -26,4 +28,5 @@ This README would normally document whatever steps are necessary to get your app
 ### Who do I talk to? ###
 
 * Abdullah Saeed<abdullah.saeed@tkxel.com>
+* Muhammad Zubair<muhammad.zubair@tkxel.com>
 * Other community or team contact

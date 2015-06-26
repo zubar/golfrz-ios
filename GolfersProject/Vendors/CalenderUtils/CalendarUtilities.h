@@ -24,9 +24,6 @@
 + (NSString*)dateStringFromDate:(NSDate*)aDate;
 
 + (int)degreesFrom366Day:(NSInteger)aDD;
-+ (NSInteger)signIndexFromMMDD:(NSInteger)aMMDD;
-+ (NSInteger)signIndexFrom366Day:(NSInteger)aDD;
-+ (NSString*)nameOfSignAtIndex:(NSInteger)aIdx;
 + (NSInteger) daysBetweenStartDate:(NSDate *)startDate andEndDate:(NSDate *)endDate;
 
 + (NSString *) getCompleteDateStringForCurrentDate;
