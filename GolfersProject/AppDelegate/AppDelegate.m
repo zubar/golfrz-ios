@@ -33,7 +33,6 @@
     
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
     
-    
     SplashScreenViewController * splashController = (SplashScreenViewController *)[mainStoryboard instantiateViewControllerWithIdentifier:@"SplashScreenViewController"];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -42,7 +41,6 @@
     [self.window makeKeyAndVisible];
     
     [[PushManager sharedInstance] registerForPushMessages];
-    
     
     return [[FBSDKApplicationDelegate sharedInstance] application:application
                                     didFinishLaunchingWithOptions:launchOptions];
