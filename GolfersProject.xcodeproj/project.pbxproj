@@ -57,8 +57,8 @@
 		3D1C8E9E1B3BFEB0004AAD30 /* popoverBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D1C8E8A1B3BFEB0004AAD30 /* popoverBg.png */; };
 		3D1C8E9F1B3BFEB0004AAD30 /* popoverBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D1C8E8B1B3BFEB0004AAD30 /* popoverBg@2x.png */; };
 		3D1C8EA01B3BFEB0004AAD30 /* popoverBgSimple.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D1C8E8C1B3BFEB0004AAD30 /* popoverBgSimple.png */; };
-		3D1C8EA41B3C1DEB004AAD30 /* HorizontalSelectionContentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1C8EA31B3C1DEB004AAD30 /* HorizontalSelectionContentController.m */; };
-		3D1C8EA81B3C232C004AAD30 /* HorizontalSelectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1C8EA71B3C232C004AAD30 /* HorizontalSelectionCell.m */; };
+		3D1C8EA41B3C1DEB004AAD30 /* ScoreSelectionContentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1C8EA31B3C1DEB004AAD30 /* ScoreSelectionContentController.m */; };
+		3D1C8EA81B3C232C004AAD30 /* ScoreSelectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1C8EA71B3C232C004AAD30 /* ScoreSelectionCell.m */; };
 		3D5CA5D61B1F332B00CB6ED7 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D5CA5D51B1F332B00CB6ED7 /* BaseViewController.m */; };
 		3D5CA5D81B20572E00CB6ED7 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D5CA5D71B20572E00CB6ED7 /* SystemConfiguration.framework */; };
 		3D841D281B1CD97D00A267DE /* EventHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D841D271B1CD97D00A267DE /* EventHeaderView.m */; };
@@ -220,10 +220,10 @@
 		3D1C8E8A1B3BFEB0004AAD30 /* popoverBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = popoverBg.png; sourceTree = "<group>"; };
 		3D1C8E8B1B3BFEB0004AAD30 /* popoverBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "popoverBg@2x.png"; sourceTree = "<group>"; };
 		3D1C8E8C1B3BFEB0004AAD30 /* popoverBgSimple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = popoverBgSimple.png; sourceTree = "<group>"; };
-		3D1C8EA21B3C1DEB004AAD30 /* HorizontalSelectionContentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HorizontalSelectionContentController.h; sourceTree = "<group>"; };
-		3D1C8EA31B3C1DEB004AAD30 /* HorizontalSelectionContentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HorizontalSelectionContentController.m; sourceTree = "<group>"; };
-		3D1C8EA61B3C232C004AAD30 /* HorizontalSelectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HorizontalSelectionCell.h; sourceTree = "<group>"; };
-		3D1C8EA71B3C232C004AAD30 /* HorizontalSelectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HorizontalSelectionCell.m; sourceTree = "<group>"; };
+		3D1C8EA21B3C1DEB004AAD30 /* ScoreSelectionContentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreSelectionContentController.h; sourceTree = "<group>"; };
+		3D1C8EA31B3C1DEB004AAD30 /* ScoreSelectionContentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreSelectionContentController.m; sourceTree = "<group>"; };
+		3D1C8EA61B3C232C004AAD30 /* ScoreSelectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreSelectionCell.h; sourceTree = "<group>"; };
+		3D1C8EA71B3C232C004AAD30 /* ScoreSelectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreSelectionCell.m; sourceTree = "<group>"; };
 		3D5CA5D41B1F332B00CB6ED7 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		3D5CA5D51B1F332B00CB6ED7 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		3D5CA5D71B20572E00CB6ED7 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -627,8 +627,8 @@
 		3D1C8EA11B3C1D56004AAD30 /* HorizontalSelectionController */ = {
 			isa = PBXGroup;
 			children = (
-				3D1C8EA21B3C1DEB004AAD30 /* HorizontalSelectionContentController.h */,
-				3D1C8EA31B3C1DEB004AAD30 /* HorizontalSelectionContentController.m */,
+				3D1C8EA21B3C1DEB004AAD30 /* ScoreSelectionContentController.h */,
+				3D1C8EA31B3C1DEB004AAD30 /* ScoreSelectionContentController.m */,
 			);
 			path = HorizontalSelectionController;
 			sourceTree = "<group>";
@@ -636,8 +636,8 @@
 		3D1C8EA51B3C22F3004AAD30 /* HorizontalSelectionCell */ = {
 			isa = PBXGroup;
 			children = (
-				3D1C8EA61B3C232C004AAD30 /* HorizontalSelectionCell.h */,
-				3D1C8EA71B3C232C004AAD30 /* HorizontalSelectionCell.m */,
+				3D1C8EA61B3C232C004AAD30 /* ScoreSelectionCell.h */,
+				3D1C8EA71B3C232C004AAD30 /* ScoreSelectionCell.m */,
 			);
 			path = HorizontalSelectionCell;
 			sourceTree = "<group>";
@@ -1380,7 +1380,7 @@
 				88D813AD1B17640E00FD7D0E /* PlayerSettingsMainViewController.m in Sources */,
 				889872BF1B13105C00D3C0E9 /* Utilities.m in Sources */,
 				3D1C8E541B3A8D7D004AAD30 /* FoodBeverageBaseVC.m in Sources */,
-				3D1C8EA81B3C232C004AAD30 /* HorizontalSelectionCell.m in Sources */,
+				3D1C8EA81B3C232C004AAD30 /* ScoreSelectionCell.m in Sources */,
 				3D1C8E731B3BFDBE004AAD30 /* WEBlockingGestureRecognizer.m in Sources */,
 				3D1963F41B0E1B6900766CFC /* RewardViewController.m in Sources */,
 				3DD3CA381B2863CF00767BCF /* SideNotificationView.m in Sources */,
@@ -1394,7 +1394,7 @@
 				885CB0441B09BA9D00AD2A7B /* AppDelegate.m in Sources */,
 				3D1963CE1B0DBC8300766CFC /* Condition.m in Sources */,
 				3D5CA5D61B1F332B00CB6ED7 /* BaseViewController.m in Sources */,
-				3D1C8EA41B3C1DEB004AAD30 /* HorizontalSelectionContentController.m in Sources */,
+				3D1C8EA41B3C1DEB004AAD30 /* ScoreSelectionContentController.m in Sources */,
 				885CB06D1B09BDCD00AD2A7B /* README.md in Sources */,
 				3DD9BD0E1B14BE1C00A2F296 /* NSDate+Helper.m in Sources */,
 				3D1963CB1B0DBC2600766CFC /* WeatherData.m in Sources */,

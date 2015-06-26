@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HorizontalSelectionContentController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate>
+@interface ScoreSelectionContentController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate>
+
+@property (strong, nonatomic) NSMutableArray* scores;
 
 @end
