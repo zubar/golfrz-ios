@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RoundViewController : UIViewController
+@interface RoundViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+@property (strong, nonatomic) IBOutlet UITableView *scoreTable;
+@property (strong, nonatomic) IBOutlet UIView *distanceView;
+@property (strong, nonatomic) IBOutlet UILabel *lblForward;
+@property (strong, nonatomic) IBOutlet UILabel *lblMiddle;
+@property (strong, nonatomic) IBOutlet UILabel *lblBack;
+@property (strong, nonatomic) IBOutlet UIView *mapView;
+@property (strong, nonatomic) IBOutlet UIImageView *imageMap;
+
 
 @end
