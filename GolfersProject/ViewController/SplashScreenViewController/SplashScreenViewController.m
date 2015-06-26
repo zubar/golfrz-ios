@@ -49,7 +49,6 @@
         [sharedManager setBackgroundImagePath:[NSString stringWithFormat:@"%@%@", kBaseImageUrl, mCourse[@"course_bg_image"]]];
         
         self.navigationController.navigationBar.barTintColor = [[SharedManager sharedInstance] themeColor];
-        self.navigationController.navigationBar.barTintColor = [UIColor redColor];
         [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
 
         

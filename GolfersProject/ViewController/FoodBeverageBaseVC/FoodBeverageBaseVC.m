@@ -49,7 +49,7 @@
     
     self.navigationItem.title = @"FOOD & BEV BASE";
     self.navigationController.navigationBar.titleTextAttributes = navTitleAttributes;
-    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+    self.navigationController.navigationBar.barTintColor = [[SharedManager sharedInstance] themeColor];
 }
 
 
@@ -73,9 +73,10 @@
     [delegate.appDelegateNavController setNavigationBarHidden:NO];
     [delegate.appDelegateNavController.navigationBar setTitleVerticalPositionAdjustment:0.0 forBarMetrics:UIBarMetricsDefault];
     
-    
+    BBBadgeBarButtonItem * barItem= (BBBadgeBarButtonItem *) self.navigationItem.rightBarButtonItem;
+    barItem.badgeValue = [NSString stringWithFormat:@"%lu",(unsigned long)[[SharedManager sharedInstance] cartBadgeCount]];
+
     [[SharedManager sharedInstance] updateCartItemsCountCompletion:^{
-        BBBadgeBarButtonItem * barItem= (BBBadgeBarButtonItem *) self.navigationItem.rightBarButtonItem;
         barItem.badgeValue = [NSString stringWithFormat:@"%lu",(unsigned long)[[SharedManager sharedInstance] cartBadgeCount]];
     }];
 }

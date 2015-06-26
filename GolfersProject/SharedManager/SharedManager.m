@@ -12,6 +12,8 @@
 #import "Coordinate.h"
 #import "FoodBeverageServices.h"
 #import "Cart.h"
+#import "Constants.h"
+
 
 /*
  http://alienryderflex.com/polygon/
@@ -89,16 +91,10 @@ bool pointInPolygon(int polyCorners, float polyX[], float polyY[], float x, floa
     return self;
 }
 
--(void)getCourseInfo:(void (^)(bool status, id jsonObject))successBlock{
-    NSLog(@"---------------------------------------------------- NO Implementation ----------------------------------------------------");
-
-}
 
 -(BOOL)isUserLocationInCourse{
    
     // Check if location services are enabled if not  retun & TODO: show alert
-    [self triggerLocationServices];
-    
     Course * mCourse = [CourseServices currentCourse];
     int polyCorners = (int)[mCourse.coordinates count];
     
@@ -132,7 +128,6 @@ bool pointInPolygon(int polyCorners, float polyX[], float polyY[], float x, floa
 #pragma mark - LocationHelper
 
 -(CGPoint)currentLocationCordinates{
-    //TODO: get location cordi for GPS / Wifi
     return CGPointMake(lastKnownLocation.x, lastKnownLocation.y);
 }
 
@@ -173,10 +168,15 @@ bool pointInPolygon(int polyCorners, float polyX[], float polyY[], float x, floa
               location.speed,
               location.verticalAccuracy,
               location.horizontalAccuracy);
-        if ((location.verticalAccuracy <= 20 ) && (location.horizontalAccuracy <= 20)) {
+        if ((location.verticalAccuracy <= kAccuracyGPS ) && (location.horizontalAccuracy <= kAccuracyGPS)) {
             lastKnownLocation.x = location.coordinate.longitude;
             lastKnownLocation.y = location.coordinate.latitude;
             [sharedLocationManager stopUpdatingLocation];
+            
+            if (self.delegate && [self.delegate respondsToSelector:@selector(IsUserInCourseWithRequiredAccuracy:)]){
+                ([self isUserLocationInCourse] ?
+                 [self.delegate IsUserInCourseWithRequiredAccuracy:YES] : [self.delegate IsUserInCourseWithRequiredAccuracy:NO]);
+            }
         }
     }
 }
@@ -187,5 +187,6 @@ bool pointInPolygon(int polyCorners, float polyX[], float polyY[], float x, floa
         [self startUpdatingLocation];
     }
 }
+
 
 @end

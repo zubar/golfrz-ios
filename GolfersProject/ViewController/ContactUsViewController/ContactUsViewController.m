@@ -99,6 +99,14 @@
 }
 
 - (void)populateStaffFields{
+    if([self.courseStaff count] <= 0 ){
+        [self.staffView setHidden:YES];
+         return;
+        }else{
+            [self.staffView setHidden:NO];
+        }
+    
+    
     StaffMember *currentStaffMember = [self.courseStaff objectAtIndex:0];
     //StaffType *currentStafType = currentStaffMember.type;    
     [self.imgAdminPic sd_setImageWithURL:[NSURL URLWithString:[currentStaffMember imageUrl]] placeholderImage:[UIImage imageNamed:@"person_placeholder"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {

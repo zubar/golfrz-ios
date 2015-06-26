@@ -17,6 +17,7 @@
 #import "SharedManager.h"
 #import <QuartzCore/QuartzCore.h>
 #import "BBBadgeBarButtonItem.h"
+#import "FoodBevCartViewController.h"
 
 @interface FoodBeveragesMainViewController (){
     bool isFoodItemSelected;
@@ -39,8 +40,6 @@
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [FoodBeverageServices getMenu:^(bool status, Menu *currentMenu){
         self.foodArray = [[NSMutableArray alloc] initWithArray:currentMenu.foodItems];
-        //[self.foodArray addObjectsFromArray:self.foodArray];
-        //[self.foodArray addObjectsFromArray:self.foodArray];
         self.bevArray = [[NSMutableArray alloc] initWithArray:currentMenu.beverageItems];
         [self.foodBevCollectionView reloadData];
         [MBProgressHUD hideHUDForView:self.view animated:YES];
@@ -60,21 +59,6 @@
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     
-}
-
--(void)backButtonTap{
-    
-}
-
-
--(void)cartButtonTap{
-    
-}
-
--(void)foodBevbackBtnTapped{
-    
-    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
-    [delegate.appDelegateNavController popViewControllerAnimated:YES];
 }
 
 
@@ -189,12 +173,17 @@
     }
 }
 
--(void)backBtnTapped{
-    
+-(void)backButtonTap{
     AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
     [delegate.appDelegateNavController popViewControllerAnimated:YES];
-    
 }
 
+-(void)cartButtonTap{
+    
+    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+    FoodBevCartViewController * controller = [self.storyboard instantiateViewControllerWithIdentifier:@"FoodBevCartViewController"];
+    [delegate.appDelegateNavController pushViewController:controller animated:YES];
+
+}
 
 @end

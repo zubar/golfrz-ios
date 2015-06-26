@@ -20,7 +20,6 @@
 #import "AppDelegate.h"
 #import "FoodBeveragesMainViewController.h"
 
-
 @interface FoodBevCartViewController ()
 
 @end
@@ -169,22 +168,14 @@
 {
     NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
     
-    if([title isEqualToString:@"OK"])
-        
-    {
+    if([title isEqualToString:@"OK"]){
         AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
         for (UIViewController *controller in [delegate.appDelegateNavController viewControllers]) {
             
             if ([controller isKindOfClass:[FoodBeveragesMainViewController class]]) {
-                
                 [delegate.appDelegateNavController popToViewController:controller animated:YES];
-            }
-            
-        }
-        
-      
-        
+            }//end if
+        }// end for
     }
-       
 }
 @end
