@@ -9,9 +9,14 @@
 #import <UIKit/UIKit.h>
 
 @interface PlayerScoreView : UIView
+@property (strong, nonatomic) IBOutlet UIImageView *imgBackGround;
 
-@property (weak, nonatomic) IBOutlet UILabel *lblDate;
-@property (weak, nonatomic) IBOutlet UIImageView *imgWeather;
-@property (weak, nonatomic) IBOutlet UILabel *lblTemperature;
+@property (strong, nonatomic) IBOutlet UIImageView *imgUserPic;
+@property (strong, nonatomic) IBOutlet UILabel *lblUserName;
+@property (strong, nonatomic) IBOutlet UILabel *lblInOut;
+@property (strong, nonatomic) IBOutlet UILabel *lblScoreForHole;
+@property (strong, nonatomic) IBOutlet UITextField *txtScore;
+@property (strong, nonatomic) IBOutlet UIButton *btnShowTable;
+
 
 @end

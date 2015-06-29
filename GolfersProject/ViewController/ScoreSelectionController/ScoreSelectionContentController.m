@@ -19,8 +19,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.scores = [[NSMutableArray alloc] init];
+
     // Do any additional setup after loading the view.
-    
     if (self.dataSource && [self.dataSource respondsToSelector:@selector(dataArrayForCells)]) {
         [self.scores removeAllObjects];
         [self.scores addObjectsFromArray:[self.dataSource dataArrayForCells]];
@@ -53,6 +53,10 @@
     return [self.scores count];
 }
 
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    return 1;
+}
+
 // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
 
@@ -64,6 +68,7 @@
     ScoreSelectionCell *customCell = (ScoreSelectionCell *)cell;
     [customCell.contentView setBackgroundColor:[UIColor greenColor]];
     customCell.lblScore = [self.scores objectAtIndex:indexPath.row];
+
     return customCell;
     
 }

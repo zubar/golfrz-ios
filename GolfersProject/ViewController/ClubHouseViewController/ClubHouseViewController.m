@@ -27,8 +27,8 @@
 #import "APContact+convenience.h"
 #import "Constants.h"
 
-#import "ScoreSelectionContentController.h"
 #import "WEPopoverController.h"
+#import "ScoreSelectionContentController.h" //for testing
 
 @interface ClubHouseViewController ()
 @property (nonatomic, retain) NSArray * weatherList;

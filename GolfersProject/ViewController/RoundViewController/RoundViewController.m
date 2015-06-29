@@ -7,6 +7,7 @@
 //
 
 #import "RoundViewController.h"
+#import "PlayerScoreCell.h"
 
 @interface RoundViewController ()
 
@@ -22,6 +23,21 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 1;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    UITableViewCell *customCell = [tableView dequeueReusableCellWithIdentifier:@"PlayerScoreCell"];
+    
+    if (customCell == nil) {
+        customCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"PlayerScoreCell"];
+    }
+    
+    PlayerScoreCell *customViewCell = (PlayerScoreCell *)customCell;
+    return customViewCell;
 }
 
 /*
