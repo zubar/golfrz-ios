@@ -28,4 +28,26 @@
     }
     return self;
 }
+
+- (IBAction)btnDropDownTap:(id)sender {
+    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(dropDownTapped)]) {
+        [self.delegate dropDownTapped];
+    }
+}
+- (IBAction)btnEditScoreTap:(id)sender {
+    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(editScoreTappedForPlayer:)]) {
+        [self.delegate editScoreTappedForPlayer:player];
+    }
+}
+
+-(void)configureViewForPlayer:(id)mPlayer hideDropdownBtn:(BOOL)yesNo{
+    
+    player = mPlayer;
+    [self.btnShowTable setHidden:yesNo];
+    
+
+    
+}
 @end

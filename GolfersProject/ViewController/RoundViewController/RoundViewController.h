@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PlayerScoreView.h"
 
-@interface RoundViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+@interface RoundViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, PlayerScoreViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *scoreTable;
 

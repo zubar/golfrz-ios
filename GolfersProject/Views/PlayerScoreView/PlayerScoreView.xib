@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
@@ -26,25 +26,18 @@
                             </constraints>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o6y-Yp-jD7">
-                            <rect key="frame" x="275" y="25" width="15" height="10"/>
+                            <rect key="frame" x="268" y="19" width="22" height="22"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="10" id="aKa-Rm-0pe"/>
-                                <constraint firstAttribute="width" constant="15" id="vVF-tt-dXG"/>
+                                <constraint firstAttribute="height" constant="22" id="aKa-Rm-0pe"/>
+                                <constraint firstAttribute="width" constant="22" id="vVF-tt-dXG"/>
                             </constraints>
                             <state key="normal">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="btnDropDownTap:" destination="iN0-l3-epB" eventType="touchUpInside" id="PJu-bp-XC9"/>
+                            </connections>
                         </button>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" background="scoretextfield" translatesAutoresizingMaskIntoConstraints="NO" id="d46-di-24r">
-                            <rect key="frame" x="230" y="13" width="35" height="35"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="35" id="e6E-wa-Zai"/>
-                                <constraint firstAttribute="height" constant="35" id="fav-AB-XO7"/>
-                            </constraints>
-                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                            <textInputTraits key="textInputTraits"/>
-                        </textField>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dJU-gR-t8E">
                             <rect key="frame" x="59" y="13" width="50" height="22"/>
                             <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="18"/>
@@ -63,19 +56,32 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N9p-BU-nl0">
+                            <rect key="frame" x="219" y="12" width="35" height="35"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="35" id="o6h-PM-zoa"/>
+                                <constraint firstAttribute="width" constant="35" id="xRM-26-R7D"/>
+                            </constraints>
+                            <state key="normal" title="0">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="btnEditScoreTap:" destination="iN0-l3-epB" eventType="touchUpInside" id="3Wb-6M-ge6"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
+                        <constraint firstItem="o6y-Yp-jD7" firstAttribute="leading" secondItem="N9p-BU-nl0" secondAttribute="trailing" constant="14" id="32B-9z-qbs"/>
                         <constraint firstAttribute="trailing" secondItem="IId-UL-IbC" secondAttribute="trailing" id="6Qg-KB-bxZ"/>
                         <constraint firstItem="IId-UL-IbC" firstAttribute="top" secondItem="kTM-09-QWB" secondAttribute="top" id="8wa-RT-Olh"/>
-                        <constraint firstItem="o6y-Yp-jD7" firstAttribute="leading" secondItem="d46-di-24r" secondAttribute="trailing" constant="10" id="A45-NS-4JB"/>
                         <constraint firstAttribute="trailing" secondItem="o6y-Yp-jD7" secondAttribute="trailing" constant="10" id="Bzv-n9-7KK"/>
+                        <constraint firstItem="N9p-BU-nl0" firstAttribute="top" secondItem="kTM-09-QWB" secondAttribute="top" constant="12" id="I3w-2s-Vf2"/>
                         <constraint firstItem="sGG-DZ-XPG" firstAttribute="leading" secondItem="w62-ow-wAu" secondAttribute="trailing" constant="8" id="IrJ-Ds-Blr"/>
                         <constraint firstAttribute="centerY" secondItem="w62-ow-wAu" secondAttribute="centerY" id="JTW-dc-QTu"/>
                         <constraint firstItem="w62-ow-wAu" firstAttribute="bottom" secondItem="sGG-DZ-XPG" secondAttribute="bottom" id="LCO-HH-uP3"/>
                         <constraint firstAttribute="bottom" secondItem="IId-UL-IbC" secondAttribute="bottom" id="Mzd-ES-Wat"/>
                         <constraint firstItem="dJU-gR-t8E" firstAttribute="top" secondItem="w62-ow-wAu" secondAttribute="top" id="SaD-nf-S7b"/>
-                        <constraint firstAttribute="centerY" secondItem="d46-di-24r" secondAttribute="centerY" id="X1W-nj-v2h"/>
                         <constraint firstItem="jdt-Ur-JZQ" firstAttribute="leading" secondItem="sGG-DZ-XPG" secondAttribute="trailing" constant="3" id="a4u-kg-Y4E"/>
                         <constraint firstItem="jdt-Ur-JZQ" firstAttribute="centerY" secondItem="sGG-DZ-XPG" secondAttribute="centerY" constant="-0.5" id="d8n-My-BwQ"/>
                         <constraint firstAttribute="centerY" secondItem="o6y-Yp-jD7" secondAttribute="centerY" id="mAa-28-Ime"/>
@@ -104,14 +110,10 @@
                 <outlet property="lblInOut" destination="sGG-DZ-XPG" id="LnN-0J-tNx"/>
                 <outlet property="lblScoreForHole" destination="jdt-Ur-JZQ" id="fWp-1v-Yb8"/>
                 <outlet property="lblUserName" destination="dJU-gR-t8E" id="Uoe-JB-eG1"/>
-                <outlet property="txtScore" destination="d46-di-24r" id="V2F-4d-02t"/>
             </connections>
             <point key="canvasLocation" x="329" y="293.5"/>
         </view>
     </objects>
-    <resources>
-        <image name="scoretextfield" width="35" height="35"/>
-    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

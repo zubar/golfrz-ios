@@ -8,7 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PlayerScoreView : UIView
+@protocol PlayerScoreViewDelegate <NSObject>
+-(void)dropDownTapped;
+-(void)editScoreTappedForPlayer:(id)player;
+@end
+
+@interface PlayerScoreView : UIView{
+    id player;
+}
 @property (strong, nonatomic) IBOutlet UIImageView *imgBackGround;
 
 @property (strong, nonatomic) IBOutlet UIImageView *imgUserPic;
@@ -18,5 +25,8 @@
 @property (strong, nonatomic) IBOutlet UITextField *txtScore;
 @property (strong, nonatomic) IBOutlet UIButton *btnShowTable;
 
+@property (assign, nonatomic) id<PlayerScoreViewDelegate>delegate;
+
+-(void)configureViewForPlayer:(id)mPlayer hideDropdownBtn:(BOOL)yesNo;
 
 @end

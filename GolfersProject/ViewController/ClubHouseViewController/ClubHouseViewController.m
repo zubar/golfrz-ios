@@ -29,6 +29,7 @@
 
 #import "WEPopoverController.h"
 #import "ScoreSelectionContentController.h" //for testing
+#import "RoundViewController.h"
 
 @interface ClubHouseViewController ()
 @property (nonatomic, retain) NSArray * weatherList;
@@ -259,8 +260,11 @@
 - (IBAction)btnTeeTimeTap:(id)sender {
     
     
-    UIButton * button = sender;
+    RoundViewController * controller = [self.storyboard instantiateViewControllerWithIdentifier:@"RoundViewController"];
+    [self.navigationController pushViewController:controller animated:YES];
     
+    
+    /*
     ScoreSelectionContentController *contentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ScoreSelectionContentController"];
     CGRect frame = CGRectMake(0, 0, 320, 55);
     [contentViewController.view setFrame:frame];
@@ -272,7 +276,7 @@
     
     
     
-    /*
+    
     
     WEPopoverController * popoverController  = [[WEPopoverController alloc] initWithContentViewController:contentViewController];
    
