@@ -11,5 +11,6 @@
 @interface ScoreSelectionContentController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (strong, nonatomic) NSMutableArray* scores;
+@property (strong, nonatomic) IBOutlet UICollectionView *scoreCollectionView;
 
 @end
