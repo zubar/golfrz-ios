@@ -50,4 +50,20 @@
 }
 */
 
+- (IBAction)btnPenaltyTapped:(UIButton *)sender {
+}
+
+- (IBAction)btnShotTapped:(UIButton *)sender {
+}
+
+- (IBAction)btnPuttTapped:(UIButton *)sender {
+}
+
+- (IBAction)btnFlyoverTapped:(UIButton *)sender {
+}
+- (IBAction)btnNextHoleTapped:(UIButton *)sender {
+}
+
+- (IBAction)btnPreviousHoleTapped:(UIButton *)sender {
+}
 @end
