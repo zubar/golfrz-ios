@@ -15,15 +15,26 @@
 
 @implementation ScoreSelectionContentController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.scores = [NSMutableArray arrayWithObjects:@"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", nil];
+    self.scores = [[NSMutableArray alloc] init];
     // Do any additional setup after loading the view.
+    
+    if (self.dataSource && [self.dataSource respondsToSelector:@selector(dataArrayForCells)]) {
+        [self.scores removeAllObjects];
+        [self.scores addObjectsFromArray:[self.dataSource dataArrayForCells]];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    
+   
 }
 
 /*
@@ -51,12 +62,17 @@
     }   
    
     ScoreSelectionCell *customCell = (ScoreSelectionCell *)cell;
+    [customCell.contentView setBackgroundColor:[UIColor greenColor]];
     customCell.lblScore = [self.scores objectAtIndex:indexPath.row];
     return customCell;
     
 }
 
-
-
-
+#pragma mark - UICollectionViewDelegate
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(selectedItemForCell:)]) {
+        [self.delegate selectedItemForCell:self.scores[indexPath.row]];
+    }
+}
 @end

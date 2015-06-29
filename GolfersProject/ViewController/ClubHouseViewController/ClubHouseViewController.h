@@ -9,8 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "ClubHouseSubController.h"
 #import "SharedManager.h"
+#import "ScoreSelectionContentController.h"
+#import "WEPopoverController.h"
 
-@interface ClubHouseViewController : ClubHouseSubController<UICollectionViewDelegate, UICollectionViewDataSource, SharedManagerDelegate>
+@interface ClubHouseViewController : ClubHouseSubController<UICollectionViewDelegate, UICollectionViewDataSource, SharedManagerDelegate,
+    //TODO: remove after testing
+ScoreSelectionDelegate, ScoreSelectionDataSource,
+WEPopoverControllerDelegate, UIPopoverControllerDelegate
+>
 @property (strong, nonatomic) IBOutlet UICollectionView *weatherCollectionView;
 @property (strong, nonatomic) IBOutlet UIImageView *imgCourseLogo;
 @property (strong, nonatomic) IBOutlet UILabel *lblCourseName;

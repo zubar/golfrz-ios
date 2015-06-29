@@ -2077,7 +2077,7 @@
         <!--Score Selection Content Controller-->
         <scene sceneID="fTZ-gv-8JS">
             <objects>
-                <viewController storyboardIdentifier="HorizontalSelectionController" id="NyN-yV-h2H" customClass="ScoreSelectionContentController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ScoreSelectionContentController" id="NyN-yV-h2H" customClass="ScoreSelectionContentController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="q7P-ng-Fx9"/>
                         <viewControllerLayoutGuide type="bottom" id="VXj-uK-mdG"/>
@@ -2133,8 +2133,8 @@
                                             </collectionViewCell>
                                         </cells>
                                         <connections>
-                                            <outlet property="dataSource" destination="NyN-yV-h2H" id="3Gz-zV-7E3"/>
-                                            <outlet property="delegate" destination="NyN-yV-h2H" id="0VD-w0-AnP"/>
+                                            <outlet property="dataSource" destination="NyN-yV-h2H" id="UQo-Kc-E99"/>
+                                            <outlet property="delegate" destination="NyN-yV-h2H" id="zCd-uS-xNY"/>
                                         </connections>
                                     </collectionView>
                                 </subviews>
@@ -3843,7 +3843,7 @@
                                                                                 <constraint firstAttribute="height" constant="26" id="OaE-ph-eo5"/>
                                                                                 <constraint firstAttribute="width" constant="26" id="S5w-xw-4Ro"/>
                                                                             </constraints>
-                                                                            <state key="normal" image="2C98C0B3-4A68-47E0-AF99-1F76E3A86D1A">
+                                                                            <state key="normal" image="CCAF81F4-B99E-453C-8FB0-A3BC646DF84B">
                                                                                 <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                                             </state>
@@ -3983,7 +3983,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="78D-Sp-wwz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="732" y="158"/>
+            <point key="canvasLocation" x="510" y="128"/>
         </scene>
         <!--Reward View Controller-->
         <scene sceneID="hTy-NE-a2Y">
@@ -4020,7 +4020,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="2C98C0B3-4A68-47E0-AF99-1F76E3A86D1A" width="24" height="25">
+        <image name="CCAF81F4-B99E-453C-8FB0-A3BC646DF84B" width="24" height="25">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
