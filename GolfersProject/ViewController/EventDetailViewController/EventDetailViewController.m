@@ -14,7 +14,7 @@
 #import "Utilities.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "UIImageView+RoundedImage.h"
-
+#import "EventAdminViewController.h"
 
 @interface EventDetailViewController ()
 
@@ -46,10 +46,10 @@
         }
     }];
     
-    [Utilities dateComponentsFromNSDate:self.currentEvent.dateStart components:^(NSString *dayName, NSString *monthName, NSString *day, NSString *time, NSString * minutes) {
+    [Utilities dateComponentsFromNSDate:self.currentEvent.dateStart components:^(NSString *dayName, NSString *monthName, NSString *day, NSString *time, NSString * minutes, NSString * hourAndMin) {
         [self.lblDay setText:[NSString stringWithFormat:@"%@ %@", monthName, day]];
         //TODO: Update the dateComponentsFromNSDate utility method to return time without am/ pm or in both formats
-        [self.lblTime setText:[NSString stringWithFormat:@"%@:%@ am", [[time stringByReplacingOccurrencesOfString:@"AM" withString:@""] stringByReplacingOccurrencesOfString:@" " withString:@""], minutes]];
+        [self.lblTime setText:hourAndMin];
     }];
     
     
@@ -88,15 +88,18 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    
+    if ([[segue identifier] isEqualToString: @"segueToEventAdminController"]) {
+        EventAdminViewController *dest = (EventAdminViewController *)[segue destinationViewController];
+        dest.currentEvent=self.currentEvent;
+    }
 }
-*/
+
 
 -(void)backBtnTapped{
     AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
@@ -104,6 +107,8 @@
 }
 
 - (IBAction)btnContactAdminTapped:(UIButton *)sender {
+    
+    
 }
 
 - (IBAction)btnInviteFriendsTapped:(UIButton *)sender {

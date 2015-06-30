@@ -22,7 +22,7 @@
 @property (copy, nonatomic, readonly) NSNumber * handicap;
 
 @property (copy, nonatomic, readonly) NSString * phoneNo;
-@property (copy, nonatomic, readonly) NSString * role;
+@property (copy, nonatomic, readonly) NSString * designation;
 
 
 @property (copy, nonatomic, readonly) NSDate * dateStart;
@@ -32,17 +32,3 @@
 
 
 
-
-
-
-
-"id": 6,
-"email": "course_pro_shot_admin@golfrz.com",
-"first_name": "course_pro_shot_admin",
-"last_name": null,
-"username": "course_pro_shot_admin",
-"member_id": null,
-"handicap": null,
-"phone_no": null,
-"token": "lECWgt7gZLuiCVqDY6fWoK14nABtrKJ0luideYrih48=",
-"course_role": "course_pro_shot_admin"

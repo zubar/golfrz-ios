@@ -19,6 +19,7 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "UIImageView+RoundedImage.h"
 #import "InviteMainViewController.h"
+#import "RoundViewController.h"
 
 
 @interface PlayerProfileViewController ()
@@ -135,6 +136,21 @@
     
 }
 - (IBAction)btnStartRoundTapped:(UIButton *)sender {
+    
+    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+    RoundViewController * controller = [self.storyboard instantiateViewControllerWithIdentifier:@"RoundViewController"];
+    [delegate.appDelegateNavController pushViewController:controller animated:YES];
+    
+}
+
+// TODO: Testing code
+-(NSArray *)dataArrayForCells{
+    
+    return [NSArray arrayWithObjects:@"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", nil];
+}
+
+-(void)selectedItemForCell:(id)item{
+    
     
 }
 @end

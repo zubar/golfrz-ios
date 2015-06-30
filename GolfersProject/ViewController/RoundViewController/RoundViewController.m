@@ -11,6 +11,7 @@
 #import "PlayerProfileViewController.h"
 #import "PlayerScoreView.h"
 #import "PlayerScoreCell.h"
+#import "AppDelegate.h"
 
 #define kPlayerScoreViewHeight 60.0f
 
@@ -31,6 +32,16 @@
     }
     
     isScoreTableDescended = FALSE;
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    
+    AppDelegate * delegate = (AppDelegate * )[[UIApplication sharedApplication] delegate];
+    [delegate.appDelegateNavController setNavigationBarHidden:NO];
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+
 }
 
 - (void)didReceiveMemoryWarning {

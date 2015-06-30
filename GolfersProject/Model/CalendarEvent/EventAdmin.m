@@ -21,7 +21,7 @@
              @"memberId" : @"member_id",
              @"handicap" : @"handicap",
              @"phoneNo" : @"phone_no",
-             @"role" : @"course_role",
+             @"designation" : @"course_role",
              //propertyName : json_key
              };
 }
