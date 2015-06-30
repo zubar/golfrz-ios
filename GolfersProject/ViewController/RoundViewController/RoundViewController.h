@@ -31,5 +31,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *lblYards;
 - (IBAction)btnNextHoleTapped:(UIButton *)sender;
 - (IBAction)btnPreviousHoleTapped:(UIButton *)sender;
+@property (strong, nonatomic) IBOutlet UIImageView *imgDarkerBg;
 
 @end
