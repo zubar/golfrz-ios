@@ -9,5 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @interface PlayerScoreCell : UITableViewCell
+@property (strong, nonatomic) IBOutlet UIImageView *imgPlayerPic;
+@property (strong, nonatomic) IBOutlet UILabel *lblPlayerName;
+@property (strong, nonatomic) IBOutlet UILabel *lblInOut;
+@property (strong, nonatomic) IBOutlet UILabel *lblScore;
+@property (strong, nonatomic) IBOutlet UIButton *btnScore;
+
+- (IBAction)btnScoreTapped:(UIButton *)sender;
 
 @end

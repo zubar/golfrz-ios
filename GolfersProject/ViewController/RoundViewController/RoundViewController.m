@@ -10,6 +10,7 @@
 #import "PlayerScoreCell.h"
 #import "PlayerProfileViewController.h"
 #import "PlayerScoreView.h"
+#import "PlayerScoreCell.h"
 
 #define kPlayerScoreViewHeight 60.0f
 
@@ -46,27 +47,35 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
    
-    static NSString * cellIdentifier = @"scoreCell";
+    static NSString * cellIdentifier = @"PlayerScoreCell";
     
-    UITableViewCell *customCell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
-    if (customCell == nil) {
-        customCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
-    [tableView setBackgroundColor:[UIColor clearColor]];
     
-    PlayerScoreView * customView = [[PlayerScoreView alloc]init];
-    [customView setBackgroundColor:[UIColor clearColor]];
-
-    [customView configureViewForPlayer:nil hideDropdownBtn:NO];
-    customView.delegate = self;
-    
-    [customCell.contentView addSubview:customView];
-    
-//    PlayerScoreCell *customViewCell = (PlayerScoreCell *)customCell;
-//    customViewCell.contentView addSubview:<#(UIView *)#>
-    
+    PlayerScoreCell *customCell = (PlayerScoreCell *)cell;
+    customCell.lblPlayerName.text = [self.playersInRound objectAtIndex:indexPath.row];
     return customCell;
+    
+//    if (customCell == nil) {
+//        customCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+//    }
+//    [tableView setBackgroundColor:[UIColor clearColor]];
+//    
+//    PlayerScoreView * customView = [[PlayerScoreView alloc]init];
+//    [customView setBackgroundColor:[UIColor clearColor]];
+//
+//    [customView configureViewForPlayer:nil hideDropdownBtn:NO];
+//    customView.delegate = self;
+//    
+//    [customCell.contentView addSubview:customView];
+//    
+////    PlayerScoreCell *customViewCell = (PlayerScoreCell *)customCell;
+////    customViewCell.contentView addSubview:<#(UIView *)#>
+//    
+//    return customCell;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -79,13 +88,11 @@
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     
     
-//    PlayerScoreView * headerView = [[PlayerScoreView alloc]initWithFrame:CGRectMake(tableFrame.origin.x, tableFrame.origin.y, tableFrame.size.width, kPlayerScoreViewHeight)];
-    
     PlayerScoreView * headerView = [[PlayerScoreView alloc]init];
     [headerView configureViewForPlayer:nil hideDropdownBtn:NO];
     [headerView.lblUserName setText:@"Test User"];
 
-    [headerView setBackgroundColor:[UIColor clearColor]];
+    //[headerView setBackgroundColor:[UIColor clearColor]];
     
     headerView.delegate = self;
     return headerView;
