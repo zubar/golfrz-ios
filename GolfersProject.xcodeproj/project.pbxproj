@@ -69,6 +69,7 @@
 		3D5CA5D81B20572E00CB6ED7 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D5CA5D71B20572E00CB6ED7 /* SystemConfiguration.framework */; };
 		3D613B631B416F1F00F7DEDA /* CalendarEventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D613B601B416F1F00F7DEDA /* CalendarEventCell.m */; };
 		3D613B641B416F1F00F7DEDA /* CalendarEventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D613B611B416F1F00F7DEDA /* CalendarEventCell.xib */; };
+		3D613B6B1B42878A00F7DEDA /* EventAdmin.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D613B6A1B42878A00F7DEDA /* EventAdmin.m */; };
 		3D87D8281B159FE00046BD60 /* EventCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D87D8271B159FE00046BD60 /* EventCalendarViewController.m */; };
 		3D87D82B1B15A0880046BD60 /* EventDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D87D82A1B15A0880046BD60 /* EventDetailViewController.m */; };
 		3D87D8421B1852120046BD60 /* NSDate+convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D87D8391B1852120046BD60 /* NSDate+convenience.m */; };
@@ -244,6 +245,8 @@
 		3D613B5F1B416F1F00F7DEDA /* CalendarEventCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarEventCell.h; sourceTree = "<group>"; };
 		3D613B601B416F1F00F7DEDA /* CalendarEventCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarEventCell.m; sourceTree = "<group>"; };
 		3D613B611B416F1F00F7DEDA /* CalendarEventCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarEventCell.xib; sourceTree = "<group>"; };
+		3D613B691B42878A00F7DEDA /* EventAdmin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventAdmin.h; sourceTree = "<group>"; };
+		3D613B6A1B42878A00F7DEDA /* EventAdmin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventAdmin.m; sourceTree = "<group>"; };
 		3D87D8261B159FE00046BD60 /* EventCalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventCalendarViewController.h; sourceTree = "<group>"; };
 		3D87D8271B159FE00046BD60 /* EventCalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventCalendarViewController.m; sourceTree = "<group>"; };
 		3D87D8291B15A0880046BD60 /* EventDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventDetailViewController.h; sourceTree = "<group>"; };
@@ -801,6 +804,8 @@
 				3DCA44AB1B26CB3400B66BD2 /* EventList.m */,
 				3DCA44AC1B26CB3400B66BD2 /* EventWeather.h */,
 				3DCA44AD1B26CB3400B66BD2 /* EventWeather.m */,
+				3D613B691B42878A00F7DEDA /* EventAdmin.h */,
+				3D613B6A1B42878A00F7DEDA /* EventAdmin.m */,
 			);
 			path = CalendarEvent;
 			sourceTree = "<group>";
@@ -1513,6 +1518,7 @@
 				3DD9BD261B14C39000A2F296 /* CalendarEventServices.m in Sources */,
 				3DF9936F1B256999006EBC39 /* PushManager.m in Sources */,
 				3DCA44D71B26CB3400B66BD2 /* FoodBeverage.m in Sources */,
+				3D613B6B1B42878A00F7DEDA /* EventAdmin.m in Sources */,
 				3D16D0841B1C3FFB00A582A3 /* SharedManager.m in Sources */,
 				3DA7CB851B2AF0C800B5BAFF /* Order.m in Sources */,
 				3D1963F81B0E1F0500766CFC /* WeatherViewCell.m in Sources */,
