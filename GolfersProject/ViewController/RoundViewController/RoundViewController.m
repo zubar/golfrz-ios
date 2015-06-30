@@ -13,7 +13,9 @@
 
 #define kPlayerScoreViewHeight 60.0f
 
-@interface RoundViewController ()
+@interface RoundViewController (){
+    BOOL isScoreTableDescended;
+}
 @property (nonatomic, strong) NSMutableArray * playersInRound;
 @end
 
@@ -24,9 +26,10 @@
     // Do any additional setup after loading the view.
     if (!self.playersInRound) {
         self.playersInRound = [[NSMutableArray alloc]initWithCapacity:1];
-        
-        [self.playersInRound addObject:@"Test Player"];
+        [self.playersInRound addObjectsFromArray:[NSArray arrayWithObjects:@"obj",@"obj",@"obj",@"obj",@"obj",@"obj",@"obj", nil]];
     }
+    
+    isScoreTableDescended = FALSE;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -43,24 +46,26 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
    
-    static NSString * cellIdentifier = @"playerScoreCell";
+    static NSString * cellIdentifier = @"scoreCell";
     
     UITableViewCell *customCell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
     if (customCell == nil) {
         customCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
+    [tableView setBackgroundColor:[UIColor clearColor]];
     
     PlayerScoreView * customView = [[PlayerScoreView alloc]init];
-    [customView configureViewForPlayer:nil hideDropdownBtn:YES];
-    [customView.lblUserName setText:@"Abdullah"];
-    
+    [customView setBackgroundColor:[UIColor clearColor]];
+
+    [customView configureViewForPlayer:nil hideDropdownBtn:NO];
     customView.delegate = self;
     
     [customCell.contentView addSubview:customView];
     
 //    PlayerScoreCell *customViewCell = (PlayerScoreCell *)customCell;
 //    customViewCell.contentView addSubview:<#(UIView *)#>
+    
     return customCell;
 }
 
@@ -73,8 +78,15 @@
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     
+    
+//    PlayerScoreView * headerView = [[PlayerScoreView alloc]initWithFrame:CGRectMake(tableFrame.origin.x, tableFrame.origin.y, tableFrame.size.width, kPlayerScoreViewHeight)];
+    
     PlayerScoreView * headerView = [[PlayerScoreView alloc]init];
+    [headerView configureViewForPlayer:nil hideDropdownBtn:NO];
     [headerView.lblUserName setText:@"Test User"];
+
+    [headerView setBackgroundColor:[UIColor clearColor]];
+    
     headerView.delegate = self;
     return headerView;
 }
@@ -85,16 +97,28 @@
 }
 
 
+
 #pragma mark - PlayerScoreViewDelegate
 
 -(void)dropDownTapped{
 
+    if (isScoreTableDescended) {
+        [self descendTableViewWithAnimation:YES completion:^{
+            isScoreTableDescended = FALSE;
+        }];
+    }else{
+        [self ascendTableViewWithAnimation:YES completion:^{
+            isScoreTableDescended = TRUE;
+        }];
+    }
+    
     
 }
 
 -(void)editScoreTappedForPlayer:(id)player{
         //TODO: display popover here.
     
+
 }
 
 /*
@@ -108,7 +132,7 @@
 */
 
 #pragma mark - Animation
--(void)dropDownTableViewWithAnimation:(BOOL)yesNo completion:(void(^)(void))completionBlock{
+-(void)descendTableViewWithAnimation:(BOOL)yesNo completion:(void(^)(void))completionBlock{
     
     CGRect appFrame = [[UIScreen mainScreen] applicationFrame];
     
@@ -123,6 +147,22 @@
         if (completionBlock)
             completionBlock();
     }];
+}
+
+-(void)ascendTableViewWithAnimation:(BOOL)yesNo completion:(void(^)(void))completionBlock{
+    
+    CGRect initalFrame = [self.scoreTable frame];
+    CGRect finalFrame = CGRectMake(0, initalFrame.origin.y, initalFrame.size.width, kPlayerScoreViewHeight);
+    
+    
+    //TODO: change button image of header on completion.
+    [UIView animateWithDuration:0.5 animations:^{
+        [self.scoreTable setFrame:finalFrame];
+    } completion:^(BOOL finished) {
+        if (completionBlock)
+            completionBlock();
+    }];
+
 }
 
 #pragma mark - UIActions

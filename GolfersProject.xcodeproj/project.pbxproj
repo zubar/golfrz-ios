@@ -67,10 +67,10 @@
 		3D1C8EC21B3D60EF004AAD30 /* ScoreSelectionContentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1C8EC11B3D60EF004AAD30 /* ScoreSelectionContentController.m */; };
 		3D5CA5D61B1F332B00CB6ED7 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D5CA5D51B1F332B00CB6ED7 /* BaseViewController.m */; };
 		3D5CA5D81B20572E00CB6ED7 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D5CA5D71B20572E00CB6ED7 /* SystemConfiguration.framework */; };
+		3D613B631B416F1F00F7DEDA /* CalendarEventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D613B601B416F1F00F7DEDA /* CalendarEventCell.m */; };
+		3D613B641B416F1F00F7DEDA /* CalendarEventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D613B611B416F1F00F7DEDA /* CalendarEventCell.xib */; };
 		3D87D8281B159FE00046BD60 /* EventCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D87D8271B159FE00046BD60 /* EventCalendarViewController.m */; };
 		3D87D82B1B15A0880046BD60 /* EventDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D87D82A1B15A0880046BD60 /* EventDetailViewController.m */; };
-		3D87D8321B15A5F50046BD60 /* CalendarEventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D87D8301B15A5F50046BD60 /* CalendarEventCell.m */; };
-		3D87D8331B15A5F50046BD60 /* CalendarEventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D87D8311B15A5F50046BD60 /* CalendarEventCell.xib */; };
 		3D87D8421B1852120046BD60 /* NSDate+convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D87D8391B1852120046BD60 /* NSDate+convenience.m */; };
 		3D87D8431B1852120046BD60 /* NSMutableArray+convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D87D83B1B1852120046BD60 /* NSMutableArray+convenience.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3D87D8441B1852120046BD60 /* UIColor+expanded.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D87D83D1B1852120046BD60 /* UIColor+expanded.m */; };
@@ -241,13 +241,13 @@
 		3D5CA5D41B1F332B00CB6ED7 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		3D5CA5D51B1F332B00CB6ED7 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		3D5CA5D71B20572E00CB6ED7 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		3D613B5F1B416F1F00F7DEDA /* CalendarEventCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarEventCell.h; sourceTree = "<group>"; };
+		3D613B601B416F1F00F7DEDA /* CalendarEventCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarEventCell.m; sourceTree = "<group>"; };
+		3D613B611B416F1F00F7DEDA /* CalendarEventCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarEventCell.xib; sourceTree = "<group>"; };
 		3D87D8261B159FE00046BD60 /* EventCalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventCalendarViewController.h; sourceTree = "<group>"; };
 		3D87D8271B159FE00046BD60 /* EventCalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventCalendarViewController.m; sourceTree = "<group>"; };
 		3D87D8291B15A0880046BD60 /* EventDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventDetailViewController.h; sourceTree = "<group>"; };
 		3D87D82A1B15A0880046BD60 /* EventDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventDetailViewController.m; sourceTree = "<group>"; };
-		3D87D82F1B15A5F50046BD60 /* CalendarEventCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarEventCell.h; sourceTree = "<group>"; };
-		3D87D8301B15A5F50046BD60 /* CalendarEventCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarEventCell.m; sourceTree = "<group>"; };
-		3D87D8311B15A5F50046BD60 /* CalendarEventCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarEventCell.xib; sourceTree = "<group>"; };
 		3D87D8381B1852120046BD60 /* NSDate+convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+convenience.h"; sourceTree = "<group>"; };
 		3D87D8391B1852120046BD60 /* NSDate+convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+convenience.m"; sourceTree = "<group>"; };
 		3D87D83A1B1852120046BD60 /* NSMutableArray+convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+convenience.h"; sourceTree = "<group>"; };
@@ -698,6 +698,23 @@
 				3D5CA5D51B1F332B00CB6ED7 /* BaseViewController.m */,
 			);
 			path = BaseViewController;
+			sourceTree = "<group>";
+		};
+		3D613B5E1B416F1F00F7DEDA /* CalendarEventCell */ = {
+			isa = PBXGroup;
+			children = (
+				3D613B5F1B416F1F00F7DEDA /* CalendarEventCell.h */,
+				3D613B601B416F1F00F7DEDA /* CalendarEventCell.m */,
+				3D613B611B416F1F00F7DEDA /* CalendarEventCell.xib */,
+			);
+			path = CalendarEventCell;
+			sourceTree = "<group>";
+		};
+		3D613B621B416F1F00F7DEDA /* ScoreSelectionView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ScoreSelectionView;
 			sourceTree = "<group>";
 		};
 		3D87D8241B159FBB0046BD60 /* EventCalendarViewController */ = {
@@ -1190,6 +1207,8 @@
 		889872C71B13237F00D3C0E9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3D613B5E1B416F1F00F7DEDA /* CalendarEventCell */,
+				3D613B621B416F1F00F7DEDA /* ScoreSelectionView */,
 				3D1C8EBB1B3D3D46004AAD30 /* PlayerScoreCell */,
 				3D1C8EB11B3D374F004AAD30 /* PlayerScoreView */,
 				3D1C8EAB1B3D36C9004AAD30 /* EventHeaderView */,
@@ -1199,9 +1218,6 @@
 				88A48EFE1B2B0146006CEC42 /* FoodBevItemCell */,
 				88243AF31B28436200E600D6 /* FoodBevCell */,
 				3DD3CA341B2863CF00767BCF /* SideNotificationView */,
-				3D87D82F1B15A5F50046BD60 /* CalendarEventCell.h */,
-				3D87D8301B15A5F50046BD60 /* CalendarEventCell.m */,
-				3D87D8311B15A5F50046BD60 /* CalendarEventCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1364,7 +1380,7 @@
 				3D1C8E9B1B3BFEB0004AAD30 /* popoverArrowUp@2x.png in Resources */,
 				3D1C8E921B3BFEB0004AAD30 /* popoverArrowLeft.png in Resources */,
 				3D1C8E911B3BFEB0004AAD30 /* popoverArrowLeft-white@2x.png in Resources */,
-				3D87D8331B15A5F50046BD60 /* CalendarEventCell.xib in Resources */,
+				3D613B641B416F1F00F7DEDA /* CalendarEventCell.xib in Resources */,
 				3DD3CA391B2863CF00767BCF /* SideNotificationView.xib in Resources */,
 				3D1C8E9D1B3BFEB0004AAD30 /* popoverBg-white@2x.png in Resources */,
 				3D1C8EA01B3BFEB0004AAD30 /* popoverBgSimple.png in Resources */,
@@ -1491,6 +1507,7 @@
 				3DA70A3D1B3972B900D3ABEC /* UIButton+Badge.m in Sources */,
 				3DF993721B256A4A006EBC39 /* AppDelegate+Push.m in Sources */,
 				3DCA44D31B26CB3400B66BD2 /* StaffType.m in Sources */,
+				3D613B631B416F1F00F7DEDA /* CalendarEventCell.m in Sources */,
 				3D1964271B13305200766CFC /* FaceBookAuthAgent.m in Sources */,
 				3DD9BD0D1B14BE1C00A2F296 /* CalendarUtilities.m in Sources */,
 				3DD9BD261B14C39000A2F296 /* CalendarEventServices.m in Sources */,
@@ -1498,7 +1515,6 @@
 				3DCA44D71B26CB3400B66BD2 /* FoodBeverage.m in Sources */,
 				3D16D0841B1C3FFB00A582A3 /* SharedManager.m in Sources */,
 				3DA7CB851B2AF0C800B5BAFF /* Order.m in Sources */,
-				3D87D8321B15A5F50046BD60 /* CalendarEventCell.m in Sources */,
 				3D1963F81B0E1F0500766CFC /* WeatherViewCell.m in Sources */,
 				3DCA44DF1B2709BF00B66BD2 /* FoodBeverageServices.m in Sources */,
 				3DD3CA401B297AD300767BCF /* UtilityServices.m in Sources */,

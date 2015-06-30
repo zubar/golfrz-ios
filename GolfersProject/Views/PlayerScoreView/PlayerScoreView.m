@@ -7,6 +7,10 @@
 //
 
 #import "PlayerScoreView.h"
+#import "UIImageView+RoundedImage.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+
+
 
 @implementation PlayerScoreView
 
@@ -47,7 +51,37 @@
     player = mPlayer;
     [self.btnShowTable setHidden:yesNo];
     
+    [self setBackgroundColor:[UIColor clearColor]];
+    // Setting player name.
+    NSDictionary *playNameAttr =@{
+                                     NSFontAttributeName :[UIFont fontWithName:@"Helvetica-Bold" size:12.0],
+                                     NSForegroundColorAttributeName : [UIColor whiteColor]
+                                     };
+    NSAttributedString * txtLblName = [[NSAttributedString alloc]initWithString:@"Abdullah " attributes:playNameAttr];
+    [self.lblUserName setAttributedText:txtLblName];
+    
+    // Setting in-out label.
+    NSDictionary *lblInAttr =@{
+                                  NSFontAttributeName :[UIFont fontWithName:@"Helvetica" size:12.0],
+                                  NSForegroundColorAttributeName : [UIColor whiteColor]
+                                  };
+    NSAttributedString * txtLblInOut = [[NSAttributedString alloc]initWithString:@"In 12" attributes:lblInAttr];
+    [self.lblInOut setAttributedText:txtLblInOut];
 
+    
+    // Setting score label.
+    NSDictionary *scoreAttr =@{
+                               NSFontAttributeName :[UIFont fontWithName:@"Helvetica" size:12.0],
+                               NSForegroundColorAttributeName : [UIColor whiteColor]
+                               };
+    NSAttributedString * txtLblScore = [[NSAttributedString alloc]initWithString:@"In 12" attributes:scoreAttr];
+    [self.btnEditScore.titleLabel setAttributedText:txtLblScore];
+
+    
+    
+    //TODO: set iamge
+    [self.btnShowTable.titleLabel setText:@"+"];
+    [self.btnEditScore.titleLabel setText:@"0"];
     
 }
 @end

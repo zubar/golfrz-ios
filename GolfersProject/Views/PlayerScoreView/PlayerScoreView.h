@@ -22,8 +22,10 @@
 @property (strong, nonatomic) IBOutlet UILabel *lblUserName;
 @property (strong, nonatomic) IBOutlet UILabel *lblInOut;
 @property (strong, nonatomic) IBOutlet UILabel *lblScoreForHole;
-@property (strong, nonatomic) IBOutlet UITextField *txtScore;
+
 @property (strong, nonatomic) IBOutlet UIButton *btnShowTable;
+@property (weak, nonatomic) IBOutlet UIButton *btnEditScore;
+
 
 @property (assign, nonatomic) id<PlayerScoreViewDelegate>delegate;
 
