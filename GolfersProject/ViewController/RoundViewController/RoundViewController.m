@@ -12,6 +12,8 @@
 #import "PlayerScoreView.h"
 #import "PlayerScoreCell.h"
 #import "AppDelegate.h"
+#import "ScoreSelectionView.h"
+
 
 #define kPlayerScoreViewHeight 60.0f
 
@@ -19,6 +21,7 @@
     BOOL isScoreTableDescended;
 }
 @property (nonatomic, strong) NSMutableArray * playersInRound;
+@property (nonatomic, strong) CMPopTipView * popTipView;
 @end
 
 @implementation RoundViewController
@@ -134,10 +137,42 @@
     
 }
 
--(void)editScoreTappedForPlayer:(id)player{
-        //TODO: display popover here.
-    
+-(void)editScoreTappedForPlayer:(id)sender Player:(id)player{
 
+    ScoreSelectionView * mScoreView = [[ScoreSelectionView alloc]init];
+    mScoreView.dataSource = self;
+    mScoreView.delegate = self;
+    [mScoreView setBackgroundColor:[UIColor whiteColor]];
+    
+    
+    // Toggle popTipView when a standard UIButton is pressed
+    if (nil == self.popTipView) {
+        self.popTipView = [[CMPopTipView alloc] initWithCustomView:mScoreView];
+        self.popTipView.delegate = self;
+        self.popTipView.backgroundColor = [UIColor whiteColor];
+        [self.popTipView presentPointingAtView:sender inView:self.view animated:YES];
+    }
+    else {
+        // Dismiss
+        [self.popTipView dismissAnimated:YES];
+        self.popTipView = nil;
+    }
+    
+}
+
+-(NSArray *)dataArrayForCells{
+    return [NSArray arrayWithObjects:@"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", nil];
+}
+
+-(void)selectedItemForCell:(id)item{
+    NSLog(@"tapped: %@", item);
+    [self.popTipView dismissAnimated:YES];
+}
+
+#pragma mark CMPopTipViewDelegate methods
+- (void)popTipViewWasDismissedByUser:(CMPopTipView *)popTipView {
+    // User can tap CMPopTipView to dismiss it
+    self.popTipView = nil;
 }
 
 /*

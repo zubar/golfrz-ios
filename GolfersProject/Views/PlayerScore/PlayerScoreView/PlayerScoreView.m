@@ -41,8 +41,8 @@
 }
 - (IBAction)btnEditScoreTap:(id)sender {
     
-    if (self.delegate && [self.delegate respondsToSelector:@selector(editScoreTappedForPlayer:)]) {
-        [self.delegate editScoreTappedForPlayer:player];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(editScoreTappedForPlayer:Player:)]) {
+        [self.delegate editScoreTappedForPlayer:sender Player:player];
     }
 }
 

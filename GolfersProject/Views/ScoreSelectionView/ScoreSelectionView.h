@@ -8,7 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol ScoreSelectionDataSource <NSObject>
+@required
+-(NSArray *)dataArrayForCells;
+@end
+
+@protocol ScoreSelectionDelegate<NSObject>
+@optional
+-(void)selectedItemForCell:(id)item;
+@end
+
 @interface ScoreSelectionView : UIView<UICollectionViewDataSource, UICollectionViewDelegate>
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 
+
+@property (assign, nonatomic) id<ScoreSelectionDataSource>dataSource;
+@property (assign, nonatomic) id<ScoreSelectionDelegate>delegate;
 @end

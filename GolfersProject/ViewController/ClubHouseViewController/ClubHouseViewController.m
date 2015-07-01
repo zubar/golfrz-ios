@@ -27,8 +27,6 @@
 #import "APContact+convenience.h"
 #import "Constants.h"
 
-#import "WEPopoverController.h"
-#import "ScoreSelectionContentController.h" //for testing
 #import "RoundViewController.h"
 
 @interface ClubHouseViewController ()

@@ -9,10 +9,9 @@
 #import "ScoreSelectionView.h"
 #import "ScoreSelectionCell.h"
 
-@interface ScoreSelectionView (private){
-  
-}
+@interface ScoreSelectionView ()
 @property (nonatomic, strong) NSMutableArray *scoresArray;
+
 @end
 
 @implementation ScoreSelectionView
@@ -20,17 +19,30 @@
 - (id)init {
     self = [super init];
     if (self) {
-        self = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([ScoreSelectionView class]) owner:self options:nil] firstObject];
-        [self.collectionView registerNib:[UINib nibWithNibName:@"ScoreSelectionCellView" bundle:nil] forCellWithReuseIdentifier:@"ScoreSelectionCell"];
-    }
-    if (!self.scoresArray){
-        self.scoresArray = [[NSMutableArray alloc]initWithCapacity:1];
-        [self.scoresArray addObjectsFromArray:[NSArray arrayWithObjects:@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10", nil]];
+        self = [[[NSBundle mainBundle] loadNibNamed:@"ScoreSelectionView" owner:self options:nil] firstObject];
     }
     return self;
 }
 
+-(void)layoutSubviews{
+    // Do any additional setup after loading the view.
+    [self.collectionView registerNib:[UINib nibWithNibName:@"ScoreSelectionCellView" bundle:nil] forCellWithReuseIdentifier:@"ScoreSelectionCell"];
+
+    if (self.dataSource && [self.dataSource respondsToSelector:@selector(dataArrayForCells)]) {
+        if (self.scoresArray == nil) {
+            self.scoresArray = [[NSMutableArray alloc] init];
+        }
+        [self.scoresArray removeAllObjects];
+        [self.scoresArray addObjectsFromArray:[self.dataSource dataArrayForCells]];
+    }
+    
+    [self.collectionView reloadData];
+}
+
+#pragma mark - UICollectionViewDataSource
+
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+
     return [self.scoresArray count];
 }
 
@@ -44,5 +56,14 @@
     customCell.lblScore.text = [self.scoresArray objectAtIndex:indexPath.row];
     return customCell;
 }
+
+#pragma mark - UICollectionViewDelegate
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(selectedItemForCell:)]) {
+        [self.delegate selectedItemForCell:self.scoresArray[indexPath.row]];
+    }
+}
+
 
 @end
