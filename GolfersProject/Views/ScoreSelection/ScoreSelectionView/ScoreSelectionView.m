@@ -26,7 +26,7 @@
 
 -(void)layoutSubviews{
     // Do any additional setup after loading the view.
-    [self.collectionView registerNib:[UINib nibWithNibName:@"ScoreSelectionCellView" bundle:nil] forCellWithReuseIdentifier:@"ScoreSelectionCell"];
+    [self.collectionView registerNib:[UINib nibWithNibName:@"ScoreSelectionCell" bundle:nil] forCellWithReuseIdentifier:@"ScoreSelectionCell"];
 
     if (self.dataSource && [self.dataSource respondsToSelector:@selector(dataArrayForCells)]) {
         if (self.scoresArray == nil) {
