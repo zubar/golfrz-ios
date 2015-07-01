@@ -32,6 +32,7 @@
     }
     
     isScoreTableDescended = FALSE;
+    [self.imgDarkerBg setHidden:YES];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -161,6 +162,7 @@
     //TODO: change button image of header on completion.
     [UIView animateWithDuration:0.5 animations:^{
         [self.scoreTable setFrame:finalFrame];
+        [self.imgDarkerBg setHidden:NO];
     } completion:^(BOOL finished) {
         if (completionBlock)
             completionBlock();
@@ -176,6 +178,7 @@
     //TODO: change button image of header on completion.
     [UIView animateWithDuration:0.5 animations:^{
         [self.scoreTable setFrame:finalFrame];
+        [self.imgDarkerBg setHidden:YES];
     } completion:^(BOOL finished) {
         if (completionBlock)
             completionBlock();
