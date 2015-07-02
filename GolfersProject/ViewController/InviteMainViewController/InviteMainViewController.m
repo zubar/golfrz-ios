@@ -135,7 +135,7 @@
 
 -(void)errorMessageNoContactSelected{
     
-    [[[UIAlertView alloc] initWithTitle:@"No Contacts Selected" message:@"Please select atlest one contact to send invite" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
+    [[[UIAlertView alloc] initWithTitle:@"No Contacts Selected" message:@"Please select atleast one contact to send invite" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
 }
 
 #pragma mark - UITableViewDelagate

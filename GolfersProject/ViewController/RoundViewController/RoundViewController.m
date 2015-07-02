@@ -45,16 +45,12 @@
     UIBarButtonItem * rightBtn = [[UIBarButtonItem alloc]initWithTitle:@"FINISH ROUND" style:UIBarButtonItemStylePlain target:self action:@selector(finishRoundTap)];
     self.navigationItem.rightBarButtonItem = rightBtn;
     
-    
     //TODO: set attributed text in right Btn Label
     NSDictionary *navTitleAttributes =@{NSUnderlineStyleAttributeName:@(NSUnderlineStyleSingle),
                                         NSFontAttributeName :[UIFont fontWithName:@"Helvetica-Bold" size:14.0],
                                         NSForegroundColorAttributeName : [UIColor whiteColor]
                                         };
     
-    
-    
-    isScoreTableDescended = FALSE;
     [self.imgDarkerBg setHidden:YES];
 }
 
@@ -62,6 +58,7 @@
     
     AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
     [delegate.appDelegateNavController setNavigationBarHidden:NO];
+
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -95,6 +92,8 @@
     
     PlayerScoreCell *customCell = (PlayerScoreCell *)cell;
     customCell.lblPlayerName.text = [self.playersInRound objectAtIndex:indexPath.row];
+    [customCell setSelectionStyle:UITableViewCellSelectionStyleNone];
+    
     return customCell;
 }
 
@@ -102,6 +101,7 @@
     
     return kPlayerScoreViewHeight;
 }
+
 
 #pragma mark - UITableViewDelegate
 
@@ -111,10 +111,8 @@
     PlayerScoreView * headerView = [[PlayerScoreView alloc]init];
     [headerView configureViewForPlayer:nil hideDropdownBtn:NO];
     [headerView.lblUserName setText:@"Test User"];
-
-    //[headerView setBackgroundColor:[UIColor clearColor]];
-    
     headerView.delegate = self;
+    
     return headerView;
 }
 
