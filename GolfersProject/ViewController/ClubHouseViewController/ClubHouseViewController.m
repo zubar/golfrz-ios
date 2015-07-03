@@ -260,8 +260,8 @@
 
 - (IBAction)btnTeeTimeTap:(id)sender {
     
-    ScoreSelectionView * testview = [[ScoreSelectionView alloc] init];
-    [self.view addSubview:testview];
+//    ScoreSelectionView * testview = [[ScoreSelectionView alloc] init];
+//    [self.view addSubview:testview];
     
 }
 

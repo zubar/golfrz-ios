@@ -120,6 +120,11 @@
 		88573E131B42C4A10060929C /* ScoreSelectionCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88573E121B42C4A10060929C /* ScoreSelectionCellView.xib */; };
 		88573E161B42C5320060929C /* ScoreSelectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88573E151B42C5320060929C /* ScoreSelectionCell.m */; };
 		88573E1A1B441E300060929C /* AddPlayersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88573E191B441E2F0060929C /* AddPlayersViewController.m */; };
+		88573E1E1B4528280060929C /* RoundPlayerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88573E1D1B4528280060929C /* RoundPlayerCell.m */; };
+		88573E221B45291B0060929C /* AddPlayersInvitedController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88573E211B45291B0060929C /* AddPlayersInvitedController.m */; };
+		88573E261B4551290060929C /* RoundInviteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88573E251B4551290060929C /* RoundInviteViewController.m */; };
+		88573E2A1B4551900060929C /* RoundInviteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88573E291B4551900060929C /* RoundInviteCell.m */; };
+		88573E2E1B4693C50060929C /* RoundInviteSendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88573E2D1B4693C50060929C /* RoundInviteSendViewController.m */; };
 		885CB0441B09BA9D00AD2A7B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 885CB0251B09BA9D00AD2A7B /* AppDelegate.m */; };
 		885CB0681B09BADE00AD2A7B /* InitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 885CB05B1B09BADE00AD2A7B /* InitialViewController.m */; };
 		885CB06A1B09BADE00AD2A7B /* SignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 885CB0611B09BADE00AD2A7B /* SignInViewController.m */; };
@@ -355,6 +360,16 @@
 		88573E151B42C5320060929C /* ScoreSelectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreSelectionCell.m; sourceTree = "<group>"; };
 		88573E181B441E2F0060929C /* AddPlayersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPlayersViewController.h; sourceTree = "<group>"; };
 		88573E191B441E2F0060929C /* AddPlayersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPlayersViewController.m; sourceTree = "<group>"; };
+		88573E1C1B4528280060929C /* RoundPlayerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundPlayerCell.h; sourceTree = "<group>"; };
+		88573E1D1B4528280060929C /* RoundPlayerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundPlayerCell.m; sourceTree = "<group>"; };
+		88573E201B45291B0060929C /* AddPlayersInvitedController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPlayersInvitedController.h; sourceTree = "<group>"; };
+		88573E211B45291B0060929C /* AddPlayersInvitedController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPlayersInvitedController.m; sourceTree = "<group>"; };
+		88573E241B4551290060929C /* RoundInviteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundInviteViewController.h; sourceTree = "<group>"; };
+		88573E251B4551290060929C /* RoundInviteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundInviteViewController.m; sourceTree = "<group>"; };
+		88573E281B4551900060929C /* RoundInviteCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundInviteCell.h; sourceTree = "<group>"; };
+		88573E291B4551900060929C /* RoundInviteCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundInviteCell.m; sourceTree = "<group>"; };
+		88573E2C1B4693C40060929C /* RoundInviteSendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundInviteSendViewController.h; sourceTree = "<group>"; };
+		88573E2D1B4693C50060929C /* RoundInviteSendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundInviteSendViewController.m; sourceTree = "<group>"; };
 		885CB0241B09BA9D00AD2A7B /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		885CB0251B09BA9D00AD2A7B /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		885CB05A1B09BADE00AD2A7B /* InitialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitialViewController.h; sourceTree = "<group>"; };
@@ -1068,6 +1083,51 @@
 			path = AddPlayersMainViewController;
 			sourceTree = "<group>";
 		};
+		88573E1B1B4528040060929C /* RoundPlayerCell */ = {
+			isa = PBXGroup;
+			children = (
+				88573E1C1B4528280060929C /* RoundPlayerCell.h */,
+				88573E1D1B4528280060929C /* RoundPlayerCell.m */,
+			);
+			path = RoundPlayerCell;
+			sourceTree = "<group>";
+		};
+		88573E1F1B4528EB0060929C /* AddPlayersInvitedViewController */ = {
+			isa = PBXGroup;
+			children = (
+				88573E201B45291B0060929C /* AddPlayersInvitedController.h */,
+				88573E211B45291B0060929C /* AddPlayersInvitedController.m */,
+			);
+			path = AddPlayersInvitedViewController;
+			sourceTree = "<group>";
+		};
+		88573E231B45510C0060929C /* RoundInviteViewController */ = {
+			isa = PBXGroup;
+			children = (
+				88573E241B4551290060929C /* RoundInviteViewController.h */,
+				88573E251B4551290060929C /* RoundInviteViewController.m */,
+			);
+			path = RoundInviteViewController;
+			sourceTree = "<group>";
+		};
+		88573E271B4551740060929C /* RoundInviteCell */ = {
+			isa = PBXGroup;
+			children = (
+				88573E281B4551900060929C /* RoundInviteCell.h */,
+				88573E291B4551900060929C /* RoundInviteCell.m */,
+			);
+			path = RoundInviteCell;
+			sourceTree = "<group>";
+		};
+		88573E2B1B4693A40060929C /* RoundInviteSendViewController */ = {
+			isa = PBXGroup;
+			children = (
+				88573E2C1B4693C40060929C /* RoundInviteSendViewController.h */,
+				88573E2D1B4693C50060929C /* RoundInviteSendViewController.m */,
+			);
+			path = RoundInviteSendViewController;
+			sourceTree = "<group>";
+		};
 		885CB0231B09BA9D00AD2A7B /* AppDelegate */ = {
 			isa = PBXGroup;
 			children = (
@@ -1080,6 +1140,9 @@
 		885CB04F1B09BADE00AD2A7B /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				88573E2B1B4693A40060929C /* RoundInviteSendViewController */,
+				88573E231B45510C0060929C /* RoundInviteViewController */,
+				88573E1F1B4528EB0060929C /* AddPlayersInvitedViewController */,
 				88573E171B441E030060929C /* AddPlayersMainViewController */,
 				3D1C8EBF1B3D60EF004AAD30 /* ScoreSelectionController */,
 				3D1C8EB71B3D3C63004AAD30 /* RoundViewController */,
@@ -1247,6 +1310,8 @@
 		889872C71B13237F00D3C0E9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				88573E271B4551740060929C /* RoundInviteCell */,
+				88573E1B1B4528040060929C /* RoundPlayerCell */,
 				88573E111B42C4820060929C /* ScoreSelectionCell */,
 				3D613B5E1B416F1F00F7DEDA /* CalendarEventCell */,
 				3D613B621B416F1F00F7DEDA /* ScoreSelectionView */,
@@ -1483,6 +1548,7 @@
 				3D87D8431B1852120046BD60 /* NSMutableArray+convenience.m in Sources */,
 				887C51311B21C9E300C778D7 /* UIImageView+RoundedImage.m in Sources */,
 				88A48EFD1B2B006F006CEC42 /* FoodBevItemDetailViewController.m in Sources */,
+				88573E2A1B4551900060929C /* RoundInviteCell.m in Sources */,
 				885CB0681B09BADE00AD2A7B /* InitialViewController.m in Sources */,
 				3DCA44CE1B26CB3400B66BD2 /* EventWeather.m in Sources */,
 				3D1C8EAF1B3D36C9004AAD30 /* EventHeaderView.m in Sources */,
@@ -1506,6 +1572,7 @@
 				3D1963CE1B0DBC8300766CFC /* Condition.m in Sources */,
 				3D5CA5D61B1F332B00CB6ED7 /* BaseViewController.m in Sources */,
 				3D1C8EBA1B3D3C7F004AAD30 /* RoundViewController.m in Sources */,
+				88573E221B45291B0060929C /* AddPlayersInvitedController.m in Sources */,
 				885CB06D1B09BDCD00AD2A7B /* README.md in Sources */,
 				3DD9BD0E1B14BE1C00A2F296 /* NSDate+Helper.m in Sources */,
 				3D1963CB1B0DBC2600766CFC /* WeatherData.m in Sources */,
@@ -1531,6 +1598,7 @@
 				886B9ED41B0B95900078B09D /* ForgotPasswordViewController.m in Sources */,
 				3DCA44D11B26CB3400B66BD2 /* Department.m in Sources */,
 				3D87D8441B1852120046BD60 /* UIColor+expanded.m in Sources */,
+				88573E1E1B4528280060929C /* RoundPlayerCell.m in Sources */,
 				88855DD21B256F5A00E164D6 /* FoodBeveragesMainViewController.m in Sources */,
 				88B23C1C1B16E69D00988908 /* CourseDepartmentCell.m in Sources */,
 				885CB06A1B09BADE00AD2A7B /* SignInViewController.m in Sources */,
@@ -1543,6 +1611,7 @@
 				3D1964191B130E3B00766CFC /* MBProgressHUD.m in Sources */,
 				885CB0751B09FB0100AD2A7B /* APIClient.m in Sources */,
 				3D87D8451B1852120046BD60 /* UIView+convenience.m in Sources */,
+				88573E261B4551290060929C /* RoundInviteViewController.m in Sources */,
 				3D1964011B1305FC00766CFC /* PresentationServices.m in Sources */,
 				3DC116271B3426E300E83F4F /* InviteMainViewController.m in Sources */,
 				3DCA44CC1B26CB3400B66BD2 /* CalendarEvent.m in Sources */,
@@ -1553,6 +1622,7 @@
 				3DF993721B256A4A006EBC39 /* AppDelegate+Push.m in Sources */,
 				3DCA44D31B26CB3400B66BD2 /* StaffType.m in Sources */,
 				3D613B631B416F1F00F7DEDA /* CalendarEventCell.m in Sources */,
+				88573E2E1B4693C50060929C /* RoundInviteSendViewController.m in Sources */,
 				3D1964271B13305200766CFC /* FaceBookAuthAgent.m in Sources */,
 				3DD9BD0D1B14BE1C00A2F296 /* CalendarUtilities.m in Sources */,
 				3DD9BD261B14C39000A2F296 /* CalendarEventServices.m in Sources */,

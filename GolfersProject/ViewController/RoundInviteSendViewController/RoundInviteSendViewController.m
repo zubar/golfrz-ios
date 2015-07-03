@@ -1,18 +1,18 @@
 //
-//  AddPlayersViewController.m
+//  RoundInviteSendViewController.m
 //  GolfersProject
 //
-//  Created by Abdullah Saeed on 7/1/15.
+//  Created by Abdullah Saeed on 7/3/15.
 //  Copyright (c) 2015 Abdullah Saeed. All rights reserved.
 //
 
-#import "AddPlayersViewController.h"
+#import "RoundInviteSendViewController.h"
 
-@interface AddPlayersViewController ()
+@interface RoundInviteSendViewController ()
 
 @end
 
-@implementation AddPlayersViewController
+@implementation RoundInviteSendViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -34,6 +34,4 @@
 }
 */
 
-- (IBAction)btnAddPlayersTapped:(id)sender {
-}
 @end
