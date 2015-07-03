@@ -32,11 +32,11 @@
 @interface EventCalendarViewController ()
 
 //To mark the dates in calendar
-@property (nonatomic, retain) NSMutableArray * eventDates;
+@property (nonatomic, retain) NSMutableArray * currentMonthDates;
 @property (nonatomic, retain) NSMutableArray * colors;
 
-//To populate today events in table
-@property (nonatomic, retain) NSMutableArray * todayEvents;
+@property (nonatomic, retain) NSMutableArray * allKeys;
+@property (nonatomic, retain) NSMutableDictionary * events;
 
 @end
 
@@ -103,18 +103,20 @@
 
 -(void)initializeDataStructures{
     
-    if (!self.eventDates) {
-        self.eventDates = [[NSMutableArray alloc]init];}
+    if (!self.allKeys) {
+        self.allKeys = [[NSMutableArray alloc]init];}
+   
     if (!self.colors) {
         self.colors = [[NSMutableArray alloc]init];}
-    if (!self.todayEvents) {
-        self.todayEvents = [[NSMutableArray alloc]init];
+   
+    if (!self.events) {
+        self.events= [[NSMutableDictionary alloc]init];
     }
 }
 
 -(void)reloadCalendarAndEventTable{
     [self.calendar reset];
-    [self.calendar markDates:self.eventDates withColors:self.colors];
+    [self.calendar markDates:self.currentMonthDates withColors:self.colors];
     [self.eventsTableVeiw reloadData];
 }
 
@@ -124,11 +126,34 @@
 }
 
 -(void)fetchEvents{
+    
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [CalendarEventServices getEvents:^(bool status, EventList *eventsArray) {
         if (status) {
-            self.eventslist = eventsArray;
+            
+            NSSortDescriptor * sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"dateStart" ascending:YES];
+            self.eventslist = [eventsArray.items sortedArrayUsingDescriptors:@[sortDescriptor]];
+            //
+            for (CalendarEvent * anEvent in self.eventslist) {
+                if (!self.events[anEvent.dateStart]) {
+                    [self.events setObject:[[NSMutableArray alloc] initWithObjects:anEvent, nil] forKey:anEvent.dateStart];
+                }else{
+                    [self.events[anEvent.dateStart] addObject:anEvent];
+                }
+            }
+            [self.allKeys removeAllObjects];
+            [self.allKeys addObjectsFromArray:[self.events allKeys]];
+            
             [self reloadCalendarAndEventTable];
+            
+            if([self.allKeys count] >= 1){
+                [self.eventsTableVeiw setHidden:NO];
+                [self.lblNoEvents setHidden:YES];
+            }else{
+                [self.eventsTableVeiw setHidden:YES];
+                [self.lblNoEvents setHidden:NO];
+            }
+            
             [MBProgressHUD hideHUDForView:self.view animated:YES];
         }
     } failure:^(bool status, NSError *error) {
@@ -146,14 +171,18 @@
     
     [self updateCalendarEventTableViewForCalenderHeight:targetHeight];
     
+    NSInteger currentYear = 0;
+     NSDateComponents *timeStamp = [[NSCalendar currentCalendar] components: NSCalendarUnitYear | NSCalendarUnitWeekday | NSCalendarUnitHour| NSCalendarUnitMinute | NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:[NSDate date]];
+    currentYear = [timeStamp year];
     
-    NSDateComponents *yourDate = [NSDateComponents new];
-    yourDate.calendar = [NSCalendar currentCalendar];
-    yourDate.year  = 2015;
-    yourDate.month = month;
-    yourDate.day   = 1;
+    // startDateComponents.
+    NSDateComponents *startDateComponents = [NSDateComponents new];
+    startDateComponents.calendar = [NSCalendar currentCalendar];
+    startDateComponents.year = currentYear;
+    startDateComponents.month = month;
+    startDateComponents.day   = 0;
     
-    NSDate *startDate = [yourDate date];
+    NSDate *startDate = [startDateComponents date];
     // Add one day to the previous date. Note that  1 day != 24 h
     NSDateComponents *oneDay = [NSDateComponents new];
     oneDay.day = 30;
@@ -162,8 +191,8 @@
                                                                     toDate:startDate
                                                                    options:0];
     
-    [self updateEventsStartDate:startDate endDate:endDate];
-    [self.calendar markDates:self.eventDates withColors:self.colors];
+    [self updateCurrentMonthEventsStartDate:startDate endDate:endDate];
+    [self.calendar markDates:self.currentMonthDates withColors:self.colors];
 }
 
 -(void)updateCalendarEventTableViewForCalenderHeight:(float)height{
@@ -175,16 +204,20 @@
     }];
 }
 
--(void)updateEventsStartDate:(NSDate * )startDate endDate:(NSDate *)endDate{
+/*
+ * Method updates the currentMothDates array by filter data from eventslist
+ */
+-(void)updateCurrentMonthEventsStartDate:(NSDate * )startDate endDate:(NSDate *)endDate{
    
     // Predicate for all dates between startDate and endDate
     if (self.eventslist) {
         NSPredicate *datePredicate = [NSPredicate predicateWithFormat:@"dateStart >= %@ AND dateStart < %@",startDate, endDate];
-        NSArray * temp = [[self.eventslist.items filteredArrayUsingPredicate:datePredicate] mutableCopy];
+        NSArray * temp = [[self.eventslist filteredArrayUsingPredicate:datePredicate] mutableCopy];
         
-        self.eventDates = [temp valueForKeyPath:@"@distinctUnionOfObjects.dateStart"];
-        for (CalendarEvent * calEvent in temp) {
-            NSLog(@"%@", calEvent.dateStart);
+        self.currentMonthDates = [temp valueForKeyPath:@"@distinctUnionOfObjects.dateStart"];
+        
+        for (NSDate * eventDate in self.currentMonthDates) {
+                NSLog(@"%@", eventDate);
             [self.colors addObject:[UIColor redColor]];
         }
     }
@@ -193,6 +226,15 @@
 
 -(void)calendarView:(VRGCalendarView *)calendarView dateSelected:(NSDate *)date{
 
+    if([self.allKeys containsObject:date]){
+        NSIndexPath * indexPathSelectedHeader = [NSIndexPath indexPathForRow:0 inSection:[self.allKeys indexOfObject:date]];
+        [self.eventsTableVeiw scrollToRowAtIndexPath:indexPathSelectedHeader atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    }else{
+        // No event on selected date return;
+    }
+    
+    
+    /*
     
     NSDateComponents * selectedDateComponents = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:date];
     
@@ -214,7 +256,8 @@
     
     if (self.eventslist) {
         NSPredicate *datePredicate = [NSPredicate predicateWithFormat:@"dateStart >= %@ AND dateStart < %@",today, endDate];
-        self.todayEvents = [[self.eventslist.items filteredArrayUsingPredicate:datePredicate] mutableCopy];
+        self.todayEvents = [[self.eventslist filteredArrayUsingPredicate:datePredicate] mutableCopy];
+    
         if ([self.todayEvents count] > 0) {
             [self.lblNoEvents setHidden:YES];
             [self.eventsTableVeiw setHidden:NO];
@@ -224,6 +267,7 @@
         }
         [self.eventsTableVeiw reloadData];
     }
+     */
 }
 
 
@@ -238,11 +282,15 @@
 #pragma mark - UITableViewController DataSource & Delegate
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 1;
+    
+        NSLog(@"Number of sections:%ld", [self.allKeys count]);
+    return [self.allKeys count];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return [self.todayEvents count];
+    
+    NSLog(@"Number of sections for sections:%ld is :%lu ", (long)section, (unsigned long)[self.events[self.allKeys[section]] count]);
+    return [self.events[self.allKeys[section]] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -256,7 +304,8 @@
         cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     }
     
-    CalendarEvent * eventObject = [self.todayEvents objectAtIndex:indexPath.row];
+    CalendarEvent * eventObject = self.events[self.allKeys[indexPath.section]][indexPath.row];
+    NSLog(@"eventObject: %@", eventObject);
     [cell configureViewWithEvent:eventObject];
     
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
@@ -270,7 +319,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    CalendarEvent * eventObject = [self.todayEvents objectAtIndex:indexPath.row];
+    CalendarEvent * eventObject = self.events[self.allKeys[indexPath.section]][indexPath.row];;
     [self performSegueWithIdentifier:@"segueToEventDetailController" sender:eventObject];
 }
 
@@ -285,11 +334,10 @@
     [headerView.imgWeather setHidden:YES];
     [headerView.lblTemperature setHidden:YES];
 
+    NSDate * dateForSection = self.allKeys[section];
     
     
-    
-    if ([self.calendar selectedDate]) 
-    [Utilities dateComponentsFromNSDate:[self.calendar selectedDate] components:^(NSString *dayName, NSString *monthName, NSString *day, NSString *time, NSString * minutes, NSString * hourAndmin) {
+        [Utilities dateComponentsFromNSDate:dateForSection components:^(NSString *dayName, NSString *monthName, NSString *day, NSString *time, NSString * minutes, NSString * hourAndmin) {
         [headerView.lblDate setText:[[NSString stringWithFormat:@"%@, %@ %@", dayName, monthName, day] uppercaseString]];
         [headerView.lblDate setFont:[UIFont fontWithName:@"Helvetica" size:12.0f]];
         
@@ -303,7 +351,6 @@
                 
                 [headerView.lblTemperature setText:[NSString stringWithFormat:@"%@ C", [weatherData[@"temp"] stringValue]]];
                 [headerView.lblTemperature setFont:[UIFont fontWithName:@"Helvetica" size:12.0f]];
-
                 [headerView.lblTemperature setHidden:NO];
             }
         } failure:^(bool status, NSError *error) {
@@ -311,9 +358,9 @@
                 [headerView.imgWeather setHidden:YES];
                 [headerView.lblTemperature setHidden:YES];
             }
-        }];
+            }];
         
-    }];
+        }];
     return headerView;
 }
 
