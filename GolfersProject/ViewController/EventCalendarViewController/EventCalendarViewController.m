@@ -142,7 +142,11 @@
                 }
             }
             [self.allKeys removeAllObjects];
-            [self.allKeys addObjectsFromArray:[self.events allKeys]];
+            
+            NSSortDescriptor * dateSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"timeIntervalSince1970" ascending:YES];
+            [self.allKeys addObjectsFromArray:[[self.events allKeys] sortedArrayUsingDescriptors:@[dateSortDescriptor]]];
+            
+            
             
             [self reloadCalendarAndEventTable];
             
@@ -160,7 +164,6 @@
         if (!status) {
             NSLog(@"Error");
             [MBProgressHUD hideHUDForView:self.view animated:YES];
-
         }
     }];
 }
@@ -180,7 +183,7 @@
     startDateComponents.calendar = [NSCalendar currentCalendar];
     startDateComponents.year = currentYear;
     startDateComponents.month = month;
-    startDateComponents.day   = 0;
+    startDateComponents.day   = 1;
     
     NSDate *startDate = [startDateComponents date];
     // Add one day to the previous date. Note that  1 day != 24 h
@@ -225,51 +228,28 @@
 }
 
 -(void)calendarView:(VRGCalendarView *)calendarView dateSelected:(NSDate *)date{
-
-    if([self.allKeys containsObject:date]){
-        NSIndexPath * indexPathSelectedHeader = [NSIndexPath indexPathForRow:0 inSection:[self.allKeys indexOfObject:date]];
-        [self.eventsTableVeiw scrollToRowAtIndexPath:indexPathSelectedHeader atScrollPosition:UITableViewScrollPositionTop animated:YES];
-    }else{
-        // No event on selected date return;
-    }
     
-    
-    /*
-    
-    NSDateComponents * selectedDateComponents = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:date];
-    
-    NSDateComponents *todayComponents = [NSDateComponents new];
-    todayComponents.calendar = [NSCalendar currentCalendar];
-    todayComponents.year  = selectedDateComponents.year;
-    todayComponents.month = selectedDateComponents.month;
-    todayComponents.day   = selectedDateComponents.day;
-    
-    NSDate * today = [todayComponents date];
-
-    NSDateComponents *oneDay = [NSDateComponents new];
-    oneDay.day = 30;
-    // one day after begin date
-    NSDate *endDate = [[NSCalendar currentCalendar] dateByAddingComponents:oneDay
-                                                                    toDate:today
-                                                                   options:0];
-    
-    
-    if (self.eventslist) {
-        NSPredicate *datePredicate = [NSPredicate predicateWithFormat:@"dateStart >= %@ AND dateStart < %@",today, endDate];
-        self.todayEvents = [[self.eventslist filteredArrayUsingPredicate:datePredicate] mutableCopy];
-    
-        if ([self.todayEvents count] > 0) {
-            [self.lblNoEvents setHidden:YES];
-            [self.eventsTableVeiw setHidden:NO];
+    for ( NSDate * eventDate in self.allKeys ) {
+        if([self daysBetweenDate:date andDate:eventDate] == 0){
+            NSIndexPath * indexPathSelectedHeader = [NSIndexPath indexPathForRow:0 inSection:[self.allKeys indexOfObject:eventDate]];
+            [self.eventsTableVeiw scrollToRowAtIndexPath:indexPathSelectedHeader atScrollPosition:UITableViewScrollPositionTop animated:YES];
+            return;
         }else{
-            [self.lblNoEvents setHidden:NO];
-            [self.eventsTableVeiw setHidden:YES];
+            // No event on selected date return;
         }
-        [self.eventsTableVeiw reloadData];
     }
-     */
 }
-
+-(NSInteger)daysBetweenDate: (NSDate *)firstDate andDate:(NSDate *)secondDate
+{
+    NSCalendar *currentCalendar = [NSCalendar currentCalendar];
+    NSDateComponents *components = [currentCalendar components: NSDayCalendarUnit
+                                                      fromDate: firstDate
+                                                        toDate: secondDate
+                                                       options: 0];
+    
+    NSInteger days = [components day];
+    return days;
+}
 
 #pragma mark - CalendarEventCellDelegate
 
