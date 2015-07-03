@@ -234,8 +234,6 @@
             NSIndexPath * indexPathSelectedHeader = [NSIndexPath indexPathForRow:0 inSection:[self.allKeys indexOfObject:eventDate]];
             [self.eventsTableVeiw scrollToRowAtIndexPath:indexPathSelectedHeader atScrollPosition:UITableViewScrollPositionTop animated:YES];
             return;
-        }else{
-            // No event on selected date return;
         }
     }
 }
