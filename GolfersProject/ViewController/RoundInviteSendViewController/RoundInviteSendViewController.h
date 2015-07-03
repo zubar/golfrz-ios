@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RoundInviteSendViewController : UIViewController
+@interface RoundInviteSendViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate>
 
 @end
