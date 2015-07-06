@@ -26,6 +26,7 @@
 #import "ContactServices.h"
 #import "APContact+convenience.h"
 #import "Constants.h"
+#import "SubCourseServices.h"
 
 #import "RoundViewController.h"
 
@@ -257,7 +258,11 @@
 
 - (IBAction)btnTeeTimeTap:(id)sender {
     
-    
+    [SubCourseServices getSubCourseDetail:^(bool status, SubCourse *subCourse) {
+        
+    } failure:^(bool status, NSError *error) {
+        
+    }];
 }
 
 @end

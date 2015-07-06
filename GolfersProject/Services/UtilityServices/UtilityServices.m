@@ -8,6 +8,8 @@
 
 #import "UtilityServices.h"
 #import <AFNetworking/AFNetworking.h>
+#import "Constants.h"
+#import "UserServices.h"
 
 @implementation UtilityServices
 
@@ -27,6 +29,21 @@
     
 }
 
++(NSDictionary *)authenticationParamsWithMemberId{
+    
+    return @{@"app_bundle_id" : kAppBundleId,
+             @"user_agent" : kUserAgent,
+             @"auth_token" : [UserServices currentToken],
+             @"member_id" : [UserServices currentUserId]
+             };
+}
 
++(NSDictionary *)authenticationParams{
+    
+    return @{@"app_bundle_id" : kAppBundleId,
+             @"user_agent" : kUserAgent,
+             @"auth_token" : [UserServices currentToken],
+             };
+}
 
 @end

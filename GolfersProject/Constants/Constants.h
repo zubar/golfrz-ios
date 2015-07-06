@@ -80,6 +80,12 @@ static NSString * const kRemoveFromCart = @"menus/remove_from_cart";
 static NSString * const kViewCart = @"menus/view_user_cart";
 static NSString * const kConfirmCartOrder = @"menus/place_order";
 
+/*
+ *  Rounds
+ */
+// API lists down the available subcourses, holes & rounds.
+static NSString * const kSubCourses = @"rounds/fetch_rounds_dropdowns";
+
 
 /*
  *  Push notification token registeration
