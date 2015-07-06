@@ -144,6 +144,8 @@
 		88B21DEB1B1C390100AFC6D2 /* SplashScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B21DEA1B1C390100AFC6D2 /* SplashScreenViewController.m */; };
 		88B23C171B16E49800988908 /* ContactUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B23C161B16E49800988908 /* ContactUsViewController.m */; };
 		88B23C1C1B16E69D00988908 /* CourseDepartmentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B23C1B1B16E69D00988908 /* CourseDepartmentCell.m */; };
+		88C4EDB21B4A6E8300519D3B /* HolesMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88C4EDB11B4A6E8300519D3B /* HolesMapViewController.m */; };
+		88C4EDB61B4A723100519D3B /* HoleMapCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88C4EDB51B4A723100519D3B /* HoleMapCell.m */; };
 		88D813AD1B17640E00FD7D0E /* PlayerSettingsMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D813AC1B17640E00FD7D0E /* PlayerSettingsMainViewController.m */; };
 		88FBCCB71B19A572005FD528 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 88FBCCB61B19A572005FD528 /* User.m */; };
 		A921244B1B36DB1E00917649 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A921244A1B36DB1E00917649 /* MessageUI.framework */; };
@@ -409,6 +411,10 @@
 		88B23C161B16E49800988908 /* ContactUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactUsViewController.m; sourceTree = "<group>"; };
 		88B23C1A1B16E69D00988908 /* CourseDepartmentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseDepartmentCell.h; sourceTree = "<group>"; };
 		88B23C1B1B16E69D00988908 /* CourseDepartmentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseDepartmentCell.m; sourceTree = "<group>"; };
+		88C4EDB01B4A6E8300519D3B /* HolesMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HolesMapViewController.h; sourceTree = "<group>"; };
+		88C4EDB11B4A6E8300519D3B /* HolesMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HolesMapViewController.m; sourceTree = "<group>"; };
+		88C4EDB41B4A723100519D3B /* HoleMapCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoleMapCell.h; sourceTree = "<group>"; };
+		88C4EDB51B4A723100519D3B /* HoleMapCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoleMapCell.m; sourceTree = "<group>"; };
 		88D813AB1B17640E00FD7D0E /* PlayerSettingsMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerSettingsMainViewController.h; sourceTree = "<group>"; };
 		88D813AC1B17640E00FD7D0E /* PlayerSettingsMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerSettingsMainViewController.m; sourceTree = "<group>"; };
 		88FBCCB51B19A572005FD528 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
@@ -1140,6 +1146,7 @@
 		885CB04F1B09BADE00AD2A7B /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				88C4EDAF1B4A6E6700519D3B /* HolesMapViewController */,
 				88573E2B1B4693A40060929C /* RoundInviteSendViewController */,
 				88573E231B45510C0060929C /* RoundInviteViewController */,
 				88573E1F1B4528EB0060929C /* AddPlayersInvitedViewController */,
@@ -1310,6 +1317,7 @@
 		889872C71B13237F00D3C0E9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				88C4EDB31B4A721100519D3B /* HoleMapCell */,
 				88573E271B4551740060929C /* RoundInviteCell */,
 				88573E1B1B4528040060929C /* RoundPlayerCell */,
 				88573E111B42C4820060929C /* ScoreSelectionCell */,
@@ -1371,6 +1379,24 @@
 				88B23C1B1B16E69D00988908 /* CourseDepartmentCell.m */,
 			);
 			path = CourseDepartmentCell;
+			sourceTree = "<group>";
+		};
+		88C4EDAF1B4A6E6700519D3B /* HolesMapViewController */ = {
+			isa = PBXGroup;
+			children = (
+				88C4EDB01B4A6E8300519D3B /* HolesMapViewController.h */,
+				88C4EDB11B4A6E8300519D3B /* HolesMapViewController.m */,
+			);
+			path = HolesMapViewController;
+			sourceTree = "<group>";
+		};
+		88C4EDB31B4A721100519D3B /* HoleMapCell */ = {
+			isa = PBXGroup;
+			children = (
+				88C4EDB41B4A723100519D3B /* HoleMapCell.h */,
+				88C4EDB51B4A723100519D3B /* HoleMapCell.m */,
+			);
+			path = HoleMapCell;
 			sourceTree = "<group>";
 		};
 		88D813AA1B1762C000FD7D0E /* PlayerSettingsViewController */ = {
@@ -1582,6 +1608,7 @@
 				3D1963C41B0DAECD00766CFC /* WeatherServices.m in Sources */,
 				3DA70A3C1B3972B900D3ABEC /* UIBarButtonItem+Badge.m in Sources */,
 				88B21DEB1B1C390100AFC6D2 /* SplashScreenViewController.m in Sources */,
+				88C4EDB61B4A723100519D3B /* HoleMapCell.m in Sources */,
 				8873AA761B18C5F500E74C87 /* EventAdminViewController.m in Sources */,
 				3D1963BD1B0CE05700766CFC /* UserServices.m in Sources */,
 				3DA7CB881B2B13FC00B5BAFF /* Cart.m in Sources */,
@@ -1614,6 +1641,7 @@
 				88573E261B4551290060929C /* RoundInviteViewController.m in Sources */,
 				3D1964011B1305FC00766CFC /* PresentationServices.m in Sources */,
 				3DC116271B3426E300E83F4F /* InviteMainViewController.m in Sources */,
+				88C4EDB21B4A6E8300519D3B /* HolesMapViewController.m in Sources */,
 				3DCA44CC1B26CB3400B66BD2 /* CalendarEvent.m in Sources */,
 				3D1963F31B0E1B6900766CFC /* PlayerProfileViewController.m in Sources */,
 				3D19641B1B130E3B00766CFC /* TPKeyboardAvoidingScrollView.m in Sources */,
