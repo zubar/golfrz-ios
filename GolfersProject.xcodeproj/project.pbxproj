@@ -60,6 +60,10 @@
 		3D1C8EAF1B3D36C9004AAD30 /* EventHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1C8EAD1B3D36C9004AAD30 /* EventHeaderView.m */; };
 		3D1C8EB01B3D36C9004AAD30 /* EventHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D1C8EAE1B3D36C9004AAD30 /* EventHeaderView.xib */; };
 		3D1C8EBA1B3D3C7F004AAD30 /* RoundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1C8EB91B3D3C7F004AAD30 /* RoundViewController.m */; };
+		3D221F761B4BACAC00CF79E4 /* RoundData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D221F751B4BACAC00CF79E4 /* RoundData.m */; };
+		3D221F7B1B4BB0A600CF79E4 /* GameType.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D221F7A1B4BB0A600CF79E4 /* GameType.m */; };
+		3D221F7E1B4BB0DC00CF79E4 /* ScoreType.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D221F7D1B4BB0DC00CF79E4 /* ScoreType.m */; };
+		3D221F811B4BB30A00CF79E4 /* RoundDataServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D221F801B4BB30A00CF79E4 /* RoundDataServices.m */; };
 		3D5CA5D61B1F332B00CB6ED7 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D5CA5D51B1F332B00CB6ED7 /* BaseViewController.m */; };
 		3D5CA5D81B20572E00CB6ED7 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D5CA5D71B20572E00CB6ED7 /* SystemConfiguration.framework */; };
 		3D613B631B416F1F00F7DEDA /* CalendarEventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D613B601B416F1F00F7DEDA /* CalendarEventCell.m */; };
@@ -237,6 +241,14 @@
 		3D1C8EAE1B3D36C9004AAD30 /* EventHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventHeaderView.xib; sourceTree = "<group>"; };
 		3D1C8EB81B3D3C7F004AAD30 /* RoundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundViewController.h; sourceTree = "<group>"; };
 		3D1C8EB91B3D3C7F004AAD30 /* RoundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundViewController.m; sourceTree = "<group>"; };
+		3D221F741B4BACAC00CF79E4 /* RoundData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundData.h; sourceTree = "<group>"; };
+		3D221F751B4BACAC00CF79E4 /* RoundData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundData.m; sourceTree = "<group>"; };
+		3D221F791B4BB0A600CF79E4 /* GameType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameType.h; sourceTree = "<group>"; };
+		3D221F7A1B4BB0A600CF79E4 /* GameType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameType.m; sourceTree = "<group>"; };
+		3D221F7C1B4BB0DC00CF79E4 /* ScoreType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreType.h; sourceTree = "<group>"; };
+		3D221F7D1B4BB0DC00CF79E4 /* ScoreType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreType.m; sourceTree = "<group>"; };
+		3D221F7F1B4BB30A00CF79E4 /* RoundDataServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundDataServices.h; sourceTree = "<group>"; };
+		3D221F801B4BB30A00CF79E4 /* RoundDataServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundDataServices.m; sourceTree = "<group>"; };
 		3D5CA5D41B1F332B00CB6ED7 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		3D5CA5D51B1F332B00CB6ED7 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		3D5CA5D71B20572E00CB6ED7 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -676,6 +688,24 @@
 			path = RoundViewController;
 			sourceTree = "<group>";
 		};
+		3D221F771B4BB06D00CF79E4 /* GameType */ = {
+			isa = PBXGroup;
+			children = (
+				3D221F791B4BB0A600CF79E4 /* GameType.h */,
+				3D221F7A1B4BB0A600CF79E4 /* GameType.m */,
+			);
+			path = GameType;
+			sourceTree = "<group>";
+		};
+		3D221F781B4BB06D00CF79E4 /* ScoreType */ = {
+			isa = PBXGroup;
+			children = (
+				3D221F7C1B4BB0DC00CF79E4 /* ScoreType.h */,
+				3D221F7D1B4BB0DC00CF79E4 /* ScoreType.m */,
+			);
+			path = ScoreType;
+			sourceTree = "<group>";
+		};
 		3D5CA5D31B1F332B00CB6ED7 /* BaseViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -943,11 +973,15 @@
 		3DD47A5E1B4A6040005DE325 /* SubCourse */ = {
 			isa = PBXGroup;
 			children = (
+				3D221F771B4BB06D00CF79E4 /* GameType */,
+				3D221F781B4BB06D00CF79E4 /* ScoreType */,
 				3DD47A5F1B4A6040005DE325 /* SubCourse.h */,
 				3DD47A601B4A6040005DE325 /* SubCourse.m */,
 				3DD47A6A1B4A7D63005DE325 /* GreenCoordinate */,
 				3DD47A621B4A607C005DE325 /* Hole */,
 				3DD47A631B4A607C005DE325 /* Teebox */,
+				3D221F741B4BACAC00CF79E4 /* RoundData.h */,
+				3D221F751B4BACAC00CF79E4 /* RoundData.m */,
 			);
 			path = SubCourse;
 			sourceTree = "<group>";
@@ -989,6 +1023,8 @@
 		3DD47A6F1B4A81C3005DE325 /* RoundServices */ = {
 			isa = PBXGroup;
 			children = (
+				3D221F7F1B4BB30A00CF79E4 /* RoundDataServices.h */,
+				3D221F801B4BB30A00CF79E4 /* RoundDataServices.m */,
 			);
 			path = RoundServices;
 			sourceTree = "<group>";
@@ -1580,6 +1616,7 @@
 				88243AF61B28437C00E600D6 /* FoodBevViewCell.m in Sources */,
 				885CB0441B09BA9D00AD2A7B /* AppDelegate.m in Sources */,
 				3D1963CE1B0DBC8300766CFC /* Condition.m in Sources */,
+				3D221F7B1B4BB0A600CF79E4 /* GameType.m in Sources */,
 				3D5CA5D61B1F332B00CB6ED7 /* BaseViewController.m in Sources */,
 				3D1C8EBA1B3D3C7F004AAD30 /* RoundViewController.m in Sources */,
 				885CB06D1B09BDCD00AD2A7B /* README.md in Sources */,
@@ -1590,6 +1627,7 @@
 				88709E9E1B0DB600005DA345 /* ForgotPasswordSViewController.m in Sources */,
 				3D1963C41B0DAECD00766CFC /* WeatherServices.m in Sources */,
 				3DA70A3C1B3972B900D3ABEC /* UIBarButtonItem+Badge.m in Sources */,
+				3D221F811B4BB30A00CF79E4 /* RoundDataServices.m in Sources */,
 				3DD47A6D1B4A7D7A005DE325 /* GreenCoordinate.m in Sources */,
 				88B21DEB1B1C390100AFC6D2 /* SplashScreenViewController.m in Sources */,
 				8873AA761B18C5F500E74C87 /* EventAdminViewController.m in Sources */,
@@ -1632,7 +1670,9 @@
 				3D1964271B13305200766CFC /* FaceBookAuthAgent.m in Sources */,
 				3DD9BD0D1B14BE1C00A2F296 /* CalendarUtilities.m in Sources */,
 				3DD9BD261B14C39000A2F296 /* CalendarEventServices.m in Sources */,
+				3D221F7E1B4BB0DC00CF79E4 /* ScoreType.m in Sources */,
 				3DF9936F1B256999006EBC39 /* PushManager.m in Sources */,
+				3D221F761B4BACAC00CF79E4 /* RoundData.m in Sources */,
 				3DCA44D71B26CB3400B66BD2 /* FoodBeverage.m in Sources */,
 				3D613B6B1B42878A00F7DEDA /* EventAdmin.m in Sources */,
 				3D16D0841B1C3FFB00A582A3 /* SharedManager.m in Sources */,

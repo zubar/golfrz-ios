@@ -16,6 +16,7 @@
 #import "Menu.h"
 #import "Cart.h"
 #import "SubCourse.h"
+#import "RoundData.h"
 
 @implementation APIClient
 
@@ -47,16 +48,10 @@
              @"users/*" : [User class],
              kFoodAndBeverage : [Menu class],
              kViewCart : [Cart class],
-             kSubCourses : [SubCourse class]
+             kRoundInSubCourse : [RoundData class]
              
              };
     
 }
-
-+ (Class)responseClass {
-    
-    return [OVCResponse class];
-}
-
                       
 @end

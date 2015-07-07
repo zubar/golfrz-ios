@@ -15,20 +15,20 @@
 @implementation SubCourseServices
 
 
-+(void)getSubCourseDetail:(void (^)(bool status, SubCourse * subCourse))successBlock
-                  failure:(void (^)(bool status, NSError * error))failureBlock{
-    
-    APIClient * apiClient = [APIClient sharedAPICLient];
-    
-    [apiClient GET:kSubCourses parameters:[UtilityServices authenticationParams] completion:^(id response, NSError *error) {
-        OVCResponse * resp = response;
-        if (!error) {
-            SubCourse * mCourse = [resp result];
-            successBlock(true, mCourse);
-        }else
-            failureBlock(false, error);
-    }];
-    
-}
+//+(void)getSubCourseDetail:(void (^)(bool status, SubCourse * subCourse))successBlock
+//                  failure:(void (^)(bool status, NSError * error))failureBlock{
+//    
+//    APIClient * apiClient = [APIClient sharedAPICLient];
+//    
+//    [apiClient GET:kSubCourses parameters:[UtilityServices authenticationParams] completion:^(id response, NSError *error) {
+//        OVCResponse * resp = response;
+//        if (!error) {
+//            SubCourse * mCourse = [resp result];
+//            successBlock(true, mCourse);
+//        }else
+//            failureBlock(false, error);
+//    }];
+//    
+//}
 
 @end

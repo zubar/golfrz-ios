@@ -11,7 +11,7 @@
 
 @interface SubCourseServices : NSObject
 
-+(void)getSubCourseDetail:(void (^)(bool status, SubCourse * subCourse))successBlock
-                  failure:(void (^)(bool status, NSError * error))failureBlock;
+//+(void)getSubCourseDetail:(void (^)(bool status, SubCourse * subCourse))successBlock
+//                  failure:(void (^)(bool status, NSError * error))failureBlock;
 
 @end
