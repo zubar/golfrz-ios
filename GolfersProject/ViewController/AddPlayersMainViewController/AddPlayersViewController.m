@@ -97,7 +97,7 @@
     }
 }
 
-// TODO: Testing code
+
 -(NSArray *)dataArrayForCells{
     
     return [NSArray arrayWithObjects:@"Course Name", @"Course Two", @"Course Two",@"Course Two",@"Course Two",@"Course Two",@"Course Two", nil];
@@ -117,4 +117,17 @@
 }
 
 
+#pragma mark - UIActions
+
+- (IBAction)btnSelectCourseTapped:(UIButton *)sender {
+}
+
+- (IBAction)btnGameTypeTapped:(UIButton *)sender {
+}
+
+- (IBAction)btnScoringTapped:(UIButton *)sender {
+}
+
+- (IBAction)btnSelectTeeBoxTapped:(UIButton *)sender {
+}
 @end
