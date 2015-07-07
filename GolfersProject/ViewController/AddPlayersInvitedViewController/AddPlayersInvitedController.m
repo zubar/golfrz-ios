@@ -55,4 +55,15 @@
 
 - (IBAction)btnStartRoundTapped:(UIButton *)sender {
 }
+- (IBAction)btnSelectCourseTapped:(UIButton *)sender {
+}
+
+- (IBAction)btnSelectGameTypeTapped:(UIButton *)sender {
+}
+
+- (IBAction)btnSelectTeeBoxTapped:(UIButton *)sender {
+}
+
+- (IBAction)btnSelectScoringTapped:(UIButton *)sender {
+}
 @end
