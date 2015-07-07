@@ -28,6 +28,7 @@
 #import "Constants.h"
 
 #import "RoundViewController.h"
+#import "ScoreSelectionView.h"
 
 @interface ClubHouseViewController ()
 @property (nonatomic, retain) NSArray * weatherList;
@@ -257,6 +258,8 @@
 
 - (IBAction)btnTeeTimeTap:(id)sender {
     
+//    ScoreSelectionView * testview = [[ScoreSelectionView alloc] init];
+//    [self.view addSubview:testview];
     
 }
 
