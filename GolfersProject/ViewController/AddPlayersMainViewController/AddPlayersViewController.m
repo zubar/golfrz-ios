@@ -36,4 +36,15 @@
 
 - (IBAction)btnAddPlayersTapped:(id)sender {
 }
+- (IBAction)btnSelectCourseTapped:(UIButton *)sender {
+}
+
+- (IBAction)btnGameTypeTapped:(UIButton *)sender {
+}
+
+- (IBAction)btnScoringTapped:(UIButton *)sender {
+}
+
+- (IBAction)btnSelectTeeBoxTapped:(UIButton *)sender {
+}
 @end

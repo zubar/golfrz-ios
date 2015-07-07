@@ -23,5 +23,9 @@
 @property (strong, nonatomic) IBOutlet UIImageView *scoringDropDown;
 @property (strong, nonatomic) IBOutlet UILabel *lblTeeBox;
 @property (strong, nonatomic) IBOutlet UIImageView *teeBoxDropDown;
+- (IBAction)btnSelectCourseTapped:(UIButton *)sender;
+- (IBAction)btnSelectGameTypeTapped:(UIButton *)sender;
+- (IBAction)btnSelectScoringTapped:(UIButton *)sender;
+- (IBAction)btnSelectTeeBoxTapped:(UIButton *)sender;
 
 @end
