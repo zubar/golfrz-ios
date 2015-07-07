@@ -64,6 +64,10 @@
 		3D221F7B1B4BB0A600CF79E4 /* GameType.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D221F7A1B4BB0A600CF79E4 /* GameType.m */; };
 		3D221F7E1B4BB0DC00CF79E4 /* ScoreType.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D221F7D1B4BB0DC00CF79E4 /* ScoreType.m */; };
 		3D221F811B4BB30A00CF79E4 /* RoundDataServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D221F801B4BB30A00CF79E4 /* RoundDataServices.m */; };
+		3D221F861B4BE35B00CF79E4 /* DropdownCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D221F841B4BE35B00CF79E4 /* DropdownCell.m */; };
+		3D221F871B4BE35B00CF79E4 /* DropdownCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D221F851B4BE35B00CF79E4 /* DropdownCell.xib */; };
+		3D221F8C1B4BEB4600CF79E4 /* DropdownView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D221F8A1B4BEB4600CF79E4 /* DropdownView.m */; };
+		3D221F8D1B4BEB4600CF79E4 /* DropdownView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D221F8B1B4BEB4600CF79E4 /* DropdownView.xib */; };
 		3D5CA5D61B1F332B00CB6ED7 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D5CA5D51B1F332B00CB6ED7 /* BaseViewController.m */; };
 		3D5CA5D81B20572E00CB6ED7 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D5CA5D71B20572E00CB6ED7 /* SystemConfiguration.framework */; };
 		3D613B631B416F1F00F7DEDA /* CalendarEventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D613B601B416F1F00F7DEDA /* CalendarEventCell.m */; };
@@ -257,6 +261,12 @@
 		3D221F7D1B4BB0DC00CF79E4 /* ScoreType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreType.m; sourceTree = "<group>"; };
 		3D221F7F1B4BB30A00CF79E4 /* RoundDataServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundDataServices.h; sourceTree = "<group>"; };
 		3D221F801B4BB30A00CF79E4 /* RoundDataServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundDataServices.m; sourceTree = "<group>"; };
+		3D221F831B4BE35B00CF79E4 /* DropdownCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropdownCell.h; sourceTree = "<group>"; };
+		3D221F841B4BE35B00CF79E4 /* DropdownCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropdownCell.m; sourceTree = "<group>"; };
+		3D221F851B4BE35B00CF79E4 /* DropdownCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DropdownCell.xib; sourceTree = "<group>"; };
+		3D221F891B4BEB4600CF79E4 /* DropdownView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropdownView.h; sourceTree = "<group>"; };
+		3D221F8A1B4BEB4600CF79E4 /* DropdownView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropdownView.m; sourceTree = "<group>"; };
+		3D221F8B1B4BEB4600CF79E4 /* DropdownView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DropdownView.xib; sourceTree = "<group>"; };
 		3D5CA5D41B1F332B00CB6ED7 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		3D5CA5D51B1F332B00CB6ED7 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		3D5CA5D71B20572E00CB6ED7 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -730,6 +740,26 @@
 			path = ScoreType;
 			sourceTree = "<group>";
 		};
+		3D221F821B4BE2CE00CF79E4 /* DropdownCell */ = {
+			isa = PBXGroup;
+			children = (
+				3D221F831B4BE35B00CF79E4 /* DropdownCell.h */,
+				3D221F841B4BE35B00CF79E4 /* DropdownCell.m */,
+				3D221F851B4BE35B00CF79E4 /* DropdownCell.xib */,
+			);
+			path = DropdownCell;
+			sourceTree = "<group>";
+		};
+		3D221F881B4BEB4600CF79E4 /* DropdownView */ = {
+			isa = PBXGroup;
+			children = (
+				3D221F891B4BEB4600CF79E4 /* DropdownView.h */,
+				3D221F8A1B4BEB4600CF79E4 /* DropdownView.m */,
+				3D221F8B1B4BEB4600CF79E4 /* DropdownView.xib */,
+			);
+			path = DropdownView;
+			sourceTree = "<group>";
+		};
 		3D5CA5D31B1F332B00CB6ED7 /* BaseViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -780,6 +810,8 @@
 		3D613B7B1B44191B00F7DEDA /* ScoreSelection */ = {
 			isa = PBXGroup;
 			children = (
+				3D221F881B4BEB4600CF79E4 /* DropdownView */,
+				3D221F821B4BE2CE00CF79E4 /* DropdownCell */,
 				3D613B7C1B44191B00F7DEDA /* ScoreSelectionCell */,
 				3D613B801B44191B00F7DEDA /* ScoreSelectionView */,
 			);
@@ -1638,6 +1670,7 @@
 				3D1C8E921B3BFEB0004AAD30 /* popoverArrowLeft.png in Resources */,
 				3D1C8E911B3BFEB0004AAD30 /* popoverArrowLeft-white@2x.png in Resources */,
 				3D613B641B416F1F00F7DEDA /* CalendarEventCell.xib in Resources */,
+				3D221F8D1B4BEB4600CF79E4 /* DropdownView.xib in Resources */,
 				3D613B871B44191B00F7DEDA /* ScoreSelectionView.xib in Resources */,
 				3DD3CA391B2863CF00767BCF /* SideNotificationView.xib in Resources */,
 				3D1C8E9D1B3BFEB0004AAD30 /* popoverBg-white@2x.png in Resources */,
@@ -1654,6 +1687,7 @@
 				3D613B851B44191B00F7DEDA /* ScoreSelectionCell.xib in Resources */,
 				3D1C8E931B3BFEB0004AAD30 /* popoverArrowLeft@2x.png in Resources */,
 				3D1C8EB01B3D36C9004AAD30 /* EventHeaderView.xib in Resources */,
+				3D221F871B4BE35B00CF79E4 /* DropdownCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1698,6 +1732,7 @@
 				887C51311B21C9E300C778D7 /* UIImageView+RoundedImage.m in Sources */,
 				88A48EFD1B2B006F006CEC42 /* FoodBevItemDetailViewController.m in Sources */,
 				88573E2A1B4551900060929C /* RoundInviteCell.m in Sources */,
+				3D221F8C1B4BEB4600CF79E4 /* DropdownView.m in Sources */,
 				885CB0681B09BADE00AD2A7B /* InitialViewController.m in Sources */,
 				3DCA44CE1B26CB3400B66BD2 /* EventWeather.m in Sources */,
 				3D1C8EAF1B3D36C9004AAD30 /* EventHeaderView.m in Sources */,
@@ -1773,6 +1808,7 @@
 				3DCA44CC1B26CB3400B66BD2 /* CalendarEvent.m in Sources */,
 				3D1963F31B0E1B6900766CFC /* PlayerProfileViewController.m in Sources */,
 				3D19641B1B130E3B00766CFC /* TPKeyboardAvoidingScrollView.m in Sources */,
+				3D221F861B4BE35B00CF79E4 /* DropdownCell.m in Sources */,
 				3D87D8421B1852120046BD60 /* NSDate+convenience.m in Sources */,
 				3DA70A3D1B3972B900D3ABEC /* UIButton+Badge.m in Sources */,
 				3DF993721B256A4A006EBC39 /* AppDelegate+Push.m in Sources */,

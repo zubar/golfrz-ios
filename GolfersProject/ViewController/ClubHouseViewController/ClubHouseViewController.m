@@ -261,8 +261,6 @@
 
 - (IBAction)btnTeeTimeTap:(id)sender {
     
-//    ScoreSelectionView * testview = [[ScoreSelectionView alloc] init];
-//    [self.view addSubview:testview];
     
     [RoundDataServices getRoundData:^(bool status, RoundData *subCourse) {
         
@@ -270,11 +268,6 @@
         
     }];
     
-//    [SubCourseServices getSubCourseDetail:^(bool status, SubCourse *subCourse) {
-//        
-//    } failure:^(bool status, NSError *error) {
-//        
-//    }];
 }
 
 @end

@@ -7,9 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RoundData.h"
+#import <CMPopTipView/CMPopTipView.h>
+#import "DropdownView.h"
 
-@interface AddPlayersViewController : UIViewController
+
+@interface AddPlayersViewController : UIViewController<DropdownDataSource, DropdownDelegate, CMPopTipViewDelegate>
+
+@property (nonatomic, strong) RoundData * roundInfo;
+
 - (IBAction)btnAddPlayersTapped:(id)sender;
+
 @property (strong, nonatomic) IBOutlet UIView *selectCourses;
 @property (strong, nonatomic) IBOutlet UIView *selectGameType;
 @property (strong, nonatomic) IBOutlet UIView *selectScoring;
@@ -23,5 +31,7 @@
 @property (strong, nonatomic) IBOutlet UIImageView *scoringDropDown;
 @property (strong, nonatomic) IBOutlet UILabel *lblTeeBox;
 @property (strong, nonatomic) IBOutlet UIImageView *teeBoxDropDown;
+
+
 
 @end

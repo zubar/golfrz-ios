@@ -20,7 +20,7 @@
 #import "UIImageView+RoundedImage.h"
 #import "InviteMainViewController.h"
 #import "RoundViewController.h"
-
+#import "AddPlayersViewController.h"
 
 @interface PlayerProfileViewController ()
 
@@ -106,16 +106,6 @@
 
 #pragma mark - NavBarButtonsDelegate
 
-//-(NSDictionary *)updateNavBarRightButtons{
-//    
-//    UIButton * barBtn = [[UIButton alloc]initWithFrame:CGRectMake(10, 0, 50, 30)];
-//    [barBtn setTitle:@"Flop" forState:UIControlStateNormal];
-//    [barBtn addTarget:self action:@selector(btnTapped) forControlEvents:UIControlEventTouchUpInside];
-//    
-//    
-//    NSDictionary * dict=[[NSDictionary alloc]initWithObjectsAndKeys:barBtn, @"left_btn",nil];
-//    return dict;
-//}
 
 /*
 #pragma mark - Navigation
@@ -138,19 +128,9 @@
 - (IBAction)btnStartRoundTapped:(UIButton *)sender {
     
     AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
-    RoundViewController * controller = [self.storyboard instantiateViewControllerWithIdentifier:@"RoundViewController"];
+    AddPlayersViewController * controller = [self.storyboard instantiateViewControllerWithIdentifier:@"AddPlayersViewController"];
     [delegate.appDelegateNavController pushViewController:controller animated:YES];
     
 }
 
-// TODO: Testing code
--(NSArray *)dataArrayForCells{
-    
-    return [NSArray arrayWithObjects:@"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", nil];
-}
-
--(void)selectedItemForCell:(id)item{
-    
-    
-}
 @end
