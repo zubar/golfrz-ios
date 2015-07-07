@@ -10,7 +10,7 @@
 
 @protocol PlayerScoreViewDelegate <NSObject>
 -(void)dropDownTapped;
--(void)editScoreTappedForPlayer:(id)player;
+-(void)editScoreTappedForPlayer:(id)sender Player:(id)player;
 @end
 
 @interface PlayerScoreView : UIView{

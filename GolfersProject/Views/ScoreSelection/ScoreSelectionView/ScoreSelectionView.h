@@ -1,8 +1,8 @@
 //
-//  HorizontalSelectionController.h
+//  ScoreSelectionView.h
 //  GolfersProject
 //
-//  Created by Zubair on 6/25/15.
+//  Created by Abdullah Saeed on 6/30/15.
 //  Copyright (c) 2015 Abdullah Saeed. All rights reserved.
 //
 
@@ -18,9 +18,9 @@
 -(void)selectedItemForCell:(id)item;
 @end
 
-@interface ScoreSelectionContentController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate>
-@property (strong, nonatomic) NSMutableArray* scores;
-@property (strong, nonatomic) IBOutlet UICollectionView *scoreCollectionView;
+@interface ScoreSelectionView : UIView<UICollectionViewDataSource, UICollectionViewDelegate>
+@property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
+
 
 @property (assign, nonatomic) id<ScoreSelectionDataSource>dataSource;
 @property (assign, nonatomic) id<ScoreSelectionDelegate>delegate;

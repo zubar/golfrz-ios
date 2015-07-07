@@ -12,6 +12,8 @@
 #import "PlayerScoreView.h"
 #import "PlayerScoreCell.h"
 #import "AppDelegate.h"
+#import "ScoreSelectionView.h"
+
 
 #define kPlayerScoreViewHeight 60.0f
 
@@ -19,6 +21,7 @@
     BOOL isScoreTableDescended;
 }
 @property (nonatomic, strong) NSMutableArray * playersInRound;
+@property (nonatomic, strong) CMPopTipView * popTipView;
 @end
 
 @implementation RoundViewController
@@ -31,18 +34,41 @@
         [self.playersInRound addObjectsFromArray:[NSArray arrayWithObjects:@"obj",@"obj",@"obj",@"obj",@"obj",@"obj",@"obj", nil]];
     }
     
+    // Left button
+    UIButton * imageButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 10, 10, 14)];
+    [imageButton setBackgroundImage:[UIImage imageNamed:@"back_btn"] forState:UIControlStateNormal];
+    [imageButton addTarget:self action:@selector(roundbackBtnTapped) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:imageButton];
+    self.navigationItem.leftBarButtonItem = leftBarButtonItem;
+    
+    // Right button
+    UIBarButtonItem * rightBtn = [[UIBarButtonItem alloc]initWithTitle:@"FINISH ROUND" style:UIBarButtonItemStylePlain target:self action:@selector(finishRoundTap)];
+    self.navigationItem.rightBarButtonItem = rightBtn;
+    
+    
+    //TODO: set attributed text in right Btn Label
+    NSDictionary *navTitleAttributes =@{NSUnderlineStyleAttributeName:@(NSUnderlineStyleSingle),
+                                        NSFontAttributeName :[UIFont fontWithName:@"Helvetica-Bold" size:14.0],
+                                        NSForegroundColorAttributeName : [UIColor whiteColor]
+                                        };
+    
+    
+    
     isScoreTableDescended = FALSE;
     [self.imgDarkerBg setHidden:YES];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     
-    AppDelegate * delegate = (AppDelegate * )[[UIApplication sharedApplication] delegate];
+    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
     [delegate.appDelegateNavController setNavigationBarHidden:NO];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
-
+    
+    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+    [delegate.appDelegateNavController setNavigationBarHidden:YES];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -70,24 +96,6 @@
     PlayerScoreCell *customCell = (PlayerScoreCell *)cell;
     customCell.lblPlayerName.text = [self.playersInRound objectAtIndex:indexPath.row];
     return customCell;
-    
-//    if (customCell == nil) {
-//        customCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-//    }
-//    [tableView setBackgroundColor:[UIColor clearColor]];
-//    
-//    PlayerScoreView * customView = [[PlayerScoreView alloc]init];
-//    [customView setBackgroundColor:[UIColor clearColor]];
-//
-//    [customView configureViewForPlayer:nil hideDropdownBtn:NO];
-//    customView.delegate = self;
-//    
-//    [customCell.contentView addSubview:customView];
-//    
-////    PlayerScoreCell *customViewCell = (PlayerScoreCell *)customCell;
-////    customViewCell.contentView addSubview:<#(UIView *)#>
-//    
-//    return customCell;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -130,14 +138,58 @@
             isScoreTableDescended = TRUE;
         }];
     }
+}
+
+-(void)editScoreTappedForPlayer:(id)sender Player:(id)player{
+
+    ScoreSelectionView * mScoreView = [[ScoreSelectionView alloc]init];
+    mScoreView.dataSource = self;
+    mScoreView.delegate = self;
+    [mScoreView setBackgroundColor:[UIColor whiteColor]];
     
+    
+    // Toggle popTipView when a standard UIButton is pressed
+    if (nil == self.popTipView) {
+        self.popTipView = [[CMPopTipView alloc] initWithCustomView:mScoreView];
+        self.popTipView.delegate = self;
+        self.popTipView.backgroundColor = [UIColor whiteColor];
+        [self.popTipView presentPointingAtView:sender inView:self.view animated:YES];
+    }
+    else {
+        // Dismiss
+        [self.popTipView dismissAnimated:YES];
+        self.popTipView = nil;
+    }
     
 }
 
--(void)editScoreTappedForPlayer:(id)player{
-        //TODO: display popover here.
-    
+-(NSArray *)dataArrayForCells{
+    return [NSArray arrayWithObjects:@"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", nil];
+}
 
+-(void)selectedItemForCell:(id)item{
+    NSLog(@"tapped: %@", item);
+    [self.popTipView dismissAnimated:YES];
+}
+#pragma mark - UINavigation
+
+-(void)finishRoundTap{
+
+
+}
+
+-(void)roundbackBtnTapped{
+
+    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+    [delegate.appDelegateNavController popViewControllerAnimated:YES];
+
+}
+
+
+#pragma mark CMPopTipViewDelegate methods
+- (void)popTipViewWasDismissedByUser:(CMPopTipView *)popTipView {
+    // User can tap CMPopTipView to dismiss it
+    self.popTipView = nil;
 }
 
 /*

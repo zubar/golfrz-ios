@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "PlayerScoreView.h"
+#import <CMPopTipView/CMPopTipView.h>
+#import "ScoreSelectionView.h"
 
-@interface RoundViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, PlayerScoreViewDelegate>
+
+@interface RoundViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, PlayerScoreViewDelegate,      CMPopTipViewDelegate, ScoreSelectionDataSource, ScoreSelectionDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *scoreTable;
 
