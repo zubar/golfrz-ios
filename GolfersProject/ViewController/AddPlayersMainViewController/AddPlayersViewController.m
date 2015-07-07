@@ -26,13 +26,17 @@
 
 @property (nonatomic, strong) CMPopTipView * popTipView;
 
+@property (nonatomic, strong) NSMutableArray * dataArray;
 @end
+
 
 @implementation AddPlayersViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.dataArray = [[NSMutableArray alloc]init];
+    
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
@@ -77,24 +81,7 @@
 
 - (IBAction)btnAddPlayersTapped:(id)sender {
     
-    DropdownView * mScoreView = [[DropdownView alloc]init];
-    mScoreView.dataSource = self;
-    mScoreView.delegate = self;
-    [mScoreView setBackgroundColor:[UIColor whiteColor]];
     
-    
-    // Toggle popTipView when a standard UIButton is pressed
-    if (nil == self.popTipView) {
-        self.popTipView = [[CMPopTipView alloc] initWithCustomView:mScoreView];
-        self.popTipView.delegate = self;
-        self.popTipView.backgroundColor = [UIColor whiteColor];
-        [self.popTipView presentPointingAtView:sender inView:self.view animated:YES];
-    }
-    else {
-        // Dismiss
-        [self.popTipView dismissAnimated:YES];
-        self.popTipView = nil;
-    }
 }
 
 
@@ -120,6 +107,27 @@
 #pragma mark - UIActions
 
 - (IBAction)btnSelectCourseTapped:(UIButton *)sender {
+    
+    DropdownView * mScoreView = [[DropdownView alloc]init];
+    mScoreView.dataSource = self;
+    mScoreView.delegate = self;
+    [mScoreView setBackgroundColor:[UIColor whiteColor]];
+    
+    
+    // Toggle popTipView when a standard UIButton is pressed
+    if (nil == self.popTipView) {
+        self.popTipView = [[CMPopTipView alloc] initWithCustomView:mScoreView];
+        self.popTipView.delegate = self;
+        self.popTipView.backgroundColor = [UIColor whiteColor];
+        [self.popTipView setPreferredPointDirection:PointDirectionDown];
+        [self.popTipView presentPointingAtView:sender inView:self.view animated:YES];
+    }
+    else {
+        // Dismiss
+        [self.popTipView dismissAnimated:YES];
+        self.popTipView = nil;
+    }
+    
 }
 
 - (IBAction)btnGameTypeTapped:(UIButton *)sender {
