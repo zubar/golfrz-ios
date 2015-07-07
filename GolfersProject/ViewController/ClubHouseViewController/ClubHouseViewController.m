@@ -27,6 +27,9 @@
 #import "APContact+convenience.h"
 #import "Constants.h"
 
+#import "SubCourseServices.h"
+#import "RoundDataServices.h"
+
 #import "RoundViewController.h"
 #import "ScoreSelectionView.h"
 
@@ -261,6 +264,17 @@
 //    ScoreSelectionView * testview = [[ScoreSelectionView alloc] init];
 //    [self.view addSubview:testview];
     
+    [RoundDataServices getRoundData:^(bool status, RoundData *subCourse) {
+        
+    } failure:^(bool status, NSError *error) {
+        
+    }];
+    
+//    [SubCourseServices getSubCourseDetail:^(bool status, SubCourse *subCourse) {
+//        
+//    } failure:^(bool status, NSError *error) {
+//        
+//    }];
 }
 
 @end

@@ -60,6 +60,10 @@
 		3D1C8EAF1B3D36C9004AAD30 /* EventHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1C8EAD1B3D36C9004AAD30 /* EventHeaderView.m */; };
 		3D1C8EB01B3D36C9004AAD30 /* EventHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D1C8EAE1B3D36C9004AAD30 /* EventHeaderView.xib */; };
 		3D1C8EBA1B3D3C7F004AAD30 /* RoundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1C8EB91B3D3C7F004AAD30 /* RoundViewController.m */; };
+		3D221F761B4BACAC00CF79E4 /* RoundData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D221F751B4BACAC00CF79E4 /* RoundData.m */; };
+		3D221F7B1B4BB0A600CF79E4 /* GameType.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D221F7A1B4BB0A600CF79E4 /* GameType.m */; };
+		3D221F7E1B4BB0DC00CF79E4 /* ScoreType.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D221F7D1B4BB0DC00CF79E4 /* ScoreType.m */; };
+		3D221F811B4BB30A00CF79E4 /* RoundDataServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D221F801B4BB30A00CF79E4 /* RoundDataServices.m */; };
 		3D5CA5D61B1F332B00CB6ED7 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D5CA5D51B1F332B00CB6ED7 /* BaseViewController.m */; };
 		3D5CA5D81B20572E00CB6ED7 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D5CA5D71B20572E00CB6ED7 /* SystemConfiguration.framework */; };
 		3D613B631B416F1F00F7DEDA /* CalendarEventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D613B601B416F1F00F7DEDA /* CalendarEventCell.m */; };
@@ -105,6 +109,11 @@
 		3DD3CA381B2863CF00767BCF /* SideNotificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD3CA361B2863CF00767BCF /* SideNotificationView.m */; };
 		3DD3CA391B2863CF00767BCF /* SideNotificationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DD3CA371B2863CF00767BCF /* SideNotificationView.xib */; };
 		3DD3CA401B297AD300767BCF /* UtilityServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD3CA3F1B297AD300767BCF /* UtilityServices.m */; };
+		3DD47A611B4A6040005DE325 /* SubCourse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD47A601B4A6040005DE325 /* SubCourse.m */; };
+		3DD47A661B4A608C005DE325 /* Hole.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD47A651B4A608C005DE325 /* Hole.m */; };
+		3DD47A691B4A6099005DE325 /* Teebox.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD47A681B4A6099005DE325 /* Teebox.m */; };
+		3DD47A6D1B4A7D7A005DE325 /* GreenCoordinate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD47A6C1B4A7D7A005DE325 /* GreenCoordinate.m */; };
+		3DD47A731B4A82F5005DE325 /* SubCourseServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD47A721B4A82F5005DE325 /* SubCourseServices.m */; };
 		3DD9BD0D1B14BE1C00A2F296 /* CalendarUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD9BD081B14BE1C00A2F296 /* CalendarUtilities.m */; };
 		3DD9BD0E1B14BE1C00A2F296 /* NSDate+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD9BD0A1B14BE1C00A2F296 /* NSDate+Helper.m */; };
 		3DD9BD0F1B14BE1C00A2F296 /* THCalendarInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD9BD0C1B14BE1C00A2F296 /* THCalendarInfo.m */; };
@@ -240,6 +249,14 @@
 		3D1C8EAE1B3D36C9004AAD30 /* EventHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventHeaderView.xib; sourceTree = "<group>"; };
 		3D1C8EB81B3D3C7F004AAD30 /* RoundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundViewController.h; sourceTree = "<group>"; };
 		3D1C8EB91B3D3C7F004AAD30 /* RoundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundViewController.m; sourceTree = "<group>"; };
+		3D221F741B4BACAC00CF79E4 /* RoundData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundData.h; sourceTree = "<group>"; };
+		3D221F751B4BACAC00CF79E4 /* RoundData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundData.m; sourceTree = "<group>"; };
+		3D221F791B4BB0A600CF79E4 /* GameType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameType.h; sourceTree = "<group>"; };
+		3D221F7A1B4BB0A600CF79E4 /* GameType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameType.m; sourceTree = "<group>"; };
+		3D221F7C1B4BB0DC00CF79E4 /* ScoreType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreType.h; sourceTree = "<group>"; };
+		3D221F7D1B4BB0DC00CF79E4 /* ScoreType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreType.m; sourceTree = "<group>"; };
+		3D221F7F1B4BB30A00CF79E4 /* RoundDataServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundDataServices.h; sourceTree = "<group>"; };
+		3D221F801B4BB30A00CF79E4 /* RoundDataServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundDataServices.m; sourceTree = "<group>"; };
 		3D5CA5D41B1F332B00CB6ED7 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		3D5CA5D51B1F332B00CB6ED7 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		3D5CA5D71B20572E00CB6ED7 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -327,6 +344,16 @@
 		3DD3CA371B2863CF00767BCF /* SideNotificationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SideNotificationView.xib; sourceTree = "<group>"; };
 		3DD3CA3E1B297AD300767BCF /* UtilityServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UtilityServices.h; sourceTree = "<group>"; };
 		3DD3CA3F1B297AD300767BCF /* UtilityServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UtilityServices.m; sourceTree = "<group>"; };
+		3DD47A5F1B4A6040005DE325 /* SubCourse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubCourse.h; sourceTree = "<group>"; };
+		3DD47A601B4A6040005DE325 /* SubCourse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubCourse.m; sourceTree = "<group>"; };
+		3DD47A641B4A608C005DE325 /* Hole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hole.h; sourceTree = "<group>"; };
+		3DD47A651B4A608C005DE325 /* Hole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hole.m; sourceTree = "<group>"; };
+		3DD47A671B4A6099005DE325 /* Teebox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Teebox.h; sourceTree = "<group>"; };
+		3DD47A681B4A6099005DE325 /* Teebox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Teebox.m; sourceTree = "<group>"; };
+		3DD47A6B1B4A7D7A005DE325 /* GreenCoordinate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GreenCoordinate.h; sourceTree = "<group>"; };
+		3DD47A6C1B4A7D7A005DE325 /* GreenCoordinate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GreenCoordinate.m; sourceTree = "<group>"; };
+		3DD47A711B4A82F5005DE325 /* SubCourseServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubCourseServices.h; sourceTree = "<group>"; };
+		3DD47A721B4A82F5005DE325 /* SubCourseServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubCourseServices.m; sourceTree = "<group>"; };
 		3DD9BD071B14BE1C00A2F296 /* CalendarUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarUtilities.h; sourceTree = "<group>"; };
 		3DD9BD081B14BE1C00A2F296 /* CalendarUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarUtilities.m; sourceTree = "<group>"; };
 		3DD9BD091B14BE1C00A2F296 /* NSDate+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Helper.h"; sourceTree = "<group>"; };
@@ -685,6 +712,24 @@
 			path = RoundViewController;
 			sourceTree = "<group>";
 		};
+		3D221F771B4BB06D00CF79E4 /* GameType */ = {
+			isa = PBXGroup;
+			children = (
+				3D221F791B4BB0A600CF79E4 /* GameType.h */,
+				3D221F7A1B4BB0A600CF79E4 /* GameType.m */,
+			);
+			path = GameType;
+			sourceTree = "<group>";
+		};
+		3D221F781B4BB06D00CF79E4 /* ScoreType */ = {
+			isa = PBXGroup;
+			children = (
+				3D221F7C1B4BB0DC00CF79E4 /* ScoreType.h */,
+				3D221F7D1B4BB0DC00CF79E4 /* ScoreType.m */,
+			);
+			path = ScoreType;
+			sourceTree = "<group>";
+		};
 		3D5CA5D31B1F332B00CB6ED7 /* BaseViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -933,6 +978,88 @@
 				3DD3CA3F1B297AD300767BCF /* UtilityServices.m */,
 			);
 			path = UtilityServices;
+			sourceTree = "<group>";
+		};
+		3DD47A581B4A5FA7005DE325 /* Invitation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Invitation;
+			sourceTree = "<group>";
+		};
+		3DD47A5A1B4A5FA7005DE325 /* Score */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Score;
+			sourceTree = "<group>";
+		};
+		3DD47A5E1B4A6040005DE325 /* SubCourse */ = {
+			isa = PBXGroup;
+			children = (
+				3D221F771B4BB06D00CF79E4 /* GameType */,
+				3D221F781B4BB06D00CF79E4 /* ScoreType */,
+				3DD47A5F1B4A6040005DE325 /* SubCourse.h */,
+				3DD47A601B4A6040005DE325 /* SubCourse.m */,
+				3DD47A6A1B4A7D63005DE325 /* GreenCoordinate */,
+				3DD47A621B4A607C005DE325 /* Hole */,
+				3DD47A631B4A607C005DE325 /* Teebox */,
+				3D221F741B4BACAC00CF79E4 /* RoundData.h */,
+				3D221F751B4BACAC00CF79E4 /* RoundData.m */,
+			);
+			path = SubCourse;
+			sourceTree = "<group>";
+		};
+		3DD47A621B4A607C005DE325 /* Hole */ = {
+			isa = PBXGroup;
+			children = (
+				3DD47A641B4A608C005DE325 /* Hole.h */,
+				3DD47A651B4A608C005DE325 /* Hole.m */,
+			);
+			path = Hole;
+			sourceTree = "<group>";
+		};
+		3DD47A631B4A607C005DE325 /* Teebox */ = {
+			isa = PBXGroup;
+			children = (
+				3DD47A671B4A6099005DE325 /* Teebox.h */,
+				3DD47A681B4A6099005DE325 /* Teebox.m */,
+			);
+			path = Teebox;
+			sourceTree = "<group>";
+		};
+		3DD47A6A1B4A7D63005DE325 /* GreenCoordinate */ = {
+			isa = PBXGroup;
+			children = (
+				3DD47A6B1B4A7D7A005DE325 /* GreenCoordinate.h */,
+				3DD47A6C1B4A7D7A005DE325 /* GreenCoordinate.m */,
+			);
+			path = GreenCoordinate;
+			sourceTree = "<group>";
+		};
+		3DD47A6E1B4A81C3005DE325 /* InvitationServices */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = InvitationServices;
+			sourceTree = "<group>";
+		};
+		3DD47A6F1B4A81C3005DE325 /* RoundServices */ = {
+			isa = PBXGroup;
+			children = (
+				3D221F7F1B4BB30A00CF79E4 /* RoundDataServices.h */,
+				3D221F801B4BB30A00CF79E4 /* RoundDataServices.m */,
+			);
+			path = RoundServices;
+			sourceTree = "<group>";
+		};
+		3DD47A701B4A81C3005DE325 /* SubCourseServices */ = {
+			isa = PBXGroup;
+			children = (
+				3DD47A711B4A82F5005DE325 /* SubCourseServices.h */,
+				3DD47A721B4A82F5005DE325 /* SubCourseServices.m */,
+			);
+			path = SubCourseServices;
 			sourceTree = "<group>";
 		};
 		3DD9BD061B14BE1C00A2F296 /* CalenderUtils */ = {
@@ -1212,6 +1339,9 @@
 		885CB06F1B09F91700AD2A7B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3DD47A5E1B4A6040005DE325 /* SubCourse */,
+				3DD47A581B4A5FA7005DE325 /* Invitation */,
+				3DD47A5A1B4A5FA7005DE325 /* Score */,
 				3DC116201B2EF3E400E83F4F /* APContact+Extension */,
 				3DCA44A71B26CB3400B66BD2 /* CalendarEvent */,
 				3DCA44AE1B26CB3400B66BD2 /* Course */,
@@ -1228,6 +1358,9 @@
 		885CB07C1B0A121300AD2A7B /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				3DD47A6E1B4A81C3005DE325 /* InvitationServices */,
+				3DD47A6F1B4A81C3005DE325 /* RoundServices */,
+				3DD47A701B4A81C3005DE325 /* SubCourseServices */,
 				3DC1161A1B2ED86E00E83F4F /* ContactServices */,
 				3DD3CA3D1B297AD300767BCF /* UtilityServices */,
 				3DCA44DC1B27097F00B66BD2 /* Food+BeverageService */,
@@ -1588,6 +1721,7 @@
 				88243AF61B28437C00E600D6 /* FoodBevViewCell.m in Sources */,
 				885CB0441B09BA9D00AD2A7B /* AppDelegate.m in Sources */,
 				3D1963CE1B0DBC8300766CFC /* Condition.m in Sources */,
+				3D221F7B1B4BB0A600CF79E4 /* GameType.m in Sources */,
 				3D5CA5D61B1F332B00CB6ED7 /* BaseViewController.m in Sources */,
 				3D1C8EBA1B3D3C7F004AAD30 /* RoundViewController.m in Sources */,
 				88573E221B45291B0060929C /* AddPlayersInvitedController.m in Sources */,
@@ -1599,6 +1733,8 @@
 				88709E9E1B0DB600005DA345 /* ForgotPasswordSViewController.m in Sources */,
 				3D1963C41B0DAECD00766CFC /* WeatherServices.m in Sources */,
 				3DA70A3C1B3972B900D3ABEC /* UIBarButtonItem+Badge.m in Sources */,
+				3D221F811B4BB30A00CF79E4 /* RoundDataServices.m in Sources */,
+				3DD47A6D1B4A7D7A005DE325 /* GreenCoordinate.m in Sources */,
 				88B21DEB1B1C390100AFC6D2 /* SplashScreenViewController.m in Sources */,
 				88C4EDB61B4A723100519D3B /* HoleMapCell.m in Sources */,
 				8873AA761B18C5F500E74C87 /* EventAdminViewController.m in Sources */,
@@ -1616,10 +1752,12 @@
 				3DA70A401B3981AB00D3ABEC /* BBBadgeBarButtonItem.m in Sources */,
 				886B9ED41B0B95900078B09D /* ForgotPasswordViewController.m in Sources */,
 				3DCA44D11B26CB3400B66BD2 /* Department.m in Sources */,
+				3DD47A731B4A82F5005DE325 /* SubCourseServices.m in Sources */,
 				3D87D8441B1852120046BD60 /* UIColor+expanded.m in Sources */,
 				88573E1E1B4528280060929C /* RoundPlayerCell.m in Sources */,
 				88855DD21B256F5A00E164D6 /* FoodBeveragesMainViewController.m in Sources */,
 				88B23C1C1B16E69D00988908 /* CourseDepartmentCell.m in Sources */,
+				3DD47A691B4A6099005DE325 /* Teebox.m in Sources */,
 				885CB06A1B09BADE00AD2A7B /* SignInViewController.m in Sources */,
 				3D19641D1B130E3B00766CFC /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				3D1C8E761B3BFDBE004AAD30 /* WETouchableView.m in Sources */,
@@ -1644,12 +1782,15 @@
 				3D1964271B13305200766CFC /* FaceBookAuthAgent.m in Sources */,
 				3DD9BD0D1B14BE1C00A2F296 /* CalendarUtilities.m in Sources */,
 				3DD9BD261B14C39000A2F296 /* CalendarEventServices.m in Sources */,
+				3D221F7E1B4BB0DC00CF79E4 /* ScoreType.m in Sources */,
 				3DF9936F1B256999006EBC39 /* PushManager.m in Sources */,
+				3D221F761B4BACAC00CF79E4 /* RoundData.m in Sources */,
 				3DCA44D71B26CB3400B66BD2 /* FoodBeverage.m in Sources */,
 				3D613B6B1B42878A00F7DEDA /* EventAdmin.m in Sources */,
 				3D16D0841B1C3FFB00A582A3 /* SharedManager.m in Sources */,
 				3DA7CB851B2AF0C800B5BAFF /* Order.m in Sources */,
 				3D1963F81B0E1F0500766CFC /* WeatherViewCell.m in Sources */,
+				3DD47A611B4A6040005DE325 /* SubCourse.m in Sources */,
 				3DCA44DF1B2709BF00B66BD2 /* FoodBeverageServices.m in Sources */,
 				3DD3CA401B297AD300767BCF /* UtilityServices.m in Sources */,
 				3D1963EA1B0E1B5200766CFC /* ClubHouseContainerVC.m in Sources */,
@@ -1660,6 +1801,7 @@
 				8890E4D31B307A5500A11BBF /* ContactCell.m in Sources */,
 				3DCA44D21B26CB3400B66BD2 /* StaffMember.m in Sources */,
 				3D87D82B1B15A0880046BD60 /* EventDetailViewController.m in Sources */,
+				3DD47A661B4A608C005DE325 /* Hole.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1784,7 +1926,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "c20bdf75-6e49-436f-8613-b4f03cc1ca1c";
+				PROVISIONING_PROFILE = "056a25a8-8143-4e01-8725-cc611f439ed6";
 			};
 			name = Debug;
 		};

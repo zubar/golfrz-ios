@@ -15,6 +15,8 @@
 #import "User.h"
 #import "Menu.h"
 #import "Cart.h"
+#import "SubCourse.h"
+#import "RoundData.h"
 
 @implementation APIClient
 
@@ -44,13 +46,12 @@
              kCourseDetail : [Course class],
              kCalenderEventsList : [EventList class],
              @"users/*" : [User class],
-             //@"menus/get_menu_list" : [Menu class],
              kFoodAndBeverage : [Menu class],
-             kViewCart : [Cart class]
-
+             kViewCart : [Cart class],
+             kRoundInSubCourse : [RoundData class]
+             
              };
     
 }
-
                       
 @end

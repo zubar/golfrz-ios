@@ -24,9 +24,8 @@ static NSString * const kAppPreviewImage = @"http://a5.mzstatic.com/us/r30/Purpl
 static NSString * const kBaseImageUrl = @"";//@"https://powerful-plains-9156.herokuapp.com";
 //static NSString * const kBaseImageUrl = @"https://golfrz-api.herokuapp.com";
 
-//static NSString * const kBaseURL = @"http://45.56.104.68/api/0.1/";
-static NSString * const kBaseURL = @"https://powerful-plains-9156.herokuapp.com/api/0.1/";
-
+static NSString * const kBaseURL = @"http://45.56.104.68/api/0.1/";
+//static NSString * const kBaseURL = @"https://powerful-plains-9156.herokuapp.com/api/0.1/";
 
 
 /*
@@ -79,6 +78,12 @@ static NSString * const kAddItemToCart = @"menus/add_to_cart";
 static NSString * const kRemoveFromCart = @"menus/remove_from_cart";
 static NSString * const kViewCart = @"menus/view_user_cart";
 static NSString * const kConfirmCartOrder = @"menus/place_order";
+
+/*
+ *  Rounds
+ */
+// API lists down the available subcourses, holes & rounds.
+static NSString * const kRoundInSubCourse = @"rounds/fetch_rounds_dropdowns";
 
 
 /*
