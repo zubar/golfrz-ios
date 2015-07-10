@@ -2175,7 +2175,7 @@
                                                                                 <constraint firstAttribute="height" constant="26" id="GGQ-nW-yvd"/>
                                                                                 <constraint firstAttribute="width" constant="26" id="LJ2-ou-0eZ"/>
                                                                             </constraints>
-                                                                            <state key="normal" image="4ECD45C5-CFFC-4BC3-A602-4E1E590128EC">
+                                                                            <state key="normal" image="6B15CC25-1DC3-4443-940C-9A64B850CEAF">
                                                                                 <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                                             </state>
@@ -3100,7 +3100,7 @@
         <!--Add Players Invited Controller-->
         <scene sceneID="vLa-H7-oT3">
             <objects>
-                <viewController id="UYE-A6-w1Y" customClass="AddPlayersInvitedController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddPlayersInvitedController" id="UYE-A6-w1Y" customClass="AddPlayersInvitedController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YJN-7J-7UM"/>
                         <viewControllerLayoutGuide type="bottom" id="IFX-II-CGH"/>
@@ -3560,7 +3560,7 @@
         <!--Add Players View Controller-->
         <scene sceneID="PLh-AM-dtL">
             <objects>
-                <viewController id="zuE-7n-fgx" customClass="AddPlayersViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddPlayersViewController" id="zuE-7n-fgx" customClass="AddPlayersViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4be-03-UYy"/>
                         <viewControllerLayoutGuide type="bottom" id="abR-6I-WSV"/>
@@ -5554,7 +5554,7 @@
                                                                                 <constraint firstAttribute="height" constant="26" id="OaE-ph-eo5"/>
                                                                                 <constraint firstAttribute="width" constant="26" id="S5w-xw-4Ro"/>
                                                                             </constraints>
-                                                                            <state key="normal" image="957FC503-0D7A-4639-8BAC-6F1681BB6478">
+                                                                            <state key="normal" image="0CD46A44-AAA9-42C9-9348-8FFD8A70DA34">
                                                                                 <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                                             </state>
@@ -6140,7 +6140,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="4ECD45C5-CFFC-4BC3-A602-4E1E590128EC" width="24" height="25">
+        <image name="0CD46A44-AAA9-42C9-9348-8FFD8A70DA34" width="24" height="25">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -6231,7 +6231,7 @@ ExMWExsTKhMuEzUTPRNKE08TURNTE1gTYBNjE2gTcBNzE4UTiBONAAAAAAAAAgEAAAAAAAAAQgAAAAAA
 AAAAAAAAAAAAE48
 </mutableData>
         </image>
-        <image name="957FC503-0D7A-4639-8BAC-6F1681BB6478" width="24" height="25">
+        <image name="6B15CC25-1DC3-4443-940C-9A64B850CEAF" width="24" height="25">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
