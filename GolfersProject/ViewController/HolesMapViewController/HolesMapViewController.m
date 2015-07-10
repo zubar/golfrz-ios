@@ -56,4 +56,6 @@
 }
 */
 
+- (IBAction)btnNextHolesTapped:(UIButton *)sender {
+}
 @end

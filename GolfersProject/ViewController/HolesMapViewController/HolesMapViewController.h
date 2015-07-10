@@ -10,6 +10,9 @@
 
 @interface HolesMapViewController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate>
 
+- (IBAction)btnNextHolesTapped:(UIButton *)sender;
 
+@property (strong, nonatomic) IBOutlet UIButton *btnNextHoles;
+@property (strong, nonatomic) IBOutlet UICollectionView *holeCollectionView;
 
 @end

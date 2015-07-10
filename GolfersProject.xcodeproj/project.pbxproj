@@ -159,6 +159,8 @@
 		88C4EDB21B4A6E8300519D3B /* HolesMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88C4EDB11B4A6E8300519D3B /* HolesMapViewController.m */; };
 		88C4EDB61B4A723100519D3B /* HoleMapCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88C4EDB51B4A723100519D3B /* HoleMapCell.m */; };
 		88D813AD1B17640E00FD7D0E /* PlayerSettingsMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D813AC1B17640E00FD7D0E /* PlayerSettingsMainViewController.m */; };
+		88EBBAE21B4D101500AA6688 /* TeeTimesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88EBBAE11B4D101500AA6688 /* TeeTimesViewController.m */; };
+		88EBBAE61B4D108400AA6688 /* TeeTimeBookingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88EBBAE51B4D108400AA6688 /* TeeTimeBookingCell.m */; };
 		88FBCCB71B19A572005FD528 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 88FBCCB61B19A572005FD528 /* User.m */; };
 		A921244B1B36DB1E00917649 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A921244A1B36DB1E00917649 /* MessageUI.framework */; };
 /* End PBXBuildFile section */
@@ -449,6 +451,10 @@
 		88C4EDB51B4A723100519D3B /* HoleMapCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoleMapCell.m; sourceTree = "<group>"; };
 		88D813AB1B17640E00FD7D0E /* PlayerSettingsMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerSettingsMainViewController.h; sourceTree = "<group>"; };
 		88D813AC1B17640E00FD7D0E /* PlayerSettingsMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerSettingsMainViewController.m; sourceTree = "<group>"; };
+		88EBBAE01B4D101500AA6688 /* TeeTimesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeeTimesViewController.h; sourceTree = "<group>"; };
+		88EBBAE11B4D101500AA6688 /* TeeTimesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeeTimesViewController.m; sourceTree = "<group>"; };
+		88EBBAE41B4D108400AA6688 /* TeeTimeBookingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeeTimeBookingCell.h; sourceTree = "<group>"; };
+		88EBBAE51B4D108400AA6688 /* TeeTimeBookingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeeTimeBookingCell.m; sourceTree = "<group>"; };
 		88FBCCB51B19A572005FD528 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		88FBCCB61B19A572005FD528 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		A921244A1B36DB1E00917649 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -1300,6 +1306,7 @@
 		885CB04F1B09BADE00AD2A7B /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				88EBBADF1B4D0FEC00AA6688 /* TeeTimesViewController */,
 				88C4EDAF1B4A6E6700519D3B /* HolesMapViewController */,
 				88573E2B1B4693A40060929C /* RoundInviteSendViewController */,
 				88573E231B45510C0060929C /* RoundInviteViewController */,
@@ -1476,6 +1483,7 @@
 		889872C71B13237F00D3C0E9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				88EBBAE31B4D106600AA6688 /* TeeTimeBookingCell */,
 				88C4EDB31B4A721100519D3B /* HoleMapCell */,
 				88573E271B4551740060929C /* RoundInviteCell */,
 				88573E1B1B4528040060929C /* RoundPlayerCell */,
@@ -1562,6 +1570,24 @@
 				88D813AC1B17640E00FD7D0E /* PlayerSettingsMainViewController.m */,
 			);
 			path = PlayerSettingsViewController;
+			sourceTree = "<group>";
+		};
+		88EBBADF1B4D0FEC00AA6688 /* TeeTimesViewController */ = {
+			isa = PBXGroup;
+			children = (
+				88EBBAE01B4D101500AA6688 /* TeeTimesViewController.h */,
+				88EBBAE11B4D101500AA6688 /* TeeTimesViewController.m */,
+			);
+			path = TeeTimesViewController;
+			sourceTree = "<group>";
+		};
+		88EBBAE31B4D106600AA6688 /* TeeTimeBookingCell */ = {
+			isa = PBXGroup;
+			children = (
+				88EBBAE41B4D108400AA6688 /* TeeTimeBookingCell.h */,
+				88EBBAE51B4D108400AA6688 /* TeeTimeBookingCell.m */,
+			);
+			path = TeeTimeBookingCell;
 			sourceTree = "<group>";
 		};
 		C91B48159ABC56B52D213A0C /* Frameworks */ = {
@@ -1789,11 +1815,13 @@
 				3DCA44D11B26CB3400B66BD2 /* Department.m in Sources */,
 				3DD47A731B4A82F5005DE325 /* SubCourseServices.m in Sources */,
 				3D87D8441B1852120046BD60 /* UIColor+expanded.m in Sources */,
+				88EBBAE61B4D108400AA6688 /* TeeTimeBookingCell.m in Sources */,
 				88573E1E1B4528280060929C /* RoundPlayerCell.m in Sources */,
 				88855DD21B256F5A00E164D6 /* FoodBeveragesMainViewController.m in Sources */,
 				88B23C1C1B16E69D00988908 /* CourseDepartmentCell.m in Sources */,
 				3DD47A691B4A6099005DE325 /* Teebox.m in Sources */,
 				885CB06A1B09BADE00AD2A7B /* SignInViewController.m in Sources */,
+				88EBBAE21B4D101500AA6688 /* TeeTimesViewController.m in Sources */,
 				3D19641D1B130E3B00766CFC /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				3D1C8E761B3BFDBE004AAD30 /* WETouchableView.m in Sources */,
 				3D87D8281B159FE00046BD60 /* EventCalendarViewController.m in Sources */,
