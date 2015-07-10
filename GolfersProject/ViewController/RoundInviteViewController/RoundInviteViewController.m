@@ -25,10 +25,7 @@
     // Do any additional setup after loading the view.
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+#pragma mark - UITableViewDataSource
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return [self.inviteNames count];
@@ -45,9 +42,18 @@
     customViewCell.lblInviteName.text = [self.inviteNames objectAtIndex:indexPath.row];
     [customViewCell.imgInviteImage setImage:[UIImage imageNamed:self.inviteArrayImages[indexPath.row]]];
     customViewCell.imgInviteImage.contentMode = UIViewContentModeScaleAspectFill;
+    [customViewCell setSelectionStyle:UITableViewCellSelectionStyleNone];
     return customViewCell;
 }
 
+#pragma mark - UITableViewDelegate
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+
+}
 
 /*
 #pragma mark - Navigation
@@ -58,5 +64,14 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+
+
+#pragma mark - MemoryManagement
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
 
 @end

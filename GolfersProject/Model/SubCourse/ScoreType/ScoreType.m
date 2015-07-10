@@ -12,8 +12,8 @@
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
     return @{
-             @"scoreTypeId" : @"id",
-             @"scoreType" : @"score_type",
+             @"itemId" : @"id",
+             @"name" : @"score_type",
              //propertyName : json_key
              };
 }

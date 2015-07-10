@@ -12,7 +12,7 @@
 
 @interface SubCourse : MTLModel<MTLJSONSerializing>
 
-@property (nonatomic, copy, readonly) NSNumber * subCourseId;
+@property (nonatomic, copy, readonly) NSNumber * itemId;
 @property (nonatomic, copy, readonly) NSString * name;
 @property (nonatomic, copy, readonly) NSArray * holes;
 

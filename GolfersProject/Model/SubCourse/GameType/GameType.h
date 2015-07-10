@@ -11,7 +11,7 @@
 
 @interface GameType : MTLModel<MTLJSONSerializing>
 
-@property (nonatomic, copy, readonly) NSNumber * gameTypeId;
+@property (nonatomic, copy, readonly) NSNumber * itemId;
 @property (nonatomic, copy, readonly) NSString * name;
 
 @end

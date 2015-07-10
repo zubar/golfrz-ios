@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
-@interface RoundInviteViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>
+@interface RoundInviteViewController : BaseViewController<UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>
 
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 

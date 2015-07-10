@@ -84,6 +84,7 @@ static NSString * const kConfirmCartOrder = @"menus/place_order";
  */
 // API lists down the available subcourses, holes & rounds.
 static NSString * const kRoundInSubCourse = @"rounds/fetch_rounds_dropdowns";
+static NSString * const kRoundNew = @"/rounds/new";
 
 
 /*
