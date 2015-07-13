@@ -15,6 +15,8 @@
 #import "APContact+convenience.h"
 #import "InvitationServices.h"
 
+#import "RoundViewController.h"
+#import "AppDelegate.h"
 
 //TODO: Create a class invitationManager which handles:
 /*
@@ -151,6 +153,13 @@
 
 //TODO: Improve -(void)sendInvitations and method below it.
 -(void)sendInvitations{
+    //TODO: Remove after testing.
+    
+    RoundViewController * controller = [self.storyboard instantiateViewControllerWithIdentifier:@"RoundViewController"];
+    AppDelegate * appDelegate = [[UIApplication sharedApplication] delegate];
+    [appDelegate.appDelegateNavController pushViewController:controller animated:YES];
+    return;
+    
     
     switch (self.currentFriendContactType) {
         case FriendContactTypeAddressbookSMS:

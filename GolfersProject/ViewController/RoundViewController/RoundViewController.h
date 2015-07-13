@@ -10,13 +10,13 @@
 #import "PlayerScoreView.h"
 #import <CMPopTipView/CMPopTipView.h>
 #import "ScoreSelectionView.h"
+#import "PlayerScoreCell.h"
 
-
-@interface RoundViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, PlayerScoreViewDelegate,      CMPopTipViewDelegate, ScoreSelectionDataSource, ScoreSelectionDelegate>
+@interface RoundViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, PlayerScoreViewDelegate, CMPopTipViewDelegate, ScoreSelectionDataSource, ScoreSelectionDelegate, PlayerScoreCellDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *scoreTable;
 
-@property (strong, nonatomic) IBOutlet UIView *distanceView;
+
 @property (strong, nonatomic) IBOutlet UILabel *lblForward;
 @property (strong, nonatomic) IBOutlet UILabel *lblMiddle;
 @property (strong, nonatomic) IBOutlet UILabel *lblBack;
@@ -35,5 +35,6 @@
 - (IBAction)btnNextHoleTapped:(UIButton *)sender;
 - (IBAction)btnPreviousHoleTapped:(UIButton *)sender;
 @property (strong, nonatomic) IBOutlet UIImageView *imgDarkerBg;
+@property (strong, nonatomic) IBOutlet UIView *distanceView;
 
 @end

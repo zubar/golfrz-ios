@@ -52,6 +52,7 @@
                                         };
     
     [self.imgDarkerBg setHidden:YES];
+    isScoreTableDescended = FALSE;
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -73,6 +74,23 @@
     // Dispose of any resources that can be recreated.
 }
 
+//-(void)dropShotMarkerType:(NSString *)shotTypeENUM{
+//    
+//    CGRect initialFrame = nil;
+//   
+//    
+//    CGRect finalFrame = nil;
+//    
+//    UIImageView * markerImage = nil;
+//    [markerImage setFrame:initialFrame];
+//    
+//    
+//    [UIView animateWithDuration:1.0 animations:^{
+//        [markerImage setFrame:finalFrame];
+//    } completion:^(BOOL finished) {
+//        
+//    }];
+//}
 
 #pragma mark - UITableViewDataSource
 
@@ -91,6 +109,7 @@
     }
     
     PlayerScoreCell *customCell = (PlayerScoreCell *)cell;
+    customCell.delegate = self;
     customCell.lblPlayerName.text = [self.playersInRound objectAtIndex:indexPath.row];
     [customCell setSelectionStyle:UITableViewCellSelectionStyleNone];
     
@@ -130,12 +149,19 @@
     if (isScoreTableDescended) {
         [self descendTableViewWithAnimation:YES completion:^{
             isScoreTableDescended = FALSE;
+            [self showDistanceView:isScoreTableDescended];
         }];
     }else{
         [self ascendTableViewWithAnimation:YES completion:^{
             isScoreTableDescended = TRUE;
+            [self showDistanceView:isScoreTableDescended];
         }];
     }
+}
+
+-(void)showDistanceView:(BOOL)yesNo{
+    //bool visibleStatus = !yesNo;
+    [self.distanceView setHidden:!(yesNo)];
 }
 
 -(void)editScoreTappedForPlayer:(id)sender Player:(id)player{
