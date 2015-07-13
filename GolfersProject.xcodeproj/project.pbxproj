@@ -68,6 +68,10 @@
 		3D221F871B4BE35B00CF79E4 /* DropdownCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D221F851B4BE35B00CF79E4 /* DropdownCell.xib */; };
 		3D221F8C1B4BEB4600CF79E4 /* DropdownView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D221F8A1B4BEB4600CF79E4 /* DropdownView.m */; };
 		3D221F8D1B4BEB4600CF79E4 /* DropdownView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D221F8B1B4BEB4600CF79E4 /* DropdownView.xib */; };
+		3D221F901B5254CB00CF79E4 /* InvitationServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D221F8F1B5254CB00CF79E4 /* InvitationServices.m */; };
+		3D221F941B52797300CF79E4 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D221F931B52797300CF79E4 /* User.m */; };
+		3D221F971B5279AC00CF79E4 /* User+convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D221F961B5279AC00CF79E4 /* User+convenience.m */; };
+		3D221FA31B52C05B00CF79E4 /* PersistentServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D221FA21B52C05B00CF79E4 /* PersistentServices.m */; };
 		3D5CA5D61B1F332B00CB6ED7 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D5CA5D51B1F332B00CB6ED7 /* BaseViewController.m */; };
 		3D5CA5D81B20572E00CB6ED7 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D5CA5D71B20572E00CB6ED7 /* SystemConfiguration.framework */; };
 		3D613B631B416F1F00F7DEDA /* CalendarEventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D613B601B416F1F00F7DEDA /* CalendarEventCell.m */; };
@@ -136,7 +140,7 @@
 		88573E221B45291B0060929C /* AddPlayersInvitedController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88573E211B45291B0060929C /* AddPlayersInvitedController.m */; };
 		88573E261B4551290060929C /* RoundInviteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88573E251B4551290060929C /* RoundInviteViewController.m */; };
 		88573E2A1B4551900060929C /* RoundInviteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88573E291B4551900060929C /* RoundInviteCell.m */; };
-		88573E2E1B4693C50060929C /* RoundInviteSendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88573E2D1B4693C50060929C /* RoundInviteSendViewController.m */; };
+		88573E2E1B4693C50060929C /* RoundInviteFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88573E2D1B4693C50060929C /* RoundInviteFriendViewController.m */; };
 		885CB0441B09BA9D00AD2A7B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 885CB0251B09BA9D00AD2A7B /* AppDelegate.m */; };
 		885CB0681B09BADE00AD2A7B /* InitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 885CB05B1B09BADE00AD2A7B /* InitialViewController.m */; };
 		885CB06A1B09BADE00AD2A7B /* SignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 885CB0611B09BADE00AD2A7B /* SignInViewController.m */; };
@@ -161,7 +165,6 @@
 		88D813AD1B17640E00FD7D0E /* PlayerSettingsMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D813AC1B17640E00FD7D0E /* PlayerSettingsMainViewController.m */; };
 		88EBBAE21B4D101500AA6688 /* TeeTimesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88EBBAE11B4D101500AA6688 /* TeeTimesViewController.m */; };
 		88EBBAE61B4D108400AA6688 /* TeeTimeBookingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88EBBAE51B4D108400AA6688 /* TeeTimeBookingCell.m */; };
-		88FBCCB71B19A572005FD528 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 88FBCCB61B19A572005FD528 /* User.m */; };
 		A921244B1B36DB1E00917649 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A921244A1B36DB1E00917649 /* MessageUI.framework */; };
 /* End PBXBuildFile section */
 
@@ -269,6 +272,14 @@
 		3D221F891B4BEB4600CF79E4 /* DropdownView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropdownView.h; sourceTree = "<group>"; };
 		3D221F8A1B4BEB4600CF79E4 /* DropdownView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropdownView.m; sourceTree = "<group>"; };
 		3D221F8B1B4BEB4600CF79E4 /* DropdownView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DropdownView.xib; sourceTree = "<group>"; };
+		3D221F8E1B5254CB00CF79E4 /* InvitationServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvitationServices.h; sourceTree = "<group>"; };
+		3D221F8F1B5254CB00CF79E4 /* InvitationServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvitationServices.m; sourceTree = "<group>"; };
+		3D221F921B52797300CF79E4 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		3D221F931B52797300CF79E4 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		3D221F951B5279AC00CF79E4 /* User+convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "User+convenience.h"; sourceTree = "<group>"; };
+		3D221F961B5279AC00CF79E4 /* User+convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "User+convenience.m"; sourceTree = "<group>"; };
+		3D221FA11B52C05B00CF79E4 /* PersistentServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersistentServices.h; sourceTree = "<group>"; };
+		3D221FA21B52C05B00CF79E4 /* PersistentServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersistentServices.m; sourceTree = "<group>"; };
 		3D5CA5D41B1F332B00CB6ED7 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		3D5CA5D51B1F332B00CB6ED7 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		3D5CA5D71B20572E00CB6ED7 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -404,8 +415,8 @@
 		88573E251B4551290060929C /* RoundInviteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundInviteViewController.m; sourceTree = "<group>"; };
 		88573E281B4551900060929C /* RoundInviteCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundInviteCell.h; sourceTree = "<group>"; };
 		88573E291B4551900060929C /* RoundInviteCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundInviteCell.m; sourceTree = "<group>"; };
-		88573E2C1B4693C40060929C /* RoundInviteSendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundInviteSendViewController.h; sourceTree = "<group>"; };
-		88573E2D1B4693C50060929C /* RoundInviteSendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundInviteSendViewController.m; sourceTree = "<group>"; };
+		88573E2C1B4693C40060929C /* RoundInviteFriendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundInviteFriendViewController.h; sourceTree = "<group>"; };
+		88573E2D1B4693C50060929C /* RoundInviteFriendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundInviteFriendViewController.m; sourceTree = "<group>"; };
 		885CB0241B09BA9D00AD2A7B /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		885CB0251B09BA9D00AD2A7B /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		885CB05A1B09BADE00AD2A7B /* InitialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitialViewController.h; sourceTree = "<group>"; };
@@ -455,8 +466,6 @@
 		88EBBAE11B4D101500AA6688 /* TeeTimesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeeTimesViewController.m; sourceTree = "<group>"; };
 		88EBBAE41B4D108400AA6688 /* TeeTimeBookingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeeTimeBookingCell.h; sourceTree = "<group>"; };
 		88EBBAE51B4D108400AA6688 /* TeeTimeBookingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeeTimeBookingCell.m; sourceTree = "<group>"; };
-		88FBCCB51B19A572005FD528 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		88FBCCB61B19A572005FD528 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		A921244A1B36DB1E00917649 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		D817BE50C16025D4FB4E4951 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		E15946F021CC95FC21355D7C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -764,6 +773,26 @@
 				3D221F8B1B4BEB4600CF79E4 /* DropdownView.xib */,
 			);
 			path = DropdownView;
+			sourceTree = "<group>";
+		};
+		3D221F911B52797300CF79E4 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				3D221F951B5279AC00CF79E4 /* User+convenience.h */,
+				3D221F961B5279AC00CF79E4 /* User+convenience.m */,
+				3D221F921B52797300CF79E4 /* User.h */,
+				3D221F931B52797300CF79E4 /* User.m */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		3D221FA01B52C03700CF79E4 /* PersistentServices */ = {
+			isa = PBXGroup;
+			children = (
+				3D221FA11B52C05B00CF79E4 /* PersistentServices.h */,
+				3D221FA21B52C05B00CF79E4 /* PersistentServices.m */,
+			);
+			path = PersistentServices;
 			sourceTree = "<group>";
 		};
 		3D5CA5D31B1F332B00CB6ED7 /* BaseViewController */ = {
@@ -1078,6 +1107,8 @@
 		3DD47A6E1B4A81C3005DE325 /* InvitationServices */ = {
 			isa = PBXGroup;
 			children = (
+				3D221F8E1B5254CB00CF79E4 /* InvitationServices.h */,
+				3D221F8F1B5254CB00CF79E4 /* InvitationServices.m */,
 			);
 			path = InvitationServices;
 			sourceTree = "<group>";
@@ -1288,8 +1319,8 @@
 		88573E2B1B4693A40060929C /* RoundInviteSendViewController */ = {
 			isa = PBXGroup;
 			children = (
-				88573E2C1B4693C40060929C /* RoundInviteSendViewController.h */,
-				88573E2D1B4693C50060929C /* RoundInviteSendViewController.m */,
+				88573E2C1B4693C40060929C /* RoundInviteFriendViewController.h */,
+				88573E2D1B4693C50060929C /* RoundInviteFriendViewController.m */,
 			);
 			path = RoundInviteSendViewController;
 			sourceTree = "<group>";
@@ -1378,6 +1409,7 @@
 		885CB06F1B09F91700AD2A7B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3D221F911B52797300CF79E4 /* User */,
 				3DD47A5E1B4A6040005DE325 /* SubCourse */,
 				3DD47A581B4A5FA7005DE325 /* Invitation */,
 				3DD47A5A1B4A5FA7005DE325 /* Score */,
@@ -1387,8 +1419,6 @@
 				3DCA44B91B26CB3400B66BD2 /* ErrorHandling */,
 				3DCA44BE1B26CB3400B66BD2 /* FoodMenu */,
 				3DCA44C71B26CB3400B66BD2 /* WeatherModel */,
-				88FBCCB51B19A572005FD528 /* User.h */,
-				88FBCCB61B19A572005FD528 /* User.m */,
 				3D1963C81B0DBC2600766CFC /* WeatherModel */,
 			);
 			path = Model;
@@ -1397,6 +1427,7 @@
 		885CB07C1B0A121300AD2A7B /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				3D221FA01B52C03700CF79E4 /* PersistentServices */,
 				3DD47A6E1B4A81C3005DE325 /* InvitationServices */,
 				3DD47A6F1B4A81C3005DE325 /* RoundServices */,
 				3DD47A701B4A81C3005DE325 /* SubCourseServices */,
@@ -1753,6 +1784,7 @@
 				3DCA44D41B26CB3400B66BD2 /* GolfrzError.m in Sources */,
 				3D1963FA1B0E21B100766CFC /* main.m in Sources */,
 				3DCA44D01B26CB3400B66BD2 /* Course.m in Sources */,
+				3D221F901B5254CB00CF79E4 /* InvitationServices.m in Sources */,
 				3DCA44CF1B26CB3400B66BD2 /* Coordinate.m in Sources */,
 				3D87D8431B1852120046BD60 /* NSMutableArray+convenience.m in Sources */,
 				887C51311B21C9E300C778D7 /* UIImageView+RoundedImage.m in Sources */,
@@ -1800,6 +1832,7 @@
 				88C4EDB61B4A723100519D3B /* HoleMapCell.m in Sources */,
 				8873AA761B18C5F500E74C87 /* EventAdminViewController.m in Sources */,
 				3D1963BD1B0CE05700766CFC /* UserServices.m in Sources */,
+				3D221FA31B52C05B00CF79E4 /* PersistentServices.m in Sources */,
 				3DA7CB881B2B13FC00B5BAFF /* Cart.m in Sources */,
 				3DD9BD0F1B14BE1C00A2F296 /* THCalendarInfo.m in Sources */,
 				88573E1A1B441E300060929C /* AddPlayersViewController.m in Sources */,
@@ -1809,7 +1842,6 @@
 				3DCA44CD1B26CB3400B66BD2 /* EventList.m in Sources */,
 				885CB0801B0A128100AD2A7B /* AuthenticationService.m in Sources */,
 				88A48F011B2B0167006CEC42 /* FoodBevItemCell.m in Sources */,
-				88FBCCB71B19A572005FD528 /* User.m in Sources */,
 				3DA70A401B3981AB00D3ABEC /* BBBadgeBarButtonItem.m in Sources */,
 				886B9ED41B0B95900078B09D /* ForgotPasswordViewController.m in Sources */,
 				3DCA44D11B26CB3400B66BD2 /* Department.m in Sources */,
@@ -1823,6 +1855,7 @@
 				885CB06A1B09BADE00AD2A7B /* SignInViewController.m in Sources */,
 				88EBBAE21B4D101500AA6688 /* TeeTimesViewController.m in Sources */,
 				3D19641D1B130E3B00766CFC /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
+				3D221F941B52797300CF79E4 /* User.m in Sources */,
 				3D1C8E761B3BFDBE004AAD30 /* WETouchableView.m in Sources */,
 				3D87D8281B159FE00046BD60 /* EventCalendarViewController.m in Sources */,
 				3D1C8E741B3BFDBE004AAD30 /* WEPopoverContainerView.m in Sources */,
@@ -1841,8 +1874,9 @@
 				3DA70A3D1B3972B900D3ABEC /* UIButton+Badge.m in Sources */,
 				3DF993721B256A4A006EBC39 /* AppDelegate+Push.m in Sources */,
 				3DCA44D31B26CB3400B66BD2 /* StaffType.m in Sources */,
+				3D221F971B5279AC00CF79E4 /* User+convenience.m in Sources */,
 				3D613B631B416F1F00F7DEDA /* CalendarEventCell.m in Sources */,
-				88573E2E1B4693C50060929C /* RoundInviteSendViewController.m in Sources */,
+				88573E2E1B4693C50060929C /* RoundInviteFriendViewController.m in Sources */,
 				3D1964271B13305200766CFC /* FaceBookAuthAgent.m in Sources */,
 				3DD9BD0D1B14BE1C00A2F296 /* CalendarUtilities.m in Sources */,
 				3DD9BD261B14C39000A2F296 /* CalendarEventServices.m in Sources */,

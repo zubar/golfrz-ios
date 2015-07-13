@@ -53,6 +53,88 @@
     
 }
 
++(void)startNewRoundWithOptions:(NSDictionary *)roundOptions
+                        success:(void (^)(bool status, id roundId))successBlock
+                        failure:(void (^)(bool status, NSError * error))failureBlock{
+    
+    
+    AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
+    
+    [apiClient POST:kRoundStart parameters:[RoundDataServices paramsCreateNewCourse:roundOptions] success:^(NSURLSessionDataTask *task, id responseObject) {
+            successBlock(true, responseObject);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        failureBlock(false, error);
+    }];
+    
+}
+
++(void)finishRoundWithBlock:(void(^)(bool status, id response))successBlock
+                    failure:(void(^)(bool status, NSError * error))failureBlock{
+    
+    NSString * urlString = [NSString stringWithFormat:@"%@%@", kBaseURL, kRoundFinish];
+    
+    [UtilityServices postData:[RoundDataServices paramsFinishRound]
+                        toURL:urlString
+                      success:^(bool status, NSDictionary *userInfo){
+        successBlock(status, userInfo);
+    } failure:^(bool status, NSError *error) {
+        failureBlock(status, error);
+    }];
+
+}
+
++(void)addGuestWithEmail:(NSString *)email
+               firstName:(NSString *)fName
+                lastName:(NSString *)lName
+                success:(void(^)(bool status, NSDictionary * response))successBlock
+                failure:(void(^)(bool status, NSError * error))failureBlock{
+                
+    AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
+                    
+    [apiClient POST:kRoundAddGuest parameters:[RoundDataServices paramAddGuestToRoundEmail:email firstName:fName lastName:lName] success:^(NSURLSessionDataTask *task, id responseObject) {
+            successBlock(true, responseObject);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+            failureBlock(false, error);
+    }];
+                    
+}
+                                
+                                
+
+#pragma mark - HelperMethods
+
++(NSDictionary *)paramAddGuestToRoundEmail:(NSString *)email firstName:(NSString *)firstName lastName:(NSString *)lastName{
+    return @{
+             @"auth_token" : [UserServices currentToken],
+             @"round_id" : [NSNumber numberWithInt:35], //TODO:
+             @"email" : email,
+             @"first_name" : firstName,
+             @"last_name" : lastName,
+             };
+    
+}
++(NSDictionary *)paramsFinishRound{
+    
+    return @{
+             @"app_bundle_id" : kAppBundleId,
+             @"user_agent" : kUserAgent,
+             @"auth_token" : [UserServices currentToken],
+             @"round_id" : [NSNumber numberWithInt:35], //TODO:
+             @"sub_course_id" : [NSNumber numberWithInt:45],
+             };
+}
+
++(NSDictionary *)paramsStartRound{
+
+    return @{
+             @"app_bundle_id" : kAppBundleId,
+             @"user_agent" : kUserAgent,
+             @"auth_token" : [UserServices currentToken],
+             @"sub_course_id" : [use]
+             };
+    
+}
+
 +(NSDictionary *)paramsCreateNewCourse:(NSDictionary *)dict{
     
     return @{

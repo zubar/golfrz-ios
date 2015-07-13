@@ -8,6 +8,8 @@
 
 #import "RoundInviteViewController.h"
 #import "RoundInviteCell.h"
+#import "RoundInviteFriendViewController.h"
+#import "AppDelegate.h"
 
 @interface RoundInviteViewController ()
 
@@ -42,7 +44,7 @@
     customViewCell.lblInviteName.text = [self.inviteNames objectAtIndex:indexPath.row];
     [customViewCell.imgInviteImage setImage:[UIImage imageNamed:self.inviteArrayImages[indexPath.row]]];
     customViewCell.imgInviteImage.contentMode = UIViewContentModeScaleAspectFill;
-    [customViewCell setSelectionStyle:UITableViewCellSelectionStyleNone];
+    //[customViewCell setSelectionStyle:UITableViewCellSelectionStyleNone];
     return customViewCell;
 }
 
@@ -50,9 +52,27 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    RoundInviteCell * cell = (RoundInviteCell *)[tableView cellForRowAtIndexPath:indexPath];
+    
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
+    RoundInviteFriendViewController * controller = [self.storyboard instantiateViewControllerWithIdentifier:@"RoundInviteFriendViewController"];
+    
+    if ([[cell.lblInviteName text] isEqualToString:@"IN-APP FRIENDS"]) {
+        controller.currentFriendContactType = FriendContactTypeInAppUser;
+    }else
+        if ([[cell.lblInviteName text] isEqualToString:@"FACEBOOK"]) {
+        controller.currentFriendContactType = FriendContactTypeFacebookEmail;
+    }else
+        if ([[cell.lblInviteName text] isEqualToString:@"SMS"]) {
+        controller.currentFriendContactType = FriendContactTypeAddressbookSMS;
+    }else
+        if ([[cell.lblInviteName text] isEqualToString:@"EMAIL"]) {
+        controller.currentFriendContactType = FriendContactTypeAddressbookEmail;
+    }
 
+    AppDelegate * appdelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    [appdelegate.appDelegateNavController pushViewController:controller animated:YES];
 }
 
 /*
