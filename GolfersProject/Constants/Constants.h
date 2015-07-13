@@ -95,6 +95,13 @@ static NSString * const kRoundFinish = @"rounds/finish";
 static NSString * const kRoundAddGuest = @"rounds/create_guest";
 
 
+/*
+ * Adding Scores/Shots
+ */
+static NSString * const kAddDirectScore = @"shots/direct_score";
+
+
+
 
 /*
  * Round Invitation

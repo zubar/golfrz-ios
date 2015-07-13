@@ -101,7 +101,7 @@
     }];
                     
 }
-                                
+
 +(void)addShotRoundId:(NSNumber *)round
                 holeId:(NSNumber *)holeId
               shotType:(NSString *)shotType
@@ -154,6 +154,21 @@
     
 }
 
++(void)addDirectScore:(NSNumber *)score
+               holeId:(NSNumber *)holeId
+              success:(void(^)(bool status, NSDictionary * response))successBlock
+              failure:(void(^)(bool status, NSError * error))failureBlock{
+    
+    AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
+    
+    [apiClient POST:kAddDirectScore parameters:[RoundDataServices paramAddDirectScore:score holeId:holeId] success:^(NSURLSessionDataTask *task, id responseObject) {
+        successBlock(true, responseObject);
+    } failure:^(NSURLSessionDataTask task, NSError error) {
+        failureBlock(false, error);
+    }];
+    
+}
+
 #pragma mark - HelperMethods
 
 +(NSDictionary *)paramsDeleteShotId:(NSNumber *)shotId{
@@ -178,7 +193,9 @@
              };
 }
 
-+(NSDictionary *)paramsPlayShotHoleId:(NSNumber *)holeId roundId:(NSNumber *)round type:(NSString *)shotType{
+
++(NSDictionary *)paramAddDirectScore:(NSNumber *)score holeId:(NSNumber *)holeId{
+
     return @{
             @"app_bundle_id" : kAppBundleId,
             @"user_agent" : kUserAgent,
