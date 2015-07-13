@@ -17,6 +17,9 @@
 #import "InitialViewController.h"
 #import "AppDelegate.h"
 
+#import "UserServices.h"
+#import "ClubHouseViewController.h"
+
 @interface SplashScreenViewController ()
 
 @end
@@ -54,8 +57,19 @@
         
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         
-        InitialViewController * initController = [self.storyboard instantiateViewControllerWithIdentifier:@"InitialViewController"];
-        [delegate.appDelegateNavController pushViewController:initController animated:YES];
+        // If user has already signed in and token is available.
+        /*
+        if ([UserServices currentToken]) {
+            ClubHouseViewController * clubHouseController = [self.storyboard instantiateViewControllerWithIdentifier:@"ClubHouseViewController"];
+            [delegate.appDelegateNavController pushViewController:clubHouseController animated:YES];
+        }else
+         */
+        //TODO:
+         {
+            // push sign in controller
+            InitialViewController * initController = [self.storyboard instantiateViewControllerWithIdentifier:@"InitialViewController"];
+            [delegate.appDelegateNavController pushViewController:initController animated:YES];
+        }
     } failure:^(bool status, NSError * error) {
         // Setting theme color
         [sharedManager setThemeColor:[UIColor colorWithHexString:kDefaultThemeColor]];

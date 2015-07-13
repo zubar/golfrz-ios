@@ -102,6 +102,11 @@ static NSString * const kRoundAddGuest = @"rounds/create_guest";
 static NSString * const kGetInvitationToken = @"invitations/send_invitation";
 static NSString * const kGetInvitationDetail = @"invitations/get_invitation";
 
+
+/*
+ * Shots 
+ */
+
 /*
  *  Push notification token registeration
  */

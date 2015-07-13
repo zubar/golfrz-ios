@@ -21,7 +21,6 @@
 		3D1963F41B0E1B6900766CFC /* RewardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1963F21B0E1B6900766CFC /* RewardViewController.m */; };
 		3D1963F81B0E1F0500766CFC /* WeatherViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1963F71B0E1F0500766CFC /* WeatherViewCell.m */; };
 		3D1963FA1B0E21B100766CFC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 88024F621AD29134004AC260 /* main.m */; };
-		3D1964011B1305FC00766CFC /* PresentationServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1964001B1305FC00766CFC /* PresentationServices.m */; };
 		3D1964191B130E3B00766CFC /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D19640C1B130E3B00766CFC /* MBProgressHUD.m */; };
 		3D19641A1B130E3B00766CFC /* TPKeyboardAvoidingCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D19640F1B130E3B00766CFC /* TPKeyboardAvoidingCollectionView.m */; };
 		3D19641B1B130E3B00766CFC /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1964111B130E3B00766CFC /* TPKeyboardAvoidingScrollView.m */; };
@@ -1863,7 +1862,6 @@
 				885CB0751B09FB0100AD2A7B /* APIClient.m in Sources */,
 				3D87D8451B1852120046BD60 /* UIView+convenience.m in Sources */,
 				88573E261B4551290060929C /* RoundInviteViewController.m in Sources */,
-				3D1964011B1305FC00766CFC /* PresentationServices.m in Sources */,
 				3DC116271B3426E300E83F4F /* InviteMainViewController.m in Sources */,
 				88C4EDB21B4A6E8300519D3B /* HolesMapViewController.m in Sources */,
 				3DCA44CC1B26CB3400B66BD2 /* CalendarEvent.m in Sources */,

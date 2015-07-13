@@ -12,4 +12,15 @@
     NSMutableDictionary * dataDict;
 }
 
++(PersistentServices *)sharedServices;
+-(NSString *)currentUserToken;
+-(void)setCurrentUserToken:(NSString *)userToken;
+-(NSString *)currentUserEmail;
+-(void)setCurrentUserEmail:(NSString *)email;
+-(NSNumber *)currentRoundId;
+-(void)setCurrentRoundId:(NSNumber *)roundId;
+
+-(NSNumber *)currentSubCourseId;
+-(void)setCurrentSubCourseId:(NSNumber *)subCourseId;
+
 @end

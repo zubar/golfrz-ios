@@ -8,19 +8,35 @@
 
 #import "PersistentServices.h"
 
-
 #define fileName @"DataDict.dict"
-
-
 
 @implementation PersistentServices
 
++ (PersistentServices *)sharedServices {
+    
+    static PersistentServices *sharedInstance = nil;
+    
+    if (nil != sharedInstance) {
+        return sharedInstance;
+    }
+    
+    static dispatch_once_t pred;        // Lock
+    dispatch_once(&pred, ^{             // This code is called at most once per app
+        sharedInstance = [[PersistentServices alloc] init];
+    });
+    
+    return sharedInstance;
+}
 
 - (instancetype)init
 {
     self = [super init];
     if (self) {
-        dataDict = [[NSMutableDictionary alloc]initWithContentsOfFile:[self filePath]];
+        if ([self isFileExists]) {
+            dataDict = [[NSMutableDictionary alloc]initWithContentsOfFile:[self filePath]];
+        }else{
+            dataDict = [[NSMutableDictionary alloc] init];
+        }
     }
     return self;
 }
@@ -30,7 +46,8 @@
 }
 
 -(void)setCurrentUserToken:(NSString *)userToken{
-    [dataDict setValue:userToken forKey:@"currentUserToken"];
+    [dataDict setObject:userToken forKey:@"currentUserToken"];
+    [self writeDataToFile];
 }
 
 
@@ -39,9 +56,28 @@
 }
 
 -(void)setCurrentUserEmail:(NSString *)email{
-    [dataDict setValue:email forKey:@"currentUserEmail"];
+    [dataDict setObject:email forKey:@"currentUserEmail"];
+    [self writeDataToFile];
 }
 
+-(NSNumber *)currentRoundId{
+    return dataDict[@"currentRoundId"];
+}
+
+-(void)setCurrentRoundId:(NSNumber *)roundId{
+    [dataDict setObject:roundId forKey:@"currentRoundId"];
+    [self writeDataToFile];
+}
+
+-(NSNumber *)currentSubCourseId{
+  return dataDict[@"currentSubCourseId"];
+}
+
+-(void)setCurrentSubCourseId:(NSNumber *)subCourseId{
+    [dataDict setObject:subCourseId forKey:@"currentSubCourseId"];
+}
+
+#pragma mark - Helpers Private
 
 -(NSString *)filePath{
     return [NSString stringWithFormat:@"%@%@", [self applicationDocumentsDirectory], fileName];
@@ -59,7 +95,9 @@
 }
 
 
-
+-(BOOL)isFileExists{
+    return [[NSFileManager defaultManager] fileExistsAtPath:[self filePath]];
+}
 
 
 @end
