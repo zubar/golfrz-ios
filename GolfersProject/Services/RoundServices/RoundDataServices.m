@@ -109,9 +109,7 @@
                failure:(void(^)(bool, id))failureBlock{
     
     AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
-    [apiClient POST:kRoundAddGuest parameters:[RoundDataServices paramsPlayShotHoleId:holeId
-                                                                              roundId:round
-                                                                                 type:shotType]
+    [apiClient POST:kRoundAddGuest parameters:[RoundDataServices paramsAddShotholeId:holeId roundId:round shortType:shotType]
             success:^(NSURLSessionDataTask *task, id responseObject) {
         successBlock(true, responseObject);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
@@ -163,13 +161,25 @@
     
     [apiClient POST:kAddDirectScore parameters:[RoundDataServices paramAddDirectScore:score holeId:holeId] success:^(NSURLSessionDataTask *task, id responseObject) {
         successBlock(true, responseObject);
-    } failure:^(NSURLSessionDataTask task, NSError error) {
+    } failure:^(NSURLSessionDataTask * task, NSError * error) {
         failureBlock(false, error);
     }];
     
 }
 
 #pragma mark - HelperMethods
+
++(NSDictionary *)paramsAddShotholeId:(NSNumber *)holeId roundId:(NSNumber *)round shortType:(NSString *)type{
+    return @{
+             @"app_bundle_id" : kAppBundleId,
+             @"user_agent" : kUserAgent,
+             @"auth_token" : [UserServices currentToken],
+             @"hole_id" :    holeId,
+             @"round_id" :   round,
+             @"shot_type" :  type,
+             };
+    
+}
 
 +(NSDictionary *)paramsDeleteShotId:(NSNumber *)shotId{
     return @{
@@ -201,8 +211,7 @@
             @"user_agent" : kUserAgent,
             @"auth_token" : [UserServices currentToken],
             @"hole_id" :    holeId,
-            @"round_id" :   round,
-            @"shot_type" :  shotType,
+            @"round_id" :   [[PersistentServices sharedServices] currentRoundId],
              };
 }
 
