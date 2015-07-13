@@ -11,33 +11,31 @@
 #import <CMPopTipView/CMPopTipView.h>
 #import "DropdownView.h"
 
+#import "BaseViewController.h"
+
+typedef NS_ENUM(NSInteger, DropDownContainsItems) {
+    DropDownContainsItemsNone = 0,
+    DropDownContainsItemsSubcourses,
+    DropDownContainsItemsScoring,
+    DropDownContainsItemsGametype,
+    DropDownContainsItemsTeeboxes,
+};
 
 
-
-@interface AddPlayersViewController : UIViewController<DropdownDataSource, DropdownDelegate, CMPopTipViewDelegate>
+@interface AddPlayersViewController : BaseViewController<DropdownDataSource, DropdownDelegate, CMPopTipViewDelegate>
 
 @property (nonatomic, strong) RoundData * roundInfo;
 
-- (IBAction)btnAddPlayersTapped:(id)sender;
 
 @property (strong, nonatomic) IBOutlet UIView *selectCourses;
-@property (strong, nonatomic) IBOutlet UIView *selectGameType;
-@property (strong, nonatomic) IBOutlet UIView *selectScoring;
-@property (strong, nonatomic) IBOutlet UIView *selectTeeBox;
 
-@property (strong, nonatomic) IBOutlet UILabel *lblCourse;
-@property (strong, nonatomic) IBOutlet UIImageView *courseDropDown;
-@property (strong, nonatomic) IBOutlet UILabel *lblGameType;
-@property (strong, nonatomic) IBOutlet UIImageView *gameTypeDropDown;
-@property (strong, nonatomic) IBOutlet UILabel *lblScoring;
-@property (strong, nonatomic) IBOutlet UIImageView *scoringDropDown;
-@property (strong, nonatomic) IBOutlet UILabel *lblTeeBox;
-@property (strong, nonatomic) IBOutlet UIImageView *teeBoxDropDown;
-- (IBAction)btnSelectCourseTapped:(UIButton *)sender;
-- (IBAction)btnSelectGameTypeTapped:(UIButton *)sender;
-- (IBAction)btnSelectScoringTapped:(UIButton *)sender;
-- (IBAction)btnSelectTeeBoxTapped:(UIButton *)sender;
+@property (weak, nonatomic) IBOutlet UIButton *btnSelectCourse;
+@property (weak, nonatomic) IBOutlet UIButton *btnSelectGametype;
+@property (weak, nonatomic) IBOutlet UIButton *btnSelectScoretype;
+@property (weak, nonatomic) IBOutlet UIButton *btnSelectTeebox;
 
 
+
+- (IBAction)btnAddPlayersTapped:(id)sender;
 
 @end

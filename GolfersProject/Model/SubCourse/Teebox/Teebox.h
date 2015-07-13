@@ -12,7 +12,7 @@
 
 @interface Teebox : MTLModel<MTLJSONSerializing>
 
-@property (nonatomic, copy, readonly) NSNumber * teeboxId;
+@property (nonatomic, copy, readonly) NSNumber * itemId;
 @property (nonatomic, copy, readonly) NSNumber * handicap;
 @property (nonatomic, copy, readonly) NSString * name;
 @property (nonatomic, copy, readonly) NSNumber * holeId;

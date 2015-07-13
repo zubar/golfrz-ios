@@ -310,7 +310,6 @@
     }
 }
 
-//TODO: we shall use backend email service instead. 
 -(void)sendEmailToContacts:(NSArray *)mContacts{
    
     MFMailComposeViewController* controller = [[MFMailComposeViewController alloc] init];
@@ -480,6 +479,7 @@
     }];
     
 }
+
 -(void)removeAllEmailInvites{
     [invities[kEmailInvites] removeAllObjects];
 }

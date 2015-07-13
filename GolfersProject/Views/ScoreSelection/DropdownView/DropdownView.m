@@ -53,7 +53,7 @@
     }
     
     DropdownCell *customCell = (DropdownCell *)cell;
-    customCell.lblText.text = [self.dataArray objectAtIndex:indexPath.row];
+    customCell.lblText.text = [[self.dataArray objectAtIndex:indexPath.row] name];
     return customCell;
 }
 

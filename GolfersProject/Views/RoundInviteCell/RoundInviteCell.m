@@ -7,6 +7,7 @@
 //
 
 #import "RoundInviteCell.h"
+#import <objc/runtime.h>
 
 @implementation RoundInviteCell
 

@@ -57,6 +57,11 @@ static NSString * const kCourseInfo = @"courses/info";
 static NSString * const kCourseDetail = @"courses/course_detail";
 static NSString * const kCheckInUrl = @"check_in";
 
+/*
+ * InApp Friends
+ */
+static NSString * const kInAppFriend = @"users";
+
 
 //TODO: get it from bundle id,
 #pragma warking - Automation issue.
@@ -84,7 +89,18 @@ static NSString * const kConfirmCartOrder = @"menus/place_order";
  */
 // API lists down the available subcourses, holes & rounds.
 static NSString * const kRoundInSubCourse = @"rounds/fetch_rounds_dropdowns";
+static NSString * const kRoundNew = @"rounds/new";
+static NSString * const kRoundStart = @"rounds/start";
+static NSString * const kRoundFinish = @"rounds/finish";
+static NSString * const kRoundAddGuest = @"rounds/create_guest";
 
+
+
+/*
+ * Round Invitation
+ */
+static NSString * const kGetInvitationToken = @"invitations/send_invitation";
+static NSString * const kGetInvitationDetail = @"invitations/get_invitation";
 
 /*
  *  Push notification token registeration

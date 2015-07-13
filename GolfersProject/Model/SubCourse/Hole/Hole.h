@@ -12,7 +12,7 @@
 
 @interface Hole : MTLModel<MTLJSONSerializing>
 
-@property (nonatomic, copy, readonly) NSNumber * holeId;
+@property (nonatomic, copy, readonly) NSNumber * itemId;
 @property (nonatomic, copy, readonly) NSNumber * par;
 @property (nonatomic, copy, readonly) NSNumber * holeNumber;
 @property (nonatomic, copy, readonly) NSNumber * yards;

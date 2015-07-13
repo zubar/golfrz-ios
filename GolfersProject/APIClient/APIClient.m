@@ -46,6 +46,7 @@
              kCourseDetail : [Course class],
              kCalenderEventsList : [EventList class],
              @"users/*" : [User class],
+             @"users" : [User class],
              kFoodAndBeverage : [Menu class],
              kViewCart : [Cart class],
              kRoundInSubCourse : [RoundData class]

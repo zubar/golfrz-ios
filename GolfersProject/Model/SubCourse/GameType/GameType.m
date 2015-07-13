@@ -12,7 +12,7 @@
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
     return @{
-             @"gameTypeId" : @"id",
+             @"itemId" : @"id",
              @"name" : @"name",
              //propertyName : json_key
              };

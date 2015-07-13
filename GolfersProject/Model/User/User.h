@@ -12,6 +12,7 @@
 @interface User :  MTLModel<MTLJSONSerializing>
 
 @property (copy, nonatomic, readonly) NSNumber * memberId;
+@property (copy, nonatomic, readonly) NSNumber * userId;
 @property (copy, nonatomic, readonly) NSString * email;
 @property (copy, nonatomic, readonly) NSString * firstName;
 @property (copy, nonatomic, readonly) NSString * lastName;
