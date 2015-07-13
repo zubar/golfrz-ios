@@ -98,10 +98,39 @@
     }];
                     
 }
-                                
-                                
+
+
++(void)addDirectScore:(NSNumber *)score
+               holeId:(NSNumber *)holeId
+                    success:(void(^)(bool status, NSDictionary * response))successBlock
+                    failure:(void(^)(bool status, NSError * error))failureBlock{
+    
+    AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
+    
+    [apiClient POST:kAddDirectScore parameters:[RoundDataServices paramAddDirectScore:score holeId:holeId] success:^(NSURLSessionDataTask *task, id responseObject) {
+        successBlock(true, responseObject);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        failureBlock(false, error);
+    }];
+    
+}
+
 
 #pragma mark - HelperMethods
+
+
++(NSDictionary *)paramAddDirectScore:(NSNumber *)score holeId:(NSNumber *)holeId{
+    return @{
+            @"app_bundle_id" : kAppBundleId,
+            @"user_agent" : kUserAgent,
+            @"auth_token" : [UserServices currentToken],
+            @"round_id" : [NSNumber numberWithInt:35], //TODO:
+            @"score" : score,
+            @"user_id" : [UserServices currentUserId],
+            @"hole_id" : holeId,
+            };
+    
+}
 
 +(NSDictionary *)paramAddGuestToRoundEmail:(NSString *)email firstName:(NSString *)firstName lastName:(NSString *)lastName{
     return @{
@@ -130,7 +159,7 @@
              @"app_bundle_id" : kAppBundleId,
              @"user_agent" : kUserAgent,
              @"auth_token" : [UserServices currentToken],
-             @"sub_course_id" : [use]
+             @"sub_course_id" : [NSNumber numberWithInt:35], //TODO:
              };
     
 }

@@ -18,6 +18,11 @@
                         success:(void (^)(bool status, NSNumber * roundId))successBlock
                         failure:(void (^)(bool status, NSError * error))failureBlock;
 
++(void)addDirectScore:(NSNumber *)score
+               holeId:(NSNumber *)holeId
+              success:(void(^)(bool status, NSDictionary * response))successBlock
+              failure:(void(^)(bool status, NSError * error))failureBlock;
+
 
 
 
