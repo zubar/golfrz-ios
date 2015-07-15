@@ -22,7 +22,7 @@ typedef NS_ENUM(NSInteger, DropDownContainsItems) {
 };
 
 
-@interface AddPlayersViewController : BaseViewController<DropdownDataSource, DropdownDelegate, CMPopTipViewDelegate>
+@interface AddPlayersViewController : BaseViewController<DropdownDataSource, DropdownDelegate, CMPopTipViewDelegate, UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) RoundData * roundInfo;
 
@@ -34,8 +34,14 @@ typedef NS_ENUM(NSInteger, DropDownContainsItems) {
 @property (weak, nonatomic) IBOutlet UIButton *btnSelectScoretype;
 @property (weak, nonatomic) IBOutlet UIButton *btnSelectTeebox;
 
+@property (strong, nonatomic) IBOutlet UITableView *playersTable;
 
 
 - (IBAction)btnAddPlayersTapped:(id)sender;
+@property (strong, nonatomic) IBOutlet UIButton *btnStartRound;
+
+- (IBAction)btnStartRoundTapped:(UIButton *)sender;
+@property (strong, nonatomic) IBOutlet UIView *playersTableView;
+- (IBAction)editPlayersTapped:(UIButton *)sender;
 
 @end

@@ -19,6 +19,7 @@
 #import "MBProgressHUD.h"
 #import "ScoreSelectionView.h"
 #import "RoundInviteViewController.h"
+#import "RoundPlayerCell.h"
 
 @interface AddPlayersViewController (){
     DropDownContainsItems currentItemsIndropdown;
@@ -92,6 +93,21 @@
     [delegate.appDelegateNavController pushViewController:roundInviteFriendController animated:YES];
 }
 
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 1;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *customCell = [tableView dequeueReusableCellWithIdentifier:@"RoundPlayerCell"];
+    
+    if (customCell == nil) {
+        customCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"RoundPlayerCell"];
+    }
+    
+    RoundPlayerCell *customViewCell = (RoundPlayerCell *)customCell;
+    return customViewCell;
+}
 
 -(NSArray *)dataArrayForCells{
     
@@ -220,5 +236,9 @@
         mScoreView = nil;
     }
 
+}
+- (IBAction)btnStartRoundTapped:(UIButton *)sender {
+}
+- (IBAction)editPlayersTapped:(UIButton *)sender {
 }
 @end

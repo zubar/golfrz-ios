@@ -136,7 +136,6 @@
 		88243AF61B28437C00E600D6 /* FoodBevViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88243AF51B28437C00E600D6 /* FoodBevViewCell.m */; };
 		88573E1A1B441E300060929C /* AddPlayersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88573E191B441E2F0060929C /* AddPlayersViewController.m */; };
 		88573E1E1B4528280060929C /* RoundPlayerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88573E1D1B4528280060929C /* RoundPlayerCell.m */; };
-		88573E221B45291B0060929C /* AddPlayersInvitedController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88573E211B45291B0060929C /* AddPlayersInvitedController.m */; };
 		88573E261B4551290060929C /* RoundInviteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88573E251B4551290060929C /* RoundInviteViewController.m */; };
 		88573E2A1B4551900060929C /* RoundInviteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88573E291B4551900060929C /* RoundInviteCell.m */; };
 		88573E2E1B4693C50060929C /* RoundInviteFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88573E2D1B4693C50060929C /* RoundInviteFriendViewController.m */; };
@@ -154,6 +153,10 @@
 		887C7AA91B539E0E00F1AC30 /* AddGuestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 887C7AA81B539E0E00F1AC30 /* AddGuestViewController.m */; };
 		887C7AAC1B539E2200F1AC30 /* CourseUpdatesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 887C7AAB1B539E2200F1AC30 /* CourseUpdatesViewController.m */; };
 		887C7AAF1B539E3800F1AC30 /* ScoreBoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 887C7AAE1B539E3800F1AC30 /* ScoreBoardViewController.m */; };
+		887C7AB31B563BFC00F1AC30 /* AddRoundPlayersView.m in Sources */ = {isa = PBXBuildFile; fileRef = 887C7AB21B563BFC00F1AC30 /* AddRoundPlayersView.m */; };
+		887C7AB51B563C3700F1AC30 /* AddRoundPlayers.xib in Resources */ = {isa = PBXBuildFile; fileRef = 887C7AB41B563C3700F1AC30 /* AddRoundPlayers.xib */; };
+		887C7AB91B563EFC00F1AC30 /* AddRoundPlayersCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 887C7AB81B563EFC00F1AC30 /* AddRoundPlayersCell.xib */; };
+		887C7ABF1B5644D400F1AC30 /* AddRoundPlayersCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 887C7ABE1B5644D400F1AC30 /* AddRoundPlayersCell.m */; };
 		88855DD21B256F5A00E164D6 /* FoodBeveragesMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88855DD11B256F5A00E164D6 /* FoodBeveragesMainViewController.m */; };
 		8890E4D31B307A5500A11BBF /* ContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8890E4D21B307A5500A11BBF /* ContactCell.m */; };
 		889872BF1B13105C00D3C0E9 /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 889872BE1B13105C00D3C0E9 /* Utilities.m */; };
@@ -411,8 +414,6 @@
 		88573E191B441E2F0060929C /* AddPlayersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPlayersViewController.m; sourceTree = "<group>"; };
 		88573E1C1B4528280060929C /* RoundPlayerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundPlayerCell.h; sourceTree = "<group>"; };
 		88573E1D1B4528280060929C /* RoundPlayerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundPlayerCell.m; sourceTree = "<group>"; };
-		88573E201B45291B0060929C /* AddPlayersInvitedController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPlayersInvitedController.h; sourceTree = "<group>"; };
-		88573E211B45291B0060929C /* AddPlayersInvitedController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPlayersInvitedController.m; sourceTree = "<group>"; };
 		88573E241B4551290060929C /* RoundInviteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundInviteViewController.h; sourceTree = "<group>"; };
 		88573E251B4551290060929C /* RoundInviteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundInviteViewController.m; sourceTree = "<group>"; };
 		88573E281B4551900060929C /* RoundInviteCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundInviteCell.h; sourceTree = "<group>"; };
@@ -446,6 +447,12 @@
 		887C7AAB1B539E2200F1AC30 /* CourseUpdatesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseUpdatesViewController.m; sourceTree = "<group>"; };
 		887C7AAD1B539E3800F1AC30 /* ScoreBoardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreBoardViewController.h; sourceTree = "<group>"; };
 		887C7AAE1B539E3800F1AC30 /* ScoreBoardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreBoardViewController.m; sourceTree = "<group>"; };
+		887C7AB11B563BFC00F1AC30 /* AddRoundPlayersView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddRoundPlayersView.h; sourceTree = "<group>"; };
+		887C7AB21B563BFC00F1AC30 /* AddRoundPlayersView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddRoundPlayersView.m; sourceTree = "<group>"; };
+		887C7AB41B563C3700F1AC30 /* AddRoundPlayers.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddRoundPlayers.xib; sourceTree = "<group>"; };
+		887C7AB81B563EFC00F1AC30 /* AddRoundPlayersCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddRoundPlayersCell.xib; sourceTree = "<group>"; };
+		887C7ABD1B5644D400F1AC30 /* AddRoundPlayersCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddRoundPlayersCell.h; sourceTree = "<group>"; };
+		887C7ABE1B5644D400F1AC30 /* AddRoundPlayersCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddRoundPlayersCell.m; sourceTree = "<group>"; };
 		88855DD01B256F5A00E164D6 /* FoodBeveragesMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodBeveragesMainViewController.h; sourceTree = "<group>"; };
 		88855DD11B256F5A00E164D6 /* FoodBeveragesMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodBeveragesMainViewController.m; sourceTree = "<group>"; };
 		8890E4D11B307A5500A11BBF /* ContactCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactCell.h; sourceTree = "<group>"; };
@@ -1297,15 +1304,6 @@
 			path = RoundPlayerCell;
 			sourceTree = "<group>";
 		};
-		88573E1F1B4528EB0060929C /* AddPlayersInvitedViewController */ = {
-			isa = PBXGroup;
-			children = (
-				88573E201B45291B0060929C /* AddPlayersInvitedController.h */,
-				88573E211B45291B0060929C /* AddPlayersInvitedController.m */,
-			);
-			path = AddPlayersInvitedViewController;
-			sourceTree = "<group>";
-		};
 		88573E231B45510C0060929C /* RoundInviteViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -1352,7 +1350,6 @@
 				88C4EDAF1B4A6E6700519D3B /* HolesMapViewController */,
 				88573E2B1B4693A40060929C /* RoundInviteSendViewController */,
 				88573E231B45510C0060929C /* RoundInviteViewController */,
-				88573E1F1B4528EB0060929C /* AddPlayersInvitedViewController */,
 				88573E171B441E030060929C /* AddPlayersMainViewController */,
 				3D1C8EB71B3D3C63004AAD30 /* RoundViewController */,
 				3D1C8E511B3A8D59004AAD30 /* FoodBeverageBaseVC */,
@@ -1513,6 +1510,19 @@
 			path = AddGuestViewController;
 			sourceTree = "<group>";
 		};
+		887C7AB01B563BC700F1AC30 /* AddRoundPlayersView */ = {
+			isa = PBXGroup;
+			children = (
+				887C7AB11B563BFC00F1AC30 /* AddRoundPlayersView.h */,
+				887C7AB21B563BFC00F1AC30 /* AddRoundPlayersView.m */,
+				887C7AB41B563C3700F1AC30 /* AddRoundPlayers.xib */,
+				887C7AB81B563EFC00F1AC30 /* AddRoundPlayersCell.xib */,
+				887C7ABD1B5644D400F1AC30 /* AddRoundPlayersCell.h */,
+				887C7ABE1B5644D400F1AC30 /* AddRoundPlayersCell.m */,
+			);
+			path = AddRoundPlayersView;
+			sourceTree = "<group>";
+		};
 		88855DCF1B256F3500E164D6 /* FoodsBeveragesMainViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -1552,6 +1562,7 @@
 		889872C71B13237F00D3C0E9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				887C7AB01B563BC700F1AC30 /* AddRoundPlayersView */,
 				88EBBAE31B4D106600AA6688 /* TeeTimeBookingCell */,
 				88C4EDB31B4A721100519D3B /* HoleMapCell */,
 				88573E271B4551740060929C /* RoundInviteCell */,
@@ -1770,6 +1781,7 @@
 				3DD3CA391B2863CF00767BCF /* SideNotificationView.xib in Resources */,
 				3D1C8E9D1B3BFEB0004AAD30 /* popoverBg-white@2x.png in Resources */,
 				3D1C8EA01B3BFEB0004AAD30 /* popoverBgSimple.png in Resources */,
+				887C7AB51B563C3700F1AC30 /* AddRoundPlayers.xib in Resources */,
 				3D1C8E9A1B3BFEB0004AAD30 /* popoverArrowUp.png in Resources */,
 				88024F6C1AD29134004AC260 /* Main.storyboard in Resources */,
 				3D1C8E8E1B3BFEB0004AAD30 /* popoverArrowDown.png in Resources */,
@@ -1777,6 +1789,7 @@
 				3D1C8E971B3BFEB0004AAD30 /* popoverArrowRight@2x.png in Resources */,
 				3D1C8E9F1B3BFEB0004AAD30 /* popoverBg@2x.png in Resources */,
 				3D1C8E9C1B3BFEB0004AAD30 /* popoverArrowUpSimple.png in Resources */,
+				887C7AB91B563EFC00F1AC30 /* AddRoundPlayersCell.xib in Resources */,
 				3D1C8E9E1B3BFEB0004AAD30 /* popoverBg.png in Resources */,
 				88024F6E1AD29134004AC260 /* Images.xcassets in Resources */,
 				3D613B851B44191B00F7DEDA /* ScoreSelectionCell.xib in Resources */,
@@ -1855,9 +1868,10 @@
 				3D1963CE1B0DBC8300766CFC /* Condition.m in Sources */,
 				3D221F7B1B4BB0A600CF79E4 /* GameType.m in Sources */,
 				3D5CA5D61B1F332B00CB6ED7 /* BaseViewController.m in Sources */,
+				887C7ABF1B5644D400F1AC30 /* AddRoundPlayersCell.m in Sources */,
 				3D1C8EBA1B3D3C7F004AAD30 /* RoundViewController.m in Sources */,
-				88573E221B45291B0060929C /* AddPlayersInvitedController.m in Sources */,
 				885CB06D1B09BDCD00AD2A7B /* README.md in Sources */,
+				887C7AB31B563BFC00F1AC30 /* AddRoundPlayersView.m in Sources */,
 				3DD9BD0E1B14BE1C00A2F296 /* NSDate+Helper.m in Sources */,
 				3D1963CB1B0DBC2600766CFC /* WeatherData.m in Sources */,
 				88B23C171B16E49800988908 /* ContactUsViewController.m in Sources */,

@@ -52,14 +52,21 @@
                                         };
     
     [self.imgDarkerBg setHidden:YES];
-    isScoreTableDescended = FALSE;
+    //[self.scoreTable setHidden:YES];
+    //isScoreTableDescended = FALSE;
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     
     AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
     [delegate.appDelegateNavController setNavigationBarHidden:NO];
+//    CGRect initalFrame = [self.scoreTable frame];
+//    CGRect finalFrame = CGRectMake(0, initalFrame.origin.y, initalFrame.size.width, 0);
+//    [self.scoreTable setFrame:finalFrame];
+}
 
+-(void)viewDidAppear:(BOOL)animated{
+    [self dropDownTapped];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -128,6 +135,8 @@
     
     
     PlayerScoreView * headerView = [[PlayerScoreView alloc]init];
+   // [headerView setBackgroundColor:[UIColor clearColor]];
+    
     [headerView configureViewForPlayer:nil hideDropdownBtn:NO];
     [headerView.lblUserName setText:@"Test User"];
     headerView.delegate = self;
@@ -229,6 +238,7 @@
 #pragma mark - Animation
 -(void)descendTableViewWithAnimation:(BOOL)yesNo completion:(void(^)(void))completionBlock{
     
+    [self.scoreTable setScrollEnabled:YES];
     CGRect appFrame = [[UIScreen mainScreen] applicationFrame];
     
     CGRect initalFrame = [self.scoreTable frame];
@@ -247,6 +257,7 @@
 
 -(void)ascendTableViewWithAnimation:(BOOL)yesNo completion:(void(^)(void))completionBlock{
     
+    [self.scoreTable setScrollEnabled:NO];
     CGRect initalFrame = [self.scoreTable frame];
     CGRect finalFrame = CGRectMake(0, initalFrame.origin.y, initalFrame.size.width, kPlayerScoreViewHeight);
     
