@@ -46,10 +46,12 @@
     self.navigationItem.rightBarButtonItem = rightBtn;
     
     //TODO: set attributed text in right Btn Label
+    /*
     NSDictionary *navTitleAttributes =@{NSUnderlineStyleAttributeName:@(NSUnderlineStyleSingle),
                                         NSFontAttributeName :[UIFont fontWithName:@"Helvetica-Bold" size:14.0],
                                         NSForegroundColorAttributeName : [UIColor whiteColor]
                                         };
+    */
     
     [self.imgDarkerBg setHidden:YES];
 }
@@ -58,7 +60,6 @@
     
     AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
     [delegate.appDelegateNavController setNavigationBarHidden:NO];
-
 }
 
 -(void)viewWillDisappear:(BOOL)animated{

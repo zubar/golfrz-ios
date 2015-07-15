@@ -26,12 +26,23 @@
 @interface RoundInviteFriendViewController ()
 @property (nonatomic, strong) NSMutableArray * selectedFriends;
 @property (nonatomic, strong) NSMutableArray * allFriends;
+@property (nonatomic, strong) NSString * invitationId;
 @end
 
 @implementation RoundInviteFriendViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    // Remove left button
+    [self.navigationItem setTitle:@"SELECT PLAYERS"];
+    
+     NSDictionary *titleAttributes =@{
+                                      NSFontAttributeName :[UIFont fontWithName:@"Helvetica-Bold" size:14.0],
+                                      NSForegroundColorAttributeName : [UIColor whiteColor],
+                                      };
+    self.navigationController.navigationBar.titleTextAttributes = titleAttributes;
+    
     // Do any additional setup after loading the view.
     self.friendsTableView.dataSource = self;
     self.friendsTableView.delegate = self;
@@ -47,6 +58,8 @@
     UIBarButtonItem * rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(sendInvitations)];
     self.navigationItem.rightBarButtonItem = rightBarButtonItem;
     
+    
+    //
     switch (self.currentFriendContactType) {
         case FriendContactTypeInAppUser:{ // IN-APP FRIENDS
             ([self.allFriends count] > 0 ? [self.allFriends removeAllObjects] : nil);
@@ -135,6 +148,17 @@
     }else{
         [self.selectedFriends addObject:selectedFriend];
     }
+}
+#pragma mark - ServiceCalls
+-(void)saveInvitationId{
+    //TODO:
+    /*
+    [InvitationServices getInvitationToken:^(bool status, NSString *invitationToken) {
+        <#code#>
+    } failure:^(bool status, NSError *error) {
+        <#code#>
+    }]
+     */
 }
     
 #pragma mark - ContactCellDelegate

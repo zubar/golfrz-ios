@@ -19,6 +19,9 @@
 #import "MBProgressHUD.h"
 #import "ScoreSelectionView.h"
 #import "RoundInviteViewController.h"
+#import "RoundDataServices.h"
+
+#import "PersistentServices.h"
 
 @interface AddPlayersViewController (){
     DropDownContainsItems currentItemsIndropdown;
@@ -42,6 +45,15 @@
     self.dataArray = [[NSMutableArray alloc]init];
     currentItemsIndropdown = DropDownContainsItemsNone;
     
+    // Remove left button
+    self.navigationItem.leftBarButtonItem = nil;
+    self.navigationItem.hidesBackButton = YES;
+    
+    // Right bar button
+    UIBarButtonItem * rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(popSelf)];
+    self.navigationItem.rightBarButtonItem = rightBarButtonItem;
+    
+    
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
     [RoundDataServices getRoundData:^(bool status, RoundData *roundData) {
@@ -52,21 +64,7 @@
 
     }];
 }
-/*
--(void)viewWillAppear:(BOOL)animated{
-    
-    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
-    [delegate.appDelegateNavController setNavigationBarHidden:NO];
-    
-}
 
--(void)viewWillDisappear:(BOOL)animated{
-    
-    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
-    [delegate.appDelegateNavController setNavigationBarHidden:YES];
-    
-}
-*/
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -83,15 +81,48 @@
 }
 */
 
+-(void)popSelf{
+    AppDelegate * appDelegate = [[UIApplication sharedApplication] delegate];
+    [appDelegate.appDelegateNavController popViewControllerAnimated:YES];
+}
+
 - (IBAction)btnAddPlayersTapped:(id)sender {
+    
+    
+    if (![self validateRoundOptions]) {
+        [[[UIAlertView alloc] initWithTitle:@"Required Field Missing." message:@"Please select SubCourse, GameType, ScoreType and TeeBox." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
+        return;
+    }
+    
+    [self saveRoundInfo];
+    
+    [RoundDataServices getNewRoundIdWithOptions:@{
+                                                  @"subCourseId" : self.selectedSubCourse.itemId,
+                                                  @"gameTypeId" : self.selectedGameType.itemId,
+                                                  @"scoreTypeId" : self.selectedScoreType.itemId,
+                                                  @"teeBoxId" : self.selectedTeeBox.itemId,
+                                                  }
+                                        success:^(bool status, NSNumber *roundId) {
+                                            if (status) {
+                                                [[PersistentServices sharedServices] setCurrentRoundId:roundId];
+                                            }
+                                        } failure:^(bool status, NSError *error) {
+                                            if (status) {
+                                                [[[UIAlertView alloc] initWithTitle:@"Failed to create round !" message:@"" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
+                                            }
+                                        }];
     
     AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
     [delegate.appDelegateNavController setNavigationBarHidden:NO];
 
     RoundInviteViewController * roundInviteFriendController = [self.storyboard instantiateViewControllerWithIdentifier:@"RoundInviteViewController"];
     [delegate.appDelegateNavController pushViewController:roundInviteFriendController animated:YES];
+    
 }
 
+-(BOOL)validateRoundOptions{
+    return self.selectedSubCourse.itemId && self.selectedGameType.itemId && self.selectedScoreType.itemId && self.selectedTeeBox.itemId;
+}
 
 -(NSArray *)dataArrayForCells{
     
@@ -123,17 +154,54 @@
             break;
     }
     
-    
     [self.popTipView dismissAnimated:YES];
 }
 
 #pragma mark - CMPopTipView
-
 - (void)popTipViewWasDismissedByUser:(CMPopTipView *)popTipView{
-    
+    [self saveRoundInfo];
     self.popTipView = nil;
 }
 
+-(void)saveRoundInfo{
+    
+    PersistentServices * pServices = [PersistentServices sharedServices];
+    //
+    [pServices setCurrentSubCourseId:self.selectedSubCourse.itemId];
+    [pServices setCurrentGameTypeId:self.selectedGameType.itemId];
+    [pServices setCurrentScoreTypeId:self.selectedScoreType.itemId];
+    [pServices setcurrentTeebox:self.selectedTeeBox.itemId];
+}
+
+
+#pragma mark - ServiceCalls
+
+- (void)updateRoundInfo:(void(^)(void))completionBlock{
+    
+        [RoundDataServices updateRound:^(bool status, id response) {
+            if (status) {
+                [[[UIAlertView alloc] initWithTitle:@"Successfully Updated." message:@"Successfully updated the selected options." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
+                completionBlock();
+            }
+        } failure:^(bool status, NSError *error) {
+                [[[UIAlertView alloc] initWithTitle:@"Please Try Again" message:@"Can not update the round info now, please try again." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Try Again", nil] show];
+        }];
+}
+
+#pragma mark - UIAlertViewDelegate 
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    switch (buttonIndex) {
+        case 0: // Cancel button index
+            // Do noting let it disappear.
+            break;
+        case 1:
+            [self updateRoundInfo:nil];
+            break;
+        default:
+            break;
+    }
+}
 
 #pragma mark - UIActions
 
@@ -193,8 +261,6 @@
 //    [sender sizeToFit];
 //    btn.titleEdgeInsets = UIEdgeInsetsMake(0, -btn.imageView.frame.size.width, 0, btn.imageView.frame.size.width);
 //    btn.imageEdgeInsets = UIEdgeInsetsMake(0, btn.titleLabel.frame.size.width, 0, -btn.titleLabel.frame.size.width);
-    
-    
 }
 
 -(void)presentPopOverWithOptions:(NSArray *)options pointedAtBtn:(id)sender{

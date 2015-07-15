@@ -21,8 +21,7 @@ typedef NS_ENUM(NSInteger, DropDownContainsItems) {
     DropDownContainsItemsTeeboxes,
 };
 
-
-@interface AddPlayersViewController : BaseViewController<DropdownDataSource, DropdownDelegate, CMPopTipViewDelegate>
+@interface AddPlayersViewController : BaseViewController<DropdownDataSource, DropdownDelegate, CMPopTipViewDelegate, UIAlertViewDelegate>
 
 @property (nonatomic, strong) RoundData * roundInfo;
 
