@@ -42,18 +42,31 @@
     
     [[PushManager sharedInstance] registerForPushMessages];
     
-    return [[FBSDKApplicationDelegate sharedInstance] application:application
-                                    didFinishLaunchingWithOptions:launchOptions];
+    return [self isValidCustomUrlSchemeForApplication:application
+                                        launchOptions:launchOptions] ||
+            [self isValidFacebookUrlForApplication:application
+                                     launchOptions:launchOptions];
+    
 }
 
 - (BOOL)application:(UIApplication *)application
             openURL:(NSURL *)url
   sourceApplication:(NSString *)sourceApplication
          annotation:(id)annotation {
-    return [[FBSDKApplicationDelegate sharedInstance] application:application
-                                                          openURL:url
-                                                sourceApplication:sourceApplication
-                                                       annotation:annotation];
+    
+    // check if the facebookAppID key is present then send objects to FBSDK.
+    if ([[url absoluteString] containsString:[[NSBundle mainBundle] objectForInfoDictionaryKey:@"FacebookAppID"]]) {
+       
+        return [[FBSDKApplicationDelegate sharedInstance] application:application
+                                                              openURL:url
+                                                    sourceApplication:sourceApplication
+                                                           annotation:annotation];
+    }else
+        if ([[[url scheme] lowercaseString] isEqualToString:@"invitationreceived"]) {
+            NSLog(@"Received invitation:%@", [url scheme]);
+            return YES;
+        }else
+            return NO;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -77,4 +90,23 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+#pragma mark - HelperMethod
+/*
+ Method checks if the scheme is valid url for app, i.e, it checks if the url is either facebook url scheme 
+ or its custom url scheme defined in info.plist of app.
+ */
+
+// Current defined url schemes are "invitationReceived".
+
+-(BOOL)isValidCustomUrlSchemeForApplication:(UIApplication *)application launchOptions:(NSDictionary *)options{
+    
+    return [[FBSDKApplicationDelegate sharedInstance] application:application
+                                                   didFinishLaunchingWithOptions:options];
+}
+
+-(BOOL)isValidFacebookUrlForApplication:(UIApplication *)application launchOptions:(NSDictionary *)options{
+    
+    return [[[options objectForKey:UIApplicationLaunchOptionsURLKey] scheme] isEqualToString:@"invitationReceived"];
+
+}
 @end

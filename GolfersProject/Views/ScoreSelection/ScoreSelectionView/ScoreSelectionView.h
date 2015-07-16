@@ -15,7 +15,7 @@
 
 @protocol ScoreSelectionDelegate<NSObject>
 @optional
--(void)selectedItemForCell:(id)item;
+-(void)selectedItem:(id)item forView:(UIView *)view;
 @end
 
 @interface ScoreSelectionView : UIView<UICollectionViewDataSource, UICollectionViewDelegate>
@@ -25,3 +25,5 @@
 @property (assign, nonatomic) id<ScoreSelectionDataSource>dataSource;
 @property (assign, nonatomic) id<ScoreSelectionDelegate>delegate;
 @end
+
+

@@ -27,6 +27,10 @@
     self = [super init];
     if (self) {
         self = [[[NSBundle mainBundle] loadNibNamed:@"PlayerScoreView" owner:self options:nil] lastObject];
+        totalScore = 0;
+        score = 0;
+        [self.btnEditScore setTitle:[NSString stringWithFormat:@"%d", score] forState:UIControlStateNormal];
+        [self.lblScoreForHole setText:[NSString stringWithFormat:@"%d", totalScore]];
         //[self setBackgroundColor:[UIColor blackColor]];
 
     }
@@ -41,8 +45,8 @@
 }
 - (IBAction)btnEditScoreTap:(id)sender {
     
-    if (self.delegate && [self.delegate respondsToSelector:@selector(editScoreTappedForPlayer:Player:)]) {
-        [self.delegate editScoreTappedForPlayer:sender Player:player];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(editScoreTappedForPlayer:Player:view:)]) {
+        [self.delegate editScoreTappedForPlayer:sender Player:player view:self];
     }
 }
 

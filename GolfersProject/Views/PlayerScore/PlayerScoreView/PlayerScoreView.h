@@ -10,11 +10,18 @@
 
 @protocol PlayerScoreViewDelegate <NSObject>
 -(void)dropDownTapped;
--(void)editScoreTappedForPlayer:(id)sender Player:(id)player;
+/**
+ @param sender: button at which user tapped, its btnEditScore.
+ @param player: player which is currently associated with cell.
+ @param view: 
+ */
+-(void)editScoreTappedForPlayer:(id)sender Player:(id)player view:(UIView *)view;
 @end
 
 @interface PlayerScoreView : UIView{
     id player;
+    int totalScore;
+    int score;
 }
 @property (strong, nonatomic) IBOutlet UIImageView *imgBackGround;
 

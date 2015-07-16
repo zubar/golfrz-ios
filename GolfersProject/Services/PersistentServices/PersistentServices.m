@@ -77,6 +77,33 @@
     [dataDict setObject:subCourseId forKey:@"currentSubCourseId"];
 }
 
+-(NSNumber *)currentGameTypeId{
+    return dataDict[@"gameTypeId"];
+}
+
+-(void)setCurrentGameTypeId:(NSNumber *)gameType{
+    [dataDict setObject:gameType forKey:@"gameTypeId"];
+    [self writeDataToFile];
+}
+
+-(NSNumber *)currentScoreTypeId{
+    return dataDict[@"currentScoreTypeId"];
+}
+
+-(void)setCurrentScoreTypeId:(NSNumber *)curScoreType{
+    [dataDict setObject:curScoreType forKey:@"currentScoreTypeId"];
+    [self writeDataToFile];
+}
+
+-(NSNumber *)currentTeebox{
+    return dataDict[@"currentTeebox"];
+}
+
+-(void)setcurrentTeebox:(NSNumber *)teebox{
+    [dataDict setObject:teebox forKey:@"currentTeebox"];
+    [self writeDataToFile];
+}
+
 #pragma mark - Helpers Private
 
 -(NSString *)filePath{
@@ -94,10 +121,7 @@
     [dataDict writeToFile:[self filePath] atomically:YES];
 }
 
-
 -(BOOL)isFileExists{
     return [[NSFileManager defaultManager] fileExistsAtPath:[self filePath]];
 }
-
-
 @end

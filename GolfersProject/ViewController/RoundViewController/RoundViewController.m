@@ -13,6 +13,7 @@
 #import "PlayerScoreCell.h"
 #import "AppDelegate.h"
 #import "ScoreSelectionView.h"
+#import "ScoreSelectionCell.h"
 
 
 #define kPlayerScoreViewHeight 60.0f
@@ -22,6 +23,7 @@
 }
 @property (nonatomic, strong) NSMutableArray * playersInRound;
 @property (nonatomic, strong) CMPopTipView * popTipView;
+@property (nonatomic, strong) id editScoreBtn;
 @end
 
 @implementation RoundViewController
@@ -46,10 +48,12 @@
     self.navigationItem.rightBarButtonItem = rightBtn;
     
     //TODO: set attributed text in right Btn Label
+    /*
     NSDictionary *navTitleAttributes =@{NSUnderlineStyleAttributeName:@(NSUnderlineStyleSingle),
                                         NSFontAttributeName :[UIFont fontWithName:@"Helvetica-Bold" size:14.0],
                                         NSForegroundColorAttributeName : [UIColor whiteColor]
                                         };
+    */
     
     [self.imgDarkerBg setHidden:YES];
     //[self.scoreTable setHidden:YES];
@@ -156,9 +160,9 @@
 -(void)dropDownTapped{
 
     if (isScoreTableDescended) {
+        isScoreTableDescended = FALSE;
+        [self showDistanceView:isScoreTableDescended];
         [self descendTableViewWithAnimation:YES completion:^{
-            isScoreTableDescended = FALSE;
-            [self showDistanceView:isScoreTableDescended];
         }];
     }else{
         [self ascendTableViewWithAnimation:YES completion:^{
@@ -173,7 +177,7 @@
     [self.distanceView setHidden:!(yesNo)];
 }
 
--(void)editScoreTappedForPlayer:(id)sender Player:(id)player{
+-(void)editScoreTappedForPlayer:(id)sender Player:(id)player view:(UIView *)view{
 
     ScoreSelectionView * mScoreView = [[ScoreSelectionView alloc]init];
     mScoreView.dataSource = self;
@@ -186,6 +190,8 @@
         self.popTipView = [[CMPopTipView alloc] initWithCustomView:mScoreView];
         self.popTipView.delegate = self;
         self.popTipView.backgroundColor = [UIColor whiteColor];
+        // saving the ref to selected view.
+        self.editScoreBtn = sender;
         [self.popTipView presentPointingAtView:sender inView:self.view animated:YES];
     }
     else {
@@ -197,11 +203,14 @@
 }
 
 -(NSArray *)dataArrayForCells{
+    
     return [NSArray arrayWithObjects:@"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", nil];
 }
 
--(void)selectedItemForCell:(id)item{
-    NSLog(@"tapped: %@", item);
+-(void)selectedItem:(id)item forView:(UIView *)view{
+    
+    NSLog(@"tapped: %@ indexPath: %@", item, view);
+    [self.editScoreBtn setTitle:item forState:UIControlStateNormal];
     [self.popTipView dismissAnimated:YES];
 }
 #pragma mark - UINavigation

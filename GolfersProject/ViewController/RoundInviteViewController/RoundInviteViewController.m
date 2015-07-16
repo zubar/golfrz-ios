@@ -19,6 +19,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    // Remove left button
+    self.navigationItem.leftBarButtonItem = nil;
+    self.navigationItem.hidesBackButton = YES;
+    
+    // Right bar button
+    UIBarButtonItem * rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(popSelf)];
+    self.navigationItem.rightBarButtonItem = rightBarButtonItem;
+    
     self.inviteArrayImages = [NSArray array];
     self.inviteNames = [NSArray array];
     self.inviteArrayImages = [NSArray arrayWithObjects:@"inApp_invite_unselected", @"fb_invite_unselected", @"sms_invite_unselected", @"email_invite_unselected", @"addGuest", nil];
@@ -44,7 +53,7 @@
     customViewCell.lblInviteName.text = [self.inviteNames objectAtIndex:indexPath.row];
     [customViewCell.imgInviteImage setImage:[UIImage imageNamed:self.inviteArrayImages[indexPath.row]]];
     customViewCell.imgInviteImage.contentMode = UIViewContentModeScaleAspectFill;
-    //[customViewCell setSelectionStyle:UITableViewCellSelectionStyleNone];
+    [customViewCell setSelectionStyle:UITableViewCellSelectionStyleNone];
     return customViewCell;
 }
 
@@ -75,7 +84,7 @@
     [appdelegate.appDelegateNavController pushViewController:controller animated:YES];
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -83,8 +92,12 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
-*/
-
+ 
+-(void)popSelf{
+    
+    AppDelegate * appDelegate = [[UIApplication sharedApplication] delegate];
+    [appDelegate.appDelegateNavController popViewControllerAnimated:YES];
+}
 
 
 #pragma mark - MemoryManagement

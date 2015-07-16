@@ -16,4 +16,6 @@
 +(void)getInvitationToken:(void (^)(bool status, NSString * invitationToken))successBlock
                   failure:(void (^)(bool status, NSError * error))failureBlock;
 
++(void)getInvitationDetail:(void (^)(bool status, NSString * invitationToken))successBlock
+                   failure:(void (^)(bool status, NSError * error))failureBlock;
 @end

@@ -8,19 +8,32 @@
 
 #import <Foundation/Foundation.h>
 
+
 @interface PersistentServices : NSObject{
     NSMutableDictionary * dataDict;
 }
 
 +(PersistentServices *)sharedServices;
+
 -(NSString *)currentUserToken;
 -(void)setCurrentUserToken:(NSString *)userToken;
+
 -(NSString *)currentUserEmail;
 -(void)setCurrentUserEmail:(NSString *)email;
+
 -(NSNumber *)currentRoundId;
 -(void)setCurrentRoundId:(NSNumber *)roundId;
 
 -(NSNumber *)currentSubCourseId;
 -(void)setCurrentSubCourseId:(NSNumber *)subCourseId;
+
+-(NSNumber *)currentGameTypeId;
+-(void)setCurrentGameTypeId:(NSNumber *)gameType;
+
+-(NSNumber *)currentScoreTypeId;
+-(void)setCurrentScoreTypeId:(NSNumber *)curScoreType;
+
+-(NSNumber *)currentTeebox;
+-(void)setcurrentTeebox:(NSNumber *)teebox;
 
 @end

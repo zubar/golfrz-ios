@@ -54,7 +54,11 @@
         [self.addbtn setImage:[UIImage imageNamed:@"invitefriend_unchecked"] forState:UIControlStateNormal];
     }
 
-    NSString * fullName = [NSString stringWithFormat:@"%@ %@", [currentContact contactFirstName], [currentContact contactLastName]];
+    NSString * firstName = ([currentContact contactFirstName] ? [currentContact contactFirstName] : @"" );
+    NSString * lastName = ([currentContact contactLastName] ? [currentContact contactLastName] : @"" );
+
+    
+    NSString * fullName = [NSString stringWithFormat:@"%@ %@", firstName, lastName];
     [self.lblContactName setText:fullName];
     
     if (![currentContact contactImage]) {
@@ -69,5 +73,4 @@
     }];
      */
 }
-
 @end
