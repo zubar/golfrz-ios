@@ -20,6 +20,8 @@
 
 @interface PlayerScoreView : UIView{
     id player;
+    int totalScore;
+    int score;
 }
 @property (strong, nonatomic) IBOutlet UIImageView *imgBackGround;
 

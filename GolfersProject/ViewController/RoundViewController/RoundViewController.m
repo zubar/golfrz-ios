@@ -191,7 +191,7 @@
         self.popTipView.delegate = self;
         self.popTipView.backgroundColor = [UIColor whiteColor];
         // saving the ref to selected view.
-        self.selectedCell = view;
+        self.selectedCell = sender;
         [self.popTipView presentPointingAtView:sender inView:self.view animated:YES];
     }
     else {
@@ -210,7 +210,7 @@
 -(void)selectedItem:(id)item forView:(UIView *)view{
     
     NSLog(@"tapped: %@ indexPath: %@", item, view);
-    [[self.selectedCell lblScore] setText:item];
+    [self.selectedCell setTitle:item forState:UIControlStateNormal];
     [self.popTipView dismissAnimated:YES];
 }
 #pragma mark - UINavigation
