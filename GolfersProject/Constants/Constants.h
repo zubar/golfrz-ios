@@ -27,6 +27,10 @@ static NSString * const kBaseImageUrl = @"";//@"https://powerful-plains-9156.her
 static NSString * const kBaseURL = @"http://45.56.104.68/api/0.1/";
 //static NSString * const kBaseURL = @"https://powerful-plains-9156.herokuapp.com/api/0.1/";
 
+/*
+ This URL is used to create a app open link via a server redirect.
+ */
+static NSString * const kInvitationRedirect = @"http://45.56.104.68/";
 
 /*
  * Weather API
@@ -35,8 +39,8 @@ static NSString * const kWeatherAPI = @"http://api.openweathermap.org/data/2.5/"
 static NSString * const kWeatherAPIKey = @"e5bfb7faf3d0c719e87f3e1300ad0739";
 
 /*
- *  Authentication Services
- *  SignIn, SignOut
+ * Authentication Services
+ * SignIn, SignOut
  */
 static NSString * const kSignInURL = @"sessions";
 static NSString * const kForgetPasswordURL = @"users/forgot_password";
@@ -51,7 +55,7 @@ static NSString * const kSignUpURL = @"users/sign_up";
 static NSString * const kUpdateUserInfo = @"users/";
 
 /*
- *  Golf Course Data Services
+ * Golf Course Data Services
  */
 static NSString * const kCourseInfo = @"courses/info";
 static NSString * const kCourseDetail = @"courses/course_detail";
@@ -76,7 +80,7 @@ static NSString * const kCalenderEventsList = @"events";
 
 
 /*
- *  Food & Beverage
+ * Food & Beverage
  */
 static NSString * const kFoodAndBeverage = @"menus/get_menu_list";
 static NSString * const kAddItemToCart = @"menus/add_to_cart"; 
@@ -85,7 +89,7 @@ static NSString * const kViewCart = @"menus/view_user_cart";
 static NSString * const kConfirmCartOrder = @"menus/place_order";
 
 /*
- *  Rounds
+ * Rounds
  */
 // API lists down the available subcourses, holes & rounds.
 static NSString * const kRoundInSubCourse = @"rounds/fetch_rounds_dropdowns";
@@ -101,13 +105,12 @@ static NSString * const kRoundAddGuest = @"rounds/create_guest";
 static NSString * const kAddDirectScore = @"shots/direct_score";
 
 
-
-
 /*
  * Round Invitation
  */
 static NSString * const kGetInvitationToken = @"invitations/send_invitation";
 static NSString * const kGetInvitationDetail = @"invitations/get_invitation";
+static NSString * const kInvitationAppOpen = @"%@/redirect_with_invitation?id=%@";
 
 
 /*

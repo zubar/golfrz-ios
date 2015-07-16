@@ -21,8 +21,8 @@
 }
 
 - (IBAction)btnScoreTapped:(UIButton *)sender {
-    if (self.delegate && [self.delegate respondsToSelector:@selector(editScoreTappedForPlayer:Player:)]) {
-        [self.delegate editScoreTappedForPlayer:sender Player:player];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(editScoreTappedForPlayer:Player:view:)]) {
+        [self.delegate editScoreTappedForPlayer:sender Player:player view:self];
     }
     
 }

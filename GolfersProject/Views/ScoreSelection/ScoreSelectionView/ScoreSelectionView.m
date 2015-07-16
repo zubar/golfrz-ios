@@ -60,8 +60,10 @@
 #pragma mark - UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    if (self.delegate && [self.delegate respondsToSelector:@selector(selectedItemForCell:)]) {
-        [self.delegate selectedItemForCell:self.scoresArray[indexPath.row]];
+    ScoreSelectionCell * cell = (ScoreSelectionCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(selectedItem:forView:)]) {
+        [self.delegate selectedItem:self.scoresArray[indexPath.row] forView:cell];
     }
 }
 

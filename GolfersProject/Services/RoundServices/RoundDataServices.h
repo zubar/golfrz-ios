@@ -58,5 +58,7 @@
                  success:(void(^)(bool, id))successBlock
                  failure:(void(^)(bool, id))failureBlock;
 
++(void)updateRound:(void(^)(bool status, id response))successBlock
+           failure:(void(^)(bool status, NSError * error))failureBlock;
 
 @end

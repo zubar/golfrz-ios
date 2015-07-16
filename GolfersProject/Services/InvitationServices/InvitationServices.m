@@ -26,7 +26,6 @@
         }else
             failureBlock(false, error);
     }];
-    
 }
 
 +(void)getInvitationToken:(void (^)(bool status, NSString * invitationToken))successBlock
@@ -34,7 +33,7 @@
 
     AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kWeatherAPI]];
     
-    [apiClient GET:kGetInvitationToken parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+    [apiClient POST:kGetInvitationToken parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         NSString * invitationToken = [responseObject valueForKey:@"invitation_token"];
         successBlock(true, invitationToken);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
@@ -47,7 +46,7 @@
     
     AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kWeatherAPI]];
     
-    [apiClient GET:kGetInvitationToken parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+    [apiClient GET:kGetInvitationDetail parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         NSString * invitationToken = [responseObject valueForKey:@"invitation_token"];
         successBlock(true, invitationToken);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
@@ -55,6 +54,9 @@
     }];
 }
 
++(NSString *)getinvitationAppOpenUrlForInvitation:(NSString *)appInvitationToken{
+    return  [NSString stringWithFormat:@"%@%@", kInvitationRedirect, appInvitationToken];
+}
 
 #pragma mark - Helpers
 +(NSDictionary *)paramInAppFriend{

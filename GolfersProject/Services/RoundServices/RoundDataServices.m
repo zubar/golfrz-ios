@@ -43,7 +43,7 @@
     AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
     NSString * endPoint = kRoundNew;
 
-    [apiClient POST:endPoint parameters:[RoundDataServices paramsCreateNewCourse:options] success:^(NSURLSessionDataTask *task, id responseObject) {
+    [apiClient POST:endPoint parameters:[RoundDataServices paramsCreateRound:options] success:^(NSURLSessionDataTask *task, id responseObject) {
         
             NSUInteger  tRoundId = [[responseObject valueForKeyPath:@"round.id"] integerValue];
             NSNumber *  roundId = [NSNumber numberWithInteger:tRoundId];
@@ -63,7 +63,7 @@
     
     AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
     
-    [apiClient POST:kRoundStart parameters:[RoundDataServices paramsCreateNewCourse:roundOptions] success:^(NSURLSessionDataTask *task, id responseObject) {
+    [apiClient POST:kRoundStart parameters:[RoundDataServices paramsCreateRound:roundOptions] success:^(NSURLSessionDataTask *task, id responseObject) {
             successBlock(true, responseObject);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         failureBlock(false, error);
@@ -167,6 +167,19 @@
     
 }
 
++(void)updateRound:(void(^)(bool status, id response))successBlock
+           failure:(void(^)(bool status, NSError * error))failureBlock{
+    
+    AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
+    
+    [apiClient POST:kAddDirectScore parameters:[RoundDataServices paramsUpdateRound] success:^(NSURLSessionDataTask *task, id responseObject) {
+        successBlock(true, responseObject);
+    } failure:^(NSURLSessionDataTask * task, NSError * error) {
+        failureBlock(false, error);
+    }];
+    
+}
+
 #pragma mark - HelperMethods
 
 +(NSDictionary *)paramsAddShotholeId:(NSNumber *)holeId roundId:(NSNumber *)round shortType:(NSString *)type{
@@ -246,7 +259,7 @@
             };
 }
 
-+(NSDictionary *)paramsCreateNewCourse:(NSDictionary *)dict{
++(NSDictionary *)paramsCreateRound:(NSDictionary *)dict{
     
     return @{
             @"app_bundle_id" : kAppBundleId,
@@ -256,8 +269,20 @@
                 @"game_type_id" : dict[@"gameTypeId"],
                 @"score_type_id" : dict[@"scoreTypeId"],
                 @"tee_box_id" : dict[@"teeBoxId"],
-                @"round_id" : dict[@"roundId"],
                 };
 }
 
++(NSDictionary *)paramsUpdateRound{
+    
+    return @{
+             @"app_bundle_id" : kAppBundleId,
+             @"user_agent" : kUserAgent,
+             @"auth_token" : [UserServices currentToken],
+             @"sub_course_id" : [[PersistentServices sharedServices] currentSubCourseId],
+             @"game_type_id" : [[PersistentServices sharedServices] currentGameTypeId],
+             @"score_type_id" : [[PersistentServices sharedServices] currentScoreTypeId],
+             @"tee_box_id" : [[PersistentServices sharedServices] currentTeebox],
+             @"round_id	" : [[PersistentServices sharedServices] currentRoundId],
+             };
+}
 @end
