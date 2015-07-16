@@ -22,6 +22,7 @@
 #import "RoundPlayerCell.h"
 #import "RoundDataServices.h"
 #import "PersistentServices.h"
+#import "HolesMapViewController.h"
 
 @interface AddPlayersViewController (){
     DropDownContainsItems currentItemsIndropdown;
@@ -303,6 +304,15 @@
 
 }
 - (IBAction)btnStartRoundTapped:(UIButton *)sender {
+    
+    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+    [delegate.appDelegateNavController setNavigationBarHidden:NO];
+    
+    HolesMapViewController * holesMapViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"HolesMapViewController"];
+    [delegate.appDelegateNavController pushViewController:holesMapViewController animated:YES];
+
+    
+    
 }
 - (IBAction)editPlayersTapped:(UIButton *)sender {
 }
