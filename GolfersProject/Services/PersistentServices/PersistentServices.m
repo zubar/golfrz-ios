@@ -104,6 +104,16 @@
     [self writeDataToFile];
 }
 
+//
+-(NSString *)currentInvitationToken{
+    return dataDict[@"currentInvitationToken"];
+}
+
+-(void)setCurrentInvitationToken:(NSString *)teebox{
+    [dataDict setObject:teebox forKey:@"currentInvitationToken"];
+    [self writeDataToFile];
+}
+
 #pragma mark - Helpers Private
 
 -(NSString *)filePath{

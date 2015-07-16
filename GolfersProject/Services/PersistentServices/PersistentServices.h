@@ -36,4 +36,6 @@
 -(NSNumber *)currentTeebox;
 -(void)setcurrentTeebox:(NSNumber *)teebox;
 
+-(NSString *)currentInvitationToken;
+-(void)setCurrentInvitationToken:(NSString *)teebox;
 @end

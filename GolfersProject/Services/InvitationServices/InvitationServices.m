@@ -10,6 +10,7 @@
 #import "APIClient.h"
 #import "Constants.h"
 #import "UserServices.h"
+#import "PersistentServices.h"
 
 @implementation InvitationServices
 
@@ -28,12 +29,16 @@
     }];
 }
 
-+(void)getInvitationToken:(void (^)(bool status, NSString * invitationToken))successBlock
-                  failure:(void (^)(bool status, NSError * error))failureBlock{
++(void)getInvitationTokenForInvitee:(NSArray *)invitees
+                               type:(RoundInvitationType)smsEmail
+                            success:(void (^)(bool status, NSString * invitationToken))successBlock
+                            failure:(void (^)(bool status, NSError * error))failureBlock{
 
-    AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kWeatherAPI]];
+    AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
     
-    [apiClient POST:kGetInvitationToken parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+    NSLog(@"%@",[InvitationServices paramsGetInvitationInvitee:invitees inviteType:smsEmail] );
+    
+    [apiClient POST:kGetInvitationToken parameters:[InvitationServices paramsGetInvitationInvitee:invitees inviteType:smsEmail] success:^(NSURLSessionDataTask *task, id responseObject) {
         NSString * invitationToken = [responseObject valueForKey:@"invitation_token"];
         successBlock(true, invitationToken);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
@@ -55,7 +60,7 @@
 }
 
 +(NSString *)getinvitationAppOpenUrlForInvitation:(NSString *)appInvitationToken{
-    return  [NSString stringWithFormat:@"%@%@", kInvitationRedirect, appInvitationToken];
+    return  [NSString stringWithFormat:@"%@id=%@", kInvitationRedirect, appInvitationToken];
 }
 
 #pragma mark - Helpers
@@ -63,6 +68,52 @@
     
     return @{
              @"auth_token" : [UserServices currentToken]
+             };
+}
+
++(NSDictionary *)paramsGetInvitationInvitee:(NSArray *)invitee inviteType:(RoundInvitationType )invitationType{
+    
+    
+    NSDictionary * provider = nil;
+    NSString * providerType = nil;
+    
+    switch (invitationType) {
+        case RoundInvitationTypeSMS:
+           provider = @{
+                        @"sms" : invitee
+                        };
+            providerType = @"sms";
+            break;
+        case RoundInvitationTypeEmail:
+            provider = @{
+                         @"email" : invitee
+                         };
+            providerType = @"email";
+            break;
+        case RoundInvitationTypeInApp:
+            provider = @{
+                         @"email" : invitee
+                         };
+            providerType = @"email";
+            break;
+        case RoundInvitationTypeFacebook:
+            provider = @{
+                         @"fb" : invitee
+                         };
+            providerType = @"fb";
+            break;
+        default:
+            break;
+    }
+  
+    return @{
+             @"app_bundle_id" : kAppBundleId,
+             @"user_agent" : kUserAgent,
+             @"auth_token" : [UserServices currentToken],
+             @"provider" : provider,
+             @"subcourse_id" : [[PersistentServices sharedServices] currentSubCourseId],
+             @"round_id" : [[PersistentServices sharedServices] currentRoundId],
+             @"invite_type" : providerType,
              };
 }
 

@@ -125,7 +125,9 @@
                 [self errorMessageNoContactSelected];
                 return;
             }
-            [self sendSMSToContacts:invities[kSMSInvites]];
+            //TODO:
+//            [self sendSMSToContacts:<#(NSArray *)#> text:<#(NSString *)#>]
+//            [self sendSMSToContacts:invities[kSMSInvites]];
             break;
         default:
             break;
@@ -296,7 +298,7 @@
 
 #pragma mark - HelperMethods
 
--(void)sendSMSToContacts:(NSArray *)mContacts{
+-(void)sendSMSToContacts:(NSArray *)mContacts text:(NSString *)text{
     
     MFMessageComposeViewController *controller = [[MFMessageComposeViewController alloc] init];
     if([MFMessageComposeViewController canSendText])

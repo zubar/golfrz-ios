@@ -14,6 +14,7 @@
 #import "ContactServices.h"
 #import "APContact+convenience.h"
 #import "InvitationServices.h"
+#import "PersistentServices.h"
 
 #import "RoundViewController.h"
 #import "AppDelegate.h"
@@ -57,7 +58,7 @@
     }
     
     // Right bar button
-    UIBarButtonItem * rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(sendInvitations)];
+    UIBarButtonItem * rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneTapped)];
     self.navigationItem.rightBarButtonItem = rightBarButtonItem;
     
     
@@ -152,15 +153,42 @@
     }
 }
 #pragma mark - ServiceCalls
--(void)saveInvitationId{
-    //TODO:
-    /*
-    [InvitationServices getInvitationToken:^(bool status, NSString *invitationToken) {
-        <#code#>
+-(void)saveInvitationOnServerCompletion:(void(^)(void))completion{
+    
+    RoundInvitationType inviteType;
+    NSArray * emailSMS;
+    
+    switch (self.currentFriendContactType) {
+        case FriendContactTypeAddressbookSMS:
+            inviteType = RoundInvitationTypeSMS;
+            emailSMS = [self contactsEmailSMSId:self.selectedFriends option:FriendContactTypeAddressbookSMS];
+            break;
+        case FriendContactTypeAddressbookEmail:
+            inviteType = RoundInvitationTypeEmail;
+            emailSMS = [self contactsEmailSMSId:self.selectedFriends option:FriendContactTypeAddressbookEmail];
+            break;
+        case FriendContactTypeInAppUser:
+            inviteType = RoundInvitationTypeInApp;
+            emailSMS = [self contactsEmailSMSId:self.selectedFriends option:FriendContactTypeInAppUser];
+            break;
+        case FriendContactTypeFacebookEmail:
+            inviteType = RoundInvitationTypeFacebook;
+            break;
+        default:
+            break;
+    }
+
+    
+    [InvitationServices getInvitationTokenForInvitee:emailSMS
+                                                type:inviteType
+                                             success:^(bool status, NSString *invitationToken) {
+                if (status) {
+                    [[PersistentServices sharedServices] setCurrentInvitationToken:invitationToken];
+                    completion();
+                        }
     } failure:^(bool status, NSError *error) {
-        <#code#>
-    }]
-     */
+        //TODO:
+    }];
 }
     
 #pragma mark - ContactCellDelegate
@@ -176,24 +204,26 @@
 }
 
 //TODO: Improve -(void)sendInvitations and method below it.
--(void)sendInvitations{
-    //TODO: Remove after testing.
-    
-    RoundViewController * controller = [self.storyboard instantiateViewControllerWithIdentifier:@"RoundViewController"];
-    AppDelegate * appDelegate = [[UIApplication sharedApplication] delegate];
-    [appDelegate.appDelegateNavController pushViewController:controller animated:YES];
-    return;
-    
+-(void)doneTapped{
+
+    [self saveInvitationOnServerCompletion:^{
+        NSString * invitationUrl = [InvitationServices getinvitationAppOpenUrlForInvitation:[[PersistentServices sharedServices] currentInvitationToken]];
+        [self sendInvitationsWithMsg:invitationUrl];
+    }];
+}
+
+
+-(void)sendInvitationsWithMsg:(NSString *)text{
     
     switch (self.currentFriendContactType) {
         case FriendContactTypeAddressbookSMS:
             [self sendSMSToContacts:[self contactsEmailSMSId:self.selectedFriends option:FriendContactTypeAddressbookSMS]];
             break;
         case FriendContactTypeAddressbookEmail:
-            [self sendEmailToContacts:[self contactsEmailSMSId:self.selectedFriends option:FriendContactTypeAddressbookEmail]];
+            [self sendEmailToContacts:[self contactsEmailSMSId:self.selectedFriends option:FriendContactTypeAddressbookEmail] EmailText:text];
             break;
         case FriendContactTypeInAppUser:
-            [self sendEmailToContacts:[self contactsEmailSMSId:self.selectedFriends option:FriendContactTypeAddressbookEmail]];
+            [self sendEmailToContacts:[self contactsEmailSMSId:self.selectedFriends option:FriendContactTypeAddressbookEmail] EmailText:text];
             break;
         default:
             break;
@@ -279,12 +309,12 @@
     }
 }
 
--(void)sendEmailToContacts:(NSArray *)mContacts{
+-(void)sendEmailToContacts:(NSArray *)mContacts EmailText:(NSString *)txt{
     
     MFMailComposeViewController* controller = [[MFMailComposeViewController alloc] init];
     controller.mailComposeDelegate = self;
     [controller setSubject:@"Invitation to play Golf"];
-    [controller setMessageBody:[NSString stringWithFormat:@"Hey lets play Golf by downloading :%@", kAppStoreUrl] isHTML:NO];
+    [controller setMessageBody:txt isHTML:YES];
     [controller setToRecipients:mContacts];
     if (controller)
         [self presentViewController:controller animated:YES completion:^{

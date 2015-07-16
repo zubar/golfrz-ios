@@ -18,6 +18,8 @@
     id player;
 }
 
+@property (strong, nonatomic) NSNumber * score;
+
 @property (strong, nonatomic) IBOutlet UIImageView *imgPlayerPic;
 @property (strong, nonatomic) IBOutlet UILabel *lblPlayerName;
 @property (strong, nonatomic) IBOutlet UILabel *lblInOut;

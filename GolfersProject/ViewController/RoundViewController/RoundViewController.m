@@ -23,7 +23,7 @@
 }
 @property (nonatomic, strong) NSMutableArray * playersInRound;
 @property (nonatomic, strong) CMPopTipView * popTipView;
-@property (nonatomic, strong) id selectedCell;
+@property (nonatomic, weak) id selectedCell;
 @end
 
 @implementation RoundViewController
@@ -199,18 +199,20 @@
         [self.popTipView dismissAnimated:YES];
         self.popTipView = nil;
     }
-    
 }
 
 -(NSArray *)dataArrayForCells{
-    
     return [NSArray arrayWithObjects:@"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", nil];
 }
 
 -(void)selectedItem:(id)item forView:(UIView *)view{
     
     NSLog(@"tapped: %@ indexPath: %@", item, view);
-    [self.selectedCell setTitle:item forState:UIControlStateNormal];
+    if ([view isKindOfClass:[ScoreSelectionCell class]]) {
+        [self.selectedCell setTitle:item forState:UIControlStateNormal];
+    }
+    
+    self.selectedCell = nil;
     [self.popTipView dismissAnimated:YES];
 }
 #pragma mark - UINavigation
@@ -221,10 +223,9 @@
 }
 
 -(void)roundbackBtnTapped{
-
+    
     AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
     [delegate.appDelegateNavController popViewControllerAnimated:YES];
-
 }
 
 
