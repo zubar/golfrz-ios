@@ -9,7 +9,11 @@
 #import "HolesMapViewController.h"
 #import "HoleMapCell.h"
 
-@interface HolesMapViewController ()
+@interface HolesMapViewController (){
+    BOOL isDownButtonPressed;
+}
+@property (nonatomic, strong) NSMutableArray * firstNineHoles;
+
 
 @end
 
@@ -17,6 +21,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    if (!self.firstNineHoles) {
+        self.firstNineHoles = [[NSMutableArray alloc]initWithCapacity:1];
+        [self.firstNineHoles addObjectsFromArray:[NSArray arrayWithObjects:@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10",@"11",@"12",@"13",@"14",@"15",@"16", nil]];
+    }
+    isDownButtonPressed = FALSE;
+    NSDictionary *navTitleAttributes =@{
+                                        NSFontAttributeName :[UIFont fontWithName:@"Helvetica-Bold" size:14.0],
+                                        NSForegroundColorAttributeName : [UIColor whiteColor]
+                                        };
+    
+    self.navigationItem.title = @"FIRST NINE";
+    self.navigationController.navigationBar.titleTextAttributes = navTitleAttributes;
+    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+
     // Do any additional setup after loading the view.
 }
 
@@ -27,12 +45,12 @@
 
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 1;
+    return [self.firstNineHoles count];
 }
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     CGRect appFrame = [[UIScreen mainScreen] applicationFrame];
-    return CGSizeMake(appFrame.size.width / 3, 140);
+    return CGSizeMake((appFrame.size.width - 20) / 3, 140);
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -43,9 +61,16 @@
     }
     
     HoleMapCell *customCell = (HoleMapCell *)cell;
+    customCell.lblHoleNo.text = [self.firstNineHoles objectAtIndex:indexPath.row];
+    customCell.lblPar.text = [self.firstNineHoles objectAtIndex:indexPath.row];
     return customCell;
 }
 
+
+-(void)collectionView:(UICollectionView *)collectionView didEndDisplayingCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"indexPath: %@", indexPath);
+
+}
 /*
 #pragma mark - Navigation
 
@@ -57,5 +82,23 @@
 */
 
 - (IBAction)btnNextHolesTapped:(UIButton *)sender {
+    
+    if (!isDownButtonPressed) {
+        UIImage *buttonToDisplay = [UIImage imageNamed:@"ChooseHole_Up"];
+        [self.btnNextHoles setImage:buttonToDisplay forState:UIControlStateNormal];
+        self.navigationItem.title = @"LAST NINE";
+        NSIndexPath *indexPathToScroll = [NSIndexPath indexPathForItem:10 inSection:0];
+        [self.holeCollectionView scrollToItemAtIndexPath:indexPathToScroll atScrollPosition:UICollectionViewScrollPositionTop animated:YES];
+        isDownButtonPressed = TRUE;
+    }else{
+        UIImage *buttonToDisplay = [UIImage imageNamed:@"ChooseHole_Down"];
+        [self.btnNextHoles setImage:buttonToDisplay forState:UIControlStateNormal];
+        self.navigationItem.title = @"FIRST NINE";
+        NSIndexPath *indexPathToScroll = [NSIndexPath indexPathForItem:1 inSection:0];
+        [self.holeCollectionView scrollToItemAtIndexPath:indexPathToScroll atScrollPosition:UICollectionViewScrollPositionTop animated:YES];
+        isDownButtonPressed = FALSE;
+    }
+    
+    
 }
 @end

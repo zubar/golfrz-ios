@@ -23,7 +23,7 @@
 }
 @property (nonatomic, strong) NSMutableArray * playersInRound;
 @property (nonatomic, strong) CMPopTipView * popTipView;
-@property (nonatomic, strong) id selectedCell;
+@property (nonatomic, strong) id editScoreBtn;
 @end
 
 @implementation RoundViewController
@@ -191,7 +191,7 @@
         self.popTipView.delegate = self;
         self.popTipView.backgroundColor = [UIColor whiteColor];
         // saving the ref to selected view.
-        self.selectedCell = sender;
+        self.editScoreBtn = sender;
         [self.popTipView presentPointingAtView:sender inView:self.view animated:YES];
     }
     else {
@@ -210,7 +210,7 @@
 -(void)selectedItem:(id)item forView:(UIView *)view{
     
     NSLog(@"tapped: %@ indexPath: %@", item, view);
-    [self.selectedCell setTitle:item forState:UIControlStateNormal];
+    [self.editScoreBtn setTitle:item forState:UIControlStateNormal];
     [self.popTipView dismissAnimated:YES];
 }
 #pragma mark - UINavigation

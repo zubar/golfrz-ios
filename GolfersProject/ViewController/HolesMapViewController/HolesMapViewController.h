@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
-@interface HolesMapViewController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate>
+@interface HolesMapViewController : BaseViewController<UICollectionViewDataSource, UICollectionViewDelegate>
 
 - (IBAction)btnNextHolesTapped:(UIButton *)sender;
 
