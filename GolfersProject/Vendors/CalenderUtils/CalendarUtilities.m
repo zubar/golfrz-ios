@@ -11,63 +11,9 @@
 
 @implementation CalendarUtilities
 
-+ (NSString*)nameOfSignAtIndex:(NSInteger)aIdx {
-	NSString *theResult = nil;
-	
-	switch ( aIdx ) {
-		case  0: theResult = @"Aries"; break;
-		case  1: theResult = @"Taurus"; break;
-		case  2: theResult = @"Gemini"; break;
-		case  3: theResult = @"Cancer"; break;
-		case  4: theResult = @"Leo"; break;
-		case  5: theResult = @"Virgo"; break;
-		case  6: theResult = @"Libra"; break;
-		case  7: theResult = @"Scorpio"; break;
-		case  8: theResult = @"Sagittarius"; break;
-		case  9: theResult = @"Capricorn"; break;
-		case 10: theResult = @"Aquarius"; break;
-		case 11: theResult = @"Pisces"; break;
-	}
-	
-	if ( !theResult )
-		theResult = @"";
-	
-	return theResult;
-}
 
-+ (NSInteger)signIndexFromMMDD:(NSInteger)aMMDD {
-	NSInteger theResult = -1;
-	
-	if (( aMMDD >= 1222 ) || ( aMMDD <=  119 ))
-		theResult = 9;
-	else if ( aMMDD <=  218 )
-		theResult = 10;
-	else if ( aMMDD <=  320 )
-		theResult = 11;
-	else if ( aMMDD <=  419 )
-		theResult =  0;
-	else if ( aMMDD <=  520 )
-		theResult =  1;
-	else if ( aMMDD <=  621 )
-		theResult =  2;
-	else if ( aMMDD <=  722 )
-		theResult =  3;
-	else if ( aMMDD <=  822 )
-		theResult =  4;
-	else if ( aMMDD <=  922 )
-		theResult =  5;
-	else if ( aMMDD <= 1022 )
-		theResult =  6;
-	else if ( aMMDD <= 1121 )
-		theResult =  7;
-	else if ( aMMDD <= 1221 )
-		theResult =  8;
-	
-	return theResult;
-}
-+ (NSInteger)signIndexFrom366Day:(NSInteger)aDD {
-	return [self signIndexFromMMDD:[self MMDDFrom366Day:aDD]];
-}
+
+
 + (NSInteger)MMDDFrom366Day:(NSInteger)aDay {
 	aDay = ( 3660 + aDay ) % 366;
 	
@@ -142,7 +88,7 @@
 	NSInteger aDD = aMMDD % 100;
 	
 //	NSMutableString *theResult = [NSMutableString stringWithFormat:@"%02d", aDD];
-	NSMutableString *theResult = [NSMutableString stringWithFormat:@"%d", aDD];
+	NSMutableString *theResult = [NSMutableString stringWithFormat:@"%ld", (long)aDD];
 	switch ( aMM ) {
 		case  1: [theResult insertString:@"JAN " atIndex:0]; break;
 		case  2: [theResult insertString:@"FEB " atIndex:0]; break;
@@ -178,31 +124,16 @@
     if ([dateMMDD isEqual:[NSNull null]]) {
         return @"";
     }
-    
     NSArray * dateFragements = [dateMMDD componentsSeparatedByString:@"/"];
-    
-    
     NSString* dateString = dateFragements[1];
     
-    if([dateString integerValue] < 10)
-    {
-
-        int finalDate = [dateString integerValue];
-        
+    if([dateString integerValue] < 10){
+        int finalDate = [dateString intValue];
         finalDate = finalDate % 10;
-        
-        
-        
-        
         dateString = [NSString stringWithFormat:@"%d",finalDate];
-    }
-    else
-    {
+    }else{
         dateString = dateFragements[1];
     }
-    
-    
-    
     NSString * mmdd = [NSString stringWithFormat:@"%@. %@",[[CalendarUtilities monthNameFromNum:[dateFragements[0] integerValue]] stringByReplacingOccurrencesOfString:@" " withString:@""], dateString];
     
     return mmdd;
@@ -255,7 +186,6 @@
 	NSDateComponents *comps = [gregorian components:unitFlags fromDate:stDt toDate:endDt options:0];
 	NSInteger days = [comps day];
 
-	
 	if (days < 0)
 		days *= -1;
 	
@@ -292,7 +222,7 @@
     return dateString;
 }
 
-+ (NSString *) getWeekStringForCurrentDate
++ (NSString *)getWeekStringForCurrentDate
 {
 	NSDate *today = [NSDate date];
 	NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar]; 
@@ -313,7 +243,7 @@
 	return [NSString stringWithFormat:@"%@ - %@", startDateOfWeek, endDateOfWeek];
 }
 
-+ (NSString *) getMonthStringForCurrentDate
++ (NSString *)getMonthStringForCurrentDate
 {
 	NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init]; 
 	[dateFormat setDateStyle:NSDateFormatterLongStyle];
@@ -323,7 +253,7 @@
 	return dateString;
 }
 
-+ (NSString *) getYearStringForCurrentDate
++ (NSString *)getYearStringForCurrentDate
 {
 	NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init]; 
 	[dateFormat setDateStyle:NSDateFormatterLongStyle];

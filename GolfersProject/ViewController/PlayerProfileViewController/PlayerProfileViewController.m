@@ -19,7 +19,8 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "UIImageView+RoundedImage.h"
 #import "InviteMainViewController.h"
-
+#import "RoundViewController.h"
+#import "AddPlayersViewController.h"
 
 @interface PlayerProfileViewController ()
 
@@ -105,16 +106,6 @@
 
 #pragma mark - NavBarButtonsDelegate
 
-//-(NSDictionary *)updateNavBarRightButtons{
-//    
-//    UIButton * barBtn = [[UIButton alloc]initWithFrame:CGRectMake(10, 0, 50, 30)];
-//    [barBtn setTitle:@"Flop" forState:UIControlStateNormal];
-//    [barBtn addTarget:self action:@selector(btnTapped) forControlEvents:UIControlEventTouchUpInside];
-//    
-//    
-//    NSDictionary * dict=[[NSDictionary alloc]initWithObjectsAndKeys:barBtn, @"left_btn",nil];
-//    return dict;
-//}
 
 /*
 #pragma mark - Navigation
@@ -136,5 +127,10 @@
 }
 - (IBAction)btnStartRoundTapped:(UIButton *)sender {
     
+    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+    AddPlayersViewController * controller = [self.storyboard instantiateViewControllerWithIdentifier:@"AddPlayersViewController"];
+    [delegate.appDelegateNavController pushViewController:controller animated:YES];
+    
 }
+
 @end

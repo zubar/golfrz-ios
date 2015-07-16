@@ -7,9 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CalendarEvent.h"
+#import "EventAdmin.h"
 
 @interface EventAdminViewController : UIViewController
-@property (strong, nonatomic) IBOutlet UIImageView *imgCourseLogo;
+
+@property (strong, nonatomic) CalendarEvent * currentEvent;
+
+@property (strong, nonatomic) IBOutlet UIImageView *imgEventLogo;
+
 @property (strong, nonatomic) IBOutlet UILabel *lblEventName;
 @property (strong, nonatomic) IBOutlet UILabel *lblDay;
 @property (strong, nonatomic) IBOutlet UILabel *lblTime;

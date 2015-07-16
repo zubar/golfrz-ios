@@ -15,4 +15,7 @@
         success:(void (^)(bool status, NSDictionary * userInfo))successBlock
         failure:(void (^)(bool status, NSError *error))failureBlock;
 
+
++(NSDictionary *)authenticationParamsWithMemberId;
++(NSDictionary *)authenticationParams;
 @end

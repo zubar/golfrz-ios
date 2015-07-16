@@ -11,7 +11,7 @@
 
 @implementation AppDelegate (Push)
 
-
+// R & D on notifications while app is killed.
 -(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo{
 
     //TODO: See if we need to check localNotif: 

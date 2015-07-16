@@ -6,8 +6,9 @@
 //  Copyright (c) 2015 Abdullah Saeed. All rights reserved.
 //
 
-#import "MTLModel.h"
 #import <Mantle/Mantle.h>
+#import "MTLModel.h"
+#import "EventAdmin.h"
 
 @interface CalendarEvent : MTLModel<MTLJSONSerializing>
 
@@ -22,5 +23,9 @@
 @property (copy, nonatomic, readonly) NSString * eventType; //TODO: define enum for it.
 @property (copy, nonatomic, readonly) NSString * location;
 @property (copy, nonatomic, readonly) NSString * summary;
+
+@property (copy, nonatomic, readonly) NSString * imagePath;
+
+@property (copy, nonatomic, readonly) EventAdmin * eventAdmin;
 
 @end

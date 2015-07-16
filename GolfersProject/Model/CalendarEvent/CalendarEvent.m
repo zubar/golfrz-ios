@@ -21,8 +21,16 @@
              @"eventType" : @"event_type",
              @"summary" : @"summary",
              @"location" : @"location",
+             @"imagePath" : @"image_path",
+             @"eventAdmin" : @"user",
              //propertyName : json_key
              };
+}
+
+
+
++ (NSValueTransformer *)eventAdminJSONTransformer {
+    return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[EventAdmin class]];
 }
 
 

@@ -147,29 +147,17 @@
 {
     NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
     
-    if([title isEqualToString:@"CHECKOUT"])
-    {
-        
+    if([title isEqualToString:@"CHECKOUT"]){
         AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
         FoodBevCartViewController * controller = [self.storyboard instantiateViewControllerWithIdentifier:@"FoodBevCartViewController"];
         [delegate.appDelegateNavController pushViewController:controller animated:YES];
-
-        
-    }
-    else if([title isEqualToString:@"CONTINUE"])
-    {
-        //NSLog(@"Button 2 was selected.");
-        
-        
-        
-        AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
-        FoodBeveragesMainViewController * controller = [self.storyboard instantiateViewControllerWithIdentifier:@"FoodBeveragesMainViewController"];
-        [delegate.appDelegateNavController popViewControllerAnimated:YES];
-        //[delegate.appDelegateNavController pushViewController:controller animated:YES];
-
-    }
+    }else
+        if([title isEqualToString:@"CONTINUE"]){
+            AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+            [delegate.appDelegateNavController popViewControllerAnimated:YES];
+        }
     
-    }
+}
 
 - (IBAction)btnDecrementTapped:(UIButton *)sender {
     int count;

@@ -24,9 +24,8 @@ static NSString * const kAppPreviewImage = @"http://a5.mzstatic.com/us/r30/Purpl
 static NSString * const kBaseImageUrl = @"";//@"https://powerful-plains-9156.herokuapp.com";
 //static NSString * const kBaseImageUrl = @"https://golfrz-api.herokuapp.com";
 
-//static NSString * const kBaseURL = @"http://45.56.104.68/api/0.1/";
-static NSString * const kBaseURL = @"https://powerful-plains-9156.herokuapp.com/api/0.1/";
-
+static NSString * const kBaseURL = @"http://45.56.104.68/api/0.1/";
+//static NSString * const kBaseURL = @"https://powerful-plains-9156.herokuapp.com/api/0.1/";
 
 
 /*
@@ -58,6 +57,11 @@ static NSString * const kCourseInfo = @"courses/info";
 static NSString * const kCourseDetail = @"courses/course_detail";
 static NSString * const kCheckInUrl = @"check_in";
 
+/*
+ * InApp Friends
+ */
+static NSString * const kInAppFriend = @"users";
+
 
 //TODO: get it from bundle id,
 #pragma warking - Automation issue.
@@ -80,6 +84,35 @@ static NSString * const kRemoveFromCart = @"menus/remove_from_cart";
 static NSString * const kViewCart = @"menus/view_user_cart";
 static NSString * const kConfirmCartOrder = @"menus/place_order";
 
+/*
+ *  Rounds
+ */
+// API lists down the available subcourses, holes & rounds.
+static NSString * const kRoundInSubCourse = @"rounds/fetch_rounds_dropdowns";
+static NSString * const kRoundNew = @"rounds/new";
+static NSString * const kRoundStart = @"rounds/start";
+static NSString * const kRoundFinish = @"rounds/finish";
+static NSString * const kRoundAddGuest = @"rounds/create_guest";
+
+
+/*
+ * Adding Scores/Shots
+ */
+static NSString * const kAddDirectScore = @"shots/direct_score";
+
+
+
+
+/*
+ * Round Invitation
+ */
+static NSString * const kGetInvitationToken = @"invitations/send_invitation";
+static NSString * const kGetInvitationDetail = @"invitations/get_invitation";
+
+
+/*
+ * Shots 
+ */
 
 /*
  *  Push notification token registeration
