@@ -54,6 +54,7 @@
                                         NSForegroundColorAttributeName : [UIColor whiteColor]
                                         };
     */
+    [self.lblHoleNo setText:[NSString stringWithFormat:@"%@", self.holeNumberPlayer]];
     
     [self.imgDarkerBg setHidden:YES];
     //[self.scoreTable setHidden:YES];

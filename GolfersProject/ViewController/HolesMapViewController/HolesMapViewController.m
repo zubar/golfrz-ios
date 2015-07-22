@@ -8,6 +8,8 @@
 
 #import "HolesMapViewController.h"
 #import "HoleMapCell.h"
+#import "AppDelegate.h"
+#import "RoundViewController.h"
 
 @interface HolesMapViewController (){
     BOOL isDownButtonPressed;
@@ -71,6 +73,16 @@
     NSLog(@"indexPath: %@", indexPath);
 
 }
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    AppDelegate * appDelegate = [[UIApplication sharedApplication] delegate];
+    
+    RoundViewController * controller = [self.storyboard instantiateViewControllerWithIdentifier:@"RoundViewController"];
+    controller.holeNumberPlayer = [NSNumber numberWithInteger:indexPath.row];
+    [appDelegate.appDelegateNavController pushViewController:controller animated:YES];
+}
+
 /*
 #pragma mark - Navigation
 

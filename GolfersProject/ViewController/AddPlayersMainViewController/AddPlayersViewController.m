@@ -173,6 +173,12 @@
     [self.popTipView dismissAnimated:YES];
 }
 
+-(void)hidePlayerTableViewAndBtnStart:(BOOL)yesNo{
+
+    [self.playersTableView setHidden:yesNo];
+    [self.btnStartRound setHidden:yesNo];
+}
+
 #pragma mark - CMPopTipView
 - (void)popTipViewWasDismissedByUser:(CMPopTipView *)popTipView{
     [self saveRoundInfo];
@@ -303,6 +309,8 @@
     }
 
 }
+
+
 - (IBAction)btnStartRoundTapped:(UIButton *)sender {
     
     AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
@@ -310,10 +318,11 @@
     
     HolesMapViewController * holesMapViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"HolesMapViewController"];
     [delegate.appDelegateNavController pushViewController:holesMapViewController animated:YES];
-
-    
-    
 }
+
+
 - (IBAction)editPlayersTapped:(UIButton *)sender {
+    
+    
 }
 @end

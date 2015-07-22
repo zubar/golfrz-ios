@@ -11,6 +11,7 @@
 #import "Constants.h"
 #import "UserServices.h"
 #import "PersistentServices.h"
+#import "MBProgressHUD.h"
 
 @implementation InvitationServices
 

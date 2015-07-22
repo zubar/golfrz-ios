@@ -15,6 +15,7 @@
 #import "APContact+convenience.h"
 #import "InvitationServices.h"
 #import "PersistentServices.h"
+#import "AddPlayersViewController.h"
 
 #import "RoundViewController.h"
 #import "AppDelegate.h"
@@ -178,16 +179,18 @@
             break;
     }
 
-    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [InvitationServices getInvitationTokenForInvitee:emailSMS
                                                 type:inviteType
                                              success:^(bool status, NSString *invitationToken) {
                 if (status) {
                     [[PersistentServices sharedServices] setCurrentInvitationToken:invitationToken];
                     completion();
+                    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
                         }
     } failure:^(bool status, NSError *error) {
         //TODO:
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     }];
 }
     
@@ -264,15 +267,29 @@
     return emailSMSArray;
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+//}
+
+-(void)popToAddPlayersViewController{
+    
+    AppDelegate * appDelegate = [[UIApplication sharedApplication] delegate];
+    
+    for (UIViewController * controller in [appDelegate.appDelegateNavController viewControllers]) {
+        //Do not forget to import AnOldViewController.h
+        if ([controller isKindOfClass:[AddPlayersViewController class]]) {
+                [appDelegate.appDelegateNavController popToViewController:controller animated:YES];
+            break;
+        }
+    }
 }
-*/
+
+
 -(void)fetchAddressbookContactsFilterOption:(ContactFilterOption)option completion:(void(^)(void))completionBlock{
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
@@ -314,7 +331,7 @@
     MFMailComposeViewController* controller = [[MFMailComposeViewController alloc] init];
     controller.mailComposeDelegate = self;
     [controller setSubject:@"Invitation to play Golf"];
-    [controller setMessageBody:txt isHTML:YES];
+    [controller setMessageBody:txt isHTML:NO];
     [controller setToRecipients:mContacts];
     if (controller)
         [self presentViewController:controller animated:YES completion:^{
@@ -352,6 +369,7 @@
         }
         [self.selectedFriends removeAllObjects];
         [self.friendsTableView reloadData];
+        [self popToAddPlayersViewController];
     }];
 }
 
@@ -393,6 +411,7 @@
         };
         [self.selectedFriends removeAllObjects];
         [self.friendsTableView reloadData];
+        [self popToAddPlayersViewController];
     }];
     
 }
