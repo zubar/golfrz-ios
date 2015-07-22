@@ -36,7 +36,6 @@
 -(NSNumber *)currentTeebox;
 -(void)setcurrentTeebox:(NSNumber *)teebox;
 
-
 -(NSString *)invitationToken;
 -(void)setInvitationToken:(NSString *)teebox;
 
@@ -50,4 +49,5 @@
 
 -(BOOL )isRoundInProgress;
 -(void)setIsRoundInProgress:(BOOL )roundstatus;
+
 @end

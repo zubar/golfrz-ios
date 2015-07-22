@@ -54,6 +54,7 @@
                                         NSForegroundColorAttributeName : [UIColor whiteColor]
                                         };
     */
+    [self.lblHoleNo setText:[NSString stringWithFormat:@"%@", self.holeNumberPlayer]];
     
     [self.imgDarkerBg setHidden:YES];
     //[self.scoreTable setHidden:YES];
@@ -199,18 +200,19 @@
         [self.popTipView dismissAnimated:YES];
         self.popTipView = nil;
     }
-    
 }
 
 -(NSArray *)dataArrayForCells{
-    
     return [NSArray arrayWithObjects:@"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", nil];
 }
 
 -(void)selectedItem:(id)item forView:(UIView *)view{
     
     NSLog(@"tapped: %@ indexPath: %@", item, view);
-    [self.editScoreBtn setTitle:item forState:UIControlStateNormal];
+    if ([view isKindOfClass:[ScoreSelectionCell class]]) {
+        [self.editScoreBtn setTitle:item forState:UIControlStateNormal];
+    }
+    self.editScoreBtn = nil;
     [self.popTipView dismissAnimated:YES];
 }
 #pragma mark - UINavigation
@@ -221,10 +223,9 @@
 }
 
 -(void)roundbackBtnTapped{
-
+    
     AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
     [delegate.appDelegateNavController popViewControllerAnimated:YES];
-
 }
 
 

@@ -16,6 +16,7 @@
 #import "InvitationServices.h"
 #import "AddPlayersViewController.h"
 #import "PersistentServices.h"
+#import "AddPlayersViewController.h"
 
 #import "RoundViewController.h"
 #import "AppDelegate.h"
@@ -59,7 +60,7 @@
     }
     
     // Right bar button
-    UIBarButtonItem * rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(sendInvitations)];
+    UIBarButtonItem * rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneTapped)];
     self.navigationItem.rightBarButtonItem = rightBarButtonItem;
     
     
@@ -154,15 +155,44 @@
     }
 }
 #pragma mark - ServiceCalls
--(void)saveInvitationId{
-    //TODO:
-    /*
-    [InvitationServices getInvitationToken:^(bool status, NSString *invitationToken) {
-        <#code#>
+-(void)saveInvitationOnServerCompletion:(void(^)(void))completion{
+    
+    RoundInvitationType inviteType;
+    NSArray * emailSMS;
+    
+    switch (self.currentFriendContactType) {
+        case FriendContactTypeAddressbookSMS:
+            inviteType = RoundInvitationTypeSMS;
+            emailSMS = [self contactsEmailSMSId:self.selectedFriends option:FriendContactTypeAddressbookSMS];
+            break;
+        case FriendContactTypeAddressbookEmail:
+            inviteType = RoundInvitationTypeEmail;
+            emailSMS = [self contactsEmailSMSId:self.selectedFriends option:FriendContactTypeAddressbookEmail];
+            break;
+        case FriendContactTypeInAppUser:
+            inviteType = RoundInvitationTypeInApp;
+            emailSMS = [self contactsEmailSMSId:self.selectedFriends option:FriendContactTypeInAppUser];
+            break;
+        case FriendContactTypeFacebookEmail:
+            inviteType = RoundInvitationTypeFacebook;
+            break;
+        default:
+            break;
+    }
+
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [InvitationServices getInvitationTokenForInvitee:emailSMS
+                                                type:inviteType
+                                             success:^(bool status, NSString *invitationToken) {
+                if (status) {
+                    [[PersistentServices sharedServices] setInvitationToken:invitationToken];
+                    completion();
+                    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+                        }
     } failure:^(bool status, NSError *error) {
-        <#code#>
-    }]
-     */
+        //TODO:
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    }];
 }
     
 #pragma mark - ContactCellDelegate
@@ -190,18 +220,28 @@
             return;
         }
     }
+}
 
     
+-(void)doneTapped{
+    [self saveInvitationOnServerCompletion:^{
+        NSString * invitationUrl = [InvitationServices getinvitationAppOpenUrlForInvitation:[[PersistentServices sharedServices] invitationToken]];
+        [self sendInvitationsWithMsg:invitationUrl];
+    }];
+}
+
+
+-(void)sendInvitationsWithMsg:(NSString *)text{
     
     switch (self.currentFriendContactType) {
         case FriendContactTypeAddressbookSMS:
             [self sendSMSToContacts:[self contactsEmailSMSId:self.selectedFriends option:FriendContactTypeAddressbookSMS]];
             break;
         case FriendContactTypeAddressbookEmail:
-            [self sendEmailToContacts:[self contactsEmailSMSId:self.selectedFriends option:FriendContactTypeAddressbookEmail]];
+            [self sendEmailToContacts:[self contactsEmailSMSId:self.selectedFriends option:FriendContactTypeAddressbookEmail] EmailText:text];
             break;
         case FriendContactTypeInAppUser:
-            [self sendEmailToContacts:[self contactsEmailSMSId:self.selectedFriends option:FriendContactTypeAddressbookEmail]];
+            [self sendEmailToContacts:[self contactsEmailSMSId:self.selectedFriends option:FriendContactTypeAddressbookEmail] EmailText:text];
             break;
         default:
             break;
@@ -242,15 +282,29 @@
     return emailSMSArray;
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+//}
+
+-(void)popToAddPlayersViewController{
+    
+    AppDelegate * appDelegate = [[UIApplication sharedApplication] delegate];
+    
+    for (UIViewController * controller in [appDelegate.appDelegateNavController viewControllers]) {
+        //Do not forget to import AnOldViewController.h
+        if ([controller isKindOfClass:[AddPlayersViewController class]]) {
+                [appDelegate.appDelegateNavController popToViewController:controller animated:YES];
+            break;
+        }
+    }
 }
-*/
+
+
 -(void)fetchAddressbookContactsFilterOption:(ContactFilterOption)option completion:(void(^)(void))completionBlock{
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
@@ -287,12 +341,12 @@
     }
 }
 
--(void)sendEmailToContacts:(NSArray *)mContacts{
+-(void)sendEmailToContacts:(NSArray *)mContacts EmailText:(NSString *)txt{
     
     MFMailComposeViewController* controller = [[MFMailComposeViewController alloc] init];
     controller.mailComposeDelegate = self;
     [controller setSubject:@"Invitation to play Golf"];
-    [controller setMessageBody:[NSString stringWithFormat:@"Hey lets play Golf by downloading :%@", kAppStoreUrl] isHTML:NO];
+    [controller setMessageBody:txt isHTML:NO];
     [controller setToRecipients:mContacts];
     if (controller)
         [self presentViewController:controller animated:YES completion:^{
@@ -330,6 +384,7 @@
         }
         [self.selectedFriends removeAllObjects];
         [self.friendsTableView reloadData];
+        [self popToAddPlayersViewController];
     }];
 }
 
@@ -371,6 +426,7 @@
         };
         [self.selectedFriends removeAllObjects];
         [self.friendsTableView reloadData];
+        [self popToAddPlayersViewController];
     }];
     
 }

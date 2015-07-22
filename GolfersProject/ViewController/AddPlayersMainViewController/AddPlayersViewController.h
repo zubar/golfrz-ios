@@ -45,4 +45,6 @@ typedef NS_ENUM(NSInteger, DropDownContainsItems) {
 @property (strong, nonatomic) IBOutlet UIView *playersTableContainerView;
 - (IBAction)editPlayersTapped:(UIButton *)sender;
 
+//TODO: rename PlayersTableView to PlayersContainerView
+
 @end
