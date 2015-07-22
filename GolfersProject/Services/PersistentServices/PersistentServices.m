@@ -104,6 +104,43 @@
     [self writeDataToFile];
 }
 
+-(NSString *)invitationToken{
+    return dataDict[@"invitationToken"];
+}
+
+-(void)setInvitationToken:(NSString *)token{
+    [dataDict setObject:token forKey:@"invitationToken"];
+    [self writeDataToFile];
+}
+
+-(NSNumber *)invitee{
+    return dataDict[@"invitee"];
+}
+
+-(void)setInvitee:(NSNumber *)invitee{
+    [dataDict setObject:invitee forKey:@"invitee"];
+    [self writeDataToFile];
+}
+
+-(BOOL )isWaitingForPlayers{
+    return [dataDict[@"isWaitingForPlayers"] boolValue];
+}
+
+-(void)setWaitingForPlayers:(BOOL )waitingStatus{
+    [dataDict setObject:[NSNumber numberWithBool:waitingStatus] forKey:@"isWaitingForPlayers"];
+    [self writeDataToFile];
+}
+
+-(BOOL )isRoundInProgress{
+    return [dataDict[@"roundInProgress"] boolValue];
+}
+
+-(void)setIsRoundInProgress:(BOOL )roundstatus{
+    [dataDict setObject:[NSNumber numberWithBool:roundstatus] forKey:@"roundInProgress"];
+    [self writeDataToFile];
+}
+
+
 #pragma mark - Helpers Private
 
 -(NSString *)filePath{

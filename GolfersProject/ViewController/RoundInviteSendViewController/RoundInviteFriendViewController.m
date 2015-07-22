@@ -14,6 +14,8 @@
 #import "ContactServices.h"
 #import "APContact+convenience.h"
 #import "InvitationServices.h"
+#import "AddPlayersViewController.h"
+#import "PersistentServices.h"
 
 #import "RoundViewController.h"
 #import "AppDelegate.h"
@@ -178,11 +180,17 @@
 //TODO: Improve -(void)sendInvitations and method below it.
 -(void)sendInvitations{
     //TODO: Remove after testing.
-    
-    RoundViewController * controller = [self.storyboard instantiateViewControllerWithIdentifier:@"RoundViewController"];
     AppDelegate * appDelegate = [[UIApplication sharedApplication] delegate];
-    [appDelegate.appDelegateNavController pushViewController:controller animated:YES];
-    return;
+
+    // TODO: assume invitations are send to someOne.
+    for (UIViewController * controller  in [appDelegate.appDelegateNavController viewControllers]) {
+        if ([controller isMemberOfClass:[AddPlayersViewController class]]) {
+            [appDelegate.appDelegateNavController popToViewController:controller animated:YES];
+            [[PersistentServices sharedServices] setWaitingForPlayers:YES];
+            return;
+        }
+    }
+
     
     
     switch (self.currentFriendContactType) {

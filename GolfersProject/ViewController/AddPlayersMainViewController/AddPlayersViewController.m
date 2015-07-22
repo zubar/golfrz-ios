@@ -8,6 +8,7 @@
 
 #import "AddPlayersViewController.h"
 #import "AppDelegate.h"
+#import "Constants.h"
 
 #import "SubCourse.h"
 #import "GameType.h"
@@ -64,8 +65,71 @@
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
 
     }];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNotification:) name:kInviteeAcceptedInvitation object:nil];
 }
 
+-(void)postTestNotification{
+    [[NSNotificationCenter defaultCenter] postNotificationName:kInviteeAcceptedInvitation object:nil];
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    
+    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+    [delegate.appDelegateNavController setNavigationBarHidden:NO];
+  
+    PersistentServices * persistentStore = [PersistentServices sharedServices];
+   
+    // default value
+    [self hidePlayersContainerView:YES];
+    
+    // updating views by check use-cases.
+    if ([persistentStore isWaitingForPlayers]) {
+        [self.playersTableContainerView setHidden:NO];
+        [self.btnStartRound setHidden:YES];
+        [self.addPlayerContainerView setHidden:YES];
+        
+        //TODO: testingCode
+        [self performSelector:@selector(postTestNotification) withObject:nil afterDelay:5];
+    }else
+        if ([persistentStore isRoundInProgress]) {
+            [self loadPlayersListCompletion:^{
+                //TODO: load tableview.
+            }];
+        }
+}
+
+-(void)loadPlayersListCompletion:(void(^)(void))completion{
+    //TODO: send call to get players list.
+    completion();
+}
+
+-(void)handleNotification:(NSNotification *)notif{
+
+    if ([[notif name] isEqualToString:kInviteeAcceptedInvitation]) {
+      
+        if ([[PersistentServices sharedServices] isRoundInProgress]) {
+            [self loadPlayersListCompletion:^{
+                [self.playersTableContainerView setHidden:NO];
+                //  [self.btnStartRound setHidden:NO];
+            }];
+        }else
+            if ([[PersistentServices sharedServices] isWaitingForPlayers]) {
+                [[PersistentServices sharedServices] setWaitingForPlayers:NO];
+                [self loadPlayersListCompletion:^{
+                    [self.playersTableContainerView setHidden:NO];
+                    [self.btnStartRound setHidden:NO];
+                }];
+            }
+    }
+}
+
+-(void)hidePlayersContainerView:(BOOL )yesNo{
+    
+    [self.playersTableContainerView setHidden:yesNo];
+    [self.addPlayerContainerView setHidden:!yesNo];
+    [self.btnStartRound setHidden:yesNo];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

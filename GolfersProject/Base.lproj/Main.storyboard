@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="7Xa-5q-5iG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="7Xa-5q-5iG">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
@@ -2179,7 +2179,7 @@
                                                                                 <constraint firstAttribute="height" constant="26" id="GGQ-nW-yvd"/>
                                                                                 <constraint firstAttribute="width" constant="26" id="LJ2-ou-0eZ"/>
                                                                             </constraints>
-                                                                            <state key="normal" image="A018CB6E-243D-45CC-B75B-338167E7CFBE">
+                                                                            <state key="normal" image="0BD90C06-AE3D-4DA0-975C-13C9E26DDA47">
                                                                                 <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                                             </state>
@@ -3719,13 +3719,14 @@
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <connections>
+                        <outlet property="addPlayerContainerView" destination="KOL-lu-B6I" id="r8e-ju-H10"/>
                         <outlet property="btnSelectCourse" destination="xXq-M8-WzZ" id="K57-dA-l6F"/>
                         <outlet property="btnSelectGametype" destination="dvY-FK-YFv" id="SbL-HN-8XC"/>
                         <outlet property="btnSelectScoretype" destination="VGo-ef-JTq" id="Wk9-uy-1Od"/>
                         <outlet property="btnSelectTeebox" destination="SBI-tr-BbO" id="9iy-iv-R0V"/>
                         <outlet property="btnStartRound" destination="MPV-iP-vFN" id="mcu-vm-vMh"/>
                         <outlet property="playersTable" destination="xy8-Xa-Lga" id="CL8-8b-NN5"/>
-                        <outlet property="playersTableView" destination="IqM-au-XlE" id="GQo-w9-7EO"/>
+                        <outlet property="playersTableContainerView" destination="IqM-au-XlE" id="C6Q-NC-C2H"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JaQ-5g-BJd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -5417,7 +5418,7 @@
                                                                                 <constraint firstAttribute="height" constant="26" id="OaE-ph-eo5"/>
                                                                                 <constraint firstAttribute="width" constant="26" id="S5w-xw-4Ro"/>
                                                                             </constraints>
-                                                                            <state key="normal" image="61016AE3-94E7-41F6-BFD4-4987D9952515">
+                                                                            <state key="normal" image="6A9BA73F-7DCF-4C92-9423-6F97DB6B812B">
                                                                                 <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                                             </state>
@@ -6003,7 +6004,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="61016AE3-94E7-41F6-BFD4-4987D9952515" width="24" height="25">
+        <image name="0BD90C06-AE3D-4DA0-975C-13C9E26DDA47" width="24" height="25">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -6094,7 +6095,7 @@ ExMWExsTKhMuEzUTPRNKE08TURNTE1gTYBNjE2gTcBNzE4UTiBONAAAAAAAAAgEAAAAAAAAAQgAAAAAA
 AAAAAAAAAAAAE48
 </mutableData>
         </image>
-        <image name="A018CB6E-243D-45CC-B75B-338167E7CFBE" width="24" height="25">
+        <image name="6A9BA73F-7DCF-4C92-9423-6F97DB6B812B" width="24" height="25">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

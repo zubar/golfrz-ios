@@ -123,9 +123,12 @@ static NSString * const kInvitationAppOpen = @"%@/redirect_with_invitation?id=%@
 static NSString * const kPushRegURL = @"push_registrations/register";
 
 /*
- * Notif
+ * Notification Names
  */
 static NSString * const kUserLoginSuccessful = @"UserLoginSuccessfulWithServerTokenAcquired";
+static NSString * const kInviteeAcceptedInvitation = @"InviteeAcceptedRoundInvitation";
+static NSString * const kInviteeRejectedInvitation = @"InviteeRejectedRoundInvitation";
+static NSString * const kInvitationReceived = @"InvitationReceivedForRound";
 
 //================================= Presentation ======================================
 
