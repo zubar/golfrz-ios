@@ -51,7 +51,7 @@
 +(void)getInvitationDetail:(void (^)(bool status, id roundId))successBlock
                    failure:(void (^)(bool status, NSError * error))failureBlock{
     
-    AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kWeatherAPI]];
+    AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
     
     [apiClient GET:kGetInvitationDetail parameters:[InvitationServices paramGetInvitationDetail] success:^(NSURLSessionDataTask *task, id responseObject) {
         successBlock(true, responseObject);
