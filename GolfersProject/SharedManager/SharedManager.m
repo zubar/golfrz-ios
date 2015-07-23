@@ -208,5 +208,8 @@ bool pointInPolygon(int polyCorners, float polyX[], float polyY[], float x, floa
 -(void)setInvitationToken:(NSString *)token{
     [dataDict setObject:token forKey:@"invitationToken"];
 }
+-(void)deleteInvitation{
+    [dataDict removeObjectForKey:@"invitationToken"];
+}
 
 @end

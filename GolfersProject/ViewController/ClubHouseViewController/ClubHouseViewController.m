@@ -84,6 +84,7 @@
         }
     }];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(displayAlertForPendingInvitations) name:kAppLaunchInvitationReceived object:nil];
     [self loadDataForCurrentCourse];
     
 }
@@ -123,7 +124,6 @@
         [pageControl setHidden:NO];
     }
     [[UINavigationBar appearance] setTitleVerticalPositionAdjustment:-10.0 forBarMetrics:UIBarMetricsDefault];
-    
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -281,7 +281,7 @@
         if ([UserServices currentToken]) {
             //TODO: Send call to get invitation details.
             
-            [[[UIAlertView alloc] initWithTitle:@"Invitation Received" message:@"Please sign-in to accept the invitation" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil] show];
+            [[[UIAlertView alloc] initWithTitle:@"Invitation Received" message:@"Accept Invitation to play round." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil] show];
         }
     }
 }
@@ -292,7 +292,7 @@
     switch (buttonIndex) {
         case 0: {// Cancel
             // do nothing just ignore & remove the invitation token from app.
-            [[SharedManager sharedInstance]setInvitationToken:nil];
+            [[SharedManager sharedInstance] deleteInvitation];
             break;
         }
         case 1:{ // Accept Invitation. Navigate

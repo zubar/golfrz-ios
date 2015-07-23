@@ -16,6 +16,7 @@
 #import "AddPlayersViewController.h"
 #import "PersistentServices.h"
 #import "Round.h"
+#import "RoundPlayers.h"
 
 @implementation RoundDataServices
 
@@ -181,15 +182,16 @@
     
 }
 
-+(void)getPlayersInRoundSuccess:(void(^)(bool, NSArray * players))successBlock
-                        failure:(void(^)(bool, NSError * error))failureBlock{
++(void)getPlayersInRoundId:(NSNumber *)roundId
+                   success:(void(^)(bool, RoundPlayers * players))successBlock
+                    failure:(void(^)(bool, NSError * error))failureBlock{
    
     APIClient * apiClient = [APIClient sharedAPICLient];
     
-    [apiClient GET:kRoundPlayers parameters:[UtilityServices authenticationParams] completion:^(id response, NSError *error) {
+    [apiClient GET:kRoundPlayers parameters:[RoundDataServices paramsGetRoundInfoForRound:roundId] completion:^(id response, NSError *error) {
         OVCResponse * resp = response;
         if (!error) {
-            NSArray * mPlayers = [resp result];
+            RoundPlayers * mPlayers = [resp result];
             successBlock(true, mPlayers);
         }else
             failureBlock(false, error);

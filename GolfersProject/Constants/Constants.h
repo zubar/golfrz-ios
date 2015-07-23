@@ -130,7 +130,7 @@ static NSString * const kUserLoginSuccessful = @"UserLoginSuccessfulWithServerTo
 static NSString * const kInviteeAcceptedInvitation = @"InviteeAcceptedRoundInvitation";
 static NSString * const kInviteeRejectedInvitation = @"InviteeRejectedRoundInvitation";
 static NSString * const kInvitationReceived = @"InvitationReceivedForRound";
-
+static NSString * const kAppLaunchInvitationReceived = @"AppLaunchDueToRoundInvitationReceived";
 //================================= Presentation ======================================
 
 static NSString * const kDefaultThemeColor = @"0xFF0000";

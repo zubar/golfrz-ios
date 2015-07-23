@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "RoundMetaData.h"
 @class Round;
+@class RoundPlayers;
 
 @interface RoundDataServices : NSObject
 
@@ -62,8 +63,9 @@
 +(void)updateRound:(void(^)(bool status, id response))successBlock
            failure:(void(^)(bool status, NSError * error))failureBlock;
 
-+(void)getPlayersInRoundSuccess:(void(^)(bool, NSArray * players))successBlock
-                        failure:(void(^)(bool, NSError * error))failureBlock;
++(void)getPlayersInRoundId:(NSNumber *)roundId
+                   success:(void(^)(bool, RoundPlayers * players))successBlock
+                   failure:(void(^)(bool, NSError * error))failureBlock;
 
 
 +(void)getRoundInfoForRoundId:(NSNumber *)roundId

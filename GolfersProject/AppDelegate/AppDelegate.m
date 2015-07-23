@@ -12,6 +12,7 @@
 #import "PlayerProfileViewController.h"
 #import "SplashScreenViewController.h"
 #import "PersistentServices.h"
+#import "Constants.h"
 
 #define MAIN_CONTROL_IDENTIFIER @"mainPagingController"
 
@@ -65,6 +66,7 @@
     }else
         if ([[[url scheme] lowercaseString] isEqualToString:@"invitationreceived"]) {
             [[SharedManager sharedInstance] setInvitationToken:[self extractParamsFromUrl:[url query]][@"invitation"]];
+            [[NSNotificationCenter defaultCenter] postNotificationName:kAppLaunchInvitationReceived object:nil];
             NSLog(@"Received invitation:%@", [[SharedManager sharedInstance] invitationToken]);
             return YES;
         }else

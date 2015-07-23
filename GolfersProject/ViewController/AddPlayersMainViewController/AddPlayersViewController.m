@@ -32,6 +32,7 @@
 #import "PersistentServices.h"
 #import "HolesMapViewController.h"
 #import "RoundDataServices.h"
+#import "RoundPlayers.h"
 
 @interface AddPlayersViewController (){
     DropDownContainsItems currentItemsIndropdown;
@@ -93,22 +94,22 @@
         [persistentStore setIsRoundInProgress:YES];
         
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        [self updateViewsRoundInProgress];
-        
-        [self loadPlayersListCompletion:^{
-            [self.playersTable reloadData];
-            
+      
             [InvitationServices getInvitationDetail:^(bool status, id invitation) {
                 NSNumber * roundId = invitation[@"invitation_round"][@"round_id"];
-               
+                [persistentStore setCurrentRoundId:roundId];
                 [self loadRoundDetailsForRoundId:roundId Completion:^{
                     
-                    [MBProgressHUD hideHUDForView:self.view animated:YES];
+                    [self updateViewsRoundInProgressCompletion:^{
+                        [MBProgressHUD hideHUDForView:self.view animated:YES];
+                    }];
+                    
                 }];
             } failure:^(bool status, NSError *error) {
-               // <#code#>
+                // <#code#>
             }];
-        }];
+
+        
     }
 }
 
@@ -124,40 +125,48 @@
     
     // updating views by check use-cases.
     if ([persistentStore isWaitingForPlayers]) {
-        [self updateViewsWaitingPlayerState];
+        [self updateViewsWaitingPlayerStateCompletion:^{
+            //
+        }];
     }else
         if ([persistentStore isRoundInProgress]) {
-            [self updateViewsRoundInProgress];
+            [self updateViewsRoundInProgressCompletion:^{
+                //
+            }];
         }
 }
 
--(void)updateViewsWaitingPlayerState{
+-(void)updateViewsWaitingPlayerStateCompletion:(void(^)(void))handler{
 
     [self loadPlayersListCompletion:^{
-        
+        handler();
     }];
     [self.playersTableContainerView setHidden:NO];
     [self.btnStartRound setTitle:@"Start Round" forState:UIControlStateNormal];
     [self.btnStartRound setHidden:YES];
     [self.addPlayerContainerView setHidden:YES];
 }
--(void)updateViewsRoundInProgress{
+-(void)updateViewsRoundInProgressCompletion:(void(^)(void))completionHandler{
 
     [self loadPlayersListCompletion:^{
         [self.playersTable reloadData];
+        completionHandler();
     }];
     [self.btnStartRound setTitle:@"Continue To Round" forState:UIControlStateNormal];
     [self.btnStartRound setHidden:NO];
     [self.playersTableContainerView setHidden:NO];
+    [self.addPlayerContainerView setHidden:YES];
 }
 
 -(void)loadPlayersListCompletion:(void(^)(void))completion{
    
     //TODO: send call to get players list.
-    [RoundDataServices getPlayersInRoundSuccess:^(bool status, NSArray *players) {
+     NSNumber * roundId = [[PersistentServices sharedServices] currentRoundId];
+    
+    [RoundDataServices getPlayersInRoundId:roundId success:^(bool status, RoundPlayers *playerData) {
         if (status) {
             [self.playersInRound removeAllObjects];
-            [self.playersInRound addObjectsFromArray:players];
+            [self.playersInRound addObjectsFromArray:playerData.players];
             completion();
         }
     } failure:^(bool status, NSError *error) {
@@ -188,12 +197,16 @@
     if ([[notif name] isEqualToString:kInviteeAcceptedInvitation]) {
       
         if ([[PersistentServices sharedServices] isRoundInProgress]) {
-            [self updateViewsRoundInProgress];
+            [self updateViewsRoundInProgressCompletion:^{
+                //
+            }];
         }else
             if ([[PersistentServices sharedServices] isWaitingForPlayers]) {
                 
                 [[PersistentServices sharedServices] setWaitingForPlayers:NO];
-                [self updateViewsWaitingPlayerState];
+                [self updateViewsWaitingPlayerStateCompletion:^{
+                    //
+                }];
             }
     }
 }

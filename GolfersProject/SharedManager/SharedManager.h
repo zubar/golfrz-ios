@@ -47,5 +47,6 @@
 
 -(NSString *)invitationToken;
 -(void)setInvitationToken:(NSString *)token;
+-(void)deleteInvitation;
 
 @end

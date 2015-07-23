@@ -31,7 +31,7 @@
 #import "MBProgressHUD.h"
 #import "AppDelegate.h"
 #import "SharedManager.h"
-
+#import "Constants.h"
 
 @interface InitialViewController ()
 
@@ -57,7 +57,7 @@
     [self.lblCourseName setText:[manager courseName]];
     [self.lblCityState setText:[NSString stringWithFormat:@"%@, %@", manager.courseCity, manager.courseState]];
     
-    [self displayAlertForPendingInvitations];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(displayAlertForPendingInvitations) name:kAppLaunchInvitationReceived object:nil];
 }
 
 
