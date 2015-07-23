@@ -68,7 +68,7 @@
     self.navigationItem.rightBarButtonItem = rightBarButtonItem;
     
     
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+   // [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
     if (![[PersistentServices sharedServices] isRoundInProgress]) {
       
@@ -96,15 +96,19 @@
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
       
             [InvitationServices getInvitationDetail:^(bool status, id invitation) {
-                NSNumber * roundId = invitation[@"invitation_round"][@"round_id"];
-                [persistentStore setCurrentRoundId:roundId];
-                [self loadRoundDetailsForRoundId:roundId Completion:^{
-                    
-                    [self updateViewsRoundInProgressCompletion:^{
-                        [MBProgressHUD hideHUDForView:self.view animated:YES];
+               
+                if (status) {
+                    NSNumber * roundId = invitation[@"invitation_round"][@"round_id"];
+                    [persistentStore setCurrentRoundId:roundId];
+                    [self loadRoundDetailsForRoundId:roundId Completion:^{
+                        
+                        [self updateViewsRoundInProgressCompletion:^{
+                            [MBProgressHUD hideHUDForView:self.view animated:YES];
+                        }];
+
                     }];
-                    
-                }];
+                }
+               
             } failure:^(bool status, NSError *error) {
                 // <#code#>
             }];
@@ -162,6 +166,9 @@
    
     //TODO: send call to get players list.
      NSNumber * roundId = [[PersistentServices sharedServices] currentRoundId];
+    if (!roundId) {
+        return;
+    }
     
     [RoundDataServices getPlayersInRoundId:roundId success:^(bool status, RoundPlayers *playerData) {
         if (status) {

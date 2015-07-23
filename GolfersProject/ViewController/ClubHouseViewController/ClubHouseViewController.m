@@ -124,6 +124,7 @@
         [pageControl setHidden:NO];
     }
     [[UINavigationBar appearance] setTitleVerticalPositionAdjustment:-10.0 forBarMetrics:UIBarMetricsDefault];
+    [self displayAlertForPendingInvitations];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
