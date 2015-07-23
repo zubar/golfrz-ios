@@ -6,13 +6,13 @@
 //  Copyright (c) 2015 Abdullah Saeed. All rights reserved.
 //
 
-#import "RoundData.h"
+#import "RoundMetaData.h"
 #import "SubCourse.h"
 #import "GameType/GameType.h"
 #import "ScoreType/ScoreType.h"
 
 
-@implementation RoundData
+@implementation RoundMetaData
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
     return @{
@@ -20,6 +20,10 @@
              @"scoreTypes" : @"score_types",
              @"gameTypes" : @"game_types",
              //propertyName : json_key
+             
+             @"roundId" : @"id",
+             @"name" : @"name",
+             @"status" : @"status",
              };
 }
 

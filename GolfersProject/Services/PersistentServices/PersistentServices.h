@@ -36,16 +36,13 @@
 -(NSNumber *)currentTeebox;
 -(void)setcurrentTeebox:(NSNumber *)teebox;
 
--(NSString *)invitationToken;
--(void)setInvitationToken:(NSString *)teebox;
-
 
 -(NSNumber *)invitee;
 -(void)setInvitee:(NSNumber *)invitee;
 
-
 -(BOOL )isWaitingForPlayers;
 -(void)setWaitingForPlayers:(BOOL )waitingStatus;
+
 
 -(BOOL )isRoundInProgress;
 -(void)setIsRoundInProgress:(BOOL )roundstatus;

@@ -15,11 +15,12 @@
 #import "UserServices.h"
 #import "AddPlayersViewController.h"
 #import "PersistentServices.h"
+#import "Round.h"
 
 @implementation RoundDataServices
 
 
-+(void)getRoundData:(void (^)(bool status, RoundData * subCourse))successBlock
++(void)getRoundData:(void (^)(bool status, RoundMetaData * subCourse))successBlock
             failure:(void (^)(bool status, NSError * error))failureBlock{
 
     APIClient * apiClient = [APIClient sharedAPICLient];
@@ -27,7 +28,7 @@
     [apiClient GET:kRoundInSubCourse parameters:[UtilityServices authenticationParams] completion:^(id response, NSError *error) {
         OVCResponse * resp = response;
         if (!error) {
-            RoundData * mRoundData = [resp result];
+            RoundMetaData * mRoundData = [resp result];
             successBlock(true, mRoundData);
         }else
             failureBlock(false, error);
@@ -180,7 +181,50 @@
     
 }
 
++(void)getPlayersInRoundSuccess:(void(^)(bool, NSArray * players))successBlock
+                        failure:(void(^)(bool, NSError * error))failureBlock{
+   
+    APIClient * apiClient = [APIClient sharedAPICLient];
+    
+    [apiClient GET:kRoundPlayers parameters:[UtilityServices authenticationParams] completion:^(id response, NSError *error) {
+        OVCResponse * resp = response;
+        if (!error) {
+            NSArray * mPlayers = [resp result];
+            successBlock(true, mPlayers);
+        }else
+            failureBlock(false, error);
+    }];
+}
+
++(void)getRoundInfoForRoundId:(NSNumber *)roundId
+                      success:(void(^)(bool status, Round * round))successBlock
+                      failure:(void(^)(bool status, NSError * error))failureBlock{
+
+    APIClient * apiClient = [APIClient sharedAPICLient];
+    
+    [apiClient GET:kRoundInfo parameters:[RoundDataServices paramsGetRoundInfoForRound:roundId] completion:^(id response, NSError *error) {
+        OVCResponse * resp = response;
+        if (!error) {
+            Round  * mRound = [resp result];
+            successBlock(true, mRound);
+        }else
+            failureBlock(false, error);
+    }];
+}
+
 #pragma mark - HelperMethods
+
+
+
++(NSDictionary *)paramsGetRoundInfoForRound:(NSNumber *)roundId{
+    return @{
+             @"app_bundle_id" : kAppBundleId,
+             @"user_agent" : kUserAgent,
+             @"auth_token" : [UserServices currentToken],
+             @"round_id" :    roundId,
+            };
+
+}
 
 +(NSDictionary *)paramsAddShotholeId:(NSNumber *)holeId roundId:(NSNumber *)round shortType:(NSString *)type{
     return @{

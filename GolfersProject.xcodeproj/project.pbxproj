@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		32B56928BD94CBDCCDA0C43B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A26DAF5CF62E34098597EA3 /* libPods.a */; };
+		3D00B59E1B61161800FA2C19 /* Round.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D00B59D1B61161800FA2C19 /* Round.m */; };
 		3D16D0841B1C3FFB00A582A3 /* SharedManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D16D0831B1C3FFB00A582A3 /* SharedManager.m */; };
 		3D1963BC1B0CE05700766CFC /* CourseServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1963B81B0CE05700766CFC /* CourseServices.m */; };
 		3D1963BD1B0CE05700766CFC /* UserServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1963BB1B0CE05700766CFC /* UserServices.m */; };
@@ -59,7 +60,7 @@
 		3D1C8EAF1B3D36C9004AAD30 /* EventHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1C8EAD1B3D36C9004AAD30 /* EventHeaderView.m */; };
 		3D1C8EB01B3D36C9004AAD30 /* EventHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D1C8EAE1B3D36C9004AAD30 /* EventHeaderView.xib */; };
 		3D1C8EBA1B3D3C7F004AAD30 /* RoundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1C8EB91B3D3C7F004AAD30 /* RoundViewController.m */; };
-		3D221F761B4BACAC00CF79E4 /* RoundData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D221F751B4BACAC00CF79E4 /* RoundData.m */; };
+		3D221F761B4BACAC00CF79E4 /* RoundMetaData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D221F751B4BACAC00CF79E4 /* RoundMetaData.m */; };
 		3D221F7B1B4BB0A600CF79E4 /* GameType.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D221F7A1B4BB0A600CF79E4 /* GameType.m */; };
 		3D221F7E1B4BB0DC00CF79E4 /* ScoreType.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D221F7D1B4BB0DC00CF79E4 /* ScoreType.m */; };
 		3D221F811B4BB30A00CF79E4 /* RoundDataServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D221F801B4BB30A00CF79E4 /* RoundDataServices.m */; };
@@ -125,6 +126,7 @@
 		3DD9BD0E1B14BE1C00A2F296 /* NSDate+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD9BD0A1B14BE1C00A2F296 /* NSDate+Helper.m */; };
 		3DD9BD0F1B14BE1C00A2F296 /* THCalendarInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD9BD0C1B14BE1C00A2F296 /* THCalendarInfo.m */; };
 		3DD9BD261B14C39000A2F296 /* CalendarEventServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD9BD251B14C39000A2F296 /* CalendarEventServices.m */; };
+		3DDF9BE91B60CA990036C735 /* RoundPlayers.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDF9BE81B60CA990036C735 /* RoundPlayers.m */; };
 		3DF9936F1B256999006EBC39 /* PushManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF9936E1B256999006EBC39 /* PushManager.m */; };
 		3DF993721B256A4A006EBC39 /* AppDelegate+Push.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF993711B256A4A006EBC39 /* AppDelegate+Push.m */; };
 		3DFD15B61B25B2AB008F76D8 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DFD15B51B25B2AA008F76D8 /* CoreLocation.framework */; };
@@ -184,6 +186,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3D00B59C1B61161800FA2C19 /* Round.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Round.h; sourceTree = "<group>"; };
+		3D00B59D1B61161800FA2C19 /* Round.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Round.m; sourceTree = "<group>"; };
 		3D16D0821B1C3FFB00A582A3 /* SharedManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedManager.h; sourceTree = "<group>"; };
 		3D16D0831B1C3FFB00A582A3 /* SharedManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedManager.m; sourceTree = "<group>"; };
 		3D1963B71B0CE05700766CFC /* CourseServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseServices.h; sourceTree = "<group>"; };
@@ -263,8 +267,8 @@
 		3D1C8EAE1B3D36C9004AAD30 /* EventHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventHeaderView.xib; sourceTree = "<group>"; };
 		3D1C8EB81B3D3C7F004AAD30 /* RoundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundViewController.h; sourceTree = "<group>"; };
 		3D1C8EB91B3D3C7F004AAD30 /* RoundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundViewController.m; sourceTree = "<group>"; };
-		3D221F741B4BACAC00CF79E4 /* RoundData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundData.h; sourceTree = "<group>"; };
-		3D221F751B4BACAC00CF79E4 /* RoundData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundData.m; sourceTree = "<group>"; };
+		3D221F741B4BACAC00CF79E4 /* RoundMetaData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundMetaData.h; sourceTree = "<group>"; };
+		3D221F751B4BACAC00CF79E4 /* RoundMetaData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundMetaData.m; sourceTree = "<group>"; };
 		3D221F791B4BB0A600CF79E4 /* GameType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameType.h; sourceTree = "<group>"; };
 		3D221F7A1B4BB0A600CF79E4 /* GameType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameType.m; sourceTree = "<group>"; };
 		3D221F7C1B4BB0DC00CF79E4 /* ScoreType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreType.h; sourceTree = "<group>"; };
@@ -390,6 +394,8 @@
 		3DD9BD0C1B14BE1C00A2F296 /* THCalendarInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THCalendarInfo.m; sourceTree = "<group>"; };
 		3DD9BD241B14C39000A2F296 /* CalendarEventServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarEventServices.h; sourceTree = "<group>"; };
 		3DD9BD251B14C39000A2F296 /* CalendarEventServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarEventServices.m; sourceTree = "<group>"; };
+		3DDF9BE71B60CA990036C735 /* RoundPlayers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundPlayers.h; sourceTree = "<group>"; };
+		3DDF9BE81B60CA990036C735 /* RoundPlayers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundPlayers.m; sourceTree = "<group>"; };
 		3DF9936D1B256999006EBC39 /* PushManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushManager.h; sourceTree = "<group>"; };
 		3DF9936E1B256999006EBC39 /* PushManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushManager.m; sourceTree = "<group>"; };
 		3DF993701B256A4A006EBC39 /* AppDelegate+Push.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+Push.h"; sourceTree = "<group>"; };
@@ -1086,8 +1092,10 @@
 				3DD47A6A1B4A7D63005DE325 /* GreenCoordinate */,
 				3DD47A621B4A607C005DE325 /* Hole */,
 				3DD47A631B4A607C005DE325 /* Teebox */,
-				3D221F741B4BACAC00CF79E4 /* RoundData.h */,
-				3D221F751B4BACAC00CF79E4 /* RoundData.m */,
+				3D221F741B4BACAC00CF79E4 /* RoundMetaData.h */,
+				3D221F751B4BACAC00CF79E4 /* RoundMetaData.m */,
+				3D00B59C1B61161800FA2C19 /* Round.h */,
+				3D00B59D1B61161800FA2C19 /* Round.m */,
 			);
 			path = SubCourse;
 			sourceTree = "<group>";
@@ -1166,6 +1174,15 @@
 				3DD9BD251B14C39000A2F296 /* CalendarEventServices.m */,
 			);
 			path = EventServices;
+			sourceTree = "<group>";
+		};
+		3DDF9BE61B60CA470036C735 /* RoundPlayers */ = {
+			isa = PBXGroup;
+			children = (
+				3DDF9BE71B60CA990036C735 /* RoundPlayers.h */,
+				3DDF9BE81B60CA990036C735 /* RoundPlayers.m */,
+			);
+			path = RoundPlayers;
 			sourceTree = "<group>";
 		};
 		3DF9936C1B256977006EBC39 /* PushManager */ = {
@@ -1417,6 +1434,7 @@
 		885CB06F1B09F91700AD2A7B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3DDF9BE61B60CA470036C735 /* RoundPlayers */,
 				3D221F911B52797300CF79E4 /* User */,
 				3DD47A5E1B4A6040005DE325 /* SubCourse */,
 				3DD47A581B4A5FA7005DE325 /* Invitation */,
@@ -1843,6 +1861,7 @@
 				88573E2A1B4551900060929C /* RoundInviteCell.m in Sources */,
 				3D221F8C1B4BEB4600CF79E4 /* DropdownView.m in Sources */,
 				887C7AAC1B539E2200F1AC30 /* CourseUpdatesViewController.m in Sources */,
+				3D00B59E1B61161800FA2C19 /* Round.m in Sources */,
 				885CB0681B09BADE00AD2A7B /* InitialViewController.m in Sources */,
 				3DCA44CE1B26CB3400B66BD2 /* EventWeather.m in Sources */,
 				3D1C8EAF1B3D36C9004AAD30 /* EventHeaderView.m in Sources */,
@@ -1935,7 +1954,7 @@
 				3DD9BD261B14C39000A2F296 /* CalendarEventServices.m in Sources */,
 				3D221F7E1B4BB0DC00CF79E4 /* ScoreType.m in Sources */,
 				3DF9936F1B256999006EBC39 /* PushManager.m in Sources */,
-				3D221F761B4BACAC00CF79E4 /* RoundData.m in Sources */,
+				3D221F761B4BACAC00CF79E4 /* RoundMetaData.m in Sources */,
 				3DCA44D71B26CB3400B66BD2 /* FoodBeverage.m in Sources */,
 				3D613B6B1B42878A00F7DEDA /* EventAdmin.m in Sources */,
 				3D16D0841B1C3FFB00A582A3 /* SharedManager.m in Sources */,
@@ -1944,6 +1963,7 @@
 				3DD47A611B4A6040005DE325 /* SubCourse.m in Sources */,
 				3DCA44DF1B2709BF00B66BD2 /* FoodBeverageServices.m in Sources */,
 				3DD3CA401B297AD300767BCF /* UtilityServices.m in Sources */,
+				3DDF9BE91B60CA990036C735 /* RoundPlayers.m in Sources */,
 				3D1963EA1B0E1B5200766CFC /* ClubHouseContainerVC.m in Sources */,
 				3D1963EC1B0E1B5200766CFC /* ClubHouseViewController.m in Sources */,
 				3DCA44D81B26CB3400B66BD2 /* Menu.m in Sources */,

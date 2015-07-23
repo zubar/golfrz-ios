@@ -10,10 +10,15 @@
 #import <Mantle/Mantle.h>
 
 
-@interface RoundData : MTLModel<MTLJSONSerializing>
+@interface RoundMetaData : MTLModel<MTLJSONSerializing>
 
 @property (nonatomic, copy, readonly) NSArray * subCourses;
 @property (nonatomic, copy, readonly) NSArray * scoreTypes;
 @property (nonatomic, copy, readonly) NSArray * gameTypes;
+
+
+@property (nonatomic, copy, readonly) NSNumber * roundId;
+@property (nonatomic, copy, readonly) NSString * name;
+@property (nonatomic, copy, readonly) NSString * status;
 
 @end

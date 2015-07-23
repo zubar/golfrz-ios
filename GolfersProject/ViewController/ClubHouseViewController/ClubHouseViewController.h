@@ -11,7 +11,7 @@
 #import "SharedManager.h"
 #import "WEPopoverController.h"
 
-@interface ClubHouseViewController : ClubHouseSubController<UICollectionViewDelegate, UICollectionViewDataSource, SharedManagerDelegate,UIPopoverControllerDelegate
+@interface ClubHouseViewController : ClubHouseSubController<UICollectionViewDelegate, UICollectionViewDataSource, SharedManagerDelegate,UIPopoverControllerDelegate, UIAlertViewDelegate
 >
 @property (strong, nonatomic) IBOutlet UICollectionView *weatherCollectionView;
 @property (strong, nonatomic) IBOutlet UIImageView *imgCourseLogo;

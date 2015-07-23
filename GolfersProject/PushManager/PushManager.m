@@ -11,6 +11,7 @@
 #import "UtilityServices.h"
 #import "Constants.h"
 #import "UserServices.h"
+#import "PersistentServices.h"
 
 @implementation PushManager
 
@@ -70,6 +71,10 @@
                                  kNotificationTitle : object[@"title"],
                                  kNotificaationDescription : object[@"description"]
                                  };
+
+        if (object[@"data"][@"invitation_accepted"]) {
+            [self postLocalNotificationForInvitationAcceptance];
+        }
         
         SideNotificationView * notifView = [SideNotificationView sharedInstance];
         [notifView addNotificationsArrayObject:notif];
@@ -100,6 +105,15 @@
     } failure:^(bool status, NSError *error) {
         //TODO: Try again to post.
     }];
+}
+
+-(void)postLocalNotificationForInvitationAcceptance{
+
+    /*
+     Notification will only have the data dict when a player accepts the invitation & purpose of notification is to inform the user.
+     */
+    [[NSNotificationCenter defaultCenter] postNotificationName:kInviteeAcceptedInvitation object:nil];
+    [[PersistentServices sharedServices]setWaitingForPlayers:NO];
 }
 
 @end

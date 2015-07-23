@@ -11,6 +11,10 @@
 #import "WeatherViewCell.h"
 #import "WeatherServices.h"
 #import "MBProgressHUD.h"
+#import "UserServices.h"
+#import "InvitationServices.h"
+#import "AppDelegate.h"
+#import "AddPlayersViewController.h"
 
 #import "CourseServices.h"
 #import "EventCalendarViewController.h"
@@ -262,12 +266,48 @@
 - (IBAction)btnTeeTimeTap:(id)sender {
     
     
-    [RoundDataServices getRoundData:^(bool status, RoundData *subCourse) {
+    [RoundDataServices getRoundData:^(bool status, RoundMetaData *subCourse) {
         
     } failure:^(bool status, NSError *error) {
         
     }];
-    
 }
+
+#pragma mark - Invitation
+
+-(void)displayAlertForPendingInvitations{
+    
+    if ([[SharedManager sharedInstance] invitationToken]) {
+        if ([UserServices currentToken]) {
+            //TODO: Send call to get invitation details.
+            
+            [[[UIAlertView alloc] initWithTitle:@"Invitation Received" message:@"Please sign-in to accept the invitation" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil] show];
+        }
+    }
+}
+
+#pragma mark - UIAlertViewDelegate
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+
+    switch (buttonIndex) {
+        case 0: {// Cancel
+            // do nothing just ignore & remove the invitation token from app.
+            [[SharedManager sharedInstance]setInvitationToken:nil];
+            break;
+        }
+        case 1:{ // Accept Invitation. Navigate
+            [[SharedManager sharedInstance] setInvitationStatusAccepted:YES];
+            AppDelegate * appdelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+            AddPlayersViewController * controller = [self.storyboard instantiateViewControllerWithIdentifier:@"AddPlayersViewController"];
+            [appdelegate.appDelegateNavController pushViewController:controller animated:YES];
+            
+            break;
+        }
+        default:
+            break;
+    }
+}
+
+
 
 @end

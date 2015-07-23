@@ -20,6 +20,7 @@
 
 #import "RoundViewController.h"
 #import "AppDelegate.h"
+#import "SharedManager.h"
 
 //TODO: Create a class invitationManager which handles:
 /*
@@ -185,7 +186,7 @@
                                                 type:inviteType
                                              success:^(bool status, NSString *invitationToken) {
                 if (status) {
-                    [[PersistentServices sharedServices] setInvitationToken:invitationToken];
+                    [[SharedManager sharedInstance] setInvitationToken:invitationToken];
                     completion();
                     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
                         }
@@ -207,26 +208,16 @@
     }
 }
 
-//TODO: Improve -(void)sendInvitations and method below it.
--(void)sendInvitations{
-    //TODO: Remove after testing.
-    AppDelegate * appDelegate = [[UIApplication sharedApplication] delegate];
-
-    // TODO: assume invitations are send to someOne.
-    for (UIViewController * controller  in [appDelegate.appDelegateNavController viewControllers]) {
-        if ([controller isMemberOfClass:[AddPlayersViewController class]]) {
-            [appDelegate.appDelegateNavController popToViewController:controller animated:YES];
-            [[PersistentServices sharedServices] setWaitingForPlayers:YES];
-            return;
-        }
-    }
-}
 
     
 -(void)doneTapped{
     [self saveInvitationOnServerCompletion:^{
-        NSString * invitationUrl = [InvitationServices getinvitationAppOpenUrlForInvitation:[[PersistentServices sharedServices] invitationToken]];
-        [self sendInvitationsWithMsg:invitationUrl];
+        NSString * invitationUrl = [InvitationServices getinvitationAppOpenUrlForInvitation:[[SharedManager sharedInstance] invitationToken]];
+        NSLog(@"InvitationUrl: %@", invitationUrl);
+        if ([self.selectedFriends count] > 0) {
+            [[PersistentServices sharedServices] setWaitingForPlayers:YES];
+            [self sendInvitationsWithMsg:invitationUrl];
+        }
     }];
 }
 
@@ -428,7 +419,6 @@
         [self.friendsTableView reloadData];
         [self popToAddPlayersViewController];
     }];
-    
 }
 
 @end

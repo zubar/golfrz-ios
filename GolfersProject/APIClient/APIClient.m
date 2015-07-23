@@ -16,7 +16,9 @@
 #import "Menu.h"
 #import "Cart.h"
 #import "SubCourse.h"
-#import "RoundData.h"
+#import "RoundMetaData.h"
+#import "RoundPlayers.h"
+#import "Round.h"
 
 @implementation APIClient
 
@@ -49,8 +51,9 @@
              @"users" : [User class],
              kFoodAndBeverage : [Menu class],
              kViewCart : [Cart class],
-             kRoundInSubCourse : [RoundData class]
-             
+             kRoundInSubCourse : [RoundMetaData class],
+             kRoundPlayers : [RoundPlayers class],
+             kRoundInfo : [Round class],
              };
     
 }

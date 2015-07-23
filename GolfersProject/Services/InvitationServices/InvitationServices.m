@@ -12,6 +12,7 @@
 #import "UserServices.h"
 #import "PersistentServices.h"
 #import "MBProgressHUD.h"
+#import "SharedManager.h"
 
 @implementation InvitationServices
 
@@ -47,24 +48,33 @@
     }];
 }
 
-+(void)getInvitationDetail:(void (^)(bool status, NSString * invitationToken))successBlock
++(void)getInvitationDetail:(void (^)(bool status, id roundId))successBlock
                    failure:(void (^)(bool status, NSError * error))failureBlock{
     
     AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kWeatherAPI]];
     
-    [apiClient GET:kGetInvitationDetail parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
-        NSString * invitationToken = [responseObject valueForKey:@"invitation_token"];
-        successBlock(true, invitationToken);
+    [apiClient GET:kGetInvitationDetail parameters:[InvitationServices paramGetInvitationDetail] success:^(NSURLSessionDataTask *task, id responseObject) {
+        successBlock(true, responseObject);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         NSLog(@"%@", error);
     }];
 }
 
 +(NSString *)getinvitationAppOpenUrlForInvitation:(NSString *)appInvitationToken{
-    return  [NSString stringWithFormat:@"%@id=%@", kInvitationRedirect, appInvitationToken];
+    //http://45.56.104.68/redirect_with_invitation?invitation=2222
+    return  [NSString stringWithFormat:@"%@redirect_with_invitation?invitation=%@", kInvitationRedirect, appInvitationToken];
 }
 
 #pragma mark - Helpers
++(NSDictionary *)paramGetInvitationDetail{
+    return @{
+             @"invitation_token" : [[SharedManager sharedInstance] invitationToken],
+             @"app_bundle_id" : kAppBundleId,
+             @"user_agent" : kUserAgent,
+             @"auth_token" : [UserServices currentToken],
+             };
+}
+
 +(NSDictionary *)paramInAppFriend{
     
     return @{

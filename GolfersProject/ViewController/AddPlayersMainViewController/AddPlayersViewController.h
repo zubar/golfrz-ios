@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "RoundData.h"
+#import "RoundMetaData.h"
 #import <CMPopTipView/CMPopTipView.h>
 #import "DropdownView.h"
 
@@ -24,7 +24,7 @@ typedef NS_ENUM(NSInteger, DropDownContainsItems) {
 
 @interface AddPlayersViewController : BaseViewController<DropdownDataSource, DropdownDelegate, CMPopTipViewDelegate, UITableViewDelegate, UITableViewDataSource>
 
-@property (nonatomic, strong) RoundData * roundInfo;
+@property (nonatomic, strong) RoundMetaData * roundInfo;
 
 @property (weak, nonatomic) IBOutlet UIView *addPlayerContainerView;
 

@@ -104,15 +104,6 @@
     [self writeDataToFile];
 }
 
--(NSString *)invitationToken{
-    return dataDict[@"invitationToken"];
-}
-
--(void)setInvitationToken:(NSString *)token{
-    [dataDict setObject:token forKey:@"invitationToken"];
-    [self writeDataToFile];
-}
-
 -(NSNumber *)invitee{
     return dataDict[@"invitee"];
 }

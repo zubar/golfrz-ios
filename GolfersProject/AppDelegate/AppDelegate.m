@@ -11,6 +11,7 @@
 #import "ClubHouseViewController.h"
 #import "PlayerProfileViewController.h"
 #import "SplashScreenViewController.h"
+#import "PersistentServices.h"
 
 #define MAIN_CONTROL_IDENTIFIER @"mainPagingController"
 
@@ -63,7 +64,8 @@
                                                            annotation:annotation];
     }else
         if ([[[url scheme] lowercaseString] isEqualToString:@"invitationreceived"]) {
-            NSLog(@"Received invitation:%@", [url scheme]);
+            [[SharedManager sharedInstance] setInvitationToken:[self extractParamsFromUrl:[url query]][@"invitation"]];
+            NSLog(@"Received invitation:%@", [[SharedManager sharedInstance] invitationToken]);
             return YES;
         }else
             return NO;
@@ -107,6 +109,18 @@
 -(BOOL)isValidFacebookUrlForApplication:(UIApplication *)application launchOptions:(NSDictionary *)options{
     
     return [[[options objectForKey:UIApplicationLaunchOptionsURLKey] scheme] isEqualToString:@"invitationReceived"];
+}
 
+#pragma mark - UtilityMethod
+-(NSDictionary *)extractParamsFromUrl:(NSString *)url{
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+
+    
+    for (NSString *param in [url componentsSeparatedByString:@"&"]) {
+        NSArray *elts = [param componentsSeparatedByString:@"="];
+        if([elts count] < 2) continue;
+        [params setObject:[elts objectAtIndex:1] forKey:[elts objectAtIndex:0]];
+    }
+    return params;
 }
 @end

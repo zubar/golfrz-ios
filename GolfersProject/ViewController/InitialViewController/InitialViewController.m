@@ -30,6 +30,7 @@
 #import "FoodBeverageServices.h"
 #import "MBProgressHUD.h"
 #import "AppDelegate.h"
+#import "SharedManager.h"
 
 
 @interface InitialViewController ()
@@ -56,6 +57,7 @@
     [self.lblCourseName setText:[manager courseName]];
     [self.lblCityState setText:[NSString stringWithFormat:@"%@, %@", manager.courseCity, manager.courseState]];
     
+    [self displayAlertForPendingInvitations];
 }
 
 
@@ -96,6 +98,15 @@
 
 }
 
+
+-(void)displayAlertForPendingInvitations{
+
+    if ([[SharedManager sharedInstance] invitationToken]) {
+        if (![UserServices currentToken]) {
+            [[[UIAlertView alloc] initWithTitle:@"LogIn Required" message:@"Please sign-in to accept the invitation" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
+        }
+    }
+}
 
 /*
 #pragma mark - Navigation

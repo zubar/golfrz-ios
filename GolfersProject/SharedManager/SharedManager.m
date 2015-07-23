@@ -56,6 +56,7 @@ bool pointInPolygon(int polyCorners, float polyX[], float polyY[], float x, floa
 
 @interface SharedManager (){
     CGPoint lastKnownLocation;
+    NSMutableDictionary * dataDict;
 }
 @end
 
@@ -87,6 +88,8 @@ bool pointInPolygon(int polyCorners, float polyX[], float polyY[], float x, floa
         sharedLocationManager.desiredAccuracy = kCLLocationAccuracyBest;
         
         self.cartBadgeCount = 0;
+        
+        dataDict = [[NSMutableDictionary alloc] init];
     }
     return self;
 }
@@ -186,6 +189,24 @@ bool pointInPolygon(int polyCorners, float polyX[], float polyY[], float x, floa
     if (status == kCLAuthorizationStatusAuthorizedWhenInUse || status == kCLAuthorizationStatusAuthorized) {
         [self startUpdatingLocation];
     }
+}
+
+
+#pragma mark - Manage Invitation
+-(BOOL )isInvitationAccepted{
+    return [dataDict[@"invitationStatus"] boolValue];
+}
+
+-(void)setInvitationStatusAccepted:(BOOL )waitingStatus{
+    [dataDict setObject:[NSNumber numberWithBool:waitingStatus] forKey:@"invitationStatus"];
+}
+
+-(NSString *)invitationToken{
+    return dataDict[@"invitationToken"];
+}
+
+-(void)setInvitationToken:(NSString *)token{
+    [dataDict setObject:token forKey:@"invitationToken"];
 }
 
 @end

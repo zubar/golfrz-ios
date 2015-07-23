@@ -97,6 +97,8 @@ static NSString * const kRoundNew = @"rounds/new";
 static NSString * const kRoundStart = @"rounds/start";
 static NSString * const kRoundFinish = @"rounds/finish";
 static NSString * const kRoundAddGuest = @"rounds/create_guest";
+static NSString * const kRoundPlayers = @"rounds/round_players";
+static NSString * const kRoundInfo = @"rounds/round_info";
 
 
 /*
@@ -111,7 +113,6 @@ static NSString * const kAddDirectScore = @"shots/direct_score";
 static NSString * const kGetInvitationToken = @"invitations/send_invitation";
 static NSString * const kGetInvitationDetail = @"invitations/get_invitation";
 static NSString * const kInvitationAppOpen = @"%@/redirect_with_invitation?id=%@";
-
 
 /*
  * Shots 

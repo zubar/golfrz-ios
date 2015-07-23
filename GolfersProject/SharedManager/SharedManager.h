@@ -38,4 +38,14 @@
 -(void)triggerLocationServices;
 
 -(void)updateCartItemsCountCompletion:(void(^)(void))completion;
+
+
+// Methods for maintaing invitation status.
+-(BOOL )isInvitationAccepted;
+-(void)setInvitationStatusAccepted:(BOOL )waitingStatus;
+
+
+-(NSString *)invitationToken;
+-(void)setInvitationToken:(NSString *)token;
+
 @end

@@ -7,13 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "RoundData.h"
+#import "RoundMetaData.h"
+@class Round;
 
 @interface RoundDataServices : NSObject
 
 /*
  */
-+(void)getRoundData:(void (^)(bool status, RoundData * subCourse))successBlock
++(void)getRoundData:(void (^)(bool status, RoundMetaData * subCourse))successBlock
             failure:(void (^)(bool status, NSError * error))failureBlock;
 
 
@@ -60,5 +61,14 @@
 
 +(void)updateRound:(void(^)(bool status, id response))successBlock
            failure:(void(^)(bool status, NSError * error))failureBlock;
+
++(void)getPlayersInRoundSuccess:(void(^)(bool, NSArray * players))successBlock
+                        failure:(void(^)(bool, NSError * error))failureBlock;
+
+
++(void)getRoundInfoForRoundId:(NSNumber *)roundId
+                      success:(void(^)(bool status, Round * round))successBlock
+                      failure:(void(^)(bool status, NSError * error))failureBlock;
+
 
 @end
