@@ -72,7 +72,7 @@
                                  kNotificaationDescription : object[@"description"]
                                  };
 
-        if (object[@"data"][@"invitation_accepted"]) {
+        if ([object[@"data"][@"type"] isEqualToString:@"invitation_accepted"]) {
             [self postLocalNotificationForInvitationAcceptance];
         }
         

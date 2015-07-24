@@ -211,6 +211,7 @@
             if ([[PersistentServices sharedServices] isWaitingForPlayers]) {
                 
                 [[PersistentServices sharedServices] setWaitingForPlayers:NO];
+                [[PersistentServices sharedServices] setIsRoundInProgress:YES];
                 [self updateViewsWaitingPlayerStateCompletion:^{
                     //
                 }];
