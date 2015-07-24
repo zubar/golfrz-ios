@@ -7,6 +7,7 @@
 //
 
 #import "ScoreBoardViewController.h"
+#import "ScoreBoardParentCell.h"
 
 @interface ScoreBoardViewController ()
 
@@ -19,11 +20,30 @@
     // Do any additional setup after loading the view.
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    return 2;
+}
+-(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
+    return 2;
 }
 
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ParentCell" forIndexPath:indexPath];
+    if (cell == nil)
+    {
+        cell = [[UICollectionViewCell alloc]init];
+    }
+    ScoreBoardParentCell *customCell = (ScoreBoardParentCell *)cell;
+    if (indexPath.section == 0) {
+        //customCell.backgroundColor = [UIColor darkGrayColor];
+    }else{
+        //customCell.backgroundColor = [UIColor colorWithRed:63/255 green:63/255 blue:65/255 alpha:1];
+        customCell.backgroundColor = [UIColor darkGrayColor];
+    }
+    return customCell;
+}
 /*
 #pragma mark - Navigation
 
