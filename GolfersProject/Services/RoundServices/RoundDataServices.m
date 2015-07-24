@@ -66,7 +66,9 @@
     
     AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
     
-    [apiClient POST:kRoundStart parameters:[RoundDataServices paramsCreateRound:roundOptions] success:^(NSURLSessionDataTask *task, id responseObject) {
+    [apiClient POST:kRoundStart parameters:[RoundDataServices
+                                            paramStartRoundWithId:roundId subCourseId:subcourseId]
+    success:^(NSURLSessionDataTask *task, id responseObject) {
             successBlock(true, responseObject);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         failureBlock(false, error);
@@ -216,8 +218,15 @@
 }
 
 #pragma mark - HelperMethods
-
-
++(NSDictionary *)paramStartRoundWithId:(NSNumber *)roundId subCourseId:(NSNumber * )subcourseId{
+    return @{
+             @"app_bundle_id" : kAppBundleId,
+             @"user_agent" : kUserAgent,
+             @"auth_token" : [UserServices currentToken],
+             @"round_id" :    roundId,
+             @"sub_course_id" : subcourseId,
+             };
+}
 
 +(NSDictionary *)paramsGetRoundInfoForRound:(NSNumber *)roundId{
     return @{

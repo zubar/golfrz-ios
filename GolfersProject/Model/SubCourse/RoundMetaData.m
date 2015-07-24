@@ -24,6 +24,11 @@
              @"roundId" : @"id",
              @"name" : @"name",
              @"status" : @"status",
+             
+             //For currentRound
+             @"activeCourse" : @"sub_course",
+             @"activeScoreType" : @"score_type",
+             @"activeGameType" : @"game_type",
              };
 }
 
@@ -37,6 +42,19 @@
 
 + (NSValueTransformer *)gameTypesJSONTransformer {
     return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[GameType class]];
+}
+
+
++(NSValueTransformer *)activeCourseJSONTransformer{
+    return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[SubCourse class]];
+}
+
++(NSValueTransformer *)activeScoreTypeJSONTransformer{
+    return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[ScoreType class]];
+}
+
++(NSValueTransformer *)activeGameTypeJSONTransformer{
+    return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[GameType class]];
 }
 
 @end

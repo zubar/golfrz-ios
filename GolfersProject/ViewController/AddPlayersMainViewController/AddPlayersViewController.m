@@ -171,14 +171,14 @@
                     roundId = [[PersistentServices sharedServices] currentRoundId];
                     
                     [self showViewsRoundInProgressOrWaitingForPlayers];
-                    [self loadRoundDetailsForRoundId:roundId Completion:^{
+                   // [self loadRoundDetailsForRoundId:roundId Completion:^{
                         
                         [self loadPlayersListCompletion:^{
                             [self.playersTable reloadData];
                             [self showViewsRoundInProgressOrWaitingForPlayers];
                             [MBProgressHUD hideHUDForView:self.view animated:YES];
                         }];
-                    }];
+                   // }];
                 }];
             }
     }
@@ -271,7 +271,6 @@
 -(void)loadDataInvitationAcceptedByInvitee:(void(^)(void))completion{
     
     PersistentServices * persistentStore = [PersistentServices sharedServices];
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
     [InvitationServices getInvitationDetail:^(bool status, id invitation) {
         
@@ -309,19 +308,21 @@
 -(void)loadRoundDetailsForRoundId:(NSNumber * )round Completion:(void(^)(void))completion{
     
     [RoundDataServices getRoundInfoForRoundId:round success:^(bool status, Round * mRound) {
+       
         RoundMetaData * currRound = mRound.roundData;
         self.roundInfo = currRound;
         
+        [[PersistentServices sharedServices] setCurrentSubCourseId:currRound.activeCourse.itemId];
+        
         currentItemsIndropdown = DropDownContainsItemsSubcourses;
-        [self setSelectedItemToLocalItem:[self.roundInfo.subCourses firstObject]];
+        [self setSelectedItemToLocalItem:self.roundInfo.activeCourse];
         currentItemsIndropdown = DropDownContainsItemsGametype;
-        [self setSelectedItemToLocalItem:[self.roundInfo.gameTypes firstObject]];
+        [self setSelectedItemToLocalItem:self.roundInfo.activeGameType];
         currentItemsIndropdown = DropDownContainsItemsScoring;
-        [self setSelectedItemToLocalItem:[self.roundInfo.scoreTypes firstObject]];
+        [self setSelectedItemToLocalItem:self.roundInfo.activeScoreType];
         currentItemsIndropdown = DropDownContainsItemsTeeboxes;
         [self setSelectedItemToLocalItem:[[[[[self.roundInfo.subCourses firstObject] holes] firstObject] teeboxes] firstObject]];
         
-        [self saveRoundInfo];
         completion();
         
     } failure:^(bool status, NSError *error) {
