@@ -13,6 +13,7 @@
 #import "PersistentServices.h"
 #import "MBProgressHUD.h"
 #import "SharedManager.h"
+#import "InvitationManager.h"
 
 @implementation InvitationServices
 
@@ -68,7 +69,7 @@
 #pragma mark - Helpers
 +(NSDictionary *)paramGetInvitationDetail{
     return @{
-             @"invitation_token" : [[SharedManager sharedInstance] invitationToken],
+             @"invitation_token" : [[InvitationManager sharedInstance] invitationToken],
              @"app_bundle_id" : kAppBundleId,
              @"user_agent" : kUserAgent,
              @"auth_token" : [UserServices currentToken],

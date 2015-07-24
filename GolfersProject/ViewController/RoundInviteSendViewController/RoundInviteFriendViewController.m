@@ -21,6 +21,7 @@
 #import "RoundViewController.h"
 #import "AppDelegate.h"
 #import "SharedManager.h"
+#import "InvitationManager.h"
 
 //TODO: Create a class invitationManager which handles:
 /*
@@ -186,7 +187,7 @@
                                                 type:inviteType
                                              success:^(bool status, NSString *invitationToken) {
                 if (status) {
-                    [[SharedManager sharedInstance] setInvitationToken:invitationToken];
+                    [[InvitationManager sharedInstance] setInvitationToken:invitationToken];
                     completion();
                     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
                         }
@@ -212,7 +213,7 @@
     
 -(void)doneTapped{
     [self saveInvitationOnServerCompletion:^{
-        NSString * invitationUrl = [InvitationServices getinvitationAppOpenUrlForInvitation:[[SharedManager sharedInstance] invitationToken]];
+        NSString * invitationUrl = [InvitationServices getinvitationAppOpenUrlForInvitation:[[InvitationManager sharedInstance] invitationToken]];
         NSLog(@"InvitationUrl: %@", invitationUrl);
         if ([self.selectedFriends count] > 0) {
             [[PersistentServices sharedServices] setWaitingForPlayers:YES];

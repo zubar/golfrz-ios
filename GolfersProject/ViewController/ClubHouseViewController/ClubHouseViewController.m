@@ -36,6 +36,7 @@
 
 #import "RoundViewController.h"
 #import "ScoreSelectionView.h"
+#import "InvitationManager.h"
 
 @interface ClubHouseViewController ()
 @property (nonatomic, retain) NSArray * weatherList;
@@ -84,7 +85,10 @@
         }
     }];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(displayAlertForPendingInvitations) name:kAppLaunchInvitationReceived object:nil];
+    // Receive this notification to check if there are any pending invitations to show.
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(displayAlertForPendingInvitations) name:UIApplicationWillEnterForegroundNotification object:nil];
+    
+    
     [self loadDataForCurrentCourse];
     
 }
@@ -278,7 +282,7 @@
 
 -(void)displayAlertForPendingInvitations{
     
-    if ([[SharedManager sharedInstance] invitationToken]) {
+    if ([[InvitationManager sharedInstance] invitationToken]) {
         if ([UserServices currentToken]) {
             //TODO: Send call to get invitation details.
             
@@ -293,11 +297,12 @@
     switch (buttonIndex) {
         case 0: {// Cancel
             // do nothing just ignore & remove the invitation token from app.
-            [[SharedManager sharedInstance] deleteInvitation];
+            [[InvitationManager sharedInstance] deleteInvitation];
+            [[InvitationManager sharedInstance]setInvitationStatusAccepted:NO];
             break;
         }
         case 1:{ // Accept Invitation. Navigate
-            [[SharedManager sharedInstance] setInvitationStatusAccepted:YES];
+            [[InvitationManager sharedInstance] setInvitationStatusAccepted:YES];
             AppDelegate * appdelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
             AddPlayersViewController * controller = [self.storyboard instantiateViewControllerWithIdentifier:@"AddPlayersViewController"];
             [appdelegate.appDelegateNavController pushViewController:controller animated:YES];
