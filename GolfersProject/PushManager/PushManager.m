@@ -72,7 +72,7 @@
                                  kNotificaationDescription : object[@"description"]
                                  };
 
-        if ([object[@"data"][@"type"] isEqualToString:@"invitation_accepted"]) {
+        if (object[@"data"][@"type"] && [object[@"data"][@"type"] isEqualToString:@"invitation_accepted"]) {
             [self postLocalNotificationForInvitationAcceptance];
         }
         
@@ -113,7 +113,8 @@
      Notification will only have the data dict when a player accepts the invitation & purpose of notification is to inform the user.
      */
     [[NSNotificationCenter defaultCenter] postNotificationName:kInviteeAcceptedInvitation object:nil];
-    [[PersistentServices sharedServices]setWaitingForPlayers:NO];
+    [[PersistentServices sharedServices] setWaitingForPlayers:NO];
+    [[PersistentServices sharedServices] setIsRoundInProgress:YES];
 }
 
 @end

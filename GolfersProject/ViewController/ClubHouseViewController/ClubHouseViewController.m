@@ -86,7 +86,7 @@
     }];
     
     // Receive this notification to check if there are any pending invitations to show.
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(displayAlertForPendingInvitations) name:UIApplicationWillEnterForegroundNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(displayAlertForPendingInvitations) name:kAppLaunchInvitationReceived object:nil];
     
     
     [self loadDataForCurrentCourse];
@@ -304,9 +304,13 @@
         case 1:{ // Accept Invitation. Navigate
             [[InvitationManager sharedInstance] setInvitationStatusAccepted:YES];
             AppDelegate * appdelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-            AddPlayersViewController * controller = [self.storyboard instantiateViewControllerWithIdentifier:@"AddPlayersViewController"];
-            [appdelegate.appDelegateNavController pushViewController:controller animated:YES];
             
+            if ([[appdelegate.appDelegateNavController topViewController] isKindOfClass:[ClubHouseContainerVC class]]) {
+                AddPlayersViewController * controller = [self.storyboard instantiateViewControllerWithIdentifier:@"AddPlayersViewController"];
+                [appdelegate.appDelegateNavController pushViewController:controller animated:YES];
+            }else{
+                [[[UIAlertView alloc] initWithTitle:nil message:@"Please Navigate to Round Options Screen to Start Round" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+            }
             break;
         }
         default:

@@ -23,9 +23,10 @@
                         success:(void (^)(bool status, NSNumber * roundId))successBlock
                         failure:(void (^)(bool status, NSError * error))failureBlock;
 
-+(void)startNewRoundWithOptions:(NSDictionary *)roundOptions
-                        success:(void (^)(bool status, id roundId))successBlock
-                        failure:(void (^)(bool status, NSError * error))failureBlock;
++(void)startNewRoundWithId:(NSNumber *)roundId
+               subCourseId:(NSNumber *)subcourseId
+                   success:(void (^)(bool status, id roundId))successBlock
+                   failure:(void (^)(bool status, NSError * error))failureBlock;
 
 +(void)finishRoundWithBlock:(void(^)(bool status, id response))successBlock
                     failure:(void(^)(bool status, NSError * error))failureBlock;

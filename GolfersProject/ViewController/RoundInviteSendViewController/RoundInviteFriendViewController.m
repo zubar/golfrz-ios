@@ -33,6 +33,7 @@
 @interface RoundInviteFriendViewController ()
 @property (nonatomic, strong) NSMutableArray * selectedFriends;
 @property (nonatomic, strong) NSMutableArray * allFriends;
+//TODO: save the invitationId if required.
 @property (nonatomic, strong) NSString * invitationId;
 @end
 
@@ -187,16 +188,16 @@
                                                 type:inviteType
                                              success:^(bool status, NSString *invitationToken) {
                 if (status) {
-                    [[InvitationManager sharedInstance] setInvitationToken:invitationToken];
+                    self.invitationId = invitationToken;
                     completion();
-                    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+                    [MBProgressHUD hideHUDForView:self.view animated:YES];
                         }
     } failure:^(bool status, NSError *error) {
         //TODO:
-        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
     }];
 }
-    
+
 #pragma mark - ContactCellDelegate
 -(void)addBtnTapped:(id)contact{
   
@@ -213,7 +214,7 @@
     
 -(void)doneTapped{
     [self saveInvitationOnServerCompletion:^{
-        NSString * invitationUrl = [InvitationServices getinvitationAppOpenUrlForInvitation:[[InvitationManager sharedInstance] invitationToken]];
+        NSString * invitationUrl = [InvitationServices getinvitationAppOpenUrlForInvitation:self.invitationId];
         NSLog(@"InvitationUrl: %@", invitationUrl);
         if ([self.selectedFriends count] > 0) {
             [[PersistentServices sharedServices] setWaitingForPlayers:YES];

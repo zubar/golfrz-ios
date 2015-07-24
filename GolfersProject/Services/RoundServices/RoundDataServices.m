@@ -58,9 +58,10 @@
     
 }
 
-+(void)startNewRoundWithOptions:(NSDictionary *)roundOptions
-                        success:(void (^)(bool status, id roundId))successBlock
-                        failure:(void (^)(bool status, NSError * error))failureBlock{
++(void)startNewRoundWithId:(NSNumber *)roundId
+               subCourseId:(NSNumber *)subcourseId
+                   success:(void (^)(bool status, id roundId))successBlock
+                   failure:(void (^)(bool status, NSError * error))failureBlock{
     
     
     AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];

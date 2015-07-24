@@ -22,4 +22,6 @@
 @property (strong, nonatomic) IBOutlet UIView *myScorecardsTapped;
 @property (strong, nonatomic) IBOutlet UILabel *lblCourseName;
 
+@property (weak, nonatomic) IBOutlet UIButton *btnStartRound;
+
 @end
