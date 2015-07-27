@@ -31,6 +31,10 @@
 @property (nonatomic, strong) CMPopTipView * popTipView;
 @property (nonatomic, strong) id editScoreBtn;
 @property (nonatomic, strong) Hole * currentHole;
+
+@property (nonatomic, strong) NSMutableArray * shots;
+@property (nonatomic, assign) NSInteger pathLength;
+
 @end
 
 @implementation RoundViewController
@@ -41,6 +45,9 @@
     if (!self.playersInRound) {
         self.playersInRound = [[NSMutableArray alloc]initWithCapacity:1];
     }
+    
+    self.pathLength = self.mapView.frame.size.width;
+    if (!self.shots) self.shots = [NSMutableArray new];
     
     // Left button
     UIButton * imageButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 10, 10, 14)];
@@ -59,7 +66,7 @@
     [RoundDataServices getPlayersInRoundId:[[PersistentServices sharedServices] currentRoundId]
                                    success:^(bool status, RoundPlayers *playersList) {
                                        if (status) {
-                                           [self.playersInRound removeAllObjects];
+                                           if ([self.playersInRound count] > 0) [self.playersInRound removeAllObjects];
                                            [self.playersInRound addObjectsFromArray:playersList.players];
                                            [self.scoreTable reloadData];
                                            [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
@@ -134,7 +141,7 @@
     PlayerScoreCell *customCell = (PlayerScoreCell *)cell;
     customCell.delegate = self;
     // One is added becasue data of first player is displayed in header view of table.
-    customCell.lblPlayerName.text = [[self.playersInRound objectAtIndex:indexPath.row +1 ] name];
+    customCell.lblPlayerName.text = [[self.playersInRound objectAtIndex:indexPath.row +1 ] contactFullName];
     [customCell setSelectionStyle:UITableViewCellSelectionStyleNone];
     
     return customCell;
@@ -150,12 +157,13 @@
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     
+    User * player = nil;
+    if ([self.playersInRound count] > 0) player = self.playersInRound[0];
     
-    User * player = self.playersInRound[0];
     PlayerScoreView * headerView = [[PlayerScoreView alloc]init];
     
     [headerView configureViewForPlayer:nil hideDropdownBtn:NO];
-    [headerView.lblUserName setText:[player contactFullName]];
+    [headerView.lblUserName setText:(player != nil ? [player contactFullName] : @"")];
     headerView.delegate = self;
     
     return headerView;
@@ -298,12 +306,15 @@
 #pragma mark - UIActions
 
 - (IBAction)btnPenaltyTapped:(UIButton *)sender {
+    [self addShotMarker:1 shotType:ShotTypePenalty];
 }
 
 - (IBAction)btnShotTapped:(UIButton *)sender {
+    [self addShotMarker:1 shotType:ShotTypeStardard];
 }
 
 - (IBAction)btnPuttTapped:(UIButton *)sender {
+    [self addShotMarker:1 shotType:ShotTypePutt];
 }
 
 - (IBAction)btnFlyoverTapped:(UIButton *)sender {
@@ -313,4 +324,63 @@
 
 - (IBAction)btnPreviousHoleTapped:(UIButton *)sender {
 }
+
+#pragma mark - Shots
+
+-(void)addShotMarker:(NSInteger )quantity shotType:(ShotType )type{
+    
+    NSInteger countOFexistingShots = [self.shots count];
+    NSInteger totalShotsToDisplay = countOFexistingShots + quantity;
+    NSInteger internalDisplacement = self.pathLength / (totalShotsToDisplay +1);
+    
+    NSInteger startingX = ([self.shots count] > 0 ? ((UIView *)[self.shots lastObject]).frame.origin.x : 0);
+    NSInteger Ycoordinate = (self.mapView.frame.size.height / 2);
+    
+   // Add All the views to
+    for (int i = 0; i < quantity; ++i) {
+
+        CGRect initialRect;
+        UIImage * shotImage = nil;
+        if (type == ShotTypeStardard) shotImage = [UIImage imageNamed:@"shot_marker"];
+        else if (type == ShotTypePenalty) shotImage = [UIImage imageNamed:@"shot_marker_penalty"];
+        else if (type == ShotTypePutt) shotImage = [UIImage imageNamed:@"shot_marker"];
+            
+        
+        UIImageView * aShotMarker = [[UIImageView alloc] initWithImage:shotImage];
+
+        if ([self.shots count] > 0) {
+            initialRect = ((UIImageView *)[self.shots lastObject]).frame;
+        }else{
+            initialRect = CGRectMake(startingX, Ycoordinate, 20, 25);
+        }
+        [aShotMarker setFrame:initialRect];
+        [self.shots addObject:aShotMarker];
+        [self.mapView addSubview:aShotMarker];
+    }
+    
+    //TODO: Handle putt case. 
+    
+    //Animate & reposition newly Added Views
+    [UIView animateWithDuration:0.7 animations:^{
+        for (int i = (int)countOFexistingShots ; i < [self.shots count]; ++i)
+        {
+            UIImageView * aShotMarker = self.shots[i];
+            CGRect finalRect = CGRectMake(internalDisplacement * i, Ycoordinate, aShotMarker.frame.size.width, aShotMarker.frame.size.height);
+            [aShotMarker setFrame:finalRect];
+        }
+    }];
+    
+    //Animate & reposition previously added views
+    if (countOFexistingShots > 0) 
+    [UIView animateWithDuration:0.7 animations:^{
+        for (int i = (int)countOFexistingShots; i >= 0; --i)
+        {
+            UIImageView * aShotMarker = self.shots[i];
+            CGRect finalRect = CGRectMake(internalDisplacement * i, Ycoordinate, aShotMarker.frame.size.width, aShotMarker.frame.size.height);
+            [aShotMarker setFrame:finalRect];
+        }
+    }];
+   
+}
+
 @end

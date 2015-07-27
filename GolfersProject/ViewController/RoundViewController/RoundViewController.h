@@ -12,6 +12,13 @@
 #import "ScoreSelectionView.h"
 #import "PlayerScoreCell.h"
 
+
+typedef NS_ENUM(NSInteger, ShotType) {
+    ShotTypePenalty= 0,
+    ShotTypeStardard,
+    ShotTypePutt,
+};
+
 @interface RoundViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, PlayerScoreViewDelegate, CMPopTipViewDelegate, ScoreSelectionDataSource, ScoreSelectionDelegate, PlayerScoreCellDelegate>
 
 @property (strong, nonatomic) NSNumber * holeNumberPlayer;
