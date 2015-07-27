@@ -269,7 +269,9 @@
 
     NSMutableArray * emailSMSArray = [[NSMutableArray alloc] initWithCapacity:[userObjects count]];
     for (id user in userObjects) {
-           [emailSMSArray addObject:[user performSelector:propertySelector]];
+        if ([user respondsToSelector:propertySelector]) {
+            [emailSMSArray addObject:[user performSelector:propertySelector]];
+        }
     }
     
     return emailSMSArray;

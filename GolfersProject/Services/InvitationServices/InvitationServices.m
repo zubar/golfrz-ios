@@ -92,7 +92,7 @@
     switch (invitationType) {
         case RoundInvitationTypeSMS:
            provider = @{
-                        @"sms" : invitee
+                        @"phone_no" : invitee
                         };
             providerType = @"sms";
             break;

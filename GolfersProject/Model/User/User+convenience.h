@@ -12,6 +12,7 @@
 
 @interface User (Convenience)
 
+- (NSString *)contactFullName;
 - (NSString *)contactFirstName;
 - (NSString *)contactLastName;
 - (NSString *)contactPhoneNumber;

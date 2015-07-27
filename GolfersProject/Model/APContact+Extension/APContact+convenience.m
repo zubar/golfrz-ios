@@ -25,9 +25,11 @@
 
 -(NSString *)contactPhoneNumber{
     if ([self.phones firstObject]) {
-        return [self.phones firstObject];
+        NSMutableString * phoneNum = [[self.phones firstObject] mutableCopy];
+        NSString * phoneNoWhiteSpace = [phoneNum stringByReplacingOccurrencesOfString:@" " withString:@""];
+        return phoneNoWhiteSpace;
     }
-    return @"+00 000 0000000";
+    return @"+000000000000";
 }
 
 -(NSString *)contactEmail{

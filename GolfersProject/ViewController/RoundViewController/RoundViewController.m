@@ -15,6 +15,12 @@
 #import "ScoreSelectionView.h"
 #import "ScoreSelectionCell.h"
 
+#import "RoundDataServices.h"
+#import "PersistentServices.h"
+#import "RoundPlayers.h"
+#import "MBProgressHUD.h"
+#import "User+convenience.h"
+#import "Hole.h"
 
 #define kPlayerScoreViewHeight 60.0f
 
@@ -24,6 +30,7 @@
 @property (nonatomic, strong) NSMutableArray * playersInRound;
 @property (nonatomic, strong) CMPopTipView * popTipView;
 @property (nonatomic, strong) id editScoreBtn;
+@property (nonatomic, strong) Hole * currentHole;
 @end
 
 @implementation RoundViewController
@@ -33,7 +40,6 @@
     // Do any additional setup after loading the view.
     if (!self.playersInRound) {
         self.playersInRound = [[NSMutableArray alloc]initWithCapacity:1];
-        [self.playersInRound addObjectsFromArray:[NSArray arrayWithObjects:@"obj",@"obj",@"obj",@"obj",@"obj",@"obj",@"obj", nil]];
     }
     
     // Left button
@@ -46,17 +52,24 @@
     // Right button
     UIBarButtonItem * rightBtn = [[UIBarButtonItem alloc]initWithTitle:@"FINISH ROUND" style:UIBarButtonItemStylePlain target:self action:@selector(finishRoundTap)];
     self.navigationItem.rightBarButtonItem = rightBtn;
-    
-    //TODO: set attributed text in right Btn Label
-    /*
-    NSDictionary *navTitleAttributes =@{NSUnderlineStyleAttributeName:@(NSUnderlineStyleSingle),
-                                        NSFontAttributeName :[UIFont fontWithName:@"Helvetica-Bold" size:14.0],
-                                        NSForegroundColorAttributeName : [UIColor whiteColor]
-                                        };
-    */
     [self.lblHoleNo setText:[NSString stringWithFormat:@"%@", self.holeNumberPlayer]];
-    
     [self.imgDarkerBg setHidden:YES];
+    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [RoundDataServices getPlayersInRoundId:[[PersistentServices sharedServices] currentRoundId]
+                                   success:^(bool status, RoundPlayers *playersList) {
+                                       if (status) {
+                                           [self.playersInRound removeAllObjects];
+                                           [self.playersInRound addObjectsFromArray:playersList.players];
+                                           [self.scoreTable reloadData];
+                                           [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+                                       }
+                                   } failure:^(bool status, NSError *error) {
+                                       [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+                                       NSLog(@"Error: %@", error);
+                                   }];
+    //TODO:
+    //self.currentHole = [[PersistentServices sharedServices] current]
     //[self.scoreTable setHidden:YES];
     //isScoreTableDescended = FALSE;
 }
@@ -65,9 +78,6 @@
     
     AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
     [delegate.appDelegateNavController setNavigationBarHidden:NO];
-//    CGRect initalFrame = [self.scoreTable frame];
-//    CGRect finalFrame = CGRectMake(0, initalFrame.origin.y, initalFrame.size.width, 0);
-//    [self.scoreTable setFrame:finalFrame];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -107,7 +117,8 @@
 #pragma mark - UITableViewDataSource
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return [self.playersInRound count];
+    // One is subtracted because one player data is displayed header view of table.
+    return [self.playersInRound count] - 1;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -122,7 +133,8 @@
     
     PlayerScoreCell *customCell = (PlayerScoreCell *)cell;
     customCell.delegate = self;
-    customCell.lblPlayerName.text = [self.playersInRound objectAtIndex:indexPath.row];
+    // One is added becasue data of first player is displayed in header view of table.
+    customCell.lblPlayerName.text = [[self.playersInRound objectAtIndex:indexPath.row +1 ] name];
     [customCell setSelectionStyle:UITableViewCellSelectionStyleNone];
     
     return customCell;
@@ -139,11 +151,11 @@
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     
     
+    User * player = self.playersInRound[0];
     PlayerScoreView * headerView = [[PlayerScoreView alloc]init];
-   // [headerView setBackgroundColor:[UIColor clearColor]];
     
     [headerView configureViewForPlayer:nil hideDropdownBtn:NO];
-    [headerView.lblUserName setText:@"Test User"];
+    [headerView.lblUserName setText:[player contactFullName]];
     headerView.delegate = self;
     
     return headerView;
