@@ -320,21 +320,30 @@
 - (IBAction)btnFlyoverTapped:(UIButton *)sender {
 }
 - (IBAction)btnNextHoleTapped:(UIButton *)sender {
+
 }
 
 - (IBAction)btnPreviousHoleTapped:(UIButton *)sender {
+    
 }
 
 #pragma mark - Shots
 
 -(void)addShotMarker:(NSInteger )quantity shotType:(ShotType )type{
     
+    [self.imageMap setImage:[UIImage imageNamed:@"greenmap_selected"]];
+    
     NSInteger countOFexistingShots = [self.shots count];
     NSInteger totalShotsToDisplay = countOFexistingShots + quantity;
-    NSInteger internalDisplacement = self.pathLength / (totalShotsToDisplay +1);
+    NSInteger internalDisplacement = 0;
+
+    // To handle putt case 0.70 is subtraced it makes the length equal to total width of view.
+    if (type == ShotTypePutt) internalDisplacement = self.pathLength / (totalShotsToDisplay - 0.70);
+    else internalDisplacement = self.pathLength / (totalShotsToDisplay +1);
+    
     
     NSInteger startingX = ([self.shots count] > 0 ? ((UIView *)[self.shots lastObject]).frame.origin.x : 0);
-    NSInteger Ycoordinate = (self.mapView.frame.size.height / 2);
+    NSInteger Ycoordinate = (self.mapView.frame.size.height / 2) - 20; // Subtracted 20 to adjust marker position along Y axis.
     
    // Add All the views to
     for (int i = 0; i < quantity; ++i) {
@@ -358,7 +367,6 @@
         [self.mapView addSubview:aShotMarker];
     }
     
-    //TODO: Handle putt case. 
     
     //Animate & reposition newly Added Views
     [UIView animateWithDuration:0.7 animations:^{
