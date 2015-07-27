@@ -21,6 +21,7 @@
 #import "MBProgressHUD.h"
 #import "User+convenience.h"
 #import "Hole.h"
+#import "RoundDataServices.h"
 
 #define kPlayerScoreViewHeight 60.0f
 
@@ -198,6 +199,8 @@
     [self.distanceView setHidden:!(yesNo)];
 }
 
+// To enter score manually for a player.
+
 -(void)editScoreTappedForPlayer:(id)sender Player:(id)player view:(UIView *)view{
 
     ScoreSelectionView * mScoreView = [[ScoreSelectionView alloc]init];
@@ -223,7 +226,12 @@
 }
 
 -(NSArray *)dataArrayForCells{
-    return [NSArray arrayWithObjects:@"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", nil];
+    
+    NSMutableArray * scoresArray = [NSMutableArray new];
+    for (int i = 0; i < 30; ++i) {
+        [scoresArray addObject:[[NSNumber numberWithInt:i] stringValue]];
+    }
+    return scoresArray;
 }
 
 -(void)selectedItem:(id)item forView:(UIView *)view{
@@ -234,6 +242,13 @@
     }
     self.editScoreBtn = nil;
     [self.popTipView dismissAnimated:YES];
+    
+    if ([item integerValue] > [self.shots count] ) {
+        
+        [self addShotMarker:[item integerValue] - [self.shots count] shotType:ShotTypeStardard];
+    }else{
+        //TODO: call the removeShots Method.
+    }
 }
 #pragma mark - UINavigation
 
@@ -255,15 +270,6 @@
     self.popTipView = nil;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 #pragma mark - Animation
 -(void)descendTableViewWithAnimation:(BOOL)yesNo completion:(void(^)(void))completionBlock{
@@ -326,8 +332,9 @@
 - (IBAction)btnPreviousHoleTapped:(UIButton *)sender {
     
 }
+#pragma  mark - 
 
-#pragma mark - Shots
+#pragma mark - Shots Animation
 
 -(void)addShotMarker:(NSInteger )quantity shotType:(ShotType )type{
     
