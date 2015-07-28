@@ -10,9 +10,10 @@
 #import "APIClient.h"
 #import "Constants.h"
 #import "UserServices.h"
-#import "PersistentServices.h"
+#import "GameSettings.h"
 #import "MBProgressHUD.h"
 #import "SharedManager.h"
+#import "InvitationManager.h"
 
 @implementation InvitationServices
 
@@ -68,7 +69,7 @@
 #pragma mark - Helpers
 +(NSDictionary *)paramGetInvitationDetail{
     return @{
-             @"invitation_token" : [[SharedManager sharedInstance] invitationToken],
+             @"invitation_token" : [[InvitationManager sharedInstance] invitationToken],
              @"app_bundle_id" : kAppBundleId,
              @"user_agent" : kUserAgent,
              @"auth_token" : [UserServices currentToken],
@@ -91,7 +92,7 @@
     switch (invitationType) {
         case RoundInvitationTypeSMS:
            provider = @{
-                        @"sms" : invitee
+                        @"phone_no" : invitee
                         };
             providerType = @"sms";
             break;
@@ -122,8 +123,8 @@
              @"user_agent" : kUserAgent,
              @"auth_token" : [UserServices currentToken],
              @"provider" : provider,
-             @"subcourse_id" : [[PersistentServices sharedServices] currentSubCourseId],
-             @"round_id" : [[PersistentServices sharedServices] currentRoundId],
+             @"subcourse_id" : [[GameSettings sharedSettings] subCourseId],
+             @"round_id" : [[GameSettings sharedSettings] roundId],
              @"invite_type" : providerType,
              };
 }

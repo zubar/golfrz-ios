@@ -18,6 +18,7 @@
 #import "Coordinate.h"
 #import "Course.h"
 #import "CalendarEventServices.h"
+#import "InvitationManager.h"
 
 #import "FaceBookAuthAgent.h"
 #import "CalendarEventServices.h"
@@ -101,7 +102,7 @@
 
 -(void)displayAlertForPendingInvitations{
 
-    if ([[SharedManager sharedInstance] invitationToken]) {
+    if ([[InvitationManager sharedInstance] invitationToken]) {
         if (![UserServices currentToken]) {
             [[[UIAlertView alloc] initWithTitle:@"LogIn Required" message:@"Please sign-in to accept the invitation" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
         }

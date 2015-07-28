@@ -15,12 +15,13 @@
 #import "APContact+convenience.h"
 #import "InvitationServices.h"
 #import "AddPlayersViewController.h"
-#import "PersistentServices.h"
+#import "GameSettings.h"
 #import "AddPlayersViewController.h"
 
 #import "RoundViewController.h"
 #import "AppDelegate.h"
 #import "SharedManager.h"
+#import "InvitationManager.h"
 
 //TODO: Create a class invitationManager which handles:
 /*
@@ -32,6 +33,7 @@
 @interface RoundInviteFriendViewController ()
 @property (nonatomic, strong) NSMutableArray * selectedFriends;
 @property (nonatomic, strong) NSMutableArray * allFriends;
+//TODO: save the invitationId if required.
 @property (nonatomic, strong) NSString * invitationId;
 @end
 
@@ -186,16 +188,16 @@
                                                 type:inviteType
                                              success:^(bool status, NSString *invitationToken) {
                 if (status) {
-                    [[SharedManager sharedInstance] setInvitationToken:invitationToken];
+                    self.invitationId = invitationToken;
                     completion();
-                    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+                    [MBProgressHUD hideHUDForView:self.view animated:YES];
                         }
     } failure:^(bool status, NSError *error) {
         //TODO:
-        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
     }];
 }
-    
+
 #pragma mark - ContactCellDelegate
 -(void)addBtnTapped:(id)contact{
   
@@ -212,10 +214,10 @@
     
 -(void)doneTapped{
     [self saveInvitationOnServerCompletion:^{
-        NSString * invitationUrl = [InvitationServices getinvitationAppOpenUrlForInvitation:[[SharedManager sharedInstance] invitationToken]];
+        NSString * invitationUrl = [InvitationServices getinvitationAppOpenUrlForInvitation:self.invitationId];
         NSLog(@"InvitationUrl: %@", invitationUrl);
         if ([self.selectedFriends count] > 0) {
-            [[PersistentServices sharedServices] setWaitingForPlayers:YES];
+            [[GameSettings sharedSettings] setWaitingForPlayers:YES];
             [self sendInvitationsWithMsg:invitationUrl];
         }
     }];
@@ -267,7 +269,9 @@
 
     NSMutableArray * emailSMSArray = [[NSMutableArray alloc] initWithCapacity:[userObjects count]];
     for (id user in userObjects) {
-           [emailSMSArray addObject:[user performSelector:propertySelector]];
+        if ([user respondsToSelector:propertySelector]) {
+            [emailSMSArray addObject:[user performSelector:propertySelector]];
+        }
     }
     
     return emailSMSArray;

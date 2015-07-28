@@ -11,6 +11,7 @@
 #import "Constants.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "UIImageView+RoundedImage.h"
+#import "InvitationManager.h"
 
 #import "SubCourse.h"
 #import "GameType.h"
@@ -29,7 +30,7 @@
 #import "RoundInviteViewController.h"
 #import "RoundPlayerCell.h"
 #import "RoundDataServices.h"
-#import "PersistentServices.h"
+#import "GameSettings.h"
 #import "HolesMapViewController.h"
 #import "RoundDataServices.h"
 #import "RoundPlayers.h"
@@ -59,99 +60,135 @@
     self.playersInRound = [[NSMutableArray alloc] init];
     currentItemsIndropdown = DropDownContainsItemsNone;
     
-    // Remove left button
-    self.navigationItem.leftBarButtonItem = nil;
-    self.navigationItem.hidesBackButton = YES;
     
     // Right bar button
     UIBarButtonItem * rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(popSelf)];
     self.navigationItem.rightBarButtonItem = rightBarButtonItem;
     
     
-   // [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    
-    if (![[PersistentServices sharedServices] isRoundInProgress]) {
-      
-        [RoundDataServices getRoundData:^(bool status, RoundMetaData *roundData) {
-            self.roundInfo = roundData;
-            [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-        } failure:^(bool status, NSError *error) {
-            [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-            
-        }];
-    }else{
-        //TODO: don't allow editing the subcourse.
-    }
-    
     /*
      This notification is posted by PushManager class, it informs that someone has accepted the invitation for round.
      */
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNotification:) name:kInviteeAcceptedInvitation object:nil];
-    // Check if the controller is launched due to invitation Acceptance.
-    if ([[SharedManager sharedInstance] isInvitationAccepted]) {
-        PersistentServices * persistentStore = [PersistentServices sharedServices];
-        [persistentStore setWaitingForPlayers:NO];
-        [persistentStore setIsRoundInProgress:YES];
-        
-        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-      
-            [InvitationServices getInvitationDetail:^(bool status, id invitation) {
-               
-                if (status) {
-                    NSNumber * roundId = invitation[@"invitation_round"][@"round_id"];
-                    [persistentStore setCurrentRoundId:roundId];
-                    [self loadRoundDetailsForRoundId:roundId Completion:^{
-                        
-                        [self updateViewsRoundInProgressCompletion:^{
-                            [MBProgressHUD hideHUDForView:self.view animated:YES];
-                        }];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNotification:) name:kAppLaunchInvitationReceived object:nil];
+}
 
-                    }];
-                }
-               
-            } failure:^(bool status, NSError *error) {
-                // <#code#>
-            }];
 
-        
-    }
+-(void)showViewsRoundInProgressOrWaitingForPlayers{
+    
+    [self.playersTableContainerView setHidden:NO];
+    [self.addPlayerContainerView setHidden:YES];
+    [self.btnStartRound setTitle:@"Continue To Round" forState:UIControlStateNormal];
+    [self.btnStartRound setHidden:NO];
+    ( [self.playersInRound count] > 1 ? [self.btnStartRound setHidden:NO] : [self.btnStartRound setHidden:YES]);
+
+}
+
+// if invitee accepts the invitation, there will be two players in the round and invitee can start the round now.
+-(void)showViewsAcceptedInvitation{
+    
+    [self.playersTableContainerView setHidden:NO];
+    [self.addPlayerContainerView setHidden:YES];
+    [self.btnStartRound setTitle:@"Start Round" forState:UIControlStateNormal];
+    [self.btnStartRound setHidden:NO];
+    
+}
+
+-(void)showViewsAddPlayers{
+    
+    [self.playersTableContainerView setHidden:YES];
+    [self.addPlayerContainerView setHidden:NO];
+    [self.btnStartRound setHidden:YES];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     
+    [self loadData];
+}
+
+-(void)loadData{
+    
     AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
     [delegate.appDelegateNavController setNavigationBarHidden:NO];
-  
-    PersistentServices * persistentStore = [PersistentServices sharedServices];
-   
-    // default value
-    [self hidePlayersContainerView:YES];
     
-    // updating views by check use-cases.
-    if ([persistentStore isWaitingForPlayers]) {
-        [self updateViewsWaitingPlayerStateCompletion:^{
-            //
-        }];
-    }else
-        if ([persistentStore isRoundInProgress]) {
-            [self updateViewsRoundInProgressCompletion:^{
-                //
+    GameSettings * persistentStore = [GameSettings sharedSettings];
+    InvitationManager * invitationManager = [InvitationManager sharedInstance];
+
+     __block NSNumber * roundId = [[GameSettings sharedSettings] roundId];
+
+    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    // If no invitation Token, it mean the user can't be the invitee.
+    if(![[InvitationManager sharedInstance] invitationToken]){
+        
+        // if no round inProgress & no waiting for players, want to Invite players to start round.
+        if (![persistentStore isRoundInProgress] && ![persistentStore isWaitingForPlayers]) {
+                [self showViewsAddPlayers];
+                [self getAvailableRoundOptions:^{
+                    [self.playersTable reloadData];
+                    [MBProgressHUD hideHUDForView:self.view animated:YES];
             }];
-        }
+        }else
+            if ([persistentStore isRoundInProgress]) {
+                
+                [self showViewsRoundInProgressOrWaitingForPlayers];
+                [self loadRoundDetailsForRoundId:roundId Completion:^{
+                    [MBProgressHUD hideHUDForView:self.view animated:YES];
+
+                }];
+                [self loadPlayersListCompletion:^{
+                    [self.playersTable reloadData];
+                    [self showViewsRoundInProgressOrWaitingForPlayers];
+
+                }];
+            }else
+                 if([persistentStore isWaitingForPlayers]){
+                    
+                     [self showViewsRoundInProgressOrWaitingForPlayers];
+                     [self loadPlayersListCompletion:^{
+                         [self.playersTable reloadData];
+                         [self showViewsRoundInProgressOrWaitingForPlayers];
+                         [MBProgressHUD hideHUDForView:self.view animated:YES];
+                     }];
+                 }
+    }else{   // User has received atleast one invitation.
+        if (![invitationManager isInvitationAccepted]){
+            // Don't know if this case will be evaluated.
+            
+            [persistentStore setWaitingForPlayers:NO];
+            [persistentStore setIsRoundInProgress:YES];
+            
+            [self loadDataInvitationAcceptedByInvitee:^{
+                [self showViewsRoundInProgressOrWaitingForPlayers];
+                [MBProgressHUD hideHUDForView:self.view animated:YES];
+            }];
+        }else
+            if ([invitationManager isInvitationAccepted]) {
+                
+                [self showViewsRoundInProgressOrWaitingForPlayers];
+                
+                [self loadDataInvitationAcceptedByInvitee:^{
+                    roundId = [[GameSettings sharedSettings] roundId];
+                    
+                    [self showViewsRoundInProgressOrWaitingForPlayers];
+                   // [self loadRoundDetailsForRoundId:roundId Completion:^{
+                        
+                        [self loadPlayersListCompletion:^{
+                            [self.playersTable reloadData];
+                            [self showViewsRoundInProgressOrWaitingForPlayers];
+                            [MBProgressHUD hideHUDForView:self.view animated:YES];
+                        }];
+                   // }];
+                }];
+            }
+    }
+    
 }
 
--(void)updateViewsWaitingPlayerStateCompletion:(void(^)(void))handler{
 
-    [self loadPlayersListCompletion:^{
-        handler();
-    }];
-    [self.playersTableContainerView setHidden:NO];
-    [self.btnStartRound setTitle:@"Start Round" forState:UIControlStateNormal];
-    [self.btnStartRound setHidden:YES];
-    [self.addPlayerContainerView setHidden:YES];
-}
+
 -(void)updateViewsRoundInProgressCompletion:(void(^)(void))completionHandler{
-
+    
     [self loadPlayersListCompletion:^{
         [self.playersTable reloadData];
         completionHandler();
@@ -162,68 +199,12 @@
     [self.addPlayerContainerView setHidden:YES];
 }
 
--(void)loadPlayersListCompletion:(void(^)(void))completion{
-   
-    //TODO: send call to get players list.
-     NSNumber * roundId = [[PersistentServices sharedServices] currentRoundId];
-    if (!roundId) {
-        return;
-    }
-    
-    [RoundDataServices getPlayersInRoundId:roundId success:^(bool status, RoundPlayers *playerData) {
-        if (status) {
-            [self.playersInRound removeAllObjects];
-            [self.playersInRound addObjectsFromArray:playerData.players];
-            completion();
-        }
-    } failure:^(bool status, NSError *error) {
-        if (status) {
-            NSLog(@"%@", error);
-        }
-    }];
-}
-
-
--(void)loadRoundDetailsForRoundId:(NSNumber * )round Completion:(void(^)(void))completion{
-    
-    [RoundDataServices getRoundInfoForRoundId:round success:^(bool status, Round * mRound) {
-        RoundMetaData * currRound = mRound.roundData;
-        
-        [self.btnSelectCourse setTitle:currRound.name forState:UIControlStateNormal];
-     //   [self.btnSelectGametype settit]
-       //TODO: set selected model objects as well.
-        
-    } failure:^(bool status, NSError *error) {
-       // <#code#>
-    }];
-    
-}
 
 -(void)handleNotification:(NSNotification *)notif{
-
-    if ([[notif name] isEqualToString:kInviteeAcceptedInvitation]) {
-      
-        if ([[PersistentServices sharedServices] isRoundInProgress]) {
-            [self updateViewsRoundInProgressCompletion:^{
-                //
-            }];
-        }else
-            if ([[PersistentServices sharedServices] isWaitingForPlayers]) {
-                
-                [[PersistentServices sharedServices] setWaitingForPlayers:NO];
-                [[PersistentServices sharedServices] setIsRoundInProgress:YES];
-                [self updateViewsWaitingPlayerStateCompletion:^{
-                    //
-                }];
-            }
-    }
-}
-
--(void)hidePlayersContainerView:(BOOL )yesNo{
     
-    [self.playersTableContainerView setHidden:yesNo];
-    [self.addPlayerContainerView setHidden:!yesNo];
-    [self.btnStartRound setHidden:yesNo];
+    if ([[notif name] isEqualToString:kInviteeAcceptedInvitation] || [[notif name] isEqualToString:kAppLaunchInvitationReceived]) {
+        [self loadData];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -232,14 +213,14 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 -(void)popSelf{
     AppDelegate * appDelegate = [[UIApplication sharedApplication] delegate];
@@ -264,7 +245,7 @@
                                                   }
                                         success:^(bool status, NSNumber *roundId) {
                                             if (status) {
-                                                [[PersistentServices sharedServices] setCurrentRoundId:roundId];
+                                                [[GameSettings sharedSettings] setroundId:roundId];
                                             }
                                         } failure:^(bool status, NSError *error) {
                                             if (status) {
@@ -274,7 +255,7 @@
     
     AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
     [delegate.appDelegateNavController setNavigationBarHidden:NO];
-
+    
     RoundInviteViewController * roundInviteFriendController = [self.storyboard instantiateViewControllerWithIdentifier:@"RoundInviteViewController"];
     [delegate.appDelegateNavController pushViewController:roundInviteFriendController animated:YES];
     
@@ -283,6 +264,97 @@
 -(BOOL)validateRoundOptions{
     return self.selectedSubCourse.itemId && self.selectedGameType.itemId && self.selectedScoreType.itemId && self.selectedTeeBox.itemId;
 }
+
+#pragma mark - API Calls
+
+// call this when some one accepts the send invitation & we received a push notif for this.
+-(void)loadDataInvitationAcceptedByInvitee:(void(^)(void))completion{
+    
+    GameSettings * persistentStore = [GameSettings sharedSettings];
+    
+    [InvitationServices getInvitationDetail:^(bool status, id invitation) {
+        
+        if (status) {
+            NSNumber * roundId = invitation[@"invitation_round"][@"round_id"];
+            [persistentStore setroundId:roundId];
+            [self loadRoundDetailsForRoundId:roundId Completion:^{
+                completion();
+            }];
+        }
+        
+    } failure:^(bool status, NSError *error) {
+        completion();
+    }];
+}
+
+-(void)loadPlayersListCompletion:(void(^)(void))completion{
+    
+    NSNumber * roundId = [[GameSettings sharedSettings] roundId];
+    if (!roundId) {
+        return;
+    }
+    
+    [RoundDataServices getPlayersInRoundId:roundId success:^(bool status, RoundPlayers *playerData) {
+        if (status) {
+            [self.playersInRound removeAllObjects];
+            [self.playersInRound addObjectsFromArray:playerData.players];
+            completion();
+        }
+    } failure:^(bool status, NSError *error) {
+        completion();
+    }];
+}
+
+-(void)loadRoundDetailsForRoundId:(NSNumber * )round Completion:(void(^)(void))completion{
+    
+    [RoundDataServices getRoundInfoForRoundId:round success:^(bool status, Round * mRound) {
+       
+        RoundMetaData * currRound = mRound.roundData;
+        self.roundInfo = currRound;
+        
+        GameSettings * gameSettings = [GameSettings sharedSettings];
+        [gameSettings setsubCourseId:currRound.activeCourse.itemId];
+        
+        //Also setting current subCourse
+        [gameSettings setsubCourse:currRound.activeCourse];
+        [gameSettings setgameType:currRound.activeGameType];
+        [gameSettings setscoreType:currRound.activeScoreType];
+        
+        currentItemsIndropdown = DropDownContainsItemsSubcourses;
+        [self setSelectedItemToLocalItem:self.roundInfo.activeCourse];
+        currentItemsIndropdown = DropDownContainsItemsGametype;
+        [self setSelectedItemToLocalItem:self.roundInfo.activeGameType];
+        currentItemsIndropdown = DropDownContainsItemsScoring;
+        [self setSelectedItemToLocalItem:self.roundInfo.activeScoreType];
+        currentItemsIndropdown = DropDownContainsItemsTeeboxes;
+        [self setSelectedItemToLocalItem:[[[[[self.roundInfo.subCourses firstObject] holes] firstObject] teeboxes] firstObject]];
+        
+        completion();
+        
+    } failure:^(bool status, NSError *error) {
+        completion();
+
+    }];
+    
+}
+
+
+// call this for is waiting for players.
+-(void)getAvailableRoundOptions:(void(^)(void))completion{
+                     
+    [RoundDataServices getRoundData:^(bool status, RoundMetaData *roundData) {
+            if (status) {
+                    self.roundInfo = roundData;
+                    completion();
+                         }
+    } failure:^(bool status, NSError *error) {
+            [[[UIAlertView alloc] initWithTitle:@"Try Again" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+        completion();
+
+    }];
+}
+
+
 
 #pragma mark - UITableViewDataSource
 
@@ -310,20 +382,23 @@
             [customViewCell.imgPlayerPic setRoundedImage:image];
         }
     }];
-
     
     return customViewCell;
 }
 
 -(NSArray *)dataArrayForCells{
-    
     return self.dataArray;
 }
 
 -(void)selectedItemForCell:(id)item{
     
     NSLog(@"%@, selectedItem-id: %@", [item name], [item itemId]);
-    
+    [self setSelectedItemToLocalItem:item];
+    [self.popTipView dismissAnimated:YES];
+}
+
+-(void)setSelectedItemToLocalItem:(id)item{
+   
     switch (currentItemsIndropdown) {
         case DropDownContainsItemsSubcourses:
             self.selectedSubCourse = item;
@@ -344,10 +419,7 @@
         default:
             break;
     }
-    
-    [self.popTipView dismissAnimated:YES];
 }
-
 
 #pragma mark - CMPopTipView
 - (void)popTipViewWasDismissedByUser:(CMPopTipView *)popTipView{
@@ -357,12 +429,12 @@
 
 -(void)saveRoundInfo{
     
-    PersistentServices * pServices = [PersistentServices sharedServices];
+    GameSettings * pServices = [GameSettings sharedSettings];
     //
-    [pServices setCurrentSubCourseId:self.selectedSubCourse.itemId];
-    [pServices setCurrentGameTypeId:self.selectedGameType.itemId];
-    [pServices setCurrentScoreTypeId:self.selectedScoreType.itemId];
-    [pServices setcurrentTeebox:self.selectedTeeBox.itemId];
+    [pServices setsubCourseId:self.selectedSubCourse.itemId];
+    [pServices setgameTypeId:self.selectedGameType.itemId];
+    [pServices setscoreTypeId:self.selectedScoreType.itemId];
+    [pServices setteeboxId:self.selectedTeeBox.itemId];
 }
 
 
@@ -370,17 +442,17 @@
 
 - (void)updateRoundInfo:(void(^)(void))completionBlock{
     
-        [RoundDataServices updateRound:^(bool status, id response) {
-            if (status) {
-                [[[UIAlertView alloc] initWithTitle:@"Successfully Updated." message:@"Successfully updated the selected options." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
-                completionBlock();
-            }
-        } failure:^(bool status, NSError *error) {
-                [[[UIAlertView alloc] initWithTitle:@"Please Try Again" message:@"Can not update the round info now, please try again." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Try Again", nil] show];
-        }];
+    [RoundDataServices updateRound:^(bool status, id response) {
+        if (status) {
+            [[[UIAlertView alloc] initWithTitle:@"Successfully Updated." message:@"Successfully updated the selected options." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
+            completionBlock();
+        }
+    } failure:^(bool status, NSError *error) {
+        [[[UIAlertView alloc] initWithTitle:@"Please Try Again" message:@"Can not update the round info now, please try again." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Try Again", nil] show];
+    }];
 }
 
-#pragma mark - UIAlertViewDelegate 
+#pragma mark - UIAlertViewDelegate
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     
     switch (buttonIndex) {
@@ -403,25 +475,22 @@
     
     [self.dataArray addObjectsFromArray:[self.roundInfo subCourses]];
     currentItemsIndropdown = DropDownContainsItemsSubcourses;
-    
     [self presentPopOverWithOptions:nil pointedAtBtn:sender];
 }
 
 - (IBAction)btnGameTypeTapped:(UIButton *)sender {
     
     ([self.dataArray count] > 0 ? [self.dataArray removeAllObjects] : nil );
-
     
     [self.dataArray addObjectsFromArray:[self.roundInfo gameTypes]];
     currentItemsIndropdown = DropDownContainsItemsGametype;
-    
     [self presentPopOverWithOptions:nil pointedAtBtn:sender];
 }
 
 - (IBAction)btnScoringTapped:(UIButton *)sender {
     
     ([self.dataArray count] > 0 ? [self.dataArray removeAllObjects] : nil );
-
+    
     
     [self.dataArray addObjectsFromArray:[self.roundInfo scoreTypes]];
     currentItemsIndropdown = DropDownContainsItemsScoring;
@@ -441,7 +510,6 @@
     currentItemsIndropdown = DropDownContainsItemsTeeboxes;
     
     [self presentPopOverWithOptions:nil pointedAtBtn:sender];
-
 }
 
 
@@ -449,20 +517,15 @@
     
     UIButton * btn = sender;
     [btn.titleLabel setText:[item name]];
-    
-//    [sender sizeToFit];
-//    btn.titleEdgeInsets = UIEdgeInsetsMake(0, -btn.imageView.frame.size.width, 0, btn.imageView.frame.size.width);
-//    btn.imageEdgeInsets = UIEdgeInsetsMake(0, btn.titleLabel.frame.size.width, 0, -btn.titleLabel.frame.size.width);
 }
 
 -(void)presentPopOverWithOptions:(NSArray *)options pointedAtBtn:(id)sender{
-   
+    
     DropdownView * mScoreView = [[DropdownView alloc]init];
     mScoreView.dataSource = self;
     mScoreView.delegate = self;
     [mScoreView setFrame:CGRectMake(mScoreView.frame.origin.x, mScoreView.frame.origin.y, mScoreView.frame.size.width, 100)];
     [mScoreView setBackgroundColor:[UIColor whiteColor]];
-    
     
     // Toggle popTipView when a standard UIButton is pressed
     if (nil == self.popTipView) {
@@ -480,22 +543,35 @@
         self.popTipView = nil;
         mScoreView = nil;
     }
-
 }
 
-
 - (IBAction)btnStartRoundTapped:(UIButton *)sender {
+    
+    GameSettings * persistentStore = [GameSettings sharedSettings];
+    
+    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+    [delegate.appDelegateNavController setNavigationBarHidden:NO];
+
+    
+    [RoundDataServices startNewRoundWithId:[persistentStore roundId]
+                               subCourseId:[persistentStore subCourseId]
+                                   success:^(bool status, id roundId) {
+                                       if (status) {
+        HolesMapViewController * holesMapViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"HolesMapViewController"];
+        [delegate.appDelegateNavController pushViewController:holesMapViewController animated:YES];
+                                       }
+                                   } failure:^(bool status, NSError *error) {
+        [[[UIAlertView alloc]initWithTitle:@"Try Again" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+                                   }];
+}
+
+- (IBAction)editPlayersTapped:(UIButton *)sender {
     
     AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
     [delegate.appDelegateNavController setNavigationBarHidden:NO];
     
-    HolesMapViewController * holesMapViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"HolesMapViewController"];
-    [delegate.appDelegateNavController pushViewController:holesMapViewController animated:YES];
-}
+    RoundInviteViewController * roundInviteFriendController = [self.storyboard instantiateViewControllerWithIdentifier:@"RoundInviteViewController"];
+    [delegate.appDelegateNavController pushViewController:roundInviteFriendController animated:YES];
 
-
-- (IBAction)editPlayersTapped:(UIButton *)sender {
-    
-    
 }
 @end

@@ -10,6 +10,7 @@
 #import "RoundInviteCell.h"
 #import "RoundInviteFriendViewController.h"
 #import "AppDelegate.h"
+#import "AddGuestViewController.h"
 
 @interface RoundInviteViewController ()
 
@@ -65,9 +66,18 @@
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
+    
     RoundInviteFriendViewController * controller = [self.storyboard instantiateViewControllerWithIdentifier:@"RoundInviteFriendViewController"];
     
-    if ([[cell.lblInviteName text] isEqualToString:@"IN-APP FRIENDS"]) {
+    AppDelegate * appdelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+    if ([[cell.lblInviteName text] isEqualToString:@"ADD GUEST"]){
+        // push Guest View Controller
+        AddGuestViewController * controller = [self.storyboard instantiateViewControllerWithIdentifier:@"AddGuestViewController"];
+        [appdelegate.appDelegateNavController pushViewController:controller animated:YES];
+        return;
+    }else
+        if ([[cell.lblInviteName text] isEqualToString:@"IN-APP FRIENDS"]) {
         controller.currentFriendContactType = FriendContactTypeInAppUser;
     }else
         if ([[cell.lblInviteName text] isEqualToString:@"FACEBOOK"]) {
@@ -79,9 +89,9 @@
         if ([[cell.lblInviteName text] isEqualToString:@"EMAIL"]) {
         controller.currentFriendContactType = FriendContactTypeAddressbookEmail;
     }
-
-    AppDelegate * appdelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
     [appdelegate.appDelegateNavController pushViewController:controller animated:YES];
+
 }
 
 

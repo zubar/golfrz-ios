@@ -25,7 +25,7 @@
     [super viewDidLoad];
     if (!self.firstNineHoles) {
         self.firstNineHoles = [[NSMutableArray alloc]initWithCapacity:1];
-        [self.firstNineHoles addObjectsFromArray:[NSArray arrayWithObjects:@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10",@"11",@"12",@"13",@"14",@"15",@"16", nil]];
+        [self.firstNineHoles addObjectsFromArray:[NSArray arrayWithObjects:@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10",@"11",@"12",@"13",@"14",@"15",@"16", @"17", @"18", nil]];
     }
     isDownButtonPressed = FALSE;
     NSDictionary *navTitleAttributes =@{
@@ -79,7 +79,7 @@
     AppDelegate * appDelegate = [[UIApplication sharedApplication] delegate];
     
     RoundViewController * controller = [self.storyboard instantiateViewControllerWithIdentifier:@"RoundViewController"];
-    controller.holeNumberPlayer = [NSNumber numberWithInteger:indexPath.row];
+    controller.holeNumberPlayed = [NSNumber numberWithInteger:indexPath.row + 1];
     [appDelegate.appDelegateNavController pushViewController:controller animated:YES];
 }
 

@@ -20,6 +20,11 @@
     return self.firstName;
 }
 
+-(NSString *)contactFullName{
+    NSString * fullName = [NSString stringWithFormat:@"%@ %@", (self.firstName != nil ? self.firstName : @""), (self.lastName != nil ? self.lastName : @"")];
+    return fullName;
+}
+
 -(NSString *)contactLastName{
     return self.lastName;
 }
