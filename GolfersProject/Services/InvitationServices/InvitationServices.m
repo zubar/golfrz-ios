@@ -10,7 +10,7 @@
 #import "APIClient.h"
 #import "Constants.h"
 #import "UserServices.h"
-#import "PersistentServices.h"
+#import "GameSettings.h"
 #import "MBProgressHUD.h"
 #import "SharedManager.h"
 #import "InvitationManager.h"
@@ -123,8 +123,8 @@
              @"user_agent" : kUserAgent,
              @"auth_token" : [UserServices currentToken],
              @"provider" : provider,
-             @"subcourse_id" : [[PersistentServices sharedServices] currentSubCourseId],
-             @"round_id" : [[PersistentServices sharedServices] currentRoundId],
+             @"subcourse_id" : [[GameSettings sharedSettings] subCourseId],
+             @"round_id" : [[GameSettings sharedSettings] roundId],
              @"invite_type" : providerType,
              };
 }

@@ -15,7 +15,7 @@
 #import "APContact+convenience.h"
 #import "InvitationServices.h"
 #import "AddPlayersViewController.h"
-#import "PersistentServices.h"
+#import "GameSettings.h"
 #import "AddPlayersViewController.h"
 
 #import "RoundViewController.h"
@@ -217,7 +217,7 @@
         NSString * invitationUrl = [InvitationServices getinvitationAppOpenUrlForInvitation:self.invitationId];
         NSLog(@"InvitationUrl: %@", invitationUrl);
         if ([self.selectedFriends count] > 0) {
-            [[PersistentServices sharedServices] setWaitingForPlayers:YES];
+            [[GameSettings sharedSettings] setWaitingForPlayers:YES];
             [self sendInvitationsWithMsg:invitationUrl];
         }
     }];

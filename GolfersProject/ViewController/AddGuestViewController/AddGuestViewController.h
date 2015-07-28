@@ -7,14 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
-@interface AddGuestViewController : UIViewController
+@interface AddGuestViewController : BaseViewController
+
 @property (strong, nonatomic) IBOutlet UITextField *txtGuestName;
 @property (strong, nonatomic) IBOutlet UITextField *txtGuestEmail;
-- (IBAction)btnSelectHandicapTapped:(UIButton *)sender;
-- (IBAction)btnSelectTeeBoxTapped:(UIButton *)sender;
 @property (strong, nonatomic) IBOutlet UIButton *btnHandicap;
 @property (strong, nonatomic) IBOutlet UIButton *btnTeeBox;
+
+- (IBAction)btnSelectHandicapTapped:(UIButton *)sender;
+- (IBAction)btnSelectTeeBoxTapped:(UIButton *)sender;
 - (IBAction)btnAddGuestTapped:(UIButton *)sender;
 
 @end

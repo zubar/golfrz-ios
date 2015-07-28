@@ -11,17 +11,12 @@
 #import <CMPopTipView/CMPopTipView.h>
 #import "ScoreSelectionView.h"
 #import "PlayerScoreCell.h"
+#import "RoundDataServices.h"
 
-
-typedef NS_ENUM(NSInteger, ShotType) {
-    ShotTypePenalty= 0,
-    ShotTypeStardard,
-    ShotTypePutt,
-};
 
 @interface RoundViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, PlayerScoreViewDelegate, CMPopTipViewDelegate, ScoreSelectionDataSource, ScoreSelectionDelegate, PlayerScoreCellDelegate>
 
-@property (strong, nonatomic) NSNumber * holeNumberPlayer;
+@property (strong, nonatomic) NSNumber * holeNumberPlayed;
 @property (strong, nonatomic) IBOutlet UITableView *scoreTable;
 
 

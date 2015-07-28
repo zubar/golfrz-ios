@@ -11,7 +11,7 @@
 #import "UtilityServices.h"
 #import "Constants.h"
 #import "UserServices.h"
-#import "PersistentServices.h"
+#import "GameSettings.h"
 
 @implementation PushManager
 
@@ -113,8 +113,8 @@
      Notification will only have the data dict when a player accepts the invitation & purpose of notification is to inform the user.
      */
     [[NSNotificationCenter defaultCenter] postNotificationName:kInviteeAcceptedInvitation object:nil];
-    [[PersistentServices sharedServices] setWaitingForPlayers:NO];
-    [[PersistentServices sharedServices] setIsRoundInProgress:YES];
+    [[GameSettings sharedSettings] setWaitingForPlayers:NO];
+    [[GameSettings sharedSettings] setIsRoundInProgress:YES];
 }
 
 @end

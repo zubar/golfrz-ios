@@ -11,6 +11,13 @@
 @class Round;
 @class RoundPlayers;
 
+typedef NS_ENUM(NSInteger, ShotType) {
+    ShotTypePenalty= 0,
+    ShotTypeStardard,
+    ShotTypePutt,
+};
+
+
 @interface RoundDataServices : NSObject
 
 /*
@@ -39,7 +46,7 @@
 
 +(void)addShotRoundId:(NSNumber *)round
                 holeId:(NSNumber *)holeId
-              shotType:(NSString *)shotType
+              shotType:(ShotType )shotType
                success:(void(^)(bool, id))successBlock
                failure:(void(^)(bool, id))failureBlock;
 
@@ -56,7 +63,7 @@
 
 +(void)deleteShotRoundId:(NSNumber *)round
                   holeId:(NSNumber *)holeId
-                shotType:(NSString *)shotType
+                shotType:(ShotType )shotType
                   shotId:(NSNumber *)shotId
                  success:(void(^)(bool, id))successBlock
                  failure:(void(^)(bool, id))failureBlock;

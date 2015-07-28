@@ -11,7 +11,7 @@
 #import "ClubHouseViewController.h"
 #import "PlayerProfileViewController.h"
 #import "SplashScreenViewController.h"
-#import "PersistentServices.h"
+#import "GameSettings.h"
 #import "Constants.h"
 #import "InvitationManager.h"
 

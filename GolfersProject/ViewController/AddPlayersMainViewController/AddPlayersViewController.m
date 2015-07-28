@@ -30,7 +30,7 @@
 #import "RoundInviteViewController.h"
 #import "RoundPlayerCell.h"
 #import "RoundDataServices.h"
-#import "PersistentServices.h"
+#import "GameSettings.h"
 #import "HolesMapViewController.h"
 #import "RoundDataServices.h"
 #import "RoundPlayers.h"
@@ -111,10 +111,10 @@
     AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
     [delegate.appDelegateNavController setNavigationBarHidden:NO];
     
-    PersistentServices * persistentStore = [PersistentServices sharedServices];
+    GameSettings * persistentStore = [GameSettings sharedSettings];
     InvitationManager * invitationManager = [InvitationManager sharedInstance];
 
-     __block NSNumber * roundId = [[PersistentServices sharedServices] currentRoundId];
+     __block NSNumber * roundId = [[GameSettings sharedSettings] roundId];
 
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
@@ -168,7 +168,7 @@
                 [self showViewsRoundInProgressOrWaitingForPlayers];
                 
                 [self loadDataInvitationAcceptedByInvitee:^{
-                    roundId = [[PersistentServices sharedServices] currentRoundId];
+                    roundId = [[GameSettings sharedSettings] roundId];
                     
                     [self showViewsRoundInProgressOrWaitingForPlayers];
                    // [self loadRoundDetailsForRoundId:roundId Completion:^{
@@ -245,7 +245,7 @@
                                                   }
                                         success:^(bool status, NSNumber *roundId) {
                                             if (status) {
-                                                [[PersistentServices sharedServices] setCurrentRoundId:roundId];
+                                                [[GameSettings sharedSettings] setroundId:roundId];
                                             }
                                         } failure:^(bool status, NSError *error) {
                                             if (status) {
@@ -270,13 +270,13 @@
 // call this when some one accepts the send invitation & we received a push notif for this.
 -(void)loadDataInvitationAcceptedByInvitee:(void(^)(void))completion{
     
-    PersistentServices * persistentStore = [PersistentServices sharedServices];
+    GameSettings * persistentStore = [GameSettings sharedSettings];
     
     [InvitationServices getInvitationDetail:^(bool status, id invitation) {
         
         if (status) {
             NSNumber * roundId = invitation[@"invitation_round"][@"round_id"];
-            [persistentStore setCurrentRoundId:roundId];
+            [persistentStore setroundId:roundId];
             [self loadRoundDetailsForRoundId:roundId Completion:^{
                 completion();
             }];
@@ -289,7 +289,7 @@
 
 -(void)loadPlayersListCompletion:(void(^)(void))completion{
     
-    NSNumber * roundId = [[PersistentServices sharedServices] currentRoundId];
+    NSNumber * roundId = [[GameSettings sharedSettings] roundId];
     if (!roundId) {
         return;
     }
@@ -312,7 +312,13 @@
         RoundMetaData * currRound = mRound.roundData;
         self.roundInfo = currRound;
         
-        [[PersistentServices sharedServices] setCurrentSubCourseId:currRound.activeCourse.itemId];
+        GameSettings * gameSettings = [GameSettings sharedSettings];
+        [gameSettings setsubCourseId:currRound.activeCourse.itemId];
+        
+        //Also setting current subCourse
+        [gameSettings setsubCourse:currRound.activeCourse];
+        [gameSettings setgameType:currRound.activeGameType];
+        [gameSettings setscoreType:currRound.activeScoreType];
         
         currentItemsIndropdown = DropDownContainsItemsSubcourses;
         [self setSelectedItemToLocalItem:self.roundInfo.activeCourse];
@@ -423,12 +429,12 @@
 
 -(void)saveRoundInfo{
     
-    PersistentServices * pServices = [PersistentServices sharedServices];
+    GameSettings * pServices = [GameSettings sharedSettings];
     //
-    [pServices setCurrentSubCourseId:self.selectedSubCourse.itemId];
-    [pServices setCurrentGameTypeId:self.selectedGameType.itemId];
-    [pServices setCurrentScoreTypeId:self.selectedScoreType.itemId];
-    [pServices setcurrentTeebox:self.selectedTeeBox.itemId];
+    [pServices setsubCourseId:self.selectedSubCourse.itemId];
+    [pServices setgameTypeId:self.selectedGameType.itemId];
+    [pServices setscoreTypeId:self.selectedScoreType.itemId];
+    [pServices setteeboxId:self.selectedTeeBox.itemId];
 }
 
 
@@ -541,14 +547,14 @@
 
 - (IBAction)btnStartRoundTapped:(UIButton *)sender {
     
-    PersistentServices * persistentStore = [PersistentServices sharedServices];
+    GameSettings * persistentStore = [GameSettings sharedSettings];
     
     AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
     [delegate.appDelegateNavController setNavigationBarHidden:NO];
 
     
-    [RoundDataServices startNewRoundWithId:[persistentStore currentRoundId]
-                               subCourseId:[persistentStore currentSubCourseId]
+    [RoundDataServices startNewRoundWithId:[persistentStore roundId]
+                               subCourseId:[persistentStore subCourseId]
                                    success:^(bool status, id roundId) {
                                        if (status) {
         HolesMapViewController * holesMapViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"HolesMapViewController"];

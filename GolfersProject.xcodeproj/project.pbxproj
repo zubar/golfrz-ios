@@ -10,6 +10,8 @@
 		32B56928BD94CBDCCDA0C43B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A26DAF5CF62E34098597EA3 /* libPods.a */; };
 		3D00B59E1B61161800FA2C19 /* Round.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D00B59D1B61161800FA2C19 /* Round.m */; };
 		3D00B5A11B621C7500FA2C19 /* InvitationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D00B5A01B621C7500FA2C19 /* InvitationManager.m */; };
+		3D00B5A51B6748A300FA2C19 /* GameSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D00B5A41B6748A300FA2C19 /* GameSettings.m */; };
+		3D00B5A91B67493100FA2C19 /* PlayerSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D00B5A81B67493100FA2C19 /* PlayerSettings.m */; };
 		3D16D0841B1C3FFB00A582A3 /* SharedManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D16D0831B1C3FFB00A582A3 /* SharedManager.m */; };
 		3D1963BC1B0CE05700766CFC /* CourseServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1963B81B0CE05700766CFC /* CourseServices.m */; };
 		3D1963BD1B0CE05700766CFC /* UserServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1963BB1B0CE05700766CFC /* UserServices.m */; };
@@ -72,7 +74,6 @@
 		3D221F901B5254CB00CF79E4 /* InvitationServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D221F8F1B5254CB00CF79E4 /* InvitationServices.m */; };
 		3D221F941B52797300CF79E4 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D221F931B52797300CF79E4 /* User.m */; };
 		3D221F971B5279AC00CF79E4 /* User+convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D221F961B5279AC00CF79E4 /* User+convenience.m */; };
-		3D221FA31B52C05B00CF79E4 /* PersistentServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D221FA21B52C05B00CF79E4 /* PersistentServices.m */; };
 		3D5CA5D61B1F332B00CB6ED7 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D5CA5D51B1F332B00CB6ED7 /* BaseViewController.m */; };
 		3D5CA5D81B20572E00CB6ED7 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D5CA5D71B20572E00CB6ED7 /* SystemConfiguration.framework */; };
 		3D613B631B416F1F00F7DEDA /* CalendarEventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D613B601B416F1F00F7DEDA /* CalendarEventCell.m */; };
@@ -192,6 +193,10 @@
 		3D00B59D1B61161800FA2C19 /* Round.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Round.m; sourceTree = "<group>"; };
 		3D00B59F1B621C7500FA2C19 /* InvitationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvitationManager.h; sourceTree = "<group>"; };
 		3D00B5A01B621C7500FA2C19 /* InvitationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvitationManager.m; sourceTree = "<group>"; };
+		3D00B5A31B6748A300FA2C19 /* GameSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameSettings.h; sourceTree = "<group>"; };
+		3D00B5A41B6748A300FA2C19 /* GameSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameSettings.m; sourceTree = "<group>"; };
+		3D00B5A71B67493100FA2C19 /* PlayerSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerSettings.h; sourceTree = "<group>"; };
+		3D00B5A81B67493100FA2C19 /* PlayerSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerSettings.m; sourceTree = "<group>"; };
 		3D16D0821B1C3FFB00A582A3 /* SharedManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedManager.h; sourceTree = "<group>"; };
 		3D16D0831B1C3FFB00A582A3 /* SharedManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedManager.m; sourceTree = "<group>"; };
 		3D1963B71B0CE05700766CFC /* CourseServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseServices.h; sourceTree = "<group>"; };
@@ -291,8 +296,6 @@
 		3D221F931B52797300CF79E4 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		3D221F951B5279AC00CF79E4 /* User+convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "User+convenience.h"; sourceTree = "<group>"; };
 		3D221F961B5279AC00CF79E4 /* User+convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "User+convenience.m"; sourceTree = "<group>"; };
-		3D221FA11B52C05B00CF79E4 /* PersistentServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersistentServices.h; sourceTree = "<group>"; };
-		3D221FA21B52C05B00CF79E4 /* PersistentServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersistentServices.m; sourceTree = "<group>"; };
 		3D5CA5D41B1F332B00CB6ED7 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		3D5CA5D51B1F332B00CB6ED7 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		3D5CA5D71B20572E00CB6ED7 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -524,6 +527,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D00B5A21B6748A300FA2C19 /* GameSettings */ = {
+			isa = PBXGroup;
+			children = (
+				3D00B5A31B6748A300FA2C19 /* GameSettings.h */,
+				3D00B5A41B6748A300FA2C19 /* GameSettings.m */,
+			);
+			path = GameSettings;
+			sourceTree = "<group>";
+		};
+		3D00B5A61B6748E000FA2C19 /* PlayerSettings */ = {
+			isa = PBXGroup;
+			children = (
+				3D00B5A71B67493100FA2C19 /* PlayerSettings.h */,
+				3D00B5A81B67493100FA2C19 /* PlayerSettings.m */,
+			);
+			path = PlayerSettings;
+			sourceTree = "<group>";
+		};
 		3D16D0811B1C3FDB00A582A3 /* SharedManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -811,15 +832,6 @@
 				3D221F931B52797300CF79E4 /* User.m */,
 			);
 			path = User;
-			sourceTree = "<group>";
-		};
-		3D221FA01B52C03700CF79E4 /* PersistentServices */ = {
-			isa = PBXGroup;
-			children = (
-				3D221FA11B52C05B00CF79E4 /* PersistentServices.h */,
-				3D221FA21B52C05B00CF79E4 /* PersistentServices.m */,
-			);
-			path = PersistentServices;
 			sourceTree = "<group>";
 		};
 		3D5CA5D31B1F332B00CB6ED7 /* BaseViewController */ = {
@@ -1470,7 +1482,8 @@
 		885CB07C1B0A121300AD2A7B /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				3D221FA01B52C03700CF79E4 /* PersistentServices */,
+				3D00B5A61B6748E000FA2C19 /* PlayerSettings */,
+				3D00B5A21B6748A300FA2C19 /* GameSettings */,
 				3DD47A6E1B4A81C3005DE325 /* InvitationServices */,
 				3DD47A6F1B4A81C3005DE325 /* RoundServices */,
 				3DD47A701B4A81C3005DE325 /* SubCourseServices */,
@@ -1906,6 +1919,7 @@
 				3D1963CE1B0DBC8300766CFC /* Condition.m in Sources */,
 				3D221F7B1B4BB0A600CF79E4 /* GameType.m in Sources */,
 				3D5CA5D61B1F332B00CB6ED7 /* BaseViewController.m in Sources */,
+				3D00B5A51B6748A300FA2C19 /* GameSettings.m in Sources */,
 				887C7ABF1B5644D400F1AC30 /* AddRoundPlayersCell.m in Sources */,
 				3D1C8EBA1B3D3C7F004AAD30 /* RoundViewController.m in Sources */,
 				885CB06D1B09BDCD00AD2A7B /* README.md in Sources */,
@@ -1923,7 +1937,6 @@
 				88C4EDB61B4A723100519D3B /* HoleMapCell.m in Sources */,
 				8873AA761B18C5F500E74C87 /* EventAdminViewController.m in Sources */,
 				3D1963BD1B0CE05700766CFC /* UserServices.m in Sources */,
-				3D221FA31B52C05B00CF79E4 /* PersistentServices.m in Sources */,
 				3DA7CB881B2B13FC00B5BAFF /* Cart.m in Sources */,
 				3DD9BD0F1B14BE1C00A2F296 /* THCalendarInfo.m in Sources */,
 				88573E1A1B441E300060929C /* AddPlayersViewController.m in Sources */,
@@ -1972,6 +1985,7 @@
 				3DD9BD0D1B14BE1C00A2F296 /* CalendarUtilities.m in Sources */,
 				3DD9BD261B14C39000A2F296 /* CalendarEventServices.m in Sources */,
 				3D221F7E1B4BB0DC00CF79E4 /* ScoreType.m in Sources */,
+				3D00B5A91B67493100FA2C19 /* PlayerSettings.m in Sources */,
 				3DF9936F1B256999006EBC39 /* PushManager.m in Sources */,
 				3D221F761B4BACAC00CF79E4 /* RoundMetaData.m in Sources */,
 				3DCA44D71B26CB3400B66BD2 /* FoodBeverage.m in Sources */,

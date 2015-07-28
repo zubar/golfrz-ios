@@ -16,12 +16,15 @@
 #import "ScoreSelectionCell.h"
 
 #import "RoundDataServices.h"
-#import "PersistentServices.h"
+#import "GameSettings.h"
 #import "RoundPlayers.h"
 #import "MBProgressHUD.h"
 #import "User+convenience.h"
 #import "Hole.h"
 #import "RoundDataServices.h"
+#import "MBProgressHUD.h"
+#import "SubCourse.h"
+#import "Hole.h"
 
 #define kPlayerScoreViewHeight 60.0f
 
@@ -36,6 +39,7 @@
 @property (nonatomic, strong) NSMutableArray * shots;
 @property (nonatomic, assign) NSInteger pathLength;
 
+@property (nonatomic, strong) id scoredPlayer;
 @end
 
 @implementation RoundViewController
@@ -60,11 +64,11 @@
     // Right button
     UIBarButtonItem * rightBtn = [[UIBarButtonItem alloc]initWithTitle:@"FINISH ROUND" style:UIBarButtonItemStylePlain target:self action:@selector(finishRoundTap)];
     self.navigationItem.rightBarButtonItem = rightBtn;
-    [self.lblHoleNo setText:[NSString stringWithFormat:@"%@", self.holeNumberPlayer]];
+    [self.lblHoleNo setText:[NSString stringWithFormat:@"%@", self.holeNumberPlayed]];
     [self.imgDarkerBg setHidden:YES];
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    [RoundDataServices getPlayersInRoundId:[[PersistentServices sharedServices] currentRoundId]
+    [RoundDataServices getPlayersInRoundId:[[GameSettings sharedSettings] roundId]
                                    success:^(bool status, RoundPlayers *playersList) {
                                        if (status) {
                                            if ([self.playersInRound count] > 0) [self.playersInRound removeAllObjects];
@@ -216,6 +220,7 @@
         self.popTipView.backgroundColor = [UIColor whiteColor];
         // saving the ref to selected view.
         self.editScoreBtn = sender;
+        self.scoredPlayer = player;
         [self.popTipView presentPointingAtView:sender inView:self.view animated:YES];
     }
     else {
@@ -244,8 +249,8 @@
     [self.popTipView dismissAnimated:YES];
     
     if ([item integerValue] > [self.shots count] ) {
-        
-        [self addShotMarker:[item integerValue] - [self.shots count] shotType:ShotTypeStardard];
+        NSNumber * score = [NSNumber numberWithInteger:[item integerValue] - [self.shots count]];
+        [self updateScore:score player:self.scoredPlayer];
     }else{
         //TODO: call the removeShots Method.
     }
@@ -253,8 +258,12 @@
 #pragma mark - UINavigation
 
 -(void)finishRoundTap{
-
-
+    
+    [RoundDataServices finishRoundWithBlock:^(bool status, id response) {
+        // TODO: Navigate to ScoreCard.
+    } failure:^(bool status, NSError *error) {
+        [[[UIAlertView alloc] initWithTitle:@"Try Again" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+    }];
 }
 
 -(void)roundbackBtnTapped{
@@ -311,17 +320,72 @@
 
 #pragma mark - UIActions
 
+-(void)updateScore:(NSNumber * )score player:(id)player{
+
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+
+    GameSettings * gameSetting = [GameSettings sharedSettings];
+    
+    NSNumber * holeId = nil;
+    for (Hole * ahole in [[gameSetting subCourse] holes]) {
+        if ([[ahole holeNumber] isEqual:self.holeNumberPlayed])
+            holeId = ahole.itemId;
+    }
+    
+    [RoundDataServices addDirectScore:score
+                               holeId:holeId
+                              success:^(bool status, NSDictionary *response) {
+                                  [MBProgressHUD hideHUDForView:self.view animated:YES];
+                                  if (status)
+                                      [self addShotMarker:(int)score shotType:ShotTypeStardard];
+                              } failure:^(bool status, NSError *error) {
+                                  [MBProgressHUD hideHUDForView:self.view animated:YES];
+                              }];
+}
+
 - (IBAction)btnPenaltyTapped:(UIButton *)sender {
-    [self addShotMarker:1 shotType:ShotTypePenalty];
+  
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [self shotHelperForShotType:ShotTypePenalty score:1 completion:^{
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+    }];
+
 }
 
 - (IBAction)btnShotTapped:(UIButton *)sender {
-    [self addShotMarker:1 shotType:ShotTypeStardard];
+    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [self shotHelperForShotType:ShotTypeStardard score:1 completion:^{
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+    }];
 }
 
 - (IBAction)btnPuttTapped:(UIButton *)sender {
-    [self addShotMarker:1 shotType:ShotTypePutt];
+   
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [self shotHelperForShotType:ShotTypePutt score:1 completion:^{
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+    }];
 }
+
+-(void)shotHelperForShotType:(ShotType)type score:(NSInteger )score completion:(void(^)(void))completion{
+  
+    GameSettings * gameSetting = [GameSettings sharedSettings];
+    
+    [RoundDataServices addShotRoundId:[gameSetting roundId]
+                               holeId:self.holeNumberPlayed
+                             shotType:type success:^(bool status, id response) {
+                                 completion();
+                                 if (status)
+                                     [self addShotMarker:score shotType:type];
+                             } failure:^(bool status, id response) {
+                                 completion();
+                                 if (!status)
+                                     [[[UIAlertView alloc] initWithTitle:@"Try Again" message:@"Failed to add shot" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+                             }];
+
+}
+
 
 - (IBAction)btnFlyoverTapped:(UIButton *)sender {
 }
@@ -332,7 +396,7 @@
 - (IBAction)btnPreviousHoleTapped:(UIButton *)sender {
     
 }
-#pragma  mark - 
+#pragma  mark -
 
 #pragma mark - Shots Animation
 
