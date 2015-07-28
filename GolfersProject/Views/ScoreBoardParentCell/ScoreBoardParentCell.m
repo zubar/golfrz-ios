@@ -11,24 +11,24 @@
 @implementation ScoreBoardParentCell
 -(void)awakeFromNib
 {
-    collectionView_.delegate = self;
-    collectionView_.dataSource = self;
+//    collectionView_.delegate = self;
+ //   collectionView_.dataSource = self;
 }
--(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 5;
-}
--(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
-{
-    return 1;
-}
-
--(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ScoreCellId" forIndexPath:indexPath];
-    if (cell == nil)
-    {
-        cell = [[UICollectionViewCell alloc]init];
-    }
-//    UICollectionView *customCell = (ScoreBoardParentCell *)cell;
-    return cell;
-}
+//-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+//    return 5;
+//}
+//-(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+//{
+//    return 1;
+//}
+//
+//-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+//    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ScoreCellId" forIndexPath:indexPath];
+//    if (cell == nil)
+//    {
+//        cell = [[UICollectionViewCell alloc]init];
+//    }
+////    UICollectionView *customCell = (ScoreBoardParentCell *)cell;
+//    return cell;
+//}
 @end

@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ScoreBoardViewController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate>
-@property (strong, nonatomic) IBOutlet UICollectionView *parentCollectionView;
+@interface ScoreBoardViewController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate, UIScrollViewDelegate>
+//@property (strong, nonatomic) IBOutlet UICollectionView *parentCollectionView;
+//@property (strong, nonatomic) IBOutlet UIScrollView *parentScrollVIew;
+@property (strong, nonatomic) IBOutlet UICollectionView *leftCollectionView;
+@property (strong, nonatomic) IBOutlet UICollectionView *rightCollectionView;
 
 @end

@@ -165,6 +165,7 @@
 		889872BF1B13105C00D3C0E9 /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 889872BE1B13105C00D3C0E9 /* Utilities.m */; };
 		88A48EFD1B2B006F006CEC42 /* FoodBevItemDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88A48EFC1B2B006F006CEC42 /* FoodBevItemDetailViewController.m */; };
 		88A48F011B2B0167006CEC42 /* FoodBevItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88A48F001B2B0167006CEC42 /* FoodBevItemCell.m */; };
+		88A73F3B1B67651800F70AD5 /* CustomCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 88A73F3A1B67651800F70AD5 /* CustomCollectionViewLayout.m */; };
 		88B21DEB1B1C390100AFC6D2 /* SplashScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B21DEA1B1C390100AFC6D2 /* SplashScreenViewController.m */; };
 		88B23C171B16E49800988908 /* ContactUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B23C161B16E49800988908 /* ContactUsViewController.m */; };
 		88B23C1C1B16E69D00988908 /* CourseDepartmentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B23C1B1B16E69D00988908 /* CourseDepartmentCell.m */; };
@@ -474,6 +475,8 @@
 		88A48EFC1B2B006F006CEC42 /* FoodBevItemDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodBevItemDetailViewController.m; sourceTree = "<group>"; };
 		88A48EFF1B2B0167006CEC42 /* FoodBevItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodBevItemCell.h; sourceTree = "<group>"; };
 		88A48F001B2B0167006CEC42 /* FoodBevItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodBevItemCell.m; sourceTree = "<group>"; };
+		88A73F391B67651800F70AD5 /* CustomCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCollectionViewLayout.h; sourceTree = "<group>"; };
+		88A73F3A1B67651800F70AD5 /* CustomCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCollectionViewLayout.m; sourceTree = "<group>"; };
 		88B21DE91B1C390100AFC6D2 /* SplashScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashScreenViewController.h; sourceTree = "<group>"; };
 		88B21DEA1B1C390100AFC6D2 /* SplashScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashScreenViewController.m; sourceTree = "<group>"; };
 		88B23C151B16E49800988908 /* ContactUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactUsViewController.h; sourceTree = "<group>"; };
@@ -1516,6 +1519,7 @@
 		887C7AA41B539DC400F1AC30 /* ScoreBoardViewController */ = {
 			isa = PBXGroup;
 			children = (
+				88A73F381B67651800F70AD5 /* CustomCollectionViewFlowLayout */,
 				887C7AAD1B539E3800F1AC30 /* ScoreBoardViewController.h */,
 				887C7AAE1B539E3800F1AC30 /* ScoreBoardViewController.m */,
 			);
@@ -1627,6 +1631,15 @@
 				88A48F001B2B0167006CEC42 /* FoodBevItemCell.m */,
 			);
 			path = FoodBevItemCell;
+			sourceTree = "<group>";
+		};
+		88A73F381B67651800F70AD5 /* CustomCollectionViewFlowLayout */ = {
+			isa = PBXGroup;
+			children = (
+				88A73F391B67651800F70AD5 /* CustomCollectionViewLayout.h */,
+				88A73F3A1B67651800F70AD5 /* CustomCollectionViewLayout.m */,
+			);
+			path = CustomCollectionViewFlowLayout;
 			sourceTree = "<group>";
 		};
 		88B21DE81B1C38DA00AFC6D2 /* SplashScreenViewController */ = {
@@ -1968,6 +1981,7 @@
 				3D221F7E1B4BB0DC00CF79E4 /* ScoreType.m in Sources */,
 				3DF9936F1B256999006EBC39 /* PushManager.m in Sources */,
 				3D221F761B4BACAC00CF79E4 /* RoundMetaData.m in Sources */,
+				88A73F3B1B67651800F70AD5 /* CustomCollectionViewLayout.m in Sources */,
 				3DCA44D71B26CB3400B66BD2 /* FoodBeverage.m in Sources */,
 				3D613B6B1B42878A00F7DEDA /* EventAdmin.m in Sources */,
 				3D16D0841B1C3FFB00A582A3 /* SharedManager.m in Sources */,

@@ -233,6 +233,14 @@
     }
 }
 
+//
+//-(NSInteger)sumNumbers:(...)numbers{
+//
+//    NSArray * temp = [NSArray alloc]initWithObjects:<#(id), ...#>, nil
+//    
+//    return 0;
+//}
+
 -(void)checkInToCurrentCourse{
     
     SharedManager * manager = [SharedManager sharedInstance];

@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ScoreBoardParentCell : UICollectionViewCell<UICollectionViewDelegate,UICollectionViewDataSource>
-{
-    IBOutlet UICollectionView *collectionView_;
+@interface ScoreBoardParentCell : UICollectionViewCell
+//{
+    //IBOutlet UICollectionView *collectionView_;
     
-}
+//}
 @property (strong, nonatomic) IBOutlet UILabel *lblTest;
 
 @end
