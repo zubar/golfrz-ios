@@ -10,4 +10,9 @@
 
 @interface ScoreboardServices : NSObject
 
++(void)getScoreForUserId:(NSNumber *)userId
+                  holeId:(NSNumber *)holeId
+                 roundId:(NSNumber *)roundId
+                 success:(void (^)(bool status, id roundId))successBlock
+                 failure:(void (^)(bool status, NSError * error))failureBlock;
 @end

@@ -167,6 +167,8 @@
     
     AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
     
+    NSLog(@"%@", [RoundDataServices paramAddDirectScore:score holeId:holeId playerId:playerId]);
+    
     [apiClient POST:kAddDirectScore parameters:[RoundDataServices paramAddDirectScore:score holeId:holeId playerId:playerId] success:^(NSURLSessionDataTask *task, id responseObject) {
         successBlock(true, responseObject);
     } failure:^(NSURLSessionDataTask * task, NSError * error) {
@@ -287,15 +289,17 @@
 
 +(NSDictionary *)paramAddDirectScore:(NSNumber *)score holeId:(NSNumber *)holeId playerId:(NSNumber *)playerId{
 
-    return @{
-            @"app_bundle_id" : kAppBundleId,
-            @"user_agent" : kUserAgent,
-            @"auth_token" : [UserServices currentToken],
-            @"hole_id" :    holeId,
-            @"round_id" :   [[GameSettings sharedSettings] roundId],
-            @"user_id" : playerId,
-            @"score" : score,
-             };
+        return @{
+                 @"app_bundle_id" : kAppBundleId,
+                 @"user_agent" : kUserAgent,
+                 @"auth_token" : [UserServices currentToken],
+                 @"hole_id" :    holeId,
+                 @"round_id" :   [[GameSettings sharedSettings] roundId],
+                 @"user_id" : playerId,
+                 @"score" : score,
+                 };
+    
+
 }
 
 +(NSDictionary *)paramAddGuestToRoundEmail:(NSString *)email firstName:(NSString *)firstName lastName:(NSString *)lastName{

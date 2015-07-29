@@ -26,6 +26,7 @@
 #import "SubCourse.h"
 #import "Hole.h"
 #import "PlayerSettings.h"
+#import "ScoreboardServices.h"
 
 #define kPlayerScoreViewHeight 60.0f
 
@@ -101,6 +102,19 @@
     [self.lblYards setText:[[hole yards] stringValue]];
 }
 
+-(void)currentRoundScoreForPlayerId:(NSNumber *)playerId completion:(void(^)(NSNumber *))score{
+    
+    GameSettings * settings = [GameSettings sharedSettings];
+    [ScoreboardServices getScoreForUserId:playerId
+                                   holeId:self.currentHole.itemId
+                                  roundId:[settings roundId]
+    success:^(bool status, id response) {
+        score(response);
+     }failure:^(bool status, NSError *error) {
+         NSLog(@"%@", [error localizedDescription]);
+    }];
+}
+
 -(void)viewDidAppear:(BOOL)animated
 {
     [self dropDownTapped];
@@ -110,7 +124,6 @@
 {
     AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
     [delegate.appDelegateNavController setNavigationBarHidden:YES];
-    
 }
 
 - (void)didReceiveMemoryWarning
@@ -130,13 +143,10 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
    
     static NSString * cellIdentifier = @"PlayerScoreCell";
-    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
-    
     PlayerScoreCell *customCell = (PlayerScoreCell *)cell;
     customCell.delegate = self;
     // One is added becasue data of first player is displayed in header view of table.
@@ -160,8 +170,9 @@
     User * player = nil;
     if ([self.playersInRound count] > 0) player = self.playersInRound[0];
     if (!self.headerView) self.headerView = [[PlayerScoreView alloc]init];
+    
 
-    [self.headerView configureViewForPlayer:nil hideDropdownBtn:NO];
+    [self.headerView configureViewForPlayer:player hideDropdownBtn:NO];
     [self.headerView.lblUserName setText:(player != nil ? [player contactFullName] : @"")];
     self.headerView.delegate = self;
     return self.headerView;

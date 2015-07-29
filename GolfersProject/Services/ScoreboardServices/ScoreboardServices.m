@@ -14,7 +14,9 @@
 
 @implementation ScoreboardServices
 
-+(void)getScoreForUserId:(NSNumber *)userId holeId:(NSNumber *)holeId roundId:(NSNumber *)roundId
++(void)getScoreForUserId:(NSNumber *)userId
+                  holeId:(NSNumber *)holeId
+                 roundId:(NSNumber *)roundId
                  success:(void (^)(bool status, id roundId))successBlock
                   failure:(void (^)(bool status, NSError * error))failureBlock{
     
@@ -23,7 +25,8 @@
     NSLog(@"GET-INDIVIDUAL-SCORE:%@", [ScoreboardServices paramsScoreForUserId:userId holeId:holeId roundId:roundId]);
     
     [apiClient GET:kGetIndividualScore parameters:[ScoreboardServices paramsScoreForUserId:userId holeId:holeId roundId:roundId] success:^(NSURLSessionDataTask *task, id responseObject) {
-        successBlock(true, responseObject);
+        NSNumber * score = responseObject[@"users_score"];
+        successBlock(true, score);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         NSLog(@"%@", error);
     }];
