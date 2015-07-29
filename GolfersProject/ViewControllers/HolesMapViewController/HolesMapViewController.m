@@ -10,6 +10,9 @@
 #import "HoleMapCell.h"
 #import "AppDelegate.h"
 #import "RoundViewController.h"
+#import "GameSettings.h"
+#import "SubCourse.h"
+#import "Hole.h"
 
 @interface HolesMapViewController (){
     BOOL isDownButtonPressed;
@@ -25,7 +28,8 @@
     [super viewDidLoad];
     if (!self.firstNineHoles) {
         self.firstNineHoles = [[NSMutableArray alloc]initWithCapacity:1];
-        [self.firstNineHoles addObjectsFromArray:[NSArray arrayWithObjects:@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10",@"11",@"12",@"13",@"14",@"15",@"16", @"17", @"18", nil]];
+        GameSettings * settings = [GameSettings sharedSettings];
+        [self.firstNineHoles addObjectsFromArray:[[settings subCourse] holes]];
     }
     isDownButtonPressed = FALSE;
     NSDictionary *navTitleAttributes =@{
@@ -63,37 +67,24 @@
     }
     
     HoleMapCell *customCell = (HoleMapCell *)cell;
-    customCell.lblHoleNo.text = [self.firstNineHoles objectAtIndex:indexPath.row];
-    customCell.lblPar.text = [self.firstNineHoles objectAtIndex:indexPath.row];
+    customCell.lblHoleNo.text = [[self.firstNineHoles[indexPath.row] holeNumber] stringValue];
+    customCell.lblPar.text = [[self.firstNineHoles[indexPath.row] par] stringValue];
     return customCell;
 }
 
-
--(void)collectionView:(UICollectionView *)collectionView didEndDisplayingCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"indexPath: %@", indexPath);
-
-}
-
+#pragma mark - Navigation
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     
     AppDelegate * appDelegate = [[UIApplication sharedApplication] delegate];
     
     RoundViewController * controller = [self.storyboard instantiateViewControllerWithIdentifier:@"RoundViewController"];
-    controller.holeNumberPlayer = [NSNumber numberWithInteger:indexPath.row + 1]; 
+    controller.holeNumberPlayed = [NSNumber numberWithInteger:indexPath.row + 1];
     [appDelegate.appDelegateNavController pushViewController:controller animated:YES];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
+#pragma mark - UIActions
 - (IBAction)btnNextHolesTapped:(UIButton *)sender {
+    if ([self.firstNineHoles count] < 10) return;
     
     if (!isDownButtonPressed) {
         UIImage *buttonToDisplay = [UIImage imageNamed:@"ChooseHole_Up"];

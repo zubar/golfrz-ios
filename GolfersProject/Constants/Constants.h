@@ -105,6 +105,8 @@ static NSString * const kRoundInfo = @"rounds/round_info";
  * Adding Scores/Shots
  */
 static NSString * const kAddDirectScore = @"shots/direct_score";
+static NSString * const kAddShot = @"shots/play";
+static NSString * const kDeleteShot = @"shots/delete_shot";
 
 
 /*
@@ -115,8 +117,10 @@ static NSString * const kGetInvitationDetail = @"invitations/get_invitation";
 static NSString * const kInvitationAppOpen = @"%@/redirect_with_invitation?id=%@";
 
 /*
- * Shots 
+ * Scoreboard Services
  */
+static NSString * const kGetIndividualScore = @"scores/individual_score";
+static NSString * const kGetScoreCard = @"nil-url";
 
 /*
  *  Push notification token registeration
