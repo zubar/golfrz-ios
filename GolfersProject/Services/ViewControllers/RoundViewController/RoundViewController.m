@@ -25,6 +25,8 @@
 #import "MBProgressHUD.h"
 #import "SubCourse.h"
 #import "Hole.h"
+#import "PlayerSettings.h"
+#import "ScoreboardServices.h"
 
 #define kPlayerScoreViewHeight 60.0f
 
@@ -40,6 +42,7 @@
 @property (nonatomic, assign) NSInteger pathLength;
 
 @property (nonatomic, strong) id scoredPlayer;
+@property (nonatomic, strong) PlayerScoreView * headerView;
 @end
 
 @implementation RoundViewController
@@ -86,49 +89,53 @@
     //isScoreTableDescended = FALSE;
 }
 
--(void)viewWillAppear:(BOOL)animated{
-    
+-(void)viewWillAppear:(BOOL)animated
+{
     AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
     [delegate.appDelegateNavController setNavigationBarHidden:NO];
+    [self updateYardAndParForHole:[[GameSettings sharedSettings] subCourse].holes[[self.holeNumberPlayed intValue]- 1]];
 }
 
--(void)viewDidAppear:(BOOL)animated{
+-(void)updateYardAndParForHole:(Hole *)hole
+{
+    [self.lblPar setText:[[hole par] stringValue]];
+    [self.lblYards setText:[[hole yards] stringValue]];
+}
+
+-(void)currentRoundScoreForPlayerId:(NSNumber *)playerId completion:(void(^)(NSNumber *))score{
+    
+    GameSettings * settings = [GameSettings sharedSettings];
+    [ScoreboardServices getScoreForUserId:playerId
+                                   holeId:self.currentHole.itemId
+                                  roundId:[settings roundId]
+    success:^(bool status, id response) {
+        score(response);
+     }failure:^(bool status, NSError *error) {
+         NSLog(@"%@", [error localizedDescription]);
+    }];
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
     [self dropDownTapped];
 }
 
--(void)viewWillDisappear:(BOOL)animated{
-    
+-(void)viewWillDisappear:(BOOL)animated
+{
     AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
     [delegate.appDelegateNavController setNavigationBarHidden:YES];
-    
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-//-(void)dropShotMarkerType:(NSString *)shotTypeENUM{
-//    
-//    CGRect initialFrame = nil;
-//   
-//    
-//    CGRect finalFrame = nil;
-//    
-//    UIImageView * markerImage = nil;
-//    [markerImage setFrame:initialFrame];
-//    
-//    
-//    [UIView animateWithDuration:1.0 animations:^{
-//        [markerImage setFrame:finalFrame];
-//    } completion:^(BOOL finished) {
-//        
-//    }];
-//}
-
 #pragma mark - UITableViewDataSource
 
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
     // One is subtracted because one player data is displayed header view of table.
     return [self.playersInRound count] - 1;
 }
@@ -136,55 +143,48 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
    
     static NSString * cellIdentifier = @"PlayerScoreCell";
-    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
-    
     PlayerScoreCell *customCell = (PlayerScoreCell *)cell;
     customCell.delegate = self;
     // One is added becasue data of first player is displayed in header view of table.
     customCell.lblPlayerName.text = [[self.playersInRound objectAtIndex:indexPath.row +1 ] contactFullName];
+    customCell.player = [self.playersInRound objectAtIndex:indexPath.row +1 ];
     [customCell setSelectionStyle:UITableViewCellSelectionStyleNone];
     
     return customCell;
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     return kPlayerScoreViewHeight;
 }
 
 
 #pragma mark - UITableViewDelegate
 
--(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
     User * player = nil;
     if ([self.playersInRound count] > 0) player = self.playersInRound[0];
+    if (!self.headerView) self.headerView = [[PlayerScoreView alloc]init];
     
-    PlayerScoreView * headerView = [[PlayerScoreView alloc]init];
-    
-    [headerView configureViewForPlayer:nil hideDropdownBtn:NO];
-    [headerView.lblUserName setText:(player != nil ? [player contactFullName] : @"")];
-    headerView.delegate = self;
-    
-    return headerView;
+
+    [self.headerView configureViewForPlayer:player hideDropdownBtn:NO];
+    [self.headerView.lblUserName setText:(player != nil ? [player contactFullName] : @"")];
+    self.headerView.delegate = self;
+    return self.headerView;
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
     return kPlayerScoreViewHeight;
 }
-
-
-
 #pragma mark - PlayerScoreViewDelegate
-
--(void)dropDownTapped{
-
+-(void)dropDownTapped
+{
     if (isScoreTableDescended) {
         isScoreTableDescended = FALSE;
         [self showDistanceView:isScoreTableDescended];
@@ -198,15 +198,13 @@
     }
 }
 
--(void)showDistanceView:(BOOL)yesNo{
-    //bool visibleStatus = !yesNo;
+-(void)showDistanceView:(BOOL)yesNo
+{
     [self.distanceView setHidden:!(yesNo)];
 }
-
 // To enter score manually for a player.
-
--(void)editScoreTappedForPlayer:(id)sender Player:(id)player view:(UIView *)view{
-
+-(void)editScoreTappedForPlayer:(id)sender Player:(id)player view:(UIView *)view
+{
     ScoreSelectionView * mScoreView = [[ScoreSelectionView alloc]init];
     mScoreView.dataSource = self;
     mScoreView.delegate = self;
@@ -222,16 +220,15 @@
         self.editScoreBtn = sender;
         self.scoredPlayer = player;
         [self.popTipView presentPointingAtView:sender inView:self.view animated:YES];
-    }
-    else {
+    }else {
         // Dismiss
         [self.popTipView dismissAnimated:YES];
         self.popTipView = nil;
     }
 }
 
--(NSArray *)dataArrayForCells{
-    
+-(NSArray *)dataArrayForCells
+{
     NSMutableArray * scoresArray = [NSMutableArray new];
     for (int i = 0; i < 30; ++i) {
         [scoresArray addObject:[[NSNumber numberWithInt:i] stringValue]];
@@ -249,7 +246,7 @@
     [self.popTipView dismissAnimated:YES];
     
     if ([item integerValue] > [self.shots count] ) {
-        NSNumber * score = [NSNumber numberWithInteger:[item integerValue] - [self.shots count]];
+        NSNumber * score = [NSNumber numberWithInteger:[item integerValue]];
         [self updateScore:score player:self.scoredPlayer];
     }else{
         //TODO: call the removeShots Method.
@@ -257,8 +254,8 @@
 }
 #pragma mark - UINavigation
 
--(void)finishRoundTap{
-    
+-(void)finishRoundTap
+{
     [RoundDataServices finishRoundWithBlock:^(bool status, id response) {
         // TODO: Navigate to ScoreCard.
     } failure:^(bool status, NSError *error) {
@@ -266,15 +263,15 @@
     }];
 }
 
--(void)roundbackBtnTapped{
-    
+-(void)roundbackBtnTapped
+{
     AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
     [delegate.appDelegateNavController popViewControllerAnimated:YES];
 }
 
-
 #pragma mark CMPopTipViewDelegate methods
-- (void)popTipViewWasDismissedByUser:(CMPopTipView *)popTipView {
+- (void)popTipViewWasDismissedByUser:(CMPopTipView *)popTipView
+{
     // User can tap CMPopTipView to dismiss it
     self.popTipView = nil;
 }
@@ -300,12 +297,11 @@
     }];
 }
 
--(void)ascendTableViewWithAnimation:(BOOL)yesNo completion:(void(^)(void))completionBlock{
-    
+-(void)ascendTableViewWithAnimation:(BOOL)yesNo completion:(void(^)(void))completionBlock
+{
     [self.scoreTable setScrollEnabled:NO];
     CGRect initalFrame = [self.scoreTable frame];
     CGRect finalFrame = CGRectMake(0, initalFrame.origin.y, initalFrame.size.width, kPlayerScoreViewHeight);
-    
     
     //TODO: change button image of header on completion.
     [UIView animateWithDuration:0.5 animations:^{
@@ -320,48 +316,56 @@
 
 #pragma mark - UIActions
 
--(void)updateScore:(NSNumber * )score player:(id)player{
-
+-(void)updateScore:(NSNumber * )score player:(id)player
+{
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-
     GameSettings * gameSetting = [GameSettings sharedSettings];
     
     NSNumber * holeId = nil;
     for (Hole * ahole in [[gameSetting subCourse] holes]) {
-        if ([[ahole holeNumber] isEqual:self.holeNumberPlayed])
+        if ([[ahole holeNumber] isEqual:self.holeNumberPlayed]){
             holeId = ahole.itemId;
+            break;
+        }
     }
     
+    NSNumber * playerId = [player userId];
     [RoundDataServices addDirectScore:score
                                holeId:holeId
+                             playerId:playerId
                               success:^(bool status, NSDictionary *response) {
                                   [MBProgressHUD hideHUDForView:self.view animated:YES];
-                                  if (status)
+                                  if (status){
+                                      // Only Add shot Marker for signed-in player
+                                      if([playerId isEqual:[[PlayerSettings sharedSettings] userId]])
                                       [self addShotMarker:(int)score shotType:ShotTypeStardard];
-                              } failure:^(bool status, NSError *error) {
-                                  [MBProgressHUD hideHUDForView:self.view animated:YES];
-                              }];
+                                      else{
+                                          [[[UIAlertView alloc] initWithTitle:@"Score Updated" message:@"Score updated successfully." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+                                      }
+                                  }
+    } failure:^(bool status, NSError *error) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+    }];
 }
 
-- (IBAction)btnPenaltyTapped:(UIButton *)sender {
-  
+- (IBAction)btnPenaltyTapped:(UIButton *)sender
+{
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [self shotHelperForShotType:ShotTypePenalty score:1 completion:^{
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
     }];
-
 }
 
-- (IBAction)btnShotTapped:(UIButton *)sender {
-    
+- (IBAction)btnShotTapped:(UIButton *)sender
+{
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [self shotHelperForShotType:ShotTypeStardard score:1 completion:^{
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
     }];
 }
 
-- (IBAction)btnPuttTapped:(UIButton *)sender {
-   
+- (IBAction)btnPuttTapped:(UIButton *)sender
+{
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [self shotHelperForShotType:ShotTypePutt score:1 completion:^{
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
@@ -388,6 +392,9 @@
 
 
 - (IBAction)btnFlyoverTapped:(UIButton *)sender {
+    
+   // [self removeShotMarker:1 shotType:ShotTypeStardard];
+    
 }
 - (IBAction)btnNextHoleTapped:(UIButton *)sender {
 
@@ -409,7 +416,7 @@
     NSInteger internalDisplacement = 0;
 
     // To handle putt case 0.70 is subtraced it makes the length equal to total width of view.
-    if (type == ShotTypePutt) internalDisplacement = self.pathLength / (totalShotsToDisplay - 0.70);
+    if (type == ShotTypePutt) internalDisplacement = self.pathLength / (totalShotsToDisplay - 0.75);
     else internalDisplacement = self.pathLength / (totalShotsToDisplay +1);
     
     
@@ -438,7 +445,6 @@
         [self.mapView addSubview:aShotMarker];
     }
     
-    
     //Animate & reposition newly Added Views
     [UIView animateWithDuration:0.7 animations:^{
         for (int i = (int)countOFexistingShots ; i < [self.shots count]; ++i)
@@ -459,7 +465,5 @@
             [aShotMarker setFrame:finalRect];
         }
     }];
-   
 }
-
 @end

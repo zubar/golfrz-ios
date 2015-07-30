@@ -113,8 +113,10 @@
                success:(void(^)(bool, id))successBlock
                failure:(void(^)(bool, id))failureBlock{
     
+    NSLog(@"SHOT: %@", [RoundDataServices paramsAddShotholeId:holeId roundId:round shortType:shotType]);
+    
     AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
-    [apiClient POST:kRoundAddGuest parameters:[RoundDataServices paramsAddShotholeId:holeId roundId:round shortType:shotType]
+    [apiClient POST:kAddShot parameters:[RoundDataServices paramsAddShotholeId:holeId roundId:round shortType:shotType]
             success:^(NSURLSessionDataTask *task, id responseObject) {
         successBlock(true, responseObject);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
@@ -128,7 +130,7 @@
                  failure:(void(^)(bool, id))failureBlock{
     
     AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
-    [apiClient POST:kRoundAddGuest parameters:[RoundDataServices paramsDeleteShotId:shotId]
+    [apiClient POST:kDeleteShot parameters:[RoundDataServices paramsDeleteShotId:shotId]
             success:^(NSURLSessionDataTask *task, id responseObject) {
                 successBlock(true, responseObject);
             } failure:^(NSURLSessionDataTask *task, NSError *error) {
@@ -144,7 +146,7 @@
                failure:(void(^)(bool, id))failureBlock{
     
     AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
-    [apiClient POST:kRoundAddGuest parameters:[RoundDataServices
+    [apiClient POST:kDeleteShot parameters:[RoundDataServices
                                                paramsDeleteShotHoleId:holeId
                                                roundId:round
                                                type:shotType
@@ -165,6 +167,8 @@
     
     AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
     
+    NSLog(@"%@", [RoundDataServices paramAddDirectScore:score holeId:holeId playerId:playerId]);
+    
     [apiClient POST:kAddDirectScore parameters:[RoundDataServices paramAddDirectScore:score holeId:holeId playerId:playerId] success:^(NSURLSessionDataTask *task, id responseObject) {
         successBlock(true, responseObject);
     } failure:^(NSURLSessionDataTask * task, NSError * error) {
@@ -178,7 +182,7 @@
     
     AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
     
-    [apiClient POST:kAddDirectScore parameters:[RoundDataServices paramsUpdateRound] success:^(NSURLSessionDataTask *task, id responseObject) {
+    [apiClient POST:kRoundNew parameters:[RoundDataServices paramsUpdateRound] success:^(NSURLSessionDataTask *task, id responseObject) {
         successBlock(true, responseObject);
     } failure:^(NSURLSessionDataTask * task, NSError * error) {
         failureBlock(false, error);
@@ -285,14 +289,17 @@
 
 +(NSDictionary *)paramAddDirectScore:(NSNumber *)score holeId:(NSNumber *)holeId playerId:(NSNumber *)playerId{
 
-    return @{
-            @"app_bundle_id" : kAppBundleId,
-            @"user_agent" : kUserAgent,
-            @"auth_token" : [UserServices currentToken],
-            @"hole_id" :    holeId,
-            @"round_id" :   [[GameSettings sharedSettings] roundId],
-            @"user_id" : playerId
-             };
+        return @{
+                 @"app_bundle_id" : kAppBundleId,
+                 @"user_agent" : kUserAgent,
+                 @"auth_token" : [UserServices currentToken],
+                 @"hole_id" :    holeId,
+                 @"round_id" :   [[GameSettings sharedSettings] roundId],
+                 @"user_id" : playerId,
+                 @"score" : score,
+                 };
+    
+
 }
 
 +(NSDictionary *)paramAddGuestToRoundEmail:(NSString *)email firstName:(NSString *)firstName lastName:(NSString *)lastName{

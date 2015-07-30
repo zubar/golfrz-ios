@@ -12,17 +12,13 @@
 		3D00B5A11B621C7500FA2C19 /* InvitationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D00B5A01B621C7500FA2C19 /* InvitationManager.m */; };
 		3D00B5A51B6748A300FA2C19 /* GameSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D00B5A41B6748A300FA2C19 /* GameSettings.m */; };
 		3D00B5A91B67493100FA2C19 /* PlayerSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D00B5A81B67493100FA2C19 /* PlayerSettings.m */; };
+		3D00B5AD1B68E48000FA2C19 /* ScoreboardServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D00B5AC1B68E48000FA2C19 /* ScoreboardServices.m */; };
 		3D16D0841B1C3FFB00A582A3 /* SharedManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D16D0831B1C3FFB00A582A3 /* SharedManager.m */; };
 		3D1963BC1B0CE05700766CFC /* CourseServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1963B81B0CE05700766CFC /* CourseServices.m */; };
 		3D1963BD1B0CE05700766CFC /* UserServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1963BB1B0CE05700766CFC /* UserServices.m */; };
 		3D1963C41B0DAECD00766CFC /* WeatherServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1963C31B0DAECD00766CFC /* WeatherServices.m */; };
 		3D1963CB1B0DBC2600766CFC /* WeatherData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1963CA1B0DBC2600766CFC /* WeatherData.m */; };
 		3D1963CE1B0DBC8300766CFC /* Condition.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1963CD1B0DBC8300766CFC /* Condition.m */; };
-		3D1963EA1B0E1B5200766CFC /* ClubHouseContainerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1963E41B0E1B5200766CFC /* ClubHouseContainerVC.m */; };
-		3D1963EB1B0E1B5200766CFC /* ClubHouseSubController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1963E61B0E1B5200766CFC /* ClubHouseSubController.m */; };
-		3D1963EC1B0E1B5200766CFC /* ClubHouseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1963E91B0E1B5200766CFC /* ClubHouseViewController.m */; };
-		3D1963F31B0E1B6900766CFC /* PlayerProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1963EF1B0E1B6900766CFC /* PlayerProfileViewController.m */; };
-		3D1963F41B0E1B6900766CFC /* RewardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1963F21B0E1B6900766CFC /* RewardViewController.m */; };
 		3D1963F81B0E1F0500766CFC /* WeatherViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1963F71B0E1F0500766CFC /* WeatherViewCell.m */; };
 		3D1963FA1B0E21B100766CFC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 88024F621AD29134004AC260 /* main.m */; };
 		3D1964191B130E3B00766CFC /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D19640C1B130E3B00766CFC /* MBProgressHUD.m */; };
@@ -34,7 +30,6 @@
 		3D1964221B13271000766CFC /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D19641F1B13270F00766CFC /* FBSDKLoginKit.framework */; };
 		3D1964231B13271000766CFC /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D1964201B13270F00766CFC /* FBSDKShareKit.framework */; };
 		3D1964271B13305200766CFC /* FaceBookAuthAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1964261B13305200766CFC /* FaceBookAuthAgent.m */; };
-		3D1C8E541B3A8D7D004AAD30 /* FoodBeverageBaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1C8E531B3A8D7D004AAD30 /* FoodBeverageBaseVC.m */; };
 		3D1C8E721B3BFDBE004AAD30 /* UIBarButtonItem+WEPopover.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1C8E681B3BFDBE004AAD30 /* UIBarButtonItem+WEPopover.m */; };
 		3D1C8E731B3BFDBE004AAD30 /* WEBlockingGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1C8E6A1B3BFDBE004AAD30 /* WEBlockingGestureRecognizer.m */; };
 		3D1C8E741B3BFDBE004AAD30 /* WEPopoverContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1C8E6C1B3BFDBE004AAD30 /* WEPopoverContainerView.m */; };
@@ -62,7 +57,38 @@
 		3D1C8EA01B3BFEB0004AAD30 /* popoverBgSimple.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D1C8E8C1B3BFEB0004AAD30 /* popoverBgSimple.png */; };
 		3D1C8EAF1B3D36C9004AAD30 /* EventHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1C8EAD1B3D36C9004AAD30 /* EventHeaderView.m */; };
 		3D1C8EB01B3D36C9004AAD30 /* EventHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D1C8EAE1B3D36C9004AAD30 /* EventHeaderView.xib */; };
-		3D1C8EBA1B3D3C7F004AAD30 /* RoundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1C8EB91B3D3C7F004AAD30 /* RoundViewController.m */; };
+		3D1CB0E81B691563005C1E19 /* AddGuestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1CB08D1B691563005C1E19 /* AddGuestViewController.m */; };
+		3D1CB0E91B691563005C1E19 /* AddPlayersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1CB0901B691563005C1E19 /* AddPlayersViewController.m */; };
+		3D1CB0EA1B691563005C1E19 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1CB0931B691563005C1E19 /* BaseViewController.m */; };
+		3D1CB0EB1B691563005C1E19 /* ClubHouseContainerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1CB0961B691563005C1E19 /* ClubHouseContainerVC.m */; };
+		3D1CB0EC1B691563005C1E19 /* ClubHouseSubController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1CB0981B691563005C1E19 /* ClubHouseSubController.m */; };
+		3D1CB0ED1B691563005C1E19 /* ClubHouseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1CB09B1B691563005C1E19 /* ClubHouseViewController.m */; };
+		3D1CB0EE1B691563005C1E19 /* ContactUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1CB09E1B691563005C1E19 /* ContactUsViewController.m */; };
+		3D1CB0EF1B691563005C1E19 /* CourseUpdatesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1CB0A11B691563005C1E19 /* CourseUpdatesViewController.m */; };
+		3D1CB0F01B691563005C1E19 /* EventAdminViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1CB0A41B691563005C1E19 /* EventAdminViewController.m */; };
+		3D1CB0F11B691563005C1E19 /* EventCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1CB0A71B691563005C1E19 /* EventCalendarViewController.m */; };
+		3D1CB0F21B691563005C1E19 /* EventDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1CB0AA1B691563005C1E19 /* EventDetailViewController.m */; };
+		3D1CB0F31B691563005C1E19 /* FoodBevCartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1CB0AD1B691563005C1E19 /* FoodBevCartViewController.m */; };
+		3D1CB0F41B691563005C1E19 /* FoodBeverageBaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1CB0B01B691563005C1E19 /* FoodBeverageBaseVC.m */; };
+		3D1CB0F51B691563005C1E19 /* FoodBevItemDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1CB0B31B691563005C1E19 /* FoodBevItemDetailViewController.m */; };
+		3D1CB0F61B691563005C1E19 /* FoodBeveragesMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1CB0B61B691563005C1E19 /* FoodBeveragesMainViewController.m */; };
+		3D1CB0F71B691563005C1E19 /* ForgotPasswordSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1CB0B91B691563005C1E19 /* ForgotPasswordSViewController.m */; };
+		3D1CB0F81B691563005C1E19 /* ForgotPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1CB0BB1B691563005C1E19 /* ForgotPasswordViewController.m */; };
+		3D1CB0F91B691563005C1E19 /* HolesMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1CB0BE1B691563005C1E19 /* HolesMapViewController.m */; };
+		3D1CB0FA1B691563005C1E19 /* InitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1CB0C11B691563005C1E19 /* InitialViewController.m */; };
+		3D1CB0FB1B691563005C1E19 /* InviteMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1CB0C41B691563005C1E19 /* InviteMainViewController.m */; };
+		3D1CB0FC1B691563005C1E19 /* PlayerProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1CB0C71B691563005C1E19 /* PlayerProfileViewController.m */; };
+		3D1CB0FD1B691563005C1E19 /* PlayerSettingsMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1CB0CA1B691563005C1E19 /* PlayerSettingsMainViewController.m */; };
+		3D1CB0FE1B691563005C1E19 /* RewardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1CB0CD1B691563005C1E19 /* RewardViewController.m */; };
+		3D1CB0FF1B691563005C1E19 /* RoundInviteFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1CB0D01B691563005C1E19 /* RoundInviteFriendViewController.m */; };
+		3D1CB1001B691563005C1E19 /* RoundInviteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1CB0D31B691563005C1E19 /* RoundInviteViewController.m */; };
+		3D1CB1011B691563005C1E19 /* RoundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1CB0D61B691563005C1E19 /* RoundViewController.m */; };
+		3D1CB1021B691563005C1E19 /* ScoreBoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1CB0D91B691563005C1E19 /* ScoreBoardViewController.m */; };
+		3D1CB1031B691563005C1E19 /* SignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1CB0DC1B691563005C1E19 /* SignInViewController.m */; };
+		3D1CB1041B691563005C1E19 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1CB0DF1B691563005C1E19 /* SignUpViewController.m */; };
+		3D1CB1051B691563005C1E19 /* SplashScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1CB0E21B691563005C1E19 /* SplashScreenViewController.m */; };
+		3D1CB1061B691563005C1E19 /* TeeTimesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1CB0E51B691563005C1E19 /* TeeTimesViewController.m */; };
+		3D1CB1071B691563005C1E19 /* UIImageView+RoundedImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1CB0E71B691563005C1E19 /* UIImageView+RoundedImage.m */; };
 		3D221F761B4BACAC00CF79E4 /* RoundMetaData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D221F751B4BACAC00CF79E4 /* RoundMetaData.m */; };
 		3D221F7B1B4BB0A600CF79E4 /* GameType.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D221F7A1B4BB0A600CF79E4 /* GameType.m */; };
 		3D221F7E1B4BB0DC00CF79E4 /* ScoreType.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D221F7D1B4BB0DC00CF79E4 /* ScoreType.m */; };
@@ -74,7 +100,6 @@
 		3D221F901B5254CB00CF79E4 /* InvitationServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D221F8F1B5254CB00CF79E4 /* InvitationServices.m */; };
 		3D221F941B52797300CF79E4 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D221F931B52797300CF79E4 /* User.m */; };
 		3D221F971B5279AC00CF79E4 /* User+convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D221F961B5279AC00CF79E4 /* User+convenience.m */; };
-		3D5CA5D61B1F332B00CB6ED7 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D5CA5D51B1F332B00CB6ED7 /* BaseViewController.m */; };
 		3D5CA5D81B20572E00CB6ED7 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D5CA5D71B20572E00CB6ED7 /* SystemConfiguration.framework */; };
 		3D613B631B416F1F00F7DEDA /* CalendarEventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D613B601B416F1F00F7DEDA /* CalendarEventCell.m */; };
 		3D613B641B416F1F00F7DEDA /* CalendarEventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D613B611B416F1F00F7DEDA /* CalendarEventCell.xib */; };
@@ -86,8 +111,6 @@
 		3D613B851B44191B00F7DEDA /* ScoreSelectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D613B7F1B44191B00F7DEDA /* ScoreSelectionCell.xib */; };
 		3D613B861B44191B00F7DEDA /* ScoreSelectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D613B821B44191B00F7DEDA /* ScoreSelectionView.m */; };
 		3D613B871B44191B00F7DEDA /* ScoreSelectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D613B831B44191B00F7DEDA /* ScoreSelectionView.xib */; };
-		3D87D8281B159FE00046BD60 /* EventCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D87D8271B159FE00046BD60 /* EventCalendarViewController.m */; };
-		3D87D82B1B15A0880046BD60 /* EventDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D87D82A1B15A0880046BD60 /* EventDetailViewController.m */; };
 		3D87D8421B1852120046BD60 /* NSDate+convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D87D8391B1852120046BD60 /* NSDate+convenience.m */; };
 		3D87D8431B1852120046BD60 /* NSMutableArray+convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D87D83B1B1852120046BD60 /* NSMutableArray+convenience.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3D87D8441B1852120046BD60 /* UIColor+expanded.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D87D83D1B1852120046BD60 /* UIColor+expanded.m */; };
@@ -101,7 +124,6 @@
 		3DC1161D1B2ED8A500E83F4F /* ContactServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC1161C1B2ED8A500E83F4F /* ContactServices.m */; };
 		3DC1161F1B2EE21F00E83F4F /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DC1161E1B2EE21F00E83F4F /* AddressBook.framework */; };
 		3DC116231B2EF4AD00E83F4F /* APContact+convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC116221B2EF4AD00E83F4F /* APContact+convenience.m */; };
-		3DC116271B3426E300E83F4F /* InviteMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC116261B3426E300E83F4F /* InviteMainViewController.m */; };
 		3DCA44CC1B26CB3400B66BD2 /* CalendarEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DCA44A91B26CB3400B66BD2 /* CalendarEvent.m */; };
 		3DCA44CD1B26CB3400B66BD2 /* EventList.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DCA44AB1B26CB3400B66BD2 /* EventList.m */; };
 		3DCA44CE1B26CB3400B66BD2 /* EventWeather.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DCA44AD1B26CB3400B66BD2 /* EventWeather.m */; };
@@ -136,46 +158,35 @@
 		88024F6E1AD29134004AC260 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88024F6D1AD29134004AC260 /* Images.xcassets */; };
 		88024F7D1AD29134004AC260 /* GolfersProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 88024F7C1AD29134004AC260 /* GolfersProjectTests.m */; };
 		8806637B1B6260B700207650 /* ScoreBoardParentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8806637A1B6260B700207650 /* ScoreBoardParentCell.m */; };
-		880A97D91B2F090F001D97F0 /* FoodBevCartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 880A97D81B2F090F001D97F0 /* FoodBevCartViewController.m */; };
 		880A97DD1B2F0ED4001D97F0 /* FoodBevCartCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 880A97DC1B2F0ED4001D97F0 /* FoodBevCartCell.m */; };
 		88243AF61B28437C00E600D6 /* FoodBevViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88243AF51B28437C00E600D6 /* FoodBevViewCell.m */; };
-		88573E1A1B441E300060929C /* AddPlayersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88573E191B441E2F0060929C /* AddPlayersViewController.m */; };
 		88573E1E1B4528280060929C /* RoundPlayerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88573E1D1B4528280060929C /* RoundPlayerCell.m */; };
-		88573E261B4551290060929C /* RoundInviteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88573E251B4551290060929C /* RoundInviteViewController.m */; };
 		88573E2A1B4551900060929C /* RoundInviteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88573E291B4551900060929C /* RoundInviteCell.m */; };
-		88573E2E1B4693C50060929C /* RoundInviteFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88573E2D1B4693C50060929C /* RoundInviteFriendViewController.m */; };
 		885CB0441B09BA9D00AD2A7B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 885CB0251B09BA9D00AD2A7B /* AppDelegate.m */; };
-		885CB0681B09BADE00AD2A7B /* InitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 885CB05B1B09BADE00AD2A7B /* InitialViewController.m */; };
-		885CB06A1B09BADE00AD2A7B /* SignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 885CB0611B09BADE00AD2A7B /* SignInViewController.m */; };
-		885CB06B1B09BADE00AD2A7B /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 885CB0641B09BADE00AD2A7B /* SignUpViewController.m */; };
 		885CB06D1B09BDCD00AD2A7B /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 885CB06C1B09BDCD00AD2A7B /* README.md */; };
 		885CB0751B09FB0100AD2A7B /* APIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 885CB0741B09FB0100AD2A7B /* APIClient.m */; };
 		885CB0801B0A128100AD2A7B /* AuthenticationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 885CB07F1B0A128100AD2A7B /* AuthenticationService.m */; };
-		886B9ED41B0B95900078B09D /* ForgotPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 886B9ED31B0B95900078B09D /* ForgotPasswordViewController.m */; };
-		88709E9E1B0DB600005DA345 /* ForgotPasswordSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88709E9D1B0DB600005DA345 /* ForgotPasswordSViewController.m */; };
-		8873AA761B18C5F500E74C87 /* EventAdminViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8873AA751B18C5F500E74C87 /* EventAdminViewController.m */; };
-		887C51311B21C9E300C778D7 /* UIImageView+RoundedImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 887C51301B21C9E300C778D7 /* UIImageView+RoundedImage.m */; };
-		887C7AA91B539E0E00F1AC30 /* AddGuestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 887C7AA81B539E0E00F1AC30 /* AddGuestViewController.m */; };
-		887C7AAC1B539E2200F1AC30 /* CourseUpdatesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 887C7AAB1B539E2200F1AC30 /* CourseUpdatesViewController.m */; };
-		887C7AAF1B539E3800F1AC30 /* ScoreBoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 887C7AAE1B539E3800F1AC30 /* ScoreBoardViewController.m */; };
 		887C7AB31B563BFC00F1AC30 /* AddRoundPlayersView.m in Sources */ = {isa = PBXBuildFile; fileRef = 887C7AB21B563BFC00F1AC30 /* AddRoundPlayersView.m */; };
 		887C7AB51B563C3700F1AC30 /* AddRoundPlayers.xib in Resources */ = {isa = PBXBuildFile; fileRef = 887C7AB41B563C3700F1AC30 /* AddRoundPlayers.xib */; };
 		887C7AB91B563EFC00F1AC30 /* AddRoundPlayersCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 887C7AB81B563EFC00F1AC30 /* AddRoundPlayersCell.xib */; };
 		887C7ABF1B5644D400F1AC30 /* AddRoundPlayersCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 887C7ABE1B5644D400F1AC30 /* AddRoundPlayersCell.m */; };
-		88855DD21B256F5A00E164D6 /* FoodBeveragesMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88855DD11B256F5A00E164D6 /* FoodBeveragesMainViewController.m */; };
 		8890E4D31B307A5500A11BBF /* ContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8890E4D21B307A5500A11BBF /* ContactCell.m */; };
 		889872BF1B13105C00D3C0E9 /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 889872BE1B13105C00D3C0E9 /* Utilities.m */; };
-		88A48EFD1B2B006F006CEC42 /* FoodBevItemDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88A48EFC1B2B006F006CEC42 /* FoodBevItemDetailViewController.m */; };
 		88A48F011B2B0167006CEC42 /* FoodBevItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88A48F001B2B0167006CEC42 /* FoodBevItemCell.m */; };
+<<<<<<< HEAD
 		88A73F3B1B67651800F70AD5 /* CustomCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 88A73F3A1B67651800F70AD5 /* CustomCollectionViewLayout.m */; };
 		88B21DEB1B1C390100AFC6D2 /* SplashScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B21DEA1B1C390100AFC6D2 /* SplashScreenViewController.m */; };
 		88B23C171B16E49800988908 /* ContactUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B23C161B16E49800988908 /* ContactUsViewController.m */; };
+=======
+>>>>>>> feat/Round
 		88B23C1C1B16E69D00988908 /* CourseDepartmentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B23C1B1B16E69D00988908 /* CourseDepartmentCell.m */; };
-		88C4EDB21B4A6E8300519D3B /* HolesMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88C4EDB11B4A6E8300519D3B /* HolesMapViewController.m */; };
 		88C4EDB61B4A723100519D3B /* HoleMapCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88C4EDB51B4A723100519D3B /* HoleMapCell.m */; };
+<<<<<<< HEAD
 		88D813AD1B17640E00FD7D0E /* PlayerSettingsMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D813AC1B17640E00FD7D0E /* PlayerSettingsMainViewController.m */; };
 		88E9EE561B68B11E00F4D90E /* ScoreBoardManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E9EE551B68B11E00F4D90E /* ScoreBoardManager.m */; };
 		88EBBAE21B4D101500AA6688 /* TeeTimesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88EBBAE11B4D101500AA6688 /* TeeTimesViewController.m */; };
+=======
+>>>>>>> feat/Round
 		88EBBAE61B4D108400AA6688 /* TeeTimeBookingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88EBBAE51B4D108400AA6688 /* TeeTimeBookingCell.m */; };
 		A921244B1B36DB1E00917649 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A921244A1B36DB1E00917649 /* MessageUI.framework */; };
 /* End PBXBuildFile section */
@@ -199,6 +210,8 @@
 		3D00B5A41B6748A300FA2C19 /* GameSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameSettings.m; sourceTree = "<group>"; };
 		3D00B5A71B67493100FA2C19 /* PlayerSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerSettings.h; sourceTree = "<group>"; };
 		3D00B5A81B67493100FA2C19 /* PlayerSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerSettings.m; sourceTree = "<group>"; };
+		3D00B5AB1B68E47F00FA2C19 /* ScoreboardServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreboardServices.h; sourceTree = "<group>"; };
+		3D00B5AC1B68E48000FA2C19 /* ScoreboardServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreboardServices.m; sourceTree = "<group>"; };
 		3D16D0821B1C3FFB00A582A3 /* SharedManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedManager.h; sourceTree = "<group>"; };
 		3D16D0831B1C3FFB00A582A3 /* SharedManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedManager.m; sourceTree = "<group>"; };
 		3D1963B71B0CE05700766CFC /* CourseServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseServices.h; sourceTree = "<group>"; };
@@ -211,16 +224,6 @@
 		3D1963CA1B0DBC2600766CFC /* WeatherData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherData.m; sourceTree = "<group>"; };
 		3D1963CC1B0DBC8300766CFC /* Condition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Condition.h; sourceTree = "<group>"; };
 		3D1963CD1B0DBC8300766CFC /* Condition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Condition.m; sourceTree = "<group>"; };
-		3D1963E31B0E1B5200766CFC /* ClubHouseContainerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClubHouseContainerVC.h; sourceTree = "<group>"; };
-		3D1963E41B0E1B5200766CFC /* ClubHouseContainerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClubHouseContainerVC.m; sourceTree = "<group>"; };
-		3D1963E51B0E1B5200766CFC /* ClubHouseSubController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClubHouseSubController.h; sourceTree = "<group>"; };
-		3D1963E61B0E1B5200766CFC /* ClubHouseSubController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClubHouseSubController.m; sourceTree = "<group>"; };
-		3D1963E81B0E1B5200766CFC /* ClubHouseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClubHouseViewController.h; sourceTree = "<group>"; };
-		3D1963E91B0E1B5200766CFC /* ClubHouseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClubHouseViewController.m; sourceTree = "<group>"; };
-		3D1963EE1B0E1B6900766CFC /* PlayerProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerProfileViewController.h; sourceTree = "<group>"; };
-		3D1963EF1B0E1B6900766CFC /* PlayerProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerProfileViewController.m; sourceTree = "<group>"; };
-		3D1963F11B0E1B6900766CFC /* RewardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RewardViewController.h; sourceTree = "<group>"; };
-		3D1963F21B0E1B6900766CFC /* RewardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RewardViewController.m; sourceTree = "<group>"; };
 		3D1963F61B0E1F0500766CFC /* WeatherViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherViewCell.h; sourceTree = "<group>"; };
 		3D1963F71B0E1F0500766CFC /* WeatherViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherViewCell.m; sourceTree = "<group>"; };
 		3D1963FF1B1305FC00766CFC /* PresentationServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PresentationServices.h; sourceTree = "<group>"; };
@@ -240,8 +243,6 @@
 		3D1964201B13270F00766CFC /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		3D1964251B13305200766CFC /* FaceBookAuthAgent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceBookAuthAgent.h; sourceTree = "<group>"; };
 		3D1964261B13305200766CFC /* FaceBookAuthAgent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaceBookAuthAgent.m; sourceTree = "<group>"; };
-		3D1C8E521B3A8D7D004AAD30 /* FoodBeverageBaseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodBeverageBaseVC.h; sourceTree = "<group>"; };
-		3D1C8E531B3A8D7D004AAD30 /* FoodBeverageBaseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodBeverageBaseVC.m; sourceTree = "<group>"; };
 		3D1C8E671B3BFDBE004AAD30 /* UIBarButtonItem+WEPopover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+WEPopover.h"; sourceTree = "<group>"; };
 		3D1C8E681B3BFDBE004AAD30 /* UIBarButtonItem+WEPopover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+WEPopover.m"; sourceTree = "<group>"; };
 		3D1C8E691B3BFDBE004AAD30 /* WEBlockingGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WEBlockingGestureRecognizer.h; sourceTree = "<group>"; };
@@ -276,8 +277,70 @@
 		3D1C8EAC1B3D36C9004AAD30 /* EventHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventHeaderView.h; sourceTree = "<group>"; };
 		3D1C8EAD1B3D36C9004AAD30 /* EventHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventHeaderView.m; sourceTree = "<group>"; };
 		3D1C8EAE1B3D36C9004AAD30 /* EventHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventHeaderView.xib; sourceTree = "<group>"; };
-		3D1C8EB81B3D3C7F004AAD30 /* RoundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundViewController.h; sourceTree = "<group>"; };
-		3D1C8EB91B3D3C7F004AAD30 /* RoundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundViewController.m; sourceTree = "<group>"; };
+		3D1CB08C1B691563005C1E19 /* AddGuestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddGuestViewController.h; sourceTree = "<group>"; };
+		3D1CB08D1B691563005C1E19 /* AddGuestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddGuestViewController.m; sourceTree = "<group>"; };
+		3D1CB08F1B691563005C1E19 /* AddPlayersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPlayersViewController.h; sourceTree = "<group>"; };
+		3D1CB0901B691563005C1E19 /* AddPlayersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPlayersViewController.m; sourceTree = "<group>"; };
+		3D1CB0921B691563005C1E19 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		3D1CB0931B691563005C1E19 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		3D1CB0951B691563005C1E19 /* ClubHouseContainerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClubHouseContainerVC.h; sourceTree = "<group>"; };
+		3D1CB0961B691563005C1E19 /* ClubHouseContainerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClubHouseContainerVC.m; sourceTree = "<group>"; };
+		3D1CB0971B691563005C1E19 /* ClubHouseSubController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClubHouseSubController.h; sourceTree = "<group>"; };
+		3D1CB0981B691563005C1E19 /* ClubHouseSubController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClubHouseSubController.m; sourceTree = "<group>"; };
+		3D1CB09A1B691563005C1E19 /* ClubHouseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClubHouseViewController.h; sourceTree = "<group>"; };
+		3D1CB09B1B691563005C1E19 /* ClubHouseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClubHouseViewController.m; sourceTree = "<group>"; };
+		3D1CB09D1B691563005C1E19 /* ContactUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactUsViewController.h; sourceTree = "<group>"; };
+		3D1CB09E1B691563005C1E19 /* ContactUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactUsViewController.m; sourceTree = "<group>"; };
+		3D1CB0A01B691563005C1E19 /* CourseUpdatesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseUpdatesViewController.h; sourceTree = "<group>"; };
+		3D1CB0A11B691563005C1E19 /* CourseUpdatesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseUpdatesViewController.m; sourceTree = "<group>"; };
+		3D1CB0A31B691563005C1E19 /* EventAdminViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventAdminViewController.h; sourceTree = "<group>"; };
+		3D1CB0A41B691563005C1E19 /* EventAdminViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventAdminViewController.m; sourceTree = "<group>"; };
+		3D1CB0A61B691563005C1E19 /* EventCalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventCalendarViewController.h; sourceTree = "<group>"; };
+		3D1CB0A71B691563005C1E19 /* EventCalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventCalendarViewController.m; sourceTree = "<group>"; };
+		3D1CB0A91B691563005C1E19 /* EventDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventDetailViewController.h; sourceTree = "<group>"; };
+		3D1CB0AA1B691563005C1E19 /* EventDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventDetailViewController.m; sourceTree = "<group>"; };
+		3D1CB0AC1B691563005C1E19 /* FoodBevCartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodBevCartViewController.h; sourceTree = "<group>"; };
+		3D1CB0AD1B691563005C1E19 /* FoodBevCartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodBevCartViewController.m; sourceTree = "<group>"; };
+		3D1CB0AF1B691563005C1E19 /* FoodBeverageBaseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodBeverageBaseVC.h; sourceTree = "<group>"; };
+		3D1CB0B01B691563005C1E19 /* FoodBeverageBaseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodBeverageBaseVC.m; sourceTree = "<group>"; };
+		3D1CB0B21B691563005C1E19 /* FoodBevItemDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodBevItemDetailViewController.h; sourceTree = "<group>"; };
+		3D1CB0B31B691563005C1E19 /* FoodBevItemDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodBevItemDetailViewController.m; sourceTree = "<group>"; };
+		3D1CB0B51B691563005C1E19 /* FoodBeveragesMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodBeveragesMainViewController.h; sourceTree = "<group>"; };
+		3D1CB0B61B691563005C1E19 /* FoodBeveragesMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodBeveragesMainViewController.m; sourceTree = "<group>"; };
+		3D1CB0B81B691563005C1E19 /* ForgotPasswordSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgotPasswordSViewController.h; sourceTree = "<group>"; };
+		3D1CB0B91B691563005C1E19 /* ForgotPasswordSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgotPasswordSViewController.m; sourceTree = "<group>"; };
+		3D1CB0BA1B691563005C1E19 /* ForgotPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgotPasswordViewController.h; sourceTree = "<group>"; };
+		3D1CB0BB1B691563005C1E19 /* ForgotPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgotPasswordViewController.m; sourceTree = "<group>"; };
+		3D1CB0BD1B691563005C1E19 /* HolesMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HolesMapViewController.h; sourceTree = "<group>"; };
+		3D1CB0BE1B691563005C1E19 /* HolesMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HolesMapViewController.m; sourceTree = "<group>"; };
+		3D1CB0C01B691563005C1E19 /* InitialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitialViewController.h; sourceTree = "<group>"; };
+		3D1CB0C11B691563005C1E19 /* InitialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitialViewController.m; sourceTree = "<group>"; };
+		3D1CB0C31B691563005C1E19 /* InviteMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InviteMainViewController.h; sourceTree = "<group>"; };
+		3D1CB0C41B691563005C1E19 /* InviteMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InviteMainViewController.m; sourceTree = "<group>"; };
+		3D1CB0C61B691563005C1E19 /* PlayerProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerProfileViewController.h; sourceTree = "<group>"; };
+		3D1CB0C71B691563005C1E19 /* PlayerProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerProfileViewController.m; sourceTree = "<group>"; };
+		3D1CB0C91B691563005C1E19 /* PlayerSettingsMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerSettingsMainViewController.h; sourceTree = "<group>"; };
+		3D1CB0CA1B691563005C1E19 /* PlayerSettingsMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerSettingsMainViewController.m; sourceTree = "<group>"; };
+		3D1CB0CC1B691563005C1E19 /* RewardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RewardViewController.h; sourceTree = "<group>"; };
+		3D1CB0CD1B691563005C1E19 /* RewardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RewardViewController.m; sourceTree = "<group>"; };
+		3D1CB0CF1B691563005C1E19 /* RoundInviteFriendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundInviteFriendViewController.h; sourceTree = "<group>"; };
+		3D1CB0D01B691563005C1E19 /* RoundInviteFriendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundInviteFriendViewController.m; sourceTree = "<group>"; };
+		3D1CB0D21B691563005C1E19 /* RoundInviteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundInviteViewController.h; sourceTree = "<group>"; };
+		3D1CB0D31B691563005C1E19 /* RoundInviteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundInviteViewController.m; sourceTree = "<group>"; };
+		3D1CB0D51B691563005C1E19 /* RoundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundViewController.h; sourceTree = "<group>"; };
+		3D1CB0D61B691563005C1E19 /* RoundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundViewController.m; sourceTree = "<group>"; };
+		3D1CB0D81B691563005C1E19 /* ScoreBoardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreBoardViewController.h; sourceTree = "<group>"; };
+		3D1CB0D91B691563005C1E19 /* ScoreBoardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreBoardViewController.m; sourceTree = "<group>"; };
+		3D1CB0DB1B691563005C1E19 /* SignInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignInViewController.h; sourceTree = "<group>"; };
+		3D1CB0DC1B691563005C1E19 /* SignInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignInViewController.m; sourceTree = "<group>"; };
+		3D1CB0DE1B691563005C1E19 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
+		3D1CB0DF1B691563005C1E19 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
+		3D1CB0E11B691563005C1E19 /* SplashScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashScreenViewController.h; sourceTree = "<group>"; };
+		3D1CB0E21B691563005C1E19 /* SplashScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashScreenViewController.m; sourceTree = "<group>"; };
+		3D1CB0E41B691563005C1E19 /* TeeTimesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeeTimesViewController.h; sourceTree = "<group>"; };
+		3D1CB0E51B691563005C1E19 /* TeeTimesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeeTimesViewController.m; sourceTree = "<group>"; };
+		3D1CB0E61B691563005C1E19 /* UIImageView+RoundedImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+RoundedImage.h"; sourceTree = "<group>"; };
+		3D1CB0E71B691563005C1E19 /* UIImageView+RoundedImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+RoundedImage.m"; sourceTree = "<group>"; };
 		3D221F741B4BACAC00CF79E4 /* RoundMetaData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundMetaData.h; sourceTree = "<group>"; };
 		3D221F751B4BACAC00CF79E4 /* RoundMetaData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundMetaData.m; sourceTree = "<group>"; };
 		3D221F791B4BB0A600CF79E4 /* GameType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameType.h; sourceTree = "<group>"; };
@@ -298,8 +361,6 @@
 		3D221F931B52797300CF79E4 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		3D221F951B5279AC00CF79E4 /* User+convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "User+convenience.h"; sourceTree = "<group>"; };
 		3D221F961B5279AC00CF79E4 /* User+convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "User+convenience.m"; sourceTree = "<group>"; };
-		3D5CA5D41B1F332B00CB6ED7 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
-		3D5CA5D51B1F332B00CB6ED7 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		3D5CA5D71B20572E00CB6ED7 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		3D613B5F1B416F1F00F7DEDA /* CalendarEventCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarEventCell.h; sourceTree = "<group>"; };
 		3D613B601B416F1F00F7DEDA /* CalendarEventCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarEventCell.m; sourceTree = "<group>"; };
@@ -317,10 +378,6 @@
 		3D613B811B44191B00F7DEDA /* ScoreSelectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreSelectionView.h; sourceTree = "<group>"; };
 		3D613B821B44191B00F7DEDA /* ScoreSelectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreSelectionView.m; sourceTree = "<group>"; };
 		3D613B831B44191B00F7DEDA /* ScoreSelectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScoreSelectionView.xib; sourceTree = "<group>"; };
-		3D87D8261B159FE00046BD60 /* EventCalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventCalendarViewController.h; sourceTree = "<group>"; };
-		3D87D8271B159FE00046BD60 /* EventCalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventCalendarViewController.m; sourceTree = "<group>"; };
-		3D87D8291B15A0880046BD60 /* EventDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventDetailViewController.h; sourceTree = "<group>"; };
-		3D87D82A1B15A0880046BD60 /* EventDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventDetailViewController.m; sourceTree = "<group>"; };
 		3D87D8381B1852120046BD60 /* NSDate+convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+convenience.h"; sourceTree = "<group>"; };
 		3D87D8391B1852120046BD60 /* NSDate+convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+convenience.m"; sourceTree = "<group>"; };
 		3D87D83A1B1852120046BD60 /* NSMutableArray+convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+convenience.h"; sourceTree = "<group>"; };
@@ -346,8 +403,6 @@
 		3DC1161E1B2EE21F00E83F4F /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		3DC116211B2EF4AD00E83F4F /* APContact+convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "APContact+convenience.h"; sourceTree = "<group>"; };
 		3DC116221B2EF4AD00E83F4F /* APContact+convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "APContact+convenience.m"; sourceTree = "<group>"; };
-		3DC116251B3426E300E83F4F /* InviteMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InviteMainViewController.h; sourceTree = "<group>"; };
-		3DC116261B3426E300E83F4F /* InviteMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InviteMainViewController.m; sourceTree = "<group>"; };
 		3DCA44A81B26CB3400B66BD2 /* CalendarEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarEvent.h; sourceTree = "<group>"; };
 		3DCA44A91B26CB3400B66BD2 /* CalendarEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarEvent.m; sourceTree = "<group>"; };
 		3DCA44AA1B26CB3400B66BD2 /* EventList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventList.h; sourceTree = "<group>"; };
@@ -421,85 +476,57 @@
 		88024F7C1AD29134004AC260 /* GolfersProjectTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GolfersProjectTests.m; sourceTree = "<group>"; };
 		880663791B6260B700207650 /* ScoreBoardParentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreBoardParentCell.h; sourceTree = "<group>"; };
 		8806637A1B6260B700207650 /* ScoreBoardParentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreBoardParentCell.m; sourceTree = "<group>"; };
-		880A97D71B2F090F001D97F0 /* FoodBevCartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodBevCartViewController.h; sourceTree = "<group>"; };
-		880A97D81B2F090F001D97F0 /* FoodBevCartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodBevCartViewController.m; sourceTree = "<group>"; };
 		880A97DB1B2F0ED4001D97F0 /* FoodBevCartCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodBevCartCell.h; sourceTree = "<group>"; };
 		880A97DC1B2F0ED4001D97F0 /* FoodBevCartCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodBevCartCell.m; sourceTree = "<group>"; };
 		88243AF41B28437C00E600D6 /* FoodBevViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodBevViewCell.h; sourceTree = "<group>"; };
 		88243AF51B28437C00E600D6 /* FoodBevViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodBevViewCell.m; sourceTree = "<group>"; };
-		88573E181B441E2F0060929C /* AddPlayersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPlayersViewController.h; sourceTree = "<group>"; };
-		88573E191B441E2F0060929C /* AddPlayersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPlayersViewController.m; sourceTree = "<group>"; };
 		88573E1C1B4528280060929C /* RoundPlayerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundPlayerCell.h; sourceTree = "<group>"; };
 		88573E1D1B4528280060929C /* RoundPlayerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundPlayerCell.m; sourceTree = "<group>"; };
-		88573E241B4551290060929C /* RoundInviteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundInviteViewController.h; sourceTree = "<group>"; };
-		88573E251B4551290060929C /* RoundInviteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundInviteViewController.m; sourceTree = "<group>"; };
 		88573E281B4551900060929C /* RoundInviteCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundInviteCell.h; sourceTree = "<group>"; };
 		88573E291B4551900060929C /* RoundInviteCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundInviteCell.m; sourceTree = "<group>"; };
-		88573E2C1B4693C40060929C /* RoundInviteFriendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundInviteFriendViewController.h; sourceTree = "<group>"; };
-		88573E2D1B4693C50060929C /* RoundInviteFriendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundInviteFriendViewController.m; sourceTree = "<group>"; };
 		885CB0241B09BA9D00AD2A7B /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		885CB0251B09BA9D00AD2A7B /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		885CB05A1B09BADE00AD2A7B /* InitialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitialViewController.h; sourceTree = "<group>"; };
-		885CB05B1B09BADE00AD2A7B /* InitialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitialViewController.m; sourceTree = "<group>"; };
-		885CB0601B09BADE00AD2A7B /* SignInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignInViewController.h; sourceTree = "<group>"; };
-		885CB0611B09BADE00AD2A7B /* SignInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignInViewController.m; sourceTree = "<group>"; };
-		885CB0631B09BADE00AD2A7B /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
-		885CB0641B09BADE00AD2A7B /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 		885CB06C1B09BDCD00AD2A7B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = GolfersProject/README.md; sourceTree = "<group>"; };
 		885CB0731B09FB0100AD2A7B /* APIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIClient.h; sourceTree = "<group>"; };
 		885CB0741B09FB0100AD2A7B /* APIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIClient.m; sourceTree = "<group>"; };
 		885CB07E1B0A128100AD2A7B /* AuthenticationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthenticationService.h; sourceTree = "<group>"; };
 		885CB07F1B0A128100AD2A7B /* AuthenticationService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthenticationService.m; sourceTree = "<group>"; };
-		886B9ED21B0B95900078B09D /* ForgotPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgotPasswordViewController.h; sourceTree = "<group>"; };
-		886B9ED31B0B95900078B09D /* ForgotPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgotPasswordViewController.m; sourceTree = "<group>"; };
-		88709E9C1B0DB600005DA345 /* ForgotPasswordSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgotPasswordSViewController.h; sourceTree = "<group>"; };
-		88709E9D1B0DB600005DA345 /* ForgotPasswordSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgotPasswordSViewController.m; sourceTree = "<group>"; };
-		8873AA741B18C5F500E74C87 /* EventAdminViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventAdminViewController.h; sourceTree = "<group>"; };
-		8873AA751B18C5F500E74C87 /* EventAdminViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventAdminViewController.m; sourceTree = "<group>"; };
-		887C512F1B21C9E300C778D7 /* UIImageView+RoundedImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+RoundedImage.h"; sourceTree = "<group>"; };
-		887C51301B21C9E300C778D7 /* UIImageView+RoundedImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+RoundedImage.m"; sourceTree = "<group>"; };
-		887C7AA71B539E0E00F1AC30 /* AddGuestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddGuestViewController.h; sourceTree = "<group>"; };
-		887C7AA81B539E0E00F1AC30 /* AddGuestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddGuestViewController.m; sourceTree = "<group>"; };
-		887C7AAA1B539E2200F1AC30 /* CourseUpdatesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseUpdatesViewController.h; sourceTree = "<group>"; };
-		887C7AAB1B539E2200F1AC30 /* CourseUpdatesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseUpdatesViewController.m; sourceTree = "<group>"; };
-		887C7AAD1B539E3800F1AC30 /* ScoreBoardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreBoardViewController.h; sourceTree = "<group>"; };
-		887C7AAE1B539E3800F1AC30 /* ScoreBoardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreBoardViewController.m; sourceTree = "<group>"; };
 		887C7AB11B563BFC00F1AC30 /* AddRoundPlayersView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddRoundPlayersView.h; sourceTree = "<group>"; };
 		887C7AB21B563BFC00F1AC30 /* AddRoundPlayersView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddRoundPlayersView.m; sourceTree = "<group>"; };
 		887C7AB41B563C3700F1AC30 /* AddRoundPlayers.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddRoundPlayers.xib; sourceTree = "<group>"; };
 		887C7AB81B563EFC00F1AC30 /* AddRoundPlayersCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddRoundPlayersCell.xib; sourceTree = "<group>"; };
 		887C7ABD1B5644D400F1AC30 /* AddRoundPlayersCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddRoundPlayersCell.h; sourceTree = "<group>"; };
 		887C7ABE1B5644D400F1AC30 /* AddRoundPlayersCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddRoundPlayersCell.m; sourceTree = "<group>"; };
-		88855DD01B256F5A00E164D6 /* FoodBeveragesMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodBeveragesMainViewController.h; sourceTree = "<group>"; };
-		88855DD11B256F5A00E164D6 /* FoodBeveragesMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodBeveragesMainViewController.m; sourceTree = "<group>"; };
 		8890E4D11B307A5500A11BBF /* ContactCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactCell.h; sourceTree = "<group>"; };
 		8890E4D21B307A5500A11BBF /* ContactCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactCell.m; sourceTree = "<group>"; };
 		889872BD1B13105C00D3C0E9 /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
 		889872BE1B13105C00D3C0E9 /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
 		889872C11B13111900D3C0E9 /* Alert-Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Alert-Constants.h"; sourceTree = "<group>"; };
 		889872C21B13111900D3C0E9 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
-		88A48EFB1B2B006F006CEC42 /* FoodBevItemDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodBevItemDetailViewController.h; sourceTree = "<group>"; };
-		88A48EFC1B2B006F006CEC42 /* FoodBevItemDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodBevItemDetailViewController.m; sourceTree = "<group>"; };
 		88A48EFF1B2B0167006CEC42 /* FoodBevItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodBevItemCell.h; sourceTree = "<group>"; };
 		88A48F001B2B0167006CEC42 /* FoodBevItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodBevItemCell.m; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		88A73F391B67651800F70AD5 /* CustomCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCollectionViewLayout.h; sourceTree = "<group>"; };
 		88A73F3A1B67651800F70AD5 /* CustomCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCollectionViewLayout.m; sourceTree = "<group>"; };
 		88B21DE91B1C390100AFC6D2 /* SplashScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashScreenViewController.h; sourceTree = "<group>"; };
 		88B21DEA1B1C390100AFC6D2 /* SplashScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashScreenViewController.m; sourceTree = "<group>"; };
 		88B23C151B16E49800988908 /* ContactUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactUsViewController.h; sourceTree = "<group>"; };
 		88B23C161B16E49800988908 /* ContactUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactUsViewController.m; sourceTree = "<group>"; };
+=======
+>>>>>>> feat/Round
 		88B23C1A1B16E69D00988908 /* CourseDepartmentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseDepartmentCell.h; sourceTree = "<group>"; };
 		88B23C1B1B16E69D00988908 /* CourseDepartmentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseDepartmentCell.m; sourceTree = "<group>"; };
-		88C4EDB01B4A6E8300519D3B /* HolesMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HolesMapViewController.h; sourceTree = "<group>"; };
-		88C4EDB11B4A6E8300519D3B /* HolesMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HolesMapViewController.m; sourceTree = "<group>"; };
 		88C4EDB41B4A723100519D3B /* HoleMapCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoleMapCell.h; sourceTree = "<group>"; };
 		88C4EDB51B4A723100519D3B /* HoleMapCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoleMapCell.m; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		88D813AB1B17640E00FD7D0E /* PlayerSettingsMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerSettingsMainViewController.h; sourceTree = "<group>"; };
 		88D813AC1B17640E00FD7D0E /* PlayerSettingsMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerSettingsMainViewController.m; sourceTree = "<group>"; };
 		88E9EE541B68B11E00F4D90E /* ScoreBoardManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreBoardManager.h; sourceTree = "<group>"; };
 		88E9EE551B68B11E00F4D90E /* ScoreBoardManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreBoardManager.m; sourceTree = "<group>"; };
 		88EBBAE01B4D101500AA6688 /* TeeTimesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeeTimesViewController.h; sourceTree = "<group>"; };
 		88EBBAE11B4D101500AA6688 /* TeeTimesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeeTimesViewController.m; sourceTree = "<group>"; };
+=======
+>>>>>>> feat/Round
 		88EBBAE41B4D108400AA6688 /* TeeTimeBookingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeeTimeBookingCell.h; sourceTree = "<group>"; };
 		88EBBAE51B4D108400AA6688 /* TeeTimeBookingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeeTimeBookingCell.m; sourceTree = "<group>"; };
 		A921244A1B36DB1E00917649 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -551,6 +578,15 @@
 			path = PlayerSettings;
 			sourceTree = "<group>";
 		};
+		3D00B5AA1B68E3DB00FA2C19 /* ScoreboardServices */ = {
+			isa = PBXGroup;
+			children = (
+				3D00B5AB1B68E47F00FA2C19 /* ScoreboardServices.h */,
+				3D00B5AC1B68E48000FA2C19 /* ScoreboardServices.m */,
+			);
+			path = ScoreboardServices;
+			sourceTree = "<group>";
+		};
 		3D16D0811B1C3FDB00A582A3 /* SharedManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -596,44 +632,6 @@
 				3D1963CD1B0DBC8300766CFC /* Condition.m */,
 			);
 			path = WeatherModel;
-			sourceTree = "<group>";
-		};
-		3D1963E21B0E1B5200766CFC /* ClubHouseContainerVC */ = {
-			isa = PBXGroup;
-			children = (
-				3D1963E31B0E1B5200766CFC /* ClubHouseContainerVC.h */,
-				3D1963E41B0E1B5200766CFC /* ClubHouseContainerVC.m */,
-				3D1963E51B0E1B5200766CFC /* ClubHouseSubController.h */,
-				3D1963E61B0E1B5200766CFC /* ClubHouseSubController.m */,
-			);
-			path = ClubHouseContainerVC;
-			sourceTree = "<group>";
-		};
-		3D1963E71B0E1B5200766CFC /* ClubHouseViewController */ = {
-			isa = PBXGroup;
-			children = (
-				3D1963E81B0E1B5200766CFC /* ClubHouseViewController.h */,
-				3D1963E91B0E1B5200766CFC /* ClubHouseViewController.m */,
-			);
-			path = ClubHouseViewController;
-			sourceTree = "<group>";
-		};
-		3D1963ED1B0E1B6900766CFC /* PlayerProfileViewController */ = {
-			isa = PBXGroup;
-			children = (
-				3D1963EE1B0E1B6900766CFC /* PlayerProfileViewController.h */,
-				3D1963EF1B0E1B6900766CFC /* PlayerProfileViewController.m */,
-			);
-			path = PlayerProfileViewController;
-			sourceTree = "<group>";
-		};
-		3D1963F01B0E1B6900766CFC /* RewardViewController */ = {
-			isa = PBXGroup;
-			children = (
-				3D1963F11B0E1B6900766CFC /* RewardViewController.h */,
-				3D1963F21B0E1B6900766CFC /* RewardViewController.m */,
-			);
-			path = RewardViewController;
 			sourceTree = "<group>";
 		};
 		3D1963F51B0E1F0500766CFC /* WeatherCell */ = {
@@ -710,15 +708,6 @@
 			path = FBAuthenticationAgent;
 			sourceTree = "<group>";
 		};
-		3D1C8E511B3A8D59004AAD30 /* FoodBeverageBaseVC */ = {
-			isa = PBXGroup;
-			children = (
-				3D1C8E521B3A8D7D004AAD30 /* FoodBeverageBaseVC.h */,
-				3D1C8E531B3A8D7D004AAD30 /* FoodBeverageBaseVC.m */,
-			);
-			path = FoodBeverageBaseVC;
-			sourceTree = "<group>";
-		};
 		3D1C8E661B3BFDBE004AAD30 /* WEPopover */ = {
 			isa = PBXGroup;
 			children = (
@@ -782,13 +771,308 @@
 			path = EventHeaderView;
 			sourceTree = "<group>";
 		};
-		3D1C8EB71B3D3C63004AAD30 /* RoundViewController */ = {
+		3D1CB08A1B691563005C1E19 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				3D1C8EB81B3D3C7F004AAD30 /* RoundViewController.h */,
-				3D1C8EB91B3D3C7F004AAD30 /* RoundViewController.m */,
+				3D1CB08B1B691563005C1E19 /* AddGuestViewController */,
+				3D1CB08E1B691563005C1E19 /* AddPlayersMainViewController */,
+				3D1CB0911B691563005C1E19 /* BaseViewController */,
+				3D1CB0941B691563005C1E19 /* ClubHouseContainerVC */,
+				3D1CB0991B691563005C1E19 /* ClubHouseViewController */,
+				3D1CB09C1B691563005C1E19 /* ContactUsViewController */,
+				3D1CB09F1B691563005C1E19 /* CourseUpdatesViewController */,
+				3D1CB0A21B691563005C1E19 /* EventAdminViewController */,
+				3D1CB0A51B691563005C1E19 /* EventCalendarViewController */,
+				3D1CB0A81B691563005C1E19 /* EventDetailViewController */,
+				3D1CB0AB1B691563005C1E19 /* FoodBevCartViewController */,
+				3D1CB0AE1B691563005C1E19 /* FoodBeverageBaseVC */,
+				3D1CB0B11B691563005C1E19 /* FoodBevItemDetailViewController */,
+				3D1CB0B41B691563005C1E19 /* FoodsBeveragesMainViewController */,
+				3D1CB0B71B691563005C1E19 /* ForgotPasswordViewController */,
+				3D1CB0BC1B691563005C1E19 /* HolesMapViewController */,
+				3D1CB0BF1B691563005C1E19 /* InitialViewController */,
+				3D1CB0C21B691563005C1E19 /* InviteMainViewController */,
+				3D1CB0C51B691563005C1E19 /* PlayerProfileViewController */,
+				3D1CB0C81B691563005C1E19 /* PlayerSettingsViewController */,
+				3D1CB0CB1B691563005C1E19 /* RewardViewController */,
+				3D1CB0CE1B691563005C1E19 /* RoundInviteSendViewController */,
+				3D1CB0D11B691563005C1E19 /* RoundInviteViewController */,
+				3D1CB0D41B691563005C1E19 /* RoundViewController */,
+				3D1CB0D71B691563005C1E19 /* ScoreBoardViewController */,
+				3D1CB0DA1B691563005C1E19 /* SignInViewController */,
+				3D1CB0DD1B691563005C1E19 /* SignUpViewController */,
+				3D1CB0E01B691563005C1E19 /* SplashScreenViewController */,
+				3D1CB0E31B691563005C1E19 /* TeeTimesViewController */,
+				3D1CB0E61B691563005C1E19 /* UIImageView+RoundedImage.h */,
+				3D1CB0E71B691563005C1E19 /* UIImageView+RoundedImage.m */,
+			);
+			name = ViewControllers;
+			path = Services/ViewControllers;
+			sourceTree = "<group>";
+		};
+		3D1CB08B1B691563005C1E19 /* AddGuestViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3D1CB08C1B691563005C1E19 /* AddGuestViewController.h */,
+				3D1CB08D1B691563005C1E19 /* AddGuestViewController.m */,
+			);
+			path = AddGuestViewController;
+			sourceTree = "<group>";
+		};
+		3D1CB08E1B691563005C1E19 /* AddPlayersMainViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3D1CB08F1B691563005C1E19 /* AddPlayersViewController.h */,
+				3D1CB0901B691563005C1E19 /* AddPlayersViewController.m */,
+			);
+			path = AddPlayersMainViewController;
+			sourceTree = "<group>";
+		};
+		3D1CB0911B691563005C1E19 /* BaseViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3D1CB0921B691563005C1E19 /* BaseViewController.h */,
+				3D1CB0931B691563005C1E19 /* BaseViewController.m */,
+			);
+			path = BaseViewController;
+			sourceTree = "<group>";
+		};
+		3D1CB0941B691563005C1E19 /* ClubHouseContainerVC */ = {
+			isa = PBXGroup;
+			children = (
+				3D1CB0951B691563005C1E19 /* ClubHouseContainerVC.h */,
+				3D1CB0961B691563005C1E19 /* ClubHouseContainerVC.m */,
+				3D1CB0971B691563005C1E19 /* ClubHouseSubController.h */,
+				3D1CB0981B691563005C1E19 /* ClubHouseSubController.m */,
+			);
+			path = ClubHouseContainerVC;
+			sourceTree = "<group>";
+		};
+		3D1CB0991B691563005C1E19 /* ClubHouseViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3D1CB09A1B691563005C1E19 /* ClubHouseViewController.h */,
+				3D1CB09B1B691563005C1E19 /* ClubHouseViewController.m */,
+			);
+			path = ClubHouseViewController;
+			sourceTree = "<group>";
+		};
+		3D1CB09C1B691563005C1E19 /* ContactUsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3D1CB09D1B691563005C1E19 /* ContactUsViewController.h */,
+				3D1CB09E1B691563005C1E19 /* ContactUsViewController.m */,
+			);
+			path = ContactUsViewController;
+			sourceTree = "<group>";
+		};
+		3D1CB09F1B691563005C1E19 /* CourseUpdatesViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3D1CB0A01B691563005C1E19 /* CourseUpdatesViewController.h */,
+				3D1CB0A11B691563005C1E19 /* CourseUpdatesViewController.m */,
+			);
+			path = CourseUpdatesViewController;
+			sourceTree = "<group>";
+		};
+		3D1CB0A21B691563005C1E19 /* EventAdminViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3D1CB0A31B691563005C1E19 /* EventAdminViewController.h */,
+				3D1CB0A41B691563005C1E19 /* EventAdminViewController.m */,
+			);
+			path = EventAdminViewController;
+			sourceTree = "<group>";
+		};
+		3D1CB0A51B691563005C1E19 /* EventCalendarViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3D1CB0A61B691563005C1E19 /* EventCalendarViewController.h */,
+				3D1CB0A71B691563005C1E19 /* EventCalendarViewController.m */,
+			);
+			path = EventCalendarViewController;
+			sourceTree = "<group>";
+		};
+		3D1CB0A81B691563005C1E19 /* EventDetailViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3D1CB0A91B691563005C1E19 /* EventDetailViewController.h */,
+				3D1CB0AA1B691563005C1E19 /* EventDetailViewController.m */,
+			);
+			path = EventDetailViewController;
+			sourceTree = "<group>";
+		};
+		3D1CB0AB1B691563005C1E19 /* FoodBevCartViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3D1CB0AC1B691563005C1E19 /* FoodBevCartViewController.h */,
+				3D1CB0AD1B691563005C1E19 /* FoodBevCartViewController.m */,
+			);
+			path = FoodBevCartViewController;
+			sourceTree = "<group>";
+		};
+		3D1CB0AE1B691563005C1E19 /* FoodBeverageBaseVC */ = {
+			isa = PBXGroup;
+			children = (
+				3D1CB0AF1B691563005C1E19 /* FoodBeverageBaseVC.h */,
+				3D1CB0B01B691563005C1E19 /* FoodBeverageBaseVC.m */,
+			);
+			path = FoodBeverageBaseVC;
+			sourceTree = "<group>";
+		};
+		3D1CB0B11B691563005C1E19 /* FoodBevItemDetailViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3D1CB0B21B691563005C1E19 /* FoodBevItemDetailViewController.h */,
+				3D1CB0B31B691563005C1E19 /* FoodBevItemDetailViewController.m */,
+			);
+			path = FoodBevItemDetailViewController;
+			sourceTree = "<group>";
+		};
+		3D1CB0B41B691563005C1E19 /* FoodsBeveragesMainViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3D1CB0B51B691563005C1E19 /* FoodBeveragesMainViewController.h */,
+				3D1CB0B61B691563005C1E19 /* FoodBeveragesMainViewController.m */,
+			);
+			path = FoodsBeveragesMainViewController;
+			sourceTree = "<group>";
+		};
+		3D1CB0B71B691563005C1E19 /* ForgotPasswordViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3D1CB0B81B691563005C1E19 /* ForgotPasswordSViewController.h */,
+				3D1CB0B91B691563005C1E19 /* ForgotPasswordSViewController.m */,
+				3D1CB0BA1B691563005C1E19 /* ForgotPasswordViewController.h */,
+				3D1CB0BB1B691563005C1E19 /* ForgotPasswordViewController.m */,
+			);
+			path = ForgotPasswordViewController;
+			sourceTree = "<group>";
+		};
+		3D1CB0BC1B691563005C1E19 /* HolesMapViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3D1CB0BD1B691563005C1E19 /* HolesMapViewController.h */,
+				3D1CB0BE1B691563005C1E19 /* HolesMapViewController.m */,
+			);
+			path = HolesMapViewController;
+			sourceTree = "<group>";
+		};
+		3D1CB0BF1B691563005C1E19 /* InitialViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3D1CB0C01B691563005C1E19 /* InitialViewController.h */,
+				3D1CB0C11B691563005C1E19 /* InitialViewController.m */,
+			);
+			path = InitialViewController;
+			sourceTree = "<group>";
+		};
+		3D1CB0C21B691563005C1E19 /* InviteMainViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3D1CB0C31B691563005C1E19 /* InviteMainViewController.h */,
+				3D1CB0C41B691563005C1E19 /* InviteMainViewController.m */,
+			);
+			path = InviteMainViewController;
+			sourceTree = "<group>";
+		};
+		3D1CB0C51B691563005C1E19 /* PlayerProfileViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3D1CB0C61B691563005C1E19 /* PlayerProfileViewController.h */,
+				3D1CB0C71B691563005C1E19 /* PlayerProfileViewController.m */,
+			);
+			path = PlayerProfileViewController;
+			sourceTree = "<group>";
+		};
+		3D1CB0C81B691563005C1E19 /* PlayerSettingsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3D1CB0C91B691563005C1E19 /* PlayerSettingsMainViewController.h */,
+				3D1CB0CA1B691563005C1E19 /* PlayerSettingsMainViewController.m */,
+			);
+			path = PlayerSettingsViewController;
+			sourceTree = "<group>";
+		};
+		3D1CB0CB1B691563005C1E19 /* RewardViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3D1CB0CC1B691563005C1E19 /* RewardViewController.h */,
+				3D1CB0CD1B691563005C1E19 /* RewardViewController.m */,
+			);
+			path = RewardViewController;
+			sourceTree = "<group>";
+		};
+		3D1CB0CE1B691563005C1E19 /* RoundInviteSendViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3D1CB0CF1B691563005C1E19 /* RoundInviteFriendViewController.h */,
+				3D1CB0D01B691563005C1E19 /* RoundInviteFriendViewController.m */,
+			);
+			path = RoundInviteSendViewController;
+			sourceTree = "<group>";
+		};
+		3D1CB0D11B691563005C1E19 /* RoundInviteViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3D1CB0D21B691563005C1E19 /* RoundInviteViewController.h */,
+				3D1CB0D31B691563005C1E19 /* RoundInviteViewController.m */,
+			);
+			path = RoundInviteViewController;
+			sourceTree = "<group>";
+		};
+		3D1CB0D41B691563005C1E19 /* RoundViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3D1CB0D51B691563005C1E19 /* RoundViewController.h */,
+				3D1CB0D61B691563005C1E19 /* RoundViewController.m */,
 			);
 			path = RoundViewController;
+			sourceTree = "<group>";
+		};
+		3D1CB0D71B691563005C1E19 /* ScoreBoardViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3D1CB0D81B691563005C1E19 /* ScoreBoardViewController.h */,
+				3D1CB0D91B691563005C1E19 /* ScoreBoardViewController.m */,
+			);
+			path = ScoreBoardViewController;
+			sourceTree = "<group>";
+		};
+		3D1CB0DA1B691563005C1E19 /* SignInViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3D1CB0DB1B691563005C1E19 /* SignInViewController.h */,
+				3D1CB0DC1B691563005C1E19 /* SignInViewController.m */,
+			);
+			path = SignInViewController;
+			sourceTree = "<group>";
+		};
+		3D1CB0DD1B691563005C1E19 /* SignUpViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3D1CB0DE1B691563005C1E19 /* SignUpViewController.h */,
+				3D1CB0DF1B691563005C1E19 /* SignUpViewController.m */,
+			);
+			path = SignUpViewController;
+			sourceTree = "<group>";
+		};
+		3D1CB0E01B691563005C1E19 /* SplashScreenViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3D1CB0E11B691563005C1E19 /* SplashScreenViewController.h */,
+				3D1CB0E21B691563005C1E19 /* SplashScreenViewController.m */,
+			);
+			path = SplashScreenViewController;
+			sourceTree = "<group>";
+		};
+		3D1CB0E31B691563005C1E19 /* TeeTimesViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3D1CB0E41B691563005C1E19 /* TeeTimesViewController.h */,
+				3D1CB0E51B691563005C1E19 /* TeeTimesViewController.m */,
+			);
+			path = TeeTimesViewController;
 			sourceTree = "<group>";
 		};
 		3D221F771B4BB06D00CF79E4 /* GameType */ = {
@@ -838,15 +1122,6 @@
 				3D221F931B52797300CF79E4 /* User.m */,
 			);
 			path = User;
-			sourceTree = "<group>";
-		};
-		3D5CA5D31B1F332B00CB6ED7 /* BaseViewController */ = {
-			isa = PBXGroup;
-			children = (
-				3D5CA5D41B1F332B00CB6ED7 /* BaseViewController.h */,
-				3D5CA5D51B1F332B00CB6ED7 /* BaseViewController.m */,
-			);
-			path = BaseViewController;
 			sourceTree = "<group>";
 		};
 		3D613B5E1B416F1F00F7DEDA /* CalendarEventCell */ = {
@@ -918,24 +1193,6 @@
 			path = ScoreSelectionView;
 			sourceTree = "<group>";
 		};
-		3D87D8241B159FBB0046BD60 /* EventCalendarViewController */ = {
-			isa = PBXGroup;
-			children = (
-				3D87D8261B159FE00046BD60 /* EventCalendarViewController.h */,
-				3D87D8271B159FE00046BD60 /* EventCalendarViewController.m */,
-			);
-			path = EventCalendarViewController;
-			sourceTree = "<group>";
-		};
-		3D87D8251B159FBB0046BD60 /* EventDetailViewController */ = {
-			isa = PBXGroup;
-			children = (
-				3D87D8291B15A0880046BD60 /* EventDetailViewController.h */,
-				3D87D82A1B15A0880046BD60 /* EventDetailViewController.m */,
-			);
-			path = EventDetailViewController;
-			sourceTree = "<group>";
-		};
 		3D87D8371B1852120046BD60 /* VurigCalendar */ = {
 			isa = PBXGroup;
 			children = (
@@ -982,15 +1239,6 @@
 				3DC116221B2EF4AD00E83F4F /* APContact+convenience.m */,
 			);
 			path = "APContact+Extension";
-			sourceTree = "<group>";
-		};
-		3DC116241B3426E300E83F4F /* InviteMainViewController */ = {
-			isa = PBXGroup;
-			children = (
-				3DC116251B3426E300E83F4F /* InviteMainViewController.h */,
-				3DC116261B3426E300E83F4F /* InviteMainViewController.m */,
-			);
-			path = InviteMainViewController;
 			sourceTree = "<group>";
 		};
 		3DCA44A71B26CB3400B66BD2 /* CalendarEvent */ = {
@@ -1255,6 +1503,7 @@
 		88024F5F1AD29134004AC260 /* GolfersProject */ = {
 			isa = PBXGroup;
 			children = (
+				3D1CB08A1B691563005C1E19 /* ViewControllers */,
 				3DF9936C1B256977006EBC39 /* PushManager */,
 				3D16D0811B1C3FDB00A582A3 /* SharedManager */,
 				88B23C191B16E63B00988908 /* CourseDepartmentCell */,
@@ -1263,7 +1512,6 @@
 				889872BC1B13103300D3C0E9 /* Utilities */,
 				3D1963F51B0E1F0500766CFC /* WeatherCell */,
 				885CB07C1B0A121300AD2A7B /* Services */,
-				885CB04F1B09BADE00AD2A7B /* ViewController */,
 				3D1964021B130E3B00766CFC /* Vendors */,
 				885CB0231B09BA9D00AD2A7B /* AppDelegate */,
 				885CB06E1B09F7F100AD2A7B /* APIClient */,
@@ -1311,15 +1559,6 @@
 			path = ScoreBoardParentCell;
 			sourceTree = "<group>";
 		};
-		880A97D61B2F08F2001D97F0 /* FoodBevCartViewController */ = {
-			isa = PBXGroup;
-			children = (
-				880A97D71B2F090F001D97F0 /* FoodBevCartViewController.h */,
-				880A97D81B2F090F001D97F0 /* FoodBevCartViewController.m */,
-			);
-			path = FoodBevCartViewController;
-			sourceTree = "<group>";
-		};
 		880A97DA1B2F0E8E001D97F0 /* FoodBevCartCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -1338,15 +1577,6 @@
 			path = FoodBevCell;
 			sourceTree = "<group>";
 		};
-		88573E171B441E030060929C /* AddPlayersMainViewController */ = {
-			isa = PBXGroup;
-			children = (
-				88573E181B441E2F0060929C /* AddPlayersViewController.h */,
-				88573E191B441E2F0060929C /* AddPlayersViewController.m */,
-			);
-			path = AddPlayersMainViewController;
-			sourceTree = "<group>";
-		};
 		88573E1B1B4528040060929C /* RoundPlayerCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -1354,15 +1584,6 @@
 				88573E1D1B4528280060929C /* RoundPlayerCell.m */,
 			);
 			path = RoundPlayerCell;
-			sourceTree = "<group>";
-		};
-		88573E231B45510C0060929C /* RoundInviteViewController */ = {
-			isa = PBXGroup;
-			children = (
-				88573E241B4551290060929C /* RoundInviteViewController.h */,
-				88573E251B4551290060929C /* RoundInviteViewController.m */,
-			);
-			path = RoundInviteViewController;
 			sourceTree = "<group>";
 		};
 		88573E271B4551740060929C /* RoundInviteCell */ = {
@@ -1374,15 +1595,6 @@
 			path = RoundInviteCell;
 			sourceTree = "<group>";
 		};
-		88573E2B1B4693A40060929C /* RoundInviteSendViewController */ = {
-			isa = PBXGroup;
-			children = (
-				88573E2C1B4693C40060929C /* RoundInviteFriendViewController.h */,
-				88573E2D1B4693C50060929C /* RoundInviteFriendViewController.m */,
-			);
-			path = RoundInviteSendViewController;
-			sourceTree = "<group>";
-		};
 		885CB0231B09BA9D00AD2A7B /* AppDelegate */ = {
 			isa = PBXGroup;
 			children = (
@@ -1390,71 +1602,6 @@
 				885CB0251B09BA9D00AD2A7B /* AppDelegate.m */,
 			);
 			path = AppDelegate;
-			sourceTree = "<group>";
-		};
-		885CB04F1B09BADE00AD2A7B /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				887C7AA61B539DE700F1AC30 /* AddGuestViewController */,
-				887C7AA51B539DD100F1AC30 /* CourseUpdatesViewController */,
-				887C7AA41B539DC400F1AC30 /* ScoreBoardViewController */,
-				88EBBADF1B4D0FEC00AA6688 /* TeeTimesViewController */,
-				88C4EDAF1B4A6E6700519D3B /* HolesMapViewController */,
-				88573E2B1B4693A40060929C /* RoundInviteSendViewController */,
-				88573E231B45510C0060929C /* RoundInviteViewController */,
-				88573E171B441E030060929C /* AddPlayersMainViewController */,
-				3D1C8EB71B3D3C63004AAD30 /* RoundViewController */,
-				3D1C8E511B3A8D59004AAD30 /* FoodBeverageBaseVC */,
-				3DC116241B3426E300E83F4F /* InviteMainViewController */,
-				880A97D61B2F08F2001D97F0 /* FoodBevCartViewController */,
-				88A48EFA1B2AFA04006CEC42 /* FoodBevItemDetailViewController */,
-				88855DCF1B256F3500E164D6 /* FoodsBeveragesMainViewController */,
-				887C512F1B21C9E300C778D7 /* UIImageView+RoundedImage.h */,
-				887C51301B21C9E300C778D7 /* UIImageView+RoundedImage.m */,
-				3D5CA5D31B1F332B00CB6ED7 /* BaseViewController */,
-				88B21DE81B1C38DA00AFC6D2 /* SplashScreenViewController */,
-				8873AA731B18C5D500E74C87 /* EventAdminViewController */,
-				88D813AA1B1762C000FD7D0E /* PlayerSettingsViewController */,
-				88B23C141B16E48200988908 /* ContactUsViewController */,
-				3D87D8241B159FBB0046BD60 /* EventCalendarViewController */,
-				3D87D8251B159FBB0046BD60 /* EventDetailViewController */,
-				3D1963ED1B0E1B6900766CFC /* PlayerProfileViewController */,
-				3D1963F01B0E1B6900766CFC /* RewardViewController */,
-				3D1963E21B0E1B5200766CFC /* ClubHouseContainerVC */,
-				3D1963E71B0E1B5200766CFC /* ClubHouseViewController */,
-				886B9ED11B0B95900078B09D /* ForgotPasswordViewController */,
-				885CB0591B09BADE00AD2A7B /* InitialViewController */,
-				885CB05F1B09BADE00AD2A7B /* SignInViewController */,
-				885CB0621B09BADE00AD2A7B /* SignUpViewController */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
-		885CB0591B09BADE00AD2A7B /* InitialViewController */ = {
-			isa = PBXGroup;
-			children = (
-				885CB05A1B09BADE00AD2A7B /* InitialViewController.h */,
-				885CB05B1B09BADE00AD2A7B /* InitialViewController.m */,
-			);
-			path = InitialViewController;
-			sourceTree = "<group>";
-		};
-		885CB05F1B09BADE00AD2A7B /* SignInViewController */ = {
-			isa = PBXGroup;
-			children = (
-				885CB0601B09BADE00AD2A7B /* SignInViewController.h */,
-				885CB0611B09BADE00AD2A7B /* SignInViewController.m */,
-			);
-			path = SignInViewController;
-			sourceTree = "<group>";
-		};
-		885CB0621B09BADE00AD2A7B /* SignUpViewController */ = {
-			isa = PBXGroup;
-			children = (
-				885CB0631B09BADE00AD2A7B /* SignUpViewController.h */,
-				885CB0641B09BADE00AD2A7B /* SignUpViewController.m */,
-			);
-			path = SignUpViewController;
 			sourceTree = "<group>";
 		};
 		885CB06E1B09F7F100AD2A7B /* APIClient */ = {
@@ -1488,6 +1635,7 @@
 		885CB07C1B0A121300AD2A7B /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				3D00B5AA1B68E3DB00FA2C19 /* ScoreboardServices */,
 				3D00B5A61B6748E000FA2C19 /* PlayerSettings */,
 				3D00B5A21B6748A300FA2C19 /* GameSettings */,
 				3DD47A6E1B4A81C3005DE325 /* InvitationServices */,
@@ -1517,6 +1665,7 @@
 			path = AuthenticationServices;
 			sourceTree = "<group>";
 		};
+<<<<<<< HEAD
 		886B9ED11B0B95900078B09D /* ForgotPasswordViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -1566,6 +1715,8 @@
 			path = AddGuestViewController;
 			sourceTree = "<group>";
 		};
+=======
+>>>>>>> feat/Round
 		887C7AB01B563BC700F1AC30 /* AddRoundPlayersView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1577,15 +1728,6 @@
 				887C7ABE1B5644D400F1AC30 /* AddRoundPlayersCell.m */,
 			);
 			path = AddRoundPlayersView;
-			sourceTree = "<group>";
-		};
-		88855DCF1B256F3500E164D6 /* FoodsBeveragesMainViewController */ = {
-			isa = PBXGroup;
-			children = (
-				88855DD01B256F5A00E164D6 /* FoodBeveragesMainViewController.h */,
-				88855DD11B256F5A00E164D6 /* FoodBeveragesMainViewController.m */,
-			);
-			path = FoodsBeveragesMainViewController;
 			sourceTree = "<group>";
 		};
 		8890E4D01B307A3A00A11BBF /* ContactCell */ = {
@@ -1637,15 +1779,6 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		88A48EFA1B2AFA04006CEC42 /* FoodBevItemDetailViewController */ = {
-			isa = PBXGroup;
-			children = (
-				88A48EFB1B2B006F006CEC42 /* FoodBevItemDetailViewController.h */,
-				88A48EFC1B2B006F006CEC42 /* FoodBevItemDetailViewController.m */,
-			);
-			path = FoodBevItemDetailViewController;
-			sourceTree = "<group>";
-		};
 		88A48EFE1B2B0146006CEC42 /* FoodBevItemCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -1655,6 +1788,7 @@
 			path = FoodBevItemCell;
 			sourceTree = "<group>";
 		};
+<<<<<<< HEAD
 		88A73F381B67651800F70AD5 /* CustomCollectionViewFlowLayout */ = {
 			isa = PBXGroup;
 			children = (
@@ -1682,6 +1816,8 @@
 			path = ContactUsViewController;
 			sourceTree = "<group>";
 		};
+=======
+>>>>>>> feat/Round
 		88B23C191B16E63B00988908 /* CourseDepartmentCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -1689,15 +1825,6 @@
 				88B23C1B1B16E69D00988908 /* CourseDepartmentCell.m */,
 			);
 			path = CourseDepartmentCell;
-			sourceTree = "<group>";
-		};
-		88C4EDAF1B4A6E6700519D3B /* HolesMapViewController */ = {
-			isa = PBXGroup;
-			children = (
-				88C4EDB01B4A6E8300519D3B /* HolesMapViewController.h */,
-				88C4EDB11B4A6E8300519D3B /* HolesMapViewController.m */,
-			);
-			path = HolesMapViewController;
 			sourceTree = "<group>";
 		};
 		88C4EDB31B4A721100519D3B /* HoleMapCell */ = {
@@ -1709,6 +1836,7 @@
 			path = HoleMapCell;
 			sourceTree = "<group>";
 		};
+<<<<<<< HEAD
 		88D813AA1B1762C000FD7D0E /* PlayerSettingsViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -1736,6 +1864,8 @@
 			path = TeeTimesViewController;
 			sourceTree = "<group>";
 		};
+=======
+>>>>>>> feat/Round
 		88EBBAE31B4D106600AA6688 /* TeeTimeBookingCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -1906,6 +2036,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D1CB0F41B691563005C1E19 /* FoodBeverageBaseVC.m in Sources */,
 				3DC1161D1B2ED8A500E83F4F /* ContactServices.m in Sources */,
 				3DCA44D41B26CB3400B66BD2 /* GolfrzError.m in Sources */,
 				3D1963FA1B0E21B100766CFC /* main.m in Sources */,
@@ -1913,109 +2044,115 @@
 				3D221F901B5254CB00CF79E4 /* InvitationServices.m in Sources */,
 				3DCA44CF1B26CB3400B66BD2 /* Coordinate.m in Sources */,
 				3D00B5A11B621C7500FA2C19 /* InvitationManager.m in Sources */,
+				3D1CB0F11B691563005C1E19 /* EventCalendarViewController.m in Sources */,
+				3D1CB0EE1B691563005C1E19 /* ContactUsViewController.m in Sources */,
 				3D87D8431B1852120046BD60 /* NSMutableArray+convenience.m in Sources */,
-				887C51311B21C9E300C778D7 /* UIImageView+RoundedImage.m in Sources */,
-				88A48EFD1B2B006F006CEC42 /* FoodBevItemDetailViewController.m in Sources */,
 				88573E2A1B4551900060929C /* RoundInviteCell.m in Sources */,
 				3D221F8C1B4BEB4600CF79E4 /* DropdownView.m in Sources */,
-				887C7AAC1B539E2200F1AC30 /* CourseUpdatesViewController.m in Sources */,
 				3D00B59E1B61161800FA2C19 /* Round.m in Sources */,
-				885CB0681B09BADE00AD2A7B /* InitialViewController.m in Sources */,
+				3D1CB0E81B691563005C1E19 /* AddGuestViewController.m in Sources */,
 				3DCA44CE1B26CB3400B66BD2 /* EventWeather.m in Sources */,
 				3D1C8EAF1B3D36C9004AAD30 /* EventHeaderView.m in Sources */,
 				3DC116231B2EF4AD00E83F4F /* APContact+convenience.m in Sources */,
+				3D1CB1061B691563005C1E19 /* TeeTimesViewController.m in Sources */,
 				3D613B861B44191B00F7DEDA /* ScoreSelectionView.m in Sources */,
 				880A97DD1B2F0ED4001D97F0 /* FoodBevCartCell.m in Sources */,
 				3D613B841B44191B00F7DEDA /* ScoreSelectionCell.m in Sources */,
 				3D87D8461B1852120046BD60 /* VRGCalendarView.m in Sources */,
+				3D1CB0EB1B691563005C1E19 /* ClubHouseContainerVC.m in Sources */,
 				3D613B761B43EF5800F7DEDA /* PlayerScoreView.m in Sources */,
-				88D813AD1B17640E00FD7D0E /* PlayerSettingsMainViewController.m in Sources */,
 				889872BF1B13105C00D3C0E9 /* Utilities.m in Sources */,
-				3D1C8E541B3A8D7D004AAD30 /* FoodBeverageBaseVC.m in Sources */,
 				3D1C8E731B3BFDBE004AAD30 /* WEBlockingGestureRecognizer.m in Sources */,
-				3D1963F41B0E1B6900766CFC /* RewardViewController.m in Sources */,
+				3D1CB1041B691563005C1E19 /* SignUpViewController.m in Sources */,
 				3DD3CA381B2863CF00767BCF /* SideNotificationView.m in Sources */,
+				3D1CB0FF1B691563005C1E19 /* RoundInviteFriendViewController.m in Sources */,
 				3D1C8E721B3BFDBE004AAD30 /* UIBarButtonItem+WEPopover.m in Sources */,
 				3D1963BC1B0CE05700766CFC /* CourseServices.m in Sources */,
+				3D1CB0F31B691563005C1E19 /* FoodBevCartViewController.m in Sources */,
+				3D1CB0F81B691563005C1E19 /* ForgotPasswordViewController.m in Sources */,
 				3D1C8E751B3BFDBE004AAD30 /* WEPopoverController.m in Sources */,
-				885CB06B1B09BADE00AD2A7B /* SignUpViewController.m in Sources */,
 				3DCA44D91B26CB3400B66BD2 /* SideItem.m in Sources */,
+				3D1CB0FC1B691563005C1E19 /* PlayerProfileViewController.m in Sources */,
 				88243AF61B28437C00E600D6 /* FoodBevViewCell.m in Sources */,
 				885CB0441B09BA9D00AD2A7B /* AppDelegate.m in Sources */,
 				3D1963CE1B0DBC8300766CFC /* Condition.m in Sources */,
 				3D221F7B1B4BB0A600CF79E4 /* GameType.m in Sources */,
-				3D5CA5D61B1F332B00CB6ED7 /* BaseViewController.m in Sources */,
 				3D00B5A51B6748A300FA2C19 /* GameSettings.m in Sources */,
 				887C7ABF1B5644D400F1AC30 /* AddRoundPlayersCell.m in Sources */,
-				3D1C8EBA1B3D3C7F004AAD30 /* RoundViewController.m in Sources */,
 				885CB06D1B09BDCD00AD2A7B /* README.md in Sources */,
 				887C7AB31B563BFC00F1AC30 /* AddRoundPlayersView.m in Sources */,
 				3DD9BD0E1B14BE1C00A2F296 /* NSDate+Helper.m in Sources */,
 				3D1963CB1B0DBC2600766CFC /* WeatherData.m in Sources */,
-				88B23C171B16E49800988908 /* ContactUsViewController.m in Sources */,
-				3D1963EB1B0E1B5200766CFC /* ClubHouseSubController.m in Sources */,
-				88709E9E1B0DB600005DA345 /* ForgotPasswordSViewController.m in Sources */,
 				3D1963C41B0DAECD00766CFC /* WeatherServices.m in Sources */,
 				3DA70A3C1B3972B900D3ABEC /* UIBarButtonItem+Badge.m in Sources */,
 				3D221F811B4BB30A00CF79E4 /* RoundDataServices.m in Sources */,
 				3DD47A6D1B4A7D7A005DE325 /* GreenCoordinate.m in Sources */,
-				88B21DEB1B1C390100AFC6D2 /* SplashScreenViewController.m in Sources */,
 				88C4EDB61B4A723100519D3B /* HoleMapCell.m in Sources */,
-				8873AA761B18C5F500E74C87 /* EventAdminViewController.m in Sources */,
+				3D1CB1001B691563005C1E19 /* RoundInviteViewController.m in Sources */,
 				3D1963BD1B0CE05700766CFC /* UserServices.m in Sources */,
 				3DA7CB881B2B13FC00B5BAFF /* Cart.m in Sources */,
 				3DD9BD0F1B14BE1C00A2F296 /* THCalendarInfo.m in Sources */,
-				88573E1A1B441E300060929C /* AddPlayersViewController.m in Sources */,
 				3D19641A1B130E3B00766CFC /* TPKeyboardAvoidingCollectionView.m in Sources */,
-				887C7AAF1B539E3800F1AC30 /* ScoreBoardViewController.m in Sources */,
+				3D00B5AD1B68E48000FA2C19 /* ScoreboardServices.m in Sources */,
 				3D19641C1B130E3B00766CFC /* TPKeyboardAvoidingTableView.m in Sources */,
 				3D613B751B43EF5800F7DEDA /* PlayerScoreCell.m in Sources */,
 				3DCA44CD1B26CB3400B66BD2 /* EventList.m in Sources */,
 				88E9EE561B68B11E00F4D90E /* ScoreBoardManager.m in Sources */,
 				885CB0801B0A128100AD2A7B /* AuthenticationService.m in Sources */,
+				3D1CB0F21B691563005C1E19 /* EventDetailViewController.m in Sources */,
 				88A48F011B2B0167006CEC42 /* FoodBevItemCell.m in Sources */,
 				3DA70A401B3981AB00D3ABEC /* BBBadgeBarButtonItem.m in Sources */,
-				886B9ED41B0B95900078B09D /* ForgotPasswordViewController.m in Sources */,
 				3DCA44D11B26CB3400B66BD2 /* Department.m in Sources */,
 				3DD47A731B4A82F5005DE325 /* SubCourseServices.m in Sources */,
+				3D1CB1031B691563005C1E19 /* SignInViewController.m in Sources */,
+				3D1CB0ED1B691563005C1E19 /* ClubHouseViewController.m in Sources */,
 				3D87D8441B1852120046BD60 /* UIColor+expanded.m in Sources */,
 				88EBBAE61B4D108400AA6688 /* TeeTimeBookingCell.m in Sources */,
 				88573E1E1B4528280060929C /* RoundPlayerCell.m in Sources */,
-				88855DD21B256F5A00E164D6 /* FoodBeveragesMainViewController.m in Sources */,
 				88B23C1C1B16E69D00988908 /* CourseDepartmentCell.m in Sources */,
 				3DD47A691B4A6099005DE325 /* Teebox.m in Sources */,
-				885CB06A1B09BADE00AD2A7B /* SignInViewController.m in Sources */,
-				88EBBAE21B4D101500AA6688 /* TeeTimesViewController.m in Sources */,
 				3D19641D1B130E3B00766CFC /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
+				3D1CB0F61B691563005C1E19 /* FoodBeveragesMainViewController.m in Sources */,
+				3D1CB0EA1B691563005C1E19 /* BaseViewController.m in Sources */,
 				3D221F941B52797300CF79E4 /* User.m in Sources */,
 				3D1C8E761B3BFDBE004AAD30 /* WETouchableView.m in Sources */,
-				3D87D8281B159FE00046BD60 /* EventCalendarViewController.m in Sources */,
+				3D1CB0EF1B691563005C1E19 /* CourseUpdatesViewController.m in Sources */,
 				3D1C8E741B3BFDBE004AAD30 /* WEPopoverContainerView.m in Sources */,
 				3D1964191B130E3B00766CFC /* MBProgressHUD.m in Sources */,
+				3D1CB0FE1B691563005C1E19 /* RewardViewController.m in Sources */,
+				3D1CB1011B691563005C1E19 /* RoundViewController.m in Sources */,
+				3D1CB0FD1B691563005C1E19 /* PlayerSettingsMainViewController.m in Sources */,
 				885CB0751B09FB0100AD2A7B /* APIClient.m in Sources */,
 				3D87D8451B1852120046BD60 /* UIView+convenience.m in Sources */,
-				88573E261B4551290060929C /* RoundInviteViewController.m in Sources */,
-				3DC116271B3426E300E83F4F /* InviteMainViewController.m in Sources */,
-				88C4EDB21B4A6E8300519D3B /* HolesMapViewController.m in Sources */,
 				3DCA44CC1B26CB3400B66BD2 /* CalendarEvent.m in Sources */,
-				3D1963F31B0E1B6900766CFC /* PlayerProfileViewController.m in Sources */,
 				3D19641B1B130E3B00766CFC /* TPKeyboardAvoidingScrollView.m in Sources */,
 				3D221F861B4BE35B00CF79E4 /* DropdownCell.m in Sources */,
+				3D1CB0F71B691563005C1E19 /* ForgotPasswordSViewController.m in Sources */,
+				3D1CB0FB1B691563005C1E19 /* InviteMainViewController.m in Sources */,
 				3D87D8421B1852120046BD60 /* NSDate+convenience.m in Sources */,
 				3DA70A3D1B3972B900D3ABEC /* UIButton+Badge.m in Sources */,
+				3D1CB0F01B691563005C1E19 /* EventAdminViewController.m in Sources */,
+				3D1CB1021B691563005C1E19 /* ScoreBoardViewController.m in Sources */,
 				3DF993721B256A4A006EBC39 /* AppDelegate+Push.m in Sources */,
 				3DCA44D31B26CB3400B66BD2 /* StaffType.m in Sources */,
 				3D221F971B5279AC00CF79E4 /* User+convenience.m in Sources */,
 				3D613B631B416F1F00F7DEDA /* CalendarEventCell.m in Sources */,
-				88573E2E1B4693C50060929C /* RoundInviteFriendViewController.m in Sources */,
 				3D1964271B13305200766CFC /* FaceBookAuthAgent.m in Sources */,
 				3DD9BD0D1B14BE1C00A2F296 /* CalendarUtilities.m in Sources */,
+				3D1CB0F91B691563005C1E19 /* HolesMapViewController.m in Sources */,
 				3DD9BD261B14C39000A2F296 /* CalendarEventServices.m in Sources */,
 				3D221F7E1B4BB0DC00CF79E4 /* ScoreType.m in Sources */,
 				3D00B5A91B67493100FA2C19 /* PlayerSettings.m in Sources */,
+				3D1CB0FA1B691563005C1E19 /* InitialViewController.m in Sources */,
+				3D1CB0EC1B691563005C1E19 /* ClubHouseSubController.m in Sources */,
 				3DF9936F1B256999006EBC39 /* PushManager.m in Sources */,
 				3D221F761B4BACAC00CF79E4 /* RoundMetaData.m in Sources */,
+<<<<<<< HEAD
 				88A73F3B1B67651800F70AD5 /* CustomCollectionViewLayout.m in Sources */,
+=======
+				3D1CB1051B691563005C1E19 /* SplashScreenViewController.m in Sources */,
+				3D1CB1071B691563005C1E19 /* UIImageView+RoundedImage.m in Sources */,
+>>>>>>> feat/Round
 				3DCA44D71B26CB3400B66BD2 /* FoodBeverage.m in Sources */,
 				3D613B6B1B42878A00F7DEDA /* EventAdmin.m in Sources */,
 				3D16D0841B1C3FFB00A582A3 /* SharedManager.m in Sources */,
@@ -2025,16 +2162,13 @@
 				3DCA44DF1B2709BF00B66BD2 /* FoodBeverageServices.m in Sources */,
 				3DD3CA401B297AD300767BCF /* UtilityServices.m in Sources */,
 				3DDF9BE91B60CA990036C735 /* RoundPlayers.m in Sources */,
-				3D1963EA1B0E1B5200766CFC /* ClubHouseContainerVC.m in Sources */,
-				3D1963EC1B0E1B5200766CFC /* ClubHouseViewController.m in Sources */,
 				3DCA44D81B26CB3400B66BD2 /* Menu.m in Sources */,
-				880A97D91B2F090F001D97F0 /* FoodBevCartViewController.m in Sources */,
 				3DCA44D51B26CB3400B66BD2 /* GolfrzErrorResponse.m in Sources */,
-				887C7AA91B539E0E00F1AC30 /* AddGuestViewController.m in Sources */,
+				3D1CB0F51B691563005C1E19 /* FoodBevItemDetailViewController.m in Sources */,
 				8890E4D31B307A5500A11BBF /* ContactCell.m in Sources */,
 				3DCA44D21B26CB3400B66BD2 /* StaffMember.m in Sources */,
+				3D1CB0E91B691563005C1E19 /* AddPlayersViewController.m in Sources */,
 				8806637B1B6260B700207650 /* ScoreBoardParentCell.m in Sources */,
-				3D87D82B1B15A0880046BD60 /* EventDetailViewController.m in Sources */,
 				3DD47A661B4A608C005DE325 /* Hole.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2160,7 +2294,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "1d591d31-925b-4500-ae50-d34c0f89e19f";
+				PROVISIONING_PROFILE = "536f73c8-b566-44bc-84e3-4ffadbc83800";
 			};
 			name = Debug;
 		};
