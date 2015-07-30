@@ -26,17 +26,22 @@
         return;
     }
     
+    //NSUInteger indexOffSet = 0;
     NSUInteger column = 0; // Current column inside row
     CGFloat xOffset = 0.0;
     CGFloat yOffset = 0.0;
     CGFloat contentWidth = 0.0; // To determine the contentSize
     CGFloat contentHeight = 0.0; // To determine the contentSize
     
+    /*
+     
+     */
+    
     if (self.itemAttributes.count > 0) { // We don't enter in this if statement the first time, we enter the following times
         for (int section = 0; section < [self.collectionView numberOfSections]; section++) {
             NSUInteger numberOfItems = [self.collectionView numberOfItemsInSection:section];
             for (NSUInteger index = 0; index < numberOfItems; index++) {
-                if ((section != 0) && (index != 0 && index != 1)) { // This is a content cell that shouldn't be sticked
+                if ((section != 0) && (index != 0 && index != 1 && index!= 2 && index!= 3)) { // This is a content cell that shouldn't be sticked
                     continue;
                 }
                 
@@ -47,20 +52,21 @@
                     attributes.frame = frame;
                     
                 }
-                if (index == 0) { // We stick the first column
-                    CGRect frame = attributes.frame;
-                    frame.origin.x = self.collectionView.contentOffset.x;
-                    attributes.frame = frame;
-                }
-                if (index == 1) { // We stick the first column
-                    CGRect frame = attributes.frame;
-                    frame.origin.x = self.collectionView.contentOffset.x + 55;
-                    attributes.frame = frame;
-                }
-                if (index == 2) { // We stick the first column
-                    CGRect frame = attributes.frame;
-                    frame.origin.x = self.collectionView.contentOffset.x + 55 + 45;
-                    attributes.frame = frame;
+                
+                for (int i = 0; i <= 3; i++) {
+                    if (index == i){
+                        CGRect frame = attributes.frame;
+                     if (index == 0) {
+                            frame.origin.x = self.collectionView.contentOffset.x;
+                        }else if (index == 1){
+                            frame.origin.x = self.collectionView.contentOffset.x + (index * 55);
+                        }else{
+                            frame.origin.x = self.collectionView.contentOffset.x + 55 + ((index -1) * 45);
+                        }
+                        
+                        attributes.frame = frame;
+                        
+                    }                    
                 }
             }
         }
@@ -92,19 +98,28 @@
             UICollectionViewLayoutAttributes *attributes = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
             attributes.frame = CGRectIntegral(CGRectMake(xOffset, yOffset, itemSize.width, itemSize.height));
             
+            
+        
+            
+            
+            
             if ((section == 0 && index == 0) )   {
                 attributes.zIndex = 1024; // Set this value for the first item (Sec0Row0) in order to make it visible over first column and first row
             }
             else if (section == 0 && index == 1)
             {
-                attributes.zIndex = 1024;
+                attributes.zIndex = 1024; // Set this value for the second column (Sec0Row1) in order to make it visible
             }
             else if (section == 0 && index == 2)
             {
                 attributes.zIndex = 1024;
             }
-            else if ((section == 0 || index == 0 ) || (section == 0 || index == 1 ) ) {
-                attributes.zIndex = 1023; // Set this value for the first row or section in order to set visible over the rest of the items
+            else if (section == 0 && index == 3)
+            {
+                attributes.zIndex = 1024;
+            }
+            else if ((section == 0 || index == 0 ) || (section == 0 || index == 1 ) || (section == 0 || index == 2) || (section == 0 || index == 3)) {
+                attributes.zIndex = 1023; // Set this value for the first row or section or second column in order to set visible over the rest of the items
             }
             if (section == 0) {
                 CGRect frame = attributes.frame;
@@ -124,6 +139,11 @@
             if (index == 2) {
                 CGRect frame = attributes.frame;
                 frame.origin.x = self.collectionView.contentOffset.x+55+45;
+                attributes.frame = frame; // Stick to the left
+            }
+            if (index == 3) {
+                CGRect frame = attributes.frame;
+                frame.origin.x = self.collectionView.contentOffset.x+55+45+45;
                 attributes.frame = frame; // Stick to the left
             }
             

@@ -174,6 +174,7 @@
 		88C4EDB21B4A6E8300519D3B /* HolesMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88C4EDB11B4A6E8300519D3B /* HolesMapViewController.m */; };
 		88C4EDB61B4A723100519D3B /* HoleMapCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88C4EDB51B4A723100519D3B /* HoleMapCell.m */; };
 		88D813AD1B17640E00FD7D0E /* PlayerSettingsMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D813AC1B17640E00FD7D0E /* PlayerSettingsMainViewController.m */; };
+		88E9EE561B68B11E00F4D90E /* ScoreBoardManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E9EE551B68B11E00F4D90E /* ScoreBoardManager.m */; };
 		88EBBAE21B4D101500AA6688 /* TeeTimesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88EBBAE11B4D101500AA6688 /* TeeTimesViewController.m */; };
 		88EBBAE61B4D108400AA6688 /* TeeTimeBookingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88EBBAE51B4D108400AA6688 /* TeeTimeBookingCell.m */; };
 		A921244B1B36DB1E00917649 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A921244A1B36DB1E00917649 /* MessageUI.framework */; };
@@ -495,6 +496,8 @@
 		88C4EDB51B4A723100519D3B /* HoleMapCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoleMapCell.m; sourceTree = "<group>"; };
 		88D813AB1B17640E00FD7D0E /* PlayerSettingsMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerSettingsMainViewController.h; sourceTree = "<group>"; };
 		88D813AC1B17640E00FD7D0E /* PlayerSettingsMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerSettingsMainViewController.m; sourceTree = "<group>"; };
+		88E9EE541B68B11E00F4D90E /* ScoreBoardManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreBoardManager.h; sourceTree = "<group>"; };
+		88E9EE551B68B11E00F4D90E /* ScoreBoardManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreBoardManager.m; sourceTree = "<group>"; };
 		88EBBAE01B4D101500AA6688 /* TeeTimesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeeTimesViewController.h; sourceTree = "<group>"; };
 		88EBBAE11B4D101500AA6688 /* TeeTimesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeeTimesViewController.m; sourceTree = "<group>"; };
 		88EBBAE41B4D108400AA6688 /* TeeTimeBookingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeeTimeBookingCell.h; sourceTree = "<group>"; };
@@ -1537,6 +1540,7 @@
 		887C7AA41B539DC400F1AC30 /* ScoreBoardViewController */ = {
 			isa = PBXGroup;
 			children = (
+				88E9EE531B68B0F400F4D90E /* ScoreBoardManager */,
 				88A73F381B67651800F70AD5 /* CustomCollectionViewFlowLayout */,
 				887C7AAD1B539E3800F1AC30 /* ScoreBoardViewController.h */,
 				887C7AAE1B539E3800F1AC30 /* ScoreBoardViewController.m */,
@@ -1712,6 +1716,15 @@
 				88D813AC1B17640E00FD7D0E /* PlayerSettingsMainViewController.m */,
 			);
 			path = PlayerSettingsViewController;
+			sourceTree = "<group>";
+		};
+		88E9EE531B68B0F400F4D90E /* ScoreBoardManager */ = {
+			isa = PBXGroup;
+			children = (
+				88E9EE541B68B11E00F4D90E /* ScoreBoardManager.h */,
+				88E9EE551B68B11E00F4D90E /* ScoreBoardManager.m */,
+			);
+			path = ScoreBoardManager;
 			sourceTree = "<group>";
 		};
 		88EBBADF1B4D0FEC00AA6688 /* TeeTimesViewController */ = {
@@ -1958,6 +1971,7 @@
 				3D19641C1B130E3B00766CFC /* TPKeyboardAvoidingTableView.m in Sources */,
 				3D613B751B43EF5800F7DEDA /* PlayerScoreCell.m in Sources */,
 				3DCA44CD1B26CB3400B66BD2 /* EventList.m in Sources */,
+				88E9EE561B68B11E00F4D90E /* ScoreBoardManager.m in Sources */,
 				885CB0801B0A128100AD2A7B /* AuthenticationService.m in Sources */,
 				88A48F011B2B0167006CEC42 /* FoodBevItemCell.m in Sources */,
 				3DA70A401B3981AB00D3ABEC /* BBBadgeBarButtonItem.m in Sources */,
