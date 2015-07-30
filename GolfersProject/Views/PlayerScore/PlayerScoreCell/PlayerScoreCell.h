@@ -15,7 +15,7 @@
 
 
 @interface PlayerScoreCell : UITableViewCell{
-    id player;
+
 }
 
 @property (strong, nonatomic) NSNumber * score;
@@ -29,5 +29,5 @@
 - (IBAction)btnScoreTapped:(UIButton *)sender;
 
 @property (assign, nonatomic) id<PlayerScoreCellDelegate>delegate;
-
+@property (strong, nonatomic) id player;
 @end

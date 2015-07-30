@@ -262,7 +262,10 @@
 }
 
 -(BOOL)validateRoundOptions{
-    return self.selectedSubCourse.itemId && self.selectedGameType.itemId && self.selectedScoreType.itemId && self.selectedTeeBox.itemId;
+    return (self.selectedSubCourse.itemId != nil) &&
+            (self.selectedGameType.itemId != nil) &&
+            (self.selectedScoreType.itemId != nil) &&
+            (self.selectedTeeBox.itemId != nil);
 }
 
 #pragma mark - API Calls
@@ -516,7 +519,8 @@
 -(void)UpdateTitleForSelectedItem:(id)item button:(id)sender{
     
     UIButton * btn = sender;
-    [btn.titleLabel setText:[item name]];
+    [btn setTitle:[item name] forState:UIControlStateNormal];
+    //[btn.titleLabel setText:[item name]];
 }
 
 -(void)presentPopOverWithOptions:(NSArray *)options pointedAtBtn:(id)sender{
@@ -547,21 +551,60 @@
 
 - (IBAction)btnStartRoundTapped:(UIButton *)sender {
     
+    if (![self validateRoundOptions]) {
+        [[[UIAlertView alloc] initWithTitle:@"Required Field Missing." message:@"Please select SubCourse, GameType, ScoreType and TeeBox." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
+        return;
+    }
+    [self saveRoundInfo];
+    InvitationManager * invitationManager = [InvitationManager sharedInstance];
+    if ([invitationManager isInvitationAccepted]) [self startRoundInvitee];
+    else [self startRoundInviter];
+}
+
+// Inviter only needs to call start round api.
+-(void)startRoundInviter{
+
+    
     GameSettings * persistentStore = [GameSettings sharedSettings];
     
     AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
     [delegate.appDelegateNavController setNavigationBarHidden:NO];
+    
+    // Assuming game settings has valid round ID, GameTypeID, etc.
+    [RoundDataServices updateRound:^(bool status, id response) {
+        if (status)
+            [RoundDataServices startNewRoundWithId:[persistentStore roundId]
+                                       subCourseId:[persistentStore subCourseId]
+                                           success:^(bool status, id roundId) {
+                                               if (status) {
+                                                   HolesMapViewController * holesMapViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"HolesMapViewController"];
+                                                   [delegate.appDelegateNavController pushViewController:holesMapViewController animated:YES];
+                                               }
+                                           } failure:^(bool status, NSError *error) {
+                                               [[[UIAlertView alloc]initWithTitle:@"Try Again" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+                                           }];
+    } failure:^(bool status, NSError *error) {
+        NSLog(@"Failed : %@" , [error localizedDescription]);
+    }];
+}
 
+// Invitee first needs to call new round API then start round.
+-(void)startRoundInvitee{
+    GameSettings * persistentStore = [GameSettings sharedSettings];
+    
+    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+    [delegate.appDelegateNavController setNavigationBarHidden:NO];
+    
     
     [RoundDataServices startNewRoundWithId:[persistentStore roundId]
                                subCourseId:[persistentStore subCourseId]
                                    success:^(bool status, id roundId) {
                                        if (status) {
-        HolesMapViewController * holesMapViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"HolesMapViewController"];
-        [delegate.appDelegateNavController pushViewController:holesMapViewController animated:YES];
+                                           HolesMapViewController * holesMapViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"HolesMapViewController"];
+                                           [delegate.appDelegateNavController pushViewController:holesMapViewController animated:YES];
                                        }
                                    } failure:^(bool status, NSError *error) {
-        [[[UIAlertView alloc]initWithTitle:@"Try Again" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+                                       [[[UIAlertView alloc]initWithTitle:@"Try Again" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
                                    }];
 }
 

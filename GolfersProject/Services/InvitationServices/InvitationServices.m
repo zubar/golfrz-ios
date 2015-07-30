@@ -39,7 +39,7 @@
 
     AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
     
-    NSLog(@"%@",[InvitationServices paramsGetInvitationInvitee:invitees inviteType:smsEmail] );
+    NSLog(@"GET_TOKEN:%@",[InvitationServices paramsGetInvitationInvitee:invitees inviteType:smsEmail] );
     
     [apiClient POST:kGetInvitationToken parameters:[InvitationServices paramsGetInvitationInvitee:invitees inviteType:smsEmail] success:^(NSURLSessionDataTask *task, id responseObject) {
         NSString * invitationToken = [responseObject valueForKey:@"invitation_token"];
@@ -54,6 +54,8 @@
     
     AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
     
+    NSLog(@"GET_INVITATION:%@", [InvitationServices paramGetInvitationDetail]);
+
     [apiClient GET:kGetInvitationDetail parameters:[InvitationServices paramGetInvitationDetail] success:^(NSURLSessionDataTask *task, id responseObject) {
         successBlock(true, responseObject);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {

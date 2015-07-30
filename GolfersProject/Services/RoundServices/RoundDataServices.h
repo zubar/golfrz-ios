@@ -57,9 +57,9 @@ typedef NS_ENUM(NSInteger, ShotType) {
 
 +(void)addDirectScore:(NSNumber *)score
                holeId:(NSNumber *)holeId
+             playerId:(NSNumber *)playerId
               success:(void(^)(bool status, NSDictionary * response))successBlock
               failure:(void(^)(bool status, NSError * error))failureBlock;
-
 
 +(void)deleteShotRoundId:(NSNumber *)round
                   holeId:(NSNumber *)holeId
