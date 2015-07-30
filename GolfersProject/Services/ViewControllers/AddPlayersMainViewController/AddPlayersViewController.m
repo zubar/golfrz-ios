@@ -34,6 +34,7 @@
 #import "HolesMapViewController.h"
 #import "RoundDataServices.h"
 #import "RoundPlayers.h"
+#import "Utilities.h"
 
 @interface AddPlayersViewController (){
     DropDownContainsItems currentItemsIndropdown;
@@ -303,7 +304,7 @@
             [self.playersInRound addObjectsFromArray:playerData.players];
             completion();
         }
-    } failure:^(bool status, NSError *error) {
+    } failure:^(bool status, GolfrzError *error) {
         completion();
     }];
 }
@@ -334,7 +335,7 @@
         
         completion();
         
-    } failure:^(bool status, NSError *error) {
+    } failure:^(bool status, GolfrzError *error) {
         completion();
 
     }];
@@ -350,10 +351,9 @@
                     self.roundInfo = roundData;
                     completion();
                          }
-    } failure:^(bool status, NSError *error) {
-            [[[UIAlertView alloc] initWithTitle:@"Try Again" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+    } failure:^(bool status, GolfrzError *error) {
         completion();
-
+        [Utilities displayErrorAlertWithMessage:[error errorMessage]];
     }];
 }
 

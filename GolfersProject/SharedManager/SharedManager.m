@@ -13,7 +13,8 @@
 #import "FoodBeverageServices.h"
 #import "Cart.h"
 #import "Constants.h"
-
+#import "GolfrzError.h"
+#import "Utilities.h"
 
 /*
  http://alienryderflex.com/polygon/
@@ -113,13 +114,13 @@ bool pointInPolygon(int polyCorners, float polyX[], float polyY[], float x, floa
 }
 
 -(void)updateCartItemsCountCompletion:(void(^)(void))completion{
+    
     [FoodBeverageServices cartItemsForCurrentUser:^(bool status, Cart *response) {
         if(status)
             self.cartBadgeCount = [response.orders count];
         completion();
-    } failure:^(bool status, NSError *error) {
-        if (error)
-            NSLog(@"can't update cart count");
+    } failure:^(bool status, GolfrzError *error) {
+        completion();
     }];
 
 }

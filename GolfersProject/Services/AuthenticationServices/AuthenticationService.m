@@ -13,6 +13,7 @@
 
 #import "User.h"
 #import "UserServices.h"
+#import "GolfrzError.h"
 
 
 
@@ -49,8 +50,8 @@
 
 
 +(void)resetUserPassword:(NSString *)email
-              completion:(void (^)(bool))successfullyPosted
-                 failure:(void (^)(bool status, NSError *error))failureBlock{
+              completion:(void (^)(bool status))successfullyPosted
+                 failure:(void (^)(bool status, GolfrzError *error))failureBlock{
 
     APIClient *apiClient = [APIClient sharedAPICLient];
     
@@ -58,31 +59,25 @@
                               @"email":email
                               };
     
-    
     [apiClient POST:kForgetPasswordURL parameters:params completion:^(id response, NSError *error) {
-        //OVCResponse * resp = response;
-        if (!error) {
-            //TODO: in caller of that block show alert on success.
+        if (!error)
             successfullyPosted(true);
-        }
         else
-            failureBlock(false, error);
+            failureBlock(false, [response result]);
     }];
 }
 
 +(void)signOutUser:(void (^)(bool status))successfullyPosted
-      failureBlock:(void (^)(bool status, NSError * error))failureBlock{
+      failureBlock:(void (^)(bool status, GolfrzError * error))failureBlock{
   
     APIClient *apiClient = [APIClient sharedAPICLient];
     NSString * signOutUrl = [NSString stringWithFormat:@"%@%@", kSignOutURL, [UserServices currentToken]];
     
     [apiClient DELETE:signOutUrl parameters:nil completion:^(id response, NSError *error) {
-        //OVCResponse * resp = response;
         if (!error) {
-            //TODO: in caller of that block show alert on success.
             successfullyPosted(true);
         }else{
-            failureBlock(false, error);
+            failureBlock(false, [response result]);
         }
     }];
     

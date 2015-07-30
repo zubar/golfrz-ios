@@ -10,6 +10,7 @@
 #import "RoundMetaData.h"
 @class Round;
 @class RoundPlayers;
+@class GolfrzError;
 
 typedef NS_ENUM(NSInteger, ShotType) {
     ShotTypePenalty= 0,
@@ -22,13 +23,16 @@ typedef NS_ENUM(NSInteger, ShotType) {
 
 /*
  */
+
+
 +(void)getRoundData:(void (^)(bool status, RoundMetaData * subCourse))successBlock
-            failure:(void (^)(bool status, NSError * error))failureBlock;
+            failure:(void (^)(bool status, GolfrzError * error))failureBlock;
 
 
 +(void)getNewRoundIdWithOptions:(NSDictionary *)options
                         success:(void (^)(bool status, NSNumber * roundId))successBlock
                         failure:(void (^)(bool status, NSError * error))failureBlock;
+
 
 +(void)startNewRoundWithId:(NSNumber *)roundId
                subCourseId:(NSNumber *)subcourseId
@@ -38,22 +42,34 @@ typedef NS_ENUM(NSInteger, ShotType) {
 +(void)finishRoundWithBlock:(void(^)(bool status, id response))successBlock
                     failure:(void(^)(bool status, NSError * error))failureBlock;
 
+
+
 +(void)addGuestWithEmail:(NSString *)email
                firstName:(NSString *)fName
                 lastName:(NSString *)lName
                  success:(void(^)(bool status, NSDictionary * response))successBlock
                  failure:(void(^)(bool status, NSError * error))failureBlock;
 
+
 +(void)addShotRoundId:(NSNumber *)round
-                holeId:(NSNumber *)holeId
-              shotType:(ShotType )shotType
-               success:(void(^)(bool, id))successBlock
-               failure:(void(^)(bool, id))failureBlock;
+               holeId:(NSNumber *)holeId
+             shotType:(ShotType )shotType
+              success:(void(^)(bool, id response))successBlock
+              failure:(void(^)(bool,  NSError *error))failureBlock;
 
 
 +(void)deleteShotWithShotId:(NSNumber *)shotId
-                    success:(void(^)(bool, id))successBlock
-                    failure:(void(^)(bool, id))failureBlock;
+                    success:(void(^)(bool, id response))successBlock
+                    failure:(void(^)(bool,  NSError *error))failureBlock;
+
+
++(void)deleteShotRoundId:(NSNumber *)round
+                  holeId:(NSNumber *)holeId
+                shotType:(ShotType )shotType
+                  shotId:(NSNumber *)shotId
+                 success:(void(^)(bool, id response))successBlock
+                 failure:(void(^)(bool, NSError * error))failureBlock;
+    
 
 +(void)addDirectScore:(NSNumber *)score
                holeId:(NSNumber *)holeId
@@ -61,24 +77,16 @@ typedef NS_ENUM(NSInteger, ShotType) {
               success:(void(^)(bool status, NSDictionary * response))successBlock
               failure:(void(^)(bool status, NSError * error))failureBlock;
 
-+(void)deleteShotRoundId:(NSNumber *)round
-                  holeId:(NSNumber *)holeId
-                shotType:(ShotType )shotType
-                  shotId:(NSNumber *)shotId
-                 success:(void(^)(bool, id))successBlock
-                 failure:(void(^)(bool, id))failureBlock;
 
 +(void)updateRound:(void(^)(bool status, id response))successBlock
            failure:(void(^)(bool status, NSError * error))failureBlock;
+    
 
 +(void)getPlayersInRoundId:(NSNumber *)roundId
                    success:(void(^)(bool, RoundPlayers * players))successBlock
-                   failure:(void(^)(bool, NSError * error))failureBlock;
-
+                   failure:(void(^)(bool, GolfrzError * error))failureBlock;
 
 +(void)getRoundInfoForRoundId:(NSNumber *)roundId
                       success:(void(^)(bool status, Round * round))successBlock
-                      failure:(void(^)(bool status, NSError * error))failureBlock;
-
-
+                      failure:(void(^)(bool status, GolfrzError * error))failureBlock;
 @end

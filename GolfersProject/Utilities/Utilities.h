@@ -12,4 +12,8 @@
 
 +(void)dateComponentsFromNSDate:(NSDate *)mDate components:(void (^)(NSString * dayName, NSString * monthName, NSString * day, NSString * time, NSString * minutes, NSString * timeAndMinute) )dateComponents;
 
+
++(void)displayErrorAlertWithMessage:(NSString *)errmsg;
++(void)displayErrorAlertWithTitle:(NSString *)title Message:(NSString *)errmsg;
+
 @end

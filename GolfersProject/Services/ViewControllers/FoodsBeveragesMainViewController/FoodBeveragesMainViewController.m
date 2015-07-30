@@ -18,6 +18,8 @@
 #import <QuartzCore/QuartzCore.h>
 #import "BBBadgeBarButtonItem.h"
 #import "FoodBevCartViewController.h"
+#import "Utilities.h"
+#import "GolfrzError.h"
 
 @interface FoodBeveragesMainViewController (){
     bool isFoodItemSelected;
@@ -44,10 +46,10 @@
         [self.foodBevCollectionView reloadData];
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         
-    } failure:^(bool status, NSError *error)
+    } failure:^(bool status, GolfrzError *error)
      {
          [MBProgressHUD hideHUDForView:self.view animated:YES];
-         [[[UIAlertView alloc]initWithTitle:@"Try Again" message:@"Failed to get data" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+         [Utilities displayErrorAlertWithMessage:[error errorMessage]];
      }];
     // Do any additional setup after loading the view.
 }

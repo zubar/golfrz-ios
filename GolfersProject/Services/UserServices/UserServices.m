@@ -60,7 +60,7 @@ static User * currentUser = nil;
 }
 
 
-+(void)updateUserInfo:(NSString *)fName lastName:(NSString *)lastName email:(NSString *)email success:(void (^)(bool status, NSString * message))successBlock failure:(void (^)(bool status, NSError * error))failureBlock{
++(void)updateUserInfo:(NSString *)fName lastName:(NSString *)lastName email:(NSString *)email success:(void (^)(bool status, NSString * message))successBlock failure:(void (^)(bool status, GolfrzError * error))failureBlock{
     
     //Create our client
     APIClient *apiClient = [APIClient sharedAPICLient];
@@ -71,10 +71,10 @@ static User * currentUser = nil;
     [apiClient PUT:updateInfoUrl parameters:[UserServices userFirstName:fName lastName:lastName email:email] completion:^(id response, NSError *error) {
         if (!error) {
             //Setting current user
-            NSString * msg = @"Successfully updated";//[[resp result] objectForKey:@"message"];
+            NSString * msg = @"Successfully updated";;
             successBlock(true, msg);
         }else{
-            failureBlock(false, error);
+            failureBlock(false, [response result]);
         }
     }];
     

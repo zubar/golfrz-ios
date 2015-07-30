@@ -7,6 +7,7 @@
 //
 
 #import "Utilities.h"
+#import <UIKit/UIKit.h>
 
 @implementation Utilities
 
@@ -106,5 +107,16 @@
         return [NSString stringWithFormat:@"%d:%.2ld AM", hour, min];
     }
 }
+
++(void)displayErrorAlertWithMessage:(NSString *)errmsg
+{
+    [[[UIAlertView alloc] initWithTitle:@"Try Again" message:errmsg delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+}
+
++(void)displayErrorAlertWithTitle:(NSString *)title Message:(NSString *)errmsg
+{
+   [[[UIAlertView alloc] initWithTitle:title message:errmsg delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+}
+
 
 @end

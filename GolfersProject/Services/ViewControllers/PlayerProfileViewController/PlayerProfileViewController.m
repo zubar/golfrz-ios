@@ -21,6 +21,7 @@
 #import "InviteMainViewController.h"
 #import "RoundViewController.h"
 #import "AddPlayersViewController.h"
+#import "GameSettings.h"
 
 @interface PlayerProfileViewController ()
 
@@ -79,7 +80,14 @@
     self.navigationItem.rightBarButtonItem = rightBarButtonItem;
 
     [[UINavigationBar appearance] setTitleVerticalPositionAdjustment:-10.0 forBarMetrics:UIBarMetricsDefault];
-
+    
+    GameSettings * settings = [GameSettings sharedSettings];
+    if([settings isRoundInProgress]){
+        [self.btnStartRound setTitle:@"Countinue To Round" forState:UIControlStateNormal
+         ];
+    }else{
+        [self.btnStartRound setTitle:@"Countinue To Round" forState:UIControlStateNormal];
+    }
 
 }
 

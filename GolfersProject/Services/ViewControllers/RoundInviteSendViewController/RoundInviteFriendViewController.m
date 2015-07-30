@@ -109,7 +109,7 @@
             [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         }
         completion();
-    } failure:^(bool status, NSError *error) {
+    } failure:^(bool status, GolfrzError *error) {
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         completion();
     }];

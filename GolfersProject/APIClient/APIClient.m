@@ -7,7 +7,6 @@
 //
 
 #import "APIClient.h"
-#import "GolfrzErrorResponse.h"
 #import "Constants.h"
 #import "Course.h"
 #import "CalendarEvent.h"
@@ -19,6 +18,7 @@
 #import "RoundMetaData.h"
 #import "RoundPlayers.h"
 #import "Round.h"
+#import "GolfrzError.h"
 
 @implementation APIClient
 
@@ -38,7 +38,7 @@
 #pragma mark - OVCHTTPSessionManager
 
 + (Class)errorModelClass {
-    return [GolfrzErrorResponse class];
+    return [GolfrzError class];
 }
 
 

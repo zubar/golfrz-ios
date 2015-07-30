@@ -17,23 +17,24 @@
 #import "GameSettings.h"
 #import "Round.h"
 #import "RoundPlayers.h"
+#import "GolfrzError.h"
 
 @implementation RoundDataServices
 
 
 +(void)getRoundData:(void (^)(bool status, RoundMetaData * subCourse))successBlock
-            failure:(void (^)(bool status, NSError * error))failureBlock{
+            failure:(void (^)(bool status, GolfrzError * error))failureBlock{
 
     APIClient * apiClient = [APIClient sharedAPICLient];
-    
     [apiClient GET:kRoundInSubCourse parameters:[UtilityServices authenticationParams] completion:^(id response, NSError *error) {
         OVCResponse * resp = response;
         if (!error) {
             RoundMetaData * mRoundData = [resp result];
             successBlock(true, mRoundData);
         }else
-            failureBlock(false, error);
+            failureBlock(false, [response result]);
     }];
+    
 }
 
 
@@ -51,7 +52,6 @@
             NSNumber *  roundId = [NSNumber numberWithInteger:tRoundId];
             [[GameSettings sharedSettings] setroundId:roundId];
             successBlock(true, roundId);
-        
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         failureBlock(false, error);
     }];
@@ -61,11 +61,9 @@
 +(void)startNewRoundWithId:(NSNumber *)roundId
                subCourseId:(NSNumber *)subcourseId
                    success:(void (^)(bool status, id roundId))successBlock
-                   failure:(void (^)(bool status, NSError * error))failureBlock{
-    
-    
+                   failure:(void (^)(bool status, NSError * error))failureBlock
+{
     AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
-    
     [apiClient POST:kRoundStart parameters:[RoundDataServices
                                             paramStartRoundWithId:roundId subCourseId:subcourseId]
     success:^(NSURLSessionDataTask *task, id responseObject) {
@@ -77,10 +75,10 @@
 }
 
 +(void)finishRoundWithBlock:(void(^)(bool status, id response))successBlock
-                    failure:(void(^)(bool status, NSError * error))failureBlock{
+                    failure:(void(^)(bool status, NSError * error))failureBlock
+{
     
     NSString * urlString = [NSString stringWithFormat:@"%@%@", kBaseURL, kRoundFinish];
-    
     [UtilityServices postData:[RoundDataServices paramsFinishRound]
                         toURL:urlString
                       success:^(bool status, NSDictionary *userInfo){
@@ -95,10 +93,9 @@
                firstName:(NSString *)fName
                 lastName:(NSString *)lName
                 success:(void(^)(bool status, NSDictionary * response))successBlock
-                failure:(void(^)(bool status, NSError * error))failureBlock{
-                
+                failure:(void(^)(bool status, NSError * error))failureBlock
+{
     AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
-                    
     [apiClient POST:kRoundAddGuest parameters:[RoundDataServices paramAddGuestToRoundEmail:email firstName:fName lastName:lName] success:^(NSURLSessionDataTask *task, id responseObject) {
             successBlock(true, responseObject);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
@@ -110,9 +107,9 @@
 +(void)addShotRoundId:(NSNumber *)round
                 holeId:(NSNumber *)holeId
               shotType:(ShotType )shotType
-               success:(void(^)(bool, id))successBlock
-               failure:(void(^)(bool, id))failureBlock{
-    
+               success:(void(^)(bool, id response))successBlock
+               failure:(void(^)(bool,  NSError *error))failureBlock
+{
     NSLog(@"SHOT: %@", [RoundDataServices paramsAddShotholeId:holeId roundId:round shortType:shotType]);
     
     AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
@@ -126,8 +123,8 @@
 
 
 +(void)deleteShotWithShotId:(NSNumber *)shotId
-                 success:(void(^)(bool, id))successBlock
-                 failure:(void(^)(bool, id))failureBlock{
+                 success:(void(^)(bool, id response))successBlock
+                 failure:(void(^)(bool,  NSError *error))failureBlock{
     
     AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
     [apiClient POST:kDeleteShot parameters:[RoundDataServices paramsDeleteShotId:shotId]
@@ -140,10 +137,10 @@
 
 +(void)deleteShotRoundId:(NSNumber *)round
                 holeId:(NSNumber *)holeId
-              shotType:(NSString *)shotType
+              shotType:(ShotType )shotType
                 shotId:(NSNumber *)shotId
-               success:(void(^)(bool, id))successBlock
-               failure:(void(^)(bool, id))failureBlock{
+               success:(void(^)(bool, id response))successBlock
+               failure:(void(^)(bool, NSError * error))failureBlock{
     
     AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
     [apiClient POST:kDeleteShot parameters:[RoundDataServices
@@ -181,7 +178,6 @@
            failure:(void(^)(bool status, NSError * error))failureBlock{
     
     AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
-    
     [apiClient POST:kRoundNew parameters:[RoundDataServices paramsUpdateRound] success:^(NSURLSessionDataTask *task, id responseObject) {
         successBlock(true, responseObject);
     } failure:^(NSURLSessionDataTask * task, NSError * error) {
@@ -192,7 +188,7 @@
 
 +(void)getPlayersInRoundId:(NSNumber *)roundId
                    success:(void(^)(bool, RoundPlayers * players))successBlock
-                    failure:(void(^)(bool, NSError * error))failureBlock{
+                    failure:(void(^)(bool, GolfrzError * error))failureBlock{
    
     APIClient * apiClient = [APIClient sharedAPICLient];
     
@@ -202,28 +198,30 @@
             RoundPlayers * mPlayers = [resp result];
             successBlock(true, mPlayers);
         }else
-            failureBlock(false, error);
+            failureBlock(false, [response result]);
     }];
 }
 
 +(void)getRoundInfoForRoundId:(NSNumber *)roundId
                       success:(void(^)(bool status, Round * round))successBlock
-                      failure:(void(^)(bool status, NSError * error))failureBlock{
+                      failure:(void(^)(bool status, GolfrzError * error))failureBlock
+{
 
     APIClient * apiClient = [APIClient sharedAPICLient];
-    
     [apiClient GET:kRoundInfo parameters:[RoundDataServices paramsGetRoundInfoForRound:roundId] completion:^(id response, NSError *error) {
         OVCResponse * resp = response;
         if (!error) {
             Round  * mRound = [resp result];
             successBlock(true, mRound);
         }else
-            failureBlock(false, error);
+            failureBlock(false, [response result]);
     }];
 }
 
 #pragma mark - HelperMethods
-+(NSDictionary *)paramStartRoundWithId:(NSNumber *)roundId subCourseId:(NSNumber * )subcourseId{
++(NSDictionary *)paramStartRoundWithId:(NSNumber *)roundId
+                           subCourseId:(NSNumber * )subcourseId
+{
     return @{
              @"app_bundle_id" : kAppBundleId,
              @"user_agent" : kUserAgent,
@@ -233,26 +231,24 @@
              };
 }
 
-+(NSDictionary *)paramsGetRoundInfoForRound:(NSNumber *)roundId{
++(NSDictionary *)paramsGetRoundInfoForRound:(NSNumber *)roundId
+{
     return @{
              @"app_bundle_id" : kAppBundleId,
              @"user_agent" : kUserAgent,
              @"auth_token" : [UserServices currentToken],
              @"round_id" :    roundId,
             };
-
 }
 
-+(NSDictionary *)paramsAddShotholeId:(NSNumber *)holeId roundId:(NSNumber *)round shortType:(ShotType )type{
-    
++(NSDictionary *)paramsAddShotholeId:(NSNumber *)holeId
+                             roundId:(NSNumber *)round
+                           shortType:(ShotType )type
+{
     NSString * shotTypeString = nil;
-    
     if (type == ShotTypeStardard) shotTypeString = @"shot";
     else if (type == ShotTypePutt) shotTypeString = @"putt";
     else if (type == ShotTypePenalty) shotTypeString = @"penalty";
-
-    
-    
     return @{
              @"app_bundle_id" : kAppBundleId,
              @"user_agent" : kUserAgent,
@@ -261,10 +257,10 @@
              @"round_id" :   round,
              @"shot_type" :  shotTypeString,
              };
-    
 }
 
-+(NSDictionary *)paramsDeleteShotId:(NSNumber *)shotId{
++(NSDictionary *)paramsDeleteShotId:(NSNumber *)shotId
+{
     return @{
              @"app_bundle_id" : kAppBundleId,
              @"user_agent" : kUserAgent,
@@ -274,7 +270,15 @@
 }
 
 
-+(NSDictionary *)paramsDeleteShotHoleId:(NSNumber *)holeId roundId:(NSNumber *)round type:(NSString *)shotType shotId:(NSNumber *)shotId{
++(NSDictionary *)paramsDeleteShotHoleId:(NSNumber *)holeId
+                                roundId:(NSNumber *)round
+                                   type:(ShotType )type
+                                 shotId:(NSNumber *)shotId
+{
+    NSString * shotType;
+    if(type == ShotTypeStardard) shotType = @"shot";
+    else if(type == ShotTypePutt) shotType = @"putt";
+    else if(type == ShotTypePenalty) shotType = @"penalty";
     return @{
              @"app_bundle_id" : kAppBundleId,
              @"user_agent" : kUserAgent,
@@ -287,8 +291,10 @@
 }
 
 
-+(NSDictionary *)paramAddDirectScore:(NSNumber *)score holeId:(NSNumber *)holeId playerId:(NSNumber *)playerId{
-
++(NSDictionary *)paramAddDirectScore:(NSNumber *)score
+                              holeId:(NSNumber *)holeId
+                            playerId:(NSNumber *)playerId
+{
         return @{
                  @"app_bundle_id" : kAppBundleId,
                  @"user_agent" : kUserAgent,
@@ -298,11 +304,11 @@
                  @"user_id" : playerId,
                  @"score" : score,
                  };
-    
-
 }
 
-+(NSDictionary *)paramAddGuestToRoundEmail:(NSString *)email firstName:(NSString *)firstName lastName:(NSString *)lastName{
++(NSDictionary *)paramAddGuestToRoundEmail:(NSString *)email
+                                 firstName:(NSString *)firstName
+                                  lastName:(NSString *)lastName{
     return @{
              @"auth_token" : [UserServices currentToken],
              @"round_id" : [[GameSettings sharedSettings] roundId],
@@ -310,8 +316,8 @@
              @"first_name" : firstName,
              @"last_name" : lastName,
              };
-    
 }
+
 +(NSDictionary *)paramsFinishRound{
     
     return @{
@@ -321,16 +327,6 @@
              @"round_id" : [[GameSettings sharedSettings] roundId],
              @"sub_course_id" : [[GameSettings sharedSettings] subCourseId],
              };
-}
-
-+(NSDictionary *)paramsStartRound{
-
-    return @{
-             @"app_bundle_id" : kAppBundleId,
-             @"user_agent" : kUserAgent,
-             @"auth_token" : [UserServices currentToken],
-             @"sub_course_id" : [[GameSettings sharedSettings] subCourseId],
-            };
 }
 
 +(NSDictionary *)paramsCreateRound:(NSDictionary *)dict{

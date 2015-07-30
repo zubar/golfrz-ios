@@ -15,6 +15,8 @@
 #import "AppDelegate.h"
 #import "MBProgressHUD.h"
 #import "SignInViewController.h"
+#import "GolfrzError.h"
+#import "Utilities.h"
 
 @interface PlayerSettingsMainViewController ()
 
@@ -178,11 +180,9 @@
             [MBProgressHUD hideHUDForView:self.view animated:YES];
             [self popToSignInViewController];
         }
-    } failureBlock:^(bool status, NSError *error) {
+    } failureBlock:^(bool status, GolfrzError *error) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
-        [[[UIAlertView alloc]initWithTitle:@"Error" message:@"Something went wrong" delegate:nil cancelButtonTitle:NSLocalizedString(@"CANCEL", @"Okay Comment") otherButtonTitles:nil, nil] show];
-        
-        
+        [Utilities displayErrorAlertWithMessage:[error errorMessage]];
     }];
 }
 - (IBAction)btnLogOutTap:(id)sender {
@@ -211,11 +211,8 @@
         alertMessage = message;
         if (alertTitle)
             [[[UIAlertView  alloc] initWithTitle:alertTitle message:alertMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
-    } failure:^(bool status, NSError *error) {
-        alertTitle = @"Failure";
-        alertMessage = [error localizedDescription];
-        if (alertTitle)
-            [[[UIAlertView  alloc] initWithTitle:alertTitle message:alertMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+    } failure:^(bool status, GolfrzError *error) {
+        [Utilities displayErrorAlertWithMessage:[error errorMessage]];
     }];
 }
 

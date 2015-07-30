@@ -25,7 +25,10 @@
 @implementation GolfrzError
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
-    return @{};
+    return @{
+             @"errorCode" : @"error_code",
+             @"errorMessage"  : @"error_message",
+             };
 }
 
 @end

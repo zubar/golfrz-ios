@@ -135,7 +135,6 @@
 		3DCA44D21B26CB3400B66BD2 /* StaffMember.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DCA44B61B26CB3400B66BD2 /* StaffMember.m */; };
 		3DCA44D31B26CB3400B66BD2 /* StaffType.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DCA44B81B26CB3400B66BD2 /* StaffType.m */; };
 		3DCA44D41B26CB3400B66BD2 /* GolfrzError.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DCA44BB1B26CB3400B66BD2 /* GolfrzError.m */; };
-		3DCA44D51B26CB3400B66BD2 /* GolfrzErrorResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DCA44BD1B26CB3400B66BD2 /* GolfrzErrorResponse.m */; };
 		3DCA44D71B26CB3400B66BD2 /* FoodBeverage.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DCA44C21B26CB3400B66BD2 /* FoodBeverage.m */; };
 		3DCA44D81B26CB3400B66BD2 /* Menu.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DCA44C41B26CB3400B66BD2 /* Menu.m */; };
 		3DCA44D91B26CB3400B66BD2 /* SideItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DCA44C61B26CB3400B66BD2 /* SideItem.m */; };
@@ -147,7 +146,6 @@
 		3DD47A661B4A608C005DE325 /* Hole.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD47A651B4A608C005DE325 /* Hole.m */; };
 		3DD47A691B4A6099005DE325 /* Teebox.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD47A681B4A6099005DE325 /* Teebox.m */; };
 		3DD47A6D1B4A7D7A005DE325 /* GreenCoordinate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD47A6C1B4A7D7A005DE325 /* GreenCoordinate.m */; };
-		3DD47A731B4A82F5005DE325 /* SubCourseServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD47A721B4A82F5005DE325 /* SubCourseServices.m */; };
 		3DD9BD0D1B14BE1C00A2F296 /* CalendarUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD9BD081B14BE1C00A2F296 /* CalendarUtilities.m */; };
 		3DD9BD0E1B14BE1C00A2F296 /* NSDate+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD9BD0A1B14BE1C00A2F296 /* NSDate+Helper.m */; };
 		3DD9BD0F1B14BE1C00A2F296 /* THCalendarInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD9BD0C1B14BE1C00A2F296 /* THCalendarInfo.m */; };
@@ -216,8 +214,6 @@
 		3D1963CD1B0DBC8300766CFC /* Condition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Condition.m; sourceTree = "<group>"; };
 		3D1963F61B0E1F0500766CFC /* WeatherViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherViewCell.h; sourceTree = "<group>"; };
 		3D1963F71B0E1F0500766CFC /* WeatherViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherViewCell.m; sourceTree = "<group>"; };
-		3D1963FF1B1305FC00766CFC /* PresentationServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PresentationServices.h; sourceTree = "<group>"; };
-		3D1964001B1305FC00766CFC /* PresentationServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PresentationServices.m; sourceTree = "<group>"; };
 		3D19640B1B130E3B00766CFC /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		3D19640C1B130E3B00766CFC /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		3D19640E1B130E3B00766CFC /* TPKeyboardAvoidingCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingCollectionView.h; sourceTree = "<group>"; };
@@ -372,6 +368,7 @@
 		3D613B811B44191B00F7DEDA /* ScoreSelectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreSelectionView.h; sourceTree = "<group>"; };
 		3D613B821B44191B00F7DEDA /* ScoreSelectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreSelectionView.m; sourceTree = "<group>"; };
 		3D613B831B44191B00F7DEDA /* ScoreSelectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScoreSelectionView.xib; sourceTree = "<group>"; };
+		3D7DF1FC1B6A360900FCF8FE /* Golfrz-prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Golfrz-prefix.pch"; sourceTree = "<group>"; };
 		3D87D8381B1852120046BD60 /* NSDate+convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+convenience.h"; sourceTree = "<group>"; };
 		3D87D8391B1852120046BD60 /* NSDate+convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+convenience.m"; sourceTree = "<group>"; };
 		3D87D83A1B1852120046BD60 /* NSMutableArray+convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+convenience.h"; sourceTree = "<group>"; };
@@ -415,8 +412,6 @@
 		3DCA44B81B26CB3400B66BD2 /* StaffType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StaffType.m; sourceTree = "<group>"; };
 		3DCA44BA1B26CB3400B66BD2 /* GolfrzError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GolfrzError.h; sourceTree = "<group>"; };
 		3DCA44BB1B26CB3400B66BD2 /* GolfrzError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GolfrzError.m; sourceTree = "<group>"; };
-		3DCA44BC1B26CB3400B66BD2 /* GolfrzErrorResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GolfrzErrorResponse.h; sourceTree = "<group>"; };
-		3DCA44BD1B26CB3400B66BD2 /* GolfrzErrorResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GolfrzErrorResponse.m; sourceTree = "<group>"; };
 		3DCA44C11B26CB3400B66BD2 /* FoodBeverage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodBeverage.h; sourceTree = "<group>"; };
 		3DCA44C21B26CB3400B66BD2 /* FoodBeverage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodBeverage.m; sourceTree = "<group>"; };
 		3DCA44C31B26CB3400B66BD2 /* Menu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Menu.h; sourceTree = "<group>"; };
@@ -442,8 +437,6 @@
 		3DD47A681B4A6099005DE325 /* Teebox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Teebox.m; sourceTree = "<group>"; };
 		3DD47A6B1B4A7D7A005DE325 /* GreenCoordinate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GreenCoordinate.h; sourceTree = "<group>"; };
 		3DD47A6C1B4A7D7A005DE325 /* GreenCoordinate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GreenCoordinate.m; sourceTree = "<group>"; };
-		3DD47A711B4A82F5005DE325 /* SubCourseServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubCourseServices.h; sourceTree = "<group>"; };
-		3DD47A721B4A82F5005DE325 /* SubCourseServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubCourseServices.m; sourceTree = "<group>"; };
 		3DD9BD071B14BE1C00A2F296 /* CalendarUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarUtilities.h; sourceTree = "<group>"; };
 		3DD9BD081B14BE1C00A2F296 /* CalendarUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarUtilities.m; sourceTree = "<group>"; };
 		3DD9BD091B14BE1C00A2F296 /* NSDate+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Helper.h"; sourceTree = "<group>"; };
@@ -624,15 +617,6 @@
 			children = (
 			);
 			path = GeoLocationServices;
-			sourceTree = "<group>";
-		};
-		3D1963FE1B1305D500766CFC /* PresentationServices */ = {
-			isa = PBXGroup;
-			children = (
-				3D1963FF1B1305FC00766CFC /* PresentationServices.h */,
-				3D1964001B1305FC00766CFC /* PresentationServices.m */,
-			);
-			path = PresentationServices;
 			sourceTree = "<group>";
 		};
 		3D1964021B130E3B00766CFC /* Vendors */ = {
@@ -1274,8 +1258,6 @@
 			children = (
 				3DCA44BA1B26CB3400B66BD2 /* GolfrzError.h */,
 				3DCA44BB1B26CB3400B66BD2 /* GolfrzError.m */,
-				3DCA44BC1B26CB3400B66BD2 /* GolfrzErrorResponse.h */,
-				3DCA44BD1B26CB3400B66BD2 /* GolfrzErrorResponse.m */,
 			);
 			path = ErrorHandling;
 			sourceTree = "<group>";
@@ -1415,15 +1397,6 @@
 			path = RoundServices;
 			sourceTree = "<group>";
 		};
-		3DD47A701B4A81C3005DE325 /* SubCourseServices */ = {
-			isa = PBXGroup;
-			children = (
-				3DD47A711B4A82F5005DE325 /* SubCourseServices.h */,
-				3DD47A721B4A82F5005DE325 /* SubCourseServices.m */,
-			);
-			path = SubCourseServices;
-			sourceTree = "<group>";
-		};
 		3DD9BD061B14BE1C00A2F296 /* CalenderUtils */ = {
 			isa = PBXGroup;
 			children = (
@@ -1525,6 +1498,7 @@
 			children = (
 				88024F611AD29134004AC260 /* Info.plist */,
 				88024F621AD29134004AC260 /* main.m */,
+				3D7DF1FC1B6A360900FCF8FE /* Golfrz-prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -1636,14 +1610,12 @@
 				3D00B5A21B6748A300FA2C19 /* GameSettings */,
 				3DD47A6E1B4A81C3005DE325 /* InvitationServices */,
 				3DD47A6F1B4A81C3005DE325 /* RoundServices */,
-				3DD47A701B4A81C3005DE325 /* SubCourseServices */,
 				3DC1161A1B2ED86E00E83F4F /* ContactServices */,
 				3DD3CA3D1B297AD300767BCF /* UtilityServices */,
 				3DCA44DC1B27097F00B66BD2 /* Food+BeverageService */,
 				3DD9BD231B14C36D00A2F296 /* EventServices */,
 				3D1964241B13302A00766CFC /* FBAuthenticationAgent */,
 				3D1963FD1B1305D500766CFC /* GeoLocationServices */,
-				3D1963FE1B1305D500766CFC /* PresentationServices */,
 				3D1963C11B0DAEB200766CFC /* WeatherServices */,
 				3D1963B61B0CE05700766CFC /* CourseServices */,
 				3D1963B91B0CE05700766CFC /* UserServices */,
@@ -1988,7 +1960,6 @@
 				88A48F011B2B0167006CEC42 /* FoodBevItemCell.m in Sources */,
 				3DA70A401B3981AB00D3ABEC /* BBBadgeBarButtonItem.m in Sources */,
 				3DCA44D11B26CB3400B66BD2 /* Department.m in Sources */,
-				3DD47A731B4A82F5005DE325 /* SubCourseServices.m in Sources */,
 				3D1CB1031B691563005C1E19 /* SignInViewController.m in Sources */,
 				3D1CB0ED1B691563005C1E19 /* ClubHouseViewController.m in Sources */,
 				3D87D8441B1852120046BD60 /* UIColor+expanded.m in Sources */,
@@ -2044,7 +2015,6 @@
 				3DD3CA401B297AD300767BCF /* UtilityServices.m in Sources */,
 				3DDF9BE91B60CA990036C735 /* RoundPlayers.m in Sources */,
 				3DCA44D81B26CB3400B66BD2 /* Menu.m in Sources */,
-				3DCA44D51B26CB3400B66BD2 /* GolfrzErrorResponse.m in Sources */,
 				3D1CB0F51B691563005C1E19 /* FoodBevItemDetailViewController.m in Sources */,
 				8890E4D31B307A5500A11BBF /* ContactCell.m in Sources */,
 				3DCA44D21B26CB3400B66BD2 /* StaffMember.m in Sources */,
@@ -2175,7 +2145,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "536f73c8-b566-44bc-84e3-4ffadbc83800";
+				PROVISIONING_PROFILE = "8dfb9865-d1fe-4840-a928-1db76291a3b8";
 			};
 			name = Debug;
 		};
@@ -2195,7 +2165,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2ced12d9-ee6b-4b31-b846-63c1049614e0";
+				PROVISIONING_PROFILE = "e5da9488-c712-487a-99c6-2ad8f9b7fa93";
 			};
 			name = Release;
 		};

@@ -31,7 +31,6 @@
 #import "APContact+convenience.h"
 #import "Constants.h"
 
-#import "SubCourseServices.h"
 #import "RoundDataServices.h"
 
 #import "RoundViewController.h"
@@ -280,7 +279,7 @@
     
     [RoundDataServices getRoundData:^(bool status, RoundMetaData *subCourse) {
         
-    } failure:^(bool status, NSError *error) {
+    } failure:^(bool status, GolfrzError *error) {
         
     }];
 }

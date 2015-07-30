@@ -27,6 +27,7 @@
 #import "Hole.h"
 #import "PlayerSettings.h"
 #import "ScoreboardServices.h"
+#import "Utilities.h"
 
 #define kPlayerScoreViewHeight 60.0f
 
@@ -79,9 +80,9 @@
                                            [self.scoreTable reloadData];
                                            [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
                                        }
-                                   } failure:^(bool status, NSError *error) {
+                                   } failure:^(bool status, GolfrzError *error) {
                                        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-                                       NSLog(@"Error: %@", error);
+                                       [Utilities displayErrorAlertWithMessage:[error errorMessage]];
                                    }];
     //TODO:
     //self.currentHole = [[PersistentServices sharedServices] current]
@@ -110,9 +111,9 @@
                                   roundId:[settings roundId]
     success:^(bool status, id response) {
         score(response);
-     }failure:^(bool status, NSError *error) {
-         NSLog(@"%@", [error localizedDescription]);
-    }];
+     }failure:^(bool status, GolfrzError *error) {
+         [Utilities displayErrorAlertWithMessage:[error errorMessage]];
+     }];
 }
 
 -(void)viewDidAppear:(BOOL)animated

@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "GolfrzError.h"
 
 @interface ScoreboardServices : NSObject
 
@@ -14,5 +15,5 @@
                   holeId:(NSNumber *)holeId
                  roundId:(NSNumber *)roundId
                  success:(void (^)(bool status, id roundId))successBlock
-                 failure:(void (^)(bool status, NSError * error))failureBlock;
+                 failure:(void (^)(bool status, GolfrzError * error))failureBlock;
 @end
