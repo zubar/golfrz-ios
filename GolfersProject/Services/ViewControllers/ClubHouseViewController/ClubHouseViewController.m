@@ -36,6 +36,7 @@
 #import "RoundViewController.h"
 #import "ScoreSelectionView.h"
 #import "InvitationManager.h"
+#import "TeeTimesViewController.h"
 
 @interface ClubHouseViewController ()
 @property (nonatomic, retain) NSArray * weatherList;
@@ -276,12 +277,9 @@
 
 - (IBAction)btnTeeTimeTap:(id)sender {
     
-    
-    [RoundDataServices getRoundData:^(bool status, RoundMetaData *subCourse) {
-        
-    } failure:^(bool status, GolfrzError *error) {
-        
-    }];
+    TeeTimesViewController * controller = [self.storyboard instantiateViewControllerWithIdentifier:@"TeeTimesViewController"];
+    AppDelegate * appDelegate = [[UIApplication sharedApplication] delegate];
+    [appDelegate.appDelegateNavController pushViewController:controller animated:YES];
 }
 
 #pragma mark - Invitation

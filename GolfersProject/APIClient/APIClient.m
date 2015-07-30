@@ -19,6 +19,7 @@
 #import "RoundPlayers.h"
 #import "Round.h"
 #import "GolfrzError.h"
+#import "TeetimeData.h"
 
 @implementation APIClient
 
@@ -54,6 +55,7 @@
              kRoundInSubCourse : [RoundMetaData class],
              kRoundPlayers : [RoundPlayers class],
              kRoundInfo : [Round class],
+             kGetteetimes : [TeetimeData class],
              };
     
 }

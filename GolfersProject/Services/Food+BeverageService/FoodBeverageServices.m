@@ -108,7 +108,6 @@
                         failure:(void (^)(bool status, GolfrzError * error))failureBlock
 {
     
-    
     APIClient * apiClient = [APIClient sharedAPICLient];
     [apiClient POST:kConfirmCartOrder parameters:[FoodBeverageServices confirmOrderParams:deliveryLocation] completion:^(id response, NSError *error) {
         OVCResponse * resp = response;

@@ -8,6 +8,10 @@
 
 #import "TeeTimesViewController.h"
 #import "TeeTimeBookingCell.h"
+#import "TeetimeServices.h"
+#import "MBProgressHUD.h"
+#import "GameSettings.h"
+#import "CourseServices.h"
 
 @interface TeeTimesViewController ()
 
@@ -18,6 +22,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    GameSettings * settings =[GameSettings sharedSettings];
+    //TODO: for testing setting the subcourse id to 1
+
+    [TeetimeServices getTeetimesForSubcourse:[NSNumber numberWithInt:1] success:^(bool status, TeetimeData *dataTees) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        
+    } failure:^(bool status, GolfrzError *error) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+
+    }];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -28,7 +46,7 @@
 
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 1;
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

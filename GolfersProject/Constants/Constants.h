@@ -127,6 +127,13 @@ static NSString * const kGetScoreCard = @"nil-url";
 static NSString * const kPushRegURL = @"push_registrations/register";
 
 /*
+ *  Teetimes
+ */
+static NSString * const kGetteetimes = @"tee_times/tee_times";
+
+
+
+/*
  * Notification Names
  */
 static NSString * const kUserLoginSuccessful = @"UserLoginSuccessfulWithServerTokenAcquired";

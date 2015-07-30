@@ -113,6 +113,9 @@
 		3D613B851B44191B00F7DEDA /* ScoreSelectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D613B7F1B44191B00F7DEDA /* ScoreSelectionCell.xib */; };
 		3D613B861B44191B00F7DEDA /* ScoreSelectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D613B821B44191B00F7DEDA /* ScoreSelectionView.m */; };
 		3D613B871B44191B00F7DEDA /* ScoreSelectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D613B831B44191B00F7DEDA /* ScoreSelectionView.xib */; };
+		3D7DF2001B6A542000FCF8FE /* TeetimeServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7DF1FF1B6A542000FCF8FE /* TeetimeServices.m */; };
+		3D7DF2041B6A550E00FCF8FE /* TeetimeData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7DF2031B6A550E00FCF8FE /* TeetimeData.m */; };
+		3D7DF2071B6A551B00FCF8FE /* Teetime.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7DF2061B6A551B00FCF8FE /* Teetime.m */; };
 		3D87D8421B1852120046BD60 /* NSDate+convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D87D8391B1852120046BD60 /* NSDate+convenience.m */; };
 		3D87D8431B1852120046BD60 /* NSMutableArray+convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D87D83B1B1852120046BD60 /* NSMutableArray+convenience.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3D87D8441B1852120046BD60 /* UIColor+expanded.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D87D83D1B1852120046BD60 /* UIColor+expanded.m */; };
@@ -369,6 +372,12 @@
 		3D613B821B44191B00F7DEDA /* ScoreSelectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreSelectionView.m; sourceTree = "<group>"; };
 		3D613B831B44191B00F7DEDA /* ScoreSelectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScoreSelectionView.xib; sourceTree = "<group>"; };
 		3D7DF1FC1B6A360900FCF8FE /* Golfrz-prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Golfrz-prefix.pch"; sourceTree = "<group>"; };
+		3D7DF1FE1B6A542000FCF8FE /* TeetimeServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeetimeServices.h; sourceTree = "<group>"; };
+		3D7DF1FF1B6A542000FCF8FE /* TeetimeServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeetimeServices.m; sourceTree = "<group>"; };
+		3D7DF2021B6A550E00FCF8FE /* TeetimeData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeetimeData.h; sourceTree = "<group>"; };
+		3D7DF2031B6A550E00FCF8FE /* TeetimeData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeetimeData.m; sourceTree = "<group>"; };
+		3D7DF2051B6A551B00FCF8FE /* Teetime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Teetime.h; sourceTree = "<group>"; };
+		3D7DF2061B6A551B00FCF8FE /* Teetime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Teetime.m; sourceTree = "<group>"; };
 		3D87D8381B1852120046BD60 /* NSDate+convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+convenience.h"; sourceTree = "<group>"; };
 		3D87D8391B1852120046BD60 /* NSDate+convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+convenience.m"; sourceTree = "<group>"; };
 		3D87D83A1B1852120046BD60 /* NSMutableArray+convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+convenience.h"; sourceTree = "<group>"; };
@@ -1173,6 +1182,26 @@
 			path = ScoreSelectionView;
 			sourceTree = "<group>";
 		};
+		3D7DF1FD1B6A53B100FCF8FE /* TeetimeServices */ = {
+			isa = PBXGroup;
+			children = (
+				3D7DF1FE1B6A542000FCF8FE /* TeetimeServices.h */,
+				3D7DF1FF1B6A542000FCF8FE /* TeetimeServices.m */,
+			);
+			path = TeetimeServices;
+			sourceTree = "<group>";
+		};
+		3D7DF2011B6A54F300FCF8FE /* TeetimeData */ = {
+			isa = PBXGroup;
+			children = (
+				3D7DF2021B6A550E00FCF8FE /* TeetimeData.h */,
+				3D7DF2031B6A550E00FCF8FE /* TeetimeData.m */,
+				3D7DF2051B6A551B00FCF8FE /* Teetime.h */,
+				3D7DF2061B6A551B00FCF8FE /* Teetime.m */,
+			);
+			path = TeetimeData;
+			sourceTree = "<group>";
+		};
 		3D87D8371B1852120046BD60 /* VurigCalendar */ = {
 			isa = PBXGroup;
 			children = (
@@ -1586,6 +1615,7 @@
 		885CB06F1B09F91700AD2A7B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3D7DF2011B6A54F300FCF8FE /* TeetimeData */,
 				3DDF9BE61B60CA470036C735 /* RoundPlayers */,
 				3D221F911B52797300CF79E4 /* User */,
 				3DD47A5E1B4A6040005DE325 /* SubCourse */,
@@ -1605,6 +1635,7 @@
 		885CB07C1B0A121300AD2A7B /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				3D7DF1FD1B6A53B100FCF8FE /* TeetimeServices */,
 				3D00B5AA1B68E3DB00FA2C19 /* ScoreboardServices */,
 				3D00B5A61B6748E000FA2C19 /* PlayerSettings */,
 				3D00B5A21B6748A300FA2C19 /* GameSettings */,
@@ -1932,6 +1963,7 @@
 				88243AF61B28437C00E600D6 /* FoodBevViewCell.m in Sources */,
 				885CB0441B09BA9D00AD2A7B /* AppDelegate.m in Sources */,
 				3D1963CE1B0DBC8300766CFC /* Condition.m in Sources */,
+				3D7DF2041B6A550E00FCF8FE /* TeetimeData.m in Sources */,
 				3D221F7B1B4BB0A600CF79E4 /* GameType.m in Sources */,
 				3D00B5A51B6748A300FA2C19 /* GameSettings.m in Sources */,
 				887C7ABF1B5644D400F1AC30 /* AddRoundPlayersCell.m in Sources */,
@@ -1953,6 +1985,7 @@
 				3D00B5AD1B68E48000FA2C19 /* ScoreboardServices.m in Sources */,
 				3D19641C1B130E3B00766CFC /* TPKeyboardAvoidingTableView.m in Sources */,
 				3D613B751B43EF5800F7DEDA /* PlayerScoreCell.m in Sources */,
+				3D7DF2001B6A542000FCF8FE /* TeetimeServices.m in Sources */,
 				3DCA44CD1B26CB3400B66BD2 /* EventList.m in Sources */,
 				885CB0801B0A128100AD2A7B /* AuthenticationService.m in Sources */,
 				3D1CB0F21B691563005C1E19 /* EventDetailViewController.m in Sources */,
@@ -2019,6 +2052,7 @@
 				8890E4D31B307A5500A11BBF /* ContactCell.m in Sources */,
 				3DCA44D21B26CB3400B66BD2 /* StaffMember.m in Sources */,
 				3D1CB0E91B691563005C1E19 /* AddPlayersViewController.m in Sources */,
+				3D7DF2071B6A551B00FCF8FE /* Teetime.m in Sources */,
 				8806637B1B6260B700207650 /* ScoreBoardParentCell.m in Sources */,
 				3DD47A661B4A608C005DE325 /* Hole.m in Sources */,
 			);
