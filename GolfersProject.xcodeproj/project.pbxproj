@@ -156,6 +156,10 @@
 		3DF9936F1B256999006EBC39 /* PushManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF9936E1B256999006EBC39 /* PushManager.m */; };
 		3DF993721B256A4A006EBC39 /* AppDelegate+Push.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF993711B256A4A006EBC39 /* AppDelegate+Push.m */; };
 		3DFD15B61B25B2AB008F76D8 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DFD15B51B25B2AA008F76D8 /* CoreLocation.framework */; };
+		77BBE90A1B6B5326004D1C86 /* ScoreCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BBE9091B6B5326004D1C86 /* ScoreCard.m */; };
+		77BBE9101B6B9ABC004D1C86 /* ScoreCardUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BBE90F1B6B9ABC004D1C86 /* ScoreCardUser.m */; };
+		77BBE9131B6B9D32004D1C86 /* ScoreCardHole.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BBE9121B6B9D32004D1C86 /* ScoreCardHole.m */; };
+		77BBE9161B6BA9E1004D1C86 /* ScoreCardTeeBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BBE9151B6BA9E1004D1C86 /* ScoreCardTeeBox.m */; };
 		88024F6C1AD29134004AC260 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88024F6A1AD29134004AC260 /* Main.storyboard */; };
 		88024F6E1AD29134004AC260 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88024F6D1AD29134004AC260 /* Images.xcassets */; };
 		88024F7D1AD29134004AC260 /* GolfersProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 88024F7C1AD29134004AC260 /* GolfersProjectTests.m */; };
@@ -460,6 +464,14 @@
 		3DF993711B256A4A006EBC39 /* AppDelegate+Push.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+Push.m"; sourceTree = "<group>"; };
 		3DFD15B51B25B2AA008F76D8 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		5A26DAF5CF62E34098597EA3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		77BBE9081B6B5326004D1C86 /* ScoreCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreCard.h; sourceTree = "<group>"; };
+		77BBE9091B6B5326004D1C86 /* ScoreCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreCard.m; sourceTree = "<group>"; };
+		77BBE90E1B6B9ABC004D1C86 /* ScoreCardUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreCardUser.h; sourceTree = "<group>"; };
+		77BBE90F1B6B9ABC004D1C86 /* ScoreCardUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreCardUser.m; sourceTree = "<group>"; };
+		77BBE9111B6B9D32004D1C86 /* ScoreCardHole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreCardHole.h; sourceTree = "<group>"; };
+		77BBE9121B6B9D32004D1C86 /* ScoreCardHole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreCardHole.m; sourceTree = "<group>"; };
+		77BBE9141B6BA9E1004D1C86 /* ScoreCardTeeBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreCardTeeBox.h; sourceTree = "<group>"; };
+		77BBE9151B6BA9E1004D1C86 /* ScoreCardTeeBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreCardTeeBox.m; sourceTree = "<group>"; };
 		88024F5D1AD29134004AC260 /* GolfersProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GolfersProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88024F611AD29134004AC260 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88024F621AD29134004AC260 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -1116,6 +1128,8 @@
 				3D221F961B5279AC00CF79E4 /* User+convenience.m */,
 				3D221F921B52797300CF79E4 /* User.h */,
 				3D221F931B52797300CF79E4 /* User.m */,
+				77BBE90E1B6B9ABC004D1C86 /* ScoreCardUser.h */,
+				77BBE90F1B6B9ABC004D1C86 /* ScoreCardUser.m */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -1475,6 +1489,19 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		77BBE9071B6B5312004D1C86 /* ScoreCard */ = {
+			isa = PBXGroup;
+			children = (
+				77BBE9081B6B5326004D1C86 /* ScoreCard.h */,
+				77BBE9091B6B5326004D1C86 /* ScoreCard.m */,
+				77BBE9111B6B9D32004D1C86 /* ScoreCardHole.h */,
+				77BBE9121B6B9D32004D1C86 /* ScoreCardHole.m */,
+				77BBE9141B6BA9E1004D1C86 /* ScoreCardTeeBox.h */,
+				77BBE9151B6BA9E1004D1C86 /* ScoreCardTeeBox.m */,
+			);
+			path = ScoreCard;
+			sourceTree = "<group>";
+		};
 		88024F541AD29134004AC260 = {
 			isa = PBXGroup;
 			children = (
@@ -1612,6 +1639,7 @@
 		885CB06F1B09F91700AD2A7B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				77BBE9071B6B5312004D1C86 /* ScoreCard */,
 				3DDF9BE61B60CA470036C735 /* RoundPlayers */,
 				3D221F911B52797300CF79E4 /* User */,
 				3DD47A5E1B4A6040005DE325 /* SubCourse */,
@@ -1932,6 +1960,7 @@
 				3D1CB0EE1B691563005C1E19 /* ContactUsViewController.m in Sources */,
 				3D87D8431B1852120046BD60 /* NSMutableArray+convenience.m in Sources */,
 				88573E2A1B4551900060929C /* RoundInviteCell.m in Sources */,
+				77BBE9131B6B9D32004D1C86 /* ScoreCardHole.m in Sources */,
 				3D221F8C1B4BEB4600CF79E4 /* DropdownView.m in Sources */,
 				3D00B59E1B61161800FA2C19 /* Round.m in Sources */,
 				3D1CB0E81B691563005C1E19 /* AddGuestViewController.m in Sources */,
@@ -1952,6 +1981,7 @@
 				3D1CB0FF1B691563005C1E19 /* RoundInviteFriendViewController.m in Sources */,
 				3D1C8E721B3BFDBE004AAD30 /* UIBarButtonItem+WEPopover.m in Sources */,
 				3D1963BC1B0CE05700766CFC /* CourseServices.m in Sources */,
+				77BBE9101B6B9ABC004D1C86 /* ScoreCardUser.m in Sources */,
 				3D1CB0F31B691563005C1E19 /* FoodBevCartViewController.m in Sources */,
 				3D1CB0F81B691563005C1E19 /* ForgotPasswordViewController.m in Sources */,
 				3D1C8E751B3BFDBE004AAD30 /* WEPopoverController.m in Sources */,
@@ -1972,6 +2002,7 @@
 				3D221F811B4BB30A00CF79E4 /* RoundDataServices.m in Sources */,
 				3DD47A6D1B4A7D7A005DE325 /* GreenCoordinate.m in Sources */,
 				88C4EDB61B4A723100519D3B /* HoleMapCell.m in Sources */,
+				77BBE90A1B6B5326004D1C86 /* ScoreCard.m in Sources */,
 				3D1CB1001B691563005C1E19 /* RoundInviteViewController.m in Sources */,
 				3D1963BD1B0CE05700766CFC /* UserServices.m in Sources */,
 				3DA7CB881B2B13FC00B5BAFF /* Cart.m in Sources */,
@@ -2002,6 +2033,7 @@
 				3D221F941B52797300CF79E4 /* User.m in Sources */,
 				3D1C8E761B3BFDBE004AAD30 /* WETouchableView.m in Sources */,
 				3D1CB0EF1B691563005C1E19 /* CourseUpdatesViewController.m in Sources */,
+				77BBE9161B6BA9E1004D1C86 /* ScoreCardTeeBox.m in Sources */,
 				3D1C8E741B3BFDBE004AAD30 /* WEPopoverContainerView.m in Sources */,
 				3D1964191B130E3B00766CFC /* MBProgressHUD.m in Sources */,
 				3D1CB0FE1B691563005C1E19 /* RewardViewController.m in Sources */,

@@ -119,7 +119,7 @@ static NSString * const kInvitationAppOpen = @"%@/redirect_with_invitation?id=%@
  * Scoreboard Services
  */
 static NSString * const kGetIndividualScore = @"scores/individual_score";
-static NSString * const kGetScoreCard = @"nil-url";
+static NSString * const kGetScoreCard = @"scores/score_card";
 
 /*
  *  Push notification token registeration

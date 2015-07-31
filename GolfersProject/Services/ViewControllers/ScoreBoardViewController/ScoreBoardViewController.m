@@ -9,6 +9,8 @@
 #import "ScoreBoardViewController.h"
 #import "ScoreBoardManager.h"
 #import "ScoreBoardParentCell.h"
+#import "ScoreboardServices.h"
+#import "ScoreCard.h"
 
 @interface ScoreBoardViewController ()
 
@@ -24,6 +26,17 @@
  //   _leftCollectionView.contentSize = CGSizeMake(320, 700);
     [ScoreBoardManager sharedScoreBoardManager].numberOfItems = 18;
     [ScoreBoardManager sharedScoreBoardManager].numberOfSections = 100;
+    
+    [ScoreboardServices getScoreCard:^(bool status, id responseObject) {
+       
+        ScoreCard *scoreCard = [[ScoreCard alloc] initWithDictionary:responseObject];
+        
+        
+        
+    } failure:^(bool status, NSError *error) {
+        
+        NSLog(@"Failed");
+    }];
 }
 
 
