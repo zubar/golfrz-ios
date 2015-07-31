@@ -13,13 +13,14 @@
 #import "APIClient.h"
 #import "Constants.h"
 #import <Overcoat/OVCResponse.h>
+#import "GolfrzError.h"
 
 @implementation CourseServices
 
 static Course * currentCourse = nil;
 
 
-+(void)courseDetailInfo:(void (^)(bool status, Course * currentCourse))successBlock failure:(void (^)(bool status, NSError * error))failureBlock{
++(void)courseDetailInfo:(void (^)(bool status, Course * currentCourse))successBlock failure:(void (^)(bool status, GolfrzError * error))failureBlock{
     
     APIClient * apiClient = [APIClient sharedAPICLient];
     
@@ -30,7 +31,7 @@ static Course * currentCourse = nil;
             [self setCurrentCourse:mCourse];
             successBlock(true, mCourse);
         }else
-            failureBlock(false, error);
+            failureBlock(false, [resp result]);
     }];
     
 }

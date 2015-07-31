@@ -60,6 +60,12 @@
 #define COCOAPODS_VERSION_MINOR_APAddressBook_Core 1
 #define COCOAPODS_VERSION_PATCH_APAddressBook_Core 10
 
+// ActionSheetPicker-3.0
+#define COCOAPODS_POD_AVAILABLE_ActionSheetPicker_3_0
+#define COCOAPODS_VERSION_MAJOR_ActionSheetPicker_3_0 1
+#define COCOAPODS_VERSION_MINOR_ActionSheetPicker_3_0 7
+#define COCOAPODS_VERSION_PATCH_ActionSheetPicker_3_0 0
+
 // CMPopTipView
 #define COCOAPODS_POD_AVAILABLE_CMPopTipView
 #define COCOAPODS_VERSION_MAJOR_CMPopTipView 2

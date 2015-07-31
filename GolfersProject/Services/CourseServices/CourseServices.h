@@ -8,18 +8,20 @@
 
 #import <Foundation/Foundation.h>
 @class Course;
+@class GolfrzError;
 
 @interface CourseServices : NSObject
 
 +(void)courseInfo:(void (^)(bool, id tObject))successBlock
           failure:(void (^)(bool, NSError *))failureBlock;
 
-+(void)courseDetailInfo:(void (^)(bool status, Course * currentCourse))successBlock
-                failure:(void (^)(bool status, NSError * error))failureBlock;
-
 
 +(void)checkInToCurrentCourse:(void(^)(bool status, id responseObject))successBlock
                       failure:(void (^)(bool, NSError *))failureBlock;
+
+
++(void)courseDetailInfo:(void (^)(bool status, Course * currentCourse))successBlock
+                failure:(void (^)(bool status, GolfrzError * error))failureBlock;
 
 
 +(void)setCurrentCourse:(Course *)mCourse;

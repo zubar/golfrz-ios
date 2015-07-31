@@ -18,6 +18,8 @@
 #import "StaffType.h"
 #import "SharedManager.h"
 #import "UIImageView+RoundedImage.h"
+#import "GolfrzError.h"
+#import "Utilities.h"
 
 @interface ContactUsViewController ()
 
@@ -48,9 +50,9 @@
         [self setHiddenAddressFields:NO];
 
     }
-    failure:^(bool status, NSError *error){
+    failure:^(bool status, GolfrzError *error){
         [MBProgressHUD hideHUDForView:self.view animated:YES];
-        [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Failed to get details" delegate:nil cancelButtonTitle:@"CANCEL" otherButtonTitles:nil, nil] show];
+        [Utilities displayErrorAlertWithMessage:[error errorMessage]];
     }];
     
 }

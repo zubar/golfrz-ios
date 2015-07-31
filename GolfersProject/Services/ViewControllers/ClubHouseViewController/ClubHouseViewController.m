@@ -30,6 +30,7 @@
 #import "ContactServices.h"
 #import "APContact+convenience.h"
 #import "Constants.h"
+#import "Utilities.h"
 
 #import "RoundDataServices.h"
 
@@ -114,8 +115,8 @@
                 completionBlock(currentCourse);
             }
         }
-    } failure:^(bool status, NSError *error) {
-        //
+    } failure:^(bool status, GolfrzError *error) {
+        [Utilities displayErrorAlertWithMessage:[error errorMessage]];
     }];
 }
 

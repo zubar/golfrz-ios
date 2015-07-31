@@ -1,4 +1,5 @@
 PODS:
+  - ActionSheetPicker-3.0 (1.7.0)
   - AFNetworking (2.5.2):
     - AFNetworking/NSURLConnection (= 2.5.2)
     - AFNetworking/NSURLSession (= 2.5.2)
@@ -39,6 +40,7 @@ PODS:
   - SDWebImage/Core (3.7.2)
 
 DEPENDENCIES:
+  - ActionSheetPicker-3.0
   - AFNetworking (~> 2.5)
   - APAddressBook
   - CMPopTipView (~> 2.2.0)
@@ -46,6 +48,7 @@ DEPENDENCIES:
   - SDWebImage (~> 3.7)
 
 SPEC CHECKSUMS:
+  ActionSheetPicker-3.0: 6516052442fc8ca8f3cc4b3c7aa0436de12373df
   AFNetworking: fefbce9660acb17f48ae0011292d4da0f457bf36
   APAddressBook: fc2356452e1319ddfcee504034038984397c7d9f
   CMPopTipView: a0a88404b9f46a5cfc16ce54bdb1b9bf9acb9aff
@@ -53,4 +56,4 @@ SPEC CHECKSUMS:
   Overcoat: a8d02b26f11e72ca10b4d8d786f6df83b3277b28
   SDWebImage: 71b7cdc1d1721d6a82ed62889030225f2c249e29
 
-COCOAPODS: 0.36.3
+COCOAPODS: 0.37.1

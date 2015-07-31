@@ -2180,7 +2180,7 @@
                                                                                 <constraint firstAttribute="height" constant="26" id="GGQ-nW-yvd"/>
                                                                                 <constraint firstAttribute="width" constant="26" id="LJ2-ou-0eZ"/>
                                                                             </constraints>
-                                                                            <state key="normal" image="3FB81C54-6B94-4F09-85FB-9352665037F4">
+                                                                            <state key="normal" image="075EDEBE-359C-4A27-943B-F4337D6E37EF">
                                                                                 <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                                             </state>
@@ -2733,6 +2733,9 @@
                                                         <state key="normal" image="dropdown_black">
                                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="btnSubcourseTapped:" destination="h5b-cZ-KCv" eventType="touchUpInside" id="T3C-QC-lCm"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
@@ -5350,7 +5353,7 @@
                                                                                 <constraint firstAttribute="height" constant="26" id="OaE-ph-eo5"/>
                                                                                 <constraint firstAttribute="width" constant="26" id="S5w-xw-4Ro"/>
                                                                             </constraints>
-                                                                            <state key="normal" image="5744E0C2-1878-4EB5-95FA-EA30C6ED1BA9">
+                                                                            <state key="normal" image="01BFDFE7-3957-413F-9926-AC1C8C5BF1F9">
                                                                                 <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                                             </state>
@@ -5936,7 +5939,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="3FB81C54-6B94-4F09-85FB-9352665037F4" width="24" height="25">
+        <image name="01BFDFE7-3957-413F-9926-AC1C8C5BF1F9" width="24" height="25">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -6027,7 +6030,7 @@ ExMWExsTKhMuEzUTPRNKE08TURNTE1gTYBNjE2gTcBNzE4UTiBONAAAAAAAAAgEAAAAAAAAAQgAAAAAA
 AAAAAAAAAAAAE48
 </mutableData>
         </image>
-        <image name="5744E0C2-1878-4EB5-95FA-EA30C6ED1BA9" width="24" height="25">
+        <image name="075EDEBE-359C-4A27-943B-F4337D6E37EF" width="24" height="25">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
