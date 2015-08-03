@@ -36,18 +36,32 @@
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"rightParentCell" forIndexPath:indexPath];
-    if (cell == nil)
-    {
-        cell = [[UICollectionViewCell alloc]init];
+    UICollectionViewCell *cell = nil;
+    if (indexPath.section == 0) {
+        
+        cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"headerCell" forIndexPath:indexPath];
+        if (cell == nil)
+        {
+            cell = [[UICollectionViewCell alloc]init];
+        }
     }
+    else
+    {
+        cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"rightParentCell" forIndexPath:indexPath];
+        if (cell == nil)
+        {
+            cell = [[UICollectionViewCell alloc]init];
+        }
+    }
+    
     
     if (indexPath.row > 5)
     {
         NSLog(@"Index-Path:%@ row:%ld  item:%ld", indexPath, (long)indexPath.row, (long)indexPath.item);
-        cell.backgroundColor = [UIColor lightGrayColor];
+        cell.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"leftColorImage"]];
     }else{
-        cell.backgroundColor = [UIColor blackColor];
+        //cell.backgroundColor = [UIColor colorWithRed:51/255 green:52/255 blue:54/255 alpha:1];
+        cell.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"rightColorImage"]];
     }
 
     return cell;

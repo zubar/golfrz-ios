@@ -159,6 +159,7 @@
 		8806637B1B6260B700207650 /* ScoreBoardParentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8806637A1B6260B700207650 /* ScoreBoardParentCell.m */; };
 		880A97DD1B2F0ED4001D97F0 /* FoodBevCartCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 880A97DC1B2F0ED4001D97F0 /* FoodBevCartCell.m */; };
 		88243AF61B28437C00E600D6 /* FoodBevViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88243AF51B28437C00E600D6 /* FoodBevViewCell.m */; };
+		88255AE91B6FA9FB0089644F /* CourseUpdateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88255AE81B6FA9FB0089644F /* CourseUpdateCell.m */; };
 		88573E1E1B4528280060929C /* RoundPlayerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88573E1D1B4528280060929C /* RoundPlayerCell.m */; };
 		88573E2A1B4551900060929C /* RoundInviteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88573E291B4551900060929C /* RoundInviteCell.m */; };
 		885CB0441B09BA9D00AD2A7B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 885CB0251B09BA9D00AD2A7B /* AppDelegate.m */; };
@@ -468,6 +469,8 @@
 		880A97DC1B2F0ED4001D97F0 /* FoodBevCartCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodBevCartCell.m; sourceTree = "<group>"; };
 		88243AF41B28437C00E600D6 /* FoodBevViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodBevViewCell.h; sourceTree = "<group>"; };
 		88243AF51B28437C00E600D6 /* FoodBevViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodBevViewCell.m; sourceTree = "<group>"; };
+		88255AE71B6FA9FB0089644F /* CourseUpdateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseUpdateCell.h; sourceTree = "<group>"; };
+		88255AE81B6FA9FB0089644F /* CourseUpdateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseUpdateCell.m; sourceTree = "<group>"; };
 		88573E1C1B4528280060929C /* RoundPlayerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundPlayerCell.h; sourceTree = "<group>"; };
 		88573E1D1B4528280060929C /* RoundPlayerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundPlayerCell.m; sourceTree = "<group>"; };
 		88573E281B4551900060929C /* RoundInviteCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundInviteCell.h; sourceTree = "<group>"; };
@@ -1544,6 +1547,15 @@
 			path = FoodBevCell;
 			sourceTree = "<group>";
 		};
+		88255AE61B6FA9FB0089644F /* CourseUpdatesCell */ = {
+			isa = PBXGroup;
+			children = (
+				88255AE71B6FA9FB0089644F /* CourseUpdateCell.h */,
+				88255AE81B6FA9FB0089644F /* CourseUpdateCell.m */,
+			);
+			path = CourseUpdatesCell;
+			sourceTree = "<group>";
+		};
 		88573E1B1B4528040060929C /* RoundPlayerCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -1675,6 +1687,7 @@
 		889872C71B13237F00D3C0E9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				88255AE61B6FA9FB0089644F /* CourseUpdatesCell */,
 				880663781B62609700207650 /* ScoreBoardParentCell */,
 				887C7AB01B563BC700F1AC30 /* AddRoundPlayersView */,
 				88EBBAE31B4D106600AA6688 /* TeeTimeBookingCell */,
@@ -2002,6 +2015,7 @@
 				3D1CB0EA1B691563005C1E19 /* BaseViewController.m in Sources */,
 				3D221F941B52797300CF79E4 /* User.m in Sources */,
 				3D1C8E761B3BFDBE004AAD30 /* WETouchableView.m in Sources */,
+				88255AE91B6FA9FB0089644F /* CourseUpdateCell.m in Sources */,
 				3D1CB0EF1B691563005C1E19 /* CourseUpdatesViewController.m in Sources */,
 				3D1C8E741B3BFDBE004AAD30 /* WEPopoverContainerView.m in Sources */,
 				3D1964191B130E3B00766CFC /* MBProgressHUD.m in Sources */,

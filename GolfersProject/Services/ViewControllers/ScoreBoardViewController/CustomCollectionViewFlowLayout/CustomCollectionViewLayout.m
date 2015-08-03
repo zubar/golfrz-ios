@@ -9,6 +9,7 @@
 #import "CustomCollectionViewLayout.h"
 
 #define INDEX_LIMIT 2
+#define SPACES_BETWEEN_CELLS 34
 
 #define NUMBEROFCOLUMNS 12
 
@@ -60,9 +61,9 @@
                      if (index == 0) {
                             frame.origin.x = self.collectionView.contentOffset.x;
                         }else if (index == 1){
-                            frame.origin.x = self.collectionView.contentOffset.x + (index * 45);
+                            frame.origin.x = self.collectionView.contentOffset.x + (index * SPACES_BETWEEN_CELLS);
                         }else{
-                            frame.origin.x = self.collectionView.contentOffset.x + 45 + ((index -1) * 45);
+                            frame.origin.x = self.collectionView.contentOffset.x + SPACES_BETWEEN_CELLS + ((index -1) * SPACES_BETWEEN_CELLS);
                         }
                         
                         attributes.frame = frame;
@@ -126,9 +127,9 @@
                     if (index == 0) {
                         frame.origin.x = self.collectionView.contentOffset.x;
                     }else if (index == 1){
-                        frame.origin.x = self.collectionView.contentOffset.x + (index * 45);
+                        frame.origin.x = self.collectionView.contentOffset.x + (index * SPACES_BETWEEN_CELLS);
                     }else{
-                        frame.origin.x = self.collectionView.contentOffset.x + 45 + ((index -1) * 45);
+                        frame.origin.x = self.collectionView.contentOffset.x + SPACES_BETWEEN_CELLS + ((index -1) * SPACES_BETWEEN_CELLS);
                     }
                     
                     attributes.frame = frame;
@@ -191,11 +192,12 @@
 
 - (CGSize)sizeForItemWithColumnIndex:(NSUInteger)columnIndex
 {
-    NSString *text = [NSString stringWithFormat:@"Col %lu", (unsigned long)columnIndex];    
+    //NSString *text = [NSString stringWithFormat:@"Col %lu", (unsigned long)columnIndex];
   
-    CGSize size = [text sizeWithAttributes: @{NSFontAttributeName:[UIFont fontWithName:@"HelveticaNeue" size:15]}];
+    //CGSize size = [text sizeWithAttributes: @{NSFontAttributeName:[UIFont fontWithName:@"HelveticaNeue" size:10]}];
 
-    return CGSizeMake([@(size.width + 9) floatValue], 30); // Extra space of 9px for all the items
+    return CGSizeMake(34, 30);
+    //return CGSizeMake([@(size.width + 9) floatValue], 30); // Extra space of 9px for all the items
 }
 
 - (void)calculateItemsSize
