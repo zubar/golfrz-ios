@@ -20,7 +20,11 @@
 @property (strong, nonatomic) IBOutlet UIView *singleImageView;
 @property (strong, nonatomic) IBOutlet UIImageView *imgUpdateImage;
 @property (strong, nonatomic) IBOutlet UIView *kudosView;
-@property (strong, nonatomic) IBOutlet UIImageView *imgKudos;
+@property (strong, nonatomic) IBOutlet UIButton *btnKudos;
+
+- (IBAction)btnAllCommentsTapped:(UIButton *)sender;
+
 @property (strong, nonatomic) IBOutlet UILabel *kudosCount;
+@property (strong, nonatomic) IBOutlet UIView *detailCommentsView;
 
 @end

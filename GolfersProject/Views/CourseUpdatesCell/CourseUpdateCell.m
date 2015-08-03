@@ -22,4 +22,6 @@
 
 - (IBAction)btnAddCommentsTapped:(UIButton *)sender {
 }
+- (IBAction)btnAllCommentsTapped:(UIButton *)sender {
+}
 @end
