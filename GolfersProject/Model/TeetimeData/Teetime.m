@@ -7,6 +7,7 @@
 //
 
 #import "Teetime.h"
+#import "NSDate+Helper.h"
 
 @implementation Teetime
 
@@ -17,22 +18,26 @@
              @"bookedTime" : @"booked_at",
              @"subCourseId" : @"sub_course_id",
              @"updatedTime" : @"updated_at",
+             @"userId" : @"user_id",
+             @"userName" : @"name",
+             @"userEmail" : @"email",
+             @"userPhone" : @"phone",
              //propertyName : json_key
              };
 }
 
 + (NSValueTransformer *)bookedTimeJSONTransformer {
     return [MTLValueTransformer reversibleTransformerWithForwardBlock:^(NSString *dateString) {
-        return [self.dateFormatter dateFromString:dateString];
+        return [[self.dateFormatter dateFromString:dateString] toLocalTime];
     } reverseBlock:^(NSDate *date) {
-        return [self.dateFormatter stringFromDate:date];
+        return [self.dateFormatter stringFromDate:[date toGlobalTime]];
     }];
 }
 + (NSValueTransformer *)updatedTimeJSONTransformer {
     return [MTLValueTransformer reversibleTransformerWithForwardBlock:^(NSString *dateString) {
-        return [self.dateFormatter dateFromString:dateString];
+        return [[self.dateFormatter dateFromString:dateString] toLocalTime];
     } reverseBlock:^(NSDate *date) {
-        return [self.dateFormatter stringFromDate:date];
+        return [self.dateFormatter stringFromDate:[date toGlobalTime]];
     }];
 }
 
@@ -42,6 +47,10 @@
     dateFormatter.dateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
     
     return dateFormatter;
+}
+
+- (NSComparisonResult)compare:(Teetime *)otherTeetime{
+    return [self.bookedTime compare:otherTeetime.bookedTime];
 }
 
 @end

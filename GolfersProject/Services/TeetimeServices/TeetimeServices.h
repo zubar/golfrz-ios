@@ -13,6 +13,9 @@
 @interface TeetimeServices : NSObject
 
 +(void)getTeetimesForSubcourse:(NSNumber *)subcourseId
+                     startDate:(NSDate *)startDate
+                       endDate:(NSDate *)endDate
                        success:(void(^)(bool status, TeetimeData * dataTees ))successBlock
                        failure:(void (^)(bool status, GolfrzError * error))failureBlock;
+
 @end

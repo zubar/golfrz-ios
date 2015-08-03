@@ -18,4 +18,10 @@
 @property(nonatomic, copy, readonly) NSNumber * subCourseId;
 @property(nonatomic, copy, readonly) NSDate * updatedTime;
 
+@property(nonatomic, copy, readonly) NSNumber * userId;
+@property(nonatomic, copy, readonly) NSString * userName;
+@property(nonatomic, copy, readonly) NSString * userEmail;
+@property(nonatomic, copy, readonly) NSString * userPhone;
+
+- (NSComparisonResult)compare:(Teetime *)otherTeetime;
 @end

@@ -8,10 +8,15 @@
 
 #import "TeeTimeBookingCell.h"
 
+@interface TeeTimeBookingCell ()
+@property (copy, nonatomic) void (^didTapButtonBlock)(id sender);
+@end
+
 @implementation TeeTimeBookingCell
 
 - (void)awakeFromNib {
     // Initialization code
+    [self.btnBookTeetime addTarget:self action:@selector(didTapButton:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -19,7 +24,9 @@
 
     // Configure the view for the selected state
 }
-
-- (IBAction)btnBookTapped:(UIButton *)sender {
+- (void)didTapButton:(id)sender {
+    if (self.didTapButtonBlock) {
+        self.didTapButtonBlock(sender);
+    }
 }
 @end

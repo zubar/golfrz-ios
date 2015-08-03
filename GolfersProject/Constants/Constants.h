@@ -132,7 +132,7 @@ static NSString * const kPushRegURL = @"push_registrations/register";
  *  Teetimes
  */
 static NSString * const kGetteetimes = @"tee_times/tee_times";
-
+static NSString * const kBookTeetime = @"tee_times/book_tee_time";
 
 
 /*

@@ -226,24 +226,59 @@ static NSDateFormatter *sUserVisibleDateFormatter = nil;
         NSLocale *enUSPOSIXLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
         
         [sRFC3339DateFormatter setLocale:enUSPOSIXLocale];
-        [sRFC3339DateFormatter setDateFormat:@"yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'"];
+//        [sRFC3339DateFormatter setDateFormat:@"yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'"];
+        [sRFC3339DateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"];
         [sRFC3339DateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
     }
     
     // Convert the RFC 3339 date time string to an NSDate.
     NSDate *date = [sRFC3339DateFormatter dateFromString:rfc3339DateTimeString];
     
-    
-//    NSString *userVisibleDateTimeString;
-//    if (date != nil) {
-//        if (sUserVisibleDateFormatter == nil) {
-//            sUserVisibleDateFormatter = [[NSDateFormatter alloc] init];
-//            [sUserVisibleDateFormatter setDateStyle:NSDateFormatterShortStyle];
-//            [sUserVisibleDateFormatter setTimeStyle:NSDateFormatterShortStyle];
-//        }
-//        // Convert the date object to a user-visible date string.
-//        userVisibleDateTimeString = [sUserVisibleDateFormatter stringFromDate:date];
-//    }
     return date;
 }
+
+-(NSDate *) toLocalTime
+{
+    NSTimeZone *tz = [NSTimeZone defaultTimeZone];
+    NSInteger seconds = [tz secondsFromGMTForDate: self];
+    return [NSDate dateWithTimeInterval: seconds sinceDate: self];
+}
+
+-(NSDate *)toGlobalTime
+{
+    NSTimeZone *tz = [NSTimeZone defaultTimeZone];
+    NSInteger seconds = -[tz secondsFromGMTForDate: self];
+    return [NSDate dateWithTimeInterval: seconds sinceDate: self];
+}
+
+- (NSString *)serverFormatDate{
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
+    dateFormatter.dateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
+    
+    NSString * serverFormatString = [dateFormatter stringFromDate:self];
+    return serverFormatString;
+}
+
+-(NSDate *)dateWithTimeComponentsZeroSet{
+    
+    //NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier: NSGregorianCalendar];
+    NSCalendar * gregorian = [NSCalendar currentCalendar];
+    NSDateComponents *components = [gregorian components: NSUIntegerMax fromDate:self];
+    [components setHour:00];
+    [components setMinute:00];
+    [components setSecond:00];
+    NSDate *newDate = [gregorian dateFromComponents: components];
+    return newDate;
+}
+
+//-(NSComparisonResult)compareWithDate:(NSDate *)date forComponents:(NSCalendarUnit)unitFlag{
+//    
+//    NSTimeInterval timeInterval = [self timeIntervalSinceDate:date];
+//    
+//    if (unitFlag <= ) {
+//        <#statements#>
+//    }
+//}
 @end

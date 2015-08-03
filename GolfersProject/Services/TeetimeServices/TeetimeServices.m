@@ -17,16 +17,28 @@
 #import <Overcoat/Overcoat.h>
 #import "TeetimeData.h"
 #import "Teetime.h"
+#import "NSDate+Helper.h"
+#import "GolfrzError.h"
+
 
 @implementation TeetimeServices
 
-
 +(void)getTeetimesForSubcourse:(NSNumber *)subcourseId
+                     startDate:(NSDate *)startDate
+                       endDate:(NSDate *)endDate
                        success:(void(^)(bool status, TeetimeData * dataTees ))successBlock
                        failure:(void (^)(bool status, GolfrzError * error))failureBlock
 {
     APIClient * apiClient = [APIClient sharedAPICLient];
-    [apiClient GET:kGetteetimes parameters:[TeetimeServices paramsGetTeetimesForSubcourse:subcourseId] completion:^(id response, NSError *error) {
+    NSLog(@"GET-TEE-TIME: %@", [TeetimeServices paramsGetTeetimesSubcourse:subcourseId
+                                                                 startDate:startDate
+                                                                   endDate:endDate]);
+    
+    [apiClient GET:kGetteetimes parameters:[TeetimeServices paramsGetTeetimesSubcourse:subcourseId
+                                                                             startDate:startDate
+                                                                               endDate:endDate]
+    completion:^(id response, NSError *error)
+    {
         OVCResponse * resp = response;
         if (!error) {
             successBlock(true, [resp result]);
@@ -36,15 +48,44 @@
     }];
 }
 
++(void)bookTeeTimeSubcourse:(NSNumber *)subcourseId
+                  playersNo:(NSNumber *)playerCount
+                   bookTime:(NSDate *)bookTime
+                    success:(void(^)(bool status, id response))successBlock
+                    failure:(void(^)(bool status, GolfrzError * error))failureBlock{
+    
+    APIClient * apiClient = [APIClient sharedAPICLient];
+    [apiClient POST:kBookTeetime parameters:[TeetimeServices paramBookTeetime:subcourseId players:playerCount bookingTime:bookTime] completion:^(id response, NSError *error) {
+        if(error) failureBlock(false, [response result]);
+        else successBlock(true, [response result]);
+    }];
+}
+
 #pragma mark - HelperMethods
-+(NSDictionary *)paramsGetTeetimesForSubcourse:(NSNumber *)subcourseId{
++(NSDictionary *)paramsGetTeetimesSubcourse:(NSNumber *)subcourseId startDate:(NSDate *)strtDate endDate:(NSDate *)endDate{
+    
     return @{
              @"app_bundle_id" : kAppBundleId,
              @"user_agent" : kUserAgent,
              @"auth_token" : [UserServices currentToken],
              @"sub_course_id" : subcourseId,
+             @"start_date" : [[strtDate toGlobalTime] serverFormatDate],
+             @"end_date" : [[endDate toGlobalTime] serverFormatDate],
              };
     
 }
+
++(NSDictionary *)paramBookTeetime:(NSNumber *)subCourseId players:(NSNumber *)playersCount bookingTime:(NSDate *)bookingTime{
+    
+    return @{
+             @"app_bundle_id" : kAppBundleId,
+             @"user_agent" : kUserAgent,
+             @"auth_token" : [UserServices currentToken],
+             @"count" : playersCount,
+             @"sub_course_id" : subCourseId,
+             @"booked_time" : bookingTime,
+             };
+}
+
 
 @end

@@ -116,6 +116,8 @@
 		3D7DF2001B6A542000FCF8FE /* TeetimeServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7DF1FF1B6A542000FCF8FE /* TeetimeServices.m */; };
 		3D7DF2041B6A550E00FCF8FE /* TeetimeData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7DF2031B6A550E00FCF8FE /* TeetimeData.m */; };
 		3D7DF2071B6A551B00FCF8FE /* Teetime.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7DF2061B6A551B00FCF8FE /* Teetime.m */; };
+		3D7DF20A1B6CABEE00FCF8FE /* Teetime+Compare.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7DF2091B6CABEE00FCF8FE /* Teetime+Compare.m */; };
+		3D7DF20D1B6F5A2200FCF8FE /* NSArray+BinarySearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7DF20C1B6F5A2200FCF8FE /* NSArray+BinarySearch.m */; };
 		3D87D8421B1852120046BD60 /* NSDate+convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D87D8391B1852120046BD60 /* NSDate+convenience.m */; };
 		3D87D8431B1852120046BD60 /* NSMutableArray+convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D87D83B1B1852120046BD60 /* NSMutableArray+convenience.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3D87D8441B1852120046BD60 /* UIColor+expanded.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D87D83D1B1852120046BD60 /* UIColor+expanded.m */; };
@@ -378,6 +380,10 @@
 		3D7DF2031B6A550E00FCF8FE /* TeetimeData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeetimeData.m; sourceTree = "<group>"; };
 		3D7DF2051B6A551B00FCF8FE /* Teetime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Teetime.h; sourceTree = "<group>"; };
 		3D7DF2061B6A551B00FCF8FE /* Teetime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Teetime.m; sourceTree = "<group>"; };
+		3D7DF2081B6CABEE00FCF8FE /* Teetime+Compare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Teetime+Compare.h"; sourceTree = "<group>"; };
+		3D7DF2091B6CABEE00FCF8FE /* Teetime+Compare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Teetime+Compare.m"; sourceTree = "<group>"; };
+		3D7DF20B1B6F5A2200FCF8FE /* NSArray+BinarySearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+BinarySearch.h"; sourceTree = "<group>"; };
+		3D7DF20C1B6F5A2200FCF8FE /* NSArray+BinarySearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+BinarySearch.m"; sourceTree = "<group>"; };
 		3D87D8381B1852120046BD60 /* NSDate+convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+convenience.h"; sourceTree = "<group>"; };
 		3D87D8391B1852120046BD60 /* NSDate+convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+convenience.m"; sourceTree = "<group>"; };
 		3D87D83A1B1852120046BD60 /* NSMutableArray+convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+convenience.h"; sourceTree = "<group>"; };
@@ -631,6 +637,8 @@
 		3D1964021B130E3B00766CFC /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				3D7DF20B1B6F5A2200FCF8FE /* NSArray+BinarySearch.h */,
+				3D7DF20C1B6F5A2200FCF8FE /* NSArray+BinarySearch.m */,
 				3D1C8E661B3BFDBE004AAD30 /* WEPopover */,
 				3DA70A371B3972B900D3ABEC /* UIBarButtonItem+Badge */,
 				3D87D8371B1852120046BD60 /* VurigCalendar */,
@@ -1198,6 +1206,8 @@
 				3D7DF2031B6A550E00FCF8FE /* TeetimeData.m */,
 				3D7DF2051B6A551B00FCF8FE /* Teetime.h */,
 				3D7DF2061B6A551B00FCF8FE /* Teetime.m */,
+				3D7DF2081B6CABEE00FCF8FE /* Teetime+Compare.h */,
+				3D7DF2091B6CABEE00FCF8FE /* Teetime+Compare.m */,
 			);
 			path = TeetimeData;
 			sourceTree = "<group>";
@@ -1941,6 +1951,7 @@
 				3DCA44CE1B26CB3400B66BD2 /* EventWeather.m in Sources */,
 				3D1C8EAF1B3D36C9004AAD30 /* EventHeaderView.m in Sources */,
 				3DC116231B2EF4AD00E83F4F /* APContact+convenience.m in Sources */,
+				3D7DF20A1B6CABEE00FCF8FE /* Teetime+Compare.m in Sources */,
 				3D1CB1061B691563005C1E19 /* TeeTimesViewController.m in Sources */,
 				3D613B861B44191B00F7DEDA /* ScoreSelectionView.m in Sources */,
 				880A97DD1B2F0ED4001D97F0 /* FoodBevCartCell.m in Sources */,
@@ -1997,6 +2008,7 @@
 				3D1CB0ED1B691563005C1E19 /* ClubHouseViewController.m in Sources */,
 				3D87D8441B1852120046BD60 /* UIColor+expanded.m in Sources */,
 				88EBBAE61B4D108400AA6688 /* TeeTimeBookingCell.m in Sources */,
+				3D7DF20D1B6F5A2200FCF8FE /* NSArray+BinarySearch.m in Sources */,
 				88573E1E1B4528280060929C /* RoundPlayerCell.m in Sources */,
 				88B23C1C1B16E69D00988908 /* CourseDepartmentCell.m in Sources */,
 				3DD47A691B4A6099005DE325 /* Teebox.m in Sources */,

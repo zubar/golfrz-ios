@@ -32,4 +32,9 @@
 
 + (NSDate *)NSDateForRFC3339DateTimeString:(NSString *)rfc3339DateTimeString;
 
+-(NSDate *)toLocalTime;
+-(NSDate *)toGlobalTime;
+-(NSString *)serverFormatDate;
+-(NSDate *)dateWithTimeComponentsZeroSet;
+
 @end

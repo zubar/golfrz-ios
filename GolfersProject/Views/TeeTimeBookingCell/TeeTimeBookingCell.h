@@ -9,8 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @interface TeeTimeBookingCell : UITableViewCell
+
 @property (strong, nonatomic) IBOutlet UILabel *lblTime;
-- (IBAction)btnBookTapped:(UIButton *)sender;
 @property (strong, nonatomic) IBOutlet UITextField *txtPlayers;
+
+@property (weak, nonatomic) IBOutlet UIButton *btnBookTeetime;
+
+- (void)setDidTapButtonBlock:(void (^)(id sender))didTapButtonBlock;
 
 @end
