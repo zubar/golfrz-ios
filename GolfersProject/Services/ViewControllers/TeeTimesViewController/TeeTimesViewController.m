@@ -93,6 +93,7 @@
      */
     NSDate * start = [NSDate NSDateForRFC3339DateTimeString:@"2015-07-13T06:00:00.540Z"];
     NSDate * end = [NSDate NSDateForRFC3339DateTimeString:@"2015-07-13T18:00:00.540Z"];
+    
     [self loadTeetimesStartdate:start endDate:end subCourse:[NSNumber numberWithInt:1] completion:^(NSArray * bookedTeeTimes) {
 
         

@@ -25,6 +25,9 @@ PODS:
     - APAddressBook/Core (= 0.1.10)
   - APAddressBook/Core (0.1.10)
   - CMPopTipView (2.2.0)
+  - JSQMessagesViewController (7.1.0):
+    - JSQSystemSoundPlayer (~> 2.0.1)
+  - JSQSystemSoundPlayer (2.0.1)
   - Mantle (1.5.4):
     - Mantle/extobjc (= 1.5.4)
   - Mantle/extobjc (1.5.4)
@@ -44,6 +47,7 @@ DEPENDENCIES:
   - AFNetworking (~> 2.5)
   - APAddressBook
   - CMPopTipView (~> 2.2.0)
+  - JSQMessagesViewController
   - Overcoat (~> 2.0)
   - SDWebImage (~> 3.7)
 
@@ -52,6 +56,8 @@ SPEC CHECKSUMS:
   AFNetworking: fefbce9660acb17f48ae0011292d4da0f457bf36
   APAddressBook: fc2356452e1319ddfcee504034038984397c7d9f
   CMPopTipView: a0a88404b9f46a5cfc16ce54bdb1b9bf9acb9aff
+  JSQMessagesViewController: ca11f86fa68ca70835f05e169df9244147c1dc40
+  JSQSystemSoundPlayer: c5850e77a4363ffd374cd851154b9af93264ed8d
   Mantle: 60acd0cd363e27d945bda0a6b8e90577112d28f3
   Overcoat: a8d02b26f11e72ca10b4d8d786f6df83b3277b28
   SDWebImage: 71b7cdc1d1721d6a82ed62889030225f2c249e29
