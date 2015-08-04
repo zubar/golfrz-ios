@@ -8,7 +8,6 @@
 #import <UIKit/UIKit.h>
 #import "BaseViewController.h"
 
-@interface CourseUpdatesViewController : BaseViewController
-
+@interface CourseUpdatesViewController : BaseViewController<UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tblUpdates;
 @end

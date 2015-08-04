@@ -16,4 +16,11 @@
                  roundId:(NSNumber *)roundId
                  success:(void (^)(bool status, id roundId))successBlock
                  failure:(void (^)(bool status, GolfrzError * error))failureBlock;
-@end
+
+
++(void)getScoreCardForRoundId:(NSNumber *)roundId
+                    subCourse:(NSNumber *)subCourseId
+                      success:(void (^)(bool status, id responseObject))successBlock
+                      failure:(void (^)(bool status, NSError * error))failureBlock;
+
+    @end

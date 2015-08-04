@@ -99,7 +99,9 @@
             attributes.frame = CGRectIntegral(CGRectMake(xOffset, yOffset, itemSize.width, itemSize.height));
             
             
-        
+            for (int i = 0; i <=3; i++){
+                
+            }
             
             
             
@@ -121,6 +123,8 @@
             else if ((section == 0 || index == 0 ) || (section == 0 || index == 1 ) || (section == 0 || index == 2) || (section == 0 || index == 3)) {
                 attributes.zIndex = 1023; // Set this value for the first row or section or second column in order to set visible over the rest of the items
             }
+            
+            
             if (section == 0) {
                 CGRect frame = attributes.frame;
                 frame.origin.y = self.collectionView.contentOffset.y;

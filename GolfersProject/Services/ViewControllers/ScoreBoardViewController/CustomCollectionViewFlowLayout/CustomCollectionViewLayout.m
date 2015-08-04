@@ -7,12 +7,18 @@
 //
 
 #import "CustomCollectionViewLayout.h"
+#import "ScoreBoardManager.h"
 
 #define INDEX_LIMIT 2
+#define SPACES_BETWEEN_CELLS 34
 
-#define NUMBEROFCOLUMNS 18
+//#define NUMBEROFCOLUMNS 12
 
-@interface CustomCollectionViewLayout ()
+@interface CustomCollectionViewLayout (){
+    
+    NSUInteger numberOfColumns;
+    
+}
 @property (strong, nonatomic) NSMutableArray *itemAttributes;
 @property (strong, nonatomic) NSMutableArray *itemsSize;
 @property (nonatomic, assign) CGSize contentSize;
@@ -27,6 +33,8 @@
     }
     
     //NSUInteger indexOffSet = 0;
+    NSUInteger noOfStickyColumns = [[ScoreBoardManager sharedScoreBoardManager].scoreCard.teeBoxCount integerValue] + 2;
+    numberOfColumns = [ScoreBoardManager sharedScoreBoardManager].numberOfItems;
     NSUInteger column = 0; // Current column inside row
     CGFloat xOffset = 0.0;
     CGFloat yOffset = 0.0;
@@ -41,7 +49,7 @@
         for (int section = 0; section < [self.collectionView numberOfSections]; section++) {
             NSUInteger numberOfItems = [self.collectionView numberOfItemsInSection:section];
             for (NSUInteger index = 0; index < numberOfItems; index++) {
-                if ((section != 0) && (index != 0 && index != 1 && index!= 2 && index!= 3)) { // This is a content cell that shouldn't be sticked
+             if ((section != 0) && (index > noOfStickyColumns)) { // This is a content cell that shouldn't be sticked
                     continue;
                 }
                 
@@ -53,15 +61,15 @@
                     
                 }
                 
-                for (int i = 0; i <= 3; i++) {
+                for (int i = 0; i <= noOfStickyColumns; i++) {
                     if (index == i){
                         CGRect frame = attributes.frame;
                      if (index == 0) {
                             frame.origin.x = self.collectionView.contentOffset.x;
                         }else if (index == 1){
-                            frame.origin.x = self.collectionView.contentOffset.x + (index * 55);
+                            frame.origin.x = self.collectionView.contentOffset.x + (index * SPACES_BETWEEN_CELLS);
                         }else{
-                            frame.origin.x = self.collectionView.contentOffset.x + 55 + ((index -1) * 45);
+                            frame.origin.x = self.collectionView.contentOffset.x + SPACES_BETWEEN_CELLS + ((index -1) * SPACES_BETWEEN_CELLS);
                         }
                         
                         attributes.frame = frame;
@@ -82,14 +90,14 @@
     // NSUInteger numberOfItems = [self.collectionView numberOfItemsInSection:section];
     
     // We calculate the item size of each column
-    if (self.itemsSize.count != NUMBEROFCOLUMNS) {
+    if (self.itemsSize.count != numberOfColumns) {
         [self calculateItemsSize];
     }
     
     // We loop through all items
     for (int section = 0; section < [self.collectionView numberOfSections]; section++) {
         NSMutableArray *sectionAttributes = [@[] mutableCopy];
-        for (NSUInteger index = 0; index < NUMBEROFCOLUMNS; index++) {
+        for (NSUInteger index = 0; index < numberOfColumns; index++) {
             CGSize itemSize = [self.itemsSize[index] CGSizeValue];
             
             // We create the UICollectionViewLayoutAttributes object for each item and add it to our array.
@@ -99,65 +107,49 @@
             attributes.frame = CGRectIntegral(CGRectMake(xOffset, yOffset, itemSize.width, itemSize.height));
             
             
-            for (int i = 0; i <=3; i++){
-                
+            for (int i = 0; i <= noOfStickyColumns; i++){
+                if ((section == 0 && index == i)){
+                    attributes.zIndex = 1024;
+                    break;
+                }else {
+                    for (int j = 0; j <= noOfStickyColumns; j++) {
+                        if ((section == 0 || index == j)) {
+                            attributes.zIndex = 1023;
+                            break;
+                        }
+                    }
+                }
             }
-            
-            
-            
-            if ((section == 0 && index == 0) )   {
-                attributes.zIndex = 1024; // Set this value for the first item (Sec0Row0) in order to make it visible over first column and first row
-            }
-            else if (section == 0 && index == 1)
-            {
-                attributes.zIndex = 1024; // Set this value for the second column (Sec0Row1) in order to make it visible
-            }
-            else if (section == 0 && index == 2)
-            {
-                attributes.zIndex = 1024;
-            }
-            else if (section == 0 && index == 3)
-            {
-                attributes.zIndex = 1024;
-            }
-            else if ((section == 0 || index == 0 ) || (section == 0 || index == 1 ) || (section == 0 || index == 2) || (section == 0 || index == 3)) {
-                attributes.zIndex = 1023; // Set this value for the first row or section or second column in order to set visible over the rest of the items
-            }
-            
             
             if (section == 0) {
                 CGRect frame = attributes.frame;
                 frame.origin.y = self.collectionView.contentOffset.y;
                 attributes.frame = frame; // Stick to the top
             }
-            if (index == 0) {
-                CGRect frame = attributes.frame;
-                frame.origin.x = self.collectionView.contentOffset.x;
-                attributes.frame = frame; // Stick to the left
-            }
-            if (index == 1) {
-                CGRect frame = attributes.frame;
-                frame.origin.x = self.collectionView.contentOffset.x+55;
-                attributes.frame = frame; // Stick to the left
-            }
-            if (index == 2) {
-                CGRect frame = attributes.frame;
-                frame.origin.x = self.collectionView.contentOffset.x+55+45;
-                attributes.frame = frame; // Stick to the left
-            }
-            if (index == 3) {
-                CGRect frame = attributes.frame;
-                frame.origin.x = self.collectionView.contentOffset.x+55+45+45;
-                attributes.frame = frame; // Stick to the left
-            }
             
+            for (int i = 0; i <= noOfStickyColumns; i++) {
+                if (index == i){
+                    CGRect frame = attributes.frame;
+                    if (index == 0) {
+                        frame.origin.x = self.collectionView.contentOffset.x;
+                    }else if (index == 1){
+                        frame.origin.x = self.collectionView.contentOffset.x + (index * SPACES_BETWEEN_CELLS);
+                    }else{
+                        frame.origin.x = self.collectionView.contentOffset.x + SPACES_BETWEEN_CELLS + ((index -1) * SPACES_BETWEEN_CELLS);
+                    }
+                    
+                    attributes.frame = frame;
+                    
+                }
+            }
+     
             [sectionAttributes addObject:attributes];
             
             xOffset = xOffset+itemSize.width;
             column++;
             
             // Create a new row if this was the last column
-            if (column == NUMBEROFCOLUMNS) {
+            if (column == numberOfColumns) {
                 if (xOffset > contentWidth) {
                     contentWidth = xOffset;
                 }
@@ -206,46 +198,17 @@
 
 - (CGSize)sizeForItemWithColumnIndex:(NSUInteger)columnIndex
 {
-    NSString *text;
-    switch (columnIndex) { // This only makes sense if the size of the items should be different
-        case 0:
-            text = @"Col 0";
-            break;
-        case 1:
-            text = @"Col 1";
-            break;
-        case 2:
-            text = @"Col 2";
-            break;
-        case 3:
-            text = @"Col 3";
-            break;
-        case 4:
-            text = @"Col 4";
-            break;
-        case 5:
-            text = @"Col 5";
-            break;
-        case 6:
-            text = @"Col 6";
-            break;
-        case 7:
-            text = @"Col 7";
-            break;
-            
-        default:
-            break;
-    }
-    CGSize size = [text sizeWithAttributes: @{NSFontAttributeName:[UIFont fontWithName:@"HelveticaNeue" size:15]}];
-    if (columnIndex == 0) {
-        size.width += 12; // In our design the first column should be the widest one
-    }
-    return CGSizeMake([@(size.width + 9) floatValue], 30); // Extra space of 9px for all the items
+    //NSString *text = [NSString stringWithFormat:@"Col %lu", (unsigned long)columnIndex];
+  
+    //CGSize size = [text sizeWithAttributes: @{NSFontAttributeName:[UIFont fontWithName:@"HelveticaNeue" size:10]}];
+
+    return CGSizeMake(34, 30);
+    //return CGSizeMake([@(size.width + 9) floatValue], 30); // Extra space of 9px for all the items
 }
 
 - (void)calculateItemsSize
 {
-    for (NSUInteger index = 0; index < NUMBEROFCOLUMNS; index++) {
+    for (NSUInteger index = 0; index < numberOfColumns; index++) {
         if (self.itemsSize.count <= index) {
             CGSize itemSize = [self sizeForItemWithColumnIndex:index];
             NSValue *itemSizeValue = [NSValue valueWithCGSize:itemSize];

@@ -8,9 +8,14 @@
 
 #import "ScoreBoardViewController.h"
 #import "ScoreBoardManager.h"
-#import "ScoreBoardParentCell.h"
+#import "ScoreboardServices.h"
+#import "ScoreCard.h"
+#import "MBProgressHUD.h"
+@interface ScoreBoardViewController (){
+    
+    NSUInteger numberOfLeftColumns;
+}
 
-@interface ScoreBoardViewController ()
 
 @end
 
@@ -18,65 +23,87 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    //_parentScrollVIew.contentSize = CGSizeMake(320, 700);
-//    _rightCollectionView.contentSize = CGSizeMake(320, 400);
- //   _leftCollectionView.contentSize = CGSizeMake(320, 700);
-    [ScoreBoardManager sharedScoreBoardManager].numberOfItems = 18;
-    [ScoreBoardManager sharedScoreBoardManager].numberOfSections = 100;
+
+
+    [ScoreBoardManager sharedScoreBoardManager].numberOfSections = 0;
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
+    
+    [ScoreboardServices getScoreCardForRoundId:[NSNumber numberWithInt:466] subCourse:[NSNumber numberWithInt:1] success:^(bool status, id responseObject) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        
+        ScoreCard *scoreCard = [[ScoreCard alloc] initWithDictionary:responseObject];
+        
+        [ScoreBoardManager sharedScoreBoardManager].numberOfItems = (int)scoreCard.holesArray.count;
+        [ScoreBoardManager sharedScoreBoardManager].numberOfSections = 100;
+        [ScoreBoardManager sharedScoreBoardManager].scoreCard = scoreCard;
+        
+        [_rightCollectionView reloadData];
+        
+
+    } failure:^(bool status, NSError *error) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        NSLog(@"Failed");
+    }];
+    numberOfLeftColumns = [[ScoreBoardManager sharedScoreBoardManager].scoreCard.teeBoxCount intValue] + 2;
 }
 
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+
     if (collectionView == _leftCollectionView)
     {
      
         return 0;
     }
-    return 18;
+    return [ScoreBoardManager sharedScoreBoardManager].numberOfSections;
     
 }
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
+
     if (collectionView == _leftCollectionView)
     {
         return 0;
     }
-    return 100;
+    return [ScoreBoardManager sharedScoreBoardManager].numberOfItems;
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    if (collectionView == _leftCollectionView) {
+    UICollectionViewCell *cell = nil;
+    if (indexPath.section == 0) {
         
-        UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ParentCell" forIndexPath:indexPath];
+        cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"headerCell" forIndexPath:indexPath];
         if (cell == nil)
         {
             cell = [[UICollectionViewCell alloc]init];
         }
-        ScoreBoardParentCell *customCell = (ScoreBoardParentCell *)cell;
-//        if (indexPath.section == 0) {
-//            //customCell.backgroundColor = [UIColor darkGrayColor];
-//        }else{
-//            //customCell.backgroundColor = [UIColor colorWithRed:63/255 green:63/255 blue:65/255 alpha:1];
-//            customCell.backgroundColor = [UIColor darkGrayColor];
-//        }
-        return customCell;
+    }
+    else
+    {
+        cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"rightParentCell" forIndexPath:indexPath];
+        if (cell == nil)
+        {
+            cell = [[UICollectionViewCell alloc]init];
+        }
     }
     
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"rightParentCell" forIndexPath:indexPath];
-    if (cell == nil)
+    
+    if (indexPath.row > numberOfLeftColumns)
     {
-        cell = [[UICollectionViewCell alloc]init];
+        NSLog(@"Index-Path:%@ row:%ld  item:%ld", indexPath, (long)indexPath.row, (long)indexPath.item);
+        cell.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"leftColorImage"]];
+    }else{
+        //cell.backgroundColor = [UIColor colorWithRed:51/255 green:52/255 blue:54/255 alpha:1];
+        cell.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"rightColorImage"]];
     }
-//    ScoreBoardParentCell *customCell = (ScoreBoardParentCell *)cell;
-//    if (indexPath.section == 0) {
-//        //customCell.backgroundColor = [UIColor darkGrayColor];
-//    }else{
-//        //customCell.backgroundColor = [UIColor colorWithRed:63/255 green:63/255 blue:65/255 alpha:1];
-//        customCell.backgroundColor = [UIColor darkGrayColor];
-//    }
+
     return cell;
+}
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"Clicked");
 }
 /*
 #pragma mark - Navigation
