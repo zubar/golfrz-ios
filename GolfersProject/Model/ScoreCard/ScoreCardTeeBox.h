@@ -11,5 +11,7 @@
 @interface ScoreCardTeeBox : NSObject
 
 @property(nonatomic,strong)NSNumber *handiCap;
+@property(nonatomic,strong)NSString *name;
+@property(nonatomic,strong)NSString *color;
 -(instancetype)initWithDictionary:(NSDictionary *)dictionary;
 @end

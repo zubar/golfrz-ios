@@ -14,13 +14,35 @@
 {
     if (self = [super init]) {
         
-        /*"id": 25,
-        "first_name": "inviter",
-        "handicap": 7
+        /*
+         {
+         "tee_box" =     {
+         color = ff0000;
+         name = Blue;
+         };
+         user =     {
+         "first_name" = inviter;
+         handicap = 7;
+         id = 25;
+         "last_name" = test;
+         };
+         "user_id" = 25;
+         }
+
          */
-        _userId = [[dictionary objectForKey:@"id"] isKindOfClass:[NSNull class]] ?nil :[dictionary objectForKey:@"id"];
-        _firstName = [[dictionary objectForKey:@"first_name"] isKindOfClass:[NSNull class]] ?nil :[dictionary objectForKey:@"first_name"];
-        _handiCap = [[dictionary objectForKey:@"handicap"] isKindOfClass:[NSNull class]] ?nil :[dictionary objectForKey:@"handicap"];
+
+        NSDictionary *userDictionary = [[dictionary objectForKey:@"user"] isKindOfClass:[NSNull class]] ?nil :[dictionary objectForKey:@"user"];
+        if (userDictionary) {
+        
+            _userId = [[userDictionary objectForKey:@"id"] isKindOfClass:[NSNull class]] ?nil :[userDictionary objectForKey:@"id"];
+            _firstName = [[userDictionary objectForKey:@"first_name"] isKindOfClass:[NSNull class]] ?nil :[userDictionary objectForKey:@"first_name"];
+            _handiCap = [[userDictionary objectForKey:@"handicap"] isKindOfClass:[NSNull class]] ?nil :[userDictionary objectForKey:@"handicap"];
+            
+        }
+        
+        NSDictionary *teeBoxDict = [[dictionary objectForKey:@"tee_box"] isKindOfClass:[NSNull class]] ?nil :[dictionary objectForKey:@"tee_box"];
+        
+        _scoreCardTeeBox = [[ScoreCardTeeBox alloc] initWithDictionary:teeBoxDict];
         
     }
     return self;
