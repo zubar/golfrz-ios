@@ -12,7 +12,11 @@
 #import "ScoreboardServices.h"
 #import "ScoreCard.h"
 #import "MBProgressHUD.h"
-@interface ScoreBoardViewController ()
+@interface ScoreBoardViewController (){
+    
+    NSUInteger numberOfLeftColumns;
+}
+
 
 @end
 
@@ -31,8 +35,9 @@
         
         ScoreCard *scoreCard = [[ScoreCard alloc] initWithDictionary:responseObject];
         
-        [ScoreBoardManager sharedScoreBoardManager].numberOfItems = scoreCard.holesArray.count;
+        [ScoreBoardManager sharedScoreBoardManager].numberOfItems = (int)scoreCard.holesArray.count;
         [ScoreBoardManager sharedScoreBoardManager].numberOfSections = 100;
+        [ScoreBoardManager sharedScoreBoardManager].scoreCard = scoreCard;
         
         [_rightCollectionView reloadData];
 
@@ -42,6 +47,8 @@
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         NSLog(@"Failed");
     }];
+    
+    numberOfLeftColumns = [[ScoreBoardManager sharedScoreBoardManager].scoreCard.teeBoxCount intValue] + 2;
 }
 
 
@@ -52,7 +59,7 @@
      
         return 0;
     }
-    return [ScoreBoardManager sharedScoreBoardManager].numberOfItems;
+    return [ScoreBoardManager sharedScoreBoardManager].numberOfSections;
     
 }
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
@@ -62,7 +69,7 @@
     {
         return 0;
     }
-    return [ScoreBoardManager sharedScoreBoardManager].numberOfSections;
+    return [ScoreBoardManager sharedScoreBoardManager].numberOfItems;
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -86,7 +93,7 @@
     }
     
     
-    if (indexPath.row > 5)
+    if (indexPath.row > numberOfLeftColumns)
     {
         NSLog(@"Index-Path:%@ row:%ld  item:%ld", indexPath, (long)indexPath.row, (long)indexPath.item);
         cell.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"leftColorImage"]];

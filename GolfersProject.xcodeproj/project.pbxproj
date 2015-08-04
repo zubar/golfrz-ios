@@ -160,10 +160,11 @@
 		88024F6C1AD29134004AC260 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88024F6A1AD29134004AC260 /* Main.storyboard */; };
 		88024F6E1AD29134004AC260 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88024F6D1AD29134004AC260 /* Images.xcassets */; };
 		88024F7D1AD29134004AC260 /* GolfersProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 88024F7C1AD29134004AC260 /* GolfersProjectTests.m */; };
-		8806637B1B6260B700207650 /* ScoreBoardParentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8806637A1B6260B700207650 /* ScoreBoardParentCell.m */; };
 		880A97DD1B2F0ED4001D97F0 /* FoodBevCartCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 880A97DC1B2F0ED4001D97F0 /* FoodBevCartCell.m */; };
 		88243AF61B28437C00E600D6 /* FoodBevViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88243AF51B28437C00E600D6 /* FoodBevViewCell.m */; };
 		88255AE91B6FA9FB0089644F /* CourseUpdateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88255AE81B6FA9FB0089644F /* CourseUpdateCell.m */; };
+		88255AEE1B70AF620089644F /* ScoreBoardHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88255AED1B70AF620089644F /* ScoreBoardHeaderCell.m */; };
+		88255AF11B70AF790089644F /* ScoreBoardBodyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88255AF01B70AF790089644F /* ScoreBoardBodyCell.m */; };
 		88573E1E1B4528280060929C /* RoundPlayerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88573E1D1B4528280060929C /* RoundPlayerCell.m */; };
 		88573E2A1B4551900060929C /* RoundInviteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88573E291B4551900060929C /* RoundInviteCell.m */; };
 		885CB0441B09BA9D00AD2A7B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 885CB0251B09BA9D00AD2A7B /* AppDelegate.m */; };
@@ -475,14 +476,16 @@
 		88024F761AD29134004AC260 /* GolfersProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GolfersProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		88024F7B1AD29134004AC260 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88024F7C1AD29134004AC260 /* GolfersProjectTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GolfersProjectTests.m; sourceTree = "<group>"; };
-		880663791B6260B700207650 /* ScoreBoardParentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreBoardParentCell.h; sourceTree = "<group>"; };
-		8806637A1B6260B700207650 /* ScoreBoardParentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreBoardParentCell.m; sourceTree = "<group>"; };
 		880A97DB1B2F0ED4001D97F0 /* FoodBevCartCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodBevCartCell.h; sourceTree = "<group>"; };
 		880A97DC1B2F0ED4001D97F0 /* FoodBevCartCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodBevCartCell.m; sourceTree = "<group>"; };
 		88243AF41B28437C00E600D6 /* FoodBevViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodBevViewCell.h; sourceTree = "<group>"; };
 		88243AF51B28437C00E600D6 /* FoodBevViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodBevViewCell.m; sourceTree = "<group>"; };
 		88255AE71B6FA9FB0089644F /* CourseUpdateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseUpdateCell.h; sourceTree = "<group>"; };
 		88255AE81B6FA9FB0089644F /* CourseUpdateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseUpdateCell.m; sourceTree = "<group>"; };
+		88255AEC1B70AF620089644F /* ScoreBoardHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreBoardHeaderCell.h; sourceTree = "<group>"; };
+		88255AED1B70AF620089644F /* ScoreBoardHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreBoardHeaderCell.m; sourceTree = "<group>"; };
+		88255AEF1B70AF790089644F /* ScoreBoardBodyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreBoardBodyCell.h; sourceTree = "<group>"; };
+		88255AF01B70AF790089644F /* ScoreBoardBodyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreBoardBodyCell.m; sourceTree = "<group>"; };
 		88573E1C1B4528280060929C /* RoundPlayerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundPlayerCell.h; sourceTree = "<group>"; };
 		88573E1D1B4528280060929C /* RoundPlayerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundPlayerCell.m; sourceTree = "<group>"; };
 		88573E281B4551900060929C /* RoundInviteCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundInviteCell.h; sourceTree = "<group>"; };
@@ -1547,15 +1550,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		880663781B62609700207650 /* ScoreBoardParentCell */ = {
-			isa = PBXGroup;
-			children = (
-				880663791B6260B700207650 /* ScoreBoardParentCell.h */,
-				8806637A1B6260B700207650 /* ScoreBoardParentCell.m */,
-			);
-			path = ScoreBoardParentCell;
-			sourceTree = "<group>";
-		};
 		880A97DA1B2F0E8E001D97F0 /* FoodBevCartCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -1581,6 +1575,24 @@
 				88255AE81B6FA9FB0089644F /* CourseUpdateCell.m */,
 			);
 			path = CourseUpdatesCell;
+			sourceTree = "<group>";
+		};
+		88255AEA1B70AF280089644F /* ScoreBoardBodyCell */ = {
+			isa = PBXGroup;
+			children = (
+				88255AEF1B70AF790089644F /* ScoreBoardBodyCell.h */,
+				88255AF01B70AF790089644F /* ScoreBoardBodyCell.m */,
+			);
+			path = ScoreBoardBodyCell;
+			sourceTree = "<group>";
+		};
+		88255AEB1B70AF360089644F /* ScoreBoardHeaderCell */ = {
+			isa = PBXGroup;
+			children = (
+				88255AEC1B70AF620089644F /* ScoreBoardHeaderCell.h */,
+				88255AED1B70AF620089644F /* ScoreBoardHeaderCell.m */,
+			);
+			path = ScoreBoardHeaderCell;
 			sourceTree = "<group>";
 		};
 		88573E1B1B4528040060929C /* RoundPlayerCell */ = {
@@ -1715,8 +1727,9 @@
 		889872C71B13237F00D3C0E9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				88255AEB1B70AF360089644F /* ScoreBoardHeaderCell */,
+				88255AEA1B70AF280089644F /* ScoreBoardBodyCell */,
 				88255AE61B6FA9FB0089644F /* CourseUpdatesCell */,
-				880663781B62609700207650 /* ScoreBoardParentCell */,
 				887C7AB01B563BC700F1AC30 /* AddRoundPlayersView */,
 				88EBBAE31B4D106600AA6688 /* TeeTimeBookingCell */,
 				88C4EDB31B4A721100519D3B /* HoleMapCell */,
@@ -1975,6 +1988,7 @@
 				3D87D8431B1852120046BD60 /* NSMutableArray+convenience.m in Sources */,
 				88573E2A1B4551900060929C /* RoundInviteCell.m in Sources */,
 				77BBE9131B6B9D32004D1C86 /* ScoreCardHole.m in Sources */,
+				88255AEE1B70AF620089644F /* ScoreBoardHeaderCell.m in Sources */,
 				3D221F8C1B4BEB4600CF79E4 /* DropdownView.m in Sources */,
 				3D00B59E1B61161800FA2C19 /* Round.m in Sources */,
 				3D1CB0E81B691563005C1E19 /* AddGuestViewController.m in Sources */,
@@ -2064,6 +2078,7 @@
 				3D87D8421B1852120046BD60 /* NSDate+convenience.m in Sources */,
 				3DA70A3D1B3972B900D3ABEC /* UIButton+Badge.m in Sources */,
 				3D1CB0F01B691563005C1E19 /* EventAdminViewController.m in Sources */,
+				88255AF11B70AF790089644F /* ScoreBoardBodyCell.m in Sources */,
 				3DF993721B256A4A006EBC39 /* AppDelegate+Push.m in Sources */,
 				3DCA44D31B26CB3400B66BD2 /* StaffType.m in Sources */,
 				3D221F971B5279AC00CF79E4 /* User+convenience.m in Sources */,
@@ -2095,7 +2110,6 @@
 				8890E4D31B307A5500A11BBF /* ContactCell.m in Sources */,
 				3DCA44D21B26CB3400B66BD2 /* StaffMember.m in Sources */,
 				3D1CB0E91B691563005C1E19 /* AddPlayersViewController.m in Sources */,
-				8806637B1B6260B700207650 /* ScoreBoardParentCell.m in Sources */,
 				3DD47A661B4A608C005DE325 /* Hole.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -50,6 +50,9 @@
 }
 
 
+////https://api.myjson.com/bins/2ncny
+//+(void)getTestScoreBoard
+
 #pragma mark - Helper Methods
 
 +(NSDictionary *)paramsScoreForSubCourseId:(NSNumber *)subCourseId roundId:(NSNumber *)roundId{

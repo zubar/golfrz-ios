@@ -7,13 +7,18 @@
 //
 
 #import "CustomCollectionViewLayout.h"
+#import "ScoreBoardManager.h"
 
 #define INDEX_LIMIT 2
 #define SPACES_BETWEEN_CELLS 34
 
-#define NUMBEROFCOLUMNS 12
+//#define NUMBEROFCOLUMNS 12
 
-@interface CustomCollectionViewLayout ()
+@interface CustomCollectionViewLayout (){
+    
+    NSUInteger numberOfColumns;
+    
+}
 @property (strong, nonatomic) NSMutableArray *itemAttributes;
 @property (strong, nonatomic) NSMutableArray *itemsSize;
 @property (nonatomic, assign) CGSize contentSize;
@@ -28,7 +33,8 @@
     }
     
     //NSUInteger indexOffSet = 0;
-    NSUInteger noOfStickyColumns = 5;
+    NSUInteger noOfStickyColumns = [[ScoreBoardManager sharedScoreBoardManager].scoreCard.teeBoxCount integerValue] + 2;
+    numberOfColumns = [ScoreBoardManager sharedScoreBoardManager].numberOfItems;
     NSUInteger column = 0; // Current column inside row
     CGFloat xOffset = 0.0;
     CGFloat yOffset = 0.0;
@@ -84,14 +90,14 @@
     // NSUInteger numberOfItems = [self.collectionView numberOfItemsInSection:section];
     
     // We calculate the item size of each column
-    if (self.itemsSize.count != NUMBEROFCOLUMNS) {
+    if (self.itemsSize.count != numberOfColumns) {
         [self calculateItemsSize];
     }
     
     // We loop through all items
     for (int section = 0; section < [self.collectionView numberOfSections]; section++) {
         NSMutableArray *sectionAttributes = [@[] mutableCopy];
-        for (NSUInteger index = 0; index < NUMBEROFCOLUMNS; index++) {
+        for (NSUInteger index = 0; index < numberOfColumns; index++) {
             CGSize itemSize = [self.itemsSize[index] CGSizeValue];
             
             // We create the UICollectionViewLayoutAttributes object for each item and add it to our array.
@@ -143,7 +149,7 @@
             column++;
             
             // Create a new row if this was the last column
-            if (column == NUMBEROFCOLUMNS) {
+            if (column == numberOfColumns) {
                 if (xOffset > contentWidth) {
                     contentWidth = xOffset;
                 }
@@ -202,7 +208,7 @@
 
 - (void)calculateItemsSize
 {
-    for (NSUInteger index = 0; index < NUMBEROFCOLUMNS; index++) {
+    for (NSUInteger index = 0; index < numberOfColumns; index++) {
         if (self.itemsSize.count <= index) {
             CGSize itemSize = [self sizeForItemWithColumnIndex:index];
             NSValue *itemSizeValue = [NSValue valueWithCGSize:itemSize];

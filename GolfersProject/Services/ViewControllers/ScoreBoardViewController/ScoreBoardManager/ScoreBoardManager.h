@@ -7,10 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ScoreCard.h"
+
 
 @interface ScoreBoardManager : NSObject
 
 + (ScoreBoardManager *)sharedScoreBoardManager;
 @property(assign,nonatomic)int numberOfSections;
 @property(assign,nonatomic)int numberOfItems;
+
+@property(strong, nonatomic)ScoreCard *scoreCard;
+
+
 @end
