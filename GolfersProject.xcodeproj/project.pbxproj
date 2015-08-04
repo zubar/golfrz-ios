@@ -13,6 +13,7 @@
 		3D00B5A51B6748A300FA2C19 /* GameSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D00B5A41B6748A300FA2C19 /* GameSettings.m */; };
 		3D00B5A91B67493100FA2C19 /* PlayerSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D00B5A81B67493100FA2C19 /* PlayerSettings.m */; };
 		3D00B5AD1B68E48000FA2C19 /* ScoreboardServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D00B5AC1B68E48000FA2C19 /* ScoreboardServices.m */; };
+		3D0455B11B7103AC00FFB0E8 /* PostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0455B01B7103AC00FFB0E8 /* PostViewController.m */; };
 		3D16D0841B1C3FFB00A582A3 /* SharedManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D16D0831B1C3FFB00A582A3 /* SharedManager.m */; };
 		3D1963BC1B0CE05700766CFC /* CourseServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1963B81B0CE05700766CFC /* CourseServices.m */; };
 		3D1963BD1B0CE05700766CFC /* UserServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1963BB1B0CE05700766CFC /* UserServices.m */; };
@@ -216,6 +217,8 @@
 		3D00B5A81B67493100FA2C19 /* PlayerSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerSettings.m; sourceTree = "<group>"; };
 		3D00B5AB1B68E47F00FA2C19 /* ScoreboardServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreboardServices.h; sourceTree = "<group>"; };
 		3D00B5AC1B68E48000FA2C19 /* ScoreboardServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreboardServices.m; sourceTree = "<group>"; };
+		3D0455AF1B7103AC00FFB0E8 /* PostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostViewController.h; sourceTree = "<group>"; };
+		3D0455B01B7103AC00FFB0E8 /* PostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostViewController.m; sourceTree = "<group>"; };
 		3D16D0821B1C3FFB00A582A3 /* SharedManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedManager.h; sourceTree = "<group>"; };
 		3D16D0831B1C3FFB00A582A3 /* SharedManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedManager.m; sourceTree = "<group>"; };
 		3D1963B71B0CE05700766CFC /* CourseServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseServices.h; sourceTree = "<group>"; };
@@ -604,6 +607,15 @@
 			path = ScoreboardServices;
 			sourceTree = "<group>";
 		};
+		3D0455AE1B7103AC00FFB0E8 /* PostViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3D0455AF1B7103AC00FFB0E8 /* PostViewController.h */,
+				3D0455B01B7103AC00FFB0E8 /* PostViewController.m */,
+			);
+			path = PostViewController;
+			sourceTree = "<group>";
+		};
 		3D16D0811B1C3FDB00A582A3 /* SharedManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -784,6 +796,7 @@
 		3D1CB08A1B691563005C1E19 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				3D0455AE1B7103AC00FFB0E8 /* PostViewController */,
 				88E9EE591B6A0B4B00F4D90E /* ScoreBoardViewController */,
 				3D1CB08B1B691563005C1E19 /* AddGuestViewController */,
 				3D1CB08E1B691563005C1E19 /* AddPlayersMainViewController */,
@@ -2126,6 +2139,7 @@
 				3D1CB0EA1B691563005C1E19 /* BaseViewController.m in Sources */,
 				3D221F941B52797300CF79E4 /* User.m in Sources */,
 				3D1C8E761B3BFDBE004AAD30 /* WETouchableView.m in Sources */,
+				3D0455B11B7103AC00FFB0E8 /* PostViewController.m in Sources */,
 				88255AE91B6FA9FB0089644F /* CourseUpdateCell.m in Sources */,
 				3D1CB0EF1B691563005C1E19 /* CourseUpdatesViewController.m in Sources */,
 				77BBE9161B6BA9E1004D1C86 /* ScoreCardTeeBox.m in Sources */,
@@ -2179,7 +2193,6 @@
 				3DCA44D21B26CB3400B66BD2 /* StaffMember.m in Sources */,
 				3D1CB0E91B691563005C1E19 /* AddPlayersViewController.m in Sources */,
 				3D7DF2071B6A551B00FCF8FE /* Teetime.m in Sources */,
-				8806637B1B6260B700207650 /* ScoreBoardParentCell.m in Sources */,
 				3D7DF2211B6FD89F00FCF8FE /* CourseUpdateServices.m in Sources */,
 				3DD47A661B4A608C005DE325 /* Hole.m in Sources */,
 			);

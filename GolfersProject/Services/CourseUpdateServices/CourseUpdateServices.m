@@ -32,10 +32,22 @@
                    failure:(void(^)(bool status, GolfrzError * error))failureBlock{
 
     APIClient * apiClient = [APIClient sharedAPICLient];
-    [apiClient GET:kPostDetailComments parameters:[CourseUpdateServices paramPostId:postId]
+    [apiClient GET:kGetDetailCommentsOnThread parameters:[CourseUpdateServices paramPostId:postId]
         completion:^(id response, NSError *error) {
             if(!error) successBlock(true, [response result]);
             else failureBlock(false, [response result]);
+    }];
+}
+
++(void)postComment:(NSString *)comment
+          onPostId:(NSNumber *)postId
+           success:(void(^)(bool status, id successMessage))successBlock
+           failure:(void(^)(bool status, GolfrzError * error))failureBlock
+{
+    APIClient * apiClient = [APIClient sharedAPICLient];
+    [apiClient POST:KPostComment parameters:[CourseUpdateServices paramAddComment:comment postId:postId] completion:^(id response, NSError *error) {
+        if(!error) successBlock(true, [response result]);
+        else failureBlock(false, [response result]);
     }];
 }
 
@@ -56,4 +68,15 @@
              @"notification_id" : postId
              };
 }
++(NSDictionary *)paramAddComment:(NSString *)comment postId:(NSNumber *)postId{
+   
+    return @{
+             @"app_bundle_id" : kAppBundleId,
+             @"user_agent" : kUserAgent,
+             @"auth_token" : [UserServices currentToken],
+             @"notification_id" : postId,
+             @"comment" : comment
+             };
+}
+
 @end

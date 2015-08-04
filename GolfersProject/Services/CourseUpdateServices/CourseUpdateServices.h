@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 @class CourseUpdate;
 @class Post;
+@class Comment;
+@class GolfrzError;
 
 @interface CourseUpdateServices : NSObject
 
@@ -19,4 +21,12 @@
 +(void)getCommentsOnPostId:(NSNumber *)postId
                    success:(void(^)(bool status, Post * mPost))successBlock
                    failure:(void(^)(bool status, GolfrzError * error))failureBlock;
+
+
++(void)postComment:(NSString *)comment
+          onPostId:(NSNumber *)postId
+           success:(void(^)(bool status, id successMessage))successBlock
+           failure:(void(^)(bool status, GolfrzError * error))failureBlock;
+
+
 @end
