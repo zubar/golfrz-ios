@@ -8,7 +8,6 @@
 
 #import "ScoreBoardViewController.h"
 #import "ScoreBoardManager.h"
-#import "ScoreBoardParentCell.h"
 #import "ScoreboardServices.h"
 #import "ScoreCard.h"
 #import "MBProgressHUD.h"
@@ -29,8 +28,8 @@
     [ScoreBoardManager sharedScoreBoardManager].numberOfSections = 0;
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
-    [ScoreboardServices getScoreCard:^(bool status, id responseObject) {
-       
+    
+    [ScoreboardServices getScoreCardForRoundId:[NSNumber numberWithInt:466] subCourse:[NSNumber numberWithInt:1] success:^(bool status, id responseObject) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         
         ScoreCard *scoreCard = [[ScoreCard alloc] initWithDictionary:responseObject];
@@ -40,14 +39,12 @@
         [ScoreBoardManager sharedScoreBoardManager].scoreCard = scoreCard;
         
         [_rightCollectionView reloadData];
+        
 
-        
     } failure:^(bool status, NSError *error) {
-        
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         NSLog(@"Failed");
     }];
-    
     numberOfLeftColumns = [[ScoreBoardManager sharedScoreBoardManager].scoreCard.teeBoxCount intValue] + 2;
 }
 

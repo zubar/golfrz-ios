@@ -16,6 +16,10 @@
                  success:(void (^)(bool status, id roundId))successBlock
                  failure:(void (^)(bool status, NSError * error))failureBlock;
 
-+(void)getScoreCard:(void (^)(bool status, id responseObject))successBlock
-            failure:(void (^)(bool status, NSError * error))failureBlock;
-@end
+
++(void)getScoreCardForRoundId:(NSNumber *)roundId
+                    subCourse:(NSNumber *)subCourseId
+                      success:(void (^)(bool status, id responseObject))successBlock
+                      failure:(void (^)(bool status, NSError * error))failureBlock;
+
+    @end
