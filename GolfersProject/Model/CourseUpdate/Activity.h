@@ -19,4 +19,5 @@
 @property (copy, nonatomic, readonly) NSNumber * courseId;
 @property (copy, nonatomic, readonly) NSNumber * commentCount;
 
+@property (copy, nonatomic, readonly) NSNumber * isCommentable;
 @end

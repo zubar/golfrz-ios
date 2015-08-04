@@ -21,6 +21,7 @@
              @"title" : @"title",
              @"courseId" : @"course_id",
              @"commentCount" : @"comment_count",
+             @"isCommentable" : @"is_commentable",
              //propertyName : json_key
              };
 }

@@ -8,8 +8,14 @@
 
 #import "CourseUpdatesViewController.h"
 #import "CourseUpdateCell.h"
+#import "CourseUpdateServices.h"
+#import "CourseUpdate.h"
+#import "GolfrzError.h"
+#import "Utilities.h"
+#import "Activity.h"
 
 @interface CourseUpdatesViewController ()
+@property(strong, nonatomic) NSMutableArray * courseUpdates;
 
 @end
 
@@ -18,6 +24,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+     if(!self.courseUpdates) self.courseUpdates = [[NSMutableArray alloc] init];
+    
+    [CourseUpdateServices getCourseUpdates:^(bool status, CourseUpdate *update) {
+        [self.courseUpdates addObjectsFromArray:[update activities]];
+        [self.tblUpdates reloadData];
+    } failure:^(bool status, GolfrzError *error) {
+        [Utilities displayErrorAlertWithMessage:[error errorMessage]];
+    }];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -26,7 +41,7 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 1;
+    return [self.courseUpdates count];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -36,9 +51,13 @@
         customCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CourseUpdateCell"];
     }
     
-    CourseUpdateCell *customViewCell = (CourseUpdateCell *)customCell;
+    Activity * courseActivity = self.courseUpdates[indexPath.row];
     
-    //customViewCell.currentDepartment = [self.courseDepartments objectAtIndexedSubscript:indexPath.row];
+    
+    //self.updateType = self.courseUpdates obje
+    
+    CourseUpdateCell *customViewCell = (CourseUpdateCell *)customCell;
+    [customViewCell.lblUpdateText setText:[courseActivity text]];
     
     
     return customViewCell;

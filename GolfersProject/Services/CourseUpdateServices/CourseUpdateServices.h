@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Abdullah Saeed. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "GolfrzError.h"
 @class CourseUpdate;
 @class Post;
 
