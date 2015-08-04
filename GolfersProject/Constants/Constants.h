@@ -148,7 +148,7 @@ static NSString * const kAppLaunchInvitationReceived = @"AppLaunchDueToRoundInvi
  *  CourseUpdates
  */
 static NSString * const kCourseUpdatesList = @"notifications/view_notification_list";
-static NSString * const kDetailComments = @"notifications/view_notification_comments";
+static NSString * const kPostDetailComments = @"notifications/view_notification_comments";
 
 //================================= Presentation ======================================
 

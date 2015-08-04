@@ -11,6 +11,7 @@
 #import "CourseUpdateServices.h"
 #import "CourseUpdate.h"
 #import "GolfrzError.h"
+#import "Post.h"
 
 @implementation CourseUpdateServices
 
@@ -19,9 +20,22 @@
                 failure:(void(^)(bool status, GolfrzError * error))failureBlock{
     
     APIClient * apiClient = [APIClient sharedAPICLient];
-    [apiClient GET:kCourseUpdatesList parameters:[CourseUpdateServices paramCourseUpdates] completion:^(id response, NSError *error) {
-        if(!error) successBlock(true, [response result]);
-        else failureBlock(false, [response result]);
+    [apiClient GET:kCourseUpdatesList parameters:[CourseUpdateServices paramCourseUpdates]
+        completion:^(id response, NSError *error) {
+            if(!error) successBlock(true, [response result]);
+            else failureBlock(false, [response result]);
+    }];
+}
+
++(void)getCommentsOnPostId:(NSNumber *)postId
+                   success:(void(^)(bool status, Post * mPost))successBlock
+                   failure:(void(^)(bool status, GolfrzError * error))failureBlock{
+
+    APIClient * apiClient = [APIClient sharedAPICLient];
+    [apiClient GET:kPostDetailComments parameters:[CourseUpdateServices paramPostId:postId]
+        completion:^(id response, NSError *error) {
+            if(!error) successBlock(true, [response result]);
+            else failureBlock(false, [response result]);
     }];
 }
 
@@ -31,6 +45,15 @@
              @"app_bundle_id" : kAppBundleId,
              @"user_agent" : kUserAgent,
              @"auth_token" : [UserServices currentToken]
+             };
+}
+
++(NSDictionary *)paramPostId:(NSNumber *)postId{
+    return @{
+             @"app_bundle_id" : kAppBundleId,
+             @"user_agent" : kUserAgent,
+             @"auth_token" : [UserServices currentToken],
+             @"notification_id" : postId
              };
 }
 @end
