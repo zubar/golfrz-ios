@@ -19,6 +19,7 @@
 
 #import "UserServices.h"
 #import "ClubHouseViewController.h"
+#import "Utilities.h"
 
 @interface SplashScreenViewController ()
 
@@ -71,6 +72,11 @@
             [delegate.appDelegateNavController pushViewController:initController animated:YES];
         }
     } failure:^(bool status, NSError * error) {
+        
+        [Utilities checkInternetConnectivityWithAlertCompletion:^(bool status) {
+            if(!status)
+                return ;
+        }];
         // Setting theme color
         [sharedManager setThemeColor:[UIColor colorWithHexString:kDefaultThemeColor]];
         self.navigationController.navigationBar.barTintColor = [[SharedManager sharedInstance] themeColor];

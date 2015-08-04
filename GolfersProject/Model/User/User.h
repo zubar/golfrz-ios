@@ -18,6 +18,6 @@
 @property (copy, nonatomic, readonly) NSString * lastName;
 @property (copy, nonatomic, readonly) NSNumber * handicap;
 
-
+@property (copy, nonatomic, readonly) NSString * imgPath;
 
 @end

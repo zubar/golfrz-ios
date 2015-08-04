@@ -115,6 +115,11 @@
 		3D7DF2071B6A551B00FCF8FE /* Teetime.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7DF2061B6A551B00FCF8FE /* Teetime.m */; };
 		3D7DF20A1B6CABEE00FCF8FE /* Teetime+Compare.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7DF2091B6CABEE00FCF8FE /* Teetime+Compare.m */; };
 		3D7DF20D1B6F5A2200FCF8FE /* NSArray+BinarySearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7DF20C1B6F5A2200FCF8FE /* NSArray+BinarySearch.m */; };
+		3D7DF2121B6FC80500FCF8FE /* CourseUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7DF2111B6FC80500FCF8FE /* CourseUpdate.m */; };
+		3D7DF2151B6FC84200FCF8FE /* Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7DF2141B6FC84200FCF8FE /* Activity.m */; };
+		3D7DF21A1B6FD16400FCF8FE /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7DF2191B6FD16400FCF8FE /* Post.m */; };
+		3D7DF21D1B6FD17500FCF8FE /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7DF21C1B6FD17500FCF8FE /* Comment.m */; };
+		3D7DF2211B6FD89F00FCF8FE /* CourseUpdateServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7DF2201B6FD89F00FCF8FE /* CourseUpdateServices.m */; };
 		3D87D8421B1852120046BD60 /* NSDate+convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D87D8391B1852120046BD60 /* NSDate+convenience.m */; };
 		3D87D8431B1852120046BD60 /* NSMutableArray+convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D87D83B1B1852120046BD60 /* NSMutableArray+convenience.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3D87D8441B1852120046BD60 /* UIColor+expanded.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D87D83D1B1852120046BD60 /* UIColor+expanded.m */; };
@@ -384,6 +389,16 @@
 		3D7DF2091B6CABEE00FCF8FE /* Teetime+Compare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Teetime+Compare.m"; sourceTree = "<group>"; };
 		3D7DF20B1B6F5A2200FCF8FE /* NSArray+BinarySearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+BinarySearch.h"; sourceTree = "<group>"; };
 		3D7DF20C1B6F5A2200FCF8FE /* NSArray+BinarySearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+BinarySearch.m"; sourceTree = "<group>"; };
+		3D7DF2101B6FC80500FCF8FE /* CourseUpdate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseUpdate.h; sourceTree = "<group>"; };
+		3D7DF2111B6FC80500FCF8FE /* CourseUpdate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseUpdate.m; sourceTree = "<group>"; };
+		3D7DF2131B6FC84200FCF8FE /* Activity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Activity.h; sourceTree = "<group>"; };
+		3D7DF2141B6FC84200FCF8FE /* Activity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Activity.m; sourceTree = "<group>"; };
+		3D7DF2181B6FD16400FCF8FE /* Post.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
+		3D7DF2191B6FD16400FCF8FE /* Post.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
+		3D7DF21B1B6FD17500FCF8FE /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
+		3D7DF21C1B6FD17500FCF8FE /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
+		3D7DF21F1B6FD89F00FCF8FE /* CourseUpdateServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseUpdateServices.h; sourceTree = "<group>"; };
+		3D7DF2201B6FD89F00FCF8FE /* CourseUpdateServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseUpdateServices.m; sourceTree = "<group>"; };
 		3D87D8381B1852120046BD60 /* NSDate+convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+convenience.h"; sourceTree = "<group>"; };
 		3D87D8391B1852120046BD60 /* NSDate+convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+convenience.m"; sourceTree = "<group>"; };
 		3D87D83A1B1852120046BD60 /* NSMutableArray+convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+convenience.h"; sourceTree = "<group>"; };
@@ -1203,6 +1218,37 @@
 			path = TeetimeData;
 			sourceTree = "<group>";
 		};
+		3D7DF20F1B6FC7CE00FCF8FE /* CourseUpdate */ = {
+			isa = PBXGroup;
+			children = (
+				3D7DF2101B6FC80500FCF8FE /* CourseUpdate.h */,
+				3D7DF2111B6FC80500FCF8FE /* CourseUpdate.m */,
+				3D7DF2131B6FC84200FCF8FE /* Activity.h */,
+				3D7DF2141B6FC84200FCF8FE /* Activity.m */,
+			);
+			path = CourseUpdate;
+			sourceTree = "<group>";
+		};
+		3D7DF2171B6FD15300FCF8FE /* Post */ = {
+			isa = PBXGroup;
+			children = (
+				3D7DF2181B6FD16400FCF8FE /* Post.h */,
+				3D7DF2191B6FD16400FCF8FE /* Post.m */,
+				3D7DF21B1B6FD17500FCF8FE /* Comment.h */,
+				3D7DF21C1B6FD17500FCF8FE /* Comment.m */,
+			);
+			path = Post;
+			sourceTree = "<group>";
+		};
+		3D7DF21E1B6FD85C00FCF8FE /* CourseUpdateServices */ = {
+			isa = PBXGroup;
+			children = (
+				3D7DF21F1B6FD89F00FCF8FE /* CourseUpdateServices.h */,
+				3D7DF2201B6FD89F00FCF8FE /* CourseUpdateServices.m */,
+			);
+			path = CourseUpdateServices;
+			sourceTree = "<group>";
+		};
 		3D87D8371B1852120046BD60 /* VurigCalendar */ = {
 			isa = PBXGroup;
 			children = (
@@ -1647,6 +1693,8 @@
 		885CB06F1B09F91700AD2A7B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3D7DF2171B6FD15300FCF8FE /* Post */,
+				3D7DF20F1B6FC7CE00FCF8FE /* CourseUpdate */,
 				3D7DF2011B6A54F300FCF8FE /* TeetimeData */,
 				77BBE9071B6B5312004D1C86 /* ScoreCard */,
 				3DDF9BE61B60CA470036C735 /* RoundPlayers */,
@@ -1668,6 +1716,7 @@
 		885CB07C1B0A121300AD2A7B /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				3D7DF21E1B6FD85C00FCF8FE /* CourseUpdateServices */,
 				3D7DF1FD1B6A53B100FCF8FE /* TeetimeServices */,
 				3D00B5AA1B68E3DB00FA2C19 /* ScoreboardServices */,
 				3D00B5A61B6748E000FA2C19 /* PlayerSettings */,
@@ -2048,6 +2097,7 @@
 				88C4EDB61B4A723100519D3B /* HoleMapCell.m in Sources */,
 				77BBE90A1B6B5326004D1C86 /* ScoreCard.m in Sources */,
 				3D1CB1001B691563005C1E19 /* RoundInviteViewController.m in Sources */,
+				3D7DF2151B6FC84200FCF8FE /* Activity.m in Sources */,
 				3D1963BD1B0CE05700766CFC /* UserServices.m in Sources */,
 				3DA7CB881B2B13FC00B5BAFF /* Cart.m in Sources */,
 				3DD9BD0F1B14BE1C00A2F296 /* THCalendarInfo.m in Sources */,
@@ -2093,6 +2143,7 @@
 				3D1CB0FB1B691563005C1E19 /* InviteMainViewController.m in Sources */,
 				3D87D8421B1852120046BD60 /* NSDate+convenience.m in Sources */,
 				3DA70A3D1B3972B900D3ABEC /* UIButton+Badge.m in Sources */,
+				3D7DF21A1B6FD16400FCF8FE /* Post.m in Sources */,
 				3D1CB0F01B691563005C1E19 /* EventAdminViewController.m in Sources */,
 				88255AF11B70AF790089644F /* ScoreBoardBodyCell.m in Sources */,
 				3DF993721B256A4A006EBC39 /* AppDelegate+Push.m in Sources */,
@@ -2113,6 +2164,8 @@
 				3D1CB1071B691563005C1E19 /* UIImageView+RoundedImage.m in Sources */,
 				3DCA44D71B26CB3400B66BD2 /* FoodBeverage.m in Sources */,
 				3D613B6B1B42878A00F7DEDA /* EventAdmin.m in Sources */,
+				3D7DF21D1B6FD17500FCF8FE /* Comment.m in Sources */,
+				3D7DF2121B6FC80500FCF8FE /* CourseUpdate.m in Sources */,
 				3D16D0841B1C3FFB00A582A3 /* SharedManager.m in Sources */,
 				3DA7CB851B2AF0C800B5BAFF /* Order.m in Sources */,
 				3D1963F81B0E1F0500766CFC /* WeatherViewCell.m in Sources */,
@@ -2127,6 +2180,7 @@
 				3D1CB0E91B691563005C1E19 /* AddPlayersViewController.m in Sources */,
 				3D7DF2071B6A551B00FCF8FE /* Teetime.m in Sources */,
 				8806637B1B6260B700207650 /* ScoreBoardParentCell.m in Sources */,
+				3D7DF2211B6FD89F00FCF8FE /* CourseUpdateServices.m in Sources */,
 				3DD47A661B4A608C005DE325 /* Hole.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

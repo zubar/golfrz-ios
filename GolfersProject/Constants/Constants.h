@@ -143,11 +143,25 @@ static NSString * const kInviteeAcceptedInvitation = @"InviteeAcceptedRoundInvit
 static NSString * const kInviteeRejectedInvitation = @"InviteeRejectedRoundInvitation";
 static NSString * const kInvitationReceived = @"InvitationReceivedForRound";
 static NSString * const kAppLaunchInvitationReceived = @"AppLaunchDueToRoundInvitationReceived";
+
+/*
+ *  CourseUpdates
+ */
+static NSString * const kCourseUpdatesList = @"notifications/view_notification_list";
+static NSString * const kDetailComments = @"notifications/view_notification_comments";
+
 //================================= Presentation ======================================
 
 static NSString * const kDefaultThemeColor = @"0xFF0000";
 
+/*
+ * Error Messages
+ */
+static NSString * const kNoInternetErrorTitle = @"Internet Connection Lost !";
+static NSString * const kNoInternetErrorDetial = @"Internet Connection can not be established now, please try again later.";
 
+static NSString * const kFailedToConnectAppServerTitle = @"Failed to Connect App Server !";
+static NSString * const kFailedToConnectAppServerDetail = @"Application server is not responding at the moment, please try again later.";
 
 #endif
 

@@ -18,4 +18,11 @@
                        success:(void(^)(bool status, TeetimeData * dataTees ))successBlock
                        failure:(void (^)(bool status, GolfrzError * error))failureBlock;
 
+
++(void)bookTeeTimeSubcourse:(NSNumber *)subcourseId
+                  playersNo:(NSNumber *)playerCount
+                   bookTime:(NSDate *)bookTime
+                    success:(void(^)(bool status, id response))successBlock
+                    failure:(void(^)(bool status, GolfrzError * error))failureBlock;
+
 @end

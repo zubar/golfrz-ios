@@ -31,6 +31,7 @@
 #import "NSArray+BinarySearch.h"
 #import "Utilities.h"
 
+
 @interface TeeTimesViewController ()
 @property(nonatomic, strong) NSMutableArray * subCourses;
 @property(nonatomic, strong) NSNumber * selectedSubcourseId;
@@ -217,7 +218,7 @@
     }];
     [customViewCell setSelectionStyle:UITableViewCellSelectionStyleNone];
     [customViewCell setDidTapButtonBlock:^(id sender) {
-        // TODO: call book service.
+       // [self bookTeetime:<#(Teetime *)#>];
     }];
     return customViewCell;
 }
@@ -295,6 +296,12 @@
     } failure:^(bool status, GolfrzError *error) {
         [Utilities displayErrorAlertWithMessage:[error errorMessage]];
     }];
+}
+
+-(void)bookTeetime:(Teetime *)teeTime{
+    
+//    [TeetimeServices bookTeeTimeSubcourse:[Teetime i] playersNo:<#(NSNumber *)#> bookTime:<#(NSDate *)#> success:<#^(bool status, id response)successBlock#> failure:<#^(bool status, GolfrzError *error)failureBlock#>]
+//    
 }
 
 -(void)bookTeeTime:(Teetime *)teetime completion:(void(^)(void))completion{
