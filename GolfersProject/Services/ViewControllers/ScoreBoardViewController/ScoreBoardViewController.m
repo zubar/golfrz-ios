@@ -21,6 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+
     [ScoreBoardManager sharedScoreBoardManager].numberOfSections = 0;
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
@@ -45,6 +46,7 @@
 
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+
     if (collectionView == _leftCollectionView)
     {
      
@@ -55,6 +57,7 @@
 }
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
+
     if (collectionView == _leftCollectionView)
     {
         return 0;
@@ -64,36 +67,39 @@
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    if (collectionView == _leftCollectionView) {
+    UICollectionViewCell *cell = nil;
+    if (indexPath.section == 0) {
         
-        UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ParentCell" forIndexPath:indexPath];
+        cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"headerCell" forIndexPath:indexPath];
         if (cell == nil)
         {
             cell = [[UICollectionViewCell alloc]init];
         }
-        ScoreBoardParentCell *customCell = (ScoreBoardParentCell *)cell;
-//        if (indexPath.section == 0) {
-//            //customCell.backgroundColor = [UIColor darkGrayColor];
-//        }else{
-//            //customCell.backgroundColor = [UIColor colorWithRed:63/255 green:63/255 blue:65/255 alpha:1];
-//            customCell.backgroundColor = [UIColor darkGrayColor];
-//        }
-        return customCell;
+    }
+    else
+    {
+        cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"rightParentCell" forIndexPath:indexPath];
+        if (cell == nil)
+        {
+            cell = [[UICollectionViewCell alloc]init];
+        }
     }
     
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"rightParentCell" forIndexPath:indexPath];
-    if (cell == nil)
+    
+    if (indexPath.row > 5)
     {
-        cell = [[UICollectionViewCell alloc]init];
+        NSLog(@"Index-Path:%@ row:%ld  item:%ld", indexPath, (long)indexPath.row, (long)indexPath.item);
+        cell.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"leftColorImage"]];
+    }else{
+        //cell.backgroundColor = [UIColor colorWithRed:51/255 green:52/255 blue:54/255 alpha:1];
+        cell.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"rightColorImage"]];
     }
-//    ScoreBoardParentCell *customCell = (ScoreBoardParentCell *)cell;
-//    if (indexPath.section == 0) {
-//        //customCell.backgroundColor = [UIColor darkGrayColor];
-//    }else{
-//        //customCell.backgroundColor = [UIColor colorWithRed:63/255 green:63/255 blue:65/255 alpha:1];
-//        customCell.backgroundColor = [UIColor darkGrayColor];
-//    }
+
     return cell;
+}
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"Clicked");
 }
 /*
 #pragma mark - Navigation

@@ -7,6 +7,7 @@
 //
 
 #import "CourseUpdatesViewController.h"
+#import "CourseUpdateCell.h"
 
 @interface CourseUpdatesViewController ()
 
@@ -22,6 +23,26 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 1;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    UITableViewCell *customCell = [tableView dequeueReusableCellWithIdentifier:@"CourseUpdateCell"];
+    
+    if (customCell == nil) {
+        customCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CourseUpdateCell"];
+    }
+    
+    CourseUpdateCell *customViewCell = (CourseUpdateCell *)customCell;
+    
+    //customViewCell.currentDepartment = [self.courseDepartments objectAtIndexedSubscript:indexPath.row];
+    
+    
+    return customViewCell;
+    
 }
 
 /*

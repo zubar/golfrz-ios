@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CourseUpdatesViewController : UIViewController
+@interface CourseUpdatesViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
 
 @end
