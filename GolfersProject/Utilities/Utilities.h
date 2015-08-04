@@ -16,4 +16,5 @@
 +(void)displayErrorAlertWithMessage:(NSString *)errmsg;
 +(void)displayErrorAlertWithTitle:(NSString *)title Message:(NSString *)errmsg;
 
++(void)checkInternetConnectivityWithAlertCompletion:(void(^)(bool status))completion;
 @end

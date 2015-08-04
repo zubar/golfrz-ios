@@ -8,6 +8,8 @@
 
 #import "Utilities.h"
 #import <UIKit/UIKit.h>
+#import <AFNetworking/AFNetworkReachabilityManager.h>
+#import "Constants.h"
 
 @implementation Utilities
 
@@ -118,7 +120,34 @@
    [[[UIAlertView alloc] initWithTitle:title message:errmsg delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
 }
 
+/*
+ // If internet connection is available.
++(void)checkInternetConnectivityWithAlertCompletion:(void(^)(bool status))completion{
 
+    AFNetworkReachabilityManager * manager = [AFNetworkReachabilityManager managerForDomain:@"www.google.com"];
+    if(![manager isReachable]){
+        [[[UIAlertView alloc] initWithTitle:kNoInternetErrorTitle message:kNoInternetErrorDetial delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+        completion(false);
+    }else
+        if([manager isReachable]){
+            [Utilities showAppServerReachablityWithAlertCompletion:^(bool status) {
+                completion(status);
+            }];
+        }
+}
+*/
+// If app server is not responding.
++(void)checkInternetConnectivityWithAlertCompletion:(void(^)(bool status))completion{
+    
+    if(![AFNetworkReachabilityManager sharedManager].reachable){
+        [[[UIAlertView alloc] initWithTitle:kNoInternetErrorTitle message:kNoInternetErrorDetial delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+        completion(false);
+    }
+}
+
+- (BOOL)connected {
+    return [AFNetworkReachabilityManager sharedManager].reachable;
+}
 @end
 
 

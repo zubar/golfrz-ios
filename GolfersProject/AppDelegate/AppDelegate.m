@@ -14,6 +14,7 @@
 #import "GameSettings.h"
 #import "Constants.h"
 #import "InvitationManager.h"
+#import <AFNetworking/AFNetworking.h>
 
 #define MAIN_CONTROL_IDENTIFIER @"mainPagingController"
 
@@ -31,8 +32,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    // Start Oberving network status
+    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
+    
     [[UINavigationBar appearance] setTitleVerticalPositionAdjustment:-10.0 forBarMetrics:UIBarMetricsDefault];
-
+    
     
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
     
