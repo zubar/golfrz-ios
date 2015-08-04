@@ -2179,7 +2179,7 @@
                                                                                 <constraint firstAttribute="height" constant="26" id="GGQ-nW-yvd"/>
                                                                                 <constraint firstAttribute="width" constant="26" id="LJ2-ou-0eZ"/>
                                                                             </constraints>
-                                                                            <state key="normal" image="DD60E684-4766-4261-9315-24FF7BBD4D0B">
+                                                                            <state key="normal" image="EC3408CC-5A78-4369-A373-60D76214FAFF">
                                                                                 <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                                             </state>
@@ -2893,7 +2893,7 @@
         <!--Course Updates View Controller-->
         <scene sceneID="yly-Ba-f2c">
             <objects>
-                <viewController id="pvY-Gp-r1l" customClass="CourseUpdatesViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CourseUpdatesViewController" id="pvY-Gp-r1l" customClass="CourseUpdatesViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Puu-Tj-dWC"/>
                         <viewControllerLayoutGuide type="bottom" id="18G-MK-yNC"/>
@@ -3030,6 +3030,9 @@
                         </constraints>
                     </view>
                     <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="tblUpdates" destination="9Iz-AG-oG8" id="bcX-yO-ibg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wE6-fL-geR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -5350,7 +5353,7 @@
                                                                                 <constraint firstAttribute="height" constant="26" id="OaE-ph-eo5"/>
                                                                                 <constraint firstAttribute="width" constant="26" id="S5w-xw-4Ro"/>
                                                                             </constraints>
-                                                                            <state key="normal" image="B1F5D999-319D-4382-AFB5-D4212197DC6A">
+                                                                            <state key="normal" image="5AB6FF6B-618F-49A9-9E93-A62B3658F722">
                                                                                 <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                                             </state>
@@ -5936,7 +5939,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="B1F5D999-319D-4382-AFB5-D4212197DC6A" width="24" height="25">
+        <image name="5AB6FF6B-618F-49A9-9E93-A62B3658F722" width="24" height="25">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -6028,7 +6031,7 @@ AAAAAAAAAAAAE48
 </mutableData>
         </image>
         <image name="ChooseHole_Down" width="88" height="88"/>
-        <image name="DD60E684-4766-4261-9315-24FF7BBD4D0B" width="24" height="25">
+        <image name="EC3408CC-5A78-4369-A373-60D76214FAFF" width="24" height="25">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

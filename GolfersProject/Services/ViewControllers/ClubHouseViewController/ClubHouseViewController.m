@@ -31,6 +31,7 @@
 #import "APContact+convenience.h"
 #import "Constants.h"
 #import "Utilities.h"
+#import "CourseUpdatesViewController.h"
 
 #import "RoundDataServices.h"
 
@@ -56,7 +57,7 @@
     
     UIButton * imageRightButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 10, 22, 22)];
     [imageRightButton setBackgroundImage:[UIImage imageNamed:@"activity_icon"] forState:UIControlStateNormal];
-    [imageRightButton addTarget:self action:nil forControlEvents:UIControlEventTouchUpInside];
+    [imageRightButton addTarget:self action:@selector(btnCourseUpdatesTap) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:imageRightButton];
     self.navigationItem.rightBarButtonItem = rightBarButtonItem;
     
@@ -199,6 +200,13 @@
 }
 
 #pragma mark - Navigation
+
+-(void)btnCourseUpdatesTap{
+
+    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+    CourseUpdatesViewController * controller = [self.storyboard instantiateViewControllerWithIdentifier:@"CourseUpdatesViewController"];
+    [delegate.appDelegateNavController pushViewController:controller animated:YES];
+}
 
 - (IBAction)btnEventsTapped:(id)sender {
     
