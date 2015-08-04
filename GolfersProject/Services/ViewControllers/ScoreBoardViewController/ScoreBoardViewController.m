@@ -11,7 +11,7 @@
 #import "ScoreBoardParentCell.h"
 #import "ScoreboardServices.h"
 #import "ScoreCard.h"
-
+#import "MBProgressHUD.h"
 @interface ScoreBoardViewController ()
 
 @end
@@ -20,21 +20,25 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    //_parentScrollVIew.contentSize = CGSizeMake(320, 700);
-//    _rightCollectionView.contentSize = CGSizeMake(320, 400);
- //   _leftCollectionView.contentSize = CGSizeMake(320, 700);
-    [ScoreBoardManager sharedScoreBoardManager].numberOfItems = 18;
-    [ScoreBoardManager sharedScoreBoardManager].numberOfSections = 100;
+
+    [ScoreBoardManager sharedScoreBoardManager].numberOfSections = 0;
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
     [ScoreboardServices getScoreCard:^(bool status, id responseObject) {
        
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        
         ScoreCard *scoreCard = [[ScoreCard alloc] initWithDictionary:responseObject];
         
+        [ScoreBoardManager sharedScoreBoardManager].numberOfItems = scoreCard.holesArray.count;
+        [ScoreBoardManager sharedScoreBoardManager].numberOfSections = 100;
         
+        [_rightCollectionView reloadData];
+
         
     } failure:^(bool status, NSError *error) {
         
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
         NSLog(@"Failed");
     }];
 }
@@ -46,7 +50,7 @@
      
         return 0;
     }
-    return 18;
+    return [ScoreBoardManager sharedScoreBoardManager].numberOfItems;
     
 }
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
@@ -55,7 +59,7 @@
     {
         return 0;
     }
-    return 100;
+    return [ScoreBoardManager sharedScoreBoardManager].numberOfSections;
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
