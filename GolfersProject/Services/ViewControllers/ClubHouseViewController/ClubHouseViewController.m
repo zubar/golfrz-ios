@@ -39,7 +39,6 @@
 #import "ScoreSelectionView.h"
 #import "InvitationManager.h"
 #import "TeeTimesViewController.h"
-#import "PostViewController.h"
 
 @interface ClubHouseViewController ()
 @property (nonatomic, retain) NSArray * weatherList;
@@ -208,8 +207,6 @@
 //    CourseUpdatesViewController * controller = [self.storyboard instantiateViewControllerWithIdentifier:@"CourseUpdatesViewController"];
 //    [delegate.appDelegateNavController pushViewController:controller animated:YES];
     
-    PostViewController * controller = [self.storyboard instantiateViewControllerWithIdentifier:@"PostViewController"];
-    [delegate.appDelegateNavController pushViewController:controller animated:YES];
 }
 
 - (IBAction)btnEventsTapped:(id)sender {
