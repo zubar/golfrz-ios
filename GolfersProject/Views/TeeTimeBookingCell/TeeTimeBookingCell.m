@@ -9,7 +9,8 @@
 #import "TeeTimeBookingCell.h"
 
 @interface TeeTimeBookingCell ()
-@property (copy, nonatomic) void (^didTapButtonBlock)(id sender);
+@property(copy, nonatomic) void (^didTapButtonBlock)(id sender);
+@property(copy, nonatomic) void (^didTapPlayerCountBtnBlock)(id sender);
 @end
 
 @implementation TeeTimeBookingCell
@@ -27,6 +28,12 @@
 - (void)didTapButton:(id)sender {
     if (self.didTapButtonBlock) {
         self.didTapButtonBlock(sender);
+    }
+}
+
+-(void)didTapPlayerCountBtn:(id)sender{
+    if (self.didTapPlayerCountBtnBlock) {
+        self.didTapPlayerCountBtnBlock(sender);
     }
 }
 @end

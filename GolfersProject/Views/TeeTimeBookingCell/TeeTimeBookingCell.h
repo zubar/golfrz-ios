@@ -16,5 +16,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnBookTeetime;
 
 - (void)setDidTapButtonBlock:(void (^)(id sender))didTapButtonBlock;
+- (void)setDidTapPlayerCountBtnBlock:(void(^)(id sender))didTapPlayerCountBlock;
 
 @end

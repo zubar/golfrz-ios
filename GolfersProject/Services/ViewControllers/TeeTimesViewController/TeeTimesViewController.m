@@ -30,13 +30,18 @@
 #import "Teetime.h"
 #import "NSArray+BinarySearch.h"
 #import "Utilities.h"
-
+#import "ScoreSelectionView.h"
+#import <CMPopTipView/CMPopTipView.h>
+#import "ScoreSelectionCell.h"
 
 @interface TeeTimesViewController ()
 @property(nonatomic, strong) NSMutableArray * subCourses;
 @property(nonatomic, strong) NSNumber * selectedSubcourseId;
 @property(nonatomic, strong) NSMutableDictionary * teeTimesData;
 @property(nonatomic, strong) NSDate * selectedDate;
+@property(nonatomic, strong) CMPopTipView * popTipView;
+
+@property(nonatomic, strong) UIButton * tappedButton;
 @end
 
 @implementation TeeTimesViewController
@@ -221,6 +226,57 @@
        // [self bookTeetime:<#(Teetime *)#>];
     }];
     return customViewCell;
+}
+
+#pragma mark - Pop-up view
+// To enter score manually for a player.
+-(void)editTeetimeTappedFromView:(id)sender teeTime:(Teetime *)teetime
+{
+    ScoreSelectionView * mScoreView = [[ScoreSelectionView alloc]init];
+    mScoreView.dataSource = self;
+    mScoreView.delegate = self;
+    [mScoreView setBackgroundColor:[UIColor whiteColor]];
+    
+    
+    // Toggle popTipView when a standard UIButton is pressed
+    if (nil == self.popTipView) {
+        self.popTipView = [[CMPopTipView alloc] initWithCustomView:mScoreView];
+        self.popTipView.delegate = self;
+        self.popTipView.backgroundColor = [UIColor whiteColor];
+        // saving the ref to selected view.
+        self.tappedButton = sender;
+        [self.popTipView presentPointingAtView:sender inView:self.view animated:YES];
+    }else {
+        // Dismiss
+        [self.popTipView dismissAnimated:YES];
+        self.popTipView = nil;
+    }
+}
+
+-(NSArray *)dataArrayForCells
+{
+    NSMutableArray * scoresArray = [NSMutableArray new];
+    for (int i = 0; i < 6; ++i) {
+        [scoresArray addObject:[[NSNumber numberWithInt:i] stringValue]];
+    }
+    return scoresArray;
+}
+
+-(void)selectedItem:(id)item forView:(UIView *)view{
+    
+    NSLog(@"tapped: %@ indexPath: %@", item, view);
+    if ([view isKindOfClass:[ScoreSelectionCell class]]) {
+        [self.tappedButton setTitle:item forState:UIControlStateNormal];
+    }
+    self.tappedButton = nil;
+    [self.popTipView dismissAnimated:YES];
+    
+//    if ([item integerValue] > [self.shots count] ) {
+//            NSNumber * score = [NSNumber numberWithInteger:[item integerValue]];
+//        //TODO: update the score. 
+//    }else{
+//        //TODO: call the removeShots Method.
+//    }
 }
 
 /*
