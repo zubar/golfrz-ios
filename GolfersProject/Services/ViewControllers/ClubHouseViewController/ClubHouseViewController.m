@@ -39,6 +39,7 @@
 #import "ScoreSelectionView.h"
 #import "InvitationManager.h"
 #import "TeeTimesViewController.h"
+#import "HMMessagesDisplayViewController.h"
 
 @interface ClubHouseViewController ()
 @property (nonatomic, retain) NSArray * weatherList;

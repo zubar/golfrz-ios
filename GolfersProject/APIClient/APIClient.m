@@ -21,6 +21,8 @@
 #import "GolfrzError.h"
 #import "TeetimeData.h"
 #import "CourseUpdate.h"
+#import "Post.h"
+
 
 @implementation APIClient
 
@@ -58,8 +60,8 @@
              kRoundInfo : [Round class],
              kGetteetimes : [TeetimeData class],
              kCourseUpdatesList : [CourseUpdate class],
+             kGetDetailCommentsOnThread : [Post class],
              };
     
-}
-                      
+}                      
 @end

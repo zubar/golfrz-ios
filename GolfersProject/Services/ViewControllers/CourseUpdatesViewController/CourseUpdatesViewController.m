@@ -17,7 +17,8 @@
 #import "UIImageView+RoundedImage.h"
 #import "Utilities.h"
 #import <SDWebImage/UIImageView+WebCache.h>
-
+#import "AppDelegate.h"
+#import "HMMessagesDisplayViewController.h"
 
 @interface CourseUpdatesViewController ()
 @property(strong, nonatomic) NSMutableArray * courseUpdates;
@@ -107,10 +108,16 @@
         
     }
     
-    
-    
     return customViewCell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+    
+    HMMessagesDisplayViewController * controller = [[HMMessagesDisplayViewController alloc] initWithNibName:@"HMMessagesDisplayViewController" bundle:nil];
+    [delegate.appDelegateNavController pushViewController:controller animated:YES];
+
 }
 
 /*

@@ -15,9 +15,10 @@
     return @{
              @"comment" : @"comment",
              @"createdAt" : @"created_at",
-             @"updatedAt" : @"updated_at",
              @"notificationId" : @"notification_id",
              @"user" : @"user",
+             @"userId" : @"user_id",
+             @"itemId" : @"id",
              //propertyName : json_key
              };
 }
@@ -49,6 +50,4 @@
     
     return dateFormatter;
 }
-
-
 @end
