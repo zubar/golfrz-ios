@@ -163,6 +163,9 @@
 		3DD47A661B4A608C005DE325 /* Hole.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD47A651B4A608C005DE325 /* Hole.m */; };
 		3DD47A691B4A6099005DE325 /* Teebox.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD47A681B4A6099005DE325 /* Teebox.m */; };
 		3DD47A6D1B4A7D7A005DE325 /* GreenCoordinate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD47A6C1B4A7D7A005DE325 /* GreenCoordinate.m */; };
+		3DD958711B7290FE00F8960D /* RewardServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD958701B7290FD00F8960D /* RewardServices.m */; };
+		3DD958751B7294B400F8960D /* Reward.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD958741B7294B400F8960D /* Reward.m */; };
+		3DD958781B729A7C00F8960D /* RewardSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD958771B729A7C00F8960D /* RewardSet.m */; };
 		3DD9BD0D1B14BE1C00A2F296 /* CalendarUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD9BD081B14BE1C00A2F296 /* CalendarUtilities.m */; };
 		3DD9BD0E1B14BE1C00A2F296 /* NSDate+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD9BD0A1B14BE1C00A2F296 /* NSDate+Helper.m */; };
 		3DD9BD0F1B14BE1C00A2F296 /* THCalendarInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD9BD0C1B14BE1C00A2F296 /* THCalendarInfo.m */; };
@@ -492,6 +495,12 @@
 		3DD47A681B4A6099005DE325 /* Teebox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Teebox.m; sourceTree = "<group>"; };
 		3DD47A6B1B4A7D7A005DE325 /* GreenCoordinate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GreenCoordinate.h; sourceTree = "<group>"; };
 		3DD47A6C1B4A7D7A005DE325 /* GreenCoordinate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GreenCoordinate.m; sourceTree = "<group>"; };
+		3DD9586F1B7290FD00F8960D /* RewardServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RewardServices.h; sourceTree = "<group>"; };
+		3DD958701B7290FD00F8960D /* RewardServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RewardServices.m; sourceTree = "<group>"; };
+		3DD958731B7294B400F8960D /* Reward.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reward.h; sourceTree = "<group>"; };
+		3DD958741B7294B400F8960D /* Reward.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reward.m; sourceTree = "<group>"; };
+		3DD958761B729A7C00F8960D /* RewardSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RewardSet.h; sourceTree = "<group>"; };
+		3DD958771B729A7C00F8960D /* RewardSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RewardSet.m; sourceTree = "<group>"; };
 		3DD9BD071B14BE1C00A2F296 /* CalendarUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarUtilities.h; sourceTree = "<group>"; };
 		3DD9BD081B14BE1C00A2F296 /* CalendarUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarUtilities.m; sourceTree = "<group>"; };
 		3DD9BD091B14BE1C00A2F296 /* NSDate+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Helper.h"; sourceTree = "<group>"; };
@@ -1519,6 +1528,26 @@
 			path = RoundServices;
 			sourceTree = "<group>";
 		};
+		3DD9586E1B7290C300F8960D /* RewardServices */ = {
+			isa = PBXGroup;
+			children = (
+				3DD9586F1B7290FD00F8960D /* RewardServices.h */,
+				3DD958701B7290FD00F8960D /* RewardServices.m */,
+			);
+			path = RewardServices;
+			sourceTree = "<group>";
+		};
+		3DD958721B72949A00F8960D /* Reward */ = {
+			isa = PBXGroup;
+			children = (
+				3DD958731B7294B400F8960D /* Reward.h */,
+				3DD958741B7294B400F8960D /* Reward.m */,
+				3DD958761B729A7C00F8960D /* RewardSet.h */,
+				3DD958771B729A7C00F8960D /* RewardSet.m */,
+			);
+			path = Reward;
+			sourceTree = "<group>";
+		};
 		3DD9BD061B14BE1C00A2F296 /* CalenderUtils */ = {
 			isa = PBXGroup;
 			children = (
@@ -1741,6 +1770,7 @@
 		885CB06F1B09F91700AD2A7B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3DD958721B72949A00F8960D /* Reward */,
 				3D7DF2171B6FD15300FCF8FE /* Post */,
 				3D7DF20F1B6FC7CE00FCF8FE /* CourseUpdate */,
 				3D7DF2011B6A54F300FCF8FE /* TeetimeData */,
@@ -1764,6 +1794,7 @@
 		885CB07C1B0A121300AD2A7B /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				3DD9586E1B7290C300F8960D /* RewardServices */,
 				3D7DF21E1B6FD85C00FCF8FE /* CourseUpdateServices */,
 				3D7DF1FD1B6A53B100FCF8FE /* TeetimeServices */,
 				3D00B5AA1B68E3DB00FA2C19 /* ScoreboardServices */,
@@ -2156,11 +2187,13 @@
 				3D1963BD1B0CE05700766CFC /* UserServices.m in Sources */,
 				3DA7CB881B2B13FC00B5BAFF /* Cart.m in Sources */,
 				3DD9BD0F1B14BE1C00A2F296 /* THCalendarInfo.m in Sources */,
+				3DD958781B729A7C00F8960D /* RewardSet.m in Sources */,
 				3D19641A1B130E3B00766CFC /* TPKeyboardAvoidingCollectionView.m in Sources */,
 				3D00B5AD1B68E48000FA2C19 /* ScoreboardServices.m in Sources */,
 				3D19641C1B130E3B00766CFC /* TPKeyboardAvoidingTableView.m in Sources */,
 				3D613B751B43EF5800F7DEDA /* PlayerScoreCell.m in Sources */,
 				3D7DF2001B6A542000FCF8FE /* TeetimeServices.m in Sources */,
+				3DD958711B7290FE00F8960D /* RewardServices.m in Sources */,
 				3DCA44CD1B26CB3400B66BD2 /* EventList.m in Sources */,
 				885CB0801B0A128100AD2A7B /* AuthenticationService.m in Sources */,
 				3D1CB0F21B691563005C1E19 /* EventDetailViewController.m in Sources */,
@@ -2216,6 +2249,7 @@
 				3D1CB0EC1B691563005C1E19 /* ClubHouseSubController.m in Sources */,
 				3D0455CA1B71E66100FFB0E8 /* HMMessagesDisplayViewController.m in Sources */,
 				3DF9936F1B256999006EBC39 /* PushManager.m in Sources */,
+				3DD958751B7294B400F8960D /* Reward.m in Sources */,
 				3D221F761B4BACAC00CF79E4 /* RoundMetaData.m in Sources */,
 				3D1CB1051B691563005C1E19 /* SplashScreenViewController.m in Sources */,
 				3D1CB1071B691563005C1E19 /* UIImageView+RoundedImage.m in Sources */,

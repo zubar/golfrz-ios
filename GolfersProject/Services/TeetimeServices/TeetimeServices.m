@@ -21,6 +21,7 @@
 #import "GolfrzError.h"
 
 
+
 @implementation TeetimeServices
 
 +(void)getTeetimesForSubcourse:(NSNumber *)subcourseId
@@ -61,7 +62,33 @@
     }];
 }
 
++(void)updateTeeTime:(Teetime *)teetime
+         playerCount:(NSNumber *)playerCount
+             success:(void(^)(bool status, id response))successBlock
+             failure:(void(^)(bool status, GolfrzError * error))failureBlock
+{
+    APIClient * apiClient = [APIClient sharedAPICLient];
+   [apiClient POST:kUpdateTeetime parameters:[TeetimeServices paramUpdateTeetime:teetime playerCount:playerCount] completion:^(id response, NSError *error) {
+       if(!error) successBlock(true, [response result]);
+       else failureBlock(false, [response result]);
+   }];
+}
+
 #pragma mark - HelperMethods
+
++(NSDictionary *)paramUpdateTeetime:(Teetime *)teeTime playerCount:(NSNumber *)playerCount{
+    return @{
+             @"app_bundle_id" : kAppBundleId,
+             @"user_agent" : kUserAgent,
+             @"auth_token" : [UserServices currentToken],
+             @"count" : playerCount,
+             @"sub_course_id" : [teeTime subCourseId],
+             @"booked_time" : [[[teeTime bookedTime] toGlobalTime] serverFormatDate],
+             @"tee_time_id" : [teeTime itemId],
+             };
+
+}
+
 +(NSDictionary *)paramsGetTeetimesSubcourse:(NSNumber *)subcourseId startDate:(NSDate *)strtDate endDate:(NSDate *)endDate{
     
     return @{
