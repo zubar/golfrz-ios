@@ -12,5 +12,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *lblHeading;
 @property (strong, nonatomic) IBOutlet UIImageView *imgLeftImage;
 @property (strong, nonatomic) IBOutlet UIImageView *imgRightImage;
+@property (weak, nonatomic) IBOutlet UIView *handiCpLblView;
+@property (weak, nonatomic) IBOutlet UILabel *handiCpLbl;
+@property (weak, nonatomic) IBOutlet UIView *dotView;
 
 @end

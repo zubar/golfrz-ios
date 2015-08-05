@@ -58,7 +58,7 @@
     
     AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] init];
     
-    [apiClient GET:@"https://api.myjson.com/bins/y6ky" parameters:[ScoreboardServices paramsScoreForSubCourseId:[NSNumber numberWithInt:1] roundId:[NSNumber numberWithInt:466]] success:^(NSURLSessionDataTask *task, id responseObject) {
+    [apiClient GET:@"https://api.myjson.com/bins/23s9m" parameters:[ScoreboardServices paramsScoreForSubCourseId:[NSNumber numberWithInt:1] roundId:[NSNumber numberWithInt:466]] success:^(NSURLSessionDataTask *task, id responseObject) {
         
         successBlock(true,responseObject);
         
