@@ -88,11 +88,21 @@
             NSDictionary *holesData = [[scoreCard objectForKey:@"holes_data"] isKindOfClass:[NSNull class]]?nil:[scoreCard objectForKey:@"holes_data"];
             _holeCount = holesData.count;
             _holesArray = [NSMutableArray new];
-            for (NSDictionary *hole in holesData.allValues) {
+            for (NSString *holeKey in holesData.allKeys) {
                 
-                ScoreCardHole *scoreCardHole = [[ScoreCardHole alloc] initWithDictionary:hole andTeeBoxCount:_teeBoxCount];
+                NSDictionary *holeDic = [holesData objectForKey:holeKey];
+                
+                ScoreCardHole *scoreCardHole = [[ScoreCardHole alloc] initWithDictionary:holeDic andTeeBoxCount:_teeBoxCount];
+                NSArray *holeNumberSplit = [holeKey componentsSeparatedByString:@"_"];
+                NSString *holeNumberString = holeNumberSplit.lastObject;
+                scoreCardHole.holeNumber = [NSNumber numberWithInt:[holeNumberString intValue]];
                 [_holesArray addObject:scoreCardHole];
             }
+//            for (NSDictionary *hole in holesData.allValues) {
+//                
+//                ScoreCardHole *scoreCardHole = [[ScoreCardHole alloc] initWithDictionary:hole andTeeBoxCount:_teeBoxCount];
+//                [_holesArray addObject:scoreCardHole];
+//            }
             
         }
     }

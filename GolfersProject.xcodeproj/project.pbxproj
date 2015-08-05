@@ -153,6 +153,7 @@
 		3DF9936F1B256999006EBC39 /* PushManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF9936E1B256999006EBC39 /* PushManager.m */; };
 		3DF993721B256A4A006EBC39 /* AppDelegate+Push.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF993711B256A4A006EBC39 /* AppDelegate+Push.m */; };
 		3DFD15B61B25B2AB008F76D8 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DFD15B51B25B2AA008F76D8 /* CoreLocation.framework */; };
+		774F2C281B71E6CD0051C9E8 /* ScoreCardUserScore.m in Sources */ = {isa = PBXBuildFile; fileRef = 774F2C271B71E6CD0051C9E8 /* ScoreCardUserScore.m */; };
 		77BBE90A1B6B5326004D1C86 /* ScoreCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BBE9091B6B5326004D1C86 /* ScoreCard.m */; };
 		77BBE9101B6B9ABC004D1C86 /* ScoreCardUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BBE90F1B6B9ABC004D1C86 /* ScoreCardUser.m */; };
 		77BBE9131B6B9D32004D1C86 /* ScoreCardHole.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BBE9121B6B9D32004D1C86 /* ScoreCardHole.m */; };
@@ -460,6 +461,8 @@
 		3DF993711B256A4A006EBC39 /* AppDelegate+Push.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+Push.m"; sourceTree = "<group>"; };
 		3DFD15B51B25B2AA008F76D8 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		5A26DAF5CF62E34098597EA3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		774F2C261B71E6CD0051C9E8 /* ScoreCardUserScore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreCardUserScore.h; sourceTree = "<group>"; };
+		774F2C271B71E6CD0051C9E8 /* ScoreCardUserScore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreCardUserScore.m; sourceTree = "<group>"; };
 		77BBE9081B6B5326004D1C86 /* ScoreCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreCard.h; sourceTree = "<group>"; };
 		77BBE9091B6B5326004D1C86 /* ScoreCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreCard.m; sourceTree = "<group>"; };
 		77BBE90E1B6B9ABC004D1C86 /* ScoreCardUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreCardUser.h; sourceTree = "<group>"; };
@@ -1107,6 +1110,8 @@
 				3D221F931B52797300CF79E4 /* User.m */,
 				77BBE90E1B6B9ABC004D1C86 /* ScoreCardUser.h */,
 				77BBE90F1B6B9ABC004D1C86 /* ScoreCardUser.m */,
+				774F2C261B71E6CD0051C9E8 /* ScoreCardUserScore.h */,
+				774F2C271B71E6CD0051C9E8 /* ScoreCardUserScore.m */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -1992,6 +1997,7 @@
 				3D221F8C1B4BEB4600CF79E4 /* DropdownView.m in Sources */,
 				3D00B59E1B61161800FA2C19 /* Round.m in Sources */,
 				3D1CB0E81B691563005C1E19 /* AddGuestViewController.m in Sources */,
+				774F2C281B71E6CD0051C9E8 /* ScoreCardUserScore.m in Sources */,
 				3DCA44CE1B26CB3400B66BD2 /* EventWeather.m in Sources */,
 				3D1C8EAF1B3D36C9004AAD30 /* EventHeaderView.m in Sources */,
 				3DC116231B2EF4AD00E83F4F /* APContact+convenience.m in Sources */,

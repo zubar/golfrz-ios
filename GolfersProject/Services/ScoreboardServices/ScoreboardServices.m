@@ -56,9 +56,9 @@
             failure:(void (^)(bool status, NSError * error))failureBlock{
     
     
-    AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
+    AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] init];
     
-    [apiClient GET:kGetScoreCard parameters:[ScoreboardServices paramsScoreForSubCourseId:[NSNumber numberWithInt:1] roundId:[NSNumber numberWithInt:466]] success:^(NSURLSessionDataTask *task, id responseObject) {
+    [apiClient GET:@"https://api.myjson.com/bins/y6ky" parameters:[ScoreboardServices paramsScoreForSubCourseId:[NSNumber numberWithInt:1] roundId:[NSNumber numberWithInt:466]] success:^(NSURLSessionDataTask *task, id responseObject) {
         
         successBlock(true,responseObject);
         

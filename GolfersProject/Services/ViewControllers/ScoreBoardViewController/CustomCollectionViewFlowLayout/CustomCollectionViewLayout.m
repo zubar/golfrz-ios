@@ -33,7 +33,7 @@
     }
     
     //NSUInteger indexOffSet = 0;
-    NSUInteger noOfStickyColumns = [[ScoreBoardManager sharedScoreBoardManager].scoreCard.teeBoxCount integerValue] + 2;
+    NSUInteger noOfStickyColumns = [[ScoreBoardManager sharedScoreBoardManager].scoreCard.teeBoxCount intValue] + 1;
     numberOfColumns = [ScoreBoardManager sharedScoreBoardManager].numberOfItems;
     NSUInteger column = 0; // Current column inside row
     CGFloat xOffset = 0.0;

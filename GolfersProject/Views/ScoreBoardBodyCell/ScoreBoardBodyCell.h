@@ -10,4 +10,6 @@
 
 @interface ScoreBoardBodyCell : UICollectionViewCell
 
+
+@property (weak, nonatomic) IBOutlet UILabel *contentLbl;
 @end

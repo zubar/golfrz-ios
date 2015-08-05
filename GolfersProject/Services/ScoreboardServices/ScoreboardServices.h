@@ -21,5 +21,8 @@
                     subCourse:(NSNumber *)subCourseId
                       success:(void (^)(bool status, id responseObject))successBlock
                       failure:(void (^)(bool status, NSError * error))failureBlock;
++(void)getTestScoreCard:(void (^)(bool status, id responseObject))successBlock
+                failure:(void (^)(bool status, NSError * error))failureBlock;
+
 
     @end
