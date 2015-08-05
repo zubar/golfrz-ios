@@ -19,6 +19,7 @@
 #import "Post.h"
 #import "Utilities.h"
 #import <QuartzCore/QuartzCore.h>
+#import "UserServices.h"
 
 @interface HMMessagesDisplayViewController ()
 {
@@ -52,7 +53,7 @@
     // Do any additional setup after loading the view.
     if(!self.DTOArray) self.DTOArray = [[NSMutableArray alloc] init];
 
-    [self.messagesTable registerNib:[UINib nibWithNibName:@"HMMessageSentCell" bundle:nil] forCellReuseIdentifier:@"HMMessageSent"];
+   // [self.messagesTable registerNib:[UINib nibWithNibName:@"HMMessageSentCell" bundle:nil] forCellReuseIdentifier:@"HMMessageSent"];
     [self.messagesTable registerNib:[UINib nibWithNibName:@"HMMessageRecieveCell" bundle:nil] forCellReuseIdentifier:@"HMMessageRecieve"];
     
     self.navigationItem.title = @"COURSE UPDATES";
@@ -65,7 +66,7 @@
     
     //Adding Refresh control
     refrestCtrl = [[UIRefreshControl alloc]init];
-    [refrestCtrl setBackgroundColor:[UIColor whiteColor]];
+    [refrestCtrl setTintColor:[UIColor whiteColor]];
     [self.messagesTable addSubview:refrestCtrl];
     [refrestCtrl addTarget:self action:@selector(webServiceCalling) forControlEvents:UIControlEventValueChanged];
     
@@ -88,23 +89,6 @@
 
 
 #pragma mark -- Helper Methods
-
--(void) updateFrameForSettingNavigationBar
-{
-
-//    HMAppDelegate * delegate = (HMAppDelegate *) [UIApplication sharedApplication].delegate;
-//    
-//    CGRect navigationBarFrame = delegate.navigationController.navigationBar.frame;
-//    
-//    CGRect frame = self.messagesTable.frame;
-//    self.messagesTable.frame = CGRectMake(frame.origin.x, 0, frame.size.width, frame.size.height);
-//    
-//    frame = self.commentView.frame;
-//    self.commentView.frame = CGRectMake(frame.origin.x, CGRectGetMaxY(self.messagesTable.frame), frame.size.width, frame.size.height);
-//    
-//    frame = self.noRecodFoundLabel.frame;
-//    self.noRecodFoundLabel.frame = CGRectMake(frame.origin.x, frame.origin.y - navigationBarFrame.size.height, frame.size.width, frame.size.height);
-}
 
 - (void)loadMessagesUpdateView:(void(^)(void))completion
 {
@@ -165,29 +149,16 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    static NSString * sendIdentifier = @"HMMessageSent";
     static NSString * recieveIdentifier = @"HMMessageRecieve";
-    
 
     Comment * message = [self.DTOArray objectAtIndex:indexPath.row];
-    UITableViewCell * tableCell = nil;
-    if([message.userId isEqualToNumber:userId]){
-        HMMessageSentCell * cell = [tableView dequeueReusableCellWithIdentifier:sendIdentifier];
-        if (!cell) {
-            cell=[[HMMessageSentCell alloc] init ];
-        }
-        cell.commentObject = message;
-        tableCell = cell;
-    }else{
-        HMMessageRecieveCell * cell = [tableView dequeueReusableCellWithIdentifier:recieveIdentifier];
-        if (!cell) {
-            cell=[[HMMessageRecieveCell alloc] init ];
-        }
-        cell.DTOObject = message;
-        tableCell = cell;
+    HMMessageRecieveCell * cell = [tableView dequeueReusableCellWithIdentifier:recieveIdentifier];
+    if (!cell) {
+        cell=[[HMMessageRecieveCell alloc] init ];
     }
-    tableCell.selectionStyle = UITableViewCellSelectionStyleNone;
-    return tableCell;
+        cell.DTOObject = message;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -245,41 +216,56 @@
     //Temp Code for adding new object of message
     if(self.messageWriteField.text.length>0)
     {
-        //TODO:
-        // Call API here.
-        
-        //add message object in messages array
-        NSDictionary * commentParam = @{
-                                        };
-        NSError * error = nil;
-        Comment * message = [Comment modelWithDictionary:commentParam error:&error];
-        [self.DTOArray addObject:message];
-        
-        if(self.DTOArray.count > 0){
-            [self.messagesTable setHidden:NO];
-            [self.noRecodFoundLabel setHidden:YES];
-        }else{
-            [self.messagesTable setHidden:YES];
-            [self.noRecodFoundLabel setHidden:NO];
-        }
-        
-        [self.messagesTable reloadData];
-        
-    NSIndexPath * lastCommentIndex = [NSIndexPath indexPathForRow:[self.DTOArray count]-1 inSection:0];
-  //  [self.messagesTable scrollToRowAtIndexPath:lastCommentIndex atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+        __block NSString * commentMessage = [[NSString alloc]initWithString:[self.messageWriteField text]];
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+            [CourseUpdateServices postComment:[self.messageWriteField text] onPostId:notificationId success:^(bool status, id successMessage) {
+                if(status){
+                    //add message object in messages array
+                    NSDictionary * commentParam = @{
+                                                    @"comment" : commentMessage,
+                                                    @"createdAt" : [NSDate date],
+                                                    @"notificationId" : notificationId,
+                                                    @"userId" : [UserServices  currentUserId],
+                                                    };
+                
+                NSError * error = nil;
+                Comment * message = [Comment modelWithDictionary:commentParam error:&error];
+                if(!error) {
+                    [self.DTOArray addObject:message];
+                }
+                if(self.DTOArray.count > 0){
+                    [self.messagesTable setHidden:NO];
+                    [self.noRecodFoundLabel setHidden:YES];
+                }else{
+                    [self.messagesTable setHidden:YES];
+                    [self.noRecodFoundLabel setHidden:NO];
+                }
+                
+                [self.messagesTable reloadData];
+                NSIndexPath *lastIndexPath = [self lastIndexPath];
+                [self.messagesTable scrollToRowAtIndexPath:lastIndexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+                }
+                [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+            } failure:^(bool status, GolfrzError *error) {
+                [self.DTOArray removeLastObject];
+                [self.messagesTable reloadData];
+                NSIndexPath *lastIndexPath = [self lastIndexPath];
+                [self.messagesTable scrollToRowAtIndexPath:lastIndexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+                [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+                [Utilities displayErrorAlertWithMessage:[error errorMessage]];
+            }];
     }
-    
     [self.messageWriteField resignFirstResponder];
     self.messageWriteField.text = @"";
 }
+-(NSIndexPath *)lastIndexPath
+{
+    NSInteger lastSectionIndex = MAX(0, [self.messagesTable numberOfSections] - 1);
+    NSInteger lastRowIndex = MAX(0, [self.messagesTable numberOfRowsInSection:lastSectionIndex] - 1);
+    return [NSIndexPath indexPathForRow:lastRowIndex inSection:lastSectionIndex];
+}
 
 #pragma mark text field Delegate
--(void)textFieldDidBeginEditing:(UITextField *)textField
-{
-//    [UIView animateWithDuration:0.3 animations:^(void){
-//            self.view.center = CGPointMake(self.view.center.x, movedY);
-//    }];
-}
 
 -(BOOL)textFieldShouldEndEditing:(UITextField *)textField
 {
@@ -287,9 +273,6 @@
 }
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-//    [UIView animateWithDuration:0.1 animations:^(void){
-//        self.view.center = CGPointMake(self.view.center.x, originaly);
-//    }];
     [textField resignFirstResponder];
     return YES;
 }

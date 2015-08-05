@@ -15,7 +15,7 @@
 @property (strong, nonatomic) IBOutlet UIImageView * chatBG;
 @property (strong, nonatomic) IBOutlet UILabel *messageDetails;
 
-@property (weak,nonatomic) Comment * commentObject;
+@property (weak,nonatomic) Comment * DTOObject;
 @property (weak, nonatomic) IBOutlet UIImageView *imgViewUser;
 
 
