@@ -14,7 +14,22 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-ActionSheetPicker-3.0.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-CMPopTipView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-JSQMessagesViewController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-JSQSystemSoundPlayer.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -42,37 +57,52 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>23BFE31AE283E206B38E3807</key>
+		<key>0864AACD1D9AEE95115169F7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3AF6CD5EF70213ACF642B93B</key>
+		<key>361263FD942E74556FF8EEA9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>737AED3C778F33B5EB3E2E25</key>
+		<key>67EE59AEB9614C6AAA3BB9D7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8AE43FA268F0D4F2701DE6C1</key>
+		<key>71EBB104A6B78C3DE8BD6641</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A20057A63F690AA86ED7C80D</key>
+		<key>8A1D0E24F3BFA5E3131008E4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C655BED014F83965ED32F5F8</key>
+		<key>8EF55DA051B90410201420B0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CBF0F446154562E4960A052F</key>
+		<key>989D55E997422D79E6C0723A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BC91E6C4320495DB0107E376</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E46B790828843FB2746F1A4F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FF5180E08E2D99A1C1896C03</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -21,6 +21,7 @@
 @property (strong, nonatomic) IBOutlet UIImageView *imgUpdateImage;
 @property (strong, nonatomic) IBOutlet UIView *kudosView;
 @property (strong, nonatomic) IBOutlet UIButton *btnKudos;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *lblUpdateTestTrailingConstraints;
 
 - (IBAction)btnAllCommentsTapped:(UIButton *)sender;
 

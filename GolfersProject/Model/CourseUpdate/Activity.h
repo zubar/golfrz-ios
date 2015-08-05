@@ -17,6 +17,11 @@
 @property (copy, nonatomic, readonly) NSString * text;
 @property (copy, nonatomic, readonly) NSString * title;
 @property (copy, nonatomic, readonly) NSNumber * courseId;
-@property (copy, nonatomic, readonly) NSNumber * commentCount;
+@property (copy, nonatomic, readonly) NSNumber * isCommentable;
+@property (copy, nonatomic, readonly) NSString *imgPath;
+@property (copy, nonatomic, readonly) NSNumber *hasUserCommented;
+@property (copy, nonatomic, readonly) NSNumber *commentsCount;
+@property (copy, nonatomic, readonly) NSNumber *likesCount;
+@property (copy, nonatomic, readonly) NSNumber *hasUserLiked;
 
 @end

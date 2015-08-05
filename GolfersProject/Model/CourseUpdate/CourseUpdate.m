@@ -12,7 +12,7 @@
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
     return @{
-             @"activities" : @"notification_list"
+             @"activities" : @"notifications_list"
              //propertyName : json_key
              };
 }

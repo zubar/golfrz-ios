@@ -19,8 +19,13 @@
              @"updatedAt" : @"updated_at",
              @"text" : @"text",
              @"title" : @"title",
-             @"courseId" : @"course_id",
-             @"commentCount" : @"comment_count",
+             @"courseId" : @"course_id",             
+             @"isCommentable" : @"is_commentable",
+             @"imgPath" : @"image_path",
+             @"hasUserCommented" : @"user_comment",
+             @"commentsCount" : @"comment_count",
+             @"likesCount" : @"likes_count",
+             @"hasUserLiked" : @"user_like",
              //propertyName : json_key
              };
 }
