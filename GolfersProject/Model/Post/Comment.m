@@ -50,33 +50,4 @@
     
     return dateFormatter;
 }
-
-#pragma mark - JSQMessageData
-
-- (NSString *)senderId{
-    return [[self userId] stringValue];
-}
-
-- (NSString *)senderDisplayName{
-    return [NSString stringWithFormat:@"%@ %@", ([self.user firstName] != nil ? [self.user firstName] : @""), ([self.user lastName] != nil ? [self.user lastName] : @"")];
-}
-
-- (NSDate *)date{
-    return [self createdAt];
-}
-
-- (BOOL)isMediaMessage{
-    return NO;
-}
-
-- (NSUInteger)messageHash{
-    return [[self itemId] integerValue];
-}
-
-- (NSString *)text{
-    return [self comment];
-}
-
-
-
 @end

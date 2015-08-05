@@ -18,6 +18,10 @@
 		3D0455CA1B71E66100FFB0E8 /* HMMessagesDisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0455C41B71E66100FFB0E8 /* HMMessagesDisplayViewController.m */; };
 		3D0455CB1B71E66100FFB0E8 /* HMMessageSentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0455C61B71E66100FFB0E8 /* HMMessageSentCell.m */; };
 		3D0455CC1B71E66100FFB0E8 /* HMMessageSentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D0455C71B71E66100FFB0E8 /* HMMessageSentCell.xib */; };
+		3D0455CF1B71F7B800FFB0E8 /* Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0455CE1B71F7B800FFB0E8 /* Utility.m */; };
+		3D0455D21B71F87100FFB0E8 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0455D11B71F87100FFB0E8 /* UIImage+Resize.m */; };
+		3D0455D51B721DF200FFB0E8 /* bg_msg_send.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D0455D31B721DF200FFB0E8 /* bg_msg_send.png */; };
+		3D0455D61B721DF200FFB0E8 /* bg_msg_rcv.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D0455D41B721DF200FFB0E8 /* bg_msg_rcv.png */; };
 		3D16D0841B1C3FFB00A582A3 /* SharedManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D16D0831B1C3FFB00A582A3 /* SharedManager.m */; };
 		3D1963BC1B0CE05700766CFC /* CourseServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1963B81B0CE05700766CFC /* CourseServices.m */; };
 		3D1963BD1B0CE05700766CFC /* UserServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1963BB1B0CE05700766CFC /* UserServices.m */; };
@@ -229,6 +233,12 @@
 		3D0455C51B71E66100FFB0E8 /* HMMessageSentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMMessageSentCell.h; sourceTree = "<group>"; };
 		3D0455C61B71E66100FFB0E8 /* HMMessageSentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMMessageSentCell.m; sourceTree = "<group>"; };
 		3D0455C71B71E66100FFB0E8 /* HMMessageSentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HMMessageSentCell.xib; sourceTree = "<group>"; };
+		3D0455CD1B71F7B800FFB0E8 /* Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utility.h; sourceTree = "<group>"; };
+		3D0455CE1B71F7B800FFB0E8 /* Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utility.m; sourceTree = "<group>"; };
+		3D0455D01B71F87100FFB0E8 /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
+		3D0455D11B71F87100FFB0E8 /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
+		3D0455D31B721DF200FFB0E8 /* bg_msg_send.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_msg_send.png; sourceTree = "<group>"; };
+		3D0455D41B721DF200FFB0E8 /* bg_msg_rcv.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_msg_rcv.png; sourceTree = "<group>"; };
 		3D16D0821B1C3FFB00A582A3 /* SharedManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedManager.h; sourceTree = "<group>"; };
 		3D16D0831B1C3FFB00A582A3 /* SharedManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedManager.m; sourceTree = "<group>"; };
 		3D1963B71B0CE05700766CFC /* CourseServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseServices.h; sourceTree = "<group>"; };
@@ -620,6 +630,10 @@
 		3D0455BF1B71E66100FFB0E8 /* HMMessagesDisplayViewController */ = {
 			isa = PBXGroup;
 			children = (
+				3D0455D01B71F87100FFB0E8 /* UIImage+Resize.h */,
+				3D0455D11B71F87100FFB0E8 /* UIImage+Resize.m */,
+				3D0455CD1B71F7B800FFB0E8 /* Utility.h */,
+				3D0455CE1B71F7B800FFB0E8 /* Utility.m */,
 				3D0455C01B71E66100FFB0E8 /* HMMessageRecieveCell.h */,
 				3D0455C11B71E66100FFB0E8 /* HMMessageRecieveCell.m */,
 				3D0455C21B71E66100FFB0E8 /* HMMessageRecieveCell.xib */,
@@ -1590,6 +1604,8 @@
 		88024F5F1AD29134004AC260 /* GolfersProject */ = {
 			isa = PBXGroup;
 			children = (
+				3D0455D31B721DF200FFB0E8 /* bg_msg_send.png */,
+				3D0455D41B721DF200FFB0E8 /* bg_msg_rcv.png */,
 				3D1CB08A1B691563005C1E19 /* ViewControllers */,
 				3DF9936C1B256977006EBC39 /* PushManager */,
 				3D16D0811B1C3FDB00A582A3 /* SharedManager */,
@@ -1999,10 +2015,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D613B771B43EF5800F7DEDA /* PlayerScoreView.xib in Resources */,
+				3D0455D51B721DF200FFB0E8 /* bg_msg_send.png in Resources */,
 				3D1C8E8D1B3BFEB0004AAD30 /* popoverArrowDown-white@2x.png in Resources */,
 				3D1C8E981B3BFEB0004AAD30 /* popoverArrowRightSimple.png in Resources */,
 				3D1C8E8F1B3BFEB0004AAD30 /* popoverArrowDown@2x.png in Resources */,
 				3D1C8E951B3BFEB0004AAD30 /* popoverArrowRight-white@2x.png in Resources */,
+				3D0455D61B721DF200FFB0E8 /* bg_msg_rcv.png in Resources */,
 				3D1C8E991B3BFEB0004AAD30 /* popoverArrowUp-white@2x.png in Resources */,
 				3D1C8E901B3BFEB0004AAD30 /* popoverArrowDownSimple.png in Resources */,
 				3D1C8E941B3BFEB0004AAD30 /* popoverArrowLeftSimple.png in Resources */,
@@ -2079,6 +2097,7 @@
 				3D1CB0F11B691563005C1E19 /* EventCalendarViewController.m in Sources */,
 				3D1CB0EE1B691563005C1E19 /* ContactUsViewController.m in Sources */,
 				3D87D8431B1852120046BD60 /* NSMutableArray+convenience.m in Sources */,
+				3D0455CF1B71F7B800FFB0E8 /* Utility.m in Sources */,
 				88573E2A1B4551900060929C /* RoundInviteCell.m in Sources */,
 				77BBE9131B6B9D32004D1C86 /* ScoreCardHole.m in Sources */,
 				88255AEE1B70AF620089644F /* ScoreBoardHeaderCell.m in Sources */,
@@ -2215,6 +2234,7 @@
 				3D7DF2071B6A551B00FCF8FE /* Teetime.m in Sources */,
 				3D7DF2211B6FD89F00FCF8FE /* CourseUpdateServices.m in Sources */,
 				3DD47A661B4A608C005DE325 /* Hole.m in Sources */,
+				3D0455D21B71F87100FFB0E8 /* UIImage+Resize.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

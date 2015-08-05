@@ -7,14 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "DTOMessage.h"
+#import "Comment.h"
+
 @interface HMMessageRecieveCell : UITableViewCell
 
 
 @property (strong, nonatomic) IBOutlet UILabel *recieveDate;
 @property (strong, nonatomic) IBOutlet UIImageView * chatBG;
 @property (strong, nonatomic) IBOutlet UILabel *messageDetails;
-@property (weak,nonatomic) DTOMessage * DTOObject;
+@property (weak,nonatomic) Comment * DTOObject;
 
 
 @end

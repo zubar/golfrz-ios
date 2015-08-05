@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
-@interface HMMessagesDisplayViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate>
+@interface HMMessagesDisplayViewController : BaseViewController<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate>
 
 @property (strong, nonatomic) IBOutlet UIView * commentView;
 @property (strong, nonatomic) IBOutlet UITableView *messagesTable;
