@@ -55,6 +55,7 @@
     [self.messagesTable registerNib:[UINib nibWithNibName:@"HMMessageSentCell" bundle:nil] forCellReuseIdentifier:@"HMMessageSent"];
     [self.messagesTable registerNib:[UINib nibWithNibName:@"HMMessageRecieveCell" bundle:nil] forCellReuseIdentifier:@"HMMessageRecieve"];
     
+    self.navigationItem.title = @"COURSE UPDATES";
     
     //TODO:
     //For Testing.
@@ -64,6 +65,7 @@
     
     //Adding Refresh control
     refrestCtrl = [[UIRefreshControl alloc]init];
+    [refrestCtrl setBackgroundColor:[UIColor whiteColor]];
     [self.messagesTable addSubview:refrestCtrl];
     [refrestCtrl addTarget:self action:@selector(webServiceCalling) forControlEvents:UIControlEventValueChanged];
     
@@ -78,7 +80,6 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [self loadMessagesUpdateView:^{
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
@@ -139,7 +140,12 @@
 -(void)webServiceCalling
 {
     //Call webservice here
-    [self performSelector:@selector(refreshTable) withObject:nil afterDelay:2];
+    [CourseUpdateServices getCommentsOnPostId:notificationId success:^(bool status, Post *mPost) {
+        [self performSelector:@selector(refreshTable)];
+//        [self performSelector:@selector(refreshTable) withObject:nil afterDelay:1];
+    } failure:^(bool status, GolfrzError *error) {
+        [self performSelector:@selector(refreshTable)];
+    }];
 }
 
 - (void)refreshTable {
@@ -165,12 +171,12 @@
 
     Comment * message = [self.DTOArray objectAtIndex:indexPath.row];
     UITableViewCell * tableCell = nil;
-    if(![message.userId isEqualToNumber:userId]){
+    if([message.userId isEqualToNumber:userId]){
         HMMessageSentCell * cell = [tableView dequeueReusableCellWithIdentifier:sendIdentifier];
         if (!cell) {
             cell=[[HMMessageSentCell alloc] init ];
         }
-        cell.DTOObject = message;
+        cell.commentObject = message;
         tableCell = cell;
     }else{
         HMMessageRecieveCell * cell = [tableView dequeueReusableCellWithIdentifier:recieveIdentifier];
@@ -204,13 +210,13 @@
     return 1;
 }
 
-
+/*
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     return 40;
 }
 
-/*
+
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     UIView * headerView = [[UIView alloc] initWithFrame:CGRectMake(0,0,320,40)];
@@ -273,7 +279,6 @@
 //    [UIView animateWithDuration:0.3 animations:^(void){
 //            self.view.center = CGPointMake(self.view.center.x, movedY);
 //    }];
-    [textField becomeFirstResponder];
 }
 
 -(BOOL)textFieldShouldEndEditing:(UITextField *)textField
@@ -297,6 +302,7 @@
     NSTimeInterval animationDuration = [[[notification userInfo] valueForKey: UIKeyboardAnimationDurationUserInfoKey] doubleValue];
     CGRect keyboardBounds = [(NSValue *)[[notification userInfo] objectForKey: UIKeyboardFrameBeginUserInfoKey] CGRectValue];
     //update frames
+    
     [UIView beginAnimations:nil context: nil];
     [UIView setAnimationCurve:animationCurve];
     [UIView setAnimationDuration:animationDuration];

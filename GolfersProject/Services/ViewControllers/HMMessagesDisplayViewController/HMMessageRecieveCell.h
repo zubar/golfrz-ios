@@ -17,5 +17,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *messageDetails;
 @property (weak,nonatomic) Comment * DTOObject;
 
+@property (weak, nonatomic) IBOutlet UIImageView *imgUser;
 
 @end

@@ -33,15 +33,21 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="2ZF-ux-fOM">
+                        <rect key="frame" x="0.0" y="11" width="56" height="60"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </imageView>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="chatBG" destination="7JQ-nd-GF6" id="c1Q-ln-co9"/>
+                <outlet property="imgUser" destination="2ZF-ux-fOM" id="PUr-Xy-80y"/>
                 <outlet property="messageDetails" destination="3dI-ga-cWV" id="aHy-BT-ugp"/>
                 <outlet property="recieveDate" destination="xMj-g8-gZK" id="LZL-Pr-cCW"/>
             </connections>
+            <point key="canvasLocation" x="143" y="296"/>
         </tableViewCell>
     </objects>
     <resources>

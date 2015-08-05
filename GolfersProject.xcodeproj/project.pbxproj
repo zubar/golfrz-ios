@@ -22,6 +22,7 @@
 		3D0455D21B71F87100FFB0E8 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0455D11B71F87100FFB0E8 /* UIImage+Resize.m */; };
 		3D0455D51B721DF200FFB0E8 /* bg_msg_send.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D0455D31B721DF200FFB0E8 /* bg_msg_send.png */; };
 		3D0455D61B721DF200FFB0E8 /* bg_msg_rcv.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D0455D41B721DF200FFB0E8 /* bg_msg_rcv.png */; };
+		3D0455DC1B724CE700FFB0E8 /* HMMessagesDisplayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D0455DB1B724CE700FFB0E8 /* HMMessagesDisplayViewController.xib */; };
 		3D16D0841B1C3FFB00A582A3 /* SharedManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D16D0831B1C3FFB00A582A3 /* SharedManager.m */; };
 		3D1963BC1B0CE05700766CFC /* CourseServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1963B81B0CE05700766CFC /* CourseServices.m */; };
 		3D1963BD1B0CE05700766CFC /* UserServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1963BB1B0CE05700766CFC /* UserServices.m */; };
@@ -239,6 +240,7 @@
 		3D0455D11B71F87100FFB0E8 /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
 		3D0455D31B721DF200FFB0E8 /* bg_msg_send.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_msg_send.png; sourceTree = "<group>"; };
 		3D0455D41B721DF200FFB0E8 /* bg_msg_rcv.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_msg_rcv.png; sourceTree = "<group>"; };
+		3D0455DB1B724CE700FFB0E8 /* HMMessagesDisplayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HMMessagesDisplayViewController.xib; sourceTree = "<group>"; };
 		3D16D0821B1C3FFB00A582A3 /* SharedManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedManager.h; sourceTree = "<group>"; };
 		3D16D0831B1C3FFB00A582A3 /* SharedManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedManager.m; sourceTree = "<group>"; };
 		3D1963B71B0CE05700766CFC /* CourseServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseServices.h; sourceTree = "<group>"; };
@@ -638,6 +640,7 @@
 				3D0455C11B71E66100FFB0E8 /* HMMessageRecieveCell.m */,
 				3D0455C21B71E66100FFB0E8 /* HMMessageRecieveCell.xib */,
 				3D0455C31B71E66100FFB0E8 /* HMMessagesDisplayViewController.h */,
+				3D0455DB1B724CE700FFB0E8 /* HMMessagesDisplayViewController.xib */,
 				3D0455C41B71E66100FFB0E8 /* HMMessagesDisplayViewController.m */,
 				3D0455C51B71E66100FFB0E8 /* HMMessageSentCell.h */,
 				3D0455C61B71E66100FFB0E8 /* HMMessageSentCell.m */,
@@ -2044,6 +2047,7 @@
 				3D1C8E9F1B3BFEB0004AAD30 /* popoverBg@2x.png in Resources */,
 				3D1C8E9C1B3BFEB0004AAD30 /* popoverArrowUpSimple.png in Resources */,
 				887C7AB91B563EFC00F1AC30 /* AddRoundPlayersCell.xib in Resources */,
+				3D0455DC1B724CE700FFB0E8 /* HMMessagesDisplayViewController.xib in Resources */,
 				3D1C8E9E1B3BFEB0004AAD30 /* popoverBg.png in Resources */,
 				88024F6E1AD29134004AC260 /* Images.xcassets in Resources */,
 				3D613B851B44191B00F7DEDA /* ScoreSelectionCell.xib in Resources */,

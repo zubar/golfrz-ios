@@ -205,8 +205,9 @@
 -(void)btnCourseUpdatesTap{
 
     AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
-    HMMessagesDisplayViewController * controller = [self.storyboard instantiateViewControllerWithIdentifier:@"HMMessagesDisplayViewController"];
-    [delegate.appDelegateNavController pushViewController:controller animated:YES];
+    
+//    HMMessagesDisplayViewController * controller = [[HMMessagesDisplayViewController alloc] initWithNibName:@"HMMessagesDisplayViewController" bundle:nil];
+//    [delegate.appDelegateNavController pushViewController:controller animated:YES];
     
 }
 

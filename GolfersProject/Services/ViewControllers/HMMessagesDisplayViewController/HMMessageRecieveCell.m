@@ -10,6 +10,9 @@
 #import "Comment.h"
 #import "Utility.h"
 #import "Utilities.h"
+#import "UIImageView+RoundedImage.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+#import "User.h"
 
 @implementation HMMessageRecieveCell
 @synthesize recieveDate, messageDetails;
@@ -23,6 +26,11 @@
         [self.recieveDate setText:timeAndMinute];
     }];
     self.messageDetails.text = _DTOObject.comment;
+   
+    [self.imgUser sd_setImageWithURL:[NSURL URLWithString:[_DTOObject.user imgPath]] placeholderImage:[UIImage imageNamed:@"person_placeholder"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        [self.imgUser setRoundedImage:image];
+    }];
+
     
     //font setting + auto height adjustment
     int height = [Utility heightRequiredToShowText:_DTOObject.comment forFont:[UIFont fontWithName:@"Helvetica" size:16] inWidth:218];
