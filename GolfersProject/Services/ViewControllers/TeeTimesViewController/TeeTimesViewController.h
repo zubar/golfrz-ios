@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "BaseViewController.h"
+#import "ScoreSelectionView.h"
+#import <CMPopTipView/CMPopTipView.h>
 
-@interface TeeTimesViewController : BaseViewController
+@interface TeeTimesViewController : BaseViewController<ScoreSelectionDataSource, ScoreSelectionDelegate, CMPopTipViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UIImageView *imgCourseLogo;
 @property (strong, nonatomic) IBOutlet UILabel *lblCourseName;

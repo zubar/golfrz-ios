@@ -22,7 +22,8 @@
 #import "TeetimeData.h"
 #import "CourseUpdate.h"
 #import "Post.h"
-
+#import "RewardSet.h"
+#import "Reward.h"
 
 @implementation APIClient
 
@@ -61,6 +62,8 @@
              kGetteetimes : [TeetimeData class],
              kCourseUpdatesList : [CourseUpdate class],
              kGetDetailCommentsOnThread : [Post class],
+             kRewardsList : [RewardSet class],
+             kRewardDetail : [Reward class],
              };
     
 }                      

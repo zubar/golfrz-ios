@@ -11,12 +11,14 @@
 @interface TeeTimeBookingCell : UITableViewCell
 
 @property (strong, nonatomic) IBOutlet UILabel *lblTime;
-@property (strong, nonatomic) IBOutlet UITextField *txtPlayers;
 
 @property (weak, nonatomic) IBOutlet UIButton *btnBookTeetime;
-- (IBAction)btnNoOfPlayersTapped:(UIButton *)sender;
 @property (strong, nonatomic) IBOutlet UIButton *btnNoOfPlayers;
 
+- (IBAction)btnNoOfPlayersTapped:(UIButton *)sender;
+
+
 - (void)setDidTapButtonBlock:(void (^)(id sender))didTapButtonBlock;
+- (void)setDidTapPlayerCountBtnBlock:(void(^)(id sender))didTapPlayerCountBlock;
 
 @end

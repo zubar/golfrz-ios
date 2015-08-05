@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 @class TeetimeData;
 @class GolfrzError;
+@class Teetime;
 
 @interface TeetimeServices : NSObject
 
@@ -24,5 +25,10 @@
                    bookTime:(NSDate *)bookTime
                     success:(void(^)(bool status, id response))successBlock
                     failure:(void(^)(bool status, GolfrzError * error))failureBlock;
+
++(void)updateTeeTime:(Teetime *)teetime
+         playerCount:(NSNumber *)playerCount
+             success:(void(^)(bool status, id response))successBlock
+             failure:(void(^)(bool status, GolfrzError * error))failureBlock;
 
 @end

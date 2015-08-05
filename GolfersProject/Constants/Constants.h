@@ -133,7 +133,7 @@ static NSString * const kPushRegURL = @"push_registrations/register";
  */
 static NSString * const kGetteetimes = @"tee_times/tee_times";
 static NSString * const kBookTeetime = @"tee_times/book_tee_time";
-
+static NSString * const kUpdateTeetime = @"tee_times/update_tee_time";
 
 /*
  * Notification Names
@@ -150,6 +150,15 @@ static NSString * const kAppLaunchInvitationReceived = @"AppLaunchDueToRoundInvi
 static NSString * const kCourseUpdatesList = @"notifications/view_notification_list";
 static NSString * const kGetDetailCommentsOnThread = @"notifications/view_notification_comments";
 static NSString * const KPostComment = @"notifications/add_comment";
+
+/*
+ *  Rewards
+ */
+static NSString * const kRewardsList = @"rewards/all";
+static NSString * const kRewardDetail = @"rewards/reward_id";
+static NSString * const kRewardRedeem = @"rewards/redeem";
+static NSString * const kRewardUserTotalPoints = @"rewards/fetch_points";
+
 
 //================================= Presentation ======================================
 
