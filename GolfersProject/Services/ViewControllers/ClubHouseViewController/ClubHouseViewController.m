@@ -204,8 +204,9 @@
 -(void)btnCourseUpdatesTap{
 
     AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
-    CourseUpdatesViewController * controller = [self.storyboard instantiateViewControllerWithIdentifier:@"CourseUpdatesViewController"];
-    [delegate.appDelegateNavController pushViewController:controller animated:YES];
+//    CourseUpdatesViewController * controller = [self.storyboard instantiateViewControllerWithIdentifier:@"CourseUpdatesViewController"];
+//    [delegate.appDelegateNavController pushViewController:controller animated:YES];
+    
 }
 
 - (IBAction)btnEventsTapped:(id)sender {

@@ -15,9 +15,10 @@
     return @{
              @"comment" : @"comment",
              @"createdAt" : @"created_at",
-             @"updatedAt" : @"updated_at",
              @"notificationId" : @"notification_id",
              @"user" : @"user",
+             @"userId" : @"user_id",
+             @"itemId" : @"id",
              //propertyName : json_key
              };
 }
@@ -49,6 +50,33 @@
     
     return dateFormatter;
 }
+
+#pragma mark - JSQMessageData
+
+- (NSString *)senderId{
+    return [[self userId] stringValue];
+}
+
+- (NSString *)senderDisplayName{
+    return [NSString stringWithFormat:@"%@ %@", ([self.user firstName] != nil ? [self.user firstName] : @""), ([self.user lastName] != nil ? [self.user lastName] : @"")];
+}
+
+- (NSDate *)date{
+    return [self createdAt];
+}
+
+- (BOOL)isMediaMessage{
+    return NO;
+}
+
+- (NSUInteger)messageHash{
+    return [[self itemId] integerValue];
+}
+
+- (NSString *)text{
+    return [self comment];
+}
+
 
 
 @end
