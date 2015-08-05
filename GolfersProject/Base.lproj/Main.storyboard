@@ -2185,7 +2185,7 @@
                                                                                 <constraint firstAttribute="height" constant="26" id="GGQ-nW-yvd"/>
                                                                                 <constraint firstAttribute="width" constant="26" id="LJ2-ou-0eZ"/>
                                                                             </constraints>
-                                                                            <state key="normal" image="9E2384FB-EC58-428A-A4C7-8BAB3246C9D8">
+                                                                            <state key="normal" image="81DCF8B3-7C84-4456-A27C-821AC5E6C3BB">
                                                                                 <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                                             </state>
@@ -4941,7 +4941,7 @@
                                 <rect key="frame" x="0.0" y="522" width="320" height="46"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Write here" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jXH-D5-mlP">
-                                        <rect key="frame" x="6" y="8" width="259" height="30"/>
+                                        <rect key="frame" x="6" y="8" width="249" height="30"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -4950,10 +4950,9 @@
                                         </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Tm-n1-RCB">
-                                        <rect key="frame" x="273" y="3" width="40" height="40"/>
+                                        <rect key="frame" x="263" y="8" width="56" height="30"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <state key="normal" image="icon_send.png">
-                                            <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Send" backgroundImage="send_btn">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -5630,7 +5629,7 @@
                                                                                 <constraint firstAttribute="height" constant="26" id="OaE-ph-eo5"/>
                                                                                 <constraint firstAttribute="width" constant="26" id="S5w-xw-4Ro"/>
                                                                             </constraints>
-                                                                            <state key="normal" image="30FE3456-748A-413F-B34E-162F79727462">
+                                                                            <state key="normal" image="A6B4A84A-9864-4C10-AD97-1688947E311F">
                                                                                 <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                                             </state>
@@ -6319,7 +6318,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="30FE3456-748A-413F-B34E-162F79727462" width="24" height="25">
+        <image name="81DCF8B3-7C84-4456-A27C-821AC5E6C3BB" width="24" height="25">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -6410,7 +6409,7 @@ ExMWExsTKhMuEzUTPRNKE08TURNTE1gTYBNjE2gTcBNzE4UTiBONAAAAAAAAAgEAAAAAAAAAQgAAAAAA
 AAAAAAAAAAAAE48
 </mutableData>
         </image>
-        <image name="9E2384FB-EC58-428A-A4C7-8BAB3246C9D8" width="24" height="25">
+        <image name="A6B4A84A-9864-4C10-AD97-1688947E311F" width="24" height="25">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -6535,6 +6534,7 @@ AAAAAAAAAAAAE48
         <image name="rightnavigation" width="12" height="17"/>
         <image name="roundhandicap" width="50" height="25"/>
         <image name="scoretextfield" width="35" height="35"/>
+        <image name="send_btn" width="100" height="57"/>
         <image name="settings_button" width="15" height="15"/>
         <image name="shot" width="40" height="40"/>
         <image name="signup_location" width="23" height="31"/>
