@@ -14,6 +14,8 @@
 @property (strong, nonatomic) IBOutlet UITextField *txtPlayers;
 
 @property (weak, nonatomic) IBOutlet UIButton *btnBookTeetime;
+- (IBAction)btnNoOfPlayersTapped:(UIButton *)sender;
+@property (strong, nonatomic) IBOutlet UIButton *btnNoOfPlayers;
 
 - (void)setDidTapButtonBlock:(void (^)(id sender))didTapButtonBlock;
 

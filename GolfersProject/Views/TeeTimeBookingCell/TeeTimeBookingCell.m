@@ -29,4 +29,6 @@
         self.didTapButtonBlock(sender);
     }
 }
+- (IBAction)btnNoOfPlayersTapped:(UIButton *)sender {
+}
 @end
