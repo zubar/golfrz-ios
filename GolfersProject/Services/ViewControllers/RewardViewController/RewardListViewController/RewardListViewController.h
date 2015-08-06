@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RewardListViewController : UIViewController
+@interface RewardListViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+@property (strong, nonatomic) IBOutlet UITableView *rewardTable;
+- (IBAction)btnRewieRewardsTapped:(UIButton *)sender;
 
 @end

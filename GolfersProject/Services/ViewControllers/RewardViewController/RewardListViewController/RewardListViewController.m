@@ -26,6 +26,30 @@
     [super viewWillAppear:animated];
 }
 
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 10;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *customCell = [tableView dequeueReusableCellWithIdentifier:@"RewardListCell"];
+    
+    if (customCell == nil) {
+        customCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"RewardListCell"];
+    }
+    
+    //CourseDepartmentCell *customViewCell = (CourseDepartmentCell *)customCell;
+    
+    
+    
+   
+    return customCell;
+}
+
+
+
+
+
 /**********
  ********** Reload collection view data. **********
  **********/
@@ -85,4 +109,6 @@
  }
  */
 
+- (IBAction)btnRewieRewardsTapped:(UIButton *)sender {
+}
 @end
