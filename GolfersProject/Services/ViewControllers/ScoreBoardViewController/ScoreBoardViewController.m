@@ -23,7 +23,6 @@
     ScoreCard *scoreCard_;
     int parTotal_;
     int parTotal2_;
-    NSMutableDictionary *scoresDic_;
 }
 
 
@@ -33,9 +32,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    scoresDic_ = [NSMutableDictionary new];
-
     [ScoreBoardManager sharedScoreBoardManager].numberOfSections = 0;
     [ScoreBoardManager sharedScoreBoardManager].numberOfItems = 0;
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
@@ -65,7 +61,7 @@
         scoreCard_ = [[ScoreCard alloc] initWithDictionary:responseObject];
         
         [ScoreBoardManager sharedScoreBoardManager].numberOfItems = (int)scoreCard_.users.count + [scoreCard_.teeBoxCount intValue]+2;
-        [ScoreBoardManager sharedScoreBoardManager].numberOfSections = (int)scoreCard_.holeCount+4;
+        [ScoreBoardManager sharedScoreBoardManager].numberOfSections = (int)scoreCard_.holeCount+5;
         [ScoreBoardManager sharedScoreBoardManager].scoreCard = scoreCard_;
         [self calculateParTotal];
         
@@ -138,11 +134,15 @@
         cell.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"leftColorImage"]];
         if (indexPath.row == 0) {
             headerCell.lblHeading.text = @"Hole";
-            UILabel *noLbl = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, 10, 10)];
-            [noLbl setFont:[UIFont fontWithName:@"System" size:9]];
-            noLbl.text = @"#";
-            [noLbl setTextColor:[UIColor whiteColor]];
-            [headerCell addSubview:noLbl];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                UILabel *noLbl = [[UILabel alloc] initWithFrame:CGRectMake(17, 16, 10, 10)];
+                [noLbl setFont:[UIFont fontWithName:@"System" size:9]];
+                noLbl.text = @"#";
+                [noLbl setTextColor:[UIColor whiteColor]];
+                [headerCell addSubview:noLbl];
+            });
+            
             headerCell.handiCpLblView.hidden = YES;
             
         }
@@ -150,8 +150,21 @@
         else if (indexPath.row >1 && indexPath.row <= numberOfLeftColumns)
         {
             headerCell.lblHeading.text = @"HCP";
-            headerCell.handiCpLblView.hidden = YES;
             headerCell.dotView.hidden = NO;
+            //calculate index for tee-box
+            int index = (int)numberOfLeftColumns- (int)indexPath.row;
+            ScoreCardHole *hole = [scoreCard_.holesArray objectAtIndex:index];
+            ScoreCardTeeBox *teeBox = [hole.teeBoxArray objectAtIndex:index];
+            headerCell.handiCpLbl.hidden = YES;
+            dispatch_async(dispatch_get_main_queue(), ^{
+            
+                CGRect frame = headerCell.handiCpLblView.frame;
+                headerCell.handiCpLblView.frame = CGRectMake(frame.origin.x+5, frame.origin.y, frame.size.width-15, frame.size.height);
+                [headerCell.handiCpLblView setBackgroundColor:[self colorWithHexString:teeBox.color alpha:1]];
+                
+            });
+            
+            
         }
         else if(indexPath.row > numberOfLeftColumns){
             int userIndex = (int)indexPath.row - (int)numberOfLeftColumns - 1;
@@ -239,7 +252,13 @@
         {
             if (indexPath.row == 0) {
                 
-                bodyCell.contentLbl.text = @"TOTAL";
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    
+                    //bodyCell.contentLbl.font = [UIFont fontWithName:@"Arial" size:8];
+                    bodyCell.contentLbl.text = @"TOTAL";
+                    
+                });
+                
             }
             else if (indexPath.row == 1)
             {
@@ -260,13 +279,19 @@
                 bodyCell.contentLbl.text = @"";
             }
         }
+        else if (indexPath.section == 22)
+        {
+            if (indexPath.row == 0) {
+                bodyCell.contentLbl.text = @"NET";
+            }
+            else
+            {
+                bodyCell.contentLbl.text = @"WAIT";
+            }
+            
+        }
         else
         {
-            
-            if (indexPath.section == 18) {
-                
-                NSLog(@"break");
-            }
             
             if (indexPath.row == 0) {
                 
@@ -334,7 +359,6 @@
                 ScoreCardHole *hole = [scoreCard_.holesArray objectAtIndex:indexPath.section-1];
                 ScoreCardUserScore *scoreUser = [hole.scoreUsers objectAtIndex:index];
                 bodyCell.contentLbl.text = [NSString stringWithFormat:@"%d",[scoreUser.score intValue]];
-                [self addUserScore:scoreUser];
             }
             else
             {
@@ -381,38 +405,6 @@
     
     return [UIColor colorWithRed:((colorValue & 0xFF0000) >> 16)/255.0 green:((colorValue & 0xFF00) >> 8)/255.0 blue:((colorValue & 0xFF) >> 0)/255.0 alpha:alpha];
 }
--(void)addUserScore:(ScoreCardUserScore *)userScore
-{
-    NSNumber *userId = userScore.userId;
-    NSMutableArray *scoresArray = [scoresDic_ objectForKey:userId];
-    if (scoresArray) {
-        [scoresArray addObject:userScore.score];
-        [scoresDic_ setObject:scoresArray forKey:userId];
-    }
-    else
-    {
-        NSMutableArray *tempArray = [NSMutableArray new];
-        [tempArray addObject:userScore.score];
-        [scoresDic_ setObject:tempArray forKey:userId];
-    }
-}
-//-(int)calculateUserScoreWithUserId:(NSNumber *)userId
-//{
-//    int total = 0;
-//    if (scoreCard_.holeCount >= 9) {
-//        for (int i = 0; i<9; i++) {
-//            
-//            ScoreCardHole *hole = [scoreCard_.holesArray objectAtIndex:i];
-//            hole.scoreUsers
-//            if (hole.userId == userId) {
-//                total += [hole.score intValue];
-//            }
-//            
-//        }
-//    }
-//    
-//    return total;
-//}
 /*
 #pragma mark - Navigation
 

@@ -59,27 +59,6 @@
         
         _scoreUsers = [NSMutableArray arrayWithArray:[tempArray sortedArrayUsingDescriptors:sortDescriptors]];
         
-        
-//        NSDictionary *holeData = [[dictionary objectForKey:holeKey] isKindOfClass:[NSNull class]]?nil:[dictionary objectForKey:holeKey];
-//        if (holeData) {
-//            
-//            NSString *scoreString = [[holeData objectForKey:@"score"] isKindOfClass:[NSNull class]]?nil: [holeData objectForKey:@"score"];
-//            _score = [NSNumber numberWithInt:[scoreString intValue]];
-//            NSDictionary *symbolData = [[holeData objectForKey:@"symbol"] isKindOfClass:[NSNull class]]?nil:[holeData objectForKey:@"symbol"];
-//            if (symbolData) {
-//                
-//                _shotType = [[symbolData objectForKey:@"shot_type"] isKindOfClass:[NSNull class]]?nil: [symbolData objectForKey:@"shot_type"];
-//                NSString *symbol = [[symbolData objectForKey:@"symbol"] isKindOfClass:[NSNull class]]?nil: [symbolData objectForKey:@"symbol"];
-//                NSArray *symbolsArray = [symbol componentsSeparatedByString:@","];
-//                if (symbolsArray && symbolsArray.count > 1) {
-//                    _shape = symbolsArray.firstObject;
-//                    _shapeColor = symbolsArray.lastObject;
-//                }
-//            }
-//            
-//            
-//            
-//        }
         _parValue = [[dictionary objectForKey:@"par_value"] isKindOfClass:[NSNull class]]?nil: [dictionary objectForKey:@"par_value"];
         _teeBoxArray = [NSMutableArray new];
         for (int i = 0; i<[teeBoxCount intValue]; i++) {
