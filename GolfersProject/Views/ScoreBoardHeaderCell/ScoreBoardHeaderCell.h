@@ -14,6 +14,6 @@
 @property (strong, nonatomic) IBOutlet UIImageView *imgRightImage;
 @property (weak, nonatomic) IBOutlet UIView *handiCpLblView;
 @property (weak, nonatomic) IBOutlet UILabel *handiCpLbl;
-@property (weak, nonatomic) IBOutlet UIView *dotView;
+@property (weak, nonatomic) IBOutlet UIImageView *greenDotImgView;
 
 @end

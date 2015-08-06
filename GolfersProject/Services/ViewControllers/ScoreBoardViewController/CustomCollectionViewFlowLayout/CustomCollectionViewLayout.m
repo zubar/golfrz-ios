@@ -10,7 +10,7 @@
 #import "ScoreBoardManager.h"
 
 #define INDEX_LIMIT 2
-#define SPACES_BETWEEN_CELLS 40
+#define SPACES_BETWEEN_CELLS 45
 
 //#define NUMBEROFCOLUMNS 12
 
@@ -202,7 +202,7 @@
   
     //CGSize size = [text sizeWithAttributes: @{NSFontAttributeName:[UIFont fontWithName:@"HelveticaNeue" size:10]}];
 
-    return CGSizeMake(SPACES_BETWEEN_CELLS, 30);
+    return CGSizeMake(SPACES_BETWEEN_CELLS, 35);
     //return CGSizeMake([@(size.width + 9) floatValue], 30); // Extra space of 9px for all the items
 }
 

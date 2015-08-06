@@ -150,7 +150,8 @@
         else if (indexPath.row >1 && indexPath.row <= numberOfLeftColumns)
         {
             headerCell.lblHeading.text = @"HCP";
-            headerCell.dotView.hidden = NO;
+            //headerCell.dotView.hidden = NO;
+            headerCell.greenDotImgView.hidden = NO;
             //calculate index for tee-box
             int index = (int)numberOfLeftColumns- (int)indexPath.row;
             ScoreCardHole *hole = [scoreCard_.holesArray objectAtIndex:index];
@@ -192,7 +193,8 @@
         }
         cell.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"rightColorImage"]];
         ScoreBoardBodyCell *bodyCell = (ScoreBoardBodyCell *)cell;
-       
+       bodyCell.containerImgView.hidden = YES;
+        bodyCell.greeDotImgView.hidden = YES;
         if (indexPath.row > numberOfLeftColumns) {
             cell.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"leftColorImage"]];
         }
@@ -358,6 +360,17 @@
                 int index = (int)indexPath.row - (int)numberOfLeftColumns - 1;
                 ScoreCardHole *hole = [scoreCard_.holesArray objectAtIndex:indexPath.section-1];
                 ScoreCardUserScore *scoreUser = [hole.scoreUsers objectAtIndex:index];
+                if ([scoreUser.shape isEqualToString:@"circle"]) {
+                    
+                    bodyCell.containerImgView.hidden = NO;
+                    [bodyCell.containerImgView setImage:[UIImage imageNamed:@"equal_par"]];
+                    bodyCell.greeDotImgView.hidden = NO;
+                }
+                else
+                {
+                    bodyCell.containerImgView.hidden = NO;
+                    [bodyCell.containerImgView setImage:[UIImage imageNamed:@"above_par"]];
+                }
                 bodyCell.contentLbl.text = [NSString stringWithFormat:@"%d",[scoreUser.score intValue]];
             }
             else

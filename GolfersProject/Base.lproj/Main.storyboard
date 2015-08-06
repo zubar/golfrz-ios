@@ -2180,7 +2180,7 @@
                                                                                 <constraint firstAttribute="height" constant="26" id="GGQ-nW-yvd"/>
                                                                                 <constraint firstAttribute="width" constant="26" id="LJ2-ou-0eZ"/>
                                                                             </constraints>
-                                                                            <state key="normal" image="6BB71F6D-8B91-43DC-8475-A232A9A4A2CF">
+                                                                            <state key="normal" image="8A6B05B8-E8A6-4958-9DD4-6FCCEC39D79C">
                                                                                 <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                                             </state>
@@ -2490,22 +2490,30 @@
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="44" height="40"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="40"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="above_par" translatesAutoresizingMaskIntoConstraints="NO" id="nLM-Bp-XhI">
+                                                    <rect key="frame" x="13" y="12" width="20" height="15"/>
+                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VJk-vN-HL5">
-                                                    <rect key="frame" x="1" y="11" width="42" height="21"/>
+                                                    <rect key="frame" x="12" y="9" width="23" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="green_dot" translatesAutoresizingMaskIntoConstraints="NO" id="SvL-OO-9ZG">
+                                                    <rect key="frame" x="20" y="29" width="4" height="4"/>
+                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <size key="customSize" width="44" height="40"/>
+                                        <size key="customSize" width="50" height="40"/>
                                         <connections>
+                                            <outlet property="containerImgView" destination="nLM-Bp-XhI" id="fCq-ZZ-aim"/>
                                             <outlet property="contentLbl" destination="VJk-vN-HL5" id="5EK-MJ-K40"/>
+                                            <outlet property="greeDotImgView" destination="SvL-OO-9ZG" id="idX-pt-rW5"/>
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="headerCell" id="L7q-a1-zyy" customClass="ScoreBoardHeaderCell">
@@ -2516,7 +2524,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PAR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YqE-n3-KrH">
-                                                    <rect key="frame" x="0.0" y="0.0" width="43" height="17"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="35" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -2540,16 +2548,15 @@
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </view>
-                                                <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GVf-ba-S31">
-                                                    <rect key="frame" x="32" y="5" width="5" height="5"/>
-                                                    <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                </view>
+                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="green_dot" translatesAutoresizingMaskIntoConstraints="NO" id="XTe-K3-Twd">
+                                                    <rect key="frame" x="31" y="5" width="4" height="4"/>
+                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <size key="customSize" width="50" height="40"/>
                                         <connections>
-                                            <outlet property="dotView" destination="GVf-ba-S31" id="8Q2-lG-vhW"/>
+                                            <outlet property="greenDotImgView" destination="XTe-K3-Twd" id="5cP-vh-nSA"/>
                                             <outlet property="handiCpLbl" destination="hgy-VD-FJd" id="FaZ-Hd-wmb"/>
                                             <outlet property="handiCpLblView" destination="tKq-C1-3XX" id="tcs-hW-62v"/>
                                             <outlet property="imgLeftImage" destination="bvZ-dA-zrT" id="vbD-jH-QNo"/>
@@ -2575,7 +2582,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3zA-uf-u0k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-838" y="1891"/>
+            <point key="canvasLocation" x="-839" y="1891"/>
         </scene>
         <!--Holes Map View Controller-->
         <scene sceneID="bx3-SE-8kq">
@@ -5644,7 +5651,7 @@
                                                                                 <constraint firstAttribute="height" constant="26" id="OaE-ph-eo5"/>
                                                                                 <constraint firstAttribute="width" constant="26" id="S5w-xw-4Ro"/>
                                                                             </constraints>
-                                                                            <state key="normal" image="C420C6B0-C32D-43D1-8B19-61745DB10273">
+                                                                            <state key="normal" image="4135BE16-ABED-4534-BF5F-E184C525564D">
                                                                                 <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                                             </state>
@@ -6291,7 +6298,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="6BB71F6D-8B91-43DC-8475-A232A9A4A2CF" width="24" height="25">
+        <image name="4135BE16-ABED-4534-BF5F-E184C525564D" width="24" height="25">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -6382,7 +6389,7 @@ ExMWExsTKhMuEzUTPRNKE08TURNTE1gTYBNjE2gTcBNzE4UTiBONAAAAAAAAAgEAAAAAAAAAQgAAAAAA
 AAAAAAAAAAAAE48
 </mutableData>
         </image>
-        <image name="C420C6B0-C32D-43D1-8B19-61745DB10273" width="24" height="25">
+        <image name="8A6B05B8-E8A6-4958-9DD4-6FCCEC39D79C" width="24" height="25">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -6475,6 +6482,7 @@ AAAAAAAAAAAAE48
         </image>
         <image name="ChooseHole_Down" width="88" height="88"/>
         <image name="FnBTransparentBar" width="320" height="50"/>
+        <image name="above_par" width="40" height="40"/>
         <image name="add_icon" width="22" height="22"/>
         <image name="addplayerbtn" width="200" height="50"/>
         <image name="addplayers_edit" width="39" height="40"/>
@@ -6493,6 +6501,7 @@ AAAAAAAAAAAAE48
         <image name="foodnbev_icon" width="70" height="70"/>
         <image name="go_button" width="20" height="20"/>
         <image name="golfcourse_logo" width="100" height="101"/>
+        <image name="green_dot" width="8" height="8"/>
         <image name="greenmap_unselected" width="266" height="81"/>
         <image name="holeNumber" width="47" height="47"/>
         <image name="invite_icon" width="51" height="50"/>
