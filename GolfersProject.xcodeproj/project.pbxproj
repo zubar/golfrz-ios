@@ -205,6 +205,9 @@
 		88E9EE631B6A0B4B00F4D90E /* ScoreBoardManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E9EE5F1B6A0B4B00F4D90E /* ScoreBoardManager.m */; };
 		88E9EE641B6A0B4B00F4D90E /* ScoreBoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E9EE611B6A0B4B00F4D90E /* ScoreBoardViewController.m */; };
 		88EBBAE61B4D108400AA6688 /* TeeTimeBookingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88EBBAE51B4D108400AA6688 /* TeeTimeBookingCell.m */; };
+		88EBE46D1B736DD1002F4FA2 /* RewardListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88EBE46C1B736DD1002F4FA2 /* RewardListViewController.m */; };
+		88EBE4721B7372FC002F4FA2 /* RewardTutorialContainerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 88EBE4711B7372FC002F4FA2 /* RewardTutorialContainerVC.m */; };
+		88EBE4751B737329002F4FA2 /* RewardTutorialDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 88EBE4741B737329002F4FA2 /* RewardTutorialDetailVC.m */; };
 		A921244B1B36DB1E00917649 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A921244A1B36DB1E00917649 /* MessageUI.framework */; };
 /* End PBXBuildFile section */
 
@@ -580,6 +583,12 @@
 		88E9EE611B6A0B4B00F4D90E /* ScoreBoardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreBoardViewController.m; sourceTree = "<group>"; };
 		88EBBAE41B4D108400AA6688 /* TeeTimeBookingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeeTimeBookingCell.h; sourceTree = "<group>"; };
 		88EBBAE51B4D108400AA6688 /* TeeTimeBookingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeeTimeBookingCell.m; sourceTree = "<group>"; };
+		88EBE46B1B736DD1002F4FA2 /* RewardListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RewardListViewController.h; sourceTree = "<group>"; };
+		88EBE46C1B736DD1002F4FA2 /* RewardListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RewardListViewController.m; sourceTree = "<group>"; };
+		88EBE4701B7372FC002F4FA2 /* RewardTutorialContainerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RewardTutorialContainerVC.h; sourceTree = "<group>"; };
+		88EBE4711B7372FC002F4FA2 /* RewardTutorialContainerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RewardTutorialContainerVC.m; sourceTree = "<group>"; };
+		88EBE4731B737329002F4FA2 /* RewardTutorialDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RewardTutorialDetailVC.h; sourceTree = "<group>"; };
+		88EBE4741B737329002F4FA2 /* RewardTutorialDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RewardTutorialDetailVC.m; sourceTree = "<group>"; };
 		A921244A1B36DB1E00917649 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		D817BE50C16025D4FB4E4951 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		E15946F021CC95FC21355D7C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -1062,6 +1071,8 @@
 		3D1CB0CB1B691563005C1E19 /* RewardViewController */ = {
 			isa = PBXGroup;
 			children = (
+				88EBE46E1B737292002F4FA2 /* RewardTutorialContainerVC */,
+				88EBE46A1B736DB4002F4FA2 /* RewardListViewController */,
 				3D1CB0CC1B691563005C1E19 /* RewardViewController.h */,
 				3D1CB0CD1B691563005C1E19 /* RewardViewController.m */,
 			);
@@ -1954,6 +1965,35 @@
 			path = TeeTimeBookingCell;
 			sourceTree = "<group>";
 		};
+		88EBE46A1B736DB4002F4FA2 /* RewardListViewController */ = {
+			isa = PBXGroup;
+			children = (
+				88EBE46B1B736DD1002F4FA2 /* RewardListViewController.h */,
+				88EBE46C1B736DD1002F4FA2 /* RewardListViewController.m */,
+			);
+			path = RewardListViewController;
+			sourceTree = "<group>";
+		};
+		88EBE46E1B737292002F4FA2 /* RewardTutorialContainerVC */ = {
+			isa = PBXGroup;
+			children = (
+				88EBE4701B7372FC002F4FA2 /* RewardTutorialContainerVC.h */,
+				88EBE4711B7372FC002F4FA2 /* RewardTutorialContainerVC.m */,
+				88EBE46F1B7372CC002F4FA2 /* RewardTutorialDetailVC */,
+			);
+			name = RewardTutorialContainerVC;
+			path = RewardListViewController/RewardTutorialContainerVC;
+			sourceTree = "<group>";
+		};
+		88EBE46F1B7372CC002F4FA2 /* RewardTutorialDetailVC */ = {
+			isa = PBXGroup;
+			children = (
+				88EBE4731B737329002F4FA2 /* RewardTutorialDetailVC.h */,
+				88EBE4741B737329002F4FA2 /* RewardTutorialDetailVC.m */,
+			);
+			path = RewardTutorialDetailVC;
+			sourceTree = "<group>";
+		};
 		C91B48159ABC56B52D213A0C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -2164,6 +2204,8 @@
 				3DCA44D91B26CB3400B66BD2 /* SideItem.m in Sources */,
 				3D1CB0FC1B691563005C1E19 /* PlayerProfileViewController.m in Sources */,
 				88243AF61B28437C00E600D6 /* FoodBevViewCell.m in Sources */,
+				88EBE4751B737329002F4FA2 /* RewardTutorialDetailVC.m in Sources */,
+				88EBE4721B7372FC002F4FA2 /* RewardTutorialContainerVC.m in Sources */,
 				885CB0441B09BA9D00AD2A7B /* AppDelegate.m in Sources */,
 				88E9EE621B6A0B4B00F4D90E /* CustomCollectionViewLayout.m in Sources */,
 				3D1963CE1B0DBC8300766CFC /* Condition.m in Sources */,
@@ -2237,6 +2279,7 @@
 				88255AF11B70AF790089644F /* ScoreBoardBodyCell.m in Sources */,
 				3DF993721B256A4A006EBC39 /* AppDelegate+Push.m in Sources */,
 				3DCA44D31B26CB3400B66BD2 /* StaffType.m in Sources */,
+				88EBE46D1B736DD1002F4FA2 /* RewardListViewController.m in Sources */,
 				3D221F971B5279AC00CF79E4 /* User+convenience.m in Sources */,
 				3D613B631B416F1F00F7DEDA /* CalendarEventCell.m in Sources */,
 				3D1964271B13305200766CFC /* FaceBookAuthAgent.m in Sources */,
