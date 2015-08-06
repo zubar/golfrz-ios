@@ -36,5 +36,6 @@
 -(NSDate *)toGlobalTime;
 -(NSString *)serverFormatDate;
 -(NSDate *)dateWithTimeComponentsZeroSet;
+-(NSDate *)dateWithOffsethours:(NSInteger )hoursOffset minuteOffset:(NSInteger)minutesOffset;
 
 @end

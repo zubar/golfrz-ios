@@ -9,7 +9,7 @@
 #import "TeeTimeBookingCell.h"
 
 @interface TeeTimeBookingCell ()
-@property(copy, nonatomic) void (^didTapButtonBlock)(id sender);
+@property(copy, nonatomic) void (^didTapButtonBlock)(id sender, NSInteger playercount);
 @property(copy, nonatomic) void (^didTapPlayerCountBtnBlock)(id sender);
 @end
 
@@ -18,16 +18,30 @@
 - (void)awakeFromNib {
     // Initialization code
     [self.btnBookTeetime addTarget:self action:@selector(didTapButton:) forControlEvents:UIControlEventTouchUpInside];
+    [self.btnNoOfPlayers addTarget:self action:@selector(didTapPlayerCountBtn:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
     // Configure the view for the selected state
 }
+
+
+-(void)updateViewBtnForTeetime:(Teetime *)teetime{
+    if([teetime count]) [self.btnNoOfPlayers setTitle:[[teetime count] stringValue] forState:UIControlStateNormal];
+    else [self.btnNoOfPlayers setTitle:[[teetime count] stringValue] forState:UIControlStateNormal];
+
+    if ([teetime itemId]) { // it mean teetime is already booked by someone so show update button
+        if ([[teetime count] integerValue] >= 5)
+            [self.btnBookTeetime setTitle:@"FULL" forState:UIControlStateNormal];
+        else [self.btnBookTeetime setTitle:@"UPDATE" forState:UIControlStateNormal];
+    }else // it mean teetime is not booked at all.
+        [self.btnBookTeetime setTitle:@"BOOK" forState:UIControlStateNormal];
+}
+
 - (void)didTapButton:(id)sender {
     if (self.didTapButtonBlock) {
-        self.didTapButtonBlock(sender);
+        self.didTapButtonBlock(self, [[self.btnNoOfPlayers.titleLabel text] integerValue]);
     }
 }
 

@@ -23,7 +23,7 @@
 +(void)bookTeeTimeSubcourse:(NSNumber *)subcourseId
                   playersNo:(NSNumber *)playerCount
                    bookTime:(NSDate *)bookTime
-                    success:(void(^)(bool status, id response))successBlock
+                    success:(void(^)(bool status, Teetime * teeTime))successBlock
                     failure:(void(^)(bool status, GolfrzError * error))failureBlock;
 
 +(void)updateTeeTime:(Teetime *)teetime

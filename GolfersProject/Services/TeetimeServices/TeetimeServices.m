@@ -19,6 +19,7 @@
 #import "Teetime.h"
 #import "NSDate+Helper.h"
 #import "GolfrzError.h"
+#import "Teetime.h"
 
 
 
@@ -52,13 +53,18 @@
 +(void)bookTeeTimeSubcourse:(NSNumber *)subcourseId
                   playersNo:(NSNumber *)playerCount
                    bookTime:(NSDate *)bookTime
-                    success:(void(^)(bool status, id response))successBlock
+                    success:(void(^)(bool status, Teetime * teeTime))successBlock
                     failure:(void(^)(bool status, GolfrzError * error))failureBlock{
     
     APIClient * apiClient = [APIClient sharedAPICLient];
     [apiClient POST:kBookTeetime parameters:[TeetimeServices paramBookTeetime:subcourseId players:playerCount bookingTime:bookTime] completion:^(id response, NSError *error) {
         if(error) failureBlock(false, [response result]);
-        else successBlock(true, [response result]);
+        else{
+            NSDictionary * dataDict = [[response result] objectForKey:@"tee_time"];
+            NSError * error = nil;
+            Teetime * teeTime = [MTLJSONAdapter modelOfClass:[Teetime class] fromJSONDictionary:dataDict error:&error];
+            successBlock(true, teeTime);
+        }
     }];
 }
 
@@ -90,6 +96,7 @@
 }
 
 +(NSDictionary *)paramsGetTeetimesSubcourse:(NSNumber *)subcourseId startDate:(NSDate *)strtDate endDate:(NSDate *)endDate{
+    
     
     return @{
              @"app_bundle_id" : kAppBundleId,

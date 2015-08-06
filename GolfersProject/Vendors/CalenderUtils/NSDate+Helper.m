@@ -15,7 +15,7 @@
  * you're better off using daysAgoAgainstMidnight
  */
 - (NSUInteger)daysAgo {
-	NSCalendar *calendar = [NSCalendar currentCalendar];
+	NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier: NSGregorianCalendar];
 	NSDateComponents *components = [calendar components:(NSDayCalendarUnit) 
 											   fromDate:self
 												 toDate:[NSDate date]
@@ -157,7 +157,7 @@
 	 */
 	
 	NSDate *today = [NSDate date];
-	NSCalendar *calendar = [NSCalendar currentCalendar];
+	NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier: NSGregorianCalendar];
 	NSDateComponents *offsetComponents = [calendar components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) 
 													 fromDate:today];
 	
@@ -239,6 +239,13 @@ static NSDateFormatter *sUserVisibleDateFormatter = nil;
 
 -(NSDate *) toLocalTime
 {
+    NSCalendar * gregorian = [[NSCalendar alloc] initWithCalendarIdentifier: NSGregorianCalendar];
+    NSDateComponents *timeStamp = [gregorian components: NSCalendarUnitTimeZone | NSCalendarUnitYear fromDate:self];
+    NSTimeZone *localTimeZone = [NSTimeZone defaultTimeZone];
+    
+    if([[timeStamp timeZone] isEqualToTimeZone:localTimeZone])
+        return self;    // dates are already in same time zone.
+    
     NSTimeZone *tz = [NSTimeZone defaultTimeZone];
     NSInteger seconds = [tz secondsFromGMTForDate: self];
     return [NSDate dateWithTimeInterval: seconds sinceDate: self];
@@ -263,8 +270,7 @@ static NSDateFormatter *sUserVisibleDateFormatter = nil;
 
 -(NSDate *)dateWithTimeComponentsZeroSet{
     
-    //NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier: NSGregorianCalendar];
-    NSCalendar * gregorian = [NSCalendar currentCalendar];
+    NSCalendar * gregorian = [[NSCalendar alloc] initWithCalendarIdentifier: NSGregorianCalendar];
     NSDateComponents *components = [gregorian components: NSUIntegerMax fromDate:self];
     [components setHour:00];
     [components setMinute:00];
@@ -273,6 +279,16 @@ static NSDateFormatter *sUserVisibleDateFormatter = nil;
     return newDate;
 }
 
+-(NSDate *)dateWithOffsethours:(NSInteger )hoursOffset minuteOffset:(NSInteger)minutesOffset{
+    
+    NSCalendar * gregorian = [[NSCalendar alloc] initWithCalendarIdentifier: NSGregorianCalendar];
+    NSDateComponents *components = [gregorian components: NSUIntegerMax fromDate:self];
+    [components setHour:hoursOffset];
+    [components setMinute:minutesOffset];
+    [components setSecond:00];
+    NSDate *newDate = [gregorian dateFromComponents: components];
+    return newDate;
+}
 //-(NSComparisonResult)compareWithDate:(NSDate *)date forComponents:(NSCalendarUnit)unitFlag{
 //    
 //    NSTimeInterval timeInterval = [self timeIntervalSinceDate:date];

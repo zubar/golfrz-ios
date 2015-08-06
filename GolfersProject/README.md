@@ -13,6 +13,8 @@ This README would normally document whatever steps are necessary to get your app
 * Summary of set up
 - Install cocoaPods. 
 
+* App uses Georgian calendar. 
+
 * Configuration
 * Dependencies
 * Database configuration
