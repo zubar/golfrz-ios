@@ -53,4 +53,26 @@
     return [self.bookedTime compare:otherTeetime.bookedTime];
 }
 
+- (BOOL)isEqual:(id)other {
+    if (other == self)
+        return YES;
+    if (!other || ![other isKindOfClass:[self class]])
+        return NO;
+    return [self isEqualToTeetime:other];
+}
+
+- (BOOL)isEqualToTeetime:(Teetime *)teetime {
+    if (self == teetime){
+        NSLog(@"Comparitng ---- :%@  with %@ -- NOT EQUAL", [self bookedTime], [teetime bookedTime]);
+        return YES;
+    }
+    if (![[[self bookedTime] toLocalTime] isEqual:[[teetime bookedTime] toLocalTime]]){
+        NSLog(@"Comparitng ---- :%@  with %@ -- NOT EQUAL", [[self bookedTime] toLocalTime], [[teetime bookedTime] toLocalTime]);
+        return NO;
+    }
+    NSLog(@"Comparitng ---- :%@  with %@ -- EQUAL", [self bookedTime], [teetime bookedTime]);
+    return YES;
+}
+
+
 @end

@@ -161,12 +161,14 @@
     return cell;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    Comment * messageObj = [self.DTOArray objectAtIndex:indexPath.row];
-    int height = [Utility heightRequiredToShowText:messageObj.comment forFont:[UIFont fontWithName:@"Helvetica" size:16] inWidth:218];
-    return height+82-25;
-}
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+//    
+//    return 30;
+//    
+////    Comment * messageObj = [self.DTOArray objectAtIndex:indexPath.row];
+////    int height = [Utility heightRequiredToShowText:messageObj.comment forFont:[UIFont fontWithName:@"Helvetica" size:10] inWidth:218];
+////    return height+70-25;
+//}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {

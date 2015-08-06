@@ -32,6 +32,24 @@
 
 }
 
++(void)dateComponents:(NSDate *)mDate components:(void (^)(NSString * dayName, NSString * monthName, NSString * day, NSString * time, NSString * minutes, NSString * timeAndMinute, NSString * year))dateComponents{
+    
+    NSCalendar *cal = [NSCalendar currentCalendar];
+    [cal setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
+    [cal setLocale:[NSLocale currentLocale]];
+    
+    NSDateComponents *timeStamp = [[NSCalendar currentCalendar] components: NSCalendarUnitWeekday | NSCalendarUnitHour| NSCalendarUnitMinute | NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:mDate];
+    
+    dateComponents([Utilities dayName:timeStamp.weekday],
+                   [Utilities monthName:timeStamp.month],
+                   [NSString stringWithFormat:@"%ld", (long)timeStamp.day],
+                   [Utilities timeInAMPMfrom24hour:(int)timeStamp.hour],
+                   [NSString stringWithFormat:@"%.2ld",(long)[timeStamp minute]],
+                   [NSString stringWithFormat:@"%@",[Utilities timeInAMPMfrom24hour:(int)timeStamp.hour minute:(int)timeStamp.minute]],
+                   [NSString stringWithFormat:@"%ld", [timeStamp year]]
+                   );
+    
+}
 
 +(NSString *)dayName:(NSInteger)num{
     

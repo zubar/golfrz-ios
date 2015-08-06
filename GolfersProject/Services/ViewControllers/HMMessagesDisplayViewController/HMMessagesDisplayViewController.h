@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "BaseViewController.h"
+#import "Activity.h"
 
 @interface HMMessagesDisplayViewController : BaseViewController<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate>
 
@@ -17,6 +18,8 @@
 @property (strong, nonatomic) IBOutlet UILabel * noRecodFoundLabel;
 @property(nonatomic,strong) NSMutableArray * DTOArray;
 
+
+@property (strong, nonatomic) Activity * currntActivity;
 
 -(IBAction)sendMessage:(id)sender;
 @end

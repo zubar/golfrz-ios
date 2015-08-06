@@ -62,15 +62,6 @@
             [self.imgCourseLogo setRoundedImage:image];
         }
     }];
-    
-    [self loadSubcourses:^(NSArray *array) {
-        if([self.subCourses count] <= 0) [self.subCourses removeAllObjects];
-        [self.subCourses addObjectsFromArray:array];
-        SubCourse * firstSubCourse = self.subCourses[0];
-        self.lblSubCourseName.text = [firstSubCourse name];
-        self.selectedSubcourseId = [firstSubCourse itemId];
-    }];
-    
     // Set default date
     if(! self.selectedDate){
         [self setSelectedDate:[NSDate date]];
@@ -83,9 +74,21 @@
 -(void)viewWillAppear:(BOOL)animated{
     
     [super viewWillAppear:animated];
-    [self updateTeeTimesForDate:self.selectedDate completion:^{
-        [self.teeTimesTable reloadData];
+    
+    [self loadSubcourses:^(NSArray *array) {
+        if([self.subCourses count] <= 0) [self.subCourses removeAllObjects];
+        [self.subCourses addObjectsFromArray:array];
+        SubCourse * firstSubCourse = self.subCourses[0];
+        self.lblSubCourseName.text = [firstSubCourse name];
+        self.selectedSubcourseId = [firstSubCourse itemId];
+        
+        // Get teetimes after loading subcourses.
+        [self updateTeeTimesForDate:self.selectedDate completion:^{
+            [self.teeTimesTable reloadData];
+        }];
     }];
+    
+   
 }
 
 -(void)updateTeeTimesForDate:(NSDate *)teeTimeDate completion:(void(^)(void))completionHandler{
@@ -97,15 +100,25 @@
      4: Assign these times against the teeTimeDate. 
      5: Reload UI on completion.
      */
-    NSDate * start = [NSDate NSDateForRFC3339DateTimeString:@"2015-07-13T06:00:00.540Z"];
-    NSDate * end = [NSDate NSDateForRFC3339DateTimeString:@"2015-07-13T18:00:00.540Z"];
     
-    [self loadTeetimesStartdate:start endDate:end subCourse:[NSNumber numberWithInt:1] completion:^(NSArray * bookedTeeTimes) {
+    NSDate * tempStart = [NSDate dateWithTimeInterval:0 sinceDate:self.selectedDate];
+    NSDate * start =  [[[[tempStart dateWithTimeComponentsZeroSet] toLocalTime] dateWithOffsethours:6 minuteOffset:30] toLocalTime];
+    NSDate * tempEnd = [NSDate dateWithTimeInterval:0 sinceDate:self.selectedDate];
+    NSDate * end =  [[[[tempEnd dateWithTimeComponentsZeroSet] toLocalTime] dateWithOffsethours:18 minuteOffset:30] toLocalTime];
+    
+    
+    [self loadTeetimesStartdate:start endDate:end subCourse:self.selectedSubcourseId completion:^(NSArray * serverBookedTimes) {
+        
+       NSMutableSet * teeTimes = [self createTeeTimesForDate:teeTimeDate];
+       NSSet * bookedTeetimes = [NSSet setWithArray:serverBookedTimes];
+        
+        
+     [teeTimes unionSet:bookedTeetimes];
+        
+        
+      // NSArray * mergedTeeTimes = [self removeExistingTeeTimesFromArray:teeTimes whichAreIn:bookedTeeTimes];
+        NSArray * mergedTeeTimes = [[NSMutableArray alloc] initWithArray:[teeTimes allObjects]];
 
-        
-       NSMutableArray * teeTimes = [[self createTeeTimesForDate:teeTimeDate] mutableCopy];
-       NSArray * mergedTeeTimes = [self removeExistingTeeTimesFromArray:teeTimes whichAreIn:bookedTeeTimes];
-        
         NSSortDescriptor * sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"bookedTime" ascending:YES];
         mergedTeeTimes = [mergedTeeTimes sortedArrayUsingDescriptors:@[sortDescriptor]];
         
@@ -114,11 +127,10 @@
     }];
 }
 
--(NSArray *)createTeeTimesForDate:(NSDate *)teetimeDay{
+-(NSMutableSet *)createTeeTimesForDate:(NSDate *)teetimeDay{
 
     //Array
-    NSMutableArray * teeTimes = [[NSMutableArray alloc] initWithCapacity:102];
-    
+    NSMutableSet * teeTimes = [[NSMutableSet alloc]init];
     
     NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
 
@@ -129,7 +141,7 @@
     comps.hour   = 06;
     comps.minute = 30;
     comps.second = 00;
-    NSDate *teeTimeStart = [gregorian dateFromComponents:comps];
+    NSDate *teeTimeStart = [[gregorian dateFromComponents:comps] toLocalTime];
     NSLog(@"%@", teeTimeStart);
     
     
@@ -143,10 +155,10 @@
     for (int i = 1; i <= 103; ++i) {
         NSDate *timeStampTeeTime = [gregorian dateByAddingComponents:offsetComponents toDate:teeTimeStart options:0];
         [offsetComponents setMinute:i * 7];
-        NSLog(@"TeeTime: %d StartTime: %@", i, [timeStampTeeTime toLocalTime]);
+        NSLog(@"TeeTime: %d StartTime: %@", i, timeStampTeeTime);
         
         NSDictionary * teeTimeParam = @{
-                                        @"bookedTime" : [timeStampTeeTime toLocalTime],
+                                        @"bookedTime" : timeStampTeeTime,
                                         @"subCourseId" : [NSNumber numberWithInt:1], //TODO: For Testing.
                                         //propertyName : json_key
                                         };
@@ -166,6 +178,7 @@
     NSSortDescriptor * sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"bookedTime" ascending:YES];
     arrayOne = [[arrayOne sortedArrayUsingDescriptors:@[sortDescriptor]] mutableCopy];
     arrayTwo = [arrayTwo sortedArrayUsingDescriptors:@[sortDescriptor]];
+    
     
     assert([arrayOne count] >= [arrayTwo count]);
     
@@ -208,41 +221,99 @@
     return [teeTimesArray count];
 }
 
+- (void)bookTeetimeForPlayers:(NSInteger)playerCount tee:(Teetime *)tee {
+    if(![tee itemId]) //teetime is never book
+        [TeetimeServices bookTeeTimeSubcourse:self.selectedSubcourseId playersNo:[NSNumber numberWithInteger:playerCount] bookTime:[tee bookedTime] success:^(bool status, Teetime * response) {
+            // Reload all the teetimes
+            if(status)
+            [self updateTeeTimesForDate:self.selectedDate completion:^{
+                [self.teeTimesTable reloadData];
+            }];
+        } failure:^(bool status, GolfrzError *error) {
+            [Utilities displayErrorAlertWithMessage:[error errorMessage]];
+        }];
+    else
+        [TeetimeServices updateTeeTime:tee playerCount:[NSNumber numberWithInteger:playerCount] success:^(bool status, id response) {
+            [self updateTeeTimesForDate:self.selectedDate completion:^{
+                [self.teeTimesTable reloadData];
+            }];
+        } failure:^(bool status, GolfrzError *error) {
+            [Utilities displayErrorAlertWithMessage:[error errorMessage]];
+        }];
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *customCell = [tableView dequeueReusableCellWithIdentifier:@"TeeTimeBookingCell"];
     
     if (customCell == nil) {
         customCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TeeTimeBookingCell"];
     }
-    NSArray * teeTimesArray = [self.teeTimesData objectForKey:[self.selectedDate dateWithTimeComponentsZeroSet]];
+        __block NSArray * teeTimesArray = [self.teeTimesData objectForKey:[self.selectedDate dateWithTimeComponentsZeroSet]];
     Teetime * teeTime = teeTimesArray[indexPath.row];
     TeeTimeBookingCell *customViewCell = (TeeTimeBookingCell *)customCell;
+    [customViewCell updateViewBtnForTeetime:teeTime];
     
     [Utilities dateComponentsFromNSDate:[teeTime bookedTime] components:^(NSString *dayName, NSString *monthName, NSString *day, NSString *time, NSString *minutes, NSString *timeAndMinute) {
         [customViewCell.lblTime setText:timeAndMinute];
     }];
     [customViewCell setSelectionStyle:UITableViewCellSelectionStyleNone];
-    [customViewCell setDidTapButtonBlock:^(id sender) {
-       // [self bookTeetime:<#(Teetime *)#>];
+    
+    [customViewCell setDidTapButtonBlock:^(id sender , NSInteger playerCount) {
+        // Update the tee time if already existing teeTime persons are
+        NSIndexPath * indexOfTappedBtn = nil;
+        if([sender isKindOfClass:[TeeTimeBookingCell class]]) indexOfTappedBtn = [self.teeTimesTable indexPathForCell:sender];
+        Teetime * tee = [teeTimesArray objectAtIndex:indexOfTappedBtn.row];
+        if (![self checkTeeTimeCanUpdate:tee playerCount:playerCount]){ // teetimeis already booked we can call update only
+            [self showErrorAlert];
+        }else{
+            [self bookTeetimeForPlayers:playerCount tee:tee];
+        }
+    }];
+    [customViewCell setDidTapPlayerCountBtnBlock:^(id sender ) {
+        [self editTeetimeTappedFromView:sender];
     }];
     return customViewCell;
 }
 
+
+
 #pragma mark - Pop-up view
+
+-(BOOL)checkTeeTimeCanUpdate:(Teetime *)tee playerCount:(NSInteger)playrcount{
+    if([tee itemId]){ // if tee count is nil it mean teetime is never booked so anyone can book it.
+    if ([[tee count] integerValue] < playrcount)
+        return FALSE;
+    else
+        if ([[tee count] integerValue]> 5)
+            return FALSE;
+    else
+        if(playrcount <= 5 && playrcount >=1)
+            return TRUE;
+    }else
+        return TRUE;
+    return FALSE;
+}
+
+-(void)showErrorAlert{
+ [[[UIAlertView alloc] initWithTitle:@"Can not Update Teetime !" message:@"Number of players for a booked teetime can't be decreased & maximum number of player for a teetime is 5." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+}
+
+
+
 // To enter score manually for a player.
--(void)editTeetimeTappedFromView:(id)sender teeTime:(Teetime *)teetime
+-(void)editTeetimeTappedFromView:(id)sender
 {
     ScoreSelectionView * mScoreView = [[ScoreSelectionView alloc]init];
     mScoreView.dataSource = self;
     mScoreView.delegate = self;
     [mScoreView setBackgroundColor:[UIColor whiteColor]];
     
-    
     // Toggle popTipView when a standard UIButton is pressed
     if (nil == self.popTipView) {
         self.popTipView = [[CMPopTipView alloc] initWithCustomView:mScoreView];
         self.popTipView.delegate = self;
         self.popTipView.backgroundColor = [UIColor whiteColor];
+        [self.popTipView setCornerRadius:0.0];
         // saving the ref to selected view.
         self.tappedButton = sender;
         [self.popTipView presentPointingAtView:sender inView:self.view animated:YES];
@@ -256,7 +327,7 @@
 -(NSArray *)dataArrayForCells
 {
     NSMutableArray * scoresArray = [NSMutableArray new];
-    for (int i = 0; i < 6; ++i) {
+    for (int i = 1; i < 6; ++i) {
         [scoresArray addObject:[[NSNumber numberWithInt:i] stringValue]];
     }
     return scoresArray;
@@ -267,16 +338,10 @@
     NSLog(@"tapped: %@ indexPath: %@", item, view);
     if ([view isKindOfClass:[ScoreSelectionCell class]]) {
         [self.tappedButton setTitle:item forState:UIControlStateNormal];
+        
     }
     self.tappedButton = nil;
     [self.popTipView dismissAnimated:YES];
-    
-//    if ([item integerValue] > [self.shots count] ) {
-//            NSNumber * score = [NSNumber numberWithInteger:[item integerValue]];
-//        //TODO: update the score. 
-//    }else{
-//        //TODO: call the removeShots Method.
-//    }
 }
 
 /*
@@ -354,20 +419,17 @@
     }];
 }
 
--(void)bookTeetime:(Teetime *)teeTime{
-    
-//    [TeetimeServices bookTeeTimeSubcourse:[Teetime i] playersNo:<#(NSNumber *)#> bookTime:<#(NSDate *)#> success:<#^(bool status, id response)successBlock#> failure:<#^(bool status, GolfrzError *error)failureBlock#>]
-//    
-}
-
--(void)bookTeeTime:(Teetime *)teetime completion:(void(^)(void))completion{
-    
-}
 #pragma mark - MemoryManagement 
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+#pragma mark CMPopTipViewDelegate methods
+- (void)popTipViewWasDismissedByUser:(CMPopTipView *)popTipView
+{
+    // User can tap CMPopTipView to dismiss it
+    self.popTipView = nil;
 }
 
 
