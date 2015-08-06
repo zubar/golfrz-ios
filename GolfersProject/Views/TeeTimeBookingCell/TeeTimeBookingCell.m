@@ -29,12 +29,14 @@
 
 -(void)updateViewBtnForTeetime:(Teetime *)teetime{
     if([teetime count]) [self.btnNoOfPlayers setTitle:[[teetime count] stringValue] forState:UIControlStateNormal];
-    else [self.btnNoOfPlayers setTitle:[[teetime count] stringValue] forState:UIControlStateNormal];
+    else [self.btnNoOfPlayers setTitle:@"0" forState:UIControlStateNormal];
 
     if ([teetime itemId]) { // it mean teetime is already booked by someone so show update button
-        if ([[teetime count] integerValue] >= 5)
+        if ([[teetime count] integerValue] >= 5){
             [self.btnBookTeetime setTitle:@"FULL" forState:UIControlStateNormal];
-        else [self.btnBookTeetime setTitle:@"UPDATE" forState:UIControlStateNormal];
+        }else{
+            [self.btnBookTeetime setTitle:@"UPDATE" forState:UIControlStateNormal];
+        }
     }else // it mean teetime is not booked at all.
         [self.btnBookTeetime setTitle:@"BOOK" forState:UIControlStateNormal];
 }
