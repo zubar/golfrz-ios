@@ -9,7 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface RewardListViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+
+- (IBAction)btnViewRewardTap:(id)sender;
 @property (strong, nonatomic) IBOutlet UITableView *rewardTable;
 - (IBAction)btnRewieRewardsTapped:(UIButton *)sender;
+
 
 @end
