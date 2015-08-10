@@ -7,9 +7,12 @@
 //
 
 #import "RewardListViewController.h"
+#import "GolfrzError.h"
+#import "RewardServices.h"
+#import "Utilities.h"
 
 @interface RewardListViewController ()
-
+@property (strong, nonatomic) NSMutableArray * rewardsList;
 @end
 
 @implementation RewardListViewController
@@ -24,19 +27,9 @@
 
 - (void)viewWillAppear:(BOOL)animated   {
     [super viewWillAppear:animated];
+    if(!self.rewardsList) self.rewardsList = [[NSMutableArray alloc]init];
 }
 
-/**********
- ********** Reload collection view data. **********
- **********/
-
-//- (void)reloadChildViewContent:(NSMutableArray *)object  {
-//    if (object != nil) {
-//        NSPredicate * predicate = [NSPredicate predicateWithFormat:@"SELF.availability == %@",[NSNumber numberWithInteger:1]];
-//        [self.dataSource updateItems:[object filteredArrayUsingPredicate:predicate]];
-//    }
-//    [self.collectionView reloadData];
-//}
 
 #pragma Configure View
 
@@ -59,30 +52,67 @@
     
 }
 
-/**********
- ********** remove currently displaying table view with flip animation. **********
- **********/
-
-- (void)hideCurrentTable:(NSTimer *)timer {
-//    CollectionTableCell *cell = timer.userInfo;
-//    [cell hideContentTableView:YES];
-//    cell.delegate = nil;
-    [timer invalidate];
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
+#pragma mark - API Calls
 
+-(void)fetchRewardsListCompletion:(void(^)(void))completion
+{
+    [RewardServices getRewardsList:^(bool status, NSArray *rewardList) {
+        if(status){
+            if([self.rewardsList count] > 0) [self.rewardsList removeAllObjects];
+            [self.rewardsList addObjectsFromArray:rewardList];
+            completion();
+        }
+    } failure:^(bool status, GolfrzError *error) {
+        completion();
+        [Utilities displayErrorAlertWithMessage:[error errorMessage]];
+    }];
+}
+- (IBAction)btnViewRewardTap:(id)sender {
+    
+}
+
+/**
+ * TableViewDelegates
+ */
+#pragma mark - UITableViewDataSource
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [self.rewardsList count];
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableView *cell = [tableView dequeueReusableCellWithIdentifier:<#(NSString *)#>];
+    if (cell == nil)
+    {
+        cell = [[UITableView alloc]init];
+    }
+    
+    
+    oodBevViewCell *customCell = (FoodBevViewCell *)cell;
+    
+    [customCell.lblItemName setText:food_bev_item.name];
+    [customCell.lblItemPrice setText:food_bev_item.price.stringValue];
+    return customCell;
+
+
+}
 @end
+
+
+
+
+
+
+
+
+
+
+
