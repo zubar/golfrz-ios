@@ -27,14 +27,15 @@ typedef NS_ENUM(NSInteger, TutorialPageType){
 @property (assign, nonatomic) TutorialPageType pageType;
 
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
-
 @property (strong, nonatomic) IBOutlet UIImageView *imgRewardBag;
 
-- (IBAction)rewardTutorialBtnTapped:(UIButton *)sender;
 
 @property (strong, nonatomic) IBOutlet UIButton *rewardTutorialBtn;
 @property (strong, nonatomic) IBOutlet UILabel *tutorialDetail;
 @property (strong, nonatomic) IBOutlet UIView *socialMediaView;
+
+
+- (IBAction)viewRewardsBtnTapped:(UIButton *)sender;
 - (IBAction)fbShareTapped:(UIButton *)sender;
 - (IBAction)twitterShareTapped:(UIButton *)sender;
 

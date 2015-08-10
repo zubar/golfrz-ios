@@ -57,14 +57,19 @@
     }];
 }
 
-+(void)getUserRewardPoints:(void(^)(bool status, id response))successBlock
++(void)getUserRewardPoints:(void(^)(bool status, NSNumber * totalPoints))successBlock
                    failure:(void(^)(bool status, GolfrzError * error))failureBlock
 {
-
-    APIClient * apiClient = [APIClient sharedAPICLient];
-    [apiClient POST:kRewardUserTotalPoints parameters:[RewardServices paramUserAuth] completion:^(id response, NSError *error) {
-        if(!error) successBlock(true, [response result]);
-        else failureBlock(false, [response result]);
+//TODO: 
+    AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
+    [apiClient GET:kRewardUserTotalPoints parameters:[RewardServices paramUserAuth] success:^(NSURLSessionDataTask *task, id responseObject) {
+        if([responseObject objectForKey:@"points"] != [NSNull null])
+              successBlock(true,[responseObject objectForKey:@"points"] );
+        else
+            successBlock(true, [NSNumber numberWithInt:0]);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        GolfrzError * golfrError = [GolfrzError modelWithDictionary:@{@"errorMessage":@"Some error occured"} error:nil];
+        failureBlock(false, golfrError);
     }];
 }
 /**

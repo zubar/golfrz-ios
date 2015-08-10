@@ -59,7 +59,7 @@
         }];
         
         
-    } failure:^(bool status, NSError *error) {
+    } failure:^(bool status, GolfrzError *error) {
         //TODO: add in a separate file all the alert messages.
         [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Failed to get details" delegate:nil cancelButtonTitle:@"CANCEL" otherButtonTitles:nil, nil] show];
         [MBProgressHUD hideHUDForView:self.view animated:YES];

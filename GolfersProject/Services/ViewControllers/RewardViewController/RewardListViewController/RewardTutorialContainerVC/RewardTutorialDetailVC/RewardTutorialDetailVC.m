@@ -30,7 +30,7 @@
     [leftRecognizer setDirection:(UISwipeGestureRecognizerDirectionLeft)];
     [[self view] addGestureRecognizer:leftRecognizer];
     
-    
+    [self.pageControl setNumberOfPages:kTutorialPagesCount +1];
     [self.pageControl setCurrentPage:self.pageType];
     [self populateDataForPageType:self.pageType];
     [self configureViewForType:self.pageType];
@@ -42,22 +42,17 @@
 }
 
 -(void)loadPreviousController{
-    
     if (self.pageType -1 >= 0) {
         [self.tutorialContainerVC cycleControllerToIndex:self.pageType - 1];
     }
 }
 
 -(void)loadNextController{
-    
     if(self.pageType + 1 <= kTutorialPagesCount){
         [self.tutorialContainerVC cycleControllerToIndex:self.pageType + 1];
     }
 }
 
--(void)viewWillAppear:(BOOL)animated{
-
-}
 
 -(void)configureViewForType:(TutorialPageType )pageType{
     
@@ -140,11 +135,19 @@
 }
 */
 
-- (IBAction)rewardTutorialBtnTapped:(UIButton *)sender {
+- (IBAction)viewRewardsBtnTapped:(UIButton *)sender {
+    
+    
 }
+
 - (IBAction)fbShareTapped:(UIButton *)sender {
+    
+    
 }
 
 - (IBAction)twitterShareTapped:(UIButton *)sender {
+    
+    
 }
+
 @end

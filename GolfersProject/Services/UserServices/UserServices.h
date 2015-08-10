@@ -23,9 +23,8 @@
 +(NSString *)currentUserEmail;
 +(void)setCurrentUserEmail:(NSString *)email;
 
-
 +(void)getUserInfo:(void (^)(bool status, User * mUser))successBlock
-           failure:(void (^)(bool status, NSError * error))failureBlock;
+           failure:(void (^)(bool status, GolfrzError * error))failureBlock;
 
 +(void)updateUserInfo:(NSString *)fName
              lastName:(NSString *)lastName
