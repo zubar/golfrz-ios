@@ -11,6 +11,8 @@
 #import "RewardServices.h"
 #import "Utilities.h"
 #import "RewardListCell.h"
+#import "Reward.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface RewardListViewController ()
 @property (strong, nonatomic) NSMutableArray * rewardsList;
@@ -31,25 +33,6 @@
     if(!self.rewardsList) self.rewardsList = [[NSMutableArray alloc]init];
 }
 
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 10;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *customCell = [tableView dequeueReusableCellWithIdentifier:@"RewardListCell"];
-    
-    if (customCell == nil) {
-        customCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"RewardListCell"];
-    }
-    
-    //CourseDepartmentCell *customViewCell = (CourseDepartmentCell *)customCell;
-    
-    
-    
-   
-    return customCell;
-}
-
 
 #pragma Configure View
 
@@ -59,7 +42,9 @@
 
 - (void)configureView   {
     
-    
+    [self fetchRewardsListCompletion:^{
+        [self.rewardTable reloadData];
+    }];
     
 //    _dataSource.cellConfigureBlock = ^(SSBaseCollectionCell *cell,
 //                                       id object,
@@ -110,29 +95,29 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    UITableView *cell = [tableView dequeueReusableCellWithIdentifier:@"RewardListCell"];
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RewardListCell"];
     if (cell == nil)
     {
-        cell = [[UITableView alloc]init];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"RewardListCell"];
     }
     
     Reward * reward = self.rewardsList[indexPath.row];
     RewardListCell *customCell = (RewardListCell *)cell;
     
+    [customCell.lblRewardName setText:[reward name]];
+    [customCell.lblPoints setText:[[reward pointsRequired] stringValue]];
+    [customCell.imgRewardImage sd_setImageWithURL:[NSURL URLWithString:[reward imagePath]] placeholderImage:[UIImage imageNamed:@""] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        [customCell.imgRewardImage setImage:image];
+    }];
+    
     return customCell;
 
 }
 - (IBAction)btnRewieRewardsTapped:(UIButton *)sender {
-
+    
+    [self.rewardViewController cycleControllerToIndex:1];
 }
-
-//
-//@property(copy, nonatomic, readonly) NSNumber * itemId;
-//@property(copy, nonatomic, readonly) NSString * name;
-//@property(copy, nonatomic, readonly) NSString * rewardDetail;
-//@property(copy, nonatomic, readonly) NSNumber * pointsRequired;
-//@property(copy, nonatomic, readonly) NSString * rewardBreif;
-//@property(copy, nonatomic, readonly) NSString * imagePath;
 
 @end
 

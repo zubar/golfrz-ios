@@ -31,13 +31,19 @@
     
     // let's create our two controllers
     _rewardListVC = [self.storyboard instantiateViewControllerWithIdentifier:@"RewardListViewController"];
-    _rewardTutorialContainerVC = [self.storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([RewardTutorialContainerVC class])];
+    _rewardListVC.rewardViewController = self;
+    _rewardTutorialContainerVC = [self.storyboard instantiateViewControllerWithIdentifier:@"RewardTutorialContainerVC"];
     //    _letPropertyVC.dataSource = _dataSource;
     // Add A and B view controllers to the array
     self.allViewControllers = [[NSArray alloc] initWithObjects:_rewardListVC, _rewardTutorialContainerVC, nil];
     
     [self cycleFromViewController:_currentChildController toViewController:[self.allViewControllers objectAtIndex:self.selectedControllerIndex]];
     
+}
+
+-(void)cycleControllerToIndex:(NSInteger )controllerIndex{
+    self.selectedControllerIndex = controllerIndex;
+    [self cycleFromViewController:_currentChildController toViewController:[self.allViewControllers objectAtIndex:controllerIndex]];
 }
 
 - (void)cycleFromViewController:(UIViewController*)oldVC toViewController:(UIViewController*)newVC {
@@ -75,7 +81,7 @@
                                         [newVC didMoveToParentViewController:self];
                                         // Store a reference to the current controller
                                         _currentChildController = newVC;
-                                        [self reloadChildViewContent:self.dataObjects];
+                                        //[self reloadChildViewContent:self.dataObjects];
                                         [_currentChildController.view layoutIfNeeded];
                                     }];
             
@@ -107,13 +113,13 @@
 #pragma mark -
 #pragma mark - Private Methods
 
-- (NSMutableArray *)dataObjects {
-    if (_dataObjects == nil) {
-        NSMutableArray *array = [[NSMutableArray alloc]init];
-        _dataObjects = array;
-    }
-    return _dataObjects;
-}
+//- (NSMutableArray *)dataObjects {
+//    if (_dataObjects == nil) {
+//        NSMutableArray *array = [[NSMutableArray alloc]init];
+//        _dataObjects = array;
+//    }
+//    return _dataObjects;
+//}
 
 /**********
  ********** add childs. **********
@@ -151,18 +157,6 @@
 #pragma mark -
 #pragma mark - IBAction
 
-/**********
- ********** Add new property View **********
- **********/
-
-//- (IBAction)addNewPropertyBtn:(UIButton *)sender    {
-//    
-//    AddNewPropertyVC *addNewPropertyVC = [self.storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([AddNewPropertyVC class])];
-//    UINavigationController *navigationController = [[UINavigationController alloc]initWithRootViewController:addNewPropertyVC];
-//    [self presentViewController:navigationController animated:YES completion:^{
-//        
-//    }];
-//}
 
 /**********
  ********** segmented Control Value Changed **********

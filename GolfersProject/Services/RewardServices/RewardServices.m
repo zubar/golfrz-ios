@@ -14,6 +14,7 @@
 #import "GolfrzError.h"
 #import "Reward.h"
 #import "APIClient.h"
+#import "RewardSet.h"
 
 @implementation RewardServices
 
@@ -25,7 +26,10 @@
 {
     APIClient * apiClient = [APIClient sharedAPICLient];
     [apiClient GET:kRewardsList parameters:[RewardServices paramUserAuth] completion:^(id response, NSError *error) {
-        if(!error) successBlock(true, [response result]);
+        if(!error){
+            RewardSet * rewardSet = [response result];
+            successBlock(true, [rewardSet rewards]);
+        }
         else failureBlcok(false, [response result]);
     }];
 }

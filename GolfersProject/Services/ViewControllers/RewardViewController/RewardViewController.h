@@ -54,6 +54,9 @@
  
  */
 
+-(void)cycleControllerToIndex:(NSInteger )controllerIndex;
+
+
 - (void)dealloc;
 
 @end
