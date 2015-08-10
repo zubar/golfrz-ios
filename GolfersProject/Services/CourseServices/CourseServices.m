@@ -14,6 +14,7 @@
 #import "Constants.h"
 #import <Overcoat/OVCResponse.h>
 #import "GolfrzError.h"
+#import "FeaturedControl.h"
 
 @implementation CourseServices
 
@@ -73,7 +74,11 @@ static Course * currentCourse = nil;
     return currentCourse;
 }
 
++(void)getEnabledFeatures:(void(^)(bool status, NSArray * enabledFeatures))successBlock
+                  failure:(void(^)(bool status, GolfrzError * error))failureBlock
+{
 
+}
 #pragma mark - Helper Methods
 
 +(NSDictionary *)paramsCourseDetailInfo{

@@ -120,6 +120,7 @@
 		3D613B851B44191B00F7DEDA /* ScoreSelectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D613B7F1B44191B00F7DEDA /* ScoreSelectionCell.xib */; };
 		3D613B861B44191B00F7DEDA /* ScoreSelectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D613B821B44191B00F7DEDA /* ScoreSelectionView.m */; };
 		3D613B871B44191B00F7DEDA /* ScoreSelectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D613B831B44191B00F7DEDA /* ScoreSelectionView.xib */; };
+		3D6346C31B78D02D0093AA1D /* FeaturedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6346C21B78D02D0093AA1D /* FeaturedControl.m */; };
 		3D7DF2001B6A542000FCF8FE /* TeetimeServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7DF1FF1B6A542000FCF8FE /* TeetimeServices.m */; };
 		3D7DF2041B6A550E00FCF8FE /* TeetimeData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7DF2031B6A550E00FCF8FE /* TeetimeData.m */; };
 		3D7DF2071B6A551B00FCF8FE /* Teetime.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7DF2061B6A551B00FCF8FE /* Teetime.m */; };
@@ -410,6 +411,8 @@
 		3D613B811B44191B00F7DEDA /* ScoreSelectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreSelectionView.h; sourceTree = "<group>"; };
 		3D613B821B44191B00F7DEDA /* ScoreSelectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreSelectionView.m; sourceTree = "<group>"; };
 		3D613B831B44191B00F7DEDA /* ScoreSelectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScoreSelectionView.xib; sourceTree = "<group>"; };
+		3D6346C11B78D02D0093AA1D /* FeaturedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeaturedControl.h; sourceTree = "<group>"; };
+		3D6346C21B78D02D0093AA1D /* FeaturedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeaturedControl.m; sourceTree = "<group>"; };
 		3D7DF1FC1B6A360900FCF8FE /* Golfrz-prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Golfrz-prefix.pch"; sourceTree = "<group>"; };
 		3D7DF1FE1B6A542000FCF8FE /* TeetimeServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeetimeServices.h; sourceTree = "<group>"; };
 		3D7DF1FF1B6A542000FCF8FE /* TeetimeServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeetimeServices.m; sourceTree = "<group>"; };
@@ -1265,6 +1268,15 @@
 			path = ScoreSelectionView;
 			sourceTree = "<group>";
 		};
+		3D6346C01B78D0190093AA1D /* FeaturedControl */ = {
+			isa = PBXGroup;
+			children = (
+				3D6346C11B78D02D0093AA1D /* FeaturedControl.h */,
+				3D6346C21B78D02D0093AA1D /* FeaturedControl.m */,
+			);
+			path = FeaturedControl;
+			sourceTree = "<group>";
+		};
 		3D7DF1FD1B6A53B100FCF8FE /* TeetimeServices */ = {
 			isa = PBXGroup;
 			children = (
@@ -1784,6 +1796,7 @@
 		885CB06F1B09F91700AD2A7B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3D6346C01B78D0190093AA1D /* FeaturedControl */,
 				3DD958721B72949A00F8960D /* Reward */,
 				3D7DF2171B6FD15300FCF8FE /* Post */,
 				3D7DF20F1B6FC7CE00FCF8FE /* CourseUpdate */,
@@ -2206,6 +2219,7 @@
 				889872BF1B13105C00D3C0E9 /* Utilities.m in Sources */,
 				3D1C8E731B3BFDBE004AAD30 /* WEBlockingGestureRecognizer.m in Sources */,
 				3D1CB1041B691563005C1E19 /* SignUpViewController.m in Sources */,
+				3D6346C31B78D02D0093AA1D /* FeaturedControl.m in Sources */,
 				3DD3CA381B2863CF00767BCF /* SideNotificationView.m in Sources */,
 				3D1CB0FF1B691563005C1E19 /* RoundInviteFriendViewController.m in Sources */,
 				3D1C8E721B3BFDBE004AAD30 /* UIBarButtonItem+WEPopover.m in Sources */,

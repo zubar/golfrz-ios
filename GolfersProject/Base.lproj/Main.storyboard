@@ -2179,7 +2179,7 @@
                                                                                 <constraint firstAttribute="height" constant="26" id="GGQ-nW-yvd"/>
                                                                                 <constraint firstAttribute="width" constant="26" id="LJ2-ou-0eZ"/>
                                                                             </constraints>
-                                                                            <state key="normal" image="4C21555B-AB3F-4428-8716-4640A30D8A57">
+                                                                            <state key="normal" image="ED241C2A-F4C1-483E-A37D-51D00A361130">
                                                                                 <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                                             </state>
@@ -5558,7 +5558,7 @@
                                                                                 <constraint firstAttribute="height" constant="26" id="OaE-ph-eo5"/>
                                                                                 <constraint firstAttribute="width" constant="26" id="S5w-xw-4Ro"/>
                                                                             </constraints>
-                                                                            <state key="normal" image="FE32BF2B-48A0-4250-831C-A17288F32914">
+                                                                            <state key="normal" image="6F509AD8-3A56-4E12-B252-D6F1608A5066">
                                                                                 <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                                             </state>
@@ -6543,7 +6543,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="4C21555B-AB3F-4428-8716-4640A30D8A57" width="24" height="25">
+        <image name="6F509AD8-3A56-4E12-B252-D6F1608A5066" width="24" height="25">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -6635,7 +6635,7 @@ AAAAAAAAAAAAE48
 </mutableData>
         </image>
         <image name="ChooseHole_Down" width="88" height="88"/>
-        <image name="FE32BF2B-48A0-4250-831C-A17288F32914" width="24" height="25">
+        <image name="ED241C2A-F4C1-483E-A37D-51D00A361130" width="24" height="25">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
