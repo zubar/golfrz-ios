@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface RewardTutorialDetailVC : UIViewController
+- (IBAction)rewardTutorialBtnTapped:(UIButton *)sender;
+@property (strong, nonatomic) IBOutlet UIButton *rewardTutorialBtn;
+@property (strong, nonatomic) IBOutlet UILabel *tutorialDetail;
 
 @end
