@@ -33,7 +33,6 @@
     _rewardListVC = [self.storyboard instantiateViewControllerWithIdentifier:@"RewardListViewController"];
     _rewardListVC.rewardViewController = self;
     _rewardTutorialContainerVC = [self.storyboard instantiateViewControllerWithIdentifier:@"RewardTutorialContainerVC"];
-    //    _letPropertyVC.dataSource = _dataSource;
     // Add A and B view controllers to the array
     self.allViewControllers = [[NSArray alloc] initWithObjects:_rewardListVC, _rewardTutorialContainerVC, nil];
     
@@ -81,7 +80,6 @@
                                         [newVC didMoveToParentViewController:self];
                                         // Store a reference to the current controller
                                         _currentChildController = newVC;
-                                        //[self reloadChildViewContent:self.dataObjects];
                                         [_currentChildController.view layoutIfNeeded];
                                     }];
             
@@ -110,17 +108,7 @@
     [super viewWillAppear:animated];
 }
 
-#pragma mark -
 #pragma mark - Private Methods
-
-//- (NSMutableArray *)dataObjects {
-//    if (_dataObjects == nil) {
-//        NSMutableArray *array = [[NSMutableArray alloc]init];
-//        _dataObjects = array;
-//    }
-//    return _dataObjects;
-//}
-
 /**********
  ********** add childs. **********
  **********/
@@ -135,43 +123,7 @@
                                             self.childView.frame.size.height);
 }
 
-#pragma Service Call
-
-/**********
- ********** Call ToLet residences Service **********
- **********/
-
-- (void)callToLetResidenceService  {
-   
-}
-
-//- (void)reloadChildViewContent:(id)object  {
-//    
-//    NSInvocation *invocation = [NSInvocation jr_invocationWithTarget:_currentChildController block:^(id myObject)   {
-//        [myObject reloadChildViewContent:object];
-//    }];
-//    [invocation invoke];
-//}
-
-
-#pragma mark -
 #pragma mark - IBAction
-
-
-/**********
- ********** segmented Control Value Changed **********
- **********/
-- (IBAction)segmentedControlValueChanged:(UISegmentedControl *)sender
-{
-    
-    NSUInteger index = sender.selectedSegmentIndex;
-    
-    if (UISegmentedControlNoSegment != index) {
-        UIViewController *incomingViewController = [self.allViewControllers objectAtIndex:index];
-        [self cycleFromViewController:_currentChildController toViewController:incomingViewController];
-    }
-    
-}
 
 -(void)popToPreviousController{
         [self.navigationController popViewControllerAnimated:YES];

@@ -92,8 +92,6 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RewardListCell"];
     if (cell == nil)
     {
@@ -113,7 +111,7 @@
 
 }
 - (IBAction)btnRewieRewardsTapped:(UIButton *)sender
-{    
+{
     [self.rewardViewController cycleControllerToIndex:1];
 }
 
