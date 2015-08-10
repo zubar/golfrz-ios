@@ -50,10 +50,10 @@
         
         // Set the new view controller frame (in this case to be the size of the available screen bounds)
         // Calulate any other frame animations here (e.g. for the oldVC)
-//        newVC.view.frame = CGRectMake(0.0,
-//                                      0.0,
-//                                      self.childView.frame.size.width,
-//                                      self.childView.frame.size.height);
+        newVC.view.frame = CGRectMake(0.0,
+                                      0.0,
+                                      self.childView.frame.size.width,
+                                      self.childView.frame.size.height);
         
         // Check the oldVC is non-nil otherwise expect a crash: NSInvalidArgumentException
         if (oldVC) {

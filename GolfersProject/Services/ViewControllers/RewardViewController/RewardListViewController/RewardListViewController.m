@@ -10,6 +10,7 @@
 #import "GolfrzError.h"
 #import "RewardServices.h"
 #import "Utilities.h"
+#import "RewardListCell.h"
 
 @interface RewardListViewController ()
 @property (strong, nonatomic) NSMutableArray * rewardsList;
@@ -28,6 +29,25 @@
 - (void)viewWillAppear:(BOOL)animated   {
     [super viewWillAppear:animated];
     if(!self.rewardsList) self.rewardsList = [[NSMutableArray alloc]init];
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 10;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *customCell = [tableView dequeueReusableCellWithIdentifier:@"RewardListCell"];
+    
+    if (customCell == nil) {
+        customCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"RewardListCell"];
+    }
+    
+    //CourseDepartmentCell *customViewCell = (CourseDepartmentCell *)customCell;
+    
+    
+    
+   
+    return customCell;
 }
 
 
@@ -89,21 +109,31 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableView *cell = [tableView dequeueReusableCellWithIdentifier:<#(NSString *)#>];
+    
+    UITableView *cell = [tableView dequeueReusableCellWithIdentifier:@"RewardListCell"];
     if (cell == nil)
     {
         cell = [[UITableView alloc]init];
     }
     
+    Reward * reward = self.rewardsList[indexPath.row];
+    RewardListCell *customCell = (RewardListCell *)cell;
     
-    oodBevViewCell *customCell = (FoodBevViewCell *)cell;
-    
-    [customCell.lblItemName setText:food_bev_item.name];
-    [customCell.lblItemPrice setText:food_bev_item.price.stringValue];
     return customCell;
 
+}
+- (IBAction)btnRewieRewardsTapped:(UIButton *)sender {
 
 }
+
+//
+//@property(copy, nonatomic, readonly) NSNumber * itemId;
+//@property(copy, nonatomic, readonly) NSString * name;
+//@property(copy, nonatomic, readonly) NSString * rewardDetail;
+//@property(copy, nonatomic, readonly) NSNumber * pointsRequired;
+//@property(copy, nonatomic, readonly) NSString * rewardBreif;
+//@property(copy, nonatomic, readonly) NSString * imagePath;
+
 @end
 
 
