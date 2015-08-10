@@ -56,7 +56,7 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-    [self.view setBackgroundColor:[UIColor grayColor]];
+    [self.view setBackgroundColor:[UIColor clearColor]];
    
     [self populateDataForPageType:self.pageType];
     [self configureViewForType:self.pageType];
@@ -71,22 +71,29 @@
     {
         [self.rewardTutorialBtn setHidden:NO];
         [self.tutorialDetail setHidden:NO];
+        [self.imgRewardBag setHidden:YES];
+        [self.socialMediaView setHidden:YES];
     }else
         if(pageType ==  TutorialPageTypePrompt){
             [self.rewardTutorialBtn setHidden:YES];
             [self.tutorialDetail setHidden:NO];
+            [self.imgRewardBag setHidden:YES];
+            [self.socialMediaView setHidden:YES];
         }else
             if(pageType == TutorialPageTypeWelcome){
                 [self.rewardTutorialBtn setHidden:YES];
                 [self.tutorialDetail setHidden:NO];
-                //TODO: show the image view as well.
+                [self.imgRewardBag setHidden:NO];
+                [self.socialMediaView setHidden:YES];
+
             }else
                 if(pageType == TutorialPageTypeSocialShare){
                     [self.rewardTutorialBtn setHidden:YES];
                     [self.tutorialDetail setHidden:NO];
-                    //TODO: show the social share view as well.
+                    [self.socialMediaView setHidden:NO];
+                    [self.imgRewardBag setHidden:YES];
+
                 }
-    
 }
 
 -(void)populateDataForPageType:(TutorialPageType )pageType{
@@ -137,5 +144,10 @@
 */
 
 - (IBAction)rewardTutorialBtnTapped:(UIButton *)sender {
+}
+- (IBAction)fbShareTapped:(UIButton *)sender {
+}
+
+- (IBAction)twitterShareTapped:(UIButton *)sender {
 }
 @end
