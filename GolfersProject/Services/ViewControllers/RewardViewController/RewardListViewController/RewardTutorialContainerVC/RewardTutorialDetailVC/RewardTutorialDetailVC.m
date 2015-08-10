@@ -34,4 +34,6 @@
 }
 */
 
+- (IBAction)rewardTutorialBtnTapped:(UIButton *)sender {
+}
 @end

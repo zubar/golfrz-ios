@@ -32,8 +32,6 @@
     [super viewWillAppear:animated];
     if(!self.rewardsList) self.rewardsList = [[NSMutableArray alloc]init];
 }
-
-
 #pragma Configure View
 
 /**********
@@ -114,8 +112,8 @@
     return customCell;
 
 }
-- (IBAction)btnRewieRewardsTapped:(UIButton *)sender {
-    
+- (IBAction)btnRewieRewardsTapped:(UIButton *)sender
+{    
     [self.rewardViewController cycleControllerToIndex:1];
 }
 
