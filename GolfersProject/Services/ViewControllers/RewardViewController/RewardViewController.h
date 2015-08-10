@@ -12,10 +12,7 @@
 @interface RewardViewController : ClubHouseSubController
 
 @property (strong, nonatomic) IBOutlet UIView *childView;
-@property (strong, nonatomic) NSMutableArray *dataObjects;
 @property (assign, nonatomic) NSInteger selectedControllerIndex;
-
-
 
 /*!
  @brief It cycles two view controllers.
@@ -39,16 +36,6 @@
  */
 
 - (void)addChildToThisContainerViewController:(UIViewController *)childController;
-
-/*!
- @brief It will reload table view of child view controllers.
- 
- @discussion This method will track current view and will reload table view of that view using NSInvocation.
- 
- */
-
-- (void)reloadChildViewContent:(id)object;
-
 /*!
  @brief remove all refrence. and notifcations.
  

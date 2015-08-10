@@ -10,4 +10,8 @@
 
 @interface RewardTutorialContainerVC : UIViewController
 
+@property (strong, nonatomic) IBOutlet UIView *childView;
+@property (assign, nonatomic) NSInteger selectedPageIndex;
+
+-(void)cycleControllerToIndex:(NSInteger )controllerIndex;
 @end
