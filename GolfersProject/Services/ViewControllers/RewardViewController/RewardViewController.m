@@ -71,7 +71,7 @@
             // No frame animations in this code but these would go in the animations block
             [self transitionFromViewController:oldVC
                               toViewController:newVC
-                                      duration:1.25
+                                      duration:0.25
                                        options:UIViewAnimationOptionLayoutSubviews
                                     animations:^{}
                                     completion:^(BOOL finished) {

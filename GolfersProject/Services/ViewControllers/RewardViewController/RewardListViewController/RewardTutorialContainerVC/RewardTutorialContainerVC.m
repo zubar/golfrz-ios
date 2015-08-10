@@ -23,7 +23,7 @@
     if(!self.allViewControllers) self.allViewControllers = [[NSMutableArray alloc]init];
     
     // Creating controller for container
-    for (int i = 0; i <= 6; ++i) {
+    for (int i = 0; i <= kTutorialPagesCount; ++i) {
         RewardTutorialDetailVC * controller = [self.storyboard instantiateViewControllerWithIdentifier:@"RewardTutorialDetailVC"];
         controller.pageType = i;
         controller.tutorialContainerVC = self;
@@ -128,7 +128,7 @@
 
 -(void)dealloc {
     // let's release our child controllers
-    for (int i = 0; i <= 6; ++i) {
+    for (int i = 0; i <= kTutorialPagesCount; ++i) {
         self.allViewControllers[i] = nil;
     }
 }

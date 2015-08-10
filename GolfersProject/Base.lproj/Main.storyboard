@@ -2179,7 +2179,7 @@
                                                                                 <constraint firstAttribute="height" constant="26" id="GGQ-nW-yvd"/>
                                                                                 <constraint firstAttribute="width" constant="26" id="LJ2-ou-0eZ"/>
                                                                             </constraints>
-                                                                            <state key="normal" image="F3F84BFF-DE65-4282-A9F9-43F50A5A4B31">
+                                                                            <state key="normal" image="F60CE91F-570B-4012-8AC6-7DFBF477BCE7">
                                                                                 <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                                             </state>
@@ -5558,7 +5558,7 @@
                                                                                 <constraint firstAttribute="height" constant="26" id="OaE-ph-eo5"/>
                                                                                 <constraint firstAttribute="width" constant="26" id="S5w-xw-4Ro"/>
                                                                             </constraints>
-                                                                            <state key="normal" image="7195CAB4-5A6A-4A70-B951-7AB12E18BEDD">
+                                                                            <state key="normal" image="33AC5741-0CE2-440B-A0A2-B4DD845E9636">
                                                                                 <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                                             </state>
@@ -6767,8 +6767,11 @@ Nulla sed est consectetur, tempus tellus interdum, vehicula lectus. Aliquam soll
                                             <constraint firstItem="v4Y-Vg-QQw" firstAttribute="leading" secondItem="vIb-vl-V5J" secondAttribute="leading" constant="50" id="d7m-Gw-3Fg"/>
                                         </constraints>
                                     </view>
+                                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="xl5-38-h1e">
+                                        <rect key="frame" x="141" y="481" width="39" height="37"/>
+                                    </pageControl>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="vIb-vl-V5J" firstAttribute="top" secondItem="5l0-uh-cqQ" secondAttribute="bottom" constant="8" id="9II-Ha-cVK"/>
@@ -6777,7 +6780,9 @@ Nulla sed est consectetur, tempus tellus interdum, vehicula lectus. Aliquam soll
                                     <constraint firstItem="6xR-mg-EsK" firstAttribute="top" secondItem="AU5-fp-FxW" secondAttribute="bottom" constant="5" id="KTc-Ai-eds"/>
                                     <constraint firstItem="vIb-vl-V5J" firstAttribute="leading" secondItem="mw3-DQ-EUF" secondAttribute="leading" constant="30" id="PJz-LR-WXK"/>
                                     <constraint firstAttribute="centerY" secondItem="5l0-uh-cqQ" secondAttribute="centerY" id="QgA-Zo-4mQ"/>
+                                    <constraint firstAttribute="bottom" secondItem="xl5-38-h1e" secondAttribute="bottom" constant="50" id="YKH-Ab-bji"/>
                                     <constraint firstAttribute="centerX" secondItem="AU5-fp-FxW" secondAttribute="centerX" id="dGf-fe-Tzi"/>
+                                    <constraint firstAttribute="centerX" secondItem="xl5-38-h1e" secondAttribute="centerX" id="kdT-Ob-jRy"/>
                                     <constraint firstAttribute="trailing" secondItem="vIb-vl-V5J" secondAttribute="trailing" constant="30" id="su9-L1-fGW"/>
                                     <constraint firstItem="5l0-uh-cqQ" firstAttribute="top" secondItem="6xR-mg-EsK" secondAttribute="bottom" constant="15" id="uxk-F0-5Pk"/>
                                     <constraint firstAttribute="centerX" secondItem="5l0-uh-cqQ" secondAttribute="centerX" id="wvh-Xf-97B"/>
@@ -6796,6 +6801,7 @@ Nulla sed est consectetur, tempus tellus interdum, vehicula lectus. Aliquam soll
                     <toolbarItems/>
                     <connections>
                         <outlet property="imgRewardBag" destination="AU5-fp-FxW" id="Pxx-A1-wkw"/>
+                        <outlet property="pageControl" destination="xl5-38-h1e" id="cmz-79-i5Q"/>
                         <outlet property="rewardTutorialBtn" destination="5l0-uh-cqQ" id="BXU-IQ-DKb"/>
                         <outlet property="socialMediaView" destination="vIb-vl-V5J" id="EEu-lP-3ri"/>
                         <outlet property="tutorialDetail" destination="6xR-mg-EsK" id="7es-33-2qg"/>
@@ -6807,7 +6813,7 @@ Nulla sed est consectetur, tempus tellus interdum, vehicula lectus. Aliquam soll
         </scene>
     </scenes>
     <resources>
-        <image name="7195CAB4-5A6A-4A70-B951-7AB12E18BEDD" width="24" height="25">
+        <image name="33AC5741-0CE2-440B-A0A2-B4DD845E9636" width="24" height="25">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -6899,7 +6905,7 @@ AAAAAAAAAAAAE48
 </mutableData>
         </image>
         <image name="ChooseHole_Down" width="88" height="88"/>
-        <image name="F3F84BFF-DE65-4282-A9F9-43F50A5A4B31" width="24" height="25">
+        <image name="F60CE91F-570B-4012-8AC6-7DFBF477BCE7" width="24" height="25">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

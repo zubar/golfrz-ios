@@ -18,13 +18,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    CGPoint origin = CGPointMake( self.view.frame.size.width/2, self.view.frame.size.height/1.5 );
-    self.pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(origin.x, origin.y,
-                                                                       0, 0)];
     
-    [self.pageControl setTag:90];
     //Or whatever number of viewcontrollers you have
-    [self.pageControl setNumberOfPages:3];
+    
     
     UISwipeGestureRecognizer *  rightRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(loadPreviousController)];
     [rightRecognizer setDirection:(UISwipeGestureRecognizerDirectionRight)];
@@ -34,6 +30,10 @@
     [leftRecognizer setDirection:(UISwipeGestureRecognizerDirectionLeft)];
     [[self view] addGestureRecognizer:leftRecognizer];
     
+    
+    [self.pageControl setCurrentPage:self.pageType];
+    [self populateDataForPageType:self.pageType];
+    [self configureViewForType:self.pageType];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -50,16 +50,13 @@
 
 -(void)loadNextController{
     
-    if(self.pageType + 1 <= 6){
+    if(self.pageType + 1 <= kTutorialPagesCount){
         [self.tutorialContainerVC cycleControllerToIndex:self.pageType + 1];
     }
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-    [self.view setBackgroundColor:[UIColor clearColor]];
-   
-    [self populateDataForPageType:self.pageType];
-    [self configureViewForType:self.pageType];
+
 }
 
 -(void)configureViewForType:(TutorialPageType )pageType{

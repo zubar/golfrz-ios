@@ -25,7 +25,9 @@ typedef NS_ENUM(NSInteger, TutorialPageType){
 
 @property (weak, nonatomic) RewardTutorialContainerVC * tutorialContainerVC;
 @property (assign, nonatomic) TutorialPageType pageType;
-@property (strong, nonatomic) UIPageControl * pageControl;
+
+@property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
+
 @property (strong, nonatomic) IBOutlet UIImageView *imgRewardBag;
 
 - (IBAction)rewardTutorialBtnTapped:(UIButton *)sender;
