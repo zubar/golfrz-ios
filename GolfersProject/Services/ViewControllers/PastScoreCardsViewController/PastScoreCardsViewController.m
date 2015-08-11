@@ -8,9 +8,13 @@
 
 #import "PastScoreCardsViewController.h"
 #import "PastScoreCardCell.h"
+#import "ScoreboardServices.h"
+#import "PastScore.h"
+#import "Utilities.h"
+#import "MBProgressHUD.h"
 
 @interface PastScoreCardsViewController ()
-
+@property(strong, nonatomic) NSMutableArray * pastScores;
 @end
 
 @implementation PastScoreCardsViewController
@@ -18,6 +22,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    if(!self.pastScores) self.pastScores = [[NSMutableArray alloc] init];
+    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [ScoreboardServices getScorecardHistory:^(bool status, NSArray *enabledFeatures)
+    {
+        if([self.pastScores count] > 0)[self.pastScores removeAllObjects];
+        [self.pastScores addObjectsFromArray:enabledFeatures];
+        [self.scoreCardTable reloadData];
+    } failure:^(bool status, GolfrzError *error) {
+        [Utilities displayErrorAlertWithMessage:[error errorMessage]];
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -27,7 +42,7 @@
 
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 1;;
+    return [self.pastScores count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -37,10 +52,23 @@
         customCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"PastScoreCardCell"];
     }
     
+    PastScore * mPastScore = self.pastScores[indexPath.row];
+    
     PastScoreCardCell *customViewCell = (PastScoreCardCell *)customCell;
+    [Utilities dateComponents:[mPastScore createdAt] components:^(NSString *dayName, NSString *monthName, NSString *day, NSString *time, NSString *minutes, NSString *timeAndMinute, NSString *year)
+    {
+        [customViewCell.lblDayDate setText:[NSString stringWithFormat:@"%@ %@", monthName, day]];
+        [customViewCell.lblYear setText:year];
+
+    }];
+ //   [customViewCell.lblGameType setText:[mPastScore ]]
+    
     
     return customViewCell;
 }
+
+
+
 /*
 #pragma mark - Navigation
 
