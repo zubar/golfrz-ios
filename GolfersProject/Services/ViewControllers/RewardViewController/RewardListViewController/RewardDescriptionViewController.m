@@ -7,6 +7,7 @@
 //
 
 #import "RewardDescriptionViewController.h"
+#import "Reward.h"
 
 @interface RewardDescriptionViewController ()
 
@@ -16,6 +17,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.lblRewardName.text = [self.currentReward name];
+    self.lblRewardPoints.text = [[self.currentReward pointsRequired] stringValue];
+    self.lblRewardDetails.text = [self.currentReward rewardBreif];
     // Do any additional setup after loading the view.
 }
 
