@@ -148,9 +148,6 @@
 -(void)loadPreviousScoreCards{
     
 
-    ScoreBoardViewController *scoreBoardVc = [self.storyboard instantiateViewControllerWithIdentifier:@"SCORE_BOARD_VC_ID"];
-    [self.navigationController pushViewController:scoreBoardVc animated:YES];
-
 }
 
 @end
