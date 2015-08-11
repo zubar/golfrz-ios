@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 @class User;
+@class GolfrzError;
 
 @interface UserServices : NSObject
 
@@ -22,14 +23,13 @@
 +(NSString *)currentUserEmail;
 +(void)setCurrentUserEmail:(NSString *)email;
 
-
++(void)getUserInfo:(void (^)(bool status, User * mUser))successBlock
+           failure:(void (^)(bool status, GolfrzError * error))failureBlock;
 
 +(void)updateUserInfo:(NSString *)fName
              lastName:(NSString *)lastName
                 email:(NSString *)email
               success:(void (^)(bool status, NSString * message))successBlock
-              failure:(void (^)(bool status, NSError * error))failureBlock;
+              failure:(void (^)(bool status, GolfrzError * error))failureBlock;
 
-+(void)getUserInfo:(void (^)(bool status, User * mUser))successBlock
-           failure:(void (^)(bool status, NSError * error))failureBlock;
 @end

@@ -13,6 +13,14 @@
 		3D00B5A51B6748A300FA2C19 /* GameSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D00B5A41B6748A300FA2C19 /* GameSettings.m */; };
 		3D00B5A91B67493100FA2C19 /* PlayerSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D00B5A81B67493100FA2C19 /* PlayerSettings.m */; };
 		3D00B5AD1B68E48000FA2C19 /* ScoreboardServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D00B5AC1B68E48000FA2C19 /* ScoreboardServices.m */; };
+		3D0455C81B71E66100FFB0E8 /* HMMessageRecieveCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0455C11B71E66100FFB0E8 /* HMMessageRecieveCell.m */; };
+		3D0455C91B71E66100FFB0E8 /* HMMessageRecieveCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D0455C21B71E66100FFB0E8 /* HMMessageRecieveCell.xib */; };
+		3D0455CA1B71E66100FFB0E8 /* HMMessagesDisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0455C41B71E66100FFB0E8 /* HMMessagesDisplayViewController.m */; };
+		3D0455CB1B71E66100FFB0E8 /* HMMessageSentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0455C61B71E66100FFB0E8 /* HMMessageSentCell.m */; };
+		3D0455CC1B71E66100FFB0E8 /* HMMessageSentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D0455C71B71E66100FFB0E8 /* HMMessageSentCell.xib */; };
+		3D0455CF1B71F7B800FFB0E8 /* Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0455CE1B71F7B800FFB0E8 /* Utility.m */; };
+		3D0455D21B71F87100FFB0E8 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0455D11B71F87100FFB0E8 /* UIImage+Resize.m */; };
+		3D0455DC1B724CE700FFB0E8 /* HMMessagesDisplayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D0455DB1B724CE700FFB0E8 /* HMMessagesDisplayViewController.xib */; };
 		3D16D0841B1C3FFB00A582A3 /* SharedManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D16D0831B1C3FFB00A582A3 /* SharedManager.m */; };
 		3D1963BC1B0CE05700766CFC /* CourseServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1963B81B0CE05700766CFC /* CourseServices.m */; };
 		3D1963BD1B0CE05700766CFC /* UserServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1963BB1B0CE05700766CFC /* UserServices.m */; };
@@ -110,6 +118,18 @@
 		3D613B851B44191B00F7DEDA /* ScoreSelectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D613B7F1B44191B00F7DEDA /* ScoreSelectionCell.xib */; };
 		3D613B861B44191B00F7DEDA /* ScoreSelectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D613B821B44191B00F7DEDA /* ScoreSelectionView.m */; };
 		3D613B871B44191B00F7DEDA /* ScoreSelectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D613B831B44191B00F7DEDA /* ScoreSelectionView.xib */; };
+		3D6346C31B78D02D0093AA1D /* FeaturedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6346C21B78D02D0093AA1D /* FeaturedControl.m */; };
+		3D6346C61B790C980093AA1D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D6346C41B790C980093AA1D /* Main.storyboard */; };
+		3D7DF2001B6A542000FCF8FE /* TeetimeServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7DF1FF1B6A542000FCF8FE /* TeetimeServices.m */; };
+		3D7DF2041B6A550E00FCF8FE /* TeetimeData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7DF2031B6A550E00FCF8FE /* TeetimeData.m */; };
+		3D7DF2071B6A551B00FCF8FE /* Teetime.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7DF2061B6A551B00FCF8FE /* Teetime.m */; };
+		3D7DF20A1B6CABEE00FCF8FE /* Teetime+Compare.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7DF2091B6CABEE00FCF8FE /* Teetime+Compare.m */; };
+		3D7DF20D1B6F5A2200FCF8FE /* NSArray+BinarySearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7DF20C1B6F5A2200FCF8FE /* NSArray+BinarySearch.m */; };
+		3D7DF2121B6FC80500FCF8FE /* CourseUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7DF2111B6FC80500FCF8FE /* CourseUpdate.m */; };
+		3D7DF2151B6FC84200FCF8FE /* Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7DF2141B6FC84200FCF8FE /* Activity.m */; };
+		3D7DF21A1B6FD16400FCF8FE /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7DF2191B6FD16400FCF8FE /* Post.m */; };
+		3D7DF21D1B6FD17500FCF8FE /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7DF21C1B6FD17500FCF8FE /* Comment.m */; };
+		3D7DF2211B6FD89F00FCF8FE /* CourseUpdateServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7DF2201B6FD89F00FCF8FE /* CourseUpdateServices.m */; };
 		3D87D8421B1852120046BD60 /* NSDate+convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D87D8391B1852120046BD60 /* NSDate+convenience.m */; };
 		3D87D8431B1852120046BD60 /* NSMutableArray+convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D87D83B1B1852120046BD60 /* NSMutableArray+convenience.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3D87D8441B1852120046BD60 /* UIColor+expanded.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D87D83D1B1852120046BD60 /* UIColor+expanded.m */; };
@@ -132,7 +152,6 @@
 		3DCA44D21B26CB3400B66BD2 /* StaffMember.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DCA44B61B26CB3400B66BD2 /* StaffMember.m */; };
 		3DCA44D31B26CB3400B66BD2 /* StaffType.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DCA44B81B26CB3400B66BD2 /* StaffType.m */; };
 		3DCA44D41B26CB3400B66BD2 /* GolfrzError.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DCA44BB1B26CB3400B66BD2 /* GolfrzError.m */; };
-		3DCA44D51B26CB3400B66BD2 /* GolfrzErrorResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DCA44BD1B26CB3400B66BD2 /* GolfrzErrorResponse.m */; };
 		3DCA44D71B26CB3400B66BD2 /* FoodBeverage.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DCA44C21B26CB3400B66BD2 /* FoodBeverage.m */; };
 		3DCA44D81B26CB3400B66BD2 /* Menu.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DCA44C41B26CB3400B66BD2 /* Menu.m */; };
 		3DCA44D91B26CB3400B66BD2 /* SideItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DCA44C61B26CB3400B66BD2 /* SideItem.m */; };
@@ -144,7 +163,9 @@
 		3DD47A661B4A608C005DE325 /* Hole.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD47A651B4A608C005DE325 /* Hole.m */; };
 		3DD47A691B4A6099005DE325 /* Teebox.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD47A681B4A6099005DE325 /* Teebox.m */; };
 		3DD47A6D1B4A7D7A005DE325 /* GreenCoordinate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD47A6C1B4A7D7A005DE325 /* GreenCoordinate.m */; };
-		3DD47A731B4A82F5005DE325 /* SubCourseServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD47A721B4A82F5005DE325 /* SubCourseServices.m */; };
+		3DD958711B7290FE00F8960D /* RewardServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD958701B7290FD00F8960D /* RewardServices.m */; };
+		3DD958751B7294B400F8960D /* Reward.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD958741B7294B400F8960D /* Reward.m */; };
+		3DD958781B729A7C00F8960D /* RewardSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD958771B729A7C00F8960D /* RewardSet.m */; };
 		3DD9BD0D1B14BE1C00A2F296 /* CalendarUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD9BD081B14BE1C00A2F296 /* CalendarUtilities.m */; };
 		3DD9BD0E1B14BE1C00A2F296 /* NSDate+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD9BD0A1B14BE1C00A2F296 /* NSDate+Helper.m */; };
 		3DD9BD0F1B14BE1C00A2F296 /* THCalendarInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD9BD0C1B14BE1C00A2F296 /* THCalendarInfo.m */; };
@@ -159,7 +180,6 @@
 		77BBE9101B6B9ABC004D1C86 /* ScoreCardUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BBE90F1B6B9ABC004D1C86 /* ScoreCardUser.m */; };
 		77BBE9131B6B9D32004D1C86 /* ScoreCardHole.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BBE9121B6B9D32004D1C86 /* ScoreCardHole.m */; };
 		77BBE9161B6BA9E1004D1C86 /* ScoreCardTeeBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BBE9151B6BA9E1004D1C86 /* ScoreCardTeeBox.m */; };
-		88024F6C1AD29134004AC260 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88024F6A1AD29134004AC260 /* Main.storyboard */; };
 		88024F6E1AD29134004AC260 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88024F6D1AD29134004AC260 /* Images.xcassets */; };
 		88024F7D1AD29134004AC260 /* GolfersProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 88024F7C1AD29134004AC260 /* GolfersProjectTests.m */; };
 		880A97DD1B2F0ED4001D97F0 /* FoodBevCartCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 880A97DC1B2F0ED4001D97F0 /* FoodBevCartCell.m */; };
@@ -186,6 +206,12 @@
 		88E9EE631B6A0B4B00F4D90E /* ScoreBoardManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E9EE5F1B6A0B4B00F4D90E /* ScoreBoardManager.m */; };
 		88E9EE641B6A0B4B00F4D90E /* ScoreBoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E9EE611B6A0B4B00F4D90E /* ScoreBoardViewController.m */; };
 		88EBBAE61B4D108400AA6688 /* TeeTimeBookingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88EBBAE51B4D108400AA6688 /* TeeTimeBookingCell.m */; };
+		88EBE46D1B736DD1002F4FA2 /* RewardListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88EBE46C1B736DD1002F4FA2 /* RewardListViewController.m */; };
+		88EBE4721B7372FC002F4FA2 /* RewardTutorialContainerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 88EBE4711B7372FC002F4FA2 /* RewardTutorialContainerVC.m */; };
+		88EBE4751B737329002F4FA2 /* RewardTutorialDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 88EBE4741B737329002F4FA2 /* RewardTutorialDetailVC.m */; };
+		88EBE4791B73CD0C002F4FA2 /* RewardListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88EBE4781B73CD0C002F4FA2 /* RewardListCell.m */; };
+		88EF1EF51B78FEFE006F901F /* RewardDescriptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88EF1EF41B78FEFE006F901F /* RewardDescriptionViewController.m */; };
+		88EF1EF91B79014F006F901F /* PastScoreCardsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88EF1EF81B79014F006F901F /* PastScoreCardsViewController.m */; };
 		A921244B1B36DB1E00917649 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A921244A1B36DB1E00917649 /* MessageUI.framework */; };
 /* End PBXBuildFile section */
 
@@ -210,6 +236,19 @@
 		3D00B5A81B67493100FA2C19 /* PlayerSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerSettings.m; sourceTree = "<group>"; };
 		3D00B5AB1B68E47F00FA2C19 /* ScoreboardServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreboardServices.h; sourceTree = "<group>"; };
 		3D00B5AC1B68E48000FA2C19 /* ScoreboardServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreboardServices.m; sourceTree = "<group>"; };
+		3D0455C01B71E66100FFB0E8 /* HMMessageRecieveCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMMessageRecieveCell.h; sourceTree = "<group>"; };
+		3D0455C11B71E66100FFB0E8 /* HMMessageRecieveCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMMessageRecieveCell.m; sourceTree = "<group>"; };
+		3D0455C21B71E66100FFB0E8 /* HMMessageRecieveCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HMMessageRecieveCell.xib; sourceTree = "<group>"; };
+		3D0455C31B71E66100FFB0E8 /* HMMessagesDisplayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMMessagesDisplayViewController.h; sourceTree = "<group>"; };
+		3D0455C41B71E66100FFB0E8 /* HMMessagesDisplayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMMessagesDisplayViewController.m; sourceTree = "<group>"; };
+		3D0455C51B71E66100FFB0E8 /* HMMessageSentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMMessageSentCell.h; sourceTree = "<group>"; };
+		3D0455C61B71E66100FFB0E8 /* HMMessageSentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMMessageSentCell.m; sourceTree = "<group>"; };
+		3D0455C71B71E66100FFB0E8 /* HMMessageSentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HMMessageSentCell.xib; sourceTree = "<group>"; };
+		3D0455CD1B71F7B800FFB0E8 /* Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utility.h; sourceTree = "<group>"; };
+		3D0455CE1B71F7B800FFB0E8 /* Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utility.m; sourceTree = "<group>"; };
+		3D0455D01B71F87100FFB0E8 /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
+		3D0455D11B71F87100FFB0E8 /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
+		3D0455DB1B724CE700FFB0E8 /* HMMessagesDisplayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HMMessagesDisplayViewController.xib; sourceTree = "<group>"; };
 		3D16D0821B1C3FFB00A582A3 /* SharedManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedManager.h; sourceTree = "<group>"; };
 		3D16D0831B1C3FFB00A582A3 /* SharedManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedManager.m; sourceTree = "<group>"; };
 		3D1963B71B0CE05700766CFC /* CourseServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseServices.h; sourceTree = "<group>"; };
@@ -224,8 +263,6 @@
 		3D1963CD1B0DBC8300766CFC /* Condition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Condition.m; sourceTree = "<group>"; };
 		3D1963F61B0E1F0500766CFC /* WeatherViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherViewCell.h; sourceTree = "<group>"; };
 		3D1963F71B0E1F0500766CFC /* WeatherViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherViewCell.m; sourceTree = "<group>"; };
-		3D1963FF1B1305FC00766CFC /* PresentationServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PresentationServices.h; sourceTree = "<group>"; };
-		3D1964001B1305FC00766CFC /* PresentationServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PresentationServices.m; sourceTree = "<group>"; };
 		3D19640B1B130E3B00766CFC /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		3D19640C1B130E3B00766CFC /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		3D19640E1B130E3B00766CFC /* TPKeyboardAvoidingCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingCollectionView.h; sourceTree = "<group>"; };
@@ -374,6 +411,30 @@
 		3D613B811B44191B00F7DEDA /* ScoreSelectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreSelectionView.h; sourceTree = "<group>"; };
 		3D613B821B44191B00F7DEDA /* ScoreSelectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreSelectionView.m; sourceTree = "<group>"; };
 		3D613B831B44191B00F7DEDA /* ScoreSelectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScoreSelectionView.xib; sourceTree = "<group>"; };
+		3D6346C11B78D02D0093AA1D /* FeaturedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeaturedControl.h; sourceTree = "<group>"; };
+		3D6346C21B78D02D0093AA1D /* FeaturedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeaturedControl.m; sourceTree = "<group>"; };
+		3D6346C51B790C980093AA1D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3D7DF1FC1B6A360900FCF8FE /* Golfrz-prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Golfrz-prefix.pch"; sourceTree = "<group>"; };
+		3D7DF1FE1B6A542000FCF8FE /* TeetimeServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeetimeServices.h; sourceTree = "<group>"; };
+		3D7DF1FF1B6A542000FCF8FE /* TeetimeServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeetimeServices.m; sourceTree = "<group>"; };
+		3D7DF2021B6A550E00FCF8FE /* TeetimeData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeetimeData.h; sourceTree = "<group>"; };
+		3D7DF2031B6A550E00FCF8FE /* TeetimeData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeetimeData.m; sourceTree = "<group>"; };
+		3D7DF2051B6A551B00FCF8FE /* Teetime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Teetime.h; sourceTree = "<group>"; };
+		3D7DF2061B6A551B00FCF8FE /* Teetime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Teetime.m; sourceTree = "<group>"; };
+		3D7DF2081B6CABEE00FCF8FE /* Teetime+Compare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Teetime+Compare.h"; sourceTree = "<group>"; };
+		3D7DF2091B6CABEE00FCF8FE /* Teetime+Compare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Teetime+Compare.m"; sourceTree = "<group>"; };
+		3D7DF20B1B6F5A2200FCF8FE /* NSArray+BinarySearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+BinarySearch.h"; sourceTree = "<group>"; };
+		3D7DF20C1B6F5A2200FCF8FE /* NSArray+BinarySearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+BinarySearch.m"; sourceTree = "<group>"; };
+		3D7DF2101B6FC80500FCF8FE /* CourseUpdate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseUpdate.h; sourceTree = "<group>"; };
+		3D7DF2111B6FC80500FCF8FE /* CourseUpdate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseUpdate.m; sourceTree = "<group>"; };
+		3D7DF2131B6FC84200FCF8FE /* Activity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Activity.h; sourceTree = "<group>"; };
+		3D7DF2141B6FC84200FCF8FE /* Activity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Activity.m; sourceTree = "<group>"; };
+		3D7DF2181B6FD16400FCF8FE /* Post.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
+		3D7DF2191B6FD16400FCF8FE /* Post.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
+		3D7DF21B1B6FD17500FCF8FE /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
+		3D7DF21C1B6FD17500FCF8FE /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
+		3D7DF21F1B6FD89F00FCF8FE /* CourseUpdateServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseUpdateServices.h; sourceTree = "<group>"; };
+		3D7DF2201B6FD89F00FCF8FE /* CourseUpdateServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseUpdateServices.m; sourceTree = "<group>"; };
 		3D87D8381B1852120046BD60 /* NSDate+convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+convenience.h"; sourceTree = "<group>"; };
 		3D87D8391B1852120046BD60 /* NSDate+convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+convenience.m"; sourceTree = "<group>"; };
 		3D87D83A1B1852120046BD60 /* NSMutableArray+convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+convenience.h"; sourceTree = "<group>"; };
@@ -417,8 +478,6 @@
 		3DCA44B81B26CB3400B66BD2 /* StaffType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StaffType.m; sourceTree = "<group>"; };
 		3DCA44BA1B26CB3400B66BD2 /* GolfrzError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GolfrzError.h; sourceTree = "<group>"; };
 		3DCA44BB1B26CB3400B66BD2 /* GolfrzError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GolfrzError.m; sourceTree = "<group>"; };
-		3DCA44BC1B26CB3400B66BD2 /* GolfrzErrorResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GolfrzErrorResponse.h; sourceTree = "<group>"; };
-		3DCA44BD1B26CB3400B66BD2 /* GolfrzErrorResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GolfrzErrorResponse.m; sourceTree = "<group>"; };
 		3DCA44C11B26CB3400B66BD2 /* FoodBeverage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodBeverage.h; sourceTree = "<group>"; };
 		3DCA44C21B26CB3400B66BD2 /* FoodBeverage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodBeverage.m; sourceTree = "<group>"; };
 		3DCA44C31B26CB3400B66BD2 /* Menu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Menu.h; sourceTree = "<group>"; };
@@ -444,8 +503,12 @@
 		3DD47A681B4A6099005DE325 /* Teebox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Teebox.m; sourceTree = "<group>"; };
 		3DD47A6B1B4A7D7A005DE325 /* GreenCoordinate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GreenCoordinate.h; sourceTree = "<group>"; };
 		3DD47A6C1B4A7D7A005DE325 /* GreenCoordinate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GreenCoordinate.m; sourceTree = "<group>"; };
-		3DD47A711B4A82F5005DE325 /* SubCourseServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubCourseServices.h; sourceTree = "<group>"; };
-		3DD47A721B4A82F5005DE325 /* SubCourseServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubCourseServices.m; sourceTree = "<group>"; };
+		3DD9586F1B7290FD00F8960D /* RewardServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RewardServices.h; sourceTree = "<group>"; };
+		3DD958701B7290FD00F8960D /* RewardServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RewardServices.m; sourceTree = "<group>"; };
+		3DD958731B7294B400F8960D /* Reward.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reward.h; sourceTree = "<group>"; };
+		3DD958741B7294B400F8960D /* Reward.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reward.m; sourceTree = "<group>"; };
+		3DD958761B729A7C00F8960D /* RewardSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RewardSet.h; sourceTree = "<group>"; };
+		3DD958771B729A7C00F8960D /* RewardSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RewardSet.m; sourceTree = "<group>"; };
 		3DD9BD071B14BE1C00A2F296 /* CalendarUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarUtilities.h; sourceTree = "<group>"; };
 		3DD9BD081B14BE1C00A2F296 /* CalendarUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarUtilities.m; sourceTree = "<group>"; };
 		3DD9BD091B14BE1C00A2F296 /* NSDate+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Helper.h"; sourceTree = "<group>"; };
@@ -477,7 +540,6 @@
 		88024F5D1AD29134004AC260 /* GolfersProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GolfersProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88024F611AD29134004AC260 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88024F621AD29134004AC260 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		88024F6B1AD29134004AC260 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		88024F6D1AD29134004AC260 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		88024F761AD29134004AC260 /* GolfersProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GolfersProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		88024F7B1AD29134004AC260 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -529,6 +591,18 @@
 		88E9EE611B6A0B4B00F4D90E /* ScoreBoardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreBoardViewController.m; sourceTree = "<group>"; };
 		88EBBAE41B4D108400AA6688 /* TeeTimeBookingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeeTimeBookingCell.h; sourceTree = "<group>"; };
 		88EBBAE51B4D108400AA6688 /* TeeTimeBookingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeeTimeBookingCell.m; sourceTree = "<group>"; };
+		88EBE46B1B736DD1002F4FA2 /* RewardListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RewardListViewController.h; sourceTree = "<group>"; };
+		88EBE46C1B736DD1002F4FA2 /* RewardListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RewardListViewController.m; sourceTree = "<group>"; };
+		88EBE4701B7372FC002F4FA2 /* RewardTutorialContainerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RewardTutorialContainerVC.h; sourceTree = "<group>"; };
+		88EBE4711B7372FC002F4FA2 /* RewardTutorialContainerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RewardTutorialContainerVC.m; sourceTree = "<group>"; };
+		88EBE4731B737329002F4FA2 /* RewardTutorialDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RewardTutorialDetailVC.h; sourceTree = "<group>"; };
+		88EBE4741B737329002F4FA2 /* RewardTutorialDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RewardTutorialDetailVC.m; sourceTree = "<group>"; };
+		88EBE4771B73CD0C002F4FA2 /* RewardListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RewardListCell.h; sourceTree = "<group>"; };
+		88EBE4781B73CD0C002F4FA2 /* RewardListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RewardListCell.m; sourceTree = "<group>"; };
+		88EF1EF31B78FEFE006F901F /* RewardDescriptionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RewardDescriptionViewController.h; sourceTree = "<group>"; };
+		88EF1EF41B78FEFE006F901F /* RewardDescriptionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RewardDescriptionViewController.m; sourceTree = "<group>"; };
+		88EF1EF71B79014F006F901F /* PastScoreCardsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PastScoreCardsViewController.h; sourceTree = "<group>"; };
+		88EF1EF81B79014F006F901F /* PastScoreCardsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PastScoreCardsViewController.m; sourceTree = "<group>"; };
 		A921244A1B36DB1E00917649 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		D817BE50C16025D4FB4E4951 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		E15946F021CC95FC21355D7C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -585,6 +659,26 @@
 				3D00B5AC1B68E48000FA2C19 /* ScoreboardServices.m */,
 			);
 			path = ScoreboardServices;
+			sourceTree = "<group>";
+		};
+		3D0455BF1B71E66100FFB0E8 /* HMMessagesDisplayViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3D0455D01B71F87100FFB0E8 /* UIImage+Resize.h */,
+				3D0455D11B71F87100FFB0E8 /* UIImage+Resize.m */,
+				3D0455CD1B71F7B800FFB0E8 /* Utility.h */,
+				3D0455CE1B71F7B800FFB0E8 /* Utility.m */,
+				3D0455C01B71E66100FFB0E8 /* HMMessageRecieveCell.h */,
+				3D0455C11B71E66100FFB0E8 /* HMMessageRecieveCell.m */,
+				3D0455C21B71E66100FFB0E8 /* HMMessageRecieveCell.xib */,
+				3D0455C31B71E66100FFB0E8 /* HMMessagesDisplayViewController.h */,
+				3D0455DB1B724CE700FFB0E8 /* HMMessagesDisplayViewController.xib */,
+				3D0455C41B71E66100FFB0E8 /* HMMessagesDisplayViewController.m */,
+				3D0455C51B71E66100FFB0E8 /* HMMessageSentCell.h */,
+				3D0455C61B71E66100FFB0E8 /* HMMessageSentCell.m */,
+				3D0455C71B71E66100FFB0E8 /* HMMessageSentCell.xib */,
+			);
+			path = HMMessagesDisplayViewController;
 			sourceTree = "<group>";
 		};
 		3D16D0811B1C3FDB00A582A3 /* SharedManager */ = {
@@ -650,18 +744,11 @@
 			path = GeoLocationServices;
 			sourceTree = "<group>";
 		};
-		3D1963FE1B1305D500766CFC /* PresentationServices */ = {
-			isa = PBXGroup;
-			children = (
-				3D1963FF1B1305FC00766CFC /* PresentationServices.h */,
-				3D1964001B1305FC00766CFC /* PresentationServices.m */,
-			);
-			path = PresentationServices;
-			sourceTree = "<group>";
-		};
 		3D1964021B130E3B00766CFC /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				3D7DF20B1B6F5A2200FCF8FE /* NSArray+BinarySearch.h */,
+				3D7DF20C1B6F5A2200FCF8FE /* NSArray+BinarySearch.m */,
 				3D1C8E661B3BFDBE004AAD30 /* WEPopover */,
 				3DA70A371B3972B900D3ABEC /* UIBarButtonItem+Badge */,
 				3D87D8371B1852120046BD60 /* VurigCalendar */,
@@ -775,6 +862,8 @@
 			isa = PBXGroup;
 			children = (
 				775F06D01B78D56000BA4055 /* RoundMoviePlayerController */,
+				88EF1EF61B79013E006F901F /* PastScoreCardsViewController */,
+				3D0455BF1B71E66100FFB0E8 /* HMMessagesDisplayViewController */,
 				88E9EE591B6A0B4B00F4D90E /* ScoreBoardViewController */,
 				3D1CB08B1B691563005C1E19 /* AddGuestViewController */,
 				3D1CB08E1B691563005C1E19 /* AddPlayersMainViewController */,
@@ -998,6 +1087,8 @@
 		3D1CB0CB1B691563005C1E19 /* RewardViewController */ = {
 			isa = PBXGroup;
 			children = (
+				88EBE46E1B737292002F4FA2 /* RewardTutorialContainerVC */,
+				88EBE46A1B736DB4002F4FA2 /* RewardListViewController */,
 				3D1CB0CC1B691563005C1E19 /* RewardViewController.h */,
 				3D1CB0CD1B691563005C1E19 /* RewardViewController.m */,
 			);
@@ -1189,6 +1280,68 @@
 			path = ScoreSelectionView;
 			sourceTree = "<group>";
 		};
+		3D6346C01B78D0190093AA1D /* FeaturedControl */ = {
+			isa = PBXGroup;
+			children = (
+				3D6346C11B78D02D0093AA1D /* FeaturedControl.h */,
+				3D6346C21B78D02D0093AA1D /* FeaturedControl.m */,
+			);
+			path = FeaturedControl;
+			sourceTree = "<group>";
+		};
+		3D7DF1FD1B6A53B100FCF8FE /* TeetimeServices */ = {
+			isa = PBXGroup;
+			children = (
+				3D7DF1FE1B6A542000FCF8FE /* TeetimeServices.h */,
+				3D7DF1FF1B6A542000FCF8FE /* TeetimeServices.m */,
+			);
+			path = TeetimeServices;
+			sourceTree = "<group>";
+		};
+		3D7DF2011B6A54F300FCF8FE /* TeetimeData */ = {
+			isa = PBXGroup;
+			children = (
+				3D7DF2021B6A550E00FCF8FE /* TeetimeData.h */,
+				3D7DF2031B6A550E00FCF8FE /* TeetimeData.m */,
+				3D7DF2051B6A551B00FCF8FE /* Teetime.h */,
+				3D7DF2061B6A551B00FCF8FE /* Teetime.m */,
+				3D7DF2081B6CABEE00FCF8FE /* Teetime+Compare.h */,
+				3D7DF2091B6CABEE00FCF8FE /* Teetime+Compare.m */,
+			);
+			path = TeetimeData;
+			sourceTree = "<group>";
+		};
+		3D7DF20F1B6FC7CE00FCF8FE /* CourseUpdate */ = {
+			isa = PBXGroup;
+			children = (
+				3D7DF2101B6FC80500FCF8FE /* CourseUpdate.h */,
+				3D7DF2111B6FC80500FCF8FE /* CourseUpdate.m */,
+				3D7DF2131B6FC84200FCF8FE /* Activity.h */,
+				3D7DF2141B6FC84200FCF8FE /* Activity.m */,
+			);
+			path = CourseUpdate;
+			sourceTree = "<group>";
+		};
+		3D7DF2171B6FD15300FCF8FE /* Post */ = {
+			isa = PBXGroup;
+			children = (
+				3D7DF2181B6FD16400FCF8FE /* Post.h */,
+				3D7DF2191B6FD16400FCF8FE /* Post.m */,
+				3D7DF21B1B6FD17500FCF8FE /* Comment.h */,
+				3D7DF21C1B6FD17500FCF8FE /* Comment.m */,
+			);
+			path = Post;
+			sourceTree = "<group>";
+		};
+		3D7DF21E1B6FD85C00FCF8FE /* CourseUpdateServices */ = {
+			isa = PBXGroup;
+			children = (
+				3D7DF21F1B6FD89F00FCF8FE /* CourseUpdateServices.h */,
+				3D7DF2201B6FD89F00FCF8FE /* CourseUpdateServices.m */,
+			);
+			path = CourseUpdateServices;
+			sourceTree = "<group>";
+		};
 		3D87D8371B1852120046BD60 /* VurigCalendar */ = {
 			isa = PBXGroup;
 			children = (
@@ -1274,8 +1427,6 @@
 			children = (
 				3DCA44BA1B26CB3400B66BD2 /* GolfrzError.h */,
 				3DCA44BB1B26CB3400B66BD2 /* GolfrzError.m */,
-				3DCA44BC1B26CB3400B66BD2 /* GolfrzErrorResponse.h */,
-				3DCA44BD1B26CB3400B66BD2 /* GolfrzErrorResponse.m */,
 			);
 			path = ErrorHandling;
 			sourceTree = "<group>";
@@ -1415,13 +1566,24 @@
 			path = RoundServices;
 			sourceTree = "<group>";
 		};
-		3DD47A701B4A81C3005DE325 /* SubCourseServices */ = {
+		3DD9586E1B7290C300F8960D /* RewardServices */ = {
 			isa = PBXGroup;
 			children = (
-				3DD47A711B4A82F5005DE325 /* SubCourseServices.h */,
-				3DD47A721B4A82F5005DE325 /* SubCourseServices.m */,
+				3DD9586F1B7290FD00F8960D /* RewardServices.h */,
+				3DD958701B7290FD00F8960D /* RewardServices.m */,
 			);
-			path = SubCourseServices;
+			path = RewardServices;
+			sourceTree = "<group>";
+		};
+		3DD958721B72949A00F8960D /* Reward */ = {
+			isa = PBXGroup;
+			children = (
+				3DD958731B7294B400F8960D /* Reward.h */,
+				3DD958741B7294B400F8960D /* Reward.m */,
+				3DD958761B729A7C00F8960D /* RewardSet.h */,
+				3DD958771B729A7C00F8960D /* RewardSet.m */,
+			);
+			path = Reward;
 			sourceTree = "<group>";
 		};
 		3DD9BD061B14BE1C00A2F296 /* CalenderUtils */ = {
@@ -1521,6 +1683,7 @@
 		88024F5F1AD29134004AC260 /* GolfersProject */ = {
 			isa = PBXGroup;
 			children = (
+				3D6346C41B790C980093AA1D /* Main.storyboard */,
 				3D1CB08A1B691563005C1E19 /* ViewControllers */,
 				3DF9936C1B256977006EBC39 /* PushManager */,
 				3D16D0811B1C3FDB00A582A3 /* SharedManager */,
@@ -1535,7 +1698,6 @@
 				885CB06E1B09F7F100AD2A7B /* APIClient */,
 				885CB06F1B09F91700AD2A7B /* Model */,
 				3D1C8E771B3BFEB0004AAD30 /* Resources */,
-				88024F6A1AD29134004AC260 /* Main.storyboard */,
 				88024F6D1AD29134004AC260 /* Images.xcassets */,
 				88024F601AD29134004AC260 /* Supporting Files */,
 			);
@@ -1547,6 +1709,7 @@
 			children = (
 				88024F611AD29134004AC260 /* Info.plist */,
 				88024F621AD29134004AC260 /* main.m */,
+				3D7DF1FC1B6A360900FCF8FE /* Golfrz-prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -1652,6 +1815,11 @@
 		885CB06F1B09F91700AD2A7B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3D6346C01B78D0190093AA1D /* FeaturedControl */,
+				3DD958721B72949A00F8960D /* Reward */,
+				3D7DF2171B6FD15300FCF8FE /* Post */,
+				3D7DF20F1B6FC7CE00FCF8FE /* CourseUpdate */,
+				3D7DF2011B6A54F300FCF8FE /* TeetimeData */,
 				77BBE9071B6B5312004D1C86 /* ScoreCard */,
 				3DDF9BE61B60CA470036C735 /* RoundPlayers */,
 				3D221F911B52797300CF79E4 /* User */,
@@ -1672,19 +1840,20 @@
 		885CB07C1B0A121300AD2A7B /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				3DD9586E1B7290C300F8960D /* RewardServices */,
+				3D7DF21E1B6FD85C00FCF8FE /* CourseUpdateServices */,
+				3D7DF1FD1B6A53B100FCF8FE /* TeetimeServices */,
 				3D00B5AA1B68E3DB00FA2C19 /* ScoreboardServices */,
 				3D00B5A61B6748E000FA2C19 /* PlayerSettings */,
 				3D00B5A21B6748A300FA2C19 /* GameSettings */,
 				3DD47A6E1B4A81C3005DE325 /* InvitationServices */,
 				3DD47A6F1B4A81C3005DE325 /* RoundServices */,
-				3DD47A701B4A81C3005DE325 /* SubCourseServices */,
 				3DC1161A1B2ED86E00E83F4F /* ContactServices */,
 				3DD3CA3D1B297AD300767BCF /* UtilityServices */,
 				3DCA44DC1B27097F00B66BD2 /* Food+BeverageService */,
 				3DD9BD231B14C36D00A2F296 /* EventServices */,
 				3D1964241B13302A00766CFC /* FBAuthenticationAgent */,
 				3D1963FD1B1305D500766CFC /* GeoLocationServices */,
-				3D1963FE1B1305D500766CFC /* PresentationServices */,
 				3D1963C11B0DAEB200766CFC /* WeatherServices */,
 				3D1963B61B0CE05700766CFC /* CourseServices */,
 				3D1963B91B0CE05700766CFC /* UserServices */,
@@ -1745,6 +1914,7 @@
 		889872C71B13237F00D3C0E9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				88EBE4761B73CCD2002F4FA2 /* RewardListCell */,
 				88255AEB1B70AF360089644F /* ScoreBoardHeaderCell */,
 				88255AEA1B70AF280089644F /* ScoreBoardBodyCell */,
 				88255AE61B6FA9FB0089644F /* CourseUpdatesCell */,
@@ -1829,6 +1999,55 @@
 				88EBBAE51B4D108400AA6688 /* TeeTimeBookingCell.m */,
 			);
 			path = TeeTimeBookingCell;
+			sourceTree = "<group>";
+		};
+		88EBE46A1B736DB4002F4FA2 /* RewardListViewController */ = {
+			isa = PBXGroup;
+			children = (
+				88EBE46B1B736DD1002F4FA2 /* RewardListViewController.h */,
+				88EBE46C1B736DD1002F4FA2 /* RewardListViewController.m */,
+				88EF1EF31B78FEFE006F901F /* RewardDescriptionViewController.h */,
+				88EF1EF41B78FEFE006F901F /* RewardDescriptionViewController.m */,
+			);
+			path = RewardListViewController;
+			sourceTree = "<group>";
+		};
+		88EBE46E1B737292002F4FA2 /* RewardTutorialContainerVC */ = {
+			isa = PBXGroup;
+			children = (
+				88EBE4701B7372FC002F4FA2 /* RewardTutorialContainerVC.h */,
+				88EBE4711B7372FC002F4FA2 /* RewardTutorialContainerVC.m */,
+				88EBE46F1B7372CC002F4FA2 /* RewardTutorialDetailVC */,
+			);
+			name = RewardTutorialContainerVC;
+			path = RewardListViewController/RewardTutorialContainerVC;
+			sourceTree = "<group>";
+		};
+		88EBE46F1B7372CC002F4FA2 /* RewardTutorialDetailVC */ = {
+			isa = PBXGroup;
+			children = (
+				88EBE4731B737329002F4FA2 /* RewardTutorialDetailVC.h */,
+				88EBE4741B737329002F4FA2 /* RewardTutorialDetailVC.m */,
+			);
+			path = RewardTutorialDetailVC;
+			sourceTree = "<group>";
+		};
+		88EBE4761B73CCD2002F4FA2 /* RewardListCell */ = {
+			isa = PBXGroup;
+			children = (
+				88EBE4771B73CD0C002F4FA2 /* RewardListCell.h */,
+				88EBE4781B73CD0C002F4FA2 /* RewardListCell.m */,
+			);
+			path = RewardListCell;
+			sourceTree = "<group>";
+		};
+		88EF1EF61B79013E006F901F /* PastScoreCardsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				88EF1EF71B79014F006F901F /* PastScoreCardsViewController.h */,
+				88EF1EF81B79014F006F901F /* PastScoreCardsViewController.m */,
+			);
+			path = PastScoreCardsViewController;
 			sourceTree = "<group>";
 		};
 		C91B48159ABC56B52D213A0C /* Frameworks */ = {
@@ -1930,6 +2149,7 @@
 				3D1C8E981B3BFEB0004AAD30 /* popoverArrowRightSimple.png in Resources */,
 				3D1C8E8F1B3BFEB0004AAD30 /* popoverArrowDown@2x.png in Resources */,
 				3D1C8E951B3BFEB0004AAD30 /* popoverArrowRight-white@2x.png in Resources */,
+				3D6346C61B790C980093AA1D /* Main.storyboard in Resources */,
 				3D1C8E991B3BFEB0004AAD30 /* popoverArrowUp-white@2x.png in Resources */,
 				3D1C8E901B3BFEB0004AAD30 /* popoverArrowDownSimple.png in Resources */,
 				3D1C8E941B3BFEB0004AAD30 /* popoverArrowLeftSimple.png in Resources */,
@@ -1938,19 +2158,21 @@
 				3D1C8E911B3BFEB0004AAD30 /* popoverArrowLeft-white@2x.png in Resources */,
 				3D613B641B416F1F00F7DEDA /* CalendarEventCell.xib in Resources */,
 				3D221F8D1B4BEB4600CF79E4 /* DropdownView.xib in Resources */,
+				3D0455C91B71E66100FFB0E8 /* HMMessageRecieveCell.xib in Resources */,
 				3D613B871B44191B00F7DEDA /* ScoreSelectionView.xib in Resources */,
 				3DD3CA391B2863CF00767BCF /* SideNotificationView.xib in Resources */,
 				3D1C8E9D1B3BFEB0004AAD30 /* popoverBg-white@2x.png in Resources */,
 				3D1C8EA01B3BFEB0004AAD30 /* popoverBgSimple.png in Resources */,
+				3D0455CC1B71E66100FFB0E8 /* HMMessageSentCell.xib in Resources */,
 				887C7AB51B563C3700F1AC30 /* AddRoundPlayers.xib in Resources */,
 				3D1C8E9A1B3BFEB0004AAD30 /* popoverArrowUp.png in Resources */,
-				88024F6C1AD29134004AC260 /* Main.storyboard in Resources */,
 				3D1C8E8E1B3BFEB0004AAD30 /* popoverArrowDown.png in Resources */,
 				3D1C8E961B3BFEB0004AAD30 /* popoverArrowRight.png in Resources */,
 				3D1C8E971B3BFEB0004AAD30 /* popoverArrowRight@2x.png in Resources */,
 				3D1C8E9F1B3BFEB0004AAD30 /* popoverBg@2x.png in Resources */,
 				3D1C8E9C1B3BFEB0004AAD30 /* popoverArrowUpSimple.png in Resources */,
 				887C7AB91B563EFC00F1AC30 /* AddRoundPlayersCell.xib in Resources */,
+				3D0455DC1B724CE700FFB0E8 /* HMMessagesDisplayViewController.xib in Resources */,
 				3D1C8E9E1B3BFEB0004AAD30 /* popoverBg.png in Resources */,
 				88024F6E1AD29134004AC260 /* Images.xcassets in Resources */,
 				3D613B851B44191B00F7DEDA /* ScoreSelectionCell.xib in Resources */,
@@ -2004,6 +2226,7 @@
 				3D1CB0F11B691563005C1E19 /* EventCalendarViewController.m in Sources */,
 				3D1CB0EE1B691563005C1E19 /* ContactUsViewController.m in Sources */,
 				3D87D8431B1852120046BD60 /* NSMutableArray+convenience.m in Sources */,
+				3D0455CF1B71F7B800FFB0E8 /* Utility.m in Sources */,
 				88573E2A1B4551900060929C /* RoundInviteCell.m in Sources */,
 				77BBE9131B6B9D32004D1C86 /* ScoreCardHole.m in Sources */,
 				88255AEE1B70AF620089644F /* ScoreBoardHeaderCell.m in Sources */,
@@ -2014,6 +2237,7 @@
 				3DCA44CE1B26CB3400B66BD2 /* EventWeather.m in Sources */,
 				3D1C8EAF1B3D36C9004AAD30 /* EventHeaderView.m in Sources */,
 				3DC116231B2EF4AD00E83F4F /* APContact+convenience.m in Sources */,
+				3D7DF20A1B6CABEE00FCF8FE /* Teetime+Compare.m in Sources */,
 				3D1CB1061B691563005C1E19 /* TeeTimesViewController.m in Sources */,
 				3D613B861B44191B00F7DEDA /* ScoreSelectionView.m in Sources */,
 				880A97DD1B2F0ED4001D97F0 /* FoodBevCartCell.m in Sources */,
@@ -2024,6 +2248,7 @@
 				889872BF1B13105C00D3C0E9 /* Utilities.m in Sources */,
 				3D1C8E731B3BFDBE004AAD30 /* WEBlockingGestureRecognizer.m in Sources */,
 				3D1CB1041B691563005C1E19 /* SignUpViewController.m in Sources */,
+				3D6346C31B78D02D0093AA1D /* FeaturedControl.m in Sources */,
 				3DD3CA381B2863CF00767BCF /* SideNotificationView.m in Sources */,
 				3D1CB0FF1B691563005C1E19 /* RoundInviteFriendViewController.m in Sources */,
 				3D1C8E721B3BFDBE004AAD30 /* UIBarButtonItem+WEPopover.m in Sources */,
@@ -2032,15 +2257,20 @@
 				3D1CB0F31B691563005C1E19 /* FoodBevCartViewController.m in Sources */,
 				3D1CB0F81B691563005C1E19 /* ForgotPasswordViewController.m in Sources */,
 				3D1C8E751B3BFDBE004AAD30 /* WEPopoverController.m in Sources */,
+				88EF1EF91B79014F006F901F /* PastScoreCardsViewController.m in Sources */,
 				3DCA44D91B26CB3400B66BD2 /* SideItem.m in Sources */,
 				3D1CB0FC1B691563005C1E19 /* PlayerProfileViewController.m in Sources */,
 				88243AF61B28437C00E600D6 /* FoodBevViewCell.m in Sources */,
+				88EBE4751B737329002F4FA2 /* RewardTutorialDetailVC.m in Sources */,
+				88EBE4721B7372FC002F4FA2 /* RewardTutorialContainerVC.m in Sources */,
 				885CB0441B09BA9D00AD2A7B /* AppDelegate.m in Sources */,
 				88E9EE621B6A0B4B00F4D90E /* CustomCollectionViewLayout.m in Sources */,
 				3D1963CE1B0DBC8300766CFC /* Condition.m in Sources */,
+				3D7DF2041B6A550E00FCF8FE /* TeetimeData.m in Sources */,
 				3D221F7B1B4BB0A600CF79E4 /* GameType.m in Sources */,
 				3D00B5A51B6748A300FA2C19 /* GameSettings.m in Sources */,
 				887C7ABF1B5644D400F1AC30 /* AddRoundPlayersCell.m in Sources */,
+				3D0455C81B71E66100FFB0E8 /* HMMessageRecieveCell.m in Sources */,
 				885CB06D1B09BDCD00AD2A7B /* README.md in Sources */,
 				887C7AB31B563BFC00F1AC30 /* AddRoundPlayersView.m in Sources */,
 				3DD9BD0E1B14BE1C00A2F296 /* NSDate+Helper.m in Sources */,
@@ -2052,13 +2282,18 @@
 				88C4EDB61B4A723100519D3B /* HoleMapCell.m in Sources */,
 				77BBE90A1B6B5326004D1C86 /* ScoreCard.m in Sources */,
 				3D1CB1001B691563005C1E19 /* RoundInviteViewController.m in Sources */,
+				88EBE4791B73CD0C002F4FA2 /* RewardListCell.m in Sources */,
+				3D7DF2151B6FC84200FCF8FE /* Activity.m in Sources */,
 				3D1963BD1B0CE05700766CFC /* UserServices.m in Sources */,
 				3DA7CB881B2B13FC00B5BAFF /* Cart.m in Sources */,
 				3DD9BD0F1B14BE1C00A2F296 /* THCalendarInfo.m in Sources */,
+				3DD958781B729A7C00F8960D /* RewardSet.m in Sources */,
 				3D19641A1B130E3B00766CFC /* TPKeyboardAvoidingCollectionView.m in Sources */,
 				3D00B5AD1B68E48000FA2C19 /* ScoreboardServices.m in Sources */,
 				3D19641C1B130E3B00766CFC /* TPKeyboardAvoidingTableView.m in Sources */,
 				3D613B751B43EF5800F7DEDA /* PlayerScoreCell.m in Sources */,
+				3D7DF2001B6A542000FCF8FE /* TeetimeServices.m in Sources */,
+				3DD958711B7290FE00F8960D /* RewardServices.m in Sources */,
 				3DCA44CD1B26CB3400B66BD2 /* EventList.m in Sources */,
 				885CB0801B0A128100AD2A7B /* AuthenticationService.m in Sources */,
 				3D1CB0F21B691563005C1E19 /* EventDetailViewController.m in Sources */,
@@ -2066,11 +2301,11 @@
 				88E9EE631B6A0B4B00F4D90E /* ScoreBoardManager.m in Sources */,
 				3DA70A401B3981AB00D3ABEC /* BBBadgeBarButtonItem.m in Sources */,
 				3DCA44D11B26CB3400B66BD2 /* Department.m in Sources */,
-				3DD47A731B4A82F5005DE325 /* SubCourseServices.m in Sources */,
 				3D1CB1031B691563005C1E19 /* SignInViewController.m in Sources */,
 				3D1CB0ED1B691563005C1E19 /* ClubHouseViewController.m in Sources */,
 				3D87D8441B1852120046BD60 /* UIColor+expanded.m in Sources */,
 				88EBBAE61B4D108400AA6688 /* TeeTimeBookingCell.m in Sources */,
+				3D7DF20D1B6F5A2200FCF8FE /* NSArray+BinarySearch.m in Sources */,
 				88573E1E1B4528280060929C /* RoundPlayerCell.m in Sources */,
 				88B23C1C1B16E69D00988908 /* CourseDepartmentCell.m in Sources */,
 				3DD47A691B4A6099005DE325 /* Teebox.m in Sources */,
@@ -2082,6 +2317,7 @@
 				88255AE91B6FA9FB0089644F /* CourseUpdateCell.m in Sources */,
 				3D1CB0EF1B691563005C1E19 /* CourseUpdatesViewController.m in Sources */,
 				77BBE9161B6BA9E1004D1C86 /* ScoreCardTeeBox.m in Sources */,
+				3D0455CB1B71E66100FFB0E8 /* HMMessageSentCell.m in Sources */,
 				3D1C8E741B3BFDBE004AAD30 /* WEPopoverContainerView.m in Sources */,
 				3D1964191B130E3B00766CFC /* MBProgressHUD.m in Sources */,
 				3D1CB0FE1B691563005C1E19 /* RewardViewController.m in Sources */,
@@ -2096,10 +2332,12 @@
 				3D1CB0FB1B691563005C1E19 /* InviteMainViewController.m in Sources */,
 				3D87D8421B1852120046BD60 /* NSDate+convenience.m in Sources */,
 				3DA70A3D1B3972B900D3ABEC /* UIButton+Badge.m in Sources */,
+				3D7DF21A1B6FD16400FCF8FE /* Post.m in Sources */,
 				3D1CB0F01B691563005C1E19 /* EventAdminViewController.m in Sources */,
 				88255AF11B70AF790089644F /* ScoreBoardBodyCell.m in Sources */,
 				3DF993721B256A4A006EBC39 /* AppDelegate+Push.m in Sources */,
 				3DCA44D31B26CB3400B66BD2 /* StaffType.m in Sources */,
+				88EBE46D1B736DD1002F4FA2 /* RewardListViewController.m in Sources */,
 				3D221F971B5279AC00CF79E4 /* User+convenience.m in Sources */,
 				3D613B631B416F1F00F7DEDA /* CalendarEventCell.m in Sources */,
 				3D1964271B13305200766CFC /* FaceBookAuthAgent.m in Sources */,
@@ -2110,12 +2348,16 @@
 				3D00B5A91B67493100FA2C19 /* PlayerSettings.m in Sources */,
 				3D1CB0FA1B691563005C1E19 /* InitialViewController.m in Sources */,
 				3D1CB0EC1B691563005C1E19 /* ClubHouseSubController.m in Sources */,
+				3D0455CA1B71E66100FFB0E8 /* HMMessagesDisplayViewController.m in Sources */,
 				3DF9936F1B256999006EBC39 /* PushManager.m in Sources */,
+				3DD958751B7294B400F8960D /* Reward.m in Sources */,
 				3D221F761B4BACAC00CF79E4 /* RoundMetaData.m in Sources */,
 				3D1CB1051B691563005C1E19 /* SplashScreenViewController.m in Sources */,
 				3D1CB1071B691563005C1E19 /* UIImageView+RoundedImage.m in Sources */,
 				3DCA44D71B26CB3400B66BD2 /* FoodBeverage.m in Sources */,
 				3D613B6B1B42878A00F7DEDA /* EventAdmin.m in Sources */,
+				3D7DF21D1B6FD17500FCF8FE /* Comment.m in Sources */,
+				3D7DF2121B6FC80500FCF8FE /* CourseUpdate.m in Sources */,
 				3D16D0841B1C3FFB00A582A3 /* SharedManager.m in Sources */,
 				3DA7CB851B2AF0C800B5BAFF /* Order.m in Sources */,
 				3D1963F81B0E1F0500766CFC /* WeatherViewCell.m in Sources */,
@@ -2123,14 +2365,17 @@
 				3DCA44DF1B2709BF00B66BD2 /* FoodBeverageServices.m in Sources */,
 				3DD3CA401B297AD300767BCF /* UtilityServices.m in Sources */,
 				3DDF9BE91B60CA990036C735 /* RoundPlayers.m in Sources */,
+				88EF1EF51B78FEFE006F901F /* RewardDescriptionViewController.m in Sources */,
 				3DCA44D81B26CB3400B66BD2 /* Menu.m in Sources */,
-				3DCA44D51B26CB3400B66BD2 /* GolfrzErrorResponse.m in Sources */,
 				775F06D31B78D58600BA4055 /* RoundMoviePlayerController.m in Sources */,
 				3D1CB0F51B691563005C1E19 /* FoodBevItemDetailViewController.m in Sources */,
 				8890E4D31B307A5500A11BBF /* ContactCell.m in Sources */,
 				3DCA44D21B26CB3400B66BD2 /* StaffMember.m in Sources */,
 				3D1CB0E91B691563005C1E19 /* AddPlayersViewController.m in Sources */,
+				3D7DF2071B6A551B00FCF8FE /* Teetime.m in Sources */,
+				3D7DF2211B6FD89F00FCF8FE /* CourseUpdateServices.m in Sources */,
 				3DD47A661B4A608C005DE325 /* Hole.m in Sources */,
+				3D0455D21B71F87100FFB0E8 /* UIImage+Resize.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2153,10 +2398,10 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		88024F6A1AD29134004AC260 /* Main.storyboard */ = {
+		3D6346C41B790C980093AA1D /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				88024F6B1AD29134004AC260 /* Base */,
+				3D6346C51B790C980093AA1D /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -2255,7 +2500,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "536f73c8-b566-44bc-84e3-4ffadbc83800";
+				PROVISIONING_PROFILE = "8dfb9865-d1fe-4840-a928-1db76291a3b8";
 			};
 			name = Debug;
 		};
@@ -2275,7 +2520,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2ced12d9-ee6b-4b31-b846-63c1049614e0";
+				PROVISIONING_PROFILE = "e5da9488-c712-487a-99c6-2ad8f9b7fa93";
 			};
 			name = Release;
 		};

@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 @class User;
+@class GolfrzError;
 
 @interface AuthenticationService : NSObject
 
@@ -27,15 +28,14 @@ passwordConfirmation:(NSString *)passwordConfirmation
          handicap:(NSString *)handicap
        completion:(void (^)(bool status, NSDictionary * userInfo))successBlock
           failure:(void (^)(bool status, NSError * error))failureBlock;
-    
-    
-    
+
+
 +(void)resetUserPassword:(NSString *)email
               completion:(void (^)(bool status))successfullyPosted
-                 failure:(void (^)(bool status, NSError *error))failureBlock;
+                 failure:(void (^)(bool status, GolfrzError *error))failureBlock;
 
 +(void)signOutUser:(void (^)(bool status))successfullyPosted
-      failureBlock:(void (^)(bool status, NSError * error))failureBlock;
+      failureBlock:(void (^)(bool status, GolfrzError * error))failureBlock;
 
 
 @end

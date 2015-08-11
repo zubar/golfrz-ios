@@ -30,14 +30,17 @@
 #import "ContactServices.h"
 #import "APContact+convenience.h"
 #import "Constants.h"
+#import "Utilities.h"
+#import "CourseUpdatesViewController.h"
 
-#import "SubCourseServices.h"
 #import "RoundDataServices.h"
 
 #import "RoundViewController.h"
 #import "ScoreSelectionView.h"
 #import "InvitationManager.h"
 #import "RoundMoviePlayerController.h"
+#import "TeeTimesViewController.h"
+#import "HMMessagesDisplayViewController.h"
 
 @interface ClubHouseViewController ()
 {
@@ -58,7 +61,7 @@
     
     UIButton * imageRightButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 10, 22, 22)];
     [imageRightButton setBackgroundImage:[UIImage imageNamed:@"activity_icon"] forState:UIControlStateNormal];
-    [imageRightButton addTarget:self action:nil forControlEvents:UIControlEventTouchUpInside];
+    [imageRightButton addTarget:self action:@selector(btnCourseUpdatesTap) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:imageRightButton];
     self.navigationItem.rightBarButtonItem = rightBarButtonItem;
     
@@ -117,8 +120,8 @@
                 completionBlock(currentCourse);
             }
         }
-    } failure:^(bool status, NSError *error) {
-        //
+    } failure:^(bool status, GolfrzError *error) {
+        [Utilities displayErrorAlertWithMessage:[error errorMessage]];
     }];
 }
 
@@ -202,6 +205,13 @@
 
 #pragma mark - Navigation
 
+-(void)btnCourseUpdatesTap{
+
+    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+    CourseUpdatesViewController * controller = [self.storyboard instantiateViewControllerWithIdentifier:@"CourseUpdatesViewController"];
+    [delegate.appDelegateNavController pushViewController:controller animated:YES];
+}
+
 - (IBAction)btnEventsTapped:(id)sender {
     
     AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
@@ -239,14 +249,6 @@
     }
 }
 
-//
-//-(NSInteger)sumNumbers:(...)numbers{
-//
-//    NSArray * temp = [NSArray alloc]initWithObjects:<#(id), ...#>, nil
-//    
-//    return 0;
-//}
-
 -(void)checkInToCurrentCourse{
     
     SharedManager * manager = [SharedManager sharedInstance];
@@ -254,6 +256,7 @@
     manager.delegate = self;
 }
 
+#pragma mark - SharedManagerDelegate for location service.
 -(void)IsUserInCourseWithRequiredAccuracy:(BOOL)yesNo{
     
     if (yesNo) {
@@ -285,11 +288,9 @@
 
 - (IBAction)btnTeeTimeTap:(id)sender {
     
-    [RoundDataServices getRoundData:^(bool status, RoundMetaData *subCourse) {
-        
-    } failure:^(bool status, NSError *error) {
-        
-    }];
+    TeeTimesViewController * controller = [self.storyboard instantiateViewControllerWithIdentifier:@"TeeTimesViewController"];
+    AppDelegate * appDelegate = [[UIApplication sharedApplication] delegate];
+    [appDelegate.appDelegateNavController pushViewController:controller animated:YES];
 }
 
 #pragma mark - Invitation

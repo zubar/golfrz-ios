@@ -21,6 +21,7 @@
 #import "InviteMainViewController.h"
 #import "RoundViewController.h"
 #import "AddPlayersViewController.h"
+#import "GameSettings.h"
 
 @interface PlayerProfileViewController ()
 
@@ -58,7 +59,7 @@
         }];
         
         
-    } failure:^(bool status, NSError *error) {
+    } failure:^(bool status, GolfrzError *error) {
         //TODO: add in a separate file all the alert messages.
         [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Failed to get details" delegate:nil cancelButtonTitle:@"CANCEL" otherButtonTitles:nil, nil] show];
         [MBProgressHUD hideHUDForView:self.view animated:YES];
@@ -79,7 +80,14 @@
     self.navigationItem.rightBarButtonItem = rightBarButtonItem;
 
     [[UINavigationBar appearance] setTitleVerticalPositionAdjustment:-10.0 forBarMetrics:UIBarMetricsDefault];
-
+    
+    GameSettings * settings = [GameSettings sharedSettings];
+    if([settings isRoundInProgress]){
+        [self.btnStartRound setTitle:@"Countinue To Round" forState:UIControlStateNormal
+         ];
+    }else{
+        [self.btnStartRound setTitle:@"Countinue To Round" forState:UIControlStateNormal];
+    }
 
 }
 
@@ -132,5 +140,6 @@
     [delegate.appDelegateNavController pushViewController:controller animated:YES];
     
 }
+
 
 @end

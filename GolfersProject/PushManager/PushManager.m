@@ -66,15 +66,17 @@
     //TODO: check before you post notif
     //currentUserNotificationSettings
     //Extracts notification payload.
-    if (object[@"title"] && object[@"description"]) {
+    NSLog(@"Push-Message:%@", object);
+    if ((object[@"title"] != nil) && (object[@"description"] != nil)) {
         NSDictionary * notif = @{
                                  kNotificationTitle : object[@"title"],
                                  kNotificaationDescription : object[@"description"]
                                  };
 
-        if (object[@"data"][@"type"] && [object[@"data"][@"type"] isEqualToString:@"invitation_accepted"]) {
+        if(object[@"data"] != [NSNull null]){
+            if ((object[@"data"][@"type"] != nil) && ([object[@"data"][@"type"] isEqualToString:@"invitation_accepted"])) {
             [self postLocalNotificationForInvitationAcceptance];
-        }
+        }}
         
         SideNotificationView * notifView = [SideNotificationView sharedInstance];
         [notifView addNotificationsArrayObject:notif];

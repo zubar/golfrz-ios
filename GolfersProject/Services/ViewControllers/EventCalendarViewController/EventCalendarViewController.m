@@ -1,4 +1,3 @@
-//
 //  EventCalendarViewController.m
 //  GolfersProject
 //
@@ -14,7 +13,6 @@
 #import "NSDate+Helper.h"
 #import "EventDetailViewController.h"
 #import "MBProgressHUD.h"
-#import "GolfrzErrorResponse.h"
 #import "GolfrzError.h"
 #import "EventHeaderView.h"
 #import "AppDelegate.h"

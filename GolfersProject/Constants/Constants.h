@@ -21,7 +21,9 @@ static NSString * const kAppPreviewImage = @"http://a5.mzstatic.com/us/r30/Purpl
 /*
  * BaseImageURLGolfrz
  */
-static NSString * const kBaseImageUrl = @"";//@"https://powerful-plains-9156.herokuapp.com";
+static NSString * const kBaseImageUrl = @"http://45.56.104.68";
+//@"https://powerful-plains-9156.herokuapp.com";
+
 
 static NSString * const kBaseURL = @"http://45.56.104.68/api/0.1/";
 //static NSString * const kBaseURL = @"https://powerful-plains-9156.herokuapp.com/api/0.1/";
@@ -127,6 +129,13 @@ static NSString * const kGetScoreCard = @"scores/score_card";
 static NSString * const kPushRegURL = @"push_registrations/register";
 
 /*
+ *  Teetimes
+ */
+static NSString * const kGetteetimes = @"tee_times/tee_times";
+static NSString * const kBookTeetime = @"tee_times/book_tee_time";
+static NSString * const kUpdateTeetime = @"tee_times/update_tee_time";
+
+/*
  * Notification Names
  */
 static NSString * const kUserLoginSuccessful = @"UserLoginSuccessfulWithServerTokenAcquired";
@@ -134,16 +143,38 @@ static NSString * const kInviteeAcceptedInvitation = @"InviteeAcceptedRoundInvit
 static NSString * const kInviteeRejectedInvitation = @"InviteeRejectedRoundInvitation";
 static NSString * const kInvitationReceived = @"InvitationReceivedForRound";
 static NSString * const kAppLaunchInvitationReceived = @"AppLaunchDueToRoundInvitationReceived";
+
+/*
+ *  CourseUpdates
+ */
+static NSString * const kCourseUpdatesList = @"notifications/view_notification_list";
+static NSString * const kGetDetailCommentsOnThread = @"notifications/view_notification_comments";
+static NSString * const KPostComment = @"notifications/add_comment";
+
+/*
+ *  Rewards
+ */
+static NSString * const kRewardsList = @"rewards/all";
+static NSString * const kRewardDetail = @"rewards/reward_id";
+static NSString * const kRewardRedeem = @"rewards/redeem";
+static NSString * const kRewardUserTotalPoints = @"rewards/fetch_points";
+
+
 //================================= Presentation ======================================
 
 static NSString * const kDefaultThemeColor = @"0xFF0000";
 
+/*
+ * Error Messages
+ */
+static NSString * const kNoInternetErrorTitle = @"Internet Connection Lost !";
+static NSString * const kNoInternetErrorDetial = @"Internet Connection can not be established now, please try again later.";
+static NSString * const kFailedToConnectAppServerTitle = @"Failed to Connect App Server !";
+static NSString * const kFailedToConnectAppServerDetail = @"Application server is not responding at the moment, please try again later.";
 
 #define UIColorFromHex(rgbValue) [UIColor \
 colorWithRed: ((float)((rgbValue & 0xFF0000) >> 16)) / 255.0 \
 green: ((float)((rgbValue & 0xFF00) >> 8)) / 255.0 \
 blue: ((float)(rgbValue & 0xFF)) / 255.0 alpha : 1.0]
-
-
 #endif
 

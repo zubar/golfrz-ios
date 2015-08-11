@@ -13,13 +13,16 @@
 #import "APIClient.h"
 #import "Constants.h"
 #import <Overcoat/OVCResponse.h>
+#import "GolfrzError.h"
+#import "FeaturedControl.h"
+
 
 @implementation CourseServices
 
 static Course * currentCourse = nil;
 
 
-+(void)courseDetailInfo:(void (^)(bool status, Course * currentCourse))successBlock failure:(void (^)(bool status, NSError * error))failureBlock{
++(void)courseDetailInfo:(void (^)(bool status, Course * currentCourse))successBlock failure:(void (^)(bool status, GolfrzError * error))failureBlock{
     
     APIClient * apiClient = [APIClient sharedAPICLient];
     
@@ -30,7 +33,7 @@ static Course * currentCourse = nil;
             [self setCurrentCourse:mCourse];
             successBlock(true, mCourse);
         }else
-            failureBlock(false, error);
+            failureBlock(false, [resp result]);
     }];
     
 }
@@ -52,13 +55,29 @@ static Course * currentCourse = nil;
     }];
 }
 
-+(void)checkInToCurrentCourse:(void(^)(bool status, id responseObject))successBlock failure:(void (^)(bool, NSError *))failureBlock{
++(void)checkInToCurrentCourse:(void(^)(bool status, id responseObject))successBlock
+                      failure:(void (^)(bool, NSError *))failureBlock{
 
     AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
     [apiClient POST:kCheckInUrl parameters:[CourseServices paramsCourseDetailInfo] success:^(NSURLSessionDataTask *task, id responseObject) {
         successBlock(true, responseObject);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         failureBlock(false, error);
+    }];
+
+}
+
++(void)getCheckInCount:(void(^)(bool status, NSNumber * countOfCheckin))successBlock
+               failure:(void(^)(bool status, GolfrzError * error))failureBlock
+{
+    APIClient * apiClient = [APIClient sharedAPICLient];
+    [apiClient GET:kCheckInUrl parameters:[CourseServices paramsCourseDetailInfo] completion:^(id response, NSError *error) {
+        if(!error){
+            if([[response result] valueForKeyPath:@"check_in.count"] != [NSNull null]) successBlock(true, [NSNumber numberWithInt:0]);
+                else successBlock(true, [[response result] valueForKeyPath:@"check_in.count"]);
+        }else{
+            failureBlock(false, [response result]);
+        }
     }];
 
 }
@@ -72,7 +91,11 @@ static Course * currentCourse = nil;
     return currentCourse;
 }
 
++(void)getEnabledFeatures:(void(^)(bool status, NSArray * enabledFeatures))successBlock
+                  failure:(void(^)(bool status, GolfrzError * error))failureBlock
+{
 
+}
 #pragma mark - Helper Methods
 
 +(NSDictionary *)paramsCourseDetailInfo{

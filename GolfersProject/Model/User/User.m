@@ -18,8 +18,9 @@
              @"email" : @"email",
              @"firstName": @"first_name",
              @"lastName" : @"last_name",
-             @"handicap" : @"handicap"
-             //propertyName : json_key
+             @"handicap" : @"handicap",
+             @"imgPath" : @"image_path",
+            //propertyName : json_key
              };
 }
 @end

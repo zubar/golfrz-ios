@@ -24,8 +24,7 @@
 
 @interface GolfrzError : MTLModel <MTLJSONSerializing>
 
-@property (copy, nonatomic, readonly) NSString *message;
-
-@property (copy, nonatomic, readonly) NSNumber *code;
+@property (copy, nonatomic, readonly) NSString * errorMessage;
+@property (copy, nonatomic, readonly) NSNumber * errorCode;
 
 @end

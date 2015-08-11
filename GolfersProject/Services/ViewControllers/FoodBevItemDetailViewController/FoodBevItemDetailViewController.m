@@ -18,7 +18,8 @@
 #import "MBProgressHUD.h"
 #import "BBBadgeBarButtonItem.h"
 #import "SharedManager.h"
-
+#import "GolfrzError.h"
+#import "Utilities.h"
 
 @interface FoodBevItemDetailViewController ()
 
@@ -128,16 +129,12 @@
     [FoodBeverageServices addItemsToCartWithIds:self.selectedIds quantity:[self.txtCount.text integerValue] withBlock:^(bool status, NSDictionary *response) {
         NSLog(@"Success");
         [MBProgressHUD hideHUDForView:self.view animated:YES];
-
         
          NSString *successMessage = [NSString stringWithFormat:@"You have added %@ %@ to the cart", self.txtCount.text, self.selectedItem.name];
         [[[UIAlertView alloc] initWithTitle:nil message:successMessage delegate:self cancelButtonTitle:nil otherButtonTitles:@"CHECKOUT", @"CONTINUE", nil] show];
-
-       
-        
-        
-    } failure:^(bool status, NSError *error) {
-        
+    } failure:^(bool status, GolfrzError *error) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [Utilities displayErrorAlertWithMessage:[error errorMessage]];
     }];
 }
 

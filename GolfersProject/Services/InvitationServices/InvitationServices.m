@@ -18,7 +18,7 @@
 @implementation InvitationServices
 
 +(void)getInAppUsers:(void (^)(bool status, NSArray * inAppUsers))successBlock
-             failure:(void (^)(bool status, NSError * error))failureBlock{
+             failure:(void (^)(bool status, GolfrzError * error))failureBlock{
 
     APIClient * apiClient = [APIClient sharedAPICLient];
     
@@ -28,7 +28,7 @@
             NSArray * friendsList = [resp result];
             successBlock(true, friendsList);
         }else
-            failureBlock(false, error);
+            failureBlock(false, [response result]);
     }];
 }
 
@@ -45,7 +45,7 @@
         NSString * invitationToken = [responseObject valueForKey:@"invitation_token"];
         successBlock(true, invitationToken);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        NSLog(@"%@", error);
+        failureBlock(false, error);
     }];
 }
 
@@ -78,8 +78,8 @@
              };
 }
 
-+(NSDictionary *)paramInAppFriend{
-    
++(NSDictionary *)paramInAppFriend
+{
     return @{
              @"auth_token" : [UserServices currentToken]
              };

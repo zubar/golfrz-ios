@@ -18,7 +18,7 @@
                   holeId:(NSNumber *)holeId
                  roundId:(NSNumber *)roundId
                  success:(void (^)(bool status, id roundId))successBlock
-                  failure:(void (^)(bool status, NSError * error))failureBlock{
+                  failure:(void (^)(bool status, GolfrzError * error))failureBlock{
     
     AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
     
@@ -27,8 +27,8 @@
     [apiClient GET:kGetIndividualScore parameters:[ScoreboardServices paramsScoreForUserId:userId holeId:holeId roundId:roundId] success:^(NSURLSessionDataTask *task, id responseObject) {
         NSNumber * score = responseObject[@"users_score"];
         successBlock(true, score);
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        NSLog(@"%@", error);
+    } failure:^(NSURLSessionDataTask *task, id response) {
+        NSLog(@"%@", [response result]);
     }];
 }
 

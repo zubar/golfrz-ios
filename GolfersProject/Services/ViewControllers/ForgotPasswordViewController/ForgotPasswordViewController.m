@@ -19,6 +19,8 @@
 #import "Course.h"
 #import "SharedManager.h"
 #import "UIImageView+RoundedImage.h"
+#import "GolfrzError.h"
+#import "Utilities.h"
 
 @interface ForgotPasswordViewController ()
 
@@ -72,9 +74,9 @@
             [self.navigationController pushViewController:forgotPasswordSViewController animated:YES];
 
         }
-    } failure:^(bool status, NSError *error){
+    } failure:^(bool status, GolfrzError *error){
         [MBProgressHUD hideHUDForView:self.view animated:YES];
-        [[[UIAlertView alloc]initWithTitle:@"Error" message:@"Something went wrong" delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:nil, nil] show];
+        [Utilities displayErrorAlertWithMessage:[error errorMessage]];
     }];
        }
 

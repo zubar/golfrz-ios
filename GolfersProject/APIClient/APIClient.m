@@ -7,7 +7,6 @@
 //
 
 #import "APIClient.h"
-#import "GolfrzErrorResponse.h"
 #import "Constants.h"
 #import "Course.h"
 #import "CalendarEvent.h"
@@ -19,6 +18,12 @@
 #import "RoundMetaData.h"
 #import "RoundPlayers.h"
 #import "Round.h"
+#import "GolfrzError.h"
+#import "TeetimeData.h"
+#import "CourseUpdate.h"
+#import "Post.h"
+#import "RewardSet.h"
+#import "Reward.h"
 
 @implementation APIClient
 
@@ -38,7 +43,7 @@
 #pragma mark - OVCHTTPSessionManager
 
 + (Class)errorModelClass {
-    return [GolfrzErrorResponse class];
+    return [GolfrzError class];
 }
 
 
@@ -54,8 +59,12 @@
              kRoundInSubCourse : [RoundMetaData class],
              kRoundPlayers : [RoundPlayers class],
              kRoundInfo : [Round class],
+             kGetteetimes : [TeetimeData class],
+             kCourseUpdatesList : [CourseUpdate class],
+             kGetDetailCommentsOnThread : [Post class],
+             kRewardsList : [RewardSet class],
+             kRewardDetail : [Reward class],
              };
     
-}
-                      
+}                      
 @end

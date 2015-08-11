@@ -19,6 +19,8 @@
 #import "MBProgressHUD.h"
 #import "AppDelegate.h"
 #import "FoodBeveragesMainViewController.h"
+#import "GolfrzError.h"
+#import "Utilities.h"
 
 @interface FoodBevCartViewController ()
 
@@ -73,8 +75,9 @@
     [FoodBeverageServices cartItemsForCurrentUser:^(bool status, Cart* responseCart){
         self.cartArray = (NSMutableArray* )responseCart.orders;
         completionHandler();
-    }failure:^(bool status, NSError* error){
-        
+    }failure:^(bool status, GolfrzError* error){
+        completionHandler();
+        [Utilities displayErrorAlertWithMessage:[error errorMessage]];
     }];
 }
 
@@ -135,14 +138,13 @@
         NSLog(@"Success");
         [self loadDataForCartCompletion:^{
             [self.cartTableView  reloadData];
-            //CGRect frame = CGRectMake(self.cartTableView.frame.origin.x, self.cartTableView.frame.origin.y, self.cartTableView.frame.size.width, self.cartTableView.frame.size.height - 82);
-            //[self.cartTableView setFrame:frame];
             [self updateTotalCartPrice];
             [[SharedManager sharedInstance]setCartBadgeCount:[self.cartArray count]];
             [MBProgressHUD hideHUDForView:self.view animated:YES];
         }];
-    } failure:^(bool status, NSError* error){
+    } failure:^(bool status, GolfrzError* error){
         [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [Utilities displayErrorAlertWithMessage:[error errorMessage]];
     }];
 }
 
@@ -157,7 +159,9 @@
             [self.lblTotalOrder setText:@"0"];
             [[[UIAlertView alloc] initWithTitle:nil message:@"Your order has been placed." delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil] show];
             NSLog(@"Successfully ordered");
-        } failure:^(bool status, NSError* error){
+        } failure:^(bool status, GolfrzError * error){
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            [Utilities displayErrorAlertWithMessage:[error errorMessage]];
         }];
     }else{
         [[[UIAlertView alloc] initWithTitle:nil message:@"Please add at least 1 item in cart and add location" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil, nil] show];

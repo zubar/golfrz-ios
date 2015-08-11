@@ -7,16 +7,23 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseViewController.h"
+#import "ScoreSelectionView.h"
+#import <CMPopTipView/CMPopTipView.h>
 
-@interface TeeTimesViewController : UIViewController
+@interface TeeTimesViewController : BaseViewController<ScoreSelectionDataSource, ScoreSelectionDelegate, CMPopTipViewDelegate>
+
 @property (strong, nonatomic) IBOutlet UIImageView *imgCourseLogo;
 @property (strong, nonatomic) IBOutlet UILabel *lblCourseName;
-- (IBAction)btnShowCalendarTapped:(UIButton *)sender;
+
 @property (strong, nonatomic) IBOutlet UILabel *lblSelectedDate;
 @property (strong, nonatomic) IBOutlet UIImageView *imgWeatherImage;
 @property (strong, nonatomic) IBOutlet UILabel *lblTemperature;
 @property (strong, nonatomic) IBOutlet UILabel *lblSubCourseName;
 @property (strong, nonatomic) IBOutlet UIButton *btnShowCoursesTapped;
 @property (strong, nonatomic) IBOutlet UITableView *teeTimesTable;
+
+- (IBAction)btnShowCalendarTapped:(UIButton *)sender;
+- (IBAction)btnSubcourseTapped:(id)sender;
 
 @end
