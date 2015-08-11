@@ -30,13 +30,17 @@
 
 @implementation ScoreBoardViewController
 
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [ScoreBoardManager sharedScoreBoardManager].numberOfSections = 0;
     [ScoreBoardManager sharedScoreBoardManager].numberOfItems = 0;
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
-    /*
+    
+    
+    
     [ScoreboardServices getScoreCardForRoundId:self.roundId subCourse:self.subCourseId
                                        success:^(bool status, id responseObject)
     {
@@ -52,7 +56,13 @@
         [ScoreBoardManager sharedScoreBoardManager].scoreCard = scoreCard_;
         [self calculateParTotal];
         
+        
+        numberOfLeftColumns = [scoreCard_.teeBoxCount intValue]+2;//[[ScoreBoardManager sharedScoreBoardManager].scoreCard.teeBoxCount intValue] + 2;
+        
+        
         [_rightCollectionView reloadData];
+        
+        
 
     }
     failure:^(bool status, NSError *error)
@@ -60,28 +70,34 @@
         [MBProgressHUD hideHUDForView:self.view animated:YES];
     }];
     
-    numberOfLeftColumns = [[ScoreBoardManager sharedScoreBoardManager].scoreCard.teeBoxCount intValue] + 2;
-    */
-    [ScoreboardServices getTestScoreCard:^(bool status, id responseObject)
-    {
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
-        
-        scoreCard_ = [[ScoreCard alloc] initWithDictionary:responseObject];
-        [ScoreBoardManager sharedScoreBoardManager].numberOfItems = (int)scoreCard_.users.count + [scoreCard_.teeBoxCount intValue]+2;
-        if ([scoreCard_.gameType isEqualToString:@"skin"]) {
-            [ScoreBoardManager sharedScoreBoardManager].numberOfSections = (int)scoreCard_.holeCount+6;
-        }else{
-            [ScoreBoardManager sharedScoreBoardManager].numberOfSections = (int)scoreCard_.holeCount+5;
-        }
-        [ScoreBoardManager sharedScoreBoardManager].scoreCard = scoreCard_;
-        [self calculateParTotal];
-        
-        [_rightCollectionView reloadData];
-    } failure:^(bool status, NSError *error)
-    {
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
+    
 
-    }];
+    
+//    [ScoreboardServices getTestScoreCard:^(bool status, id responseObject)
+//    {
+//        [MBProgressHUD hideHUDForView:self.view animated:YES];
+//        
+//        scoreCard_ = [[ScoreCard alloc] initWithDictionary:responseObject];
+//        [ScoreBoardManager sharedScoreBoardManager].numberOfItems = (int)scoreCard_.users.count + [scoreCard_.teeBoxCount intValue]+2;
+//        
+//        if ([scoreCard_.gameType isEqualToString:@"skin"]) {
+//            [ScoreBoardManager sharedScoreBoardManager].numberOfSections = (int)scoreCard_.holeCount+6;
+//        }else{
+//            [ScoreBoardManager sharedScoreBoardManager].numberOfSections = (int)scoreCard_.holeCount+5;
+//        }
+//        [ScoreBoardManager sharedScoreBoardManager].scoreCard = scoreCard_;
+//        numberOfLeftColumns = [scoreCard_.teeBoxCount intValue]+2;
+//        [self calculateParTotal];
+//        
+//        [_rightCollectionView reloadData];
+//    } failure:^(bool status, NSError *error)
+//    {
+//        [MBProgressHUD hideHUDForView:self.view animated:YES];
+//
+//    }];
+//    
+    
+    
 
 }
 -(void)calculateParTotal
@@ -147,15 +163,21 @@
             
         }
         
-        else if (indexPath.row >1 && indexPath.row <= numberOfLeftColumns)
+        else if (indexPath.row >1 && indexPath.row < numberOfLeftColumns)
         {
             headerCell.lblHeading.text = @"HCP";
             //headerCell.dotView.hidden = NO;
             headerCell.greenDotImgView.hidden = NO;
             //calculate index for tee-box
-            int index = (int)numberOfLeftColumns- (int)indexPath.row;
+            //int index = (int)numberOfLeftColumns- (int)indexPath.row-1;
+            int index = (int)indexPath.section;
+            int teeBoxIndex = (int)indexPath.row-2;
+            //int index = (int)indexPath.row - (int)numberOfLeftColumns;
             ScoreCardHole *hole = [scoreCard_.holesArray objectAtIndex:index];
-            ScoreCardTeeBox *teeBox = [hole.teeBoxArray objectAtIndex:index];
+            if (teeBoxIndex >= hole.teeBoxArray.count) {
+                teeBoxIndex = hole.teeBoxArray.count - 1;
+            }
+            ScoreCardTeeBox *teeBox = [hole.teeBoxArray objectAtIndex:teeBoxIndex];
             headerCell.handiCpLbl.hidden = YES;
             dispatch_async(dispatch_get_main_queue(), ^{
             
@@ -167,8 +189,11 @@
             
             
         }
-        else if(indexPath.row > numberOfLeftColumns){
-            int userIndex = (int)indexPath.row - (int)numberOfLeftColumns - 1;
+        else if(indexPath.row >= numberOfLeftColumns){
+            int userIndex = (int)indexPath.row - (int)numberOfLeftColumns;
+            if (userIndex < 0) {
+                userIndex = 0;
+            }
             if (userIndex < scoreCard_.users.count) {
                 ScoreCardUser *user = [scoreCard_.users objectAtIndex:userIndex];
                 headerCell.lblHeading.text = user.firstName;
@@ -195,7 +220,7 @@
         ScoreBoardBodyCell *bodyCell = (ScoreBoardBodyCell *)cell;
        bodyCell.containerImgView.hidden = YES;
         bodyCell.greeDotImgView.hidden = YES;
-        if (indexPath.row > numberOfLeftColumns) {
+        if (indexPath.row >= numberOfLeftColumns) {
             cell.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"leftColorImage"]];
         }
             
@@ -211,10 +236,11 @@
             {
                 bodyCell.contentLbl.text = [NSString stringWithFormat:@"%d",parTotal_];
             }
-            else if (indexPath.row > numberOfLeftColumns)
+            else if (indexPath.row >= numberOfLeftColumns)
             {
                 ScoreBoardBodyCell *bodyCell = (ScoreBoardBodyCell *)cell;
-                int index = (int)indexPath.row - (int)numberOfLeftColumns - 1;
+                //int index = (int)indexPath.row - (int)numberOfLeftColumns - 1;
+                int index = (int)indexPath.row - (int)numberOfLeftColumns;
                 ScoreCardUser *scoreCardUser = [scoreCard_.users objectAtIndex:index];
                 bodyCell.contentLbl.text = [NSString stringWithFormat:@"%d",scoreCardUser.grossFirst];
                 
@@ -237,10 +263,11 @@
             {
                 bodyCell.contentLbl.text = [NSString stringWithFormat:@"%d",parTotal2_];
             }
-            else if (indexPath.row > numberOfLeftColumns)
+            else if (indexPath.row >= numberOfLeftColumns)
             {
                 ScoreBoardBodyCell *bodyCell = (ScoreBoardBodyCell *)cell;
-                int index = (int)indexPath.row - (int)numberOfLeftColumns - 1;
+                //int index = (int)indexPath.row - (int)numberOfLeftColumns - 1;
+                int index = (int)indexPath.row - (int)numberOfLeftColumns;
                 ScoreCardUser *scoreCardUser = [scoreCard_.users objectAtIndex:index];
                 bodyCell.contentLbl.text = [NSString stringWithFormat:@"%d",scoreCardUser.grossLast];
             }
@@ -266,11 +293,12 @@
             {
                 bodyCell.contentLbl.text = [NSString stringWithFormat:@"%d",parTotal_+parTotal2_];
             }
-            else if (indexPath.row > numberOfLeftColumns)
+            else if (indexPath.row >= numberOfLeftColumns)
             {
                 
                 ScoreBoardBodyCell *bodyCell = (ScoreBoardBodyCell *)cell;
-                int index = (int)indexPath.row - (int)numberOfLeftColumns - 1;
+                //int index = (int)indexPath.row - (int)numberOfLeftColumns - 1;
+                int index = (int)indexPath.row - (int)numberOfLeftColumns;
                 ScoreCardUser *scoreCardUser = [scoreCard_.users objectAtIndex:index];
                 bodyCell.contentLbl.text = [NSString stringWithFormat:@"%d",scoreCardUser.grossFirst+scoreCardUser.grossLast];
                 
@@ -306,10 +334,11 @@
             }
             else
             {
-                if (indexPath.row > numberOfLeftColumns) {
+                if (indexPath.row >= numberOfLeftColumns) {
                     
-                    int index = (int)indexPath.row - (int)numberOfLeftColumns - 1;
-                    //ScoreCardHole *hole = [scoreCard_.holesArray objectAtIndex:indexPath.section-1];
+                    //int index = (int)indexPath.row - (int)numberOfLeftColumns - 1;
+                    int index = (int)indexPath.row - (int)numberOfLeftColumns;
+                
                     ScoreCardUser *cardUser = [scoreCard_.users objectAtIndex:index];
                     if (cardUser) {
                         int total = cardUser.grossFirst+cardUser.grossLast;
@@ -442,10 +471,14 @@
                     bodyCell.contentLbl.text = [NSString stringWithFormat:@"%d",[hole.parValue intValue]];
                 }
             }
-            else if (indexPath.row > numberOfLeftColumns && indexPath.section < scoreCard_.holeCount)
+            else if (indexPath.row >= numberOfLeftColumns && indexPath.section < scoreCard_.holeCount)
             {
-                int index = (int)indexPath.row - (int)numberOfLeftColumns - 1;
+                //int index = (int)indexPath.row - (int)numberOfLeftColumns - 1;
+                int index = (int)indexPath.row - (int)numberOfLeftColumns;
                 ScoreCardHole *hole = [scoreCard_.holesArray objectAtIndex:indexPath.section-1];
+                if (index >= hole.scoreUsers.count) {
+                    index = (int)hole.scoreUsers.count - 1;
+                }
                 ScoreCardUserScore *scoreUser = [hole.scoreUsers objectAtIndex:index];
                 if ([scoreCard_.gameType isEqualToString:@"skin"]) {
                     
@@ -469,13 +502,23 @@
                         [bodyCell.containerImgView setImage:[UIImage imageNamed:@"equal_par"]];
                         bodyCell.greeDotImgView.hidden = NO;
                     }
+                    else if ([scoreUser.shape isEqualToString:@"nothing"])
+                    {
+                        bodyCell.containerImgView.hidden = YES;
+                    }
                     else
                     {
                         bodyCell.containerImgView.hidden = NO;
                         [bodyCell.containerImgView setImage:[UIImage imageNamed:@"above_par"]];
                     }
                 }
-                
+                if (scoreUser.shapeColor) {
+                    bodyCell.greeDotImgView.hidden = NO;
+                }
+                else
+                {
+                    bodyCell.greeDotImgView.hidden = YES;
+                }
                 bodyCell.contentLbl.text = [NSString stringWithFormat:@"%d",[scoreUser.score intValue]];
             }
             else
