@@ -13,9 +13,12 @@
 #import "RewardListCell.h"
 #import "Reward.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "RewardDescriptionViewController.h"
+#import "AppDelegate.h"
 
 @interface RewardListViewController ()
 @property (strong, nonatomic) NSMutableArray * rewardsList;
+
 @end
 
 @implementation RewardListViewController
@@ -107,6 +110,10 @@
         [customCell.imgRewardImage setImage:image];
     }];
     
+    customCell.currentReward = reward;
+    [customCell setDelegate:self];
+    
+    
     return customCell;
 
 }
@@ -114,6 +121,17 @@
 {
     [self.rewardViewController cycleControllerToIndex:1];
 }
+
+- (void) btnRedeemTappedForCurrentCell:(Reward *)rewardItem{
+    
+    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+    RewardDescriptionViewController * controller = [self.storyboard instantiateViewControllerWithIdentifier:@"FoodBevCartViewController"];
+    controller.currentReward = rewardItem;
+    [delegate.appDelegateNavController pushViewController:controller animated:YES];
+    
+}
+
+
 
 @end
 

@@ -21,5 +21,10 @@
 }
 
 - (IBAction)btnRedeemTapped:(UIButton *)sender {
+    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(btnRedeemTappedForCurrentCell:)])
+    {
+        [self.delegate btnRedeemTappedForCurrentCell:_currentReward];
+    }
 }
 @end

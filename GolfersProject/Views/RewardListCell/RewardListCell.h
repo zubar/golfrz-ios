@@ -7,12 +7,25 @@
 //
 
 #import <UIKit/UIKit.h>
+@class Reward;
 
-@interface RewardListCell : UITableViewCell
+@protocol RewardListCellDelegate <NSObject>
+
+- (void) btnRedeemTappedForCurrentCell:(Reward *)rewardItem;
+
+@end
+
+@interface RewardListCell : UITableViewCell{
+
+}
+@property (assign, nonatomic) id <RewardListCellDelegate> delegate;
+
 @property (strong, nonatomic) IBOutlet UILabel *lblPoints;
 @property (strong, nonatomic) IBOutlet UILabel *lblRewardName;
 - (IBAction)btnRedeemTapped:(UIButton *)sender;
 @property (strong, nonatomic) IBOutlet UIButton *btnRedeem;
 @property (strong, nonatomic) IBOutlet UIImageView *imgRewardImage;
+
+@property (strong , nonatomic) Reward *currentReward;
 
 @end
