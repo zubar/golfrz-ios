@@ -32,6 +32,7 @@
 #import "Constants.h"
 #import "Utilities.h"
 #import "CourseUpdatesViewController.h"
+#import "FeaturedControl.h"
 
 #import "RoundDataServices.h"
 
@@ -134,6 +135,7 @@
         [pageControl setHidden:NO];
     }
     [[UINavigationBar appearance] setTitleVerticalPositionAdjustment:-10.0 forBarMetrics:UIBarMetricsDefault];
+    [self getAvailableFeatures];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -157,6 +159,49 @@
     [self.navigationController pushViewController:self.containerVC.playerProfileViewController animated:YES];
 }
 
+/**
+ @brief Method gets the enabled features list and show / hides buttons depending on it.
+ */
+
+-(void)getAvailableFeatures{
+    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [self.btnTeetimes setHidden:YES];
+    [self.lblTeeTimes setHidden:YES];
+    
+    [self.btnEvents setHidden:YES];
+    [self.lblEvents setHidden:YES];
+    
+    [self.btnFoodAndBeverage setHidden:YES];
+    [self.lblFoodAndBev setHidden:YES];
+    
+    
+    [CourseServices getEnabledFeatures:^(bool status, NSArray *enabledFeatures) {
+        if (status) {
+            for (FeaturedControl * featureItem in enabledFeatures) {
+                NSLog(@"%@", featureItem);
+
+                if ([[featureItem featureName] isEqualToString:kFeatEventCalendar]) {
+                    [self.btnEvents setHidden:NO];
+                    [self.lblEvents setHidden:NO];
+                }
+                if ([[featureItem featureName] isEqualToString:kFeatTeetime]) {
+                    [self.btnTeetimes setHidden:NO];
+                    [self.lblTeeTimes setHidden:NO];
+                }
+                if ([[featureItem featureName] isEqualToString:kFeatFoodAndBeverages]) {
+                    [self.btnFoodAndBeverage setHidden:NO];
+                    [self.lblFoodAndBev setHidden:NO];
+                }
+            }
+            [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        }
+    } failure:^(bool status, GolfrzError *error) {
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        [Utilities displayErrorAlertWithMessage:[error errorMessage]];
+    }];
+     
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

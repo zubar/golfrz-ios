@@ -9,6 +9,6 @@
 #import "MTLModel.h"
 #import <Mantle/Mantle.h>
 
-@interface FeaturedControl : MTLModel
+@interface FeaturedControl : MTLModel<MTLJSONSerializing>
 @property(copy, nonatomic, readonly) NSString * featureName;
 @end

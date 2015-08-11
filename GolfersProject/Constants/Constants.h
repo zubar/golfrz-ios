@@ -61,6 +61,7 @@ static NSString * const kUpdateUserInfo = @"users/";
 static NSString * const kCourseInfo = @"courses/info";
 static NSString * const kCourseDetail = @"courses/course_detail";
 static NSString * const kCheckInUrl = @"check_in";
+static NSString * const kFeatureUrl =@"features/list";
 
 /*
  * InApp Friends
@@ -159,6 +160,14 @@ static NSString * const kRewardDetail = @"rewards/reward_id";
 static NSString * const kRewardRedeem = @"rewards/redeem";
 static NSString * const kRewardUserTotalPoints = @"rewards/fetch_points";
 
+/*
+ * Featured Control Names
+ */
+static NSString * const kFeatEventCalendar = @"event_calendar";
+static NSString * const kFeatTeetime = @"tee_time";
+static NSString * const kFeatFoodAndBeverages = @"food_&_beverages";
+static NSString * const kFeatLeaguesAndTournaments = @"leagues_&_tournaments";
+static NSString * const kFeatNewsFeed = @"news_feeds";
 
 //================================= Presentation ======================================
 

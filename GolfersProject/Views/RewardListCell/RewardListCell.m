@@ -8,10 +8,16 @@
 
 #import "RewardListCell.h"
 
+@interface RewardListCell (private)
+@property(copy, nonatomic) void (^didTapButtonBlock)(id sender, NSInteger playercount);
+@end
+
 @implementation RewardListCell
 
 - (void)awakeFromNib {
     // Initialization code
+    [self.btnRedeem addTarget:self action:@selector(didTapRedeemButton:) forControlEvents:UIControlEventTouchUpInside];
+
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -20,6 +26,13 @@
     // Configure the view for the selected state
 }
 
-- (IBAction)btnRedeemTapped:(UIButton *)sender {
+
+- (void)didTapRedeemButton:(UIButton *)sender {
+    if (self.didTapButtonBlock) {
+        self.didTapButtonBlock(self, self.index.row);
+    }
+    
 }
+
+
 @end

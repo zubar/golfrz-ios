@@ -396,6 +396,7 @@
 - (IBAction)btnFlyoverTapped:(UIButton *)sender
 {
         RoundMoviePlayerController *movieController = [RoundMoviePlayerController new];
+        movieController.moviePath =[self.currentHole flyOverVideoPath];
         [self.navigationController pushViewController:movieController animated:YES];
 }
 

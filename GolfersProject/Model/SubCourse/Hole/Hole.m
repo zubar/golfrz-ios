@@ -9,6 +9,7 @@
 #import "Hole.h"
 #import "Teebox.h"
 #import "GreenCoordinate.h"
+#import "Constants.h"
 
 @implementation Hole
 
@@ -20,6 +21,7 @@
              @"yards" : @"yards",
              @"teeboxes" : @"tee_boxes",
              @"greenCoordinates" : @"greenCoordinates",
+             @"flyOverVideoPath" : @"fly_over_path",
              //propertyName : json_key
              };
 }
@@ -31,5 +33,19 @@
 + (NSValueTransformer *)greenCoordinatesJSONTransformer {
     return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[GreenCoordinate class]];
 }
+
+
++ (NSValueTransformer *)flyOverVideoPathJSONTransformer
+{
+    return [MTLValueTransformer transformerWithBlock:^id(id relativePath) {
+        return [self absoluteImageURLfromRelativeUR:relativePath ];
+    }];
+}
+
++ (NSString *)absoluteImageURLfromRelativeUR:(NSString *)relativePath
+{
+    return [NSString stringWithFormat:@"%@%@", kBaseImageUrl, relativePath]; // KBaseImageUrl
+}
+
 
 @end
