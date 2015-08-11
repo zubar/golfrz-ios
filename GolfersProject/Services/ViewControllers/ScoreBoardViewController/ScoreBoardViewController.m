@@ -356,12 +356,13 @@
                     
                 });
                 bodyCell.contentLbl.text = @"";
-                UIImageView *starImage = [[UIImageView alloc] initWithFrame:CGRectMake(8, 5, 20, 20)];
-                [starImage setImage:[UIImage imageNamed:@"skin_symbol"]];
-                [bodyCell addSubview:starImage];
+                bodyCell.containerImgView.hidden = NO;
+                [bodyCell.containerImgView setImage:[UIImage imageNamed:@"skin_symbol"]];
+                //bodyCell.greeDotImgView.hidden = NO;
             }
             else
             {
+                bodyCell.containerImgView.hidden = YES;
                 dispatch_async(dispatch_get_main_queue(), ^{
                     
                     bodyCell.contentLbl.font = [UIFont fontWithName:@"Arial" size:12];
@@ -457,17 +458,35 @@
                 int index = (int)indexPath.row - (int)numberOfLeftColumns - 1;
                 ScoreCardHole *hole = [scoreCard_.holesArray objectAtIndex:indexPath.section-1];
                 ScoreCardUserScore *scoreUser = [hole.scoreUsers objectAtIndex:index];
-                if ([scoreUser.shape isEqualToString:@"circle"]) {
+                if ([scoreCard_.gameType isEqualToString:@"skin"]) {
                     
-                    bodyCell.containerImgView.hidden = NO;
-                    [bodyCell.containerImgView setImage:[UIImage imageNamed:@"equal_par"]];
                     bodyCell.greeDotImgView.hidden = NO;
+                    if ([scoreUser.shape isEqualToString:@"pentagon"]) {
+                        
+                        bodyCell.containerImgView.hidden = NO;
+                        [bodyCell.containerImgView setImage:[UIImage imageNamed:@"skin_symbol"]];
+                        bodyCell.greeDotImgView.hidden = NO;
+                    }
+                    else
+                    {
+                        bodyCell.containerImgView.hidden = YES;
+                    }
                 }
                 else
                 {
-                    bodyCell.containerImgView.hidden = NO;
-                    [bodyCell.containerImgView setImage:[UIImage imageNamed:@"above_par"]];
+                    if ([scoreUser.shape isEqualToString:@"circle"]) {
+                        
+                        bodyCell.containerImgView.hidden = NO;
+                        [bodyCell.containerImgView setImage:[UIImage imageNamed:@"equal_par"]];
+                        bodyCell.greeDotImgView.hidden = NO;
+                    }
+                    else
+                    {
+                        bodyCell.containerImgView.hidden = NO;
+                        [bodyCell.containerImgView setImage:[UIImage imageNamed:@"above_par"]];
+                    }
                 }
+                
                 bodyCell.contentLbl.text = [NSString stringWithFormat:@"%d",[scoreUser.score intValue]];
             }
             else

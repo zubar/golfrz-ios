@@ -2185,7 +2185,7 @@
                                                                                 <constraint firstAttribute="height" constant="26" id="GGQ-nW-yvd"/>
                                                                                 <constraint firstAttribute="width" constant="26" id="LJ2-ou-0eZ"/>
                                                                             </constraints>
-                                                                            <state key="normal" image="492EF6AC-82AB-4266-A6D5-0831A03BB246">
+                                                                            <state key="normal" image="8F1AC6AC-2F00-494B-81BA-77F10152B4C5">
                                                                                 <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                                             </state>
@@ -6925,7 +6925,7 @@ Nulla sed est consectetur, tempus tellus interdum, vehicula lectus. Aliquam soll
     </scenes>
     <resources>
         <image name="46205A70-9D0D-4E80-B0B1-BAB92308D0C9" width="320" height="568"/>
-        <image name="492EF6AC-82AB-4266-A6D5-0831A03BB246" width="24" height="25">
+        <image name="8F1AC6AC-2F00-494B-81BA-77F10152B4C5" width="24" height="25">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
