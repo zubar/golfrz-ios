@@ -25,6 +25,7 @@
     // Creating controller for container
     for (int i = 0; i <= kTutorialPagesCount; ++i) {
         RewardTutorialDetailVC * controller = [self.storyboard instantiateViewControllerWithIdentifier:@"RewardTutorialDetailVC"];
+        controller.superController = self.rewardViewController;
         controller.pageType = i;
         controller.tutorialContainerVC = self;
         [self.allViewControllers addObject:controller];

@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblCountCheckIns;
 @property (weak, nonatomic) IBOutlet UIView *checkedInContainerView;
 @property (weak, nonatomic) IBOutlet UILabel *lblCheckInCourseName;
+@property (weak, nonatomic) IBOutlet UILabel *lblPromptPoints;
 
 
 /*!

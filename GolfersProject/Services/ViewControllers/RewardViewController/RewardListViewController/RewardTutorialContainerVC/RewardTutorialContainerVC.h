@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RewardViewController.h"
 #define kTutorialPagesCount 6
 
 @interface RewardTutorialContainerVC : UIViewController
+
+@property(weak, nonatomic) RewardViewController * rewardViewController;
+
 
 @property (strong, nonatomic) IBOutlet UIView *childView;
 @property (assign, nonatomic) NSInteger selectedPageIndex;

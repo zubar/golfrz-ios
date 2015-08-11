@@ -253,6 +253,7 @@
     manager.delegate = self;
 }
 
+#pragma mark - SharedManagerDelegate for location service.
 -(void)IsUserInCourseWithRequiredAccuracy:(BOOL)yesNo{
     
     if (yesNo) {

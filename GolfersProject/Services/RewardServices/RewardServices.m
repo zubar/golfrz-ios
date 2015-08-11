@@ -68,7 +68,7 @@
         else
             successBlock(true, [NSNumber numberWithInt:0]);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        GolfrzError * golfrError = [GolfrzError modelWithDictionary:@{@"errorMessage":@"Some error occured"} error:nil];
+        GolfrzError * golfrError = [GolfrzError modelWithDictionary:@{@"errorMessage":@"Can not get your reward points due to an error."} error:nil];
         failureBlock(false, golfrError);
     }];
 }
