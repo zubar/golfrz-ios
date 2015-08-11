@@ -2030,9 +2030,11 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="htB-S3-vBx" firstAttribute="top" secondItem="bFJ-A9-os7" secondAttribute="bottom" constant="5" id="029-Fk-Pfc"/>
+                                    <constraint firstAttribute="bottom" secondItem="BjI-6u-of3" secondAttribute="bottom" constant="153" id="50P-OV-9z0"/>
                                     <constraint firstItem="yUd-U0-aX0" firstAttribute="centerX" secondItem="bFJ-A9-os7" secondAttribute="centerX" id="AAZ-LF-yqS"/>
-                                    <constraint firstItem="BjI-6u-of3" firstAttribute="leading" secondItem="bFJ-A9-os7" secondAttribute="trailing" constant="62" id="BQG-cN-aCp"/>
+                                    <constraint firstAttribute="trailing" secondItem="BjI-6u-of3" secondAttribute="trailing" constant="45" id="E1M-4M-bQ9"/>
                                     <constraint firstItem="bFJ-A9-os7" firstAttribute="top" secondItem="A6e-HL-Fpl" secondAttribute="bottom" constant="50" id="Est-jw-cDo"/>
+                                    <constraint firstItem="BjI-6u-of3" firstAttribute="top" secondItem="A6e-HL-Fpl" secondAttribute="top" constant="85" id="L7L-ep-7Mo"/>
                                     <constraint firstItem="4LY-P4-oVD" firstAttribute="centerY" secondItem="bFJ-A9-os7" secondAttribute="centerY" id="OE6-OW-hIc"/>
                                     <constraint firstAttribute="trailing" secondItem="A6e-HL-Fpl" secondAttribute="trailing" constant="95" id="Svy-dD-8Jc"/>
                                     <constraint firstItem="Wne-rB-30v" firstAttribute="top" secondItem="BjI-6u-of3" secondAttribute="bottom" constant="5" id="WXo-X7-Eua"/>
@@ -2179,7 +2181,7 @@
                                                                                 <constraint firstAttribute="height" constant="26" id="GGQ-nW-yvd"/>
                                                                                 <constraint firstAttribute="width" constant="26" id="LJ2-ou-0eZ"/>
                                                                             </constraints>
-                                                                            <state key="normal" image="A14ADCD9-58F7-46F7-9A62-83A246B6B499">
+                                                                            <state key="normal" image="DF129039-AC2B-4224-98E7-B9E76C593C3E">
                                                                                 <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                                             </state>
@@ -5558,7 +5560,7 @@
                                                                                 <constraint firstAttribute="height" constant="26" id="OaE-ph-eo5"/>
                                                                                 <constraint firstAttribute="width" constant="26" id="S5w-xw-4Ro"/>
                                                                             </constraints>
-                                                                            <state key="normal" image="FE34706B-75EE-4CE2-9E67-80489DF1842F">
+                                                                            <state key="normal" image="B3470006-3A58-4DF8-AA48-74248757BEB6">
                                                                                 <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                                             </state>
@@ -6536,7 +6538,7 @@
         <!--Reward Description View Controller-->
         <scene sceneID="Vvk-47-YVa">
             <objects>
-                <viewController id="Fqa-aL-gXi" customClass="RewardDescriptionViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RewardDescriptionViewController" id="Fqa-aL-gXi" customClass="RewardDescriptionViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6qe-vU-qLB"/>
                         <viewControllerLayoutGuide type="bottom" id="bz9-1g-HQe"/>
@@ -7018,7 +7020,7 @@ Nulla sed est consectetur, tempus tellus interdum, vehicula lectus. Aliquam soll
         </scene>
     </scenes>
     <resources>
-        <image name="A14ADCD9-58F7-46F7-9A62-83A246B6B499" width="24" height="25">
+        <image name="B3470006-3A58-4DF8-AA48-74248757BEB6" width="24" height="25">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -7110,7 +7112,7 @@ AAAAAAAAAAAAE48
 </mutableData>
         </image>
         <image name="ChooseHole_Down" width="88" height="88"/>
-        <image name="FE34706B-75EE-4CE2-9E67-80489DF1842F" width="24" height="25">
+        <image name="DF129039-AC2B-4224-98E7-B9E76C593C3E" width="24" height="25">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

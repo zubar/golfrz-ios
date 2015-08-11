@@ -124,10 +124,11 @@
 
 - (void) btnRedeemTappedForCurrentCell:(Reward *)rewardItem{
     
-    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
-    RewardDescriptionViewController * controller = [self.storyboard instantiateViewControllerWithIdentifier:@"FoodBevCartViewController"];
+    //AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+    RewardDescriptionViewController * controller = [self.storyboard instantiateViewControllerWithIdentifier:@"RewardDescriptionViewController"];
     controller.currentReward = rewardItem;
-    [delegate.appDelegateNavController pushViewController:controller animated:YES];
+    //[delegate.appDelegateNavController pushViewController:controller animated:YES];
+    [self.navigationController pushViewController:controller animated:YES];
     
 }
 
