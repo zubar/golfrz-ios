@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
-@interface PastScoreCardsViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+@interface PastScoreCardsViewController : BaseViewController<UITableViewDataSource, UITableViewDelegate>
 @property (strong, nonatomic) IBOutlet UITableView *scoreCardTable;
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 

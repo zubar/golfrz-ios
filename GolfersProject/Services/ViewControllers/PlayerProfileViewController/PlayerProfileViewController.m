@@ -22,6 +22,7 @@
 #import "RoundViewController.h"
 #import "AddPlayersViewController.h"
 #import "GameSettings.h"
+#import "PastScoreCardsViewController.h"
 
 @interface PlayerProfileViewController ()
 
@@ -145,9 +146,11 @@
     
 }
 
--(void)loadPreviousScoreCards{
-    
-
+-(void)loadPreviousScoreCards
+{
+    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+    PastScoreCardsViewController * controller = [self.storyboard instantiateViewControllerWithIdentifier:@"PastScoreCardsViewController"];
+    [delegate.appDelegateNavController pushViewController:controller animated:YES];
 }
 
 @end

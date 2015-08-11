@@ -36,6 +36,7 @@
     [ScoreBoardManager sharedScoreBoardManager].numberOfItems = 0;
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
+    /*
     [ScoreboardServices getScoreCardForRoundId:self.roundId subCourse:self.subCourseId
                                        success:^(bool status, id responseObject)
     {
@@ -60,14 +61,27 @@
     }];
     
     numberOfLeftColumns = [[ScoreBoardManager sharedScoreBoardManager].scoreCard.teeBoxCount intValue] + 2;
-    
-//    [ScoreboardServices getTestScoreCard:^(bool status, id responseObject)
-//    {
-//
-//    } failure:^(bool status, NSError *error)
-//    {
-//
-//    }];
+    */
+    [ScoreboardServices getTestScoreCard:^(bool status, id responseObject)
+    {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        
+        scoreCard_ = [[ScoreCard alloc] initWithDictionary:responseObject];
+        [ScoreBoardManager sharedScoreBoardManager].numberOfItems = (int)scoreCard_.users.count + [scoreCard_.teeBoxCount intValue]+2;
+        if ([scoreCard_.gameType isEqualToString:@"skin"]) {
+            [ScoreBoardManager sharedScoreBoardManager].numberOfSections = (int)scoreCard_.holeCount+6;
+        }else{
+            [ScoreBoardManager sharedScoreBoardManager].numberOfSections = (int)scoreCard_.holeCount+5;
+        }
+        [ScoreBoardManager sharedScoreBoardManager].scoreCard = scoreCard_;
+        [self calculateParTotal];
+        
+        [_rightCollectionView reloadData];
+    } failure:^(bool status, NSError *error)
+    {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+
+    }];
 
 }
 -(void)calculateParTotal
@@ -422,9 +436,7 @@
                     if (indexPath.section < scoreCard_.holeCount) {
                         hole = [scoreCard_.holesArray objectAtIndex:indexPath.section-1];
                     }
-                    
                 }
-                
                 if (hole) {
                     
                     bodyCell.contentLbl.text = [NSString stringWithFormat:@"%d",[hole.parValue intValue]];

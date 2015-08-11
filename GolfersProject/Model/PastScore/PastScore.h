@@ -22,4 +22,9 @@
 @property(copy, nonatomic, readonly) NSNumber * netScore;
 @property(copy, nonatomic, readonly) NSNumber * skinCount;
 
+@property(copy, nonatomic, readonly) NSNumber * subCourseId;
+@property(copy, nonatomic, readonly) NSString * gameType;
+
+@property(copy, nonatomic, readonly) NSString * subCourseName;
+
 @end

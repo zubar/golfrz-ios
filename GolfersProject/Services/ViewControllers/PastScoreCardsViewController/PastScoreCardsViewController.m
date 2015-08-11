@@ -12,6 +12,7 @@
 #import "PastScore.h"
 #import "Utilities.h"
 #import "MBProgressHUD.h"
+#import "ScoreBoardViewController.h"
 
 @interface PastScoreCardsViewController ()
 @property(strong, nonatomic) NSMutableArray * pastScores;
@@ -21,6 +22,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.navigationItem.title = @"PAST SCORECARDS";
     // Do any additional setup after loading the view.
     if(!self.pastScores) self.pastScores = [[NSMutableArray alloc] init];
     
@@ -30,7 +33,9 @@
         if([self.pastScores count] > 0)[self.pastScores removeAllObjects];
         [self.pastScores addObjectsFromArray:enabledFeatures];
         [self.scoreCardTable reloadData];
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
     } failure:^(bool status, GolfrzError *error) {
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         [Utilities displayErrorAlertWithMessage:[error errorMessage]];
     }];
 }
@@ -61,9 +66,9 @@
         [customViewCell.lblYear setText:year];
 
     }];
- //   [customViewCell.lblGameType setText:[mPastScore ]]
-    
-    
+    [customViewCell.lblGameType setText:[mPastScore gameType]];
+    [customViewCell.lblScore setText:[[mPastScore grossScore] stringValue]];
+    [customViewCell.lblScoreCardIdentifier setText:[[mPastScore subCourseName] uppercaseString]];
     return customViewCell;
 }
 
@@ -78,5 +83,16 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+#pragma mark - UITableViewDelegate
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+
+    PastScore * mPastScore = self.pastScores[indexPath.row];
+    
+    ScoreBoardViewController *scoreBoardVc = [self.storyboard instantiateViewControllerWithIdentifier:@"SCORE_BOARD_VC_ID"];
+    scoreBoardVc.roundId = [mPastScore roundId];
+    scoreBoardVc.subCourseId = [mPastScore subCourseId];
+    [self.navigationController pushViewController:scoreBoardVc animated:YES];
+}
 
 @end

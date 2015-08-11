@@ -20,6 +20,9 @@
              @"grossScore" : @"gross_score",
              @"netScore" : @"net_score",
              @"skinCount" : @"skin_count",
+             @"gameType" : @"game_type",
+             @"subCourseId" : @"sub_course_id",
+             @"subCourseName" : @"sub_course_name",
              };
 }
 + (NSValueTransformer *)createdAtJSONTransformer {
