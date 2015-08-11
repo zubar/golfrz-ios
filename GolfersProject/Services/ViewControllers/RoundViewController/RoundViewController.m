@@ -395,6 +395,7 @@
     
    // [self removeShotMarker:1 shotType:ShotTypeStardard];
     
+    
 }
 - (IBAction)btnNextHoleTapped:(UIButton *)sender {
 

@@ -32,7 +32,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     [[UINavigationBar appearance] setTitleVerticalPositionAdjustment:-10.0 forBarMetrics:UIBarMetricsDefault];
-
+    _shouldRestricOrient = NO;
     
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
     
@@ -81,7 +81,13 @@
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     
 }
-
+//-(NSUInteger)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window
+//{
+//    if (!_shouldRestricOrient) {
+//        return UIInterfaceOrientationMaskPortraitUpsideDown;
+//    }
+//    return UIInterfaceOrientationMaskAll;
+//}
 - (void)applicationWillEnterForeground:(UIApplication *)application {
    
 }

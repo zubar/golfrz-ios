@@ -13,6 +13,7 @@
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
+@property(nonatomic,assign)BOOL shouldRestricOrient;
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) UINavigationController * appDelegateNavController;
 

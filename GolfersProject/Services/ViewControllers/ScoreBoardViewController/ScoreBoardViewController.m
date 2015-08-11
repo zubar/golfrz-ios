@@ -280,6 +280,24 @@
                 
                 bodyCell.contentLbl.text = @"";
             }
+            if (indexPath.row == 0) {
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    
+                    bodyCell.contentLbl.font = [UIFont fontWithName:@"Arial" size:10];
+                    bodyCell.contentLbl.text = @"TOTAL";
+                    
+                });
+                
+            }
+            else
+            {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    
+                    bodyCell.contentLbl.font = [UIFont fontWithName:@"Arial" size:12];
+                    
+                });
+            }
         }
         else if (indexPath.section == 22)
         {
@@ -288,7 +306,26 @@
             }
             else
             {
-                bodyCell.contentLbl.text = @"WAIT";
+                if (indexPath.row > numberOfLeftColumns) {
+                    
+                    int index = (int)indexPath.row - (int)numberOfLeftColumns - 1;
+                    //ScoreCardHole *hole = [scoreCard_.holesArray objectAtIndex:indexPath.section-1];
+                    ScoreCardUser *cardUser = [scoreCard_.users objectAtIndex:index];
+                    if (cardUser) {
+                        int total = cardUser.grossFirst+cardUser.grossLast;
+                        int net = total-[cardUser.handiCap intValue];
+                        bodyCell.contentLbl.text = [NSString stringWithFormat:@"%d",net];
+                    }
+                    
+                    //ScoreCardUserScore *scoreUser = [hole.scoreUsers objectAtIndex:index];
+                    
+                    //
+                }
+                else
+                {
+                    bodyCell.contentLbl.text = @"";
+                }
+                
             }
             
         }

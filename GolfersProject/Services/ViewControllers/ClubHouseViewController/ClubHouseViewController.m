@@ -37,8 +37,11 @@
 #import "RoundViewController.h"
 #import "ScoreSelectionView.h"
 #import "InvitationManager.h"
+#import "RoundMoviePlayerController.h"
 
 @interface ClubHouseViewController ()
+{
+}
 @property (nonatomic, retain) NSArray * weatherList;
 @end
 
@@ -274,9 +277,13 @@
 -(void)enableCheckInButton:(BOOL)yesNo{
     [self.btnCheckIn setHidden:yesNo];
 }
+- (IBAction)playVideoTapped:(id)sender {
+    
+    RoundMoviePlayerController *movieController = [RoundMoviePlayerController new];
+    [self.navigationController pushViewController:movieController animated:YES];
+}
 
 - (IBAction)btnTeeTimeTap:(id)sender {
-    
     
     [RoundDataServices getRoundData:^(bool status, RoundMetaData *subCourse) {
         
