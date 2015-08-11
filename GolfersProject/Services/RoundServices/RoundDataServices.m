@@ -64,9 +64,13 @@
                    failure:(void (^)(bool status, NSError * error))failureBlock
 {
     AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
+    
+    NSLog(@"Round-Star: %@", [RoundDataServices
+                                 paramStartRoundWithId:roundId subCourseId:subcourseId]);
     [apiClient POST:kRoundStart parameters:[RoundDataServices
                                             paramStartRoundWithId:roundId subCourseId:subcourseId]
     success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"Round-Star:%@", responseObject);
             successBlock(true, responseObject);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         failureBlock(false, error);
@@ -177,7 +181,13 @@
            failure:(void(^)(bool status, NSError * error))failureBlock{
     
     AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
-    [apiClient POST:kRoundNew parameters:[RoundDataServices paramsUpdateRound] success:^(NSURLSessionDataTask *task, id responseObject) {
+    
+    NSLog(@"Round New:%@", [RoundDataServices paramsUpdateRound]);
+
+    [apiClient POST:kRoundNew parameters:[RoundDataServices paramsUpdateRound] success:^(NSURLSessionDataTask *task, id responseObject)
+    {
+        NSLog(@"Round New Response:%@", responseObject);
+
         successBlock(true, responseObject);
     } failure:^(NSURLSessionDataTask * task, NSError * error) {
         failureBlock(false, error);
@@ -351,7 +361,7 @@
              @"game_type_id" : [[GameSettings sharedSettings] gameTypeId],
              @"score_type_id" : [[GameSettings sharedSettings] scoreTypeId],
              @"tee_box_id" : [[GameSettings sharedSettings] teeboxId],
-             @"round_id	" : [[GameSettings sharedSettings] roundId],
+             @"round_id" : [[GameSettings sharedSettings] roundId],
              };
 }
 @end
