@@ -8,7 +8,7 @@
 
 #import "PlayerProfileViewController.h"
 #import "ClubHouseContainerVC.h"
-
+#import "ScoreBoardViewController.h"
 #import "UserServices.h"
 #import "User.h"
 #import "MBProgressHUD.h"
@@ -34,8 +34,10 @@
     
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self.btnStartRound addTarget:self action:@selector(loadPreviousScoreCards) forControlEvents:UIControlEventTouchUpInside];
-    
+//    [self.btnStartRound addTarget:self action:@selector(loadPreviousScoreCards) forControlEvents:UIControlEventTouchUpInside];
+  
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(loadPreviousScoreCards)];
+    [_myScorecardsTapped addGestureRecognizer:tap];
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [UserServices getUserInfo:^(bool status, User *mUser) {
@@ -144,7 +146,10 @@
 }
 
 -(void)loadPreviousScoreCards{
+    
 
+    ScoreBoardViewController *scoreBoardVc = [self.storyboard instantiateViewControllerWithIdentifier:@"SCORE_BOARD_VC_ID"];
+    [self.navigationController pushViewController:scoreBoardVc animated:YES];
 
 }
 

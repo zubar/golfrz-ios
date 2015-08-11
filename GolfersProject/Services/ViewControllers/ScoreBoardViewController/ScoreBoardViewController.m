@@ -54,6 +54,8 @@
 //        NSLog(@"Failed");
 //    }];
     
+    
+    
     [ScoreboardServices getTestScoreCard:^(bool status, id responseObject) {
        
         [MBProgressHUD hideHUDForView:self.view animated:YES];
@@ -61,7 +63,14 @@
         scoreCard_ = [[ScoreCard alloc] initWithDictionary:responseObject];
         
         [ScoreBoardManager sharedScoreBoardManager].numberOfItems = (int)scoreCard_.users.count + [scoreCard_.teeBoxCount intValue]+2;
-        [ScoreBoardManager sharedScoreBoardManager].numberOfSections = (int)scoreCard_.holeCount+5;
+        if ([scoreCard_.gameType isEqualToString:@"skin"]) {
+            [ScoreBoardManager sharedScoreBoardManager].numberOfSections = (int)scoreCard_.holeCount+6;
+        }
+        else
+        {
+            [ScoreBoardManager sharedScoreBoardManager].numberOfSections = (int)scoreCard_.holeCount+5;
+        }
+        
         [ScoreBoardManager sharedScoreBoardManager].scoreCard = scoreCard_;
         [self calculateParTotal];
         
@@ -328,6 +337,19 @@
                 
             }
             
+        }
+        else if ([scoreCard_.gameType isEqualToString:@"skin"] && indexPath.section == 23)
+        {
+            if (indexPath.row == 0) {
+                bodyCell.contentLbl.text = @"SKINS";
+            }
+            else if (indexPath.row == 1)
+            {
+                bodyCell.contentLbl.text = @"";
+                UIImageView *starImage = [[UIImageView alloc] initWithFrame:CGRectMake(5, 5, 20, 20)];
+                [starImage setImage:[UIImage imageNamed:@"skin_symbol"]];
+                [bodyCell addSubview:starImage];
+            }
         }
         else
         {

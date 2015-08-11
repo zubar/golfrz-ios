@@ -14,6 +14,7 @@
 
 @property(nonatomic,strong)NSMutableArray *users;
 @property(nonatomic,strong)NSNumber *teeBoxCount;
+@property(nonatomic,strong)NSString *gameType;
 @property(nonatomic)NSUInteger holeCount;
 @property(nonatomic,strong)NSNumber *grossFirst;
 @property(nonatomic,strong)NSMutableArray *holesArray;

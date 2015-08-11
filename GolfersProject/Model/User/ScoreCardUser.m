@@ -41,7 +41,7 @@
         }
         
         NSDictionary *teeBoxDict = [[dictionary objectForKey:@"tee_box"] isKindOfClass:[NSNull class]] ?nil :[dictionary objectForKey:@"tee_box"];
-        
+        _skinCount = [[dictionary objectForKey:@"skin_count"] isKindOfClass:[NSNull class]] ?nil :[dictionary objectForKey:@"skin_count"];
         _scoreCardTeeBox = [[ScoreCardTeeBox alloc] initWithDictionary:teeBoxDict];
         
     }
