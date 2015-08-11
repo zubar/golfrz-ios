@@ -28,6 +28,7 @@
 #import "PlayerSettings.h"
 #import "ScoreboardServices.h"
 #import "Utilities.h"
+#import "RoundMoviePlayerController.h"
 
 #define kPlayerScoreViewHeight 60.0f
 
@@ -392,11 +393,13 @@
 }
 
 
-- (IBAction)btnFlyoverTapped:(UIButton *)sender {
-    
-   // [self removeShotMarker:1 shotType:ShotTypeStardard];
-    
+- (IBAction)btnFlyoverTapped:(UIButton *)sender
+{
+        RoundMoviePlayerController *movieController = [RoundMoviePlayerController new];
+        movieController.moviePath =[self.currentHole flyOverVideoPath];
+        [self.navigationController pushViewController:movieController animated:YES];
 }
+
 - (IBAction)btnNextHoleTapped:(UIButton *)sender {
 
 }

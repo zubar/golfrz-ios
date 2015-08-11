@@ -26,6 +26,9 @@
 +(void)getCheckInCount:(void(^)(bool status, NSNumber * countOfCheckin))successBlock
                failure:(void(^)(bool status, GolfrzError * error))failureBlock;
 
++(void)getEnabledFeatures:(void(^)(bool status, NSArray * enabledFeatures))successBlock
+                  failure:(void(^)(bool status, GolfrzError * error))failureBlock;
+
 +(void)setCurrentCourse:(Course *)mCourse;
 +(Course *)currentCourse;
 

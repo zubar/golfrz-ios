@@ -10,7 +10,7 @@
 #import "ScoreBoardManager.h"
 
 #define INDEX_LIMIT 2
-#define SPACES_BETWEEN_CELLS 34
+#define SPACES_BETWEEN_CELLS 45
 
 //#define NUMBEROFCOLUMNS 12
 
@@ -33,7 +33,7 @@
     }
     
     //NSUInteger indexOffSet = 0;
-    NSUInteger noOfStickyColumns = [[ScoreBoardManager sharedScoreBoardManager].scoreCard.teeBoxCount integerValue] + 2;
+    NSUInteger noOfStickyColumns = [[ScoreBoardManager sharedScoreBoardManager].scoreCard.teeBoxCount intValue] + 1;
     numberOfColumns = [ScoreBoardManager sharedScoreBoardManager].numberOfItems;
     NSUInteger column = 0; // Current column inside row
     CGFloat xOffset = 0.0;
@@ -202,7 +202,7 @@
   
     //CGSize size = [text sizeWithAttributes: @{NSFontAttributeName:[UIFont fontWithName:@"HelveticaNeue" size:10]}];
 
-    return CGSizeMake(34, 30);
+    return CGSizeMake(SPACES_BETWEEN_CELLS, 35);
     //return CGSizeMake([@(size.width + 9) floatValue], 30); // Extra space of 9px for all the items
 }
 

@@ -110,10 +110,16 @@
         [customCell.imgRewardImage setImage:image];
     }];
     
+<<<<<<< HEAD
     customCell.currentReward = reward;
     [customCell setDelegate:self];
     
     
+=======
+//    [customCell setDidTapButtonBlock:^(id sender, NSIndexPath *index) {
+//        NSLog(@"%@", index);
+//    }];
+>>>>>>> 8ebbf06a4d65f737e8adf745f4f84beafca2ed3d
     return customCell;
 
 }

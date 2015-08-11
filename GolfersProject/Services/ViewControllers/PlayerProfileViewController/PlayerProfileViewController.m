@@ -34,6 +34,8 @@
     
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self.btnStartRound addTarget:self action:@selector(loadPreviousScoreCards) forControlEvents:UIControlEventTouchUpInside];
+    
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [UserServices getUserInfo:^(bool status, User *mUser) {
@@ -141,5 +143,9 @@
     
 }
 
+-(void)loadPreviousScoreCards{
+
+
+}
 
 @end

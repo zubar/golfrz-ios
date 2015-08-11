@@ -26,6 +26,7 @@
  },
  */
 @property(nonatomic,strong)NSNumber *holeNumber;
+@property(nonatomic,strong)NSMutableArray *scoreUsers;
 @property(nonatomic,strong)NSNumber *userId;
 @property(nonatomic,strong)NSNumber *score;
 @property(nonatomic,strong)NSString *shotType;

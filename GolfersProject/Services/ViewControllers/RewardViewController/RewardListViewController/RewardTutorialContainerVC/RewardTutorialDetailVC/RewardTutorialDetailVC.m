@@ -11,6 +11,7 @@
 #import "CourseServices.h"
 #import "Utilities.h"
 #import "GolfrzError.h"
+#import "MBProgressHUD.h"
 
 @interface RewardTutorialDetailVC ()
 
@@ -24,7 +25,7 @@
     
     
     //Or whatever number of viewcontrollers you have
-    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
     UISwipeGestureRecognizer *  rightRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(loadPreviousController)];
     [rightRecognizer setDirection:(UISwipeGestureRecognizerDirectionRight)];
@@ -38,6 +39,7 @@
     [self.pageControl setCurrentPage:self.pageType];
     [self populateDataForPageType:self.pageType];
     [self configureViewForType:self.pageType];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -49,6 +51,10 @@
     if (self.pageType -1 >= 0) {
         [self.tutorialContainerVC cycleControllerToIndex:self.pageType - 1];
     }
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
 }
 
 -(void)loadNextController{

@@ -61,6 +61,7 @@ static NSString * const kUpdateUserInfo = @"users/";
 static NSString * const kCourseInfo = @"courses/info";
 static NSString * const kCourseDetail = @"courses/course_detail";
 static NSString * const kCheckInUrl = @"check_in";
+static NSString * const kFeatureUrl =@"features/list";
 
 /*
  * InApp Friends
@@ -159,6 +160,14 @@ static NSString * const kRewardDetail = @"rewards/reward_id";
 static NSString * const kRewardRedeem = @"rewards/redeem";
 static NSString * const kRewardUserTotalPoints = @"rewards/fetch_points";
 
+/*
+ * Featured Control Names
+ */
+static NSString * const kFeatEventCalendar = @"event_calendar";
+static NSString * const kFeatTeetime = @"tee_time";
+static NSString * const kFeatFoodAndBeverages = @"food_&_beverages";
+static NSString * const kFeatLeaguesAndTournaments = @"leagues_&_tournaments";
+static NSString * const kFeatNewsFeed = @"news_feeds";
 
 //================================= Presentation ======================================
 
@@ -169,9 +178,12 @@ static NSString * const kDefaultThemeColor = @"0xFF0000";
  */
 static NSString * const kNoInternetErrorTitle = @"Internet Connection Lost !";
 static NSString * const kNoInternetErrorDetial = @"Internet Connection can not be established now, please try again later.";
-
 static NSString * const kFailedToConnectAppServerTitle = @"Failed to Connect App Server !";
 static NSString * const kFailedToConnectAppServerDetail = @"Application server is not responding at the moment, please try again later.";
 
+#define UIColorFromHex(rgbValue) [UIColor \
+colorWithRed: ((float)((rgbValue & 0xFF0000) >> 16)) / 255.0 \
+green: ((float)((rgbValue & 0xFF00) >> 8)) / 255.0 \
+blue: ((float)(rgbValue & 0xFF)) / 255.0 alpha : 1.0]
 #endif
 

@@ -31,4 +31,16 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnCheckIn;
 - (IBAction)btnTeeTimeTap:(id)sender;
 
+/*
+ *
+ */
+@property (weak, nonatomic) IBOutlet UIButton *btnTeetimes;
+@property (weak, nonatomic) IBOutlet UILabel *lblTeeTimes;
+@property (weak, nonatomic) IBOutlet UILabel *lblEvents;
+@property (weak, nonatomic) IBOutlet UILabel *lblFoodAndBev;
+
+
+@property (weak, nonatomic) IBOutlet UIButton *btnEvents;
+@property (weak, nonatomic) IBOutlet UIButton *btnFoodAndBeverage;
+
 @end

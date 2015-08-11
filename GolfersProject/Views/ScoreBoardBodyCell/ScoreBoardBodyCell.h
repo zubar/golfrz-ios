@@ -10,4 +10,8 @@
 
 @interface ScoreBoardBodyCell : UICollectionViewCell
 
+
+@property (weak, nonatomic) IBOutlet UIImageView *containerImgView;
+@property (weak, nonatomic) IBOutlet UILabel *contentLbl;
+@property (weak, nonatomic) IBOutlet UIImageView *greeDotImgView;
 @end

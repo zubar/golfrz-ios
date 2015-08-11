@@ -73,13 +73,27 @@ static Course * currentCourse = nil;
     APIClient * apiClient = [APIClient sharedAPICLient];
     [apiClient GET:kCheckInUrl parameters:[CourseServices paramsCourseDetailInfo] completion:^(id response, NSError *error) {
         if(!error){
-            if([[response result] valueForKeyPath:@"check_in.count"] != [NSNull null]) successBlock(true, [NSNumber numberWithInt:0]);
+            if([[response result] valueForKeyPath:@"check_in.count"] == [NSNull null]) successBlock(true, [NSNumber numberWithInt:0]);
                 else successBlock(true, [[response result] valueForKeyPath:@"check_in.count"]);
         }else{
             failureBlock(false, [response result]);
         }
     }];
 
+}
+
++(void)getEnabledFeatures:(void(^)(bool status, NSArray * enabledFeatures))successBlock
+                  failure:(void(^)(bool status, GolfrzError * error))failureBlock
+{
+    APIClient * apiClient = [APIClient sharedAPICLient];
+    [apiClient GET:kFeatureUrl parameters:[CourseServices paramsCourseInfo] completion:^(id response, NSError *error) {
+        if(!error){
+            NSError * parseError = nil;
+            NSArray * objectsArray =  [MTLJSONAdapter modelsOfClass:[FeaturedControl class] fromJSONArray:[[response result] objectForKey:@"features"] error:&parseError];
+            successBlock(true, objectsArray);
+        }else
+            failureBlock(false, [response result]);
+        }];
 }
 
 +(void)setCurrentCourse:(Course *)mCourse{
@@ -91,11 +105,6 @@ static Course * currentCourse = nil;
     return currentCourse;
 }
 
-+(void)getEnabledFeatures:(void(^)(bool status, NSArray * enabledFeatures))successBlock
-                  failure:(void(^)(bool status, GolfrzError * error))failureBlock
-{
-
-}
 #pragma mark - Helper Methods
 
 +(NSDictionary *)paramsCourseDetailInfo{

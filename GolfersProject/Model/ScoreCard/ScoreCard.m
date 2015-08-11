@@ -80,6 +80,12 @@
                 for (NSDictionary *user in users) {
                     
                     ScoreCardUser *scoreCardUser = [[ScoreCardUser alloc] initWithDictionary:user];
+                    NSString *grosFirstKey = [NSString stringWithFormat:@"%d_gross_first",[scoreCardUser.userId intValue]];
+                    NSString *grosLastKey = [NSString stringWithFormat:@"%d_gross_last",[scoreCardUser.userId intValue]];
+                    NSNumber *grossFirstValue = [scoreCard objectForKey:grosFirstKey];
+                    NSNumber *grossLastValue = [scoreCard objectForKey:grosLastKey];
+                    scoreCardUser.grossFirst = [grossFirstValue intValue];
+                    scoreCardUser.grossLast = [grossLastValue intValue];
                     [_users addObject:scoreCardUser];
                 }
             }
@@ -88,11 +94,25 @@
             NSDictionary *holesData = [[scoreCard objectForKey:@"holes_data"] isKindOfClass:[NSNull class]]?nil:[scoreCard objectForKey:@"holes_data"];
             _holeCount = holesData.count;
             _holesArray = [NSMutableArray new];
-            for (NSDictionary *hole in holesData.allValues) {
+            NSMutableArray *tempArray = [NSMutableArray new];
+            for (NSString *holeKey in holesData.allKeys) {
                 
-                ScoreCardHole *scoreCardHole = [[ScoreCardHole alloc] initWithDictionary:hole andTeeBoxCount:_teeBoxCount];
-                [_holesArray addObject:scoreCardHole];
+                NSDictionary *holeDic = [holesData objectForKey:holeKey];
+                
+                ScoreCardHole *scoreCardHole = [[ScoreCardHole alloc] initWithDictionary:holeDic andTeeBoxCount:_teeBoxCount];
+                NSArray *holeNumberSplit = [holeKey componentsSeparatedByString:@"_"];
+                NSString *holeNumberString = holeNumberSplit.lastObject;
+                scoreCardHole.holeNumber = [NSNumber numberWithInt:[holeNumberString intValue]];
+                [tempArray addObject:scoreCardHole];
             }
+            //sort score users array
+            
+            NSSortDescriptor *sortDescriptor;
+            sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"_holeNumber"
+                                                         ascending:YES];
+            NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+            
+            _holesArray = [NSMutableArray arrayWithArray:[tempArray sortedArrayUsingDescriptors:sortDescriptors]];
             
         }
     }
