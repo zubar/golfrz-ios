@@ -368,6 +368,25 @@
                     
                 });
                 bodyCell.contentLbl.text = @"";
+                
+                if (indexPath.row > numberOfLeftColumns) {
+                    
+                    int index = (int)indexPath.row - (int)numberOfLeftColumns - 1;
+                    //ScoreCardHole *hole = [scoreCard_.holesArray objectAtIndex:indexPath.section-1];
+                    ScoreCardUser *cardUser = [scoreCard_.users objectAtIndex:index];
+                    if (cardUser) {
+                        
+                        bodyCell.contentLbl.text = [NSString stringWithFormat:@"%d",[cardUser.skinCount intValue]];
+                    }
+                    
+                    //ScoreCardUserScore *scoreUser = [hole.scoreUsers objectAtIndex:index];
+                    
+                    //
+                }
+                else
+                {
+                    bodyCell.contentLbl.text = @"";
+                }
             }
         }
         else
