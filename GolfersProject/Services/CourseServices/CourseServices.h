@@ -23,6 +23,8 @@
 +(void)courseDetailInfo:(void (^)(bool status, Course * currentCourse))successBlock
                 failure:(void (^)(bool status, GolfrzError * error))failureBlock;
 
++(void)getCheckInCount:(void(^)(bool status, NSNumber * countOfCheckin))successBlock
+               failure:(void(^)(bool status, GolfrzError * error))failureBlock;
 
 +(void)setCurrentCourse:(Course *)mCourse;
 +(Course *)currentCourse;

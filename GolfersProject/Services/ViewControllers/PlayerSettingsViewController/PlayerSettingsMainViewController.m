@@ -83,10 +83,9 @@
                 [self makeUserInfoFieldsEditable:NO];
             [MBProgressHUD hideHUDForView:self.view animated:YES];
         }
-    } failure:^(bool status, NSError *error) {
-        //
+    } failure:^(bool status, GolfrzError *error) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
-        NSLog(@"Failure==================================================================================");
+        [Utilities displayErrorAlertWithMessage:[error errorMessage]];
     }];
 }
 

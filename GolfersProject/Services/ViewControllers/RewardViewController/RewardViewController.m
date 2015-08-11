@@ -10,6 +10,18 @@
 #import "ClubHouseContainerVC.h"
 #import "RewardListViewController.h"
 #import "RewardTutorialContainerVC.h"
+#import "RewardServices.h"
+#import "UserServices.h"
+#import "User.h"
+#import "User+convenience.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+#import "UIImageView+RoundedImage.h"
+#import "Utilities.h"
+#import "GolfrzError.h"
+#import "SharedManager.h"
+#import "CourseServices.h"
+#import "Course.h"
+#import "RewardServices.h"
 
 @interface RewardViewController (){
         RewardListViewController  *_rewardListVC;
@@ -28,11 +40,14 @@
     
     /*! @brief Array of view controllers to switch between */
     self.selectedControllerIndex = 0;
+    [self.checkedInContainerView setHidden:YES];
+    [self populateUserPointsView];
     
     // let's create our two controllers
     _rewardListVC = [self.storyboard instantiateViewControllerWithIdentifier:@"RewardListViewController"];
     _rewardListVC.rewardViewController = self;
     _rewardTutorialContainerVC = [self.storyboard instantiateViewControllerWithIdentifier:@"RewardTutorialContainerVC"];
+    _rewardTutorialContainerVC.rewardViewController = self;
     // Add A and B view controllers to the array
     self.allViewControllers = [[NSArray alloc] initWithObjects:_rewardListVC, _rewardTutorialContainerVC, nil];
     
@@ -71,7 +86,7 @@
             // No frame animations in this code but these would go in the animations block
             [self transitionFromViewController:oldVC
                               toViewController:newVC
-                                      duration:1.25
+                                      duration:0.25
                                        options:UIViewAnimationOptionLayoutSubviews
                                     animations:^{}
                                     completion:^(BOOL finished) {
@@ -149,5 +164,50 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+-(void)populateUserPointsView{
+    
+    /*
+     Loading user personal info.
+     */
+    [UserServices getUserInfo:^(bool status, User *mUser) {
+        if(status){
+            [self.lblUserName setText:[mUser contactFullName]];
+            [self.imgUserProfile sd_setImageWithURL:[NSURL URLWithString:[mUser imgPath]] placeholderImage:[UIImage imageNamed:@"person_placeholder"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                if (image) {
+                    [self.imgUserProfile setRoundedImage:image];
+                }
+            }];
+        }
+    } failure:^(bool status, GolfrzError *error) {
+        [Utilities displayErrorAlertWithMessage:[error errorMessage]];
+    }];
+    
+    // Get total count of checkings of user.
+    [CourseServices getCheckInCount:^(bool status, NSNumber *countOfCheckin) {
+        if([countOfCheckin integerValue] > 0){
+            [self.checkedInContainerView setHidden:NO];
+            [self.lblCountCheckIns setText:[countOfCheckin stringValue]];
+            [self.lblCheckInCourseName setText:[[CourseServices currentCourse] courseName]];
+        }else{
+            [self.lblCountCheckIns setText:[countOfCheckin stringValue]];
+        }
+    } failure:^(bool status, GolfrzError *error) {
+        [Utilities displayErrorAlertWithMessage:[error errorMessage]];
+    }];
+    
+    // get total reward points of user.
+    [RewardServices getUserRewardPoints:^(bool status, NSNumber *totalPoints) {
+        if(status) {
+            [self.lblTotlPoints setHidden:NO];
+            [self.lblPromptPoints setHidden:NO];
+            [self.lblTotlPoints setText:[totalPoints stringValue]];}
+    } failure:^(bool status, GolfrzError *error) {
+        [self.lblTotlPoints setHidden:YES];
+        [self.lblPromptPoints setHidden:YES];
+        [Utilities displayErrorAlertWithMessage:[error errorMessage]];
+    }];
+
+}
 
 @end

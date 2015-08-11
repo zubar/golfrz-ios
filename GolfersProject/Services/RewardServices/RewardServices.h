@@ -25,7 +25,7 @@
                   success:(void(^)(bool status, id response))successBlock
                   failure:(void(^)(bool status, GolfrzError * error))failureBlock;
 
-+(void)getUserRewardPoints:(void(^)(bool status, id response))successBlock
++(void)getUserRewardPoints:(void(^)(bool status, NSNumber * totalPoints))successBlock
                    failure:(void(^)(bool status, GolfrzError * error))failureBlock;
 
 @end

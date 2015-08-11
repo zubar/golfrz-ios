@@ -7,6 +7,10 @@
 //
 
 #import "RewardTutorialDetailVC.h"
+#import "SharedManager.h"
+#import "CourseServices.h"
+#import "Utilities.h"
+#import "GolfrzError.h"
 
 @interface RewardTutorialDetailVC ()
 
@@ -18,13 +22,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    CGPoint origin = CGPointMake( self.view.frame.size.width/2, self.view.frame.size.height/1.5 );
-    self.pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(origin.x, origin.y,
-                                                                       0, 0)];
     
-    [self.pageControl setTag:90];
     //Or whatever number of viewcontrollers you have
-    [self.pageControl setNumberOfPages:3];
+    
     
     UISwipeGestureRecognizer *  rightRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(loadPreviousController)];
     [rightRecognizer setDirection:(UISwipeGestureRecognizerDirectionRight)];
@@ -34,6 +34,10 @@
     [leftRecognizer setDirection:(UISwipeGestureRecognizerDirectionLeft)];
     [[self view] addGestureRecognizer:leftRecognizer];
     
+    [self.pageControl setNumberOfPages:kTutorialPagesCount +1];
+    [self.pageControl setCurrentPage:self.pageType];
+    [self populateDataForPageType:self.pageType];
+    [self configureViewForType:self.pageType];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -42,25 +46,17 @@
 }
 
 -(void)loadPreviousController{
-    
     if (self.pageType -1 >= 0) {
         [self.tutorialContainerVC cycleControllerToIndex:self.pageType - 1];
     }
 }
 
 -(void)loadNextController{
-    
-    if(self.pageType + 1 <= 6){
+    if(self.pageType + 1 <= kTutorialPagesCount){
         [self.tutorialContainerVC cycleControllerToIndex:self.pageType + 1];
     }
 }
 
--(void)viewWillAppear:(BOOL)animated{
-    [self.view setBackgroundColor:[UIColor clearColor]];
-   
-    [self populateDataForPageType:self.pageType];
-    [self configureViewForType:self.pageType];
-}
 
 -(void)configureViewForType:(TutorialPageType )pageType{
     
@@ -143,11 +139,88 @@
 }
 */
 
-- (IBAction)rewardTutorialBtnTapped:(UIButton *)sender {
+- (IBAction)viewRewardsBtnTapped:(UIButton *)sender {
+    
+    switch (self.pageType) {
+        case TutorialPageTypeFinish:
+            [self.superController cycleControllerToIndex:0];
+            break;
+        case TutorialPageTypeViewRewards:
+            [self.superController cycleControllerToIndex:0];
+            break;
+        case TutorialPageTypeCheckIn:
+            [self checkInUser];
+            break;
+        default:
+            break;
+    }
 }
+
 - (IBAction)fbShareTapped:(UIButton *)sender {
+    
+    
 }
 
 - (IBAction)twitterShareTapped:(UIButton *)sender {
+    
+    
+}
+
+-(void)InvideFriends{
+
+}
+
+-(void)checkInUser{
+
+    if ([CourseServices currentCourse]) {
+        [self checkInToCurrentCourse];
+    }else{
+        [self loadCourseDetailsCompletionBlock:^(Course *currentCourse) {
+            [self checkInToCurrentCourse];
+        }];
+    }
+}
+
+-(void)checkInToCurrentCourse{
+    
+    SharedManager * manager = [SharedManager sharedInstance];
+    [manager triggerLocationServices];
+    manager.delegate = self;
+}
+
+
+-(void)loadCourseDetailsCompletionBlock:(void (^)(Course *currentCourse))completionBlock{
+    
+    [CourseServices courseDetailInfo:^(bool status, Course *currentCourse) {
+        if (status) {
+            //TODO: any business logic on it to apply.
+            if (status) {
+                completionBlock(currentCourse);
+            }
+        }
+    } failure:^(bool status, GolfrzError *error) {
+        [Utilities displayErrorAlertWithMessage:[error errorMessage]];
+    }];
+}
+
+-(void)IsUserInCourseWithRequiredAccuracy:(BOOL)yesNo{
+    
+    if (yesNo) {
+        [CourseServices checkInToCurrentCourse:^(bool status, id responseObject) {
+            if (status) {
+                [[[UIAlertView alloc]initWithTitle:@"Success" message:responseObject[@"message"] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
+                [self populateDataForPageType:self.pageType];
+            }
+        } failure:^(bool status, NSError * error) {
+            if (status) {
+                [[[UIAlertView alloc]initWithTitle:@"Try Again" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
+            }
+        }];
+    }else{
+        NSString * message = [NSString stringWithFormat:@"You are not %d meter inside the course perimeter.",kAccuracyGPS];
+        [[[UIAlertView alloc]initWithTitle:@"" message:message delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
+    }
+    
+    
 }
 @end

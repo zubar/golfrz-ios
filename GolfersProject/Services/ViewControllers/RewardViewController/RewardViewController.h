@@ -14,6 +14,15 @@
 @property (strong, nonatomic) IBOutlet UIView *childView;
 @property (assign, nonatomic) NSInteger selectedControllerIndex;
 
+@property (weak, nonatomic) IBOutlet UIImageView *imgUserProfile;
+@property (weak, nonatomic) IBOutlet UILabel *lblUserName;
+@property (weak, nonatomic) IBOutlet UILabel *lblTotlPoints;
+@property (weak, nonatomic) IBOutlet UILabel *lblCountCheckIns;
+@property (weak, nonatomic) IBOutlet UIView *checkedInContainerView;
+@property (weak, nonatomic) IBOutlet UILabel *lblCheckInCourseName;
+@property (weak, nonatomic) IBOutlet UILabel *lblPromptPoints;
+
+
 /*!
  @brief It cycles two view controllers.
  
