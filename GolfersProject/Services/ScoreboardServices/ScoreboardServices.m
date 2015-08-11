@@ -10,6 +10,7 @@
 #import "APIClient.h"
 #import "Constants.h"
 #import "UserServices.h"
+#import "PastScore.h"
 
 
 @implementation ScoreboardServices
@@ -35,19 +36,13 @@
 +(void)getScoreCardForRoundId:(NSNumber *)roundId
                     subCourse:(NSNumber *)subCourseId
                       success:(void (^)(bool status, id responseObject))successBlock
-                      failure:(void (^)(bool status, NSError * error))failureBlock{
-    
-    
+                      failure:(void (^)(bool status, NSError * error))failureBlock
+{
     AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
-    
     [apiClient GET:kGetScoreCard parameters:[ScoreboardServices paramsScoreForSubCourseId:subCourseId roundId:roundId] success:^(NSURLSessionDataTask *task, id responseObject) {
-        
-        successBlock(true,responseObject);
-        
+            successBlock(true,responseObject);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        
         failureBlock(false,error);
-        
     }];
 }
 
@@ -73,10 +68,36 @@
     }];
 }
 
+
 ////https://api.myjson.com/bins/2ncny
 //+(void)getTestScoreBoard
 
++(void)getScorecardHistory:(void(^)(bool status, NSArray * enabledFeatures))successBlock
+                   failure:(void(^)(bool status, GolfrzError * error))failureBlock
+{
+    APIClient * apiClient = [APIClient sharedAPICLient];
+    [apiClient GET:kPreviousScores parameters:[ScoreboardServices paramPastScore] completion:^(id response, NSError *error) {
+        if(!error){
+            NSError * parseError = nil;
+            NSArray * objectsArray =  [MTLJSONAdapter modelsOfClass:[PastScore class] fromJSONArray:[[response result] objectForKey:@"user_score_history"] error:&parseError];
+            successBlock(true, objectsArray);
+        }else
+            failureBlock(false, [response result]);
+    }];
+}
+
+
+
 #pragma mark - Helper Methods
+
++(NSDictionary *)paramPastScore{
+    
+    return @{
+             @"app_bundle_id" : kAppBundleId,
+             @"user_agent" : kUserAgent,
+             @"auth_token" : [UserServices currentToken]
+             };
+}
 
 +(NSDictionary *)paramsScoreForSubCourseId:(NSNumber *)subCourseId roundId:(NSNumber *)roundId{
 
