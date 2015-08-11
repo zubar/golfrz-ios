@@ -7,6 +7,7 @@
 //
 
 #import "PastScoreCardsViewController.h"
+#import "PastScoreCardCell.h"
 
 @interface PastScoreCardsViewController ()
 
@@ -24,6 +25,22 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 1;;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *customCell = [tableView dequeueReusableCellWithIdentifier:@"PastScoreCardCell"];
+    
+    if (customCell == nil) {
+        customCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"PastScoreCardCell"];
+    }
+    
+    PastScoreCardCell *customViewCell = (PastScoreCardCell *)customCell;
+    
+    return customViewCell;
+}
 /*
 #pragma mark - Navigation
 

@@ -20,8 +20,6 @@
 		3D0455CC1B71E66100FFB0E8 /* HMMessageSentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D0455C71B71E66100FFB0E8 /* HMMessageSentCell.xib */; };
 		3D0455CF1B71F7B800FFB0E8 /* Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0455CE1B71F7B800FFB0E8 /* Utility.m */; };
 		3D0455D21B71F87100FFB0E8 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0455D11B71F87100FFB0E8 /* UIImage+Resize.m */; };
-		3D0455D51B721DF200FFB0E8 /* bg_msg_send.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D0455D31B721DF200FFB0E8 /* bg_msg_send.png */; };
-		3D0455D61B721DF200FFB0E8 /* bg_msg_rcv.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D0455D41B721DF200FFB0E8 /* bg_msg_rcv.png */; };
 		3D0455DC1B724CE700FFB0E8 /* HMMessagesDisplayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D0455DB1B724CE700FFB0E8 /* HMMessagesDisplayViewController.xib */; };
 		3D16D0841B1C3FFB00A582A3 /* SharedManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D16D0831B1C3FFB00A582A3 /* SharedManager.m */; };
 		3D1963BC1B0CE05700766CFC /* CourseServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1963B81B0CE05700766CFC /* CourseServices.m */; };
@@ -212,6 +210,7 @@
 		88EBE4791B73CD0C002F4FA2 /* RewardListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88EBE4781B73CD0C002F4FA2 /* RewardListCell.m */; };
 		88EF1EF51B78FEFE006F901F /* RewardDescriptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88EF1EF41B78FEFE006F901F /* RewardDescriptionViewController.m */; };
 		88EF1EF91B79014F006F901F /* PastScoreCardsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88EF1EF81B79014F006F901F /* PastScoreCardsViewController.m */; };
+		88EF1EFF1B79F867006F901F /* PastScoreCardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88EF1EFE1B79F867006F901F /* PastScoreCardCell.m */; };
 		A921244B1B36DB1E00917649 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A921244A1B36DB1E00917649 /* MessageUI.framework */; };
 /* End PBXBuildFile section */
 
@@ -248,8 +247,6 @@
 		3D0455CE1B71F7B800FFB0E8 /* Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utility.m; sourceTree = "<group>"; };
 		3D0455D01B71F87100FFB0E8 /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
 		3D0455D11B71F87100FFB0E8 /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
-		3D0455D31B721DF200FFB0E8 /* bg_msg_send.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_msg_send.png; sourceTree = "<group>"; };
-		3D0455D41B721DF200FFB0E8 /* bg_msg_rcv.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_msg_rcv.png; sourceTree = "<group>"; };
 		3D0455DB1B724CE700FFB0E8 /* HMMessagesDisplayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HMMessagesDisplayViewController.xib; sourceTree = "<group>"; };
 		3D16D0821B1C3FFB00A582A3 /* SharedManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedManager.h; sourceTree = "<group>"; };
 		3D16D0831B1C3FFB00A582A3 /* SharedManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedManager.m; sourceTree = "<group>"; };
@@ -601,6 +598,8 @@
 		88EF1EF41B78FEFE006F901F /* RewardDescriptionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RewardDescriptionViewController.m; sourceTree = "<group>"; };
 		88EF1EF71B79014F006F901F /* PastScoreCardsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PastScoreCardsViewController.h; sourceTree = "<group>"; };
 		88EF1EF81B79014F006F901F /* PastScoreCardsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PastScoreCardsViewController.m; sourceTree = "<group>"; };
+		88EF1EFD1B79F867006F901F /* PastScoreCardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PastScoreCardCell.h; sourceTree = "<group>"; };
+		88EF1EFE1B79F867006F901F /* PastScoreCardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PastScoreCardCell.m; sourceTree = "<group>"; };
 		A921244A1B36DB1E00917649 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		D817BE50C16025D4FB4E4951 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		E15946F021CC95FC21355D7C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -1670,8 +1669,6 @@
 			isa = PBXGroup;
 			children = (
 				3D6346C41B790C980093AA1D /* Main.storyboard */,
-				3D0455D31B721DF200FFB0E8 /* bg_msg_send.png */,
-				3D0455D41B721DF200FFB0E8 /* bg_msg_rcv.png */,
 				3D1CB08A1B691563005C1E19 /* ViewControllers */,
 				3DF9936C1B256977006EBC39 /* PushManager */,
 				3D16D0811B1C3FDB00A582A3 /* SharedManager */,
@@ -1902,6 +1899,7 @@
 		889872C71B13237F00D3C0E9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				88EF1EFC1B79F84E006F901F /* PastScoreCardCell */,
 				88EBE4761B73CCD2002F4FA2 /* RewardListCell */,
 				88255AEB1B70AF360089644F /* ScoreBoardHeaderCell */,
 				88255AEA1B70AF280089644F /* ScoreBoardBodyCell */,
@@ -2038,6 +2036,15 @@
 			path = PastScoreCardsViewController;
 			sourceTree = "<group>";
 		};
+		88EF1EFC1B79F84E006F901F /* PastScoreCardCell */ = {
+			isa = PBXGroup;
+			children = (
+				88EF1EFD1B79F867006F901F /* PastScoreCardCell.h */,
+				88EF1EFE1B79F867006F901F /* PastScoreCardCell.m */,
+			);
+			path = PastScoreCardCell;
+			sourceTree = "<group>";
+		};
 		C91B48159ABC56B52D213A0C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -2133,13 +2140,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D613B771B43EF5800F7DEDA /* PlayerScoreView.xib in Resources */,
-				3D0455D51B721DF200FFB0E8 /* bg_msg_send.png in Resources */,
 				3D1C8E8D1B3BFEB0004AAD30 /* popoverArrowDown-white@2x.png in Resources */,
 				3D1C8E981B3BFEB0004AAD30 /* popoverArrowRightSimple.png in Resources */,
 				3D1C8E8F1B3BFEB0004AAD30 /* popoverArrowDown@2x.png in Resources */,
 				3D1C8E951B3BFEB0004AAD30 /* popoverArrowRight-white@2x.png in Resources */,
 				3D6346C61B790C980093AA1D /* Main.storyboard in Resources */,
-				3D0455D61B721DF200FFB0E8 /* bg_msg_rcv.png in Resources */,
 				3D1C8E991B3BFEB0004AAD30 /* popoverArrowUp-white@2x.png in Resources */,
 				3D1C8E901B3BFEB0004AAD30 /* popoverArrowDownSimple.png in Resources */,
 				3D1C8E941B3BFEB0004AAD30 /* popoverArrowLeftSimple.png in Resources */,
@@ -2227,6 +2232,7 @@
 				3D1C8EAF1B3D36C9004AAD30 /* EventHeaderView.m in Sources */,
 				3DC116231B2EF4AD00E83F4F /* APContact+convenience.m in Sources */,
 				3D7DF20A1B6CABEE00FCF8FE /* Teetime+Compare.m in Sources */,
+				88EF1EFF1B79F867006F901F /* PastScoreCardCell.m in Sources */,
 				3D1CB1061B691563005C1E19 /* TeeTimesViewController.m in Sources */,
 				3D613B861B44191B00F7DEDA /* ScoreSelectionView.m in Sources */,
 				880A97DD1B2F0ED4001D97F0 /* FoodBevCartCell.m in Sources */,
