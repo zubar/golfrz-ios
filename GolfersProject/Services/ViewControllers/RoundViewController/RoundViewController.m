@@ -260,6 +260,16 @@
 {
     [RoundDataServices finishRoundWithBlock:^(bool status, id response) {
         // TODO: Navigate to ScoreCard.
+        if(status){
+            [ScoreboardServices getScoreCardForRoundId:[NSNumber numberWithInt:611] subCourse:[NSNumber numberWithInt:1] success:^(bool status, id responseObject) {
+                if(status){
+                    //Load scorecard here.
+                    
+                }
+            } failure:^(bool status, NSError *error) {
+                
+            }];
+        }
     } failure:^(bool status, NSError *error) {
         [[[UIAlertView alloc] initWithTitle:@"Try Again" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
     }];
