@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "RewardViewController.h"
 #import "RewardListCell.h"
+#import "RewardDescriptionViewController.h"
 @class Reward;
 
 

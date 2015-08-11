@@ -66,7 +66,7 @@
     
     //Adding Refresh control
     refrestCtrl = [[UIRefreshControl alloc]init];
-    [refrestCtrl setTintColor:[UIColor whiteColor]];
+    [refrestCtrl setTintColor:[UIColor darkGrayColor]];
     [self.messagesTable addSubview:refrestCtrl];
     [refrestCtrl addTarget:self action:@selector(webServiceCalling) forControlEvents:UIControlEventValueChanged];
     

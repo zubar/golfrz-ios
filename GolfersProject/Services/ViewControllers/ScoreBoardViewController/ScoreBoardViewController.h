@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
-@interface ScoreBoardViewController : UIViewController<UICollectionViewDataSource,
+@interface ScoreBoardViewController : BaseViewController<UICollectionViewDataSource,
                                                         UICollectionViewDelegate,
                                                         UIScrollViewDelegate>
 

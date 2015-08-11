@@ -17,6 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+        
     self.lblRewardName.text = [self.currentReward name];
     self.lblRewardPoints.text = [[self.currentReward pointsRequired] stringValue];
     self.lblRewardDetails.text = [self.currentReward rewardBreif];
@@ -28,6 +29,20 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    // Left nav-bar.
+    UIButton * imageButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 10, 10, 14)];
+    [imageButton setBackgroundImage:[UIImage imageNamed:@"back_btn"] forState:UIControlStateNormal];
+    [imageButton addTarget:self action:@selector(baseButtonTap) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIBarButtonItem *leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:imageButton];
+    self.rewardViewController.navigationItem.leftBarButtonItem = leftBarButtonItem;
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    
+    self.rewardViewController.navigationItem.leftBarButtonItem = nil;
+}
 /*
 #pragma mark - Navigation
 
@@ -37,7 +52,14 @@
     // Pass the selected object to the new view controller.
 }
 */
-
 - (IBAction)btnRedeemedTapped:(UIButton *)sender {
+
+
 }
+
+-(void)baseButtonTap{
+    [self.rewardViewController cycleControllerToIndex:0];
+}
+
+
 @end

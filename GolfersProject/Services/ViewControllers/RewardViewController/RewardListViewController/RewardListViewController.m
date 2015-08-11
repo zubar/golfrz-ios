@@ -18,6 +18,7 @@
 
 @interface RewardListViewController ()
 @property (strong, nonatomic) NSMutableArray * rewardsList;
+@property (strong, nonatomic) Reward * selectedReward;
 
 @end
 
@@ -125,12 +126,11 @@
     //AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
     RewardDescriptionViewController * controller = [self.storyboard instantiateViewControllerWithIdentifier:@"RewardDescriptionViewController"];
     controller.currentReward = rewardItem;
+    self.selectedReward = rewardItem;
+    [self.rewardViewController cycleControllerToIndex:2];
     //[delegate.appDelegateNavController pushViewController:controller animated:YES];
-    [self.navigationController pushViewController:controller animated:YES];
     
 }
-
-
 
 @end
 

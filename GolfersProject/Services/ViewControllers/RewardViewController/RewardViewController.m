@@ -22,10 +22,13 @@
 #import "CourseServices.h"
 #import "Course.h"
 #import "RewardServices.h"
+#import "RewardDescriptionViewController.h"
 
 @interface RewardViewController (){
         RewardListViewController  *_rewardListVC;
         RewardTutorialContainerVC *_rewardTutorialContainerVC;
+        RewardDescriptionViewController * _rewardDescriptionViewController;
+    
         UIViewController __weak *_currentChildController;
 }
 /*! @brief Array of view controllers to switch between */
@@ -48,8 +51,13 @@
     _rewardListVC.rewardViewController = self;
     _rewardTutorialContainerVC = [self.storyboard instantiateViewControllerWithIdentifier:@"RewardTutorialContainerVC"];
     _rewardTutorialContainerVC.rewardViewController = self;
+    
+    //
+    _rewardDescriptionViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"RewardDescriptionViewController"];
+    _rewardDescriptionViewController.rewardViewController = self;
+    
     // Add A and B view controllers to the array
-    self.allViewControllers = [[NSArray alloc] initWithObjects:_rewardListVC, _rewardTutorialContainerVC, nil];
+    self.allViewControllers = [[NSArray alloc] initWithObjects:_rewardListVC, _rewardTutorialContainerVC, _rewardDescriptionViewController, nil];
     
     [self cycleFromViewController:_currentChildController toViewController:[self.allViewControllers objectAtIndex:self.selectedControllerIndex]];
     
