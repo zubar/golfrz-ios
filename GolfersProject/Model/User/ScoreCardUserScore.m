@@ -41,6 +41,11 @@
                     _shape = symbolsArray.firstObject;
                     _shapeColor = symbolsArray.lastObject;
                 }
+                else if(symbolsArray.count == 1)
+                {
+                    _shape = symbolsArray.firstObject;
+                }
+                
             }
             
             
