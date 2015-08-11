@@ -342,13 +342,32 @@
         {
             if (indexPath.row == 0) {
                 bodyCell.contentLbl.text = @"SKINS";
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    
+                    bodyCell.contentLbl.font = [UIFont fontWithName:@"Arial" size:10];
+                    
+                });
             }
             else if (indexPath.row == 1)
             {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    
+                    bodyCell.contentLbl.font = [UIFont fontWithName:@"Arial" size:12];
+                    
+                });
                 bodyCell.contentLbl.text = @"";
-                UIImageView *starImage = [[UIImageView alloc] initWithFrame:CGRectMake(5, 5, 20, 20)];
+                UIImageView *starImage = [[UIImageView alloc] initWithFrame:CGRectMake(8, 5, 20, 20)];
                 [starImage setImage:[UIImage imageNamed:@"skin_symbol"]];
                 [bodyCell addSubview:starImage];
+            }
+            else
+            {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    
+                    bodyCell.contentLbl.font = [UIFont fontWithName:@"Arial" size:12];
+                    
+                });
+                bodyCell.contentLbl.text = @"";
             }
         }
         else

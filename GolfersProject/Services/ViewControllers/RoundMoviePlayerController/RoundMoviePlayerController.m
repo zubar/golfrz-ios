@@ -21,7 +21,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    moviePlayer_ = [[MPMoviePlayerController alloc] initWithContentURL:[NSURL URLWithString:@"http://45.56.104.68/system/attachments/contents/000/000/057/original/email_address.mp4?1436959273"]];
+    //@"http://45.56.104.68/system/attachments/contents/000/000/057/original/email_address.mp4?1436959273
+    moviePlayer_ = [[MPMoviePlayerController alloc] initWithContentURL:[NSURL URLWithString:self.moviePath]];
     moviePlayer_.view.frame = self.view.bounds;
     [moviePlayer_ prepareToPlay];
     

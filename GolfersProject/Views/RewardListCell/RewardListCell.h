@@ -9,10 +9,15 @@
 #import <UIKit/UIKit.h>
 
 @interface RewardListCell : UITableViewCell
+
+@property (strong, nonatomic) NSIndexPath * index;
+
 @property (strong, nonatomic) IBOutlet UILabel *lblPoints;
 @property (strong, nonatomic) IBOutlet UILabel *lblRewardName;
-- (IBAction)btnRedeemTapped:(UIButton *)sender;
 @property (strong, nonatomic) IBOutlet UIButton *btnRedeem;
 @property (strong, nonatomic) IBOutlet UIImageView *imgRewardImage;
+
+
+- (void)setDidTapButtonBlock:(void (^)(id sender, NSInteger index))didTapButtonBlock;
 
 @end
