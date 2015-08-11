@@ -16,7 +16,6 @@
 
 - (void)awakeFromNib {
     // Initialization code
-    [self.btnRedeem addTarget:self action:@selector(didTapRedeemButton:) forControlEvents:UIControlEventTouchUpInside];
 
 }
 
@@ -26,12 +25,12 @@
     // Configure the view for the selected state
 }
 
-
-- (void)didTapRedeemButton:(UIButton *)sender {
-    if (self.didTapButtonBlock) {
-        self.didTapButtonBlock(self, self.index.row);
-    }
+- (IBAction)btnRedeemTapped:(UIButton *)sender {
     
+    if (self.delegate && [self.delegate respondsToSelector:@selector(btnRedeemTappedForCurrentCell:)])
+    {
+        [self.delegate btnRedeemTappedForCurrentCell:_currentReward];
+    }
 }
 
 

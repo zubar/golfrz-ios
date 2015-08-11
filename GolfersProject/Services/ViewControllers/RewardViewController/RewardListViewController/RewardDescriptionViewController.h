@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+@class Reward;
 
 @interface RewardDescriptionViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UIImageView *rewardImage;
@@ -17,5 +18,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *lblRewardDetails;
 - (IBAction)btnRedeemedTapped:(UIButton *)sender;
 @property (strong, nonatomic) IBOutlet UIButton *btnRedeem;
+@property (strong, nonatomic) Reward *currentReward;
 
 @end

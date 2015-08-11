@@ -78,15 +78,14 @@
                     failure:(void(^)(bool status, NSError * error))failureBlock
 {
     
-    NSString * urlString = [NSString stringWithFormat:@"%@%@", kBaseURL, kRoundFinish];
-    [UtilityServices postData:[RoundDataServices paramsFinishRound]
-                        toURL:urlString
-                      success:^(bool status, NSDictionary *userInfo){
-        successBlock(status, userInfo);
-    } failure:^(bool status, NSError *error) {
-        failureBlock(status, error);
+    NSLog(@"param finsihRoudn: %@", [RoundDataServices paramsFinishRound]);
+    
+    AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
+    [apiClient POST:kRoundFinish parameters:[RoundDataServices paramsFinishRound] success:^(NSURLSessionDataTask *task, id responseObject) {
+        successBlock(true, responseObject);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        failureBlock(false, error);
     }];
-
 }
 
 +(void)addGuestWithEmail:(NSString *)email

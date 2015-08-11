@@ -36,52 +36,38 @@
     [ScoreBoardManager sharedScoreBoardManager].numberOfItems = 0;
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
-    
-//    [ScoreboardServices getScoreCardForRoundId:[NSNumber numberWithInt:466] subCourse:[NSNumber numberWithInt:1] success:^(bool status, id responseObject) {
-//        [MBProgressHUD hideHUDForView:self.view animated:YES];
-//        
-//        scoreCard_ = [[ScoreCard alloc] initWithDictionary:responseObject];
-//        
-//        [ScoreBoardManager sharedScoreBoardManager].numberOfItems = scoreCard_.users.count + [scoreCard_.teeBoxCount intValue]+9;//(int)scoreCard.holesArray.count;
-//        [ScoreBoardManager sharedScoreBoardManager].numberOfSections = 18;
-//        [ScoreBoardManager sharedScoreBoardManager].scoreCard = scoreCard_;
-//        
-//        [_rightCollectionView reloadData];
-//        
-//
-//    } failure:^(bool status, NSError *error) {
-//        [MBProgressHUD hideHUDForView:self.view animated:YES];
-//        NSLog(@"Failed");
-//    }];
-    
-    
-    
-    [ScoreboardServices getTestScoreCard:^(bool status, id responseObject) {
-       
+    [ScoreboardServices getScoreCardForRoundId:self.roundId subCourse:self.subCourseId
+                                       success:^(bool status, id responseObject)
+    {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         
         scoreCard_ = [[ScoreCard alloc] initWithDictionary:responseObject];
-        
         [ScoreBoardManager sharedScoreBoardManager].numberOfItems = (int)scoreCard_.users.count + [scoreCard_.teeBoxCount intValue]+2;
         if ([scoreCard_.gameType isEqualToString:@"skin"]) {
             [ScoreBoardManager sharedScoreBoardManager].numberOfSections = (int)scoreCard_.holeCount+6;
-        }
-        else
-        {
+        }else{
             [ScoreBoardManager sharedScoreBoardManager].numberOfSections = (int)scoreCard_.holeCount+5;
         }
-        
         [ScoreBoardManager sharedScoreBoardManager].scoreCard = scoreCard_;
         [self calculateParTotal];
         
         [_rightCollectionView reloadData];
-        
-    } failure:^(bool status, NSError *error) {
-        
-        
+
+    }
+    failure:^(bool status, NSError *error)
+    {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
     }];
+    
     numberOfLeftColumns = [[ScoreBoardManager sharedScoreBoardManager].scoreCard.teeBoxCount intValue] + 2;
+    
+//    [ScoreboardServices getTestScoreCard:^(bool status, id responseObject)
+//    {
+//
+//    } failure:^(bool status, NSError *error)
+//    {
+//
+//    }];
 
 }
 -(void)calculateParTotal
@@ -110,21 +96,12 @@
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
 
-    if (collectionView == _leftCollectionView)
-    {
-     
-        return 0;
-    }
     return [ScoreBoardManager sharedScoreBoardManager].numberOfItems;
     
 }
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
 
-    if (collectionView == _leftCollectionView)
-    {
-        return 0;
-    }
     return [ScoreBoardManager sharedScoreBoardManager].numberOfSections;
 
 }

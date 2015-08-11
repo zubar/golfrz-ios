@@ -8,12 +8,17 @@
 
 #import <UIKit/UIKit.h>
 #import "RewardViewController.h"
+#import "RewardListCell.h"
+@class Reward;
 
 
-@interface RewardListViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+
+@interface RewardListViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, RewardListCellDelegate>
 
 @property(weak, nonatomic) RewardViewController * rewardViewController;
 @property (strong, nonatomic) IBOutlet UITableView *rewardTable;
 - (IBAction)btnRewieRewardsTapped:(UIButton *)sender;
+
+@property (strong, nonatomic) Reward *currentReward;
 
 @end

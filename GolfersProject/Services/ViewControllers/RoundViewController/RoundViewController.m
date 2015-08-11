@@ -29,6 +29,7 @@
 #import "ScoreboardServices.h"
 #import "Utilities.h"
 #import "RoundMoviePlayerController.h"
+#import "ScoreBoardViewController.h"
 
 #define kPlayerScoreViewHeight 60.0f
 
@@ -260,6 +261,19 @@
 {
     [RoundDataServices finishRoundWithBlock:^(bool status, id response) {
         // TODO: Navigate to ScoreCard.
+        if(status){
+            [ScoreboardServices getScoreCardForRoundId:[NSNumber numberWithInt:611] subCourse:[NSNumber numberWithInt:1] success:^(bool status, id responseObject) {
+                if(status){
+                    //Load scorecard here.
+                    ScoreBoardViewController *scoreBoardVc = [self.storyboard instantiateViewControllerWithIdentifier:@"SCORE_BOARD_VC_ID"];
+                    scoreBoardVc.roundId = [[GameSettings sharedSettings] roundId];
+                    scoreBoardVc.subCourseId = [[GameSettings sharedSettings] subCourseId];
+                    [self.navigationController pushViewController:scoreBoardVc animated:YES];
+                }
+            } failure:^(bool status, NSError *error) {
+                NSLog(@"%@", error);
+            }];
+        }
     } failure:^(bool status, NSError *error) {
         [[[UIAlertView alloc] initWithTitle:@"Try Again" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
     }];

@@ -97,7 +97,7 @@ static NSString * const kConfirmCartOrder = @"menus/place_order";
 static NSString * const kRoundInSubCourse = @"rounds/fetch_rounds_dropdowns";
 static NSString * const kRoundNew = @"rounds/new";
 static NSString * const kRoundStart = @"rounds/start";
-static NSString * const kRoundFinish = @"rounds/finish";
+static NSString * const kRoundFinish = @"rounds/finsih";
 static NSString * const kRoundAddGuest = @"rounds/create_guest";
 static NSString * const kRoundPlayers = @"rounds/round_players";
 static NSString * const kRoundInfo = @"rounds/round_info";
@@ -123,6 +123,7 @@ static NSString * const kInvitationAppOpen = @"%@/redirect_with_invitation?id=%@
  */
 static NSString * const kGetIndividualScore = @"scores/individual_score";
 static NSString * const kGetScoreCard = @"scores/score_card";
+static NSString * const kPreviousScores = @"scores/previous_score_cards";
 
 /*
  *  Push notification token registeration
