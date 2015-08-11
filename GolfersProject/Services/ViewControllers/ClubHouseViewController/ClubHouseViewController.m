@@ -280,11 +280,6 @@
 -(void)enableCheckInButton:(BOOL)yesNo{
     [self.btnCheckIn setHidden:yesNo];
 }
-- (IBAction)playVideoTapped:(id)sender {
-    
-    RoundMoviePlayerController *movieController = [RoundMoviePlayerController new];
-    [self.navigationController pushViewController:movieController animated:YES];
-}
 
 - (IBAction)btnTeeTimeTap:(id)sender {
     
