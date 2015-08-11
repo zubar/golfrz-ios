@@ -39,6 +39,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblEvents;
 @property (weak, nonatomic) IBOutlet UILabel *lblFoodAndBev;
 
+@property (strong, nonatomic) IBOutlet UIView *teeTimesView;
+@property (strong, nonatomic) IBOutlet UIView *eventsView;
+@property (strong, nonatomic) IBOutlet UIView *foodBevView;
 
 @property (weak, nonatomic) IBOutlet UIButton *btnEvents;
 @property (weak, nonatomic) IBOutlet UIButton *btnFoodAndBeverage;
