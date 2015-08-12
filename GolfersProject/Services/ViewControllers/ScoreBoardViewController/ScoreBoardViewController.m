@@ -38,7 +38,7 @@
     [ScoreBoardManager sharedScoreBoardManager].numberOfItems = 0;
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
-    
+    [ScoreBoardManager sharedScoreBoardManager].defaultSymbolsSet = [NSMutableSet setWithObjects:@"nothing",@"green_dot",@"pentagon",@"circle",@"square", nil];
     
     
     [ScoreboardServices getScoreCardForRoundId:self.roundId subCourse:self.subCourseId
@@ -57,7 +57,7 @@
         [self calculateParTotal];
         
         
-        numberOfLeftColumns = [scoreCard_.teeBoxCount intValue]+2;//[[ScoreBoardManager sharedScoreBoardManager].scoreCard.teeBoxCount intValue] + 2;
+        numberOfLeftColumns = [scoreCard_.teeBoxCount intValue]+2;
         
         
         [_rightCollectionView reloadData];
@@ -169,10 +169,9 @@
             //headerCell.dotView.hidden = NO;
             headerCell.greenDotImgView.hidden = NO;
             //calculate index for tee-box
-            //int index = (int)numberOfLeftColumns- (int)indexPath.row-1;
             int index = (int)indexPath.section;
             int teeBoxIndex = (int)indexPath.row-2;
-            //int index = (int)indexPath.row - (int)numberOfLeftColumns;
+            
             ScoreCardHole *hole = [scoreCard_.holesArray objectAtIndex:index];
             if (teeBoxIndex >= hole.teeBoxArray.count) {
                 teeBoxIndex = hole.teeBoxArray.count - 1;
@@ -239,7 +238,6 @@
             else if (indexPath.row >= numberOfLeftColumns)
             {
                 ScoreBoardBodyCell *bodyCell = (ScoreBoardBodyCell *)cell;
-                //int index = (int)indexPath.row - (int)numberOfLeftColumns - 1;
                 int index = (int)indexPath.row - (int)numberOfLeftColumns;
                 ScoreCardUser *scoreCardUser = [scoreCard_.users objectAtIndex:index];
                 bodyCell.contentLbl.text = [NSString stringWithFormat:@"%d",scoreCardUser.grossFirst];
@@ -266,7 +264,6 @@
             else if (indexPath.row >= numberOfLeftColumns)
             {
                 ScoreBoardBodyCell *bodyCell = (ScoreBoardBodyCell *)cell;
-                //int index = (int)indexPath.row - (int)numberOfLeftColumns - 1;
                 int index = (int)indexPath.row - (int)numberOfLeftColumns;
                 ScoreCardUser *scoreCardUser = [scoreCard_.users objectAtIndex:index];
                 bodyCell.contentLbl.text = [NSString stringWithFormat:@"%d",scoreCardUser.grossLast];
@@ -346,8 +343,6 @@
                         bodyCell.contentLbl.text = [NSString stringWithFormat:@"%d",net];
                     }
                     
-                    //ScoreCardUserScore *scoreUser = [hole.scoreUsers objectAtIndex:index];
-                    
                     //
                 }
                 else
@@ -393,16 +388,12 @@
                 if (indexPath.row > numberOfLeftColumns) {
                     
                     int index = (int)indexPath.row - (int)numberOfLeftColumns - 1;
-                    //ScoreCardHole *hole = [scoreCard_.holesArray objectAtIndex:indexPath.section-1];
                     ScoreCardUser *cardUser = [scoreCard_.users objectAtIndex:index];
                     if (cardUser) {
                         
                         bodyCell.contentLbl.text = [NSString stringWithFormat:@"%d",[cardUser.skinCount intValue]];
                     }
                     
-                    //ScoreCardUserScore *scoreUser = [hole.scoreUsers objectAtIndex:index];
-                    
-                    //
                 }
                 else
                 {
@@ -471,61 +462,57 @@
                     bodyCell.contentLbl.text = [NSString stringWithFormat:@"%d",[hole.parValue intValue]];
                 }
             }
-            else if (indexPath.row >= numberOfLeftColumns && indexPath.section < scoreCard_.holeCount)
+            else if (indexPath.row >= numberOfLeftColumns && indexPath.section < scoreCard_.holeCount+2)
             {
-                //int index = (int)indexPath.row - (int)numberOfLeftColumns - 1;
+                bodyCell.contentLbl.text = @"";
+                
                 int index = (int)indexPath.row - (int)numberOfLeftColumns;
-                ScoreCardHole *hole = [scoreCard_.holesArray objectAtIndex:indexPath.section-1];
-                if (index >= hole.scoreUsers.count) {
-                    index = (int)hole.scoreUsers.count - 1;
+                ScoreCardHole *hole = nil;
+                if (indexPath.section > 10) {
+                    hole = [scoreCard_.holesArray objectAtIndex:indexPath.section-2];
+                }
+                else
+                {
+                    hole = [scoreCard_.holesArray objectAtIndex:indexPath.section-1];
                 }
                 ScoreCardUserScore *scoreUser = [hole.scoreUsers objectAtIndex:index];
-                if ([scoreCard_.gameType isEqualToString:@"skin"]) {
+                for (NSString *key in scoreUser.symbolsArray) {
                     
-                    bodyCell.greeDotImgView.hidden = NO;
-                    if ([scoreUser.shape isEqualToString:@"pentagon"]) {
+                    NSString *compareString = [key copy];
+                    compareString = [[compareString lowercaseString] stringByReplacingOccurrencesOfString:@" " withString:@""];
+                    if ([compareString isEqualToString:@"green_dot"]) {
                         
+                        bodyCell.greeDotImgView.hidden = NO;
+                    }
+                    else if ([compareString isEqualToString:@"nothing"]) {
+                        bodyCell.containerImgView.hidden = YES;
+                    }
+                    else if ([compareString isEqualToString:@"pentagon"]) {
                         bodyCell.containerImgView.hidden = NO;
                         [bodyCell.containerImgView setImage:[UIImage imageNamed:@"skin_symbol"]];
-                        bodyCell.greeDotImgView.hidden = NO;
-                    }
-                    else
-                    {
-                        bodyCell.containerImgView.hidden = YES;
-                    }
-                }
-                else
-                {
-                    if ([scoreUser.shape isEqualToString:@"circle"]) {
                         
+                    }
+                    else if ([compareString isEqualToString:@"circle"]) {
                         bodyCell.containerImgView.hidden = NO;
                         [bodyCell.containerImgView setImage:[UIImage imageNamed:@"equal_par"]];
-                        bodyCell.greeDotImgView.hidden = NO;
+                        
                     }
-                    else if ([scoreUser.shape isEqualToString:@"nothing"])
-                    {
-                        bodyCell.containerImgView.hidden = YES;
-                    }
-                    else
-                    {
+                    else if ([compareString isEqualToString:@"square"]) {
                         bodyCell.containerImgView.hidden = NO;
                         [bodyCell.containerImgView setImage:[UIImage imageNamed:@"above_par"]];
+                        
                     }
-                }
-                if (scoreUser.shapeColor) {
-                    bodyCell.greeDotImgView.hidden = NO;
-                }
-                else
-                {
-                    bodyCell.greeDotImgView.hidden = YES;
                 }
                 bodyCell.contentLbl.text = [NSString stringWithFormat:@"%d",[scoreUser.score intValue]];
             }
             else
             {
                 ScoreCardHole *hole = nil;
-                
-                if (indexPath.section < scoreCard_.holeCount) {
+                if (indexPath.section > 10) {
+                    hole = [scoreCard_.holesArray objectAtIndex:indexPath.section-2];
+                }
+                else
+                {
                     hole = [scoreCard_.holesArray objectAtIndex:indexPath.section-1];
                 }
                 if (hole) {
