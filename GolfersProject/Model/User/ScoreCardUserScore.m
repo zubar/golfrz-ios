@@ -24,9 +24,8 @@
          }
          */
         
-//        NSString *key = [dic allKeys].firstObject;
         _userId = [NSNumber numberWithInt:[key intValue]];
-        NSDictionary *holeData = dic;//[[dic objectForKey:key] isKindOfClass:[NSNull class]]?nil:[dic objectForKey:key];
+        NSDictionary *holeData = dic;
         if (holeData) {
             
             NSString *scoreString = [[holeData objectForKey:@"score"] isKindOfClass:[NSNull class]]?nil: [holeData objectForKey:@"score"];
@@ -38,24 +37,11 @@
                 NSString *symbol = [[symbolData objectForKey:@"symbol"] isKindOfClass:[NSNull class]]?nil: [symbolData objectForKey:@"symbol"];
                 NSArray *symbolsArray = [symbol componentsSeparatedByString:@","];
 
-                if (symbolsArray.count > 1) {
-                    
-                    NSLog(@"Stop");
-                }
                 NSMutableSet *defaultSet = [NSMutableSet setWithSet:[ScoreBoardManager sharedScoreBoardManager].defaultSymbolsSet];;
                 
                 NSSet *symbolsSet = [NSSet setWithArray:symbolsArray];
                 [defaultSet intersectSet:symbolsSet];
                 NSArray *resultArray = [defaultSet allObjects];
-                
-//                if (symbolsArray && symbolsArray.count > 1) {
-//                    _shape = symbolsArray.firstObject;
-//                    _shapeColor = symbolsArray.lastObject;
-//                }
-//                else if(symbolsArray.count == 1)
-//                {
-//                    _shape = symbolsArray.firstObject;
-//                }
                 _symbolsArray = resultArray;
                 
             }

@@ -333,7 +333,6 @@
             {
                 if (indexPath.row >= numberOfLeftColumns) {
                     
-                    //int index = (int)indexPath.row - (int)numberOfLeftColumns - 1;
                     int index = (int)indexPath.row - (int)numberOfLeftColumns;
                 
                     ScoreCardUser *cardUser = [scoreCard_.users objectAtIndex:index];
@@ -373,7 +372,6 @@
                 bodyCell.contentLbl.text = @"";
                 bodyCell.containerImgView.hidden = NO;
                 [bodyCell.containerImgView setImage:[UIImage imageNamed:@"skin_symbol"]];
-                //bodyCell.greeDotImgView.hidden = NO;
             }
             else
             {
@@ -385,9 +383,10 @@
                 });
                 bodyCell.contentLbl.text = @"";
                 
-                if (indexPath.row > numberOfLeftColumns) {
+                if (indexPath.row >= numberOfLeftColumns) {
                     
-                    int index = (int)indexPath.row - (int)numberOfLeftColumns - 1;
+                    NSLog(@"indexpath :%d",(int)indexPath.row);
+                    int index = (int)indexPath.row - (int)numberOfLeftColumns;
                     ScoreCardUser *cardUser = [scoreCard_.users objectAtIndex:index];
                     if (cardUser) {
                         
