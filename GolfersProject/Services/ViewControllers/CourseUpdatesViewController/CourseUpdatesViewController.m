@@ -118,6 +118,7 @@
     AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
     
     HMMessagesDisplayViewController * controller = [[HMMessagesDisplayViewController alloc] initWithNibName:@"HMMessagesDisplayViewController" bundle:nil];
+    controller.currntActivity = self.courseUpdates[indexPath.row];
     [delegate.appDelegateNavController pushViewController:controller animated:YES];
 
 }
