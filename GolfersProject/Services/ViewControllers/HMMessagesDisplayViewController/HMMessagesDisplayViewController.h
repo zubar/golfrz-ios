@@ -18,6 +18,14 @@
 @property (strong, nonatomic) IBOutlet UILabel * noRecodFoundLabel;
 @property(nonatomic,strong) NSMutableArray * DTOArray;
 
+@property (strong, nonatomic) IBOutlet UIImageView *imgCourseLogo;
+@property (strong, nonatomic) IBOutlet UILabel *lblCourseUpdateText;
+@property (strong, nonatomic) IBOutlet UILabel *lblDay;
+@property (strong, nonatomic) IBOutlet UILabel *lblDate;
+@property (strong, nonatomic) IBOutlet UILabel *noOfcomments;
+@property (strong, nonatomic) IBOutlet UIButton *btnKudos;
+- (IBAction)btnKudosTapped:(UIButton *)sender;
+@property (strong, nonatomic) IBOutlet UILabel *lblNoOfKudos;
 
 @property (strong, nonatomic) Activity * currntActivity;
 

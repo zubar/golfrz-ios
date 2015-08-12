@@ -20,6 +20,9 @@
 #import "Utilities.h"
 #import <QuartzCore/QuartzCore.h>
 #import "UserServices.h"
+#import "SharedManager.h"
+#import "UIImageView+RoundedImage.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface HMMessagesDisplayViewController ()
 {
@@ -82,6 +85,20 @@
 {
     [super viewWillAppear:animated];
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [self.imgCourseLogo sd_setImageWithURL:[NSURL URLWithString:[SharedManager sharedInstance].logoImagePath] placeholderImage:[UIImage imageNamed:@"event_placeholder"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        if (image) {
+            [self.imgCourseLogo setRoundedImage:image];
+        }
+    }];
+    self.lblCourseUpdateText.text = self.currntActivity.text;
+    NSString *commentsCount = [NSString stringWithFormat:@"%@ %@", [self.currntActivity.commentsCount stringValue], @"comments"];
+    //self.lblCommentsCount.text = commentsCount;
+    self.lblNoOfKudos.text = [self.currntActivity.likesCount stringValue];
+    
+    [Utilities dateComponentsFromNSDate:[self.currntActivity createdAt] components:^(NSString *dayName, NSString *monthName, NSString *day, NSString *time, NSString *minutes, NSString *timeAndMinute) {
+        self.lblDay.text = dayName;
+        self.lblDate.text = time;
+    }];
     [self loadMessagesUpdateView:^{
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
     }];
@@ -314,5 +331,7 @@
     //_messagesTable.frame = tableviewFrame;
     [UIView commitAnimations];
     
+}
+- (IBAction)btnKudosTapped:(UIButton *)sender {
 }
 @end

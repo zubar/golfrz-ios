@@ -214,6 +214,8 @@
 		88EF1EF51B78FEFE006F901F /* RewardDescriptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88EF1EF41B78FEFE006F901F /* RewardDescriptionViewController.m */; };
 		88EF1EF91B79014F006F901F /* PastScoreCardsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88EF1EF81B79014F006F901F /* PastScoreCardsViewController.m */; };
 		88EF1EFF1B79F867006F901F /* PastScoreCardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88EF1EFE1B79F867006F901F /* PastScoreCardCell.m */; };
+		88FCA5481B7B46B7001B35BA /* CourseUpdatesHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88FCA5471B7B46B7001B35BA /* CourseUpdatesHeaderView.xib */; };
+		88FCA54B1B7B4C3A001B35BA /* CourseUpdatesHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88FCA54A1B7B4C3A001B35BA /* CourseUpdatesHeaderView.m */; };
 		A921244B1B36DB1E00917649 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A921244A1B36DB1E00917649 /* MessageUI.framework */; };
 /* End PBXBuildFile section */
 
@@ -609,6 +611,9 @@
 		88EF1EF81B79014F006F901F /* PastScoreCardsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PastScoreCardsViewController.m; sourceTree = "<group>"; };
 		88EF1EFD1B79F867006F901F /* PastScoreCardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PastScoreCardCell.h; sourceTree = "<group>"; };
 		88EF1EFE1B79F867006F901F /* PastScoreCardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PastScoreCardCell.m; sourceTree = "<group>"; };
+		88FCA5471B7B46B7001B35BA /* CourseUpdatesHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CourseUpdatesHeaderView.xib; sourceTree = "<group>"; };
+		88FCA5491B7B4C3A001B35BA /* CourseUpdatesHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseUpdatesHeaderView.h; sourceTree = "<group>"; };
+		88FCA54A1B7B4C3A001B35BA /* CourseUpdatesHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseUpdatesHeaderView.m; sourceTree = "<group>"; };
 		A921244A1B36DB1E00917649 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		D817BE50C16025D4FB4E4951 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		E15946F021CC95FC21355D7C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -1930,6 +1935,7 @@
 		889872C71B13237F00D3C0E9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				88FCA5461B7B46A2001B35BA /* CourseUpdatesHeaderView */,
 				88EF1EFC1B79F84E006F901F /* PastScoreCardCell */,
 				88EBE4761B73CCD2002F4FA2 /* RewardListCell */,
 				88255AEB1B70AF360089644F /* ScoreBoardHeaderCell */,
@@ -2076,6 +2082,16 @@
 			path = PastScoreCardCell;
 			sourceTree = "<group>";
 		};
+		88FCA5461B7B46A2001B35BA /* CourseUpdatesHeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				88FCA5471B7B46B7001B35BA /* CourseUpdatesHeaderView.xib */,
+				88FCA5491B7B4C3A001B35BA /* CourseUpdatesHeaderView.h */,
+				88FCA54A1B7B4C3A001B35BA /* CourseUpdatesHeaderView.m */,
+			);
+			path = CourseUpdatesHeaderView;
+			sourceTree = "<group>";
+		};
 		C91B48159ABC56B52D213A0C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -2177,6 +2193,7 @@
 				3D1C8E951B3BFEB0004AAD30 /* popoverArrowRight-white@2x.png in Resources */,
 				3D6346C61B790C980093AA1D /* Main.storyboard in Resources */,
 				3D1C8E991B3BFEB0004AAD30 /* popoverArrowUp-white@2x.png in Resources */,
+				88FCA5481B7B46B7001B35BA /* CourseUpdatesHeaderView.xib in Resources */,
 				3D1C8E901B3BFEB0004AAD30 /* popoverArrowDownSimple.png in Resources */,
 				3D1C8E941B3BFEB0004AAD30 /* popoverArrowLeftSimple.png in Resources */,
 				3D1C8E9B1B3BFEB0004AAD30 /* popoverArrowUp@2x.png in Resources */,
@@ -2311,6 +2328,7 @@
 				3D1CB1001B691563005C1E19 /* RoundInviteViewController.m in Sources */,
 				88EBE4791B73CD0C002F4FA2 /* RewardListCell.m in Sources */,
 				3D7DF2151B6FC84200FCF8FE /* Activity.m in Sources */,
+				88FCA54B1B7B4C3A001B35BA /* CourseUpdatesHeaderView.m in Sources */,
 				3D1963BD1B0CE05700766CFC /* UserServices.m in Sources */,
 				3DA7CB881B2B13FC00B5BAFF /* Cart.m in Sources */,
 				3DD9BD0F1B14BE1C00A2F296 /* THCalendarInfo.m in Sources */,
