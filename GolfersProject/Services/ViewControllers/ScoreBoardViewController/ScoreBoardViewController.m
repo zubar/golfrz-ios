@@ -475,39 +475,48 @@
                     hole = [scoreCard_.holesArray objectAtIndex:indexPath.section-1];
                 }
                 ScoreCardUserScore *scoreUser = [hole.scoreUsers objectAtIndex:index];
-                for (NSString *key in scoreUser.symbolsArray) {
+                if ([scoreUser.score intValue] > 0) {
                     
-                    NSString *compareString = [key copy];
-                    compareString = [[compareString lowercaseString] stringByReplacingOccurrencesOfString:@" " withString:@""];
-                    if ([compareString isEqualToString:@"green_dot"]) {
+                    for (NSString *key in scoreUser.symbolsArray) {
                         
-                        bodyCell.greeDotImgView.hidden = NO;
-                    }
-                    else if ([compareString isEqualToString:@"nothing"]) {
-                        bodyCell.containerImgView.hidden = YES;
-                    }
-                    else if ([compareString isEqualToString:@"pentagon"]) {
-                        bodyCell.containerImgView.hidden = NO;
-                        //[bodyCell.containerImgView setImage:[UIImage imageNamed:@"skin_symbol"]];
-                        dispatch_async(dispatch_get_main_queue(), ^{
+                        NSString *compareString = [key copy];
+                        compareString = [[compareString lowercaseString] stringByReplacingOccurrencesOfString:@" " withString:@""];
+                        if ([compareString isEqualToString:@"green_dot"]) {
                             
-                            [bodyCell.containerImgView setImage:[UIImage imageNamed:@"skin_symbol"]];
-                        });
-                        //[bodyCell.containerImgView setImage:[UIImage imageNamed:@"skin_symbol"]];
-                        
+                            bodyCell.greeDotImgView.hidden = NO;
+                        }
+                        else if ([compareString isEqualToString:@"nothing"]) {
+                            bodyCell.containerImgView.hidden = YES;
+                        }
+                        else if ([compareString isEqualToString:@"pentagon"]) {
+                            bodyCell.containerImgView.hidden = NO;
+                            
+                            dispatch_async(dispatch_get_main_queue(), ^{
+                                
+                                [bodyCell.containerImgView setImage:[UIImage imageNamed:@"skin_symbol"]];
+                            });
+                            
+                        }
+                        else if ([compareString isEqualToString:@"circle"]) {
+                            bodyCell.containerImgView.hidden = NO;
+                            [bodyCell.containerImgView setImage:[UIImage imageNamed:@"equal_par"]];
+                            
+                        }
+                        else if ([compareString isEqualToString:@"square"]) {
+                            bodyCell.containerImgView.hidden = NO;
+                            [bodyCell.containerImgView setImage:[UIImage imageNamed:@"above_par"]];
+                            
+                        }
                     }
-                    else if ([compareString isEqualToString:@"circle"]) {
-                        bodyCell.containerImgView.hidden = NO;
-                        [bodyCell.containerImgView setImage:[UIImage imageNamed:@"equal_par"]];
-                        
-                    }
-                    else if ([compareString isEqualToString:@"square"]) {
-                        bodyCell.containerImgView.hidden = NO;
-                        [bodyCell.containerImgView setImage:[UIImage imageNamed:@"above_par"]];
-                        
-                    }
+                    bodyCell.contentLbl.text = [NSString stringWithFormat:@"%d",[scoreUser.score intValue]];
                 }
-                bodyCell.contentLbl.text = [NSString stringWithFormat:@"%d",[scoreUser.score intValue]];
+                else
+                {
+                    bodyCell.contentLbl.text = @"-";
+                    bodyCell.containerImgView.hidden = YES;
+                    bodyCell.greeDotImgView.hidden = YES;
+                }
+                
             }
             else
             {
