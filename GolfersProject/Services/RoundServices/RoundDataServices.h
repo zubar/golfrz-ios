@@ -89,4 +89,8 @@ typedef NS_ENUM(NSInteger, ShotType) {
 +(void)getRoundInfoForRoundId:(NSNumber *)roundId
                       success:(void(^)(bool status, Round * round))successBlock
                       failure:(void(^)(bool status, GolfrzError * error))failureBlock;
+
+
++(void)isRoundInProgress:(void(^)(bool status, NSNumber * roundNo, NSNumber * subCourseId))successBlock
+                 failure:(void(^)(bool status, GolfrzError * error))failureBlock;
 @end

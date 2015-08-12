@@ -23,6 +23,9 @@
 #import "AddPlayersViewController.h"
 #import "GameSettings.h"
 #import "PastScoreCardsViewController.h"
+#import "ScoreboardServices.h"
+#import "UserServices.h"
+#import "Utilities.h"
 
 @interface PlayerProfileViewController ()
 
@@ -35,7 +38,6 @@
     
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-//    [self.btnStartRound addTarget:self action:@selector(loadPreviousScoreCards) forControlEvents:UIControlEventTouchUpInside];
   
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(loadPreviousScoreCards)];
     [_myScorecardsTapped addGestureRecognizer:tap];
@@ -50,8 +52,7 @@
         }else{
             [self.lblHandicap setText:@"N/A"];
         }
-        //TODO: add pints in service
-        [self.lblPoints setText:@"0"];
+       
         [self.lblCourseName setText:[[CourseServices currentCourse] courseName]];
         
         [MBProgressHUD hideHUDForView:self.view animated:YES];
@@ -72,6 +73,23 @@
     }];
 }
 
+-(void)roundAlreadyInProgress{
+    
+    [RoundDataServices isRoundInProgress:^(bool status, NSNumber *roundNo, NSNumber *subCourseId)
+    {
+        [ScoreboardServices getScoreForUserId:[NSNumber numberWithInteger:[[UserServices currentUserId] integerValue]] holeId:[NSNumber numberWithInt:0] roundId:roundNo success:^(bool status, id score)
+        {
+            [self.lblPoints setText:[score stringValue]];
+        } failure:^(bool status, GolfrzError *error) {
+            [Utilities displayErrorAlertWithMessage:[error errorMessage]];
+        }];
+        
+    } failure:^(bool status, GolfrzError *error) {
+        // In this case ignore this error because it contains the message user has finished the round which we don't want to show the user.
+        [self.lblPoints setText:@"0"];
+    }];
+}
+
 -(void)viewWillAppear:(BOOL)animated{
     
     [self.navigationController.navigationBar setHidden:NO];
@@ -88,12 +106,13 @@
     
     GameSettings * settings = [GameSettings sharedSettings];
     if([settings isRoundInProgress]){
-        [self.btnStartRound setTitle:@"Countinue To Round" forState:UIControlStateNormal
-         ];
+        [self.btnStartRound setTitle:@"CONTINUE TO ROUND" forState:UIControlStateNormal
+         ]; 
     }else{
-        [self.btnStartRound setTitle:@"Countinue To Round" forState:UIControlStateNormal];
+        [self.btnStartRound setTitle:@"START NEW ROUND" forState:UIControlStateNormal];
     }
 
+    [self roundAlreadyInProgress];
 }
 
 - (void)pushNextController{

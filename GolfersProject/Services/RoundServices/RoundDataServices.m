@@ -227,7 +227,31 @@
     }];
 }
 
++(void)isRoundInProgress:(void(^)(bool status, NSNumber * roundNo, NSNumber * subCourseId))successBlock
+                 failure:(void(^)(bool status, GolfrzError * error))failureBlock
+{
+    APIClient * apiClient = [APIClient sharedAPICLient];
+    [apiClient GET:kRoundInProgress parameters:[RoundDataServices paramUserAuthentication] completion:^(id response, NSError *error) {
+        if(!error){
+            successBlock(true,[[response result] valueForKeyPath:@"round.id"], [[response result] valueForKeyPath:@"round.sub_course_id"]);
+        }else{
+            failureBlock(false, [response result]);
+        }
+    }];
+
+}
+
 #pragma mark - HelperMethods
+
++(NSDictionary *)paramUserAuthentication{
+
+    return @{
+        @"app_bundle_id" : kAppBundleId,
+        @"user_agent" : kUserAgent,
+        @"auth_token" : [UserServices currentToken],
+    };
+}
+
 +(NSDictionary *)paramStartRoundWithId:(NSNumber *)roundId
                            subCourseId:(NSNumber * )subcourseId
 {
