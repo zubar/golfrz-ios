@@ -17,6 +17,8 @@
 #import "ScoreBoardBodyCell.h"
 #import "ScoreBoardHeaderCell.h"
 #import "MBProgressHUD.h"
+#import "CourseServices.h"
+#import "Course.h"
 @interface ScoreBoardViewController (){
     
     NSUInteger numberOfLeftColumns;
@@ -34,6 +36,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.title = [[CourseServices currentCourse] courseName];
+    
     [ScoreBoardManager sharedScoreBoardManager].numberOfSections = 0;
     [ScoreBoardManager sharedScoreBoardManager].numberOfItems = 0;
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];

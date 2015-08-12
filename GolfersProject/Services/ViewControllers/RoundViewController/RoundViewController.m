@@ -262,7 +262,7 @@
     [RoundDataServices finishRoundWithBlock:^(bool status, id response) {
         // TODO: Navigate to ScoreCard.
         if(status){
-            [ScoreboardServices getScoreCardForRoundId:[NSNumber numberWithInt:611] subCourse:[NSNumber numberWithInt:1] success:^(bool status, id responseObject) {
+            [ScoreboardServices getScoreCardForRoundId:[[GameSettings sharedSettings] roundId] subCourse:[[GameSettings sharedSettings] subCourseId] success:^(bool status, id responseObject) {
                 if(status){
                     //Load scorecard here.
                     ScoreBoardViewController *scoreBoardVc = [self.storyboard instantiateViewControllerWithIdentifier:@"SCORE_BOARD_VC_ID"];
