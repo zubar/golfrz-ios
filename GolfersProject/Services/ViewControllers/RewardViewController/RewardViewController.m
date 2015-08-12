@@ -22,10 +22,15 @@
 #import "CourseServices.h"
 #import "Course.h"
 #import "RewardServices.h"
+#import "RewardDescriptionViewController.h"
+#import "AppDelegate.h"
+#import "InviteMainViewController.h"
 
 @interface RewardViewController (){
         RewardListViewController  *_rewardListVC;
         RewardTutorialContainerVC *_rewardTutorialContainerVC;
+        RewardDescriptionViewController * _rewardDescriptionViewController;
+    
         UIViewController __weak *_currentChildController;
 }
 /*! @brief Array of view controllers to switch between */
@@ -43,13 +48,22 @@
     [self.checkedInContainerView setHidden:YES];
     [self populateUserPointsView];
     
+    //
+    _rewardDescriptionViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"RewardDescriptionViewController"];
+    _rewardDescriptionViewController.rewardViewController = self;
+    
     // let's create our two controllers
     _rewardListVC = [self.storyboard instantiateViewControllerWithIdentifier:@"RewardListViewController"];
     _rewardListVC.rewardViewController = self;
+    _rewardListVC.rewardDescriptionViewController = _rewardDescriptionViewController;
+    
     _rewardTutorialContainerVC = [self.storyboard instantiateViewControllerWithIdentifier:@"RewardTutorialContainerVC"];
     _rewardTutorialContainerVC.rewardViewController = self;
+    
+   
+    
     // Add A and B view controllers to the array
-    self.allViewControllers = [[NSArray alloc] initWithObjects:_rewardListVC, _rewardTutorialContainerVC, nil];
+    self.allViewControllers = [[NSArray alloc] initWithObjects:_rewardListVC, _rewardTutorialContainerVC, _rewardDescriptionViewController, nil];
     
     [self cycleFromViewController:_currentChildController toViewController:[self.allViewControllers objectAtIndex:self.selectedControllerIndex]];
     
@@ -57,7 +71,7 @@
 
 -(void)cycleControllerToIndex:(NSInteger )controllerIndex{
     self.selectedControllerIndex = controllerIndex;
-    [self cycleFromViewController:_currentChildController toViewController:[self.allViewControllers objectAtIndex:controllerIndex]];
+    [self cycleFromViewController:_currentChildController toViewController:[self.allViewControllers objectAtIndex:self.selectedControllerIndex]];
 }
 
 - (void)cycleFromViewController:(UIViewController*)oldVC toViewController:(UIViewController*)newVC {
@@ -121,6 +135,16 @@
 
 - (void)viewWillAppear:(BOOL)animated   {
     [super viewWillAppear:animated];
+    [self.navigationController.navigationBar setHidden:NO];
+    
+    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+    [[self navigationItem] setTitle:@"REWARDS"];
+    UIButton * imageRightButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 10, 22, 22)];
+    [imageRightButton setBackgroundImage:[UIImage imageNamed:@"invite_icon"] forState:UIControlStateNormal];
+    [imageRightButton addTarget:self action:@selector(inviteFriendTap) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:imageRightButton];
+    self.navigationItem.rightBarButtonItem = rightBarButtonItem;
+
 }
 
 #pragma mark - Private Methods
@@ -208,6 +232,14 @@
         [Utilities displayErrorAlertWithMessage:[error errorMessage]];
     }];
 
+}
+
+- (void)inviteFriendTap{
+    
+    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+    InviteMainViewController * friendsController = [self.storyboard instantiateViewControllerWithIdentifier:@"InviteMainViewController"];
+    [delegate.appDelegateNavController pushViewController:friendsController animated:YES];
+    
 }
 
 @end

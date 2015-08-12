@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "BaseViewController.h"
+
 @interface ScoreBoardViewController : BaseViewController<UICollectionViewDataSource,
                                                         UICollectionViewDelegate,
                                                         UIScrollViewDelegate>

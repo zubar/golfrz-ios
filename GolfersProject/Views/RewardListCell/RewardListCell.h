@@ -25,6 +25,8 @@
 @property (strong, nonatomic) IBOutlet UIButton *btnRedeem;
 @property (strong, nonatomic) IBOutlet UIImageView *imgRewardImage;
 
+
+- (IBAction)btnRedeemTapped:(UIButton *)sender;
 @property (strong , nonatomic) Reward *currentReward;
 
 

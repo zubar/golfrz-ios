@@ -62,9 +62,7 @@
         successBlock(true,responseObject);
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        
         failureBlock(false,error);
-        
     }];
 }
 

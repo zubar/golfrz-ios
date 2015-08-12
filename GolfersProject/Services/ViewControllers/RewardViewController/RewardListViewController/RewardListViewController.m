@@ -15,9 +15,11 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "RewardDescriptionViewController.h"
 #import "AppDelegate.h"
+#import "MBProgressHUD.h"
 
 @interface RewardListViewController ()
 @property (strong, nonatomic) NSMutableArray * rewardsList;
+@property (strong, nonatomic) Reward * selectedReward;
 
 @end
 
@@ -43,19 +45,12 @@
 
 - (void)configureView   {
     
+    self.navigationItem.title = @"REWARDS";
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [self fetchRewardsListCompletion:^{
         [self.rewardTable reloadData];
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
     }];
-    
-//    _dataSource.cellConfigureBlock = ^(SSBaseCollectionCell *cell,
-//                                       id object,
-//                                       UITableView *tableView,
-//                                       NSIndexPath *indexPath) {
-//        [cell configureCell:nil atIndex:indexPath withObject:object];
-//        [cell setNeedsUpdateConstraints];
-//        [cell updateConstraintsIfNeeded];
-//    };
-    
 }
 
 
@@ -122,15 +117,14 @@
 
 - (void) btnRedeemTappedForCurrentCell:(Reward *)rewardItem{
     
-    //AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
-    RewardDescriptionViewController * controller = [self.storyboard instantiateViewControllerWithIdentifier:@"RewardDescriptionViewController"];
-    controller.currentReward = rewardItem;
-    //[delegate.appDelegateNavController pushViewController:controller animated:YES];
-    [self.navigationController pushViewController:controller animated:YES];
+    if (!self.rewardDescriptionViewController) {
+        self.rewardDescriptionViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"RewardDescriptionViewController"];
+    }
+    self.rewardDescriptionViewController.currentReward = rewardItem;
+    self.selectedReward = rewardItem;
+    [self.rewardViewController cycleControllerToIndex:2];
     
 }
-
-
 
 @end
 

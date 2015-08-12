@@ -89,14 +89,12 @@
     [delegate.appDelegateNavController setNavigationBarHidden:NO];
     [delegate.appDelegateNavController.navigationBar setTitleVerticalPositionAdjustment:0.0 forBarMetrics:UIBarMetricsDefault];
    
-    //[[UINavigationBar appearance] setTitleVerticalPositionAdjustment:-10.0 forBarMetrics:UIBarMetricsDefault];
 }
 
--(void)viewWillDisappear:(BOOL)animated{
-    
+-(void)viewWillDisappear:(BOOL)animated
+{
     AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
     [delegate.appDelegateNavController setNavigationBarHidden:YES];
-    
 }
 
 -(void)InviteFriendbackBtnTapped{

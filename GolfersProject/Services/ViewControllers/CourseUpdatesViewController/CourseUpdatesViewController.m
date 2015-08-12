@@ -33,6 +33,8 @@
     // Do any additional setup after loading the view.
      if(!self.courseUpdates) self.courseUpdates = [[NSMutableArray alloc] init];
     
+    [self.navigationItem setTitle:@"COURSE UPDATES"];
+    
     [CourseUpdateServices getCourseUpdates:^(bool status, CourseUpdate *update) {
         [self.courseUpdates addObjectsFromArray:[update activities]];
         [self.tblUpdates reloadData];
