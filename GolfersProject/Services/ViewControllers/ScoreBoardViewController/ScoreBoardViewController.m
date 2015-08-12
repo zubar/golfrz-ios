@@ -393,16 +393,12 @@
                 if (indexPath.row > numberOfLeftColumns) {
                     
                     int index = (int)indexPath.row - (int)numberOfLeftColumns - 1;
-                    //ScoreCardHole *hole = [scoreCard_.holesArray objectAtIndex:indexPath.section-1];
                     ScoreCardUser *cardUser = [scoreCard_.users objectAtIndex:index];
                     if (cardUser) {
                         
                         bodyCell.contentLbl.text = [NSString stringWithFormat:@"%d",[cardUser.skinCount intValue]];
                     }
                     
-                    //ScoreCardUserScore *scoreUser = [hole.scoreUsers objectAtIndex:index];
-                    
-                    //
                 }
                 else
                 {
@@ -473,7 +469,6 @@
             }
             else if (indexPath.row >= numberOfLeftColumns && indexPath.section < scoreCard_.holeCount)
             {
-                //int index = (int)indexPath.row - (int)numberOfLeftColumns - 1;
                 int index = (int)indexPath.row - (int)numberOfLeftColumns;
                 ScoreCardHole *hole = [scoreCard_.holesArray objectAtIndex:indexPath.section-1];
                 if (index >= hole.scoreUsers.count) {
