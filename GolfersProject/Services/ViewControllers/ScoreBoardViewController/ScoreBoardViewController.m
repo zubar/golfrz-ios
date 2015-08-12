@@ -492,7 +492,12 @@
                     }
                     else if ([compareString isEqualToString:@"pentagon"]) {
                         bodyCell.containerImgView.hidden = NO;
-                        [bodyCell.containerImgView setImage:[UIImage imageNamed:@"skin_symbol"]];
+                        //[bodyCell.containerImgView setImage:[UIImage imageNamed:@"skin_symbol"]];
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            
+                            [bodyCell.containerImgView setImage:[UIImage imageNamed:@"skin_symbol"]];
+                        });
+                        //[bodyCell.containerImgView setImage:[UIImage imageNamed:@"skin_symbol"]];
                         
                     }
                     else if ([compareString isEqualToString:@"circle"]) {
