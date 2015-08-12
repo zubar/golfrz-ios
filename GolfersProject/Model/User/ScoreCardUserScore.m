@@ -7,7 +7,7 @@
 //
 
 #import "ScoreCardUserScore.h"
-
+#import "ScoreBoardManager.h"
 @implementation ScoreCardUserScore
 
 -(instancetype)initWithDictionary:(NSDictionary *)dic andKey:(NSString *)key
@@ -37,14 +37,26 @@
                 _shotType = [[symbolData objectForKey:@"shot_type"] isKindOfClass:[NSNull class]]?nil: [symbolData objectForKey:@"shot_type"];
                 NSString *symbol = [[symbolData objectForKey:@"symbol"] isKindOfClass:[NSNull class]]?nil: [symbolData objectForKey:@"symbol"];
                 NSArray *symbolsArray = [symbol componentsSeparatedByString:@","];
-                if (symbolsArray && symbolsArray.count > 1) {
-                    _shape = symbolsArray.firstObject;
-                    _shapeColor = symbolsArray.lastObject;
+
+                if (symbolsArray.count > 1) {
+                    
+                    NSLog(@"Stop");
                 }
-                else if(symbolsArray.count == 1)
-                {
-                    _shape = symbolsArray.firstObject;
-                }
+                NSMutableSet *defaultSet = [NSMutableSet setWithSet:[ScoreBoardManager sharedScoreBoardManager].defaultSymbolsSet];;
+                
+                NSSet *symbolsSet = [NSSet setWithArray:symbolsArray];
+                [defaultSet intersectSet:symbolsSet];
+                NSArray *resultArray = [defaultSet allObjects];
+                
+//                if (symbolsArray && symbolsArray.count > 1) {
+//                    _shape = symbolsArray.firstObject;
+//                    _shapeColor = symbolsArray.lastObject;
+//                }
+//                else if(symbolsArray.count == 1)
+//                {
+//                    _shape = symbolsArray.firstObject;
+//                }
+                _symbolsArray = resultArray;
                 
             }
             
