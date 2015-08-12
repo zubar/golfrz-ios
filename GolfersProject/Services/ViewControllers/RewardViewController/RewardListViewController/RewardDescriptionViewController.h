@@ -13,7 +13,7 @@
 
 
 
-@interface RewardDescriptionViewController : UIViewController
+@interface RewardDescriptionViewController : UIViewController<UIAlertViewDelegate>
 
 @property(weak, nonatomic) RewardViewController * rewardViewController;
 

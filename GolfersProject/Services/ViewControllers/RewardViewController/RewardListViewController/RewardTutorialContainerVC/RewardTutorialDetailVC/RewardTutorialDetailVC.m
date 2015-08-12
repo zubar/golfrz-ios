@@ -26,6 +26,8 @@
     
     //Or whatever number of viewcontrollers you have
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [self.view setHidden:YES];
+
     
     UISwipeGestureRecognizer *  rightRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(loadPreviousController)];
     [rightRecognizer setDirection:(UISwipeGestureRecognizerDirectionRight)];
@@ -55,6 +57,7 @@
 
 -(void)viewDidAppear:(BOOL)animated{
     [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+    [self.view setHidden:NO];
 }
 
 -(void)loadNextController{
