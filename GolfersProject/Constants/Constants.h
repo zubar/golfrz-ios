@@ -97,10 +97,11 @@ static NSString * const kConfirmCartOrder = @"menus/place_order";
 static NSString * const kRoundInSubCourse = @"rounds/fetch_rounds_dropdowns";
 static NSString * const kRoundNew = @"rounds/new";
 static NSString * const kRoundStart = @"rounds/start";
-static NSString * const kRoundFinish = @"rounds/finsih";
+static NSString * const kRoundFinish = @"rounds/finish";
 static NSString * const kRoundAddGuest = @"rounds/create_guest";
 static NSString * const kRoundPlayers = @"rounds/round_players";
 static NSString * const kRoundInfo = @"rounds/round_info";
+static NSString * const kRoundInProgress = @"rounds/last_round_info";
 
 
 /*

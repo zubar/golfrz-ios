@@ -18,7 +18,7 @@
 +(void)getScoreForUserId:(NSNumber *)userId
                   holeId:(NSNumber *)holeId
                  roundId:(NSNumber *)roundId
-                 success:(void (^)(bool status, id roundId))successBlock
+                 success:(void (^)(bool status, id score))successBlock
                   failure:(void (^)(bool status, GolfrzError * error))failureBlock{
     
     AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];

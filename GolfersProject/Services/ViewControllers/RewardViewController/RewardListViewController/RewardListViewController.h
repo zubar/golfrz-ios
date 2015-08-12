@@ -17,6 +17,8 @@
 @interface RewardListViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, RewardListCellDelegate>
 
 @property(weak, nonatomic) RewardViewController * rewardViewController;
+@property(strong, nonatomic) RewardDescriptionViewController *  rewardDescriptionViewController;
+
 @property (strong, nonatomic) IBOutlet UITableView *rewardTable;
 - (IBAction)btnRewieRewardsTapped:(UIButton *)sender;
 

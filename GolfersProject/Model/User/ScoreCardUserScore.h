@@ -15,6 +15,7 @@
 @property(nonatomic,strong)NSNumber *score;
 @property(nonatomic,strong)NSString *shotType;
 @property(nonatomic,strong)NSString *shape;
+@property(nonatomic,strong)NSArray *symbolsArray;
 @property(nonatomic,strong)NSString *shapeColor;
 
 -(instancetype)initWithDictionary:(NSDictionary *)dic andKey:(NSString *)key;

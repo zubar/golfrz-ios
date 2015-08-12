@@ -79,7 +79,7 @@
     
     [self.playersTableContainerView setHidden:NO];
     [self.addPlayerContainerView setHidden:YES];
-    [self.btnStartRound setTitle:@"Continue To Round" forState:UIControlStateNormal];
+    [self.btnStartRound setTitle:@"CONTINUE TO ROUND" forState:UIControlStateNormal];
     [self.btnStartRound setHidden:NO];
     ( [self.playersInRound count] > 1 ? [self.btnStartRound setHidden:NO] : [self.btnStartRound setHidden:YES]);
 
@@ -90,7 +90,7 @@
     
     [self.playersTableContainerView setHidden:NO];
     [self.addPlayerContainerView setHidden:YES];
-    [self.btnStartRound setTitle:@"Start Round" forState:UIControlStateNormal];
+    [self.btnStartRound setTitle:@"START ROUND" forState:UIControlStateNormal];
     [self.btnStartRound setHidden:NO];
     
 }
@@ -193,7 +193,7 @@
         [self.playersTable reloadData];
         completionHandler();
     }];
-    [self.btnStartRound setTitle:@"Continue To Round" forState:UIControlStateNormal];
+    [self.btnStartRound setTitle:@"CONTINUE TO ROUND" forState:UIControlStateNormal];
     [self.btnStartRound setHidden:NO];
     [self.playersTableContainerView setHidden:NO];
     [self.addPlayerContainerView setHidden:YES];
