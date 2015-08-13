@@ -24,6 +24,7 @@
 - (IBAction)btnDecrementTapped:(UIButton *)sender;
 
 @property (strong, nonatomic) FoodBeverage *selectedItem;
+@property (weak, nonatomic) IBOutlet UIImageView *imgViewBackground;
 
 
 @property (strong, nonatomic) IBOutlet UILabel *lblItemName;

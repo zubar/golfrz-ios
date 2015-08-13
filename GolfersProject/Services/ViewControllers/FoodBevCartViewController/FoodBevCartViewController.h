@@ -20,6 +20,7 @@
 
 
 @property (strong, nonatomic) NSMutableArray *cartArray;
+@property (weak, nonatomic) IBOutlet UIImageView *imgViewBackground;
 
 - (IBAction)btnPlaceOrderTapped:(UIButton *)sender;
 

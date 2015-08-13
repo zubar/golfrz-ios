@@ -15,5 +15,6 @@
 
 @property (strong, nonatomic) IBOutlet UIButton *btnNextHoles;
 @property (strong, nonatomic) IBOutlet UICollectionView *holeCollectionView;
+@property (weak, nonatomic) IBOutlet UIImageView *imgViewBackground;
 
 @end

@@ -26,6 +26,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    SharedManager * manager = [SharedManager sharedInstance];
+    [self.imgViewBackground setImage:[manager backgroundImage]];
+
+    
     if (!self.firstNineHoles) {
         self.firstNineHoles = [[NSMutableArray alloc]initWithCapacity:1];
         GameSettings * settings = [GameSettings sharedSettings];

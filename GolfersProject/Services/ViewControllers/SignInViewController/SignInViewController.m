@@ -31,13 +31,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    SharedManager * manager = [SharedManager sharedInstance];
+    [self.imgViewBackground setImage:[manager backgroundImage]];
+
+    
     [self.navigationController setNavigationBarHidden:YES animated:YES];
     //[super viewWillAppear:YES];
     [self addGestureToForgotPassword];
     // Do any additional setup after loading the view.
     
-
-    SharedManager * manager = [SharedManager sharedInstance];
     
     [self.imgCourseLogo sd_setImageWithURL:[NSURL URLWithString:manager.logoImagePath] placeholderImage:[UIImage imageNamed:@"event_placeholder"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         if (image) {

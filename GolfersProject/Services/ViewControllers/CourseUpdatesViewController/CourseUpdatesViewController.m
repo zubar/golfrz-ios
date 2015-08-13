@@ -30,6 +30,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    SharedManager * manager = [SharedManager sharedInstance];
+    [self.imgViewBackground setImage:[manager backgroundImage]];
+
+    
     // Do any additional setup after loading the view.
      if(!self.courseUpdates) self.courseUpdates = [[NSMutableArray alloc] init];
     

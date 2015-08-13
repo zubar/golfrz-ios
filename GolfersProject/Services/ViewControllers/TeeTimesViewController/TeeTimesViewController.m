@@ -49,13 +49,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    SharedManager * manager = [SharedManager sharedInstance];
+    [self.imgViewBackground setImage:[manager backgroundImage]];
+
     self.navigationItem.title = @"TEE TIMES";
     
     if(!self.subCourses) self.subCourses = [[NSMutableArray alloc] init];
     if(!self.teeTimesData) self.teeTimesData = [[NSMutableDictionary alloc] init];
     
     // Do any additional setup after loading the view.
-    SharedManager * manager = [SharedManager sharedInstance];
     self.lblCourseName.text = [manager courseName];
     [self.imgCourseLogo sd_setImageWithURL:[NSURL URLWithString:manager.logoImagePath] placeholderImage:[UIImage imageNamed:@"event_placeholder"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         if (image) {

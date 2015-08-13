@@ -12,5 +12,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *lblBackToLogin;
 
 @property (weak, nonatomic) IBOutlet UIImageView *imgCourseLogo;
+@property (weak, nonatomic) IBOutlet UIImageView *imgViewBackground;
 
 @end

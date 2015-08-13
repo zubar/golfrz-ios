@@ -21,4 +21,9 @@
 
 @property (retain, nonatomic) IBOutlet UITableView *eventsTableVeiw;
 @property (weak, nonatomic) IBOutlet UILabel *lblNoEvents;
+
+
+
+@property (weak, nonatomic) IBOutlet UIImageView *imgViewBackground;
+
 @end

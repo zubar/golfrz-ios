@@ -25,4 +25,7 @@
 - (IBAction)btnContactAdminTapped:(UIButton *)sender;
 - (IBAction)btnInviteFriendsTapped:(UIButton *)sender;
 
+
+@property (weak, nonatomic) IBOutlet UIImageView *imgViewBackground;
+
 @end

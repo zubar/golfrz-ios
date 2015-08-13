@@ -57,6 +57,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    SharedManager * manager = [SharedManager sharedInstance];
+    [self.imgViewBackground setImage:[manager backgroundImage]];
+
+    
     self.dataArray = [[NSMutableArray alloc]init];
     self.playersInRound = [[NSMutableArray alloc] init];
     currentItemsIndropdown = DropDownContainsItemsNone;

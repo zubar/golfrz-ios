@@ -16,10 +16,13 @@
 #import "MBProgressHUD.h"
 #import "InitialViewController.h"
 #import "AppDelegate.h"
+#import "SharedManager.h"
 
 #import "UserServices.h"
 #import "ClubHouseViewController.h"
 #import "Utilities.h"
+#import "AppDelegate.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface SplashScreenViewController ()
 
@@ -30,15 +33,38 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
     
-   
-    [self.imgSplash setImage:[UIImage imageNamed:@"background_image"]];
+   //TODDO: Testing
+    NSString *urlAsString = @"http://45.56.104.68/system/attachments/contents/000/000/002/original/car1.jpg?1439443697";
+    NSURL *url = [NSURL URLWithString:urlAsString];
+    
+    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
+    NSURLResponse *response = nil;
+    NSError *error = nil;
+    
+    NSLog(@"Firing synchronous url connection...");
+    NSData *data = [NSURLConnection sendSynchronousRequest:urlRequest
+                                         returningResponse:&response
+                                                     error:&error];
+    
+    if ([data length] > 0 && error == nil){
+        UIImage * bgImag = [UIImage imageWithData:data];
+        if (bgImag != nil) {
+            [[SharedManager sharedInstance] setBackgroundImage:bgImag];
+        }else{
+            [[SharedManager sharedInstance] setBackgroundImage:[UIImage imageNamed:@"background_image"]];
+        }
+    }
+    [[SharedManager sharedInstance] setBackgroundImage:[UIImage imageNamed:@"background_image"]];
 
+    
+    [self.imgSplash setImage:[[SharedManager sharedInstance] backgroundImage]];
+    
+
+    AppDelegate * delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
     SharedManager * sharedManager = [SharedManager sharedInstance];
-    
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    
     
     [CourseServices courseInfo:^(bool status, id tObject) {
         NSDictionary * mCourse = tObject;
@@ -66,7 +92,7 @@
         }else
          */
         //TODO:
-         {
+        {
             // push sign in controller
             InitialViewController * initController = [self.storyboard instantiateViewControllerWithIdentifier:@"InitialViewController"];
             [delegate.appDelegateNavController pushViewController:initController animated:YES];
@@ -95,6 +121,7 @@
         InitialViewController * initController = [self.storyboard instantiateViewControllerWithIdentifier:@"InitialViewController"];
         [delegate.appDelegateNavController pushViewController:initController animated:YES];
     }];
+
 }
 
 -(void)viewWillAppear:(BOOL)animated{

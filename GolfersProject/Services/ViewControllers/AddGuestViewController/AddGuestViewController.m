@@ -7,6 +7,7 @@
 //
 
 #import "AddGuestViewController.h"
+#import "SharedManager.h"
 
 @interface AddGuestViewController ()
 
@@ -17,6 +18,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    SharedManager * manager = [SharedManager sharedInstance];
+    [self.imgViewBackground setImage:[manager backgroundImage]];
+
 }
 
 - (void)didReceiveMemoryWarning {

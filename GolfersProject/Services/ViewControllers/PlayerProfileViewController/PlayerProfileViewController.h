@@ -23,6 +23,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *lblCourseName;
 
 @property (weak, nonatomic) IBOutlet UIButton *btnStartRound;
+@property (weak, nonatomic) IBOutlet UIImageView *imgViewBackground;
 
 
 @end

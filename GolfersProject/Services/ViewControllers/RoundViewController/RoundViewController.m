@@ -53,6 +53,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    SharedManager * manager = [SharedManager sharedInstance];
+    [self.imgViewBackground setImage:[manager backgroundImage]];
+
+    
     if (!self.playersInRound) {
         self.playersInRound = [[NSMutableArray alloc]initWithCapacity:1];
     }

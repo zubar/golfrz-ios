@@ -43,6 +43,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    SharedManager * manager = [SharedManager sharedInstance];
+    [self.imgViewBackground setImage:[manager backgroundImage]];
+
+    
     /*! @brief Array of view controllers to switch between */
     self.selectedControllerIndex = 0;
     [self.checkedInContainerView setHidden:YES];

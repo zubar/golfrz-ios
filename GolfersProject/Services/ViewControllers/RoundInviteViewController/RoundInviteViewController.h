@@ -18,5 +18,6 @@
 @property (strong, nonatomic) NSArray *inviteArrayImages;
 
 @property (strong, nonatomic) NSArray *inviteNames;
+@property (weak, nonatomic) IBOutlet UIImageView *imgViewBackground;
 
 @end

@@ -13,6 +13,7 @@
 #import "Utilities.h"
 #import "MBProgressHUD.h"
 #import "ScoreBoardViewController.h"
+#import "SharedManager.h"
 
 @interface PastScoreCardsViewController ()
 @property(strong, nonatomic) NSMutableArray * pastScores;
@@ -22,6 +23,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    SharedManager * manager = [SharedManager sharedInstance];
+    [self.imgViewBackground setImage:[manager backgroundImage]];
+
     
     self.navigationItem.title = @"PAST SCORECARDS";
     // Do any additional setup after loading the view.

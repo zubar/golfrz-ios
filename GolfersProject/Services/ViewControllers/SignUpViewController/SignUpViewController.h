@@ -19,5 +19,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *lblTermsOfService;
 - (IBAction)btnRegisterTapped:(UIButton *)sender;
 - (IBAction)btnBackTapped:(UIButton *)sender;
+@property (weak, nonatomic) IBOutlet UIImageView *imgViewBackground;
 
 @end

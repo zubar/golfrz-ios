@@ -27,5 +27,6 @@ typedef  NS_ENUM(NSUInteger, FriendContactType){
 }
 @property (nonatomic, assign) FriendContactType currentFriendContactType;
 @property (weak, nonatomic) IBOutlet UITableView *friendsTableView;
+@property (weak, nonatomic) IBOutlet UIImageView *imgViewBackground;
 
 @end

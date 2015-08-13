@@ -41,6 +41,7 @@
 - (IBAction)btnNextHoleTapped:(UIButton *)sender;
 - (IBAction)btnPreviousHoleTapped:(UIButton *)sender;
 
+@property (weak, nonatomic) IBOutlet UIImageView *imgViewBackground;
 
 
 @end

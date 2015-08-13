@@ -38,6 +38,10 @@
     
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    SharedManager * manager = [SharedManager sharedInstance];
+    [self.imgViewBackground setImage:[manager backgroundImage]];
+    
   
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(loadPreviousScoreCards)];
     [_myScorecardsTapped addGestureRecognizer:tap];

@@ -27,6 +27,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    SharedManager * manager = [SharedManager sharedInstance];
+    [self.backgroundImg setImage:[manager backgroundImage]];
+
+    
     //Assuming the view will always be created in non-editing mode.
     isEditing = false;
     
