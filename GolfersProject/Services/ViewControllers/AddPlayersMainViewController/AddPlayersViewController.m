@@ -570,7 +570,7 @@
 // Inviter only needs to call start round api.
 -(void)startRoundInviter{
 
-    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     GameSettings * persistentStore = [GameSettings sharedSettings];
     
     AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
@@ -583,8 +583,10 @@
                                        subCourseId:[persistentStore subCourseId]
                                            success:^(bool status, id roundId) {
                                                if (status) {
+                                                   [MBProgressHUD hideHUDForView:self.view animated:YES];
                                                    HolesMapViewController * holesMapViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"HolesMapViewController"];
                                                    [delegate.appDelegateNavController pushViewController:holesMapViewController animated:YES];
+                                                   return ;
                                                }
                                            } failure:^(bool status, NSError *error) {
                                                [[[UIAlertView alloc]initWithTitle:@"Try Again" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
@@ -597,7 +599,7 @@
 // Invitee first needs to call new round API then start round.
 -(void)startRoundInvitee{
     
-    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     GameSettings * persistentStore = [GameSettings sharedSettings];
     
     AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
@@ -610,8 +612,10 @@
                                        subCourseId:[persistentStore subCourseId]
                                            success:^(bool status, id roundId) {
                                                if (status) {
+                                                   [MBProgressHUD hideHUDForView:self.view animated:YES];
                                                    HolesMapViewController * holesMapViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"HolesMapViewController"];
                                                    [delegate.appDelegateNavController pushViewController:holesMapViewController animated:YES];
+                                                   return ;
                                                }
                                            } failure:^(bool status, NSError *error) {
                                                [[[UIAlertView alloc]initWithTitle:@"Try Again" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];

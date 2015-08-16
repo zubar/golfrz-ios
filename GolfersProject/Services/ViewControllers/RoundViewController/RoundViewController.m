@@ -14,6 +14,9 @@
 #import "AppDelegate.h"
 #import "ScoreSelectionView.h"
 #import "ScoreSelectionCell.h"
+#import "UserServices.h"
+#import "User.h"
+#import "Hole.h"
 
 #import "RoundDataServices.h"
 #import "GameSettings.h"
@@ -37,6 +40,7 @@
     BOOL isScoreTableDescended;
 }
 @property (nonatomic, strong) NSMutableArray * playersInRound;
+@property (nonatomic, strong) NSMutableDictionary * playerScores;
 @property (nonatomic, strong) CMPopTipView * popTipView;
 @property (nonatomic, strong) id editScoreBtn;
 @property (nonatomic, strong) Hole * currentHole;
@@ -46,6 +50,7 @@
 
 @property (nonatomic, strong) id scoredPlayer;
 @property (nonatomic, strong) PlayerScoreView * headerView;
+@property (nonatomic, strong) User * mySelf; // the player who has installed the app.
 @end
 
 @implementation RoundViewController
@@ -53,6 +58,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    if(!self.playerScores) self.playerScores = [NSMutableDictionary new];
+    
     SharedManager * manager = [SharedManager sharedInstance];
     [self.imgViewBackground setImage:[manager backgroundImage]];
 
@@ -74,7 +81,17 @@
     // Right button
     UIBarButtonItem * rightBtn = [[UIBarButtonItem alloc]initWithTitle:@"FINISH ROUND" style:UIBarButtonItemStylePlain target:self action:@selector(finishRoundTap)];
     self.navigationItem.rightBarButtonItem = rightBtn;
-    [self.lblHoleNo setText:[NSString stringWithFormat:@"%@", self.holeNumberPlayed]];
+   
+    [self loadDataForHoleNumber:self.holeNumberPlayed];
+}
+
+-(void)loadDataForHoleNumber:(NSNumber *)holeNumber{
+    
+    GameSettings * settings = [GameSettings sharedSettings];
+    self.currentHole = [[[settings subCourse] holes] objectAtIndex:[self.holeNumberPlayed integerValue]];
+
+    
+    [self.lblHoleNo setText:[NSString stringWithFormat:@"%ld", [holeNumber integerValue]+1]];
     [self.imgDarkerBg setHidden:YES];
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
@@ -83,24 +100,22 @@
                                        if (status) {
                                            if ([self.playersInRound count] > 0) [self.playersInRound removeAllObjects];
                                            [self.playersInRound addObjectsFromArray:playersList.players];
-                                           [self.scoreTable reloadData];
+                                           [self setMySelfToIndexZeroFromPlayersArray];
+                                           [self updateScoresOfAllPlayers];
                                            [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
                                        }
                                    } failure:^(bool status, GolfrzError *error) {
                                        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
                                        [Utilities displayErrorAlertWithMessage:[error errorMessage]];
                                    }];
-    //TODO:
-    //self.currentHole = [[PersistentServices sharedServices] current]
-    //[self.scoreTable setHidden:YES];
-    //isScoreTableDescended = FALSE;
+
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
     AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
     [delegate.appDelegateNavController setNavigationBarHidden:NO];
-    [self updateYardAndParForHole:[[GameSettings sharedSettings] subCourse].holes[[self.holeNumberPlayed intValue]- 1]];
+    [self updateYardAndParForHole:[[GameSettings sharedSettings] subCourse].holes[[self.holeNumberPlayed intValue]]];
 }
 
 -(void)updateYardAndParForHole:(Hole *)hole
@@ -109,7 +124,31 @@
     [self.lblYards setText:[[hole yards] stringValue]];
 }
 
--(void)currentRoundScoreForPlayerId:(NSNumber *)playerId completion:(void(^)(NSNumber *))score{
+-(void)setMySelfToIndexZeroFromPlayersArray{
+
+ 
+
+    for (int i = 0; i < [self.playersInRound count]; ++i) {
+        if([[[( User *)self.playersInRound[i] userId] stringValue]  isEqualToString:[UserServices currentUserId]]){
+                // setting the self object to index Zero.
+            [self.playersInRound exchangeObjectAtIndex:i withObjectAtIndex:0];
+        }
+    }
+}
+
+-(void)updateScoresOfAllPlayers{
+    
+    for (User * player in self.playersInRound) {
+        [self currentHoleScoreForPlayerId:player.userId completion:^(NSNumber * score)
+        {
+            [self.playerScores setObject:score forKey:player.userId];
+            [self.scoreTable reloadData];
+        }];
+    }
+}
+
+
+-(void)currentHoleScoreForPlayerId:(NSNumber *)playerId completion:(void(^)(NSNumber *))score{
     
     GameSettings * settings = [GameSettings sharedSettings];
     [ScoreboardServices getScoreForUserId:playerId
@@ -154,11 +193,15 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
+    
+    
+    User * player = [self.playersInRound objectAtIndex:indexPath.row +1 ];
     PlayerScoreCell *customCell = (PlayerScoreCell *)cell;
     customCell.delegate = self;
     // One is added becasue data of first player is displayed in header view of table.
-    customCell.lblPlayerName.text = [[self.playersInRound objectAtIndex:indexPath.row +1 ] contactFullName];
-    customCell.player = [self.playersInRound objectAtIndex:indexPath.row +1 ];
+    customCell.lblPlayerName.text = [player contactFullName];
+    customCell.player = player;
+    [customCell.lblScore setText:[[self.playerScores objectForKey:player.userId] stringValue]];
     [customCell setSelectionStyle:UITableViewCellSelectionStyleNone];
     
     return customCell;
@@ -175,12 +218,14 @@
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     User * player = nil;
+    // Assumes that in playersInRound Array signedIn player object is always at index Zero.
     if ([self.playersInRound count] > 0) player = self.playersInRound[0];
     if (!self.headerView) self.headerView = [[PlayerScoreView alloc]init];
     
 
     [self.headerView configureViewForPlayer:player hideDropdownBtn:NO];
     [self.headerView.lblUserName setText:(player != nil ? [player contactFullName] : @"")];
+    [self.headerView.lblScoreForHole setText:[[self.playerScores objectForKey:player.userId] stringValue]];
     self.headerView.delegate = self;
     return self.headerView;
 }
@@ -339,19 +384,11 @@
 -(void)updateScore:(NSNumber * )score player:(id)player
 {
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    GameSettings * gameSetting = [GameSettings sharedSettings];
     
-    NSNumber * holeId = nil;
-    for (Hole * ahole in [[gameSetting subCourse] holes]) {
-        if ([[ahole holeNumber] isEqual:self.holeNumberPlayed]){
-            holeId = ahole.itemId;
-            break;
-        }
-    }
     
     NSNumber * playerId = [player userId];
     [RoundDataServices addDirectScore:score
-                               holeId:holeId
+                               holeId:[self.currentHole itemId]
                              playerId:playerId
                               success:^(bool status, NSDictionary *response) {
                                   [MBProgressHUD hideHUDForView:self.view animated:YES];
@@ -362,6 +399,8 @@
                                       else{
                                           [[[UIAlertView alloc] initWithTitle:@"Score Updated" message:@"Score updated successfully." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
                                       }
+                                      // Update players score.
+                                      [self updateScoresOfAllPlayers];
                                   }
     } failure:^(bool status, NSError *error) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
@@ -372,6 +411,7 @@
 {
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [self shotHelperForShotType:ShotTypePenalty score:1 completion:^{
+        [self updateScoresOfAllPlayers];
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
     }];
 }
@@ -380,6 +420,7 @@
 {
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [self shotHelperForShotType:ShotTypeStardard score:1 completion:^{
+        [self updateScoresOfAllPlayers];
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
     }];
 }
@@ -388,6 +429,7 @@
 {
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [self shotHelperForShotType:ShotTypePutt score:1 completion:^{
+        [self updateScoresOfAllPlayers];
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
     }];
 }
@@ -397,7 +439,7 @@
     GameSettings * gameSetting = [GameSettings sharedSettings];
     
     [RoundDataServices addShotRoundId:[gameSetting roundId]
-                               holeId:self.holeNumberPlayed
+                               holeId:[self.currentHole itemId]
                              shotType:type success:^(bool status, id response) {
                                  completion();
                                  if (status)
@@ -420,10 +462,30 @@
 
 - (IBAction)btnNextHoleTapped:(UIButton *)sender {
 
+    GameSettings * settings = [GameSettings sharedSettings];
+    NSInteger  countOfHoles = [[settings totalNumberOfHoles] integerValue];
+    NSInteger holePlayed = [self.holeNumberPlayed integerValue];
+    
+    if ((holePlayed + 1) < countOfHoles ) {
+        ++holePlayed;
+        self.holeNumberPlayed = [NSNumber numberWithInteger:holePlayed];
+        [self loadDataForHoleNumber:self.holeNumberPlayed];
+    }else{
+        [[[UIAlertView alloc] initWithTitle:@"Last Hole Reached!" message:@"Its the last hole in current round. There is no next hole." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+    }
 }
 
 - (IBAction)btnPreviousHoleTapped:(UIButton *)sender {
     
+    NSInteger holePlayed = [self.holeNumberPlayed integerValue];
+    
+    if ((holePlayed - 1) >= 1){
+        --holePlayed;
+        self.holeNumberPlayed = [NSNumber numberWithInteger:holePlayed];
+        [self loadDataForHoleNumber:self.holeNumberPlayed];
+    }else{
+        [[[UIAlertView alloc] initWithTitle:@"First Hole Reached!" message:@"Its the first hole in current round. There is no previous hole." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+    }
 }
 #pragma  mark -
 

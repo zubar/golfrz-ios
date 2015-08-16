@@ -183,7 +183,6 @@
     [CourseServices getEnabledFeatures:^(bool status, NSArray *enabledFeatures) {
         if (status) {
             for (FeaturedControl * featureItem in enabledFeatures) {
-                NSLog(@"%@", featureItem);
 
                 if ([[featureItem featureName] isEqualToString:kFeatEventCalendar]) {
                     [self.btnEvents setHidden:NO];

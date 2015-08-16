@@ -152,6 +152,14 @@
     [dataDict setObject:[NSNumber numberWithBool:roundstatus] forKey:@"roundInProgress"];
 }
 
+-(void)setTotalNumberOfHoles:(NSNumber *)holescount{
+    [dataDict setObject:holescount forKey:@"holesCount"];
+}
+
+-(NSNumber *)totalNumberOfHoles{
+    return [dataDict objectForKey:@"holesCount"];
+}
+
 #pragma mark - HandleAppStateChangeNotif
 
 -(void)handleAppStateChangeNotification:(NSNotification *)notif{

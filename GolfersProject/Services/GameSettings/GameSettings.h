@@ -58,4 +58,7 @@
 -(BOOL )isRoundInProgress;
 -(void)setIsRoundInProgress:(BOOL )roundstatus;
 
+-(void)setTotalNumberOfHoles:(NSNumber *)holescount;
+-(NSNumber *)totalNumberOfHoles;
+
 @end

@@ -26,6 +26,7 @@
 #import "ScoreboardServices.h"
 #import "UserServices.h"
 #import "Utilities.h"
+#import "User+convenience.h"
 
 @interface PlayerProfileViewController ()
 
@@ -49,7 +50,7 @@
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [UserServices getUserInfo:^(bool status, User *mUser) {
         
-        [self.lblUserName setText:mUser.firstName];
+        [self.lblUserName setText:[mUser contactFullName]];
         if ([mUser.handicap stringValue])
         {
             [self.lblHandicap setText:[mUser.handicap stringValue]];
