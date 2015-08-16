@@ -306,6 +306,7 @@
              @"shot_id" :   [mShot itemId],
              @"round_id" : [mShot roundId],
              @"hole_id" : [mShot holeId],
+             @"shot_type" : [mShot shotType],
              };
 }
 
