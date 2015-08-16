@@ -76,6 +76,7 @@
             
             NSArray *users = [scoreCard objectForKey:@"users"];
             _gameType = [[scoreCard objectForKey:@"game_type"] isKindOfClass:[NSNull class]]?nil:[scoreCard objectForKey:@"game_type"];
+            // Setting
             if (users.count > 0) {
                 _users = [NSMutableArray new];
                 for (NSDictionary *user in users) {

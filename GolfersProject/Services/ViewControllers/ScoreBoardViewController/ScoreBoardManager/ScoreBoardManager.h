@@ -19,5 +19,5 @@
 
 @property(strong, nonatomic)ScoreCard *scoreCard;
 
-
+//Hell with API writers for this scroeCard.
 @end

@@ -20,6 +20,7 @@
 #import "CourseServices.h"
 #import "Course.h"
 #import "AppDelegate.h"
+#import "ClubHouseContainerVC.h"
 
 @interface ScoreBoardViewController (){
     
@@ -100,6 +101,8 @@
 -(void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
+    
+    
     scoreCard_ = nil;
     [ScoreBoardManager sharedScoreBoardManager].scoreCard = nil;
 }
@@ -522,12 +525,6 @@
         }
         
     }
-    
-    
-    
-    
-    
-    
     return cell;
 }
 
@@ -560,7 +557,7 @@
 
     AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
     for (UIViewController * controller  in [delegate.appDelegateNavController viewControllers]) {
-        if ([controller isKindOfClass:[PlayerProfileViewController class]]) {
+        if ([controller isKindOfClass:[ClubHouseContainerVC class]]) {
             [delegate.appDelegateNavController popToViewController:controller animated:NO];
             return;
         }
