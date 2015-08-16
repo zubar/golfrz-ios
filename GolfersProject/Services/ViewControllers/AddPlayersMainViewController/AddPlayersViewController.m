@@ -527,12 +527,13 @@
 
 - (IBAction)btnSelectTeeBoxTapped:(UIButton *)sender {
     
-    ([self.dataArray count] > 0 ? [self.dataArray removeAllObjects] : nil );
-    
     if (!self.selectedSubCourse) {
         [[[UIAlertView alloc]initWithTitle:@"Subcourse not selected." message:@"Please select subcourse first." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
         return;
     }
+    
+    ([self.dataArray count] > 0 ? [self.dataArray removeAllObjects] : nil);
+    
     [self.dataArray addObjectsFromArray:[((Hole *)[self.selectedSubCourse holes][0]) teeboxes]];
     currentItemsIndropdown = DropDownContainsItemsTeeboxes;
     [self presentPopOverViewPointedAtButton:sender];
@@ -550,7 +551,8 @@
 - (void)presentPopOverViewPointedAtButton:(UIView *)sender {
     self.popOverView.stringDataSource = [self.dataArray valueForKeyPath:@"self.name"];
     CGPoint point = [sender convertPoint:sender.bounds.origin toView:self.view];
-    [self.popOverView setMinX:CGRectGetMinX(self.roundSettingsView.frame) maxY:point.y width:CGRectGetWidth(self.roundSettingsView.frame)];
+    CGFloat bottomPadding = 14;
+    [self.popOverView setMinX:CGRectGetMinX(self.roundSettingsView.frame) maxY:point.y - bottomPadding width:CGRectGetWidth(self.roundSettingsView.frame) animated:YES];
     [self.popOverView showPopOverViewAnimated:YES inView:self.view];
 }
 

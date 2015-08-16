@@ -39,7 +39,7 @@
         self.stringDataSource = [NSArray new];
         
         // Set table view border color.
-        self.tableView.layer.borderColor = [[UIColor whiteColor] CGColor];
+        self.tableView.layer.borderColor = [[UIColor blackColor] CGColor];
         
         // Register Nibs.
         [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([PopOverCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([PopOverCell class])];
@@ -63,18 +63,25 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-        PopOverCell *cell = (PopOverCell *) [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([PopOverCell class]) forIndexPath:indexPath];
-        
-        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+    PopOverCell *cell = (PopOverCell *) [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([PopOverCell class]) forIndexPath:indexPath];
     
-        if ([self.stringDataSource[indexPath.row] isKindOfClass:[NSString class]]) {
-            cell.nameLabel.text = self.stringDataSource[indexPath.row];
-        }
-        else {
-            NSLog(@"Warning: Data will not be visible beacuse it is not of type NSString class.");
-        }
-        
-        return cell;
+    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+    
+    if (indexPath.row == self.stringDataSource.count - 1) {
+        cell.seperatorView.hidden = YES;
+    }
+    else {
+        cell.seperatorView.hidden = NO;
+    }
+    
+    if ([self.stringDataSource[indexPath.row] isKindOfClass:[NSString class]]) {
+        cell.nameLabel.text = self.stringDataSource[indexPath.row];
+    }
+    else {
+        NSLog(@"Warning: Data will not be visible beacuse it is not of type NSString class.");
+    }
+    
+    return cell;
 
 }
 
@@ -106,15 +113,14 @@
     return heightOfTableView;
 }
 
-- (void) setMinX:(CGFloat)minX maxY:(CGFloat)maxY width:(CGFloat)width {
-    NSInteger heightOfTableView = [self getDynamicHeightOfTableView];
+- (void) setMinX:(CGFloat)minX maxY:(CGFloat)maxY width:(CGFloat)width animated:(BOOL)animated {
     
     self.minX = minX;
     self.maxY = maxY;
     self.width = width;
     
-    CGRect frame = CGRectMake(self.minX, self.maxY - heightOfTableView, self.width, heightOfTableView);
-    self.frame = frame;
+    self.frame = CGRectMake(self.minX, self.maxY, self.width, 0.0);
+    self.isShown = NO;
 }
 
 #pragma mark - stringDataSource methods

@@ -11,5 +11,6 @@
 @interface PopOverCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UIView *seperatorView;
 
 @end

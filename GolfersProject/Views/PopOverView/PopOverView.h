@@ -24,6 +24,6 @@
 
 - (void)showPopOverViewAnimated:(BOOL)animated inView:(UIView *)view;
 - (void)dismissPopOverViewAnimated:(BOOL)animated;
-- (void) setMinX:(CGFloat)minX maxY:(CGFloat)maxY width:(CGFloat)width;
+- (void) setMinX:(CGFloat)minX maxY:(CGFloat)maxY width:(CGFloat)width animated:(BOOL)animated;
 
 @end

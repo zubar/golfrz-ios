@@ -15,22 +15,33 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gOH-sV-lFi">
-                        <rect key="frame" x="8" y="11" width="304" height="21"/>
+                        <rect key="frame" x="10" y="11" width="302" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view alpha="0.60000002384185791" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GC8-e4-ead">
+                        <rect key="frame" x="10" y="42" width="300" height="1"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="38e-EZ-W9s"/>
+                        </constraints>
+                    </view>
                 </subviews>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 <constraints>
-                    <constraint firstItem="gOH-sV-lFi" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="8GQ-4B-t6O"/>
+                    <constraint firstItem="gOH-sV-lFi" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="8GQ-4B-t6O"/>
+                    <constraint firstAttribute="trailing" secondItem="GC8-e4-ead" secondAttribute="trailing" constant="10" id="cP9-Ck-8N3"/>
+                    <constraint firstAttribute="bottom" secondItem="GC8-e4-ead" secondAttribute="bottom" id="hbP-qG-HKF"/>
                     <constraint firstAttribute="centerY" secondItem="gOH-sV-lFi" secondAttribute="centerY" id="muG-kk-qdB"/>
+                    <constraint firstItem="GC8-e4-ead" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="qQL-9j-Too"/>
                     <constraint firstAttribute="trailing" secondItem="gOH-sV-lFi" secondAttribute="trailing" constant="8" id="veq-Wg-hfS"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="nameLabel" destination="gOH-sV-lFi" id="318-g9-MnS"/>
+                <outlet property="seperatorView" destination="GC8-e4-ead" id="5Wd-MP-vz9"/>
             </connections>
-            <point key="canvasLocation" x="197" y="289"/>
+            <point key="canvasLocation" x="257" y="315"/>
         </tableViewCell>
     </objects>
 </document>

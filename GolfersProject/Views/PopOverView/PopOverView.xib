@@ -11,16 +11,19 @@
             <rect key="frame" x="0.0" y="0.0" width="300" height="150"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="9Id-98-49p">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="9Id-98-49p">
                     <rect key="frame" x="0.0" y="0.0" width="300" height="150"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="layer.borderWidth" value="1"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="dataSource" destination="iN0-l3-epB" id="y2Z-mV-MlK"/>
                         <outlet property="delegate" destination="iN0-l3-epB" id="d8A-mJ-d22"/>
                     </connections>
                 </tableView>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="9Id-98-49p" secondAttribute="trailing" id="6Gt-FM-5hN"/>
                 <constraint firstAttribute="bottom" secondItem="9Id-98-49p" secondAttribute="bottom" id="bCk-yX-xVi"/>
@@ -31,7 +34,7 @@
             <connections>
                 <outlet property="tableView" destination="9Id-98-49p" id="w0R-kg-uNx"/>
             </connections>
-            <point key="canvasLocation" x="140" y="155"/>
+            <point key="canvasLocation" x="212" y="181"/>
         </view>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
