@@ -34,4 +34,11 @@
                                     success:(void(^)(bool status, NSDictionary * playerTotalScore))successBlock
                                     failure:(void(^)(bool status, GolfrzError * error))failureBlock;
 
++(void)saveScoreBoardForRoundId:(NSNumber *)roundId
+                     grossScore:(NSNumber *)grossScore
+                       netScore:(NSNumber *)netScore
+                      skinCount:(NSNumber *)skinCount
+                        success:(void(^)(bool status, id response))successBlock
+                        failure:(void(^)(bool status, GolfrzError * error))failureBlock;
+
 @end
