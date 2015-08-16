@@ -135,7 +135,7 @@
 {
     
     AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
-    [apiClient POST:kDeleteShot parameters:[RoundDataServices paramsDeleteShotId:mShot]
+    [apiClient POST:kDeleteShot parameters:[RoundDataServices paramsDeleteShot:mShot]
             success:^(NSURLSessionDataTask *task, id responseObject) {
                 successBlock(true, responseObject);
             } failure:^(NSURLSessionDataTask *task, NSError *error) {
@@ -297,7 +297,7 @@
              };
 }
 
-+(NSDictionary *)paramsDeleteShotId:(Shot *)mShot
++(NSDictionary *)paramsDeleteShot:(Shot *)mShot
 {
     return @{
              @"app_bundle_id" : kAppBundleId,
