@@ -95,11 +95,13 @@
 +(void)addGuestWithEmail:(NSString *)email
                firstName:(NSString *)fName
                 lastName:(NSString *)lName
+                handicap:(NSNumber *)handicap
+                teeBoxId:(NSNumber *)teeBoxId
                 success:(void(^)(bool status, NSDictionary * response))successBlock
                 failure:(void(^)(bool status, NSError * error))failureBlock
 {
     AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
-    [apiClient POST:kRoundAddGuest parameters:[RoundDataServices paramAddGuestToRoundEmail:email firstName:fName lastName:lName] success:^(NSURLSessionDataTask *task, id responseObject) {
+    [apiClient POST:kRoundAddGuest parameters:[RoundDataServices paramAddGuestToRoundEmail:email firstName:fName lastName:lName handicap:handicap teeBoxId:teeBoxId] success:^(NSURLSessionDataTask *task, id responseObject) {
             successBlock(true, responseObject);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
             failureBlock(false, error);
@@ -341,13 +343,18 @@
 
 +(NSDictionary *)paramAddGuestToRoundEmail:(NSString *)email
                                  firstName:(NSString *)firstName
-                                  lastName:(NSString *)lastName{
+                                  lastName:(NSString *)lastName
+                                  handicap:(NSNumber *)handicap
+                                  teeBoxId:(NSNumber *)teeBoxId
+{
     return @{
              @"auth_token" : [UserServices currentToken],
              @"round_id" : [[GameSettings sharedSettings] roundId],
              @"email" : email,
              @"first_name" : firstName,
              @"last_name" : lastName,
+             @"handicap" : handicap,
+             @"tee_box_id" : teeBoxId,
              };
 }
 
