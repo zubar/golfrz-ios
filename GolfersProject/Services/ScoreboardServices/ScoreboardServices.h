@@ -30,5 +30,8 @@
 +(void)getScorecardHistory:(void(^)(bool status, NSArray * enabledFeatures))successBlock
                    failure:(void(^)(bool status, GolfrzError * error))failureBlock;
 
++(void)getTotalScoreForAllPlayersForRoundId:(NSNumber *)roundId
+                                    success:(void(^)(bool status, NSDictionary * playerTotalScore))successBlock
+                                    failure:(void(^)(bool status, GolfrzError * error))failureBlock;
 
 @end

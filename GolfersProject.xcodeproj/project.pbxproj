@@ -121,6 +121,7 @@
 		3D6346C31B78D02D0093AA1D /* FeaturedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6346C21B78D02D0093AA1D /* FeaturedControl.m */; };
 		3D6346C61B790C980093AA1D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D6346C41B790C980093AA1D /* Main.storyboard */; };
 		3D6346CA1B7A1CF50093AA1D /* PastScore.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6346C91B7A1CF50093AA1D /* PastScore.m */; };
+		3D6346CE1B80BE8C0093AA1D /* Shot.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6346CD1B80BE8C0093AA1D /* Shot.m */; };
 		3D7DF2001B6A542000FCF8FE /* TeetimeServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7DF1FF1B6A542000FCF8FE /* TeetimeServices.m */; };
 		3D7DF2041B6A550E00FCF8FE /* TeetimeData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7DF2031B6A550E00FCF8FE /* TeetimeData.m */; };
 		3D7DF2071B6A551B00FCF8FE /* Teetime.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7DF2061B6A551B00FCF8FE /* Teetime.m */; };
@@ -420,6 +421,8 @@
 		3D6346C51B790C980093AA1D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3D6346C81B7A1CF50093AA1D /* PastScore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PastScore.h; sourceTree = "<group>"; };
 		3D6346C91B7A1CF50093AA1D /* PastScore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PastScore.m; sourceTree = "<group>"; };
+		3D6346CC1B80BE8C0093AA1D /* Shot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shot.h; sourceTree = "<group>"; };
+		3D6346CD1B80BE8C0093AA1D /* Shot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shot.m; sourceTree = "<group>"; };
 		3D7DF1FC1B6A360900FCF8FE /* Golfrz-prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Golfrz-prefix.pch"; sourceTree = "<group>"; };
 		3D7DF1FE1B6A542000FCF8FE /* TeetimeServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeetimeServices.h; sourceTree = "<group>"; };
 		3D7DF1FF1B6A542000FCF8FE /* TeetimeServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeetimeServices.m; sourceTree = "<group>"; };
@@ -1309,6 +1312,15 @@
 			path = PastScore;
 			sourceTree = "<group>";
 		};
+		3D6346CB1B80BE650093AA1D /* Shot */ = {
+			isa = PBXGroup;
+			children = (
+				3D6346CC1B80BE8C0093AA1D /* Shot.h */,
+				3D6346CD1B80BE8C0093AA1D /* Shot.m */,
+			);
+			path = Shot;
+			sourceTree = "<group>";
+		};
 		3D7DF1FD1B6A53B100FCF8FE /* TeetimeServices */ = {
 			isa = PBXGroup;
 			children = (
@@ -1835,6 +1847,7 @@
 		885CB06F1B09F91700AD2A7B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3D6346CB1B80BE650093AA1D /* Shot */,
 				3D6346C71B7A1B0B0093AA1D /* PastScore */,
 				3D6346C01B78D0190093AA1D /* FeaturedControl */,
 				3DD958721B72949A00F8960D /* Reward */,
@@ -2402,6 +2415,7 @@
 				3D1CB1071B691563005C1E19 /* UIImageView+RoundedImage.m in Sources */,
 				3DCA44D71B26CB3400B66BD2 /* FoodBeverage.m in Sources */,
 				3D613B6B1B42878A00F7DEDA /* EventAdmin.m in Sources */,
+				3D6346CE1B80BE8C0093AA1D /* Shot.m in Sources */,
 				3D7DF21D1B6FD17500FCF8FE /* Comment.m in Sources */,
 				3D7DF2121B6FC80500FCF8FE /* CourseUpdate.m in Sources */,
 				3D16D0841B1C3FFB00A582A3 /* SharedManager.m in Sources */,

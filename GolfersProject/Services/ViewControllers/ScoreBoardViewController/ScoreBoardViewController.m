@@ -19,6 +19,8 @@
 #import "MBProgressHUD.h"
 #import "CourseServices.h"
 #import "Course.h"
+#import "AppDelegate.h"
+
 @interface ScoreBoardViewController (){
     
     NSUInteger numberOfLeftColumns;
@@ -553,5 +555,16 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+-(void)baseBackBtnTap{
+
+    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+    for (UIViewController * controller  in [delegate.appDelegateNavController viewControllers]) {
+        if ([controller isKindOfClass:[PlayerProfileViewController class]]) {
+            [delegate.appDelegateNavController popToViewController:controller animated:NO];
+            return;
+        }
+    }
+}
 
 @end
