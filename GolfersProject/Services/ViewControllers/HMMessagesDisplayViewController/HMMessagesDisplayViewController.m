@@ -24,6 +24,7 @@
 #import "UIImageView+RoundedImage.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 
+
 @interface HMMessagesDisplayViewController ()
 {
     UIRefreshControl * refrestCtrl;
@@ -38,6 +39,7 @@
 
 @implementation HMMessagesDisplayViewController
 @synthesize DTOArray;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -84,6 +86,11 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [self configureView];
+    
+}
+
+- (void) configureView{
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [self.imgCourseLogo sd_setImageWithURL:[NSURL URLWithString:[SharedManager sharedInstance].logoImagePath] placeholderImage:[UIImage imageNamed:@"event_placeholder"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         if (image) {
@@ -94,6 +101,11 @@
     NSString *commentsCount = [NSString stringWithFormat:@"%@ %@", [self.currntActivity.commentsCount stringValue], @"comments"];
     //self.lblCommentsCount.text = commentsCount;
     self.lblNoOfKudos.text = [self.currntActivity.likesCount stringValue];
+    if ([self.currntActivity.hasUserLiked boolValue]) {
+        [self.btnKudos setBackgroundImage:[UIImage imageNamed:@"kudos_liked"] forState:UIControlStateNormal];
+    }else{
+        [self.btnKudos setBackgroundImage:[UIImage imageNamed:@"kudos"] forState:UIControlStateNormal];
+    }
     
     [Utilities dateComponentsFromNSDate:[self.currntActivity createdAt] components:^(NSString *dayName, NSString *monthName, NSString *day, NSString *time, NSString *minutes, NSString *timeAndMinute) {
         self.lblDay.text = dayName;
@@ -102,6 +114,7 @@
     [self loadMessagesUpdateView:^{
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
     }];
+    
 }
 
 
@@ -333,5 +346,26 @@
     
 }
 - (IBAction)btnKudosTapped:(UIButton *)sender {
+    if (![self.currntActivity.hasUserLiked boolValue])
+    {
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        [CourseUpdateServices addKudos:notificationId success:^(bool status, id message){
+            [self configureView];
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+             [[[UIAlertView alloc] initWithTitle:nil message:@"Post Liked" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+            NSLog(@"Kudos Success");
+        
+        } failure:^(bool status, GolfrzError *error){
+        [   MBProgressHUD hideHUDForView:self.view animated:YES];
+            [[[UIAlertView alloc] initWithTitle:nil message:error.errorMessage delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+            NSLog(@"Error");
+        
+        
+        }];
+    }
+    else{
+        [[[UIAlertView alloc] initWithTitle:nil message:@"You have already liked this post" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+    }
+    
 }
 @end
