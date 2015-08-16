@@ -47,6 +47,16 @@
 }
 
 -(void)populateFields{
+    if ([self.selectedItem.sideItems count] > 0)
+    {
+        [self.optionsView setHidden:NO];
+        [self.optionsViewHeader setHidden:NO];
+    }
+    else{
+        [self.optionsView setHidden:YES];
+        [self.optionsViewHeader setHidden:NO];
+        [self.lblOptions setText:@"NO SIDE OPTIONS FOR THIS ITEM"];
+    }
     self.sideItems = self.selectedItem.sideItems;
     [self.imgItemPic sd_setImageWithURL:[NSURL URLWithString:self.selectedItem.imageUrl] placeholderImage:[UIImage imageNamed:@"foodbev_placeholder"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         if (image) {

@@ -51,6 +51,21 @@
     }];
 }
 
++(void)addKudos:(NSNumber *)postId
+           success:(void(^)(bool status, id successMessage))successBlock
+           failure:(void(^)(bool status, GolfrzError * error))failureBlock
+{
+    APIClient * apiClient = [APIClient sharedAPICLient];
+    [apiClient POST:KAddKudos parameters:[CourseUpdateServices paramAddKudos:postId] completion:^(id response, NSError *error) {
+        if(!error) successBlock(true, [response result]);
+        else failureBlock(false, [response result]);
+    }];
+}
+
+
+
+
+
 #pragma mark - HelperMethods
 +(NSDictionary *)paramCourseUpdates{
     return @{
@@ -78,5 +93,17 @@
              @"comment" : comment
              };
 }
+
++(NSDictionary *)paramAddKudos:(NSNumber *)postId{
+    
+    return @{
+             @"app_bundle_id" : kAppBundleId,
+             @"user_agent" : kUserAgent,
+             @"auth_token" : [UserServices currentToken],
+             @"notification_id" : postId,
+             };
+}
+
+
 
 @end

@@ -28,9 +28,13 @@
 #import "Utilities.h"
 #import "User+convenience.h"
 
-@interface PlayerProfileViewController ()
+@interface PlayerProfileViewController (){
+
+}
 
 @end
+
+
 
 @implementation PlayerProfileViewController
 
@@ -57,8 +61,6 @@
         }else{
             [self.lblHandicap setText:@"N/A"];
         }
-       
-        [self.lblCourseName setText:[[CourseServices currentCourse] courseName]];
         
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         
@@ -75,6 +77,21 @@
         [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Failed to get details" delegate:nil cancelButtonTitle:@"CANCEL" otherButtonTitles:nil, nil] show];
         [MBProgressHUD hideHUDForView:self.view animated:YES];
 
+    }];
+}
+
+- (void) hasUserCheckedIn{
+    [CourseServices getCheckInCount:^(bool status, NSNumber *noOfCheckIns){
+        if ([noOfCheckIns boolValue]) {
+            [self.checkInView setHidden:NO];
+            //TODO: sometimes course name is not available
+            [self.lblCourseName setText:[[CourseServices currentCourse] courseName]];
+        }else{
+            [self.checkInView setHidden:YES];
+        }
+        
+    } failure:^(bool status, GolfrzError *error){
+        [self.checkInView setHidden:YES];
     }];
 }
 
@@ -108,6 +125,8 @@
     self.navigationItem.rightBarButtonItem = rightBarButtonItem;
 
     [[UINavigationBar appearance] setTitleVerticalPositionAdjustment:-10.0 forBarMetrics:UIBarMetricsDefault];
+    
+    [self hasUserCheckedIn];
     
     GameSettings * settings = [GameSettings sharedSettings];
     if([settings isRoundInProgress]){
