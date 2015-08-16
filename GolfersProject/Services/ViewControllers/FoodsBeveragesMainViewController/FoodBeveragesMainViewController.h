@@ -21,5 +21,6 @@
 @property (strong, nonatomic) IBOutlet UIButton *buttonFood;
 @property (strong, nonatomic) IBOutlet UIButton *buttonBeverage;
 
+@property (weak, nonatomic) IBOutlet UIImageView *imgViewBackground;
 
 @end

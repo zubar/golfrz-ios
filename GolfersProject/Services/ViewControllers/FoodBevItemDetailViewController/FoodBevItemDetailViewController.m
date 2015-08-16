@@ -33,6 +33,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
    
+    SharedManager * manager = [SharedManager sharedInstance];
+    [self.imgViewBackground setImage:[manager backgroundImage]];
+    
     // Title
     self.navigationItem.title = @"FOOD ITEM";
     

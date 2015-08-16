@@ -31,6 +31,8 @@
 @property (strong, nonatomic) NSString * courseCity;
 @property (strong, nonatomic) NSString * courseName;
 
+@property (strong, nonatomic) UIImage * backgroundImage;
+
 
 @property (assign, nonatomic) NSUInteger cartBadgeCount;
 

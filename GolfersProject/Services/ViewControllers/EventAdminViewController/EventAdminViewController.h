@@ -32,5 +32,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *lblAdminPost;
 @property (strong, nonatomic) IBOutlet UILabel *lblEmail;
 @property (strong, nonatomic) IBOutlet UILabel *lblContactNo;
+@property (weak, nonatomic) IBOutlet UIImageView *imgViewBackground;
 
 @end

@@ -345,6 +345,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <connections>
                         <outlet property="cartTableView" destination="AkT-9h-sOl" id="jLt-LR-SjH"/>
+                        <outlet property="imgViewBackground" destination="hPi-hP-DlF" id="pBi-zo-TET"/>
                         <outlet property="lblTotalOrder" destination="BSH-fi-O3U" id="g1C-9v-qJG"/>
                         <outlet property="scrollView" destination="oHw-Wq-jAq" id="t9Z-ne-cb9"/>
                         <outlet property="txtLocation" destination="LF0-XP-SXx" id="czF-Zk-pLu"/>
@@ -688,6 +689,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="imgItemPic" destination="iNv-KC-tNf" id="xJh-Qf-q16"/>
+                        <outlet property="imgViewBackground" destination="qa5-aN-IGm" id="zGC-DS-iPH"/>
                         <outlet property="lblIngredients" destination="L5t-b8-Efc" id="MVk-GX-hzs"/>
                         <outlet property="lblItemName" destination="4BO-bE-3E0" id="dQ0-yw-Da8"/>
                         <outlet property="lblItemPrice" destination="aRG-CK-nvV" id="RiK-xi-jPq"/>
@@ -890,6 +892,7 @@
                         <outlet property="buttonBeverage" destination="lq0-xG-eT2" id="28k-hu-E8R"/>
                         <outlet property="buttonFood" destination="ZCP-42-cVO" id="9gX-xp-7NL"/>
                         <outlet property="foodBevCollectionView" destination="DtH-g6-jRg" id="2kn-bw-bLR"/>
+                        <outlet property="imgViewBackground" destination="ffs-Za-qEk" id="l7n-YS-2zb"/>
                         <segue destination="6hG-38-W9l" kind="push" identifier="segueItemDetail" id="jqW-5I-s4g"/>
                     </connections>
                 </viewController>
@@ -932,10 +935,8 @@
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ag0-P1-YLH">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Ag0-P1-YLH" secondAttribute="trailing" id="Ew9-3E-NnZ"/>
                             <constraint firstAttribute="trailing" secondItem="n3c-4H-9EL" secondAttribute="trailing" id="ZEN-dS-Hy9"/>
@@ -971,7 +972,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dR7-tE-Y6e">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background_image" translatesAutoresizingMaskIntoConstraints="NO" id="jM4-Jf-h3u">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jM4-Jf-h3u">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="golfcourse_logo" translatesAutoresizingMaskIntoConstraints="NO" id="EYD-nb-sGi">
@@ -1043,7 +1044,6 @@
                                         </constraints>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="HLG-ob-VZ0" secondAttribute="trailing" constant="30" id="0L4-mx-Scc"/>
                                     <constraint firstAttribute="centerX" secondItem="EYD-nb-sGi" secondAttribute="centerX" id="1zF-7S-H5Y"/>
@@ -1069,7 +1069,6 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="iPs-nb-2iI" firstAttribute="top" secondItem="dR7-tE-Y6e" secondAttribute="bottom" id="GA8-rY-7pB"/>
                             <constraint firstAttribute="trailing" secondItem="dR7-tE-Y6e" secondAttribute="trailing" id="HB5-GO-L58"/>
@@ -1082,6 +1081,7 @@
                     <connections>
                         <outlet property="backGroundView" destination="dR7-tE-Y6e" id="b4d-qk-rOJ"/>
                         <outlet property="imgCourseLogo" destination="EYD-nb-sGi" id="ISZ-cV-Zij"/>
+                        <outlet property="imgViewBackground" destination="jM4-Jf-h3u" id="BjF-8G-BW2"/>
                         <outlet property="lblCityState" destination="p1f-zK-ZO9" id="H64-Kh-23a"/>
                         <outlet property="lblCourseName" destination="HWg-hq-Sen" id="cwT-1R-OuT"/>
                         <outlet property="lblSignIn" destination="Lpc-N6-l6W" id="HH4-cC-foZ"/>
@@ -1294,6 +1294,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="imgCourseLogo" destination="dUU-nt-AdR" id="r0O-Xg-AmO"/>
+                        <outlet property="imgViewBackground" destination="Xsb-Zq-Xdd" id="Bug-ae-1Kb"/>
                         <outlet property="lblCourseCityState" destination="q75-gd-veD" id="Tbq-De-aYH"/>
                         <outlet property="lblCourseName" destination="iyw-e6-GLN" id="Ip9-av-Eu6"/>
                         <outlet property="lblForgotPassword" destination="FPt-Wc-jVz" id="j7X-aK-CXP"/>
@@ -1385,6 +1386,7 @@
                     <navigationItem key="navigationItem" id="hJw-KJ-giF"/>
                     <connections>
                         <outlet property="imgCourseLogo" destination="fJJ-Rg-dlQ" id="uXT-X2-Dq6"/>
+                        <outlet property="imgViewBackground" destination="UqU-Nr-8Y4" id="XxX-Zv-Wp6"/>
                         <outlet property="lblBackToLogin" destination="ngA-A3-29x" id="tHg-Lu-GV1"/>
                     </connections>
                 </viewController>
@@ -1516,6 +1518,7 @@
                     </view>
                     <connections>
                         <outlet property="imgCourseLogo" destination="TI8-4c-Zjm" id="JfW-5i-1fq"/>
+                        <outlet property="imgViewBackground" destination="OVh-1U-y3q" id="bT8-xt-cBc"/>
                         <outlet property="txtEmailAddress" destination="9J7-np-jiF" id="Y6q-0C-XvD"/>
                     </connections>
                 </viewController>
@@ -1812,6 +1815,7 @@
                     <navigationItem key="navigationItem" id="Goc-Dz-vGi"/>
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
+                        <outlet property="imgViewBackground" destination="gfO-8c-wnk" id="pAP-YD-C7e"/>
                         <outlet property="lblGolfCourseName" destination="NMd-VM-h67" id="udZ-ca-Hir"/>
                         <outlet property="txtEmail" destination="vLm-1b-UfM" id="DLv-8L-a56"/>
                         <outlet property="txtFirstName" destination="itN-Cf-3iv" id="vfc-YS-DTH"/>
@@ -2067,6 +2071,7 @@
                         <outlet property="eventsView" destination="fEz-hA-grS" id="cTV-Ht-OFP"/>
                         <outlet property="foodBevView" destination="PSN-u1-1GE" id="GX8-bX-NVP"/>
                         <outlet property="imgCourseLogo" destination="yUd-U0-aX0" id="lTv-ru-ObJ"/>
+                        <outlet property="imgViewBackground" destination="jBx-Rk-ibv" id="1l3-ya-PMS"/>
                         <outlet property="lblCourseName" destination="ttc-5C-ber" id="fRr-sj-EHK"/>
                         <outlet property="lblEvents" destination="htB-S3-vBx" id="Wn1-8L-0TI"/>
                         <outlet property="lblFoodAndBev" destination="Wne-rB-30v" id="OrD-Nv-YEt"/>
@@ -2180,7 +2185,7 @@
                                                                                 <constraint firstAttribute="height" constant="26" id="GGQ-nW-yvd"/>
                                                                                 <constraint firstAttribute="width" constant="26" id="LJ2-ou-0eZ"/>
                                                                             </constraints>
-                                                                            <state key="normal" image="AAEDE071-19B5-40DD-BE44-ADFCC52BBED9">
+                                                                            <state key="normal" image="B31B101B-382C-4C25-874C-362D9B26849B">
                                                                                 <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                                             </state>
@@ -2267,6 +2272,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <connections>
                         <outlet property="friendsTableView" destination="pB1-Jd-net" id="28W-yY-jlb"/>
+                        <outlet property="imgViewBackground" destination="7X4-Cy-k2c" id="5EJ-5H-4cJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OCi-c8-Oxm" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2386,6 +2392,7 @@
                     <navigationItem key="navigationItem" id="phm-Qq-xaO"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <connections>
+                        <outlet property="imgViewBackground" destination="g4f-dd-lKt" id="VMy-ib-J9N"/>
                         <outlet property="inviteTableView" destination="N9o-lL-o1M" id="QTn-5G-UNQ"/>
                     </connections>
                 </viewController>
@@ -2457,7 +2464,7 @@
                                         <rect key="frame" x="109" y="23" width="6" height="6"/>
                                         <color key="backgroundColor" red="0.92941176469999998" green="0.80784313730000001" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SHARE NOW:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QHY-H2-e65">
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SHARE NOW:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QHY-H2-e65">
                                         <rect key="frame" x="98" y="37" width="79" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2577,6 +2584,7 @@
                     <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="lblheadingScorecard" destination="hSX-bx-tbr" id="kxT-Sf-79z"/>
                         <outlet property="rightCollectionView" destination="Wae-6D-6M6" id="ouN-cC-Iqc"/>
                     </connections>
                 </viewController>
@@ -2746,6 +2754,7 @@
                     <connections>
                         <outlet property="btnNextHoles" destination="KWH-iI-mE0" id="uuj-qm-det"/>
                         <outlet property="holeCollectionView" destination="iAt-EA-IB0" id="dBg-lr-aur"/>
+                        <outlet property="imgViewBackground" destination="6Mi-v2-8MN" id="aYj-BB-Dbi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X5l-8V-kEd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3009,6 +3018,7 @@
                     <connections>
                         <outlet property="btnShowCoursesTapped" destination="2yB-Sm-vWK" id="adl-Kb-UEL"/>
                         <outlet property="imgCourseLogo" destination="xa8-Yp-lvd" id="wcl-EW-7mP"/>
+                        <outlet property="imgViewBackground" destination="kd7-cQ-4h9" id="hQx-Rg-XpN"/>
                         <outlet property="imgWeatherImage" destination="iHs-lk-rKw" id="oFR-Fr-yLs"/>
                         <outlet property="lblCourseName" destination="zOg-QS-cHz" id="5fo-az-KK3"/>
                         <outlet property="lblSelectedDate" destination="gbM-EC-Puo" id="QMx-pZ-NJN"/>
@@ -3337,6 +3347,7 @@
                     </view>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="imgViewBackground" destination="Dor-Ty-4SL" id="Rth-08-Xtr"/>
                         <outlet property="tblUpdates" destination="9Iz-AG-oG8" id="bcX-yO-ibg"/>
                     </connections>
                 </viewController>
@@ -3545,6 +3556,7 @@
                     <connections>
                         <outlet property="btnHandicap" destination="BVJ-XH-E74" id="aqd-Nq-Q8v"/>
                         <outlet property="btnTeeBox" destination="mi2-wh-UU4" id="OiB-Tm-sch"/>
+                        <outlet property="imgViewBackground" destination="XqN-05-sDV" id="R21-3z-JFJ"/>
                         <outlet property="txtGuestEmail" destination="OLg-kz-tDx" id="qTV-cG-Njc"/>
                         <outlet property="txtGuestName" destination="ijn-Lm-jk4" id="QoQ-qe-3WD"/>
                     </connections>
@@ -3965,6 +3977,7 @@
                         <outlet property="btnSelectScoretype" destination="VGo-ef-JTq" id="Wk9-uy-1Od"/>
                         <outlet property="btnSelectTeebox" destination="SBI-tr-BbO" id="9iy-iv-R0V"/>
                         <outlet property="btnStartRound" destination="MPV-iP-vFN" id="mcu-vm-vMh"/>
+                        <outlet property="imgViewBackground" destination="zpq-lJ-4yk" id="DW9-rv-6UL"/>
                         <outlet property="playersTable" destination="xy8-Xa-Lga" id="CL8-8b-NN5"/>
                         <outlet property="playersTableContainerView" destination="IqM-au-XlE" id="C6Q-NC-C2H"/>
                     </connections>
@@ -4412,6 +4425,7 @@
                         <outlet property="courseInfoView" destination="LZQ-Xu-6Zf" id="OTJ-da-7ey"/>
                         <outlet property="imgAdminPic" destination="fkJ-uO-CLM" id="yE0-kN-ZE7"/>
                         <outlet property="imgCourseLogo" destination="7iR-gm-vDf" id="1bA-cj-iC7"/>
+                        <outlet property="imgViewBackground" destination="isg-Ff-UPc" id="2zz-ay-RRR"/>
                         <outlet property="lblAdminContact" destination="J1V-7V-P03" id="fMZ-KE-pUd"/>
                         <outlet property="lblAdminEmail" destination="KY2-qG-JCL" id="Bys-Hk-A99"/>
                         <outlet property="lblAdminName" destination="RVw-br-HhP" id="2Ga-Qr-mTY"/>
@@ -4772,6 +4786,7 @@
                     <connections>
                         <outlet property="imgAdminPic" destination="FGp-iK-j9l" id="zu2-cp-aex"/>
                         <outlet property="imgEventLogo" destination="ZLI-Gn-pRg" id="pJj-YV-jbM"/>
+                        <outlet property="imgViewBackground" destination="nDz-h2-kA0" id="ejm-0o-HCa"/>
                         <outlet property="lblAdminName" destination="0Od-cg-W00" id="iWg-vL-Zbk"/>
                         <outlet property="lblAdminPost" destination="RMs-IH-kRf" id="TWq-tx-Vqp"/>
                         <outlet property="lblCity" destination="41H-cN-3mn" id="fi0-gq-e4t"/>
@@ -4822,6 +4837,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Blf-Yv-W4r"/>
                     <connections>
+                        <outlet property="imgViewBackground" destination="AmR-Q9-8r1" id="Zog-pN-GVg"/>
                         <outlet property="lblNoEvents" destination="rsg-Sg-MG2" id="pFn-t9-xJB"/>
                         <segue destination="P0I-Et-RIr" kind="push" identifier="segueToEventDetailController" id="rvv-FR-8ij"/>
                     </connections>
@@ -5010,6 +5026,7 @@
                     <connections>
                         <outlet property="imgEventLogo" destination="uEZ-2V-omX" id="zJh-PD-M3U"/>
                         <outlet property="imgLocation" destination="igt-aX-oaE" id="6hl-GL-ons"/>
+                        <outlet property="imgViewBackground" destination="AGg-Yb-Xc5" id="fO2-ZB-y8u"/>
                         <outlet property="lblDay" destination="xXS-a3-cTF" id="gfc-rS-vla"/>
                         <outlet property="lblEventDetails" destination="o6N-yi-3OS" id="aNb-jl-5H4"/>
                         <outlet property="lblEventLocation" destination="GUe-0b-ROn" id="3Jq-BY-uFC"/>
@@ -5530,6 +5547,7 @@
                     <connections>
                         <outlet property="btnStartRound" destination="RAM-AN-B77" id="KiW-wh-nhR"/>
                         <outlet property="imgUserPic" destination="fa3-5I-Et7" id="mQp-3y-fhS"/>
+                        <outlet property="imgViewBackground" destination="1zo-Kg-Tvm" id="so4-6y-yno"/>
                         <outlet property="lblCourseName" destination="CMO-k8-2rQ" id="UEC-dw-5wo"/>
                         <outlet property="lblHandicap" destination="vaS-h8-y1V" id="PyN-hG-FSi"/>
                         <outlet property="lblPoints" destination="XjA-CO-xx7" id="D5Z-5x-bqL"/>
@@ -5659,7 +5677,7 @@
                                                                                 <constraint firstAttribute="height" constant="26" id="OaE-ph-eo5"/>
                                                                                 <constraint firstAttribute="width" constant="26" id="S5w-xw-4Ro"/>
                                                                             </constraints>
-                                                                            <state key="normal" image="5983B5FC-0B4E-430E-9260-FDAEE4B492C4">
+                                                                            <state key="normal" image="C6C5C93D-0923-458A-A695-E2EF1C04F686">
                                                                                 <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                                             </state>
@@ -5747,6 +5765,7 @@
                     </view>
                     <connections>
                         <outlet property="contactsTable" destination="hhQ-gP-vv3" id="viT-QT-ZAO"/>
+                        <outlet property="imgViewBackground" destination="zkt-L6-LhX" id="axC-3a-Fpx"/>
                         <outlet property="searchBar" destination="DbQ-fN-sNl" id="oCc-SA-0NX"/>
                         <outlet property="segmentControl" destination="eKu-hI-3Rn" id="52B-uL-cq3"/>
                     </connections>
@@ -6196,6 +6215,7 @@
                         <outlet property="distanceView" destination="nIM-qf-Zxb" id="Twn-qA-3kz"/>
                         <outlet property="imageMap" destination="3TS-so-tpf" id="Pve-Uq-MKa"/>
                         <outlet property="imgDarkerBg" destination="qLn-DE-tnJ" id="eNf-dJ-pmo"/>
+                        <outlet property="imgViewBackground" destination="Ab7-eq-egf" id="foC-r6-t94"/>
                         <outlet property="lblBack" destination="Yey-Xp-Y6y" id="Rkp-sU-Zqi"/>
                         <outlet property="lblForward" destination="6EA-27-Sr3" id="HBw-m9-zsR"/>
                         <outlet property="lblHoleNo" destination="bGe-uy-Gnz" id="KJW-2i-xGT"/>
@@ -6426,6 +6446,7 @@
                         <outlet property="checkedInContainerView" destination="KbR-qk-4bC" id="zfV-UW-sIR"/>
                         <outlet property="childView" destination="zFI-aZ-kEl" id="EU8-5b-uaV"/>
                         <outlet property="imgUserProfile" destination="uoO-BZ-E1H" id="nH1-PM-a0G"/>
+                        <outlet property="imgViewBackground" destination="yyh-yp-94V" id="qey-Pc-pkZ"/>
                         <outlet property="lblCheckInCourseName" destination="0B0-WB-Lln" id="Q8z-Gr-Tlp"/>
                         <outlet property="lblCountCheckIns" destination="ZzJ-FX-MTZ" id="UWr-2f-VFY"/>
                         <outlet property="lblPromptPoints" destination="ATH-Vn-6ox" id="XFN-eT-qpJ"/>
@@ -6471,8 +6492,8 @@
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PMh-h1-rt5" id="au7-bo-5YY">
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vPV-wp-4cE">
-                                                                    <rect key="frame" x="288" y="28" width="14" height="18"/>
+                                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vPV-wp-4cE">
+                                                                    <rect key="frame" x="288" y="28" width="12" height="18"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="14" id="fdJ-Fg-s7o"/>
                                                                         <constraint firstAttribute="height" constant="18" id="gQy-Mi-Wfi"/>
@@ -6509,7 +6530,7 @@
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zpM-zy-Xks">
                                                                     <rect key="frame" x="100" y="0.0" width="188" height="74"/>
                                                                     <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="emW-nI-Bvk">
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="emW-nI-Bvk">
                                                                             <rect key="frame" x="0.0" y="10" width="44" height="21"/>
                                                                             <attributedString key="attributedText">
                                                                                 <fragment content="Label">
@@ -6557,6 +6578,7 @@
                                                                         <constraint firstItem="ScP-AH-UZT" firstAttribute="leading" secondItem="Kc3-K0-uEM" secondAttribute="leading" id="Whk-oC-qOq"/>
                                                                         <constraint firstItem="Kc3-K0-uEM" firstAttribute="top" secondItem="emW-nI-Bvk" secondAttribute="bottom" id="der-lY-BzJ"/>
                                                                         <constraint firstItem="vW8-Ru-K5K" firstAttribute="leading" secondItem="Kc3-K0-uEM" secondAttribute="trailing" constant="3" id="gMy-6C-vXF"/>
+                                                                        <constraint firstAttribute="trailing" secondItem="emW-nI-Bvk" secondAttribute="trailing" constant="20" id="nUz-Jg-Gcb"/>
                                                                         <constraint firstItem="Kc3-K0-uEM" firstAttribute="baseline" secondItem="vW8-Ru-K5K" secondAttribute="baseline" id="xJM-0E-ejQ"/>
                                                                     </constraints>
                                                                 </view>
@@ -6633,6 +6655,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="imgViewBackground" destination="xMD-cH-NLi" id="kb1-sw-AtU"/>
                         <outlet property="scoreCardTable" destination="QcI-V6-rYc" id="Dv8-vg-b31"/>
                         <outlet property="searchBar" destination="A2j-Nl-9SJ" id="1Ns-Gh-U9i"/>
                     </connections>
@@ -7127,7 +7150,7 @@ Nulla sed est consectetur, tempus tellus interdum, vehicula lectus. Aliquam soll
         </scene>
     </scenes>
     <resources>
-        <image name="5983B5FC-0B4E-430E-9260-FDAEE4B492C4" width="24" height="25">
+        <image name="B31B101B-382C-4C25-874C-362D9B26849B" width="24" height="25">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -7218,7 +7241,7 @@ ExMWExsTKhMuEzUTPRNKE08TURNTE1gTYBNjE2gTcBNzE4UTiBONAAAAAAAAAgEAAAAAAAAAQgAAAAAA
 AAAAAAAAAAAAE48
 </mutableData>
         </image>
-        <image name="AAEDE071-19B5-40DD-BE44-ADFCC52BBED9" width="24" height="25">
+        <image name="C6C5C93D-0923-458A-A695-E2EF1C04F686" width="24" height="25">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

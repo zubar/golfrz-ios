@@ -26,6 +26,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *btnTeeTimesTapped;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *btnEventsTapped;
 
+@property (weak, nonatomic) IBOutlet UIImageView *imgViewBackground;
 
 
 @property (weak, nonatomic) IBOutlet UIButton *btnCheckIn;

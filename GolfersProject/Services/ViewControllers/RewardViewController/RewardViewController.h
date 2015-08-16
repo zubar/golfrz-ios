@@ -22,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblCheckInCourseName;
 @property (weak, nonatomic) IBOutlet UILabel *lblPromptPoints;
 
+@property (weak, nonatomic) IBOutlet UIImageView *imgViewBackground;
 
 /*!
  @brief It cycles two view controllers.

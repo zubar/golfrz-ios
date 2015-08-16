@@ -12,5 +12,6 @@
 @interface PastScoreCardsViewController : BaseViewController<UITableViewDataSource, UITableViewDelegate>
 @property (strong, nonatomic) IBOutlet UITableView *scoreCardTable;
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (weak, nonatomic) IBOutlet UIImageView *imgViewBackground;
 
 @end

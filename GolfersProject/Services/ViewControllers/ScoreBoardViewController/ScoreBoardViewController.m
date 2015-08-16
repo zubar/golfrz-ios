@@ -17,6 +17,8 @@
 #import "ScoreBoardBodyCell.h"
 #import "ScoreBoardHeaderCell.h"
 #import "MBProgressHUD.h"
+#import "CourseServices.h"
+#import "Course.h"
 @interface ScoreBoardViewController (){
     
     NSUInteger numberOfLeftColumns;
@@ -34,6 +36,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.title = [[CourseServices currentCourse] courseName];
+    
     [ScoreBoardManager sharedScoreBoardManager].numberOfSections = 0;
     [ScoreBoardManager sharedScoreBoardManager].numberOfItems = 0;
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
@@ -69,33 +73,7 @@
     {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
     }];
-    
-    
-
-    
-//    [ScoreboardServices getTestScoreCard:^(bool status, id responseObject)
-//    {
-//        [MBProgressHUD hideHUDForView:self.view animated:YES];
-//        
-//        scoreCard_ = [[ScoreCard alloc] initWithDictionary:responseObject];
-//        [ScoreBoardManager sharedScoreBoardManager].numberOfItems = (int)scoreCard_.users.count + [scoreCard_.teeBoxCount intValue]+2;
-//        
-//        if ([scoreCard_.gameType isEqualToString:@"skin"]) {
-//            [ScoreBoardManager sharedScoreBoardManager].numberOfSections = (int)scoreCard_.holeCount+6;
-//        }else{
-//            [ScoreBoardManager sharedScoreBoardManager].numberOfSections = (int)scoreCard_.holeCount+5;
-//        }
-//        [ScoreBoardManager sharedScoreBoardManager].scoreCard = scoreCard_;
-//        numberOfLeftColumns = [scoreCard_.teeBoxCount intValue]+2;
-//        [self calculateParTotal];
-//        
-//        [_rightCollectionView reloadData];
-//    } failure:^(bool status, NSError *error)
-//    {
-//        [MBProgressHUD hideHUDForView:self.view animated:YES];
-//
-//    }];
-//    
+      
     
     
 

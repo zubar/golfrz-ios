@@ -16,5 +16,6 @@
 @property (strong, nonatomic) NSNumber * subCourseId;
 @property (strong, nonatomic) NSNumber * roundId;
 @property (strong, nonatomic) IBOutlet UICollectionView *rightCollectionView;
+@property (weak, nonatomic) IBOutlet UILabel *lblheadingScorecard;
 
 @end

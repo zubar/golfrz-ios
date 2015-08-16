@@ -25,5 +25,6 @@
 
 - (IBAction)btnShowCalendarTapped:(UIButton *)sender;
 - (IBAction)btnSubcourseTapped:(id)sender;
+@property (weak, nonatomic) IBOutlet UIImageView *imgViewBackground;
 
 @end

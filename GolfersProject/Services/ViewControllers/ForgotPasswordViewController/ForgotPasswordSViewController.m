@@ -32,6 +32,8 @@
     
     // Setting course logo
     SharedManager * manager = [SharedManager sharedInstance];
+    [self.imgViewBackground setImage:[manager backgroundImage]];
+    
     [self.imgCourseLogo sd_setImageWithURL:[NSURL URLWithString:manager.logoImagePath] placeholderImage:[UIImage imageNamed:@"event_placeholder"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         if (image) {
             [self.imgCourseLogo setRoundedImage:image];

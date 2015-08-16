@@ -16,5 +16,6 @@
 
 
 @property (weak, nonatomic) IBOutlet UIImageView *imgCourseLogo;
+@property (weak, nonatomic) IBOutlet UIImageView *imgViewBackground;
 
 @end

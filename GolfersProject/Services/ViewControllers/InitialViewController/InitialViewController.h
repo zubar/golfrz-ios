@@ -16,5 +16,6 @@
 
 //- (void) setImageCourseLogoRounded;
 @property (strong, nonatomic) IBOutlet UIView *backGroundView;
+@property (weak, nonatomic) IBOutlet UIImageView *imgViewBackground;
 
 @end

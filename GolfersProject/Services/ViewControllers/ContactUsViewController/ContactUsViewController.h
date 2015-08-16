@@ -42,5 +42,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *lblCourseState;
 @property (strong, nonatomic) IBOutlet UILabel *lblComma;
 
+@property (weak, nonatomic) IBOutlet UIImageView *imgViewBackground;
 
 @end

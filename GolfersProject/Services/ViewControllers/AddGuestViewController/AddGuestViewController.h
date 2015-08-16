@@ -16,6 +16,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *btnHandicap;
 @property (strong, nonatomic) IBOutlet UIButton *btnTeeBox;
 
+@property (weak, nonatomic) IBOutlet UIImageView *imgViewBackground;
 - (IBAction)btnSelectHandicapTapped:(UIButton *)sender;
 - (IBAction)btnSelectTeeBoxTapped:(UIButton *)sender;
 - (IBAction)btnAddGuestTapped:(UIButton *)sender;

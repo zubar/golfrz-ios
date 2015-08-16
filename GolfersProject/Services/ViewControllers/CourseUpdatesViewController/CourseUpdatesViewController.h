@@ -10,4 +10,6 @@
 
 @interface CourseUpdatesViewController : BaseViewController<UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tblUpdates;
+@property (weak, nonatomic) IBOutlet UIImageView *imgViewBackground;
+
 @end

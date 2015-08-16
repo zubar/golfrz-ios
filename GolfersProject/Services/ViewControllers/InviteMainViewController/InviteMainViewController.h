@@ -34,4 +34,6 @@
 @property (strong, nonatomic) NSMutableArray * fbFriends;
 @property (strong, nonatomic) NSMutableArray * inappContacts;
 
+@property (weak, nonatomic) IBOutlet UIImageView *imgViewBackground;
+
 @end

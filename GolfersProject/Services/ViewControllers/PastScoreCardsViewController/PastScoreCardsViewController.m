@@ -13,6 +13,7 @@
 #import "Utilities.h"
 #import "MBProgressHUD.h"
 #import "ScoreBoardViewController.h"
+#import "SharedManager.h"
 
 @interface PastScoreCardsViewController ()
 @property(strong, nonatomic) NSMutableArray * pastScores;
@@ -22,6 +23,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    SharedManager * manager = [SharedManager sharedInstance];
+    [self.imgViewBackground setImage:[manager backgroundImage]];
+
     
     self.navigationItem.title = @"PAST SCORECARDS";
     // Do any additional setup after loading the view.
@@ -69,6 +74,7 @@
     [customViewCell.lblGameType setText:[mPastScore gameType]];
     [customViewCell.lblScore setText:[[mPastScore grossScore] stringValue]];
     [customViewCell.lblScoreCardIdentifier setText:[[mPastScore subCourseName] uppercaseString]];
+    [customViewCell setSelectionStyle:UITableViewCellSelectionStyleNone];
     return customViewCell;
 }
 
@@ -87,6 +93,8 @@
 #pragma mark - UITableViewDelegate
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
     PastScore * mPastScore = self.pastScores[indexPath.row];
     
     ScoreBoardViewController *scoreBoardVc = [self.storyboard instantiateViewControllerWithIdentifier:@"SCORE_BOARD_VC_ID"];
