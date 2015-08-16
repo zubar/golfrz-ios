@@ -10,6 +10,7 @@
 #import "RoundMetaData.h"
 #import <CMPopTipView/CMPopTipView.h>
 #import "DropdownView.h"
+#import "PopOverView.h"
 
 #import "BaseViewController.h"
 
@@ -22,7 +23,7 @@ typedef NS_ENUM(NSInteger, DropDownContainsItems) {
 };
 
 
-@interface AddPlayersViewController : BaseViewController<DropdownDataSource, DropdownDelegate, CMPopTipViewDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface AddPlayersViewController : BaseViewController<DropdownDataSource, DropdownDelegate, CMPopTipViewDelegate, PopOverViewDelegate, UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) RoundMetaData * roundInfo;
 
@@ -46,6 +47,7 @@ typedef NS_ENUM(NSInteger, DropDownContainsItems) {
 - (IBAction)editPlayersTapped:(UIButton *)sender;
 
 @property (weak, nonatomic) IBOutlet UIImageView *imgViewBackground;
+@property (weak, nonatomic) IBOutlet UIView *roundSettingsView;
 
 
 -(void)getAvailableRoundOptions:(void(^)(void))completion;

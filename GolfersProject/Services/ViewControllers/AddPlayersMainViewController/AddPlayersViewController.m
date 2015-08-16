@@ -44,11 +44,16 @@
 @property (nonatomic, strong) ScoreType * selectedScoreType;
 @property (nonatomic, strong) Teebox * selectedTeeBox;
 
+@property (nonatomic, strong) PopOverView *popOverView;
+
 @property (nonatomic, strong) CMPopTipView * popTipView;
 
 @property (nonatomic, strong) NSMutableArray * dataArray;
 
 @property (nonatomic, strong) NSMutableArray * playersInRound;
+
+- (void)presentPopOverViewPointedAtButton:(UIView *)sender;
+
 @end
 
 
@@ -60,7 +65,10 @@
     
     SharedManager * manager = [SharedManager sharedInstance];
     [self.imgViewBackground setImage:[manager backgroundImage]];
-
+    
+    // Init pop over view.
+    self.popOverView = [[PopOverView alloc] init];
+    self.popOverView.delegate = self;
     
     self.dataArray = [[NSMutableArray alloc]init];
     self.playersInRound = [[NSMutableArray alloc] init];
@@ -429,6 +437,7 @@
 }
 
 #pragma mark - CMPopTipView
+
 - (void)popTipViewWasDismissedByUser:(CMPopTipView *)popTipView{
     [self saveRoundInfo];
     self.popTipView = nil;
@@ -444,6 +453,15 @@
     [pServices setteeboxId:self.selectedTeeBox.itemId];
 }
 
+#pragma mark - PopOverView delegate
+
+- (void)popOverView:(PopOverView *)popOverView indexPathForSelectedRow:(NSIndexPath *)indexPath string:(NSString *)string {
+    id item = self.dataArray[indexPath.row];
+    NSLog(@"%@, selectedItem-id: %@", [item name], [item itemId]);
+    [self setSelectedItemToLocalItem:item];
+    //[self saveRoundInfo];
+    [self.popOverView dismissPopOverViewAnimated:YES];
+}
 
 #pragma mark - ServiceCalls
 
@@ -482,7 +500,8 @@
     
     [self.dataArray addObjectsFromArray:[self.roundInfo subCourses]];
     currentItemsIndropdown = DropDownContainsItemsSubcourses;
-    [self presentPopOverWithOptions:nil pointedAtBtn:sender];
+    [self presentPopOverViewPointedAtButton:sender];
+    //[self presentPopOverWithOptions:nil pointedAtBtn:sender];
 }
 
 - (IBAction)btnGameTypeTapped:(UIButton *)sender {
@@ -491,7 +510,8 @@
     
     [self.dataArray addObjectsFromArray:[self.roundInfo gameTypes]];
     currentItemsIndropdown = DropDownContainsItemsGametype;
-    [self presentPopOverWithOptions:nil pointedAtBtn:sender];
+    [self presentPopOverViewPointedAtButton:sender];
+    //[self presentPopOverWithOptions:nil pointedAtBtn:sender];
 }
 
 - (IBAction)btnScoringTapped:(UIButton *)sender {
@@ -501,8 +521,8 @@
     
     [self.dataArray addObjectsFromArray:[self.roundInfo scoreTypes]];
     currentItemsIndropdown = DropDownContainsItemsScoring;
-    
-    [self presentPopOverWithOptions:nil pointedAtBtn:sender];
+    [self presentPopOverViewPointedAtButton:sender];
+    //[self presentPopOverWithOptions:nil pointedAtBtn:sender];
 }
 
 - (IBAction)btnSelectTeeBoxTapped:(UIButton *)sender {
@@ -515,8 +535,8 @@
     }
     [self.dataArray addObjectsFromArray:[((Hole *)[self.selectedSubCourse holes][0]) teeboxes]];
     currentItemsIndropdown = DropDownContainsItemsTeeboxes;
-    
-    [self presentPopOverWithOptions:nil pointedAtBtn:sender];
+    [self presentPopOverViewPointedAtButton:sender];
+    //[self presentPopOverWithOptions:nil pointedAtBtn:sender];
 }
 
 
@@ -525,6 +545,13 @@
     UIButton * btn = sender;
     [btn setTitle:[item name] forState:UIControlStateNormal];
     //[btn.titleLabel setText:[item name]];
+}
+
+- (void)presentPopOverViewPointedAtButton:(UIView *)sender {
+    self.popOverView.stringDataSource = [self.dataArray valueForKeyPath:@"self.name"];
+    CGPoint point = [sender convertPoint:sender.bounds.origin toView:self.view];
+    [self.popOverView setMinX:CGRectGetMinX(self.roundSettingsView.frame) maxY:point.y width:CGRectGetWidth(self.roundSettingsView.frame)];
+    [self.popOverView showPopOverViewAnimated:YES inView:self.view];
 }
 
 -(void)presentPopOverWithOptions:(NSArray *)options pointedAtBtn:(id)sender{

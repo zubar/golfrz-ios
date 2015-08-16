@@ -217,6 +217,10 @@
 		88FCA5481B7B46B7001B35BA /* CourseUpdatesHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88FCA5471B7B46B7001B35BA /* CourseUpdatesHeaderView.xib */; };
 		88FCA54B1B7B4C3A001B35BA /* CourseUpdatesHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88FCA54A1B7B4C3A001B35BA /* CourseUpdatesHeaderView.m */; };
 		A921244B1B36DB1E00917649 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A921244A1B36DB1E00917649 /* MessageUI.framework */; };
+		BCC179ED1B805D4E002C0DA8 /* PopOverView.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC179EC1B805D4E002C0DA8 /* PopOverView.m */; };
+		BCC179F11B805DA1002C0DA8 /* PopOverView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCC179F01B805DA1002C0DA8 /* PopOverView.xib */; };
+		BCC179F61B8062B2002C0DA8 /* PopOverCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC179F41B8062B2002C0DA8 /* PopOverCell.m */; };
+		BCC179F71B8062B2002C0DA8 /* PopOverCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCC179F51B8062B2002C0DA8 /* PopOverCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -615,6 +619,12 @@
 		88FCA5491B7B4C3A001B35BA /* CourseUpdatesHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseUpdatesHeaderView.h; sourceTree = "<group>"; };
 		88FCA54A1B7B4C3A001B35BA /* CourseUpdatesHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseUpdatesHeaderView.m; sourceTree = "<group>"; };
 		A921244A1B36DB1E00917649 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		BCC179EB1B805D4E002C0DA8 /* PopOverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PopOverView.h; path = PopOverView/PopOverView.h; sourceTree = "<group>"; };
+		BCC179EC1B805D4E002C0DA8 /* PopOverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PopOverView.m; path = PopOverView/PopOverView.m; sourceTree = "<group>"; };
+		BCC179F01B805DA1002C0DA8 /* PopOverView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PopOverView.xib; path = PopOverView/PopOverView.xib; sourceTree = "<group>"; };
+		BCC179F31B8062B2002C0DA8 /* PopOverCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PopOverCell.h; path = PopOverCell/PopOverCell.h; sourceTree = "<group>"; };
+		BCC179F41B8062B2002C0DA8 /* PopOverCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PopOverCell.m; path = PopOverCell/PopOverCell.m; sourceTree = "<group>"; };
+		BCC179F51B8062B2002C0DA8 /* PopOverCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PopOverCell.xib; path = PopOverCell/PopOverCell.xib; sourceTree = "<group>"; };
 		D817BE50C16025D4FB4E4951 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		E15946F021CC95FC21355D7C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1935,6 +1945,8 @@
 		889872C71B13237F00D3C0E9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BCC179F21B80623E002C0DA8 /* PopOverCell */,
+				BCC179EA1B805CAB002C0DA8 /* PopOverView */,
 				88FCA5461B7B46A2001B35BA /* CourseUpdatesHeaderView */,
 				88EF1EFC1B79F84E006F901F /* PastScoreCardCell */,
 				88EBE4761B73CCD2002F4FA2 /* RewardListCell */,
@@ -2092,6 +2104,26 @@
 			path = CourseUpdatesHeaderView;
 			sourceTree = "<group>";
 		};
+		BCC179EA1B805CAB002C0DA8 /* PopOverView */ = {
+			isa = PBXGroup;
+			children = (
+				BCC179EB1B805D4E002C0DA8 /* PopOverView.h */,
+				BCC179EC1B805D4E002C0DA8 /* PopOverView.m */,
+				BCC179F01B805DA1002C0DA8 /* PopOverView.xib */,
+			);
+			name = PopOverView;
+			sourceTree = "<group>";
+		};
+		BCC179F21B80623E002C0DA8 /* PopOverCell */ = {
+			isa = PBXGroup;
+			children = (
+				BCC179F31B8062B2002C0DA8 /* PopOverCell.h */,
+				BCC179F41B8062B2002C0DA8 /* PopOverCell.m */,
+				BCC179F51B8062B2002C0DA8 /* PopOverCell.xib */,
+			);
+			name = PopOverCell;
+			sourceTree = "<group>";
+		};
 		C91B48159ABC56B52D213A0C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -2207,6 +2239,7 @@
 				3D1C8E9D1B3BFEB0004AAD30 /* popoverBg-white@2x.png in Resources */,
 				3D1C8EA01B3BFEB0004AAD30 /* popoverBgSimple.png in Resources */,
 				3D0455CC1B71E66100FFB0E8 /* HMMessageSentCell.xib in Resources */,
+				BCC179F71B8062B2002C0DA8 /* PopOverCell.xib in Resources */,
 				887C7AB51B563C3700F1AC30 /* AddRoundPlayers.xib in Resources */,
 				3D1C8E9A1B3BFEB0004AAD30 /* popoverArrowUp.png in Resources */,
 				3D1C8E8E1B3BFEB0004AAD30 /* popoverArrowDown.png in Resources */,
@@ -2214,6 +2247,7 @@
 				3D1C8E971B3BFEB0004AAD30 /* popoverArrowRight@2x.png in Resources */,
 				3D1C8E9F1B3BFEB0004AAD30 /* popoverBg@2x.png in Resources */,
 				3D1C8E9C1B3BFEB0004AAD30 /* popoverArrowUpSimple.png in Resources */,
+				BCC179F11B805DA1002C0DA8 /* PopOverView.xib in Resources */,
 				887C7AB91B563EFC00F1AC30 /* AddRoundPlayersCell.xib in Resources */,
 				3D0455DC1B724CE700FFB0E8 /* HMMessagesDisplayViewController.xib in Resources */,
 				3D1C8E9E1B3BFEB0004AAD30 /* popoverBg.png in Resources */,
@@ -2359,6 +2393,7 @@
 				3D1CB0F61B691563005C1E19 /* FoodBeveragesMainViewController.m in Sources */,
 				3D1CB0EA1B691563005C1E19 /* BaseViewController.m in Sources */,
 				3D221F941B52797300CF79E4 /* User.m in Sources */,
+				BCC179ED1B805D4E002C0DA8 /* PopOverView.m in Sources */,
 				3D1C8E761B3BFDBE004AAD30 /* WETouchableView.m in Sources */,
 				88255AE91B6FA9FB0089644F /* CourseUpdateCell.m in Sources */,
 				3D1CB0EF1B691563005C1E19 /* CourseUpdatesViewController.m in Sources */,
@@ -2380,6 +2415,7 @@
 				3DA70A3D1B3972B900D3ABEC /* UIButton+Badge.m in Sources */,
 				3D7DF21A1B6FD16400FCF8FE /* Post.m in Sources */,
 				3D1CB0F01B691563005C1E19 /* EventAdminViewController.m in Sources */,
+				BCC179F61B8062B2002C0DA8 /* PopOverCell.m in Sources */,
 				88255AF11B70AF790089644F /* ScoreBoardBodyCell.m in Sources */,
 				3DF993721B256A4A006EBC39 /* AppDelegate+Push.m in Sources */,
 				3DCA44D31B26CB3400B66BD2 /* StaffType.m in Sources */,
