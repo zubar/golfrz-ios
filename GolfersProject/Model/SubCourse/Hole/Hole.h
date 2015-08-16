@@ -20,5 +20,6 @@
 @property (nonatomic, copy, readonly) NSArray * teeboxes;
 @property (nonatomic, copy, readonly) NSArray * greenCoordinates;
 @property (nonatomic, copy, readonly) NSString * flyOverVideoPath;
+@property (nonatomic, copy, readonly) NSString * imagePath;
 
 @end

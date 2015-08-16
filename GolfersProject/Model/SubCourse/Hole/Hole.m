@@ -22,6 +22,7 @@
              @"teeboxes" : @"tee_boxes",
              @"greenCoordinates" : @"greenCoordinates",
              @"flyOverVideoPath" : @"fly_over_path",
+             @"imagePath" : @"image_path",
              //propertyName : json_key
              };
 }
@@ -35,13 +36,19 @@
 }
 
 
-+ (NSValueTransformer *)flyOverVideoPathJSONTransformer
++ (NSValueTransformer *)imagePathJSONTransformer
 {
     return [MTLValueTransformer transformerWithBlock:^id(id relativePath) {
         return [self absoluteImageURLfromRelativeUR:relativePath ];
     }];
 }
 
++ (NSValueTransformer *)flyOverVideoPathJSONTransformer
+{
+    return [MTLValueTransformer transformerWithBlock:^id(id relativePath) {
+        return [self absoluteImageURLfromRelativeUR:relativePath ];
+    }];
+}
 + (NSString *)absoluteImageURLfromRelativeUR:(NSString *)relativePath
 {
     return [NSString stringWithFormat:@"%@%@", kBaseImageUrl, relativePath]; // KBaseImageUrl

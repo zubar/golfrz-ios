@@ -13,6 +13,7 @@
 #import "GameSettings.h"
 #import "SubCourse.h"
 #import "Hole.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface HolesMapViewController (){
     BOOL isDownButtonPressed;
@@ -76,9 +77,13 @@
         cell = [[UICollectionViewCell alloc] init];
     }
     
+    Hole * aHole = self.holesInround[indexPath.row];
     HoleMapCell *customCell = (HoleMapCell *)cell;
-    customCell.lblHoleNo.text = [[self.holesInround[indexPath.row] holeNumber] stringValue];
-    customCell.lblPar.text = [[self.holesInround[indexPath.row] par] stringValue];
+    customCell.lblHoleNo.text = [[aHole holeNumber] stringValue];
+    customCell.lblPar.text = [[aHole par] stringValue];
+    [customCell.imgHoleMao sd_setImageWithURL:[NSURL URLWithString:[aHole imagePath]] placeholderImage:[UIImage imageNamed:@""] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        [customCell.imgHoleMao setImage:image];
+    }];
     return customCell;
 }
 
