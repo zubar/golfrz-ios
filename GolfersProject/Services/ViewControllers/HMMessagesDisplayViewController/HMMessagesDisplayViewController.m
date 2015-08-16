@@ -99,7 +99,7 @@
     }];
     self.lblCourseUpdateText.text = self.currntActivity.text;
     NSString *commentsCount = [NSString stringWithFormat:@"%@ %@", [self.currntActivity.commentsCount stringValue], @"comments"];
-    //self.lblCommentsCount.text = commentsCount;
+    self.lblNoOfComments.text = commentsCount;
     self.lblNoOfKudos.text = [self.currntActivity.likesCount stringValue];
     if ([self.currntActivity.hasUserLiked boolValue]) {
         [self.btnKudos setBackgroundImage:[UIImage imageNamed:@"kudos_liked"] forState:UIControlStateNormal];
