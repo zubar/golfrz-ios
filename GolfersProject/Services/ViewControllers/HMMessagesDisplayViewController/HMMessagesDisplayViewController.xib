@@ -18,10 +18,10 @@
                 <outlet property="lblCourseUpdateText" destination="fDl-ks-qjH" id="Eel-w6-hp5"/>
                 <outlet property="lblDate" destination="jv9-f3-tkl" id="7HT-my-Ri2"/>
                 <outlet property="lblDay" destination="MyM-gl-bbc" id="zLn-iY-4Sl"/>
+                <outlet property="lblNoOfComments" destination="WF1-hA-0Cy" id="wiY-uE-yNP"/>
                 <outlet property="lblNoOfKudos" destination="kzf-MR-eLo" id="mgW-im-f57"/>
                 <outlet property="messageWriteField" destination="KNW-x4-s7b" id="XLC-V1-JLm"/>
                 <outlet property="messagesTable" destination="SsI-Lw-6Qg" id="Q6n-Pq-G5j"/>
-                <outlet property="noOfcomments" destination="WF1-hA-0Cy" id="PfS-y7-UIV"/>
                 <outlet property="noRecodFoundLabel" destination="IN3-YR-EYi" id="8an-Yw-ql1"/>
                 <outlet property="view" destination="QwL-x7-fBq" id="5Bb-gO-qu2"/>
             </connections>
@@ -121,16 +121,9 @@
                                     </state>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WF1-hA-0Cy">
-                                    <rect key="frame" x="121" y="54" width="13" height="14"/>
+                                    <rect key="frame" x="121" y="54" width="57" height="14"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" type="system" weight="black" pointSize="9"/>
-                                    <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="comments" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AY5-AK-AeU">
-                                    <rect key="frame" x="139" y="54" width="54" height="14"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="8"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="7"/>
                                     <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>

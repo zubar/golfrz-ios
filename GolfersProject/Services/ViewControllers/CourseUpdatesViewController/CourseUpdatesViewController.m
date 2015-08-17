@@ -19,6 +19,7 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "AppDelegate.h"
 #import "HMMessagesDisplayViewController.h"
+#import "MBProgressHUD.h"
 
 @interface CourseUpdatesViewController ()
 @property(strong, nonatomic) NSMutableArray * courseUpdates;
@@ -29,6 +30,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
     SharedManager * manager = [SharedManager sharedInstance];
     [self.imgViewBackground setImage:[manager backgroundImage]];
@@ -42,8 +44,11 @@
     [CourseUpdateServices getCourseUpdates:^(bool status, CourseUpdate *update) {
         [self.courseUpdates addObjectsFromArray:[update activities]];
         [self.tblUpdates reloadData];
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        
     } failure:^(bool status, GolfrzError *error) {
         [Utilities displayErrorAlertWithMessage:[error errorMessage]];
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
     }];
     
 }
@@ -66,6 +71,7 @@
     
     Activity * courseActivity = self.courseUpdates[indexPath.row];
     CourseUpdateCell *customViewCell = (CourseUpdateCell *)customCell;
+    customViewCell.selectionStyle = UITableViewCellSelectionStyleNone;
     [customViewCell.lblUpdateText setText:[courseActivity text]];
     
     
@@ -119,11 +125,18 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
     
-    HMMessagesDisplayViewController * controller = [[HMMessagesDisplayViewController alloc] initWithNibName:@"HMMessagesDisplayViewController" bundle:nil];
-    controller.currntActivity = self.courseUpdates[indexPath.row];
-    [delegate.appDelegateNavController pushViewController:controller animated:YES];
+    Activity * courseActivity = self.courseUpdates[indexPath.row];
+    if ([courseActivity.isCommentable boolValue]){
+        AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+    
+        HMMessagesDisplayViewController * controller = [[HMMessagesDisplayViewController alloc] initWithNibName:@"HMMessagesDisplayViewController" bundle:nil];
+        controller.currntActivity = courseActivity;
+        [delegate.appDelegateNavController pushViewController:controller animated:YES];
+    }
+    else{
+        [[[UIAlertView alloc] initWithTitle:nil message:@"You cannot comment or give kudos to this post" delegate:self cancelButtonTitle:@"CANCEL" otherButtonTitles:nil] show];
+    }
 
 }
 
