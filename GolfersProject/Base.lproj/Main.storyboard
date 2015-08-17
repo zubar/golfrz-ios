@@ -2189,7 +2189,7 @@
                                                                                 <constraint firstAttribute="height" constant="26" id="GGQ-nW-yvd"/>
                                                                                 <constraint firstAttribute="width" constant="26" id="LJ2-ou-0eZ"/>
                                                                             </constraints>
-                                                                            <state key="normal" image="1AD21E87-9EB7-4F00-9747-7F317E322AE7">
+                                                                            <state key="normal" image="C208897C-3738-44E1-A17B-AA2BB086A7E2">
                                                                                 <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                                             </state>
@@ -2859,7 +2859,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F6g-9N-JFm">
                                                 <rect key="frame" x="0.0" y="233" width="320" height="50"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0yw-p9-fXE">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0yw-p9-fXE">
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
@@ -4283,10 +4283,10 @@
                                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <prototypes>
-                                                    <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CourseDepartmentCell" rowHeight="81" id="arZ-XH-f6c" customClass="CourseDepartmentCell">
+                                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CourseDepartmentCell" rowHeight="81" id="arZ-XH-f6c" customClass="CourseDepartmentCell">
                                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                                         <autoresizingMask key="autoresizingMask"/>
-                                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="center" tableViewCell="arZ-XH-f6c" id="tTb-2K-1so">
+                                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" contentMode="center" tableViewCell="arZ-XH-f6c" id="tTb-2K-1so">
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1wF-JX-bRF">
@@ -4298,20 +4298,6 @@
                                                                                 <font key="NSFont" size="17" name="HelveticaNeue-Bold"/>
                                                                                 <font key="NSOriginalFont" size="17" name="HelveticaNeue-Bold"/>
                                                                                 <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                                            </attributes>
-                                                                        </fragment>
-                                                                    </attributedString>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f7K-iV-NI2">
-                                                                    <rect key="frame" x="262" y="11" width="42" height="20"/>
-                                                                    <attributedString key="attributedText">
-                                                                        <fragment content="Label">
-                                                                            <attributes>
-                                                                                <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                                                <font key="NSFont" size="17" name="HelveticaNeue"/>
-                                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                                                <integer key="NSUnderline" value="1"/>
                                                                             </attributes>
                                                                         </fragment>
                                                                     </attributedString>
@@ -4329,16 +4315,27 @@
                                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1BV-qm-BDO">
+                                                                    <rect key="frame" x="237" y="4" width="67" height="35"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="35" id="ZU3-5B-b33"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                                    <state key="normal" title="2123154"/>
+                                                                    <connections>
+                                                                        <action selector="departmentButtonSelected:" destination="arZ-XH-f6c" eventType="touchUpInside" id="H7Q-RO-DU3"/>
+                                                                    </connections>
+                                                                </button>
                                                             </subviews>
                                                             <constraints>
                                                                 <constraint firstAttribute="bottom" secondItem="GVK-A4-0HY" secondAttribute="bottom" constant="15" id="2Z8-wf-MEf"/>
                                                                 <constraint firstItem="GVK-A4-0HY" firstAttribute="top" secondItem="tTb-2K-1so" secondAttribute="top" constant="25" id="6ck-VN-kGX"/>
                                                                 <constraint firstItem="1wF-JX-bRF" firstAttribute="top" secondItem="tTb-2K-1so" secondAttribute="top" constant="10" id="7aQ-ZO-8RO"/>
                                                                 <constraint firstItem="1wF-JX-bRF" firstAttribute="leading" secondItem="GVK-A4-0HY" secondAttribute="leading" id="Cxz-4F-LWq"/>
-                                                                <constraint firstItem="f7K-iV-NI2" firstAttribute="baseline" secondItem="1wF-JX-bRF" secondAttribute="baseline" id="FXR-TR-nHZ"/>
                                                                 <constraint firstItem="GVK-A4-0HY" firstAttribute="height" secondItem="ER3-P6-Poa" secondAttribute="height" id="JDv-fo-a1x"/>
+                                                                <constraint firstAttribute="trailing" secondItem="1BV-qm-BDO" secondAttribute="trailing" constant="16" id="LdJ-fJ-05r"/>
                                                                 <constraint firstItem="1wF-JX-bRF" firstAttribute="leading" secondItem="tTb-2K-1so" secondAttribute="leading" constant="16" id="TwY-dB-O6s"/>
-                                                                <constraint firstAttribute="trailing" secondItem="f7K-iV-NI2" secondAttribute="trailing" constant="16" id="Ud0-Rb-XuT"/>
+                                                                <constraint firstItem="1wF-JX-bRF" firstAttribute="baseline" secondItem="1BV-qm-BDO" secondAttribute="baseline" id="czx-iT-Em1"/>
                                                                 <constraint firstAttribute="bottom" secondItem="ER3-P6-Poa" secondAttribute="bottom" constant="15" id="h2d-tq-U68"/>
                                                                 <constraint firstItem="ER3-P6-Poa" firstAttribute="leading" secondItem="GVK-A4-0HY" secondAttribute="trailing" constant="2" id="lfL-q0-mpl"/>
                                                             </constraints>
@@ -4346,7 +4343,7 @@
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <connections>
-                                                            <outlet property="lblDptContact" destination="f7K-iV-NI2" id="bUI-IW-uRK"/>
+                                                            <outlet property="departmentContactButton" destination="1BV-qm-BDO" id="Llx-5H-CLD"/>
                                                             <outlet property="lblDptDays" destination="GVK-A4-0HY" id="2nN-RC-A8Q"/>
                                                             <outlet property="lblDptName" destination="1wF-JX-bRF" id="Oio-8s-YOg"/>
                                                             <outlet property="lblDptTimings" destination="ER3-P6-Poa" id="7hm-uq-3xS"/>
@@ -4492,7 +4489,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l7d-FV-uc2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="312" y="1627"/>
+            <point key="canvasLocation" x="184" y="1618"/>
         </scene>
         <!--Event Admin View Controller-->
         <scene sceneID="3rw-Ud-6fu">
@@ -5449,17 +5446,17 @@
                                             <constraint firstAttribute="width" constant="70" id="zGi-8C-mkl"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i6v-Xv-7nz">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i6v-Xv-7nz">
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vaS-h8-y1V">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vaS-h8-y1V">
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XjA-CO-xx7">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XjA-CO-xx7">
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -5723,7 +5720,7 @@
                                                                                 <constraint firstAttribute="height" constant="26" id="OaE-ph-eo5"/>
                                                                                 <constraint firstAttribute="width" constant="26" id="S5w-xw-4Ro"/>
                                                                             </constraints>
-                                                                            <state key="normal" image="1C364E94-630F-457D-8B5E-DF38AA65BF7C">
+                                                                            <state key="normal" image="8BAC4816-0FF1-4B31-9FA0-11C7AA6DA6D4">
                                                                                 <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                                             </state>
@@ -7199,7 +7196,7 @@ Nulla sed est consectetur, tempus tellus interdum, vehicula lectus. Aliquam soll
         </scene>
     </scenes>
     <resources>
-        <image name="1AD21E87-9EB7-4F00-9747-7F317E322AE7" width="24" height="25">
+        <image name="8BAC4816-0FF1-4B31-9FA0-11C7AA6DA6D4" width="24" height="25">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -7290,7 +7287,7 @@ ExMWExsTKhMuEzUTPRNKE08TURNTE1gTYBNjE2gTcBNzE4UTiBONAAAAAAAAAgEAAAAAAAAAQgAAAAAA
 AAAAAAAAAAAAE48
 </mutableData>
         </image>
-        <image name="1C364E94-630F-457D-8B5E-DF38AA65BF7C" width="24" height="25">
+        <image name="C208897C-3738-44E1-A17B-AA2BB086A7E2" width="24" height="25">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

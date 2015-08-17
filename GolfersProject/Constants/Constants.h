@@ -13,7 +13,10 @@
 #define kUSER_TOKEN @"user_token"
 #define kUSER_EMAIL @"user_email"
 #define kUSER_ID    @"user_id"
- 
+
+#define kScreenWidth (NSInteger)[[UIScreen mainScreen] bounds].size.width
+#define kScreenHeight (NSInteger)[[UIScreen mainScreen] bounds].size.height
+
 
 static NSString * const kAppStoreUrl = @"https://fb.me/1587823924813232";
 static NSString * const kAppPreviewImage = @"http://a5.mzstatic.com/us/r30/Purple1/v4/14/9d/66/149d6659-a6c7-9d30-ff50-49b84013a4b6/icon175x175.jpeg";
@@ -192,15 +195,14 @@ static NSString * const kNoInternetErrorTitle = @"Internet Connection Lost !";
 static NSString * const kNoInternetErrorDetial = @"Internet Connection can not be established now, please try again later.";
 static NSString * const kFailedToConnectAppServerTitle = @"Failed to Connect App Server !";
 static NSString * const kFailedToConnectAppServerDetail = @"Application server is not responding at the moment, please try again later.";
-
 static NSString * const kFirstNameEmptyErrorMessage = @"Please enter first name.";
 static NSString * const kLastNameEmptyErrorMessage = @"Please enter last name.";
 static NSString * const kEmailErrorMessage = @"Please enter valid email address.";
 static NSString * const kNumberHandicapErrorMessage = @"Please a number for handicap.";
-
 static NSString * const kAddGuestErrorMessage = @"Unable to add guest.";
-
 static NSString * const kTeeBoxErrorMessage = @"Please select a teebox.";
+static NSString * const NumberNotAvaliableErrorMessage  = @"Number not avaliable!";
+static NSString * const CallSupportErrorMessage  = @"Your device doesn't support call!";
 
 /*
  * Success Messages

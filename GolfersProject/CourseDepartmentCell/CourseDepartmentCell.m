@@ -9,6 +9,13 @@
 #import "CourseDepartmentCell.h"
 #import "Department.h"
 #import "CalendarUtilities.h"
+#import "Constants.h"
+
+@interface CourseDepartmentCell ()
+
+- (IBAction)departmentButtonSelected:(UIButton *)sender;
+
+@end
 
 @implementation CourseDepartmentCell
 
@@ -57,7 +64,8 @@
                                      };
     
     NSAttributedString * dptContact  = [[NSAttributedString alloc] initWithString:departmant.phone attributes:contactAttributes];
-    [self.lblDptContact setAttributedText:dptContact];
+    [self.departmentContactButton setAttributedTitle:dptContact forState:UIControlStateNormal];
+    
     self.lblDptName.text = departmant.name;
 }
 
@@ -96,4 +104,21 @@
     }
 }
 
+- (IBAction)departmentButtonSelected:(UIButton *)sender {
+    NSString *contact = [sender attributedTitleForState:UIControlStateNormal].string;
+    UIDevice *device = [UIDevice currentDevice];
+    if ([[device model] isEqualToString:@"iPhone"]) {
+        if (contact.length) {
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://%@", contact]]];
+        }
+        else {
+            UIAlertView *notAvaliable=[[UIAlertView alloc] initWithTitle:kError message:NumberNotAvaliableErrorMessage delegate:nil cancelButtonTitle:kOK otherButtonTitles:nil];
+            [notAvaliable show];
+        }
+        
+    } else {
+        UIAlertView *notPermitted=[[UIAlertView alloc] initWithTitle:kError message:CallSupportErrorMessage delegate:nil cancelButtonTitle:kOK otherButtonTitles:nil];
+        [notPermitted show];
+    }
+}
 @end

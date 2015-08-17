@@ -2610,7 +2610,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "8dfb9865-d1fe-4840-a928-1db76291a3b8";
+				PROVISIONING_PROFILE = "0396346c-e58f-40ea-a9f4-44ac627926ca";
 			};
 			name = Debug;
 		};
