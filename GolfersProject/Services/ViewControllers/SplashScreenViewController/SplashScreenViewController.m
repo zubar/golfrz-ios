@@ -34,6 +34,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+/*
    //TODDO: Testing
     NSString *urlAsString = @"http://45.56.104.68/system/attachments/contents/000/000/002/original/car1.jpg?1439443697";
     NSURL *url = [NSURL URLWithString:urlAsString];
@@ -55,6 +57,7 @@
             [[SharedManager sharedInstance] setBackgroundImage:[UIImage imageNamed:@"background_image"]];
         }
     }
+    */
     [[SharedManager sharedInstance] setBackgroundImage:[UIImage imageNamed:@"background_image"]];
 
     
@@ -64,7 +67,6 @@
     AppDelegate * delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
     SharedManager * sharedManager = [SharedManager sharedInstance];
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
     [CourseServices courseInfo:^(bool status, id tObject) {
         NSDictionary * mCourse = tObject;

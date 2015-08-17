@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "BaseViewController.h"
 
-@interface RoundMoviePlayerController : UIViewController
+@interface RoundMoviePlayerController : BaseViewController
      @property (nonatomic, strong) NSString * moviePath;
 @end

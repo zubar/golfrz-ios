@@ -25,5 +25,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnStartRound;
 @property (weak, nonatomic) IBOutlet UIImageView *imgViewBackground;
 
+@property (strong, nonatomic) IBOutlet UIView *checkInView;
 
 @end

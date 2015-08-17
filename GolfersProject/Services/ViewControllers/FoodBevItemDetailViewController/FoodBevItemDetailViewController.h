@@ -29,5 +29,8 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *lblItemName;
 @property (strong, nonatomic) IBOutlet UILabel *lblItemPrice;
+@property (strong, nonatomic) IBOutlet UIView *optionsView;
+@property (strong, nonatomic) IBOutlet UILabel *lblOptions;
 
+@property (strong, nonatomic) IBOutlet UIView *optionsViewHeader;
 @end

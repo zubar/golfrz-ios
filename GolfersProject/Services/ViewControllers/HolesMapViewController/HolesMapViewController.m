@@ -13,11 +13,12 @@
 #import "GameSettings.h"
 #import "SubCourse.h"
 #import "Hole.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface HolesMapViewController (){
     BOOL isDownButtonPressed;
 }
-@property (nonatomic, strong) NSMutableArray * firstNineHoles;
+@property (nonatomic, strong) NSMutableArray * holesInround;
 
 
 @end
@@ -30,12 +31,17 @@
     SharedManager * manager = [SharedManager sharedInstance];
     [self.imgViewBackground setImage:[manager backgroundImage]];
 
+    GameSettings * settings = [GameSettings sharedSettings];
+    [settings setTotalNumberOfHoles:[NSNumber numberWithInteger:[[[settings subCourse] holes] count]]];
     
-    if (!self.firstNineHoles) {
-        self.firstNineHoles = [[NSMutableArray alloc]initWithCapacity:1];
-        GameSettings * settings = [GameSettings sharedSettings];
-        [self.firstNineHoles addObjectsFromArray:[[settings subCourse] holes]];
+    if (!self.holesInround) {
+        self.holesInround = [[NSMutableArray alloc]initWithCapacity:1];
+        [self.holesInround addObjectsFromArray:[[settings subCourse] holes]];
+    }else{
+        if([self.holesInround count] > 0) [self.holesInround removeAllObjects];
+        [self.holesInround addObjectsFromArray:[[settings subCourse] holes]];
     }
+    
     isDownButtonPressed = FALSE;
     NSDictionary *navTitleAttributes =@{
                                         NSFontAttributeName :[UIFont fontWithName:@"Helvetica-Bold" size:14.0],
@@ -56,7 +62,7 @@
 
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return [self.firstNineHoles count];
+    return [self.holesInround count];
 }
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -71,9 +77,13 @@
         cell = [[UICollectionViewCell alloc] init];
     }
     
+    Hole * aHole = self.holesInround[indexPath.row];
     HoleMapCell *customCell = (HoleMapCell *)cell;
-    customCell.lblHoleNo.text = [[self.firstNineHoles[indexPath.row] holeNumber] stringValue];
-    customCell.lblPar.text = [[self.firstNineHoles[indexPath.row] par] stringValue];
+    customCell.lblHoleNo.text = [[aHole holeNumber] stringValue];
+    customCell.lblPar.text = [[aHole par] stringValue];
+    [customCell.imgHoleMao sd_setImageWithURL:[NSURL URLWithString:[aHole imagePath]] placeholderImage:[UIImage imageNamed:@""] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        [customCell.imgHoleMao setImage:image];
+    }];
     return customCell;
 }
 
@@ -83,13 +93,14 @@
     AppDelegate * appDelegate = [[UIApplication sharedApplication] delegate];
     
     RoundViewController * controller = [self.storyboard instantiateViewControllerWithIdentifier:@"RoundViewController"];
-    controller.holeNumberPlayed = [NSNumber numberWithInteger:indexPath.row + 1];
+    controller.holeNumberPlayed = [NSNumber numberWithInteger:indexPath.row];
     [appDelegate.appDelegateNavController pushViewController:controller animated:YES];
+    return;
 }
 
 #pragma mark - UIActions
 - (IBAction)btnNextHolesTapped:(UIButton *)sender {
-    if ([self.firstNineHoles count] < 10) return;
+    if ([self.holesInround count] < 10) return;
     
     if (!isDownButtonPressed) {
         UIImage *buttonToDisplay = [UIImage imageNamed:@"ChooseHole_Up"];

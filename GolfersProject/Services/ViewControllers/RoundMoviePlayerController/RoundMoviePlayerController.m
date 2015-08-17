@@ -8,10 +8,12 @@
 
 #import "RoundMoviePlayerController.h"
 #import "AppDelegate.h"
+#import "MBProgressHUD.h"
 @import MediaPlayer;
 @interface RoundMoviePlayerController ()
 {
     MPMoviePlayerController *moviePlayer_;
+    UIActivityIndicatorView *activityIndicator;
 }
 @end
 
@@ -22,6 +24,19 @@
     // Do any additional setup after loading the view.
     
     //@"http://45.56.104.68/system/attachments/contents/000/000/057/original/email_address.mp4?1436959273
+    self.navigationItem.title = @"FLYOVER VIDEO";
+    // Right bar button
+    UIBarButtonItem * rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(popVideoController)];
+    self.navigationItem.rightBarButtonItem = rightBarButtonItem;
+    
+    activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+    activityIndicator.frame = CGRectMake(self.view.frame.size.width * 0.5, self.view.frame.size.height * 0.5, 50, 21);
+    [activityIndicator setTintColor:[UIColor whiteColor]];
+    [activityIndicator startAnimating];
+    [activityIndicator setHidesWhenStopped:YES];
+    [self.view addSubview:activityIndicator];
+    
+    
     moviePlayer_ = [[MPMoviePlayerController alloc] initWithContentURL:[NSURL URLWithString:self.moviePath]];
     moviePlayer_.view.frame = self.view.bounds;
     [moviePlayer_ prepareToPlay];
@@ -46,6 +61,35 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(moviePlayerLoadStateChanged:)
+                                                 name:MPMoviePlayerLoadStateDidChangeNotification
+                                               object:nil];
+    
+}
+
+- (void)moviePlayerLoadStateChanged:(NSNotification *)notif
+{
+    NSLog(@"loadState: %lu", (unsigned long)moviePlayer_.loadState);
+    if (moviePlayer_.loadState & MPMovieLoadStateStalled) {
+        [activityIndicator startAnimating];
+        [moviePlayer_ pause];
+    } else
+        if (moviePlayer_.loadState & MPMovieLoadStatePlaythroughOK) {
+        [activityIndicator stopAnimating];
+        [moviePlayer_ play];
+        
+    }
+}
+
+- (void)moviePlayerPlaybackFinished:(NSNotification *)notif
+{
+    [moviePlayer_.view removeFromSuperview];
+    [activityIndicator stopAnimating];
+}
+
 /*
 #pragma mark - Navigation
 
@@ -55,5 +99,11 @@
     // Pass the selected object to the new view controller.
 }
 */
+-(void)popVideoController
+{
+    AppDelegate * appDelegate = [[UIApplication sharedApplication] delegate];
+    [appDelegate.appDelegateNavController popViewControllerAnimated:YES];
+}
+
 
 @end

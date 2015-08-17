@@ -125,6 +125,8 @@ static NSString * const kInvitationAppOpen = @"%@/redirect_with_invitation?id=%@
 static NSString * const kGetIndividualScore = @"scores/individual_score";
 static NSString * const kGetScoreCard = @"scores/score_card";
 static NSString * const kPreviousScores = @"scores/previous_score_cards";
+static NSString * const kGetAllPlayerTotalForRound = @"rounds/user_shots";
+static NSString * const kSaveScoreCard = @"scores/save_score_card";
 
 /*
  *  Push notification token registeration
@@ -153,6 +155,7 @@ static NSString * const kAppLaunchInvitationReceived = @"AppLaunchDueToRoundInvi
 static NSString * const kCourseUpdatesList = @"notifications/view_notification_list";
 static NSString * const kGetDetailCommentsOnThread = @"notifications/view_notification_comments";
 static NSString * const KPostComment = @"notifications/add_comment";
+static NSString * const KAddKudos = @"notifications/kudos";
 
 /*
  *  Rewards

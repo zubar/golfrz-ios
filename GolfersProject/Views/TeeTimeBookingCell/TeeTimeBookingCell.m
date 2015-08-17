@@ -32,13 +32,13 @@
     else [self.btnNoOfPlayers setTitle:@"0" forState:UIControlStateNormal];
 
     if ([teetime itemId]) { // it mean teetime is already booked by someone so show update button
-        if ([[teetime count] integerValue] >= 5){
-            [self.btnBookTeetime setTitle:@"FULL" forState:UIControlStateNormal];
-        }else{
-            [self.btnBookTeetime setTitle:@"UPDATE" forState:UIControlStateNormal];
+            [self.btnBookTeetime setTitle:@"BOOKED" forState:UIControlStateNormal];
+        [self.btnNoOfPlayers setUserInteractionEnabled:NO];
         }
-    }else // it mean teetime is not booked at all.
+    else {// it mean teetime is not booked at all.
+        [self.btnNoOfPlayers setUserInteractionEnabled:YES];
         [self.btnBookTeetime setTitle:@"BOOK" forState:UIControlStateNormal];
+    }
 }
 
 - (void)didTapButton:(id)sender {

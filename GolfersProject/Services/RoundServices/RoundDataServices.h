@@ -11,6 +11,7 @@
 @class Round;
 @class RoundPlayers;
 @class GolfrzError;
+@class Shot;
 
 typedef NS_ENUM(NSInteger, ShotType) {
     ShotTypePenalty= 0,
@@ -57,10 +58,9 @@ typedef NS_ENUM(NSInteger, ShotType) {
               success:(void(^)(bool, id response))successBlock
               failure:(void(^)(bool,  NSError *error))failureBlock;
 
-
-+(void)deleteShotWithShotId:(NSNumber *)shotId
-                    success:(void(^)(bool, id response))successBlock
-                    failure:(void(^)(bool,  NSError *error))failureBlock;
++(void)deleteShot:(Shot *)mShot
+          success:(void(^)(bool, id response))successBlock
+          failure:(void(^)(bool,  NSError *error))failureBlock;
 
 
 +(void)deleteShotRoundId:(NSNumber *)round
