@@ -66,23 +66,13 @@
         [ScoreBoardManager sharedScoreBoardManager].scoreCard = scoreCard_;
         [self calculateParTotal];
         
-        
         numberOfLeftColumns = [scoreCard_.teeBoxCount intValue]+2;
-        
-        
         [_rightCollectionView reloadData];
-        
-        
-
     }
     failure:^(bool status, NSError *error)
     {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
     }];
-      
-    
-    
-
 }
 -(void)calculateParTotal
 {
@@ -144,20 +134,17 @@
     }];
 }
 
--(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
     return [ScoreBoardManager sharedScoreBoardManager].numberOfItems;
-    
 }
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-
     return [ScoreBoardManager sharedScoreBoardManager].numberOfSections;
-
 }
 
--(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
     UICollectionViewCell *cell = nil;
     if (indexPath.section == 0) {
         
@@ -182,7 +169,6 @@
             headerCell.handiCpLblView.hidden = YES;
             
         }
-        
         else if (indexPath.row >1 && indexPath.row < numberOfLeftColumns)
         {
             headerCell.lblHeading.text = @"HCP";
@@ -436,7 +422,6 @@
                     {
                         hole = [scoreCard_.holesArray objectAtIndex:indexPath.section-2];
                     }
-                    
                     
                 }
                 else
