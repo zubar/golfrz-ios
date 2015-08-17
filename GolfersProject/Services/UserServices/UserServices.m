@@ -61,7 +61,7 @@ static User * currentUser = nil;
 }
 
 
-+(void)updateUserInfo:(NSString *)fName lastName:(NSString *)lastName email:(NSString *)email success:(void (^)(bool status, NSString * message))successBlock failure:(void (^)(bool status, GolfrzError * error))failureBlock{
++(void)updateUserInfo:(NSString *)fName lastName:(NSString *)lastName email:(NSString *)email phoneNo:(NSString *)phoneNo success:(void (^)(bool status, NSString * message))successBlock failure:(void (^)(bool status, GolfrzError * error))failureBlock{
     
     //Create our client
     APIClient *apiClient = [APIClient sharedAPICLient];
@@ -69,7 +69,7 @@ static User * currentUser = nil;
     //TODO: Write completion block here.
     NSString * updateInfoUrl = [NSString stringWithFormat:@"%@%@", kUpdateUserInfo, [UserServices currentUserId]];
     
-    [apiClient PUT:updateInfoUrl parameters:[UserServices userFirstName:fName lastName:lastName email:email] completion:^(id response, NSError *error) {
+    [apiClient PUT:updateInfoUrl parameters:[UserServices userFirstName:fName lastName:lastName email:email phoneNo:phoneNo] completion:^(id response, NSError *error) {
         if (!error) {
             //Setting current user
             NSString * msg = @"Successfully updated";;
@@ -113,13 +113,14 @@ static User * currentUser = nil;
 
 #pragma mark - Helper Methods
 
-+(NSDictionary *)userFirstName:(NSString *)firstName lastName:(NSString *)lastName email:(NSString *)email{
++(NSDictionary *)userFirstName:(NSString *)firstName lastName:(NSString *)lastName email:(NSString *)email phoneNo:(NSString *)phoneNo{
     return @{
         @"id" : [UserServices currentUserId],
         @"auth_token" : [UserServices currentToken],
         @"first_name" : firstName,
         @"last_name" : lastName,
-        @"email" : email
+        @"email" : email,
+        @"phone_no" :phoneNo
 
     };
 }
