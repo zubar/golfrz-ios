@@ -171,33 +171,42 @@
 -(void)getAvailableFeatures{
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    [self.btnTeetimes setHidden:YES];
-    [self.lblTeeTimes setHidden:YES];
+    [self.teeTimesView setHidden:YES];
+    [self.eventsView setHidden:YES];
+    [self.foodBevView setHidden:YES];
     
-    [self.btnEvents setHidden:YES];
-    [self.lblEvents setHidden:YES];
-    
-    [self.btnFoodAndBeverage setHidden:YES];
-    [self.lblFoodAndBev setHidden:YES];
-    
+    NSMutableDictionary * visibleFeatures = [NSMutableDictionary new];
     
     [CourseServices getEnabledFeatures:^(bool status, NSArray *enabledFeatures) {
         if (status) {
             for (FeaturedControl * featureItem in enabledFeatures) {
-
-                if ([[featureItem featureName] isEqualToString:kFeatEventCalendar]) {
-                    [self.btnEvents setHidden:NO];
-                    [self.lblEvents setHidden:NO];
-                }
-                if ([[featureItem featureName] isEqualToString:kFeatTeetime]) {
-                    [self.btnTeetimes setHidden:NO];
-                    [self.lblTeeTimes setHidden:NO];
-                }
-                if ([[featureItem featureName] isEqualToString:kFeatFoodAndBeverages]) {
-                    [self.btnFoodAndBeverage setHidden:NO];
-                    [self.lblFoodAndBev setHidden:NO];
-                }
+                if([[featureItem featureName] isEqualToString:kFeatTeetime] ||
+                   [[featureItem featureName] isEqualToString:kFeatEventCalendar] ||
+                   [[featureItem featureName] isEqualToString:kFeatFoodAndBeverages])
+                    [visibleFeatures setObject:[featureItem featureName] forKey:[featureItem featureName]];
             }
+            
+            int countFeatureItems = (int)[[visibleFeatures allKeys] count];
+            int xDisplacement = self.view.frame.size.width/(countFeatureItems+1);
+            int multiplyFactor = 1;
+            
+                //Adjust View frames
+                if ([visibleFeatures objectForKey:kFeatTeetime]) {
+                    [self.teeTimesView setCenter:CGPointMake(xDisplacement * multiplyFactor , self.teeTimesView.center.y)];
+                    ++multiplyFactor;
+                    [self.teeTimesView setHidden:NO];
+                }
+                if ([visibleFeatures objectForKey:kFeatEventCalendar]) {
+                    [self.eventsView setCenter:CGPointMake(xDisplacement* multiplyFactor, self.eventsView.center.y)];
+                    ++multiplyFactor;
+                    [self.eventsView setHidden:NO];
+                }
+                if ([visibleFeatures objectForKey:kFeatFoodAndBeverages]) {
+                    [self.foodBevView setCenter:CGPointMake(xDisplacement* multiplyFactor, self.foodBevView.center.y)];
+                    ++multiplyFactor;
+                    [self.foodBevView setHidden:NO];
+                }
+
             [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         }
     } failure:^(bool status, GolfrzError *error) {
