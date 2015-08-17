@@ -181,7 +181,7 @@ static NSString * const kDefaultThemeColor = @"0xFF0000";
 /*
  * OK Message
  */
-static NSString * const kOK = @"Ok";
+static NSString * const kOK = @"OK";
 
 /*
  * Error Messages

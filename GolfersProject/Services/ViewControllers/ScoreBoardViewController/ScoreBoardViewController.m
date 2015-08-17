@@ -24,11 +24,14 @@
 #import "UserServices.h"
 #import "GameSettings.h"
 #import "PastScoreCardsViewController.h"
+#import "GameType.h"
+
 
 @interface ScoreBoardViewController (){
     
     NSUInteger numberOfLeftColumns;
     ScoreCard *scoreCard_;
+    GameType *gameType_;
     int parTotal_;
     int parTotal2_;
 }
@@ -67,6 +70,23 @@
         [self calculateParTotal];
         
         numberOfLeftColumns = [scoreCard_.teeBoxCount intValue]+2;
+        self.lblNoOfHoles.text = [NSString stringWithFormat:@"%@",  @(scoreCard_.holeCount)];
+        gameType_ = [[GameSettings sharedSettings] gameType];
+        NSString *currentGameType = gameType_.name;
+        if (currentGameType == nil)
+        {
+            self.lblGameType.text = self.previousGameType;
+        }else{
+            self.lblGameType.text = currentGameType;
+        }
+        if (self.previousDate == nil) {
+            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+            formatter.dateFormat = @"d.M.yyyy";
+            NSString *currentDate = [formatter stringFromDate:[NSDate date]];
+            self.lblDateOfRound.text = currentDate;
+        }else{
+            self.lblDateOfRound.text = self.previousDate;
+        }
         [_rightCollectionView reloadData];
     }
     failure:^(bool status, NSError *error)
