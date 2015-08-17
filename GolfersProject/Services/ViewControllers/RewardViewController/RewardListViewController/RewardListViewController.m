@@ -30,12 +30,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self configureView];
 }
 
 - (void)viewWillAppear:(BOOL)animated   {
     [super viewWillAppear:animated];
     if(!self.rewardsList) self.rewardsList = [[NSMutableArray alloc]init];
+    [self configureView];
 }
 #pragma Configure View
 
