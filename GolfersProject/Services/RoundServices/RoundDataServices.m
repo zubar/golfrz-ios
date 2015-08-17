@@ -98,16 +98,17 @@
                 lastName:(NSString *)lName
                 handicap:(NSNumber *)handicap
                 teeBoxId:(NSNumber *)teeBoxId
-                success:(void(^)(bool status, NSDictionary * response))successBlock
-                failure:(void(^)(bool status, NSError * error))failureBlock
+                 success:(void(^)(bool status, NSDictionary * response))successBlock
+                 failure:(void(^)(bool status, NSError * error))failureBlock
 {
     AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
+    NSLog(@"PARAM-ADD-GUEST:%@", [RoundDataServices paramAddGuestToRoundEmail:email firstName:fName lastName:lName handicap:handicap teeBoxId:teeBoxId]);
     [apiClient POST:kRoundAddGuest parameters:[RoundDataServices paramAddGuestToRoundEmail:email firstName:fName lastName:lName handicap:handicap teeBoxId:teeBoxId] success:^(NSURLSessionDataTask *task, id responseObject) {
-            successBlock(true, responseObject);
+        successBlock(true, responseObject);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-            failureBlock(false, error);
+        failureBlock(false, error);
     }];
-                    
+    
 }
 
 +(void)addShotRoundId:(NSNumber *)round
@@ -350,13 +351,15 @@
 }
 
 +(NSDictionary *)paramAddGuestToRoundEmail:(NSString *)email
-                                 firstName:(NSString *)firstName
-                                  lastName:(NSString *)lastName
-                                  handicap:(NSNumber *)handicap
-                                  teeBoxId:(NSNumber *)teeBoxId
+                                firstName:(NSString *)firstName
+                                 lastName:(NSString *)lastName
+                                 handicap:(NSNumber *)handicap
+                                 teeBoxId:(NSNumber *)teeBoxId
 {
     return @{
+             @"app_bundle_id" : kAppBundleId,
              @"auth_token" : [UserServices currentToken],
+             @"user_agent" : kUserAgent,
              @"round_id" : [[GameSettings sharedSettings] roundId],
              @"email" : email,
              @"first_name" : firstName,

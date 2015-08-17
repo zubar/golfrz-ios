@@ -21,6 +21,7 @@ typedef  NS_ENUM(NSUInteger, FriendContactType){
 
 @interface RoundInviteFriendViewController : BaseViewController<UITableViewDataSource,
                                                             UITableViewDelegate,
+                                                            UISearchBarDelegate,
                                                             MFMessageComposeViewControllerDelegate,
                                                             MFMailComposeViewControllerDelegate,
                                                             ContactCellDelegate>{

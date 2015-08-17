@@ -179,12 +179,34 @@ static NSString * const kFeatNewsFeed = @"news_feeds";
 static NSString * const kDefaultThemeColor = @"0xFF0000";
 
 /*
+ * OK Message
+ */
+static NSString * const kOK = @"Ok";
+
+/*
  * Error Messages
  */
+static NSString * const kError = @"Error";
+static NSString * const kReqiredFieldErrorMessage = @"Required Field Missing.";
 static NSString * const kNoInternetErrorTitle = @"Internet Connection Lost !";
 static NSString * const kNoInternetErrorDetial = @"Internet Connection can not be established now, please try again later.";
 static NSString * const kFailedToConnectAppServerTitle = @"Failed to Connect App Server !";
 static NSString * const kFailedToConnectAppServerDetail = @"Application server is not responding at the moment, please try again later.";
+
+static NSString * const kFirstNameEmptyErrorMessage = @"Please enter first name.";
+static NSString * const kLastNameEmptyErrorMessage = @"Please enter last name.";
+static NSString * const kEmailErrorMessage = @"Please enter valid email address.";
+static NSString * const kNumberHandicapErrorMessage = @"Please a number for handicap.";
+
+static NSString * const kAddGuestErrorMessage = @"Unable to add guest.";
+
+static NSString * const kTeeBoxErrorMessage = @"Please select a teebox.";
+
+/*
+ * Success Messages
+ */
+static NSString * const kSuccess = @"Success";
+static NSString * const kAddGuestSuccessMessage = @"Guest successfully added.";
 
 #define UIColorFromHex(rgbValue) [UIColor \
 colorWithRed: ((float)((rgbValue & 0xFF0000) >> 16)) / 255.0 \

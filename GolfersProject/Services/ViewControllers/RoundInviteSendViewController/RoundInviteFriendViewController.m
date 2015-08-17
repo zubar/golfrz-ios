@@ -33,6 +33,7 @@
 @interface RoundInviteFriendViewController ()
 @property (nonatomic, strong) NSMutableArray * selectedFriends;
 @property (nonatomic, strong) NSMutableArray * allFriends;
+@property (nonatomic, strong) NSMutableArray * searchedFriends;
 //TODO: save the invitationId if required.
 @property (nonatomic, strong) NSString * invitationId;
 @end
@@ -100,6 +101,7 @@
         default:
             break;
     }
+    self.searchedFriends = [self.allFriends mutableCopy];
 }
 
 
@@ -110,6 +112,7 @@
     [InvitationServices getInAppUsers:^(bool status, NSArray *inAppUsers) {
         if (status) {
             [self.allFriends addObjectsFromArray:inAppUsers];
+            self.searchedFriends = [self.allFriends mutableCopy];
             [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         }
         completion();
@@ -127,7 +130,7 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    return [self.allFriends count];
+    return [self.searchedFriends count];
 }
 
 
@@ -142,7 +145,7 @@
     ContactCell *customViewCell = (ContactCell *)customCell;
     customViewCell.delegate = self;
     
-    id friendObject = self.allFriends[indexPath.row];
+    id friendObject = self.searchedFriends[indexPath.row];
     if ([friendObject associatedObject] == nil) {
         [friendObject setAssociatedObject:[NSNumber numberWithBool:NO]];
     }
@@ -153,7 +156,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    id selectedFriend = self.allFriends[indexPath.row];
+    id selectedFriend = self.searchedFriends[indexPath.row];
     
     if ([self.selectedFriends containsObject:selectedFriend]) {
         [self.selectedFriends removeObject:selectedFriend];
@@ -217,10 +220,12 @@
 
     
 -(void)doneTapped{
+    [self.searchDisplayController.searchBar resignFirstResponder];
+    self.searchDisplayController.searchBar.text = @"";
     [self saveInvitationOnServerCompletion:^{
         NSString * invitationUrl = [InvitationServices getinvitationAppOpenUrlForInvitation:self.invitationId];
         NSLog(@"InvitationUrl: %@", invitationUrl);
-        if ([self.selectedFriends count] > 0) {
+        if ([self.allFriends count] > 0) {
             [[GameSettings sharedSettings] setWaitingForPlayers:YES];
             [self sendInvitationsWithMsg:invitationUrl];
         }
@@ -427,6 +432,34 @@
         [self.friendsTableView reloadData];
         [self popToAddPlayersViewController];
     }];
+}
+
+#pragma mark - SearchBarDelegate
+
+// called when text changes (including clear)
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
+    if (searchText.length == 0) {
+        self.searchedFriends = [self.allFriends mutableCopy];
+    }
+    else {
+        [self filterContentForSearchText:searchText];
+    }
+    [self.friendsTableView reloadData];
+}
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    [searchBar resignFirstResponder];
+}
+
+- (void)filterContentForSearchText:(NSString*)searchText
+{
+    NSPredicate *resultPredicate = [NSPredicate predicateWithFormat:@"contactFirstName contains[c] %@", searchText];
+    self.searchedFriends = [[self.allFriends filteredArrayUsingPredicate:resultPredicate] mutableCopy];
+}
+
+-(BOOL)searchBarShouldEndEditing:(UISearchBar *)searchBar{
+    [searchBar resignFirstResponder];
+    return YES;
 }
 
 @end

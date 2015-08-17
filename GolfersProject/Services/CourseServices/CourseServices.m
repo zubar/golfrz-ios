@@ -97,7 +97,6 @@ static Course * currentCourse = nil;
 }
 
 +(void)setCurrentCourse:(Course *)mCourse{
-    currentCourse = nil;
     currentCourse = mCourse;
 }
 

@@ -8,16 +8,18 @@
 
 #import <UIKit/UIKit.h>
 #import "BaseViewController.h"
+#import "PopOverView.h"
 
-@interface AddGuestViewController : BaseViewController
+@interface AddGuestViewController : BaseViewController <UITextFieldDelegate, PopOverViewDelegate>
 
-@property (strong, nonatomic) IBOutlet UITextField *txtGuestName;
-@property (strong, nonatomic) IBOutlet UITextField *txtGuestEmail;
-@property (strong, nonatomic) IBOutlet UIButton *btnHandicap;
-@property (strong, nonatomic) IBOutlet UIButton *btnTeeBox;
+@property (weak, nonatomic) IBOutlet UITextField *txtGuestFirstName;
+@property (weak, nonatomic) IBOutlet UITextField *txtGuestLastName;
+@property (weak, nonatomic) IBOutlet UITextField *txtGuestEmail;
+@property (weak, nonatomic) IBOutlet UITextField *txtGuestHandicap;
+@property (weak, nonatomic) IBOutlet UIButton *btnTeeBox;
+@property (weak, nonatomic) IBOutlet UIView *addGuestSettingsView;
 
 @property (weak, nonatomic) IBOutlet UIImageView *imgViewBackground;
-- (IBAction)btnSelectHandicapTapped:(UIButton *)sender;
 - (IBAction)btnSelectTeeBoxTapped:(UIButton *)sender;
 - (IBAction)btnAddGuestTapped:(UIButton *)sender;
 
