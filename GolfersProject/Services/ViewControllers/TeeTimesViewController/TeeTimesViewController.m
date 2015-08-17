@@ -114,8 +114,8 @@
        NSMutableSet * teeTimes = [self createTeeTimesForDate:teeTimeDate];
        NSSet * bookedTeetimes = [NSSet setWithArray:serverBookedTimes];
         
-        
-     [teeTimes unionSet:bookedTeetimes];
+      [teeTimes minusSet:bookedTeetimes];
+      [teeTimes unionSet:bookedTeetimes];
         
         
         NSArray * mergedTeeTimes = [[NSMutableArray alloc] initWithArray:[teeTimes allObjects]];
@@ -260,7 +260,12 @@
         if([sender isKindOfClass:[TeeTimeBookingCell class]]) indexOfTappedBtn = [self.teeTimesTable indexPathForCell:sender];
        
         Teetime * tee = [teeTimesArray objectAtIndex:indexOfTappedBtn.row];
-        [self bookTeetimeForPlayers:playerCount tee:tee];
+        if([teeTime itemId] != nil){
+            [self displayTeetimeAlreadyBookedAlert];
+        }else{
+            [self bookTeetimeForPlayers:playerCount tee:tee];
+        }
+
     }];
     [customViewCell setDidTapPlayerCountBtnBlock:^(id sender ) {
         [self editTeetimeTappedFromView:sender];
@@ -269,6 +274,9 @@
 }
 
 
+-(void)displayTeetimeAlreadyBookedAlert{
+    [[[UIAlertView alloc] initWithTitle:@"Teetime Already Booked!" message:@"This teetime is already booked, please contact admin to update or cancel booking." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+}
 
 #pragma mark - Pop-up view
 

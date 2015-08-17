@@ -71,5 +71,9 @@
     return NO;
 }
 
+- (NSUInteger)hash {
+    NSLog(@"HAST-TEETIME:%lu", (unsigned long)fabs([self.bookedTime timeIntervalSinceReferenceDate]));
+    return (NSUInteger)fabs([self.bookedTime timeIntervalSinceReferenceDate]);
+}
 
 @end
