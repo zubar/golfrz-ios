@@ -19,8 +19,6 @@
 static User * currentUser = nil;
 
 
-
-
 +(void)setCurrentToken:(NSString *)token{
 
     NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
@@ -95,6 +93,7 @@ static User * currentUser = nil;
         if (!error) {
                 //Setting current user
                 User * mUser = [resp result];
+            currentUser = mUser;
             successBlock(true, mUser);
         }else{
             failureBlock(false, [resp result]);

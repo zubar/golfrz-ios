@@ -12,7 +12,7 @@
 
 @interface UserServices : NSObject
 
-
++(User *)currentUser;
 
 +(void)setCurrentToken:(NSString *)token;
 +(NSString *)currentToken;
