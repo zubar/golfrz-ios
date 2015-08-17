@@ -220,6 +220,8 @@
 
     
 -(void)doneTapped{
+    [self.searchDisplayController.searchBar resignFirstResponder];
+    self.searchDisplayController.searchBar.text = @"";
     [self saveInvitationOnServerCompletion:^{
         NSString * invitationUrl = [InvitationServices getinvitationAppOpenUrlForInvitation:self.invitationId];
         NSLog(@"InvitationUrl: %@", invitationUrl);
@@ -433,6 +435,7 @@
 }
 
 #pragma mark - SearchBarDelegate
+
 // called when text changes (including clear)
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
     if (searchText.length == 0) {

@@ -17,6 +17,7 @@
 
 @interface PastScoreCardsViewController ()
 @property(strong, nonatomic) NSMutableArray * pastScores;
+@property(strong, nonatomic) NSMutableArray * searchedPastScores;
 @end
 
 @implementation PastScoreCardsViewController
@@ -31,12 +32,14 @@
     self.navigationItem.title = @"PAST SCORECARDS";
     // Do any additional setup after loading the view.
     if(!self.pastScores) self.pastScores = [[NSMutableArray alloc] init];
+    self.searchedPastScores = self.pastScores;
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [ScoreboardServices getScorecardHistory:^(bool status, NSArray *enabledFeatures)
     {
         if([self.pastScores count] > 0)[self.pastScores removeAllObjects];
         [self.pastScores addObjectsFromArray:enabledFeatures];
+        self.searchedPastScores = self.pastScores;
         [self.scoreCardTable reloadData];
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
     } failure:^(bool status, GolfrzError *error) {
@@ -52,7 +55,7 @@
 
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return [self.pastScores count];
+    return [self.searchedPastScores count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -62,7 +65,7 @@
         customCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"PastScoreCardCell"];
     }
     
-    PastScore * mPastScore = self.pastScores[indexPath.row];
+    PastScore * mPastScore = self.searchedPastScores[indexPath.row];
     
     PastScoreCardCell *customViewCell = (PastScoreCardCell *)customCell;
     [Utilities dateComponents:[mPastScore createdAt] components:^(NSString *dayName, NSString *monthName, NSString *day, NSString *time, NSString *minutes, NSString *timeAndMinute, NSString *year)
@@ -77,8 +80,6 @@
     [customViewCell setSelectionStyle:UITableViewCellSelectionStyleNone];
     return customViewCell;
 }
-
-
 
 /*
 #pragma mark - Navigation
@@ -95,12 +96,40 @@
 
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    PastScore * mPastScore = self.pastScores[indexPath.row];
+    PastScore * mPastScore = self.searchedPastScores[indexPath.row];
     
     ScoreBoardViewController *scoreBoardVc = [self.storyboard instantiateViewControllerWithIdentifier:@"SCORE_BOARD_VC_ID"];
     scoreBoardVc.roundId = [mPastScore roundId];
     scoreBoardVc.subCourseId = [mPastScore subCourseId];
     [self.navigationController pushViewController:scoreBoardVc animated:YES];
+}
+
+#pragma mark - SearchBarDelegate
+
+// called when text changes (including clear)
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
+    if (searchText.length == 0) {
+        self.searchedPastScores = [self.pastScores mutableCopy];
+    }
+    else {
+        [self filterContentForSearchText:searchText];
+    }
+    [self.scoreCardTable reloadData];
+}
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    [searchBar resignFirstResponder];
+}
+
+- (void)filterContentForSearchText:(NSString*)searchText
+{
+    NSPredicate *resultPredicate = [NSPredicate predicateWithFormat:@"gameType contains[c] %@", searchText];
+    self.searchedPastScores = [[self.pastScores filteredArrayUsingPredicate:resultPredicate] mutableCopy];
+}
+
+-(BOOL)searchBarShouldEndEditing:(UISearchBar *)searchBar{
+    [searchBar resignFirstResponder];
+    return YES;
 }
 
 @end

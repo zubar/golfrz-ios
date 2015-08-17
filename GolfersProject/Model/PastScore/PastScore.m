@@ -41,7 +41,6 @@
     }];
 }
 
-
 + (NSDateFormatter *)dateFormatter {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
@@ -49,6 +48,5 @@
     
     return dateFormatter;
 }
-
 
 @end

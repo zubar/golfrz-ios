@@ -46,10 +46,7 @@
 
 @property (nonatomic, strong) PopOverView *popOverView;
 
-@property (nonatomic, strong) CMPopTipView * popTipView;
-
 @property (nonatomic, strong) NSMutableArray * dataArray;
-
 @property (nonatomic, strong) NSMutableArray * playersInRound;
 
 - (void)presentPopOverViewPointedAtButton:(UIView *)sender;
@@ -108,20 +105,20 @@
     
 }
 
--(void)showViewsAddPlayers{
-    
+-(void)showViewsAddPlayers
+{
     [self.playersTableContainerView setHidden:YES];
     [self.addPlayerContainerView setHidden:NO];
     [self.btnStartRound setHidden:YES];
 }
 
--(void)viewWillAppear:(BOOL)animated{
-    
+-(void)viewWillAppear:(BOOL)animated
+{
     [self loadData];
 }
 
--(void)loadData{
-    
+-(void)loadData
+{
     AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
     [delegate.appDelegateNavController setNavigationBarHidden:NO];
     
@@ -200,8 +197,8 @@
 
 
 
--(void)updateViewsRoundInProgressCompletion:(void(^)(void))completionHandler{
-    
+-(void)updateViewsRoundInProgressCompletion:(void(^)(void))completionHandler
+{
     [self loadPlayersListCompletion:^{
         [self.playersTable reloadData];
         completionHandler();
@@ -213,28 +210,21 @@
 }
 
 
--(void)handleNotification:(NSNotification *)notif{
-    
+-(void)handleNotification:(NSNotification *)notif
+{
     if ([[notif name] isEqualToString:kInviteeAcceptedInvitation] || [[notif name] isEqualToString:kAppLaunchInvitationReceived]) {
         [self loadData];
     }
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 
+#pragma mark - Navigation
 -(void)popSelf{
     AppDelegate * appDelegate = [[UIApplication sharedApplication] delegate];
     [appDelegate.appDelegateNavController popViewControllerAnimated:YES];
@@ -247,9 +237,6 @@
         [[[UIAlertView alloc] initWithTitle:@"Required Field Missing." message:@"Please select SubCourse, GameType, ScoreType and TeeBox." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
         return;
     }
-    
-    [self saveRoundInfo];
-    
     [RoundDataServices getNewRoundIdWithOptions:@{
                                                   @"subCourseId" : self.selectedSubCourse.itemId,
                                                   @"gameTypeId" : self.selectedGameType.itemId,
@@ -274,7 +261,8 @@
     
 }
 
--(BOOL)validateRoundOptions{
+-(BOOL)validateRoundOptions
+{
     return (self.selectedSubCourse.itemId != nil) &&
             (self.selectedGameType.itemId != nil) &&
             (self.selectedScoreType.itemId != nil) &&
@@ -297,7 +285,6 @@
                 completion();
             }];
         }
-        
     } failure:^(bool status, NSError *error) {
         completion();
     }];
@@ -309,7 +296,6 @@
     if (!roundId) {
         return;
     }
-    
     [RoundDataServices getPlayersInRoundId:roundId success:^(bool status, RoundPlayers *playerData) {
         if (status) {
             [self.playersInRound removeAllObjects];
@@ -401,56 +387,38 @@
     return customViewCell;
 }
 
--(NSArray *)dataArrayForCells{
-    return self.dataArray;
-}
-
--(void)selectedItemForCell:(id)item{
-    
-    NSLog(@"%@, selectedItem-id: %@", [item name], [item itemId]);
-    [self setSelectedItemToLocalItem:item];
-    [self.popTipView dismissAnimated:YES];
-}
-
 -(void)setSelectedItemToLocalItem:(id)item{
    
+    GameSettings * pServices = [GameSettings sharedSettings];
+
     switch (currentItemsIndropdown) {
         case DropDownContainsItemsSubcourses:
             self.selectedSubCourse = item;
+            [pServices setsubCourseId:self.selectedSubCourse.itemId];
+            [pServices setsubCourse:self.selectedSubCourse];
             [self UpdateTitleForSelectedItem:item button:self.btnSelectCourse];
             break;
         case DropDownContainsItemsScoring:
             self.selectedScoreType = item;
+            [pServices setscoreTypeId:self.selectedScoreType.itemId];
+            [pServices setscoreType:self.selectedScoreType];
             [self UpdateTitleForSelectedItem:item button:self.btnSelectScoretype];
             break;
         case DropDownContainsItemsGametype:
             self.selectedGameType = item;
+            [pServices setgameTypeId:self.selectedGameType.itemId];
+            [pServices setgameType:self.selectedGameType];
             [self UpdateTitleForSelectedItem:item button:self.btnSelectGametype];
             break;
         case DropDownContainsItemsTeeboxes:
             self.selectedTeeBox = item;
+            [pServices setteeboxId:self.selectedTeeBox.itemId];
+            [pServices setteebox:self.selectedTeeBox];
             [self UpdateTitleForSelectedItem:item button:self.btnSelectTeebox];
             break;
         default:
             break;
     }
-}
-
-#pragma mark - CMPopTipView
-
-- (void)popTipViewWasDismissedByUser:(CMPopTipView *)popTipView{
-    [self saveRoundInfo];
-    self.popTipView = nil;
-}
-
--(void)saveRoundInfo{
-    
-    GameSettings * pServices = [GameSettings sharedSettings];
-    //
-    [pServices setsubCourseId:self.selectedSubCourse.itemId];
-    [pServices setgameTypeId:self.selectedGameType.itemId];
-    [pServices setscoreTypeId:self.selectedScoreType.itemId];
-    [pServices setteeboxId:self.selectedTeeBox.itemId];
 }
 
 #pragma mark - PopOverView delegate
@@ -459,7 +427,6 @@
     id item = self.dataArray[indexPath.row];
     NSLog(@"%@, selectedItem-id: %@", [item name], [item itemId]);
     [self setSelectedItemToLocalItem:item];
-    //[self saveRoundInfo];
     [self.popOverView dismissPopOverViewAnimated:YES];
 }
 
@@ -531,8 +498,7 @@
         [[[UIAlertView alloc]initWithTitle:@"Subcourse not selected." message:@"Please select subcourse first." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
         return;
     }
-    
-    ([self.dataArray count] > 0 ? [self.dataArray removeAllObjects] : nil);
+    if([self.dataArray count] > 0) [self.dataArray removeAllObjects];
     
     [self.dataArray addObjectsFromArray:[((Hole *)[self.selectedSubCourse holes][0]) teeboxes]];
     currentItemsIndropdown = DropDownContainsItemsTeeboxes;
@@ -541,54 +507,25 @@
 }
 
 
--(void)UpdateTitleForSelectedItem:(id)item button:(id)sender{
-    
+-(void)UpdateTitleForSelectedItem:(id)item button:(id)sender
+{
     UIButton * btn = sender;
     [btn setTitle:[item name] forState:UIControlStateNormal];
-    //[btn.titleLabel setText:[item name]];
 }
 
 - (void)presentPopOverViewPointedAtButton:(UIView *)sender {
     self.popOverView.stringDataSource = [self.dataArray valueForKeyPath:@"self.name"];
     CGPoint point = [sender convertPoint:sender.bounds.origin toView:self.view];
-    CGFloat bottomPadding = 14;
+    CGFloat bottomPadding = 12;
     [self.popOverView setMinX:CGRectGetMinX(self.roundSettingsView.frame) maxY:point.y - bottomPadding width:CGRectGetWidth(self.roundSettingsView.frame) animated:YES];
     [self.popOverView showPopOverViewAnimated:YES inView:self.view];
 }
-
--(void)presentPopOverWithOptions:(NSArray *)options pointedAtBtn:(id)sender{
-    
-    DropdownView * mScoreView = [[DropdownView alloc]init];
-    mScoreView.dataSource = self;
-    mScoreView.delegate = self;
-    [mScoreView setFrame:CGRectMake(mScoreView.frame.origin.x, mScoreView.frame.origin.y, mScoreView.frame.size.width, 100)];
-    [mScoreView setBackgroundColor:[UIColor whiteColor]];
-    
-    // Toggle popTipView when a standard UIButton is pressed
-    if (nil == self.popTipView) {
-        self.popTipView = [[CMPopTipView alloc] initWithCustomView:mScoreView];
-        self.popTipView.delegate = self;
-        self.popTipView.backgroundColor = [UIColor whiteColor];
-        [self.popTipView setPreferredPointDirection:PointDirectionDown];
-        [self.popTipView setCornerRadius:5.0f];
-        //[self.popTipView setBackgroundColor:[UIColor darkGrayColor]];
-        [self.popTipView presentPointingAtView:sender inView:self.view animated:YES];
-    }
-    else {
-        // Dismiss
-        [self.popTipView dismissAnimated:YES];
-        self.popTipView = nil;
-        mScoreView = nil;
-    }
-}
-
 - (IBAction)btnStartRoundTapped:(UIButton *)sender {
     
     if (![self validateRoundOptions]) {
         [[[UIAlertView alloc] initWithTitle:@"Required Field Missing." message:@"Please select SubCourse, GameType, ScoreType and TeeBox." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
         return;
     }
-    [self saveRoundInfo];
     InvitationManager * invitationManager = [InvitationManager sharedInstance];
     if ([invitationManager isInvitationAccepted])
         [self startRoundInvitee];
@@ -624,7 +561,8 @@
 }
 
 // Invitee first needs to call new round API then start round.
--(void)startRoundInvitee{
+-(void)startRoundInvitee
+{
     
     
     GameSettings * persistentStore = [GameSettings sharedSettings];
@@ -648,15 +586,12 @@
     } failure:^(bool status, NSError *error) {
         NSLog(@"Error-RoundInvitee: %@", error);
     }];
-    
-    
 }
 
-- (IBAction)editPlayersTapped:(UIButton *)sender {
-    
+- (IBAction)editPlayersTapped:(UIButton *)sender
+{
     AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
     [delegate.appDelegateNavController setNavigationBarHidden:NO];
-    
     RoundInviteViewController * roundInviteFriendController = [self.storyboard instantiateViewControllerWithIdentifier:@"RoundInviteViewController"];
     [delegate.appDelegateNavController pushViewController:roundInviteFriendController animated:YES];
 

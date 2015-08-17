@@ -23,7 +23,7 @@ typedef NS_ENUM(NSInteger, DropDownContainsItems) {
 };
 
 
-@interface AddPlayersViewController : BaseViewController<DropdownDataSource, DropdownDelegate, CMPopTipViewDelegate, PopOverViewDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface AddPlayersViewController : BaseViewController<PopOverViewDelegate, UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) RoundMetaData * roundInfo;
 

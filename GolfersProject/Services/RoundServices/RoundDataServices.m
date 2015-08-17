@@ -95,16 +95,19 @@
 +(void)addGuestWithEmail:(NSString *)email
                firstName:(NSString *)fName
                 lastName:(NSString *)lName
-                success:(void(^)(bool status, NSDictionary * response))successBlock
-                failure:(void(^)(bool status, NSError * error))failureBlock
+                handicap:(NSNumber *)handicap
+                teeBoxId:(NSNumber *)teeBoxId
+                 success:(void(^)(bool status, NSDictionary * response))successBlock
+                 failure:(void(^)(bool status, NSError * error))failureBlock
 {
     AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
-    [apiClient POST:kRoundAddGuest parameters:[RoundDataServices paramAddGuestToRoundEmail:email firstName:fName lastName:lName] success:^(NSURLSessionDataTask *task, id responseObject) {
-            successBlock(true, responseObject);
+    NSLog(@"PARAM-ADD-GUEST:%@", [RoundDataServices paramAddGuestToRoundEmail:email firstName:fName lastName:lName handicap:handicap teeBoxId:teeBoxId]);
+    [apiClient POST:kRoundAddGuest parameters:[RoundDataServices paramAddGuestToRoundEmail:email firstName:fName lastName:lName handicap:handicap teeBoxId:teeBoxId] success:^(NSURLSessionDataTask *task, id responseObject) {
+        successBlock(true, responseObject);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-            failureBlock(false, error);
+        failureBlock(false, error);
     }];
-                    
+    
 }
 
 +(void)addShotRoundId:(NSNumber *)round
@@ -340,14 +343,21 @@
 }
 
 +(NSDictionary *)paramAddGuestToRoundEmail:(NSString *)email
-                                 firstName:(NSString *)firstName
-                                  lastName:(NSString *)lastName{
+                                firstName:(NSString *)firstName
+                                 lastName:(NSString *)lastName
+                                 handicap:(NSNumber *)handicap
+                                 teeBoxId:(NSNumber *)teeBoxId
+{
     return @{
+             @"app_bundle_id" : kAppBundleId,
              @"auth_token" : [UserServices currentToken],
+             @"user_agent" : kUserAgent,
              @"round_id" : [[GameSettings sharedSettings] roundId],
              @"email" : email,
              @"first_name" : firstName,
              @"last_name" : lastName,
+             @"handicap" : handicap,
+             @"tee_box_id" : teeBoxId,
              };
 }
 

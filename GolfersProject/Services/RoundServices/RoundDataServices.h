@@ -43,13 +43,13 @@ typedef NS_ENUM(NSInteger, ShotType) {
                     failure:(void(^)(bool status, NSError * error))failureBlock;
 
 
-
 +(void)addGuestWithEmail:(NSString *)email
                firstName:(NSString *)fName
                 lastName:(NSString *)lName
+                handicap:(NSNumber *)handicap
+                teeBoxId:(NSNumber *)teeBoxId
                  success:(void(^)(bool status, NSDictionary * response))successBlock
                  failure:(void(^)(bool status, NSError * error))failureBlock;
-
 
 +(void)addShotRoundId:(NSNumber *)round
                holeId:(NSNumber *)holeId

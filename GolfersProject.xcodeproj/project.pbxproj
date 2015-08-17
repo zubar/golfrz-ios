@@ -217,6 +217,7 @@
 		88FCA5481B7B46B7001B35BA /* CourseUpdatesHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88FCA5471B7B46B7001B35BA /* CourseUpdatesHeaderView.xib */; };
 		88FCA54B1B7B4C3A001B35BA /* CourseUpdatesHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88FCA54A1B7B4C3A001B35BA /* CourseUpdatesHeaderView.m */; };
 		A921244B1B36DB1E00917649 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A921244A1B36DB1E00917649 /* MessageUI.framework */; };
+		BCA7894A1B819E22002F3B56 /* ValidationUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA789491B819E22002F3B56 /* ValidationUtility.m */; };
 		BCC179ED1B805D4E002C0DA8 /* PopOverView.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC179EC1B805D4E002C0DA8 /* PopOverView.m */; };
 		BCC179F11B805DA1002C0DA8 /* PopOverView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCC179F01B805DA1002C0DA8 /* PopOverView.xib */; };
 		BCC179F61B8062B2002C0DA8 /* PopOverCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC179F41B8062B2002C0DA8 /* PopOverCell.m */; };
@@ -619,6 +620,8 @@
 		88FCA5491B7B4C3A001B35BA /* CourseUpdatesHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseUpdatesHeaderView.h; sourceTree = "<group>"; };
 		88FCA54A1B7B4C3A001B35BA /* CourseUpdatesHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseUpdatesHeaderView.m; sourceTree = "<group>"; };
 		A921244A1B36DB1E00917649 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		BCA789481B819E22002F3B56 /* ValidationUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ValidationUtility.h; path = Validation/ValidationUtility.h; sourceTree = "<group>"; };
+		BCA789491B819E22002F3B56 /* ValidationUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ValidationUtility.m; path = Validation/ValidationUtility.m; sourceTree = "<group>"; };
 		BCC179EB1B805D4E002C0DA8 /* PopOverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PopOverView.h; path = PopOverView/PopOverView.h; sourceTree = "<group>"; };
 		BCC179EC1B805D4E002C0DA8 /* PopOverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PopOverView.m; path = PopOverView/PopOverView.m; sourceTree = "<group>"; };
 		BCC179F01B805DA1002C0DA8 /* PopOverView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PopOverView.xib; path = PopOverView/PopOverView.xib; sourceTree = "<group>"; };
@@ -1927,6 +1930,7 @@
 		889872BC1B13103300D3C0E9 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				BCA789471B819DEB002F3B56 /* Validation Utility */,
 				889872BD1B13105C00D3C0E9 /* Utilities.h */,
 				889872BE1B13105C00D3C0E9 /* Utilities.m */,
 			);
@@ -2102,6 +2106,15 @@
 				88FCA54A1B7B4C3A001B35BA /* CourseUpdatesHeaderView.m */,
 			);
 			path = CourseUpdatesHeaderView;
+			sourceTree = "<group>";
+		};
+		BCA789471B819DEB002F3B56 /* Validation Utility */ = {
+			isa = PBXGroup;
+			children = (
+				BCA789481B819E22002F3B56 /* ValidationUtility.h */,
+				BCA789491B819E22002F3B56 /* ValidationUtility.m */,
+			);
+			name = "Validation Utility";
 			sourceTree = "<group>";
 		};
 		BCC179EA1B805CAB002C0DA8 /* PopOverView */ = {
@@ -2456,6 +2469,7 @@
 				3D1CB0E91B691563005C1E19 /* AddPlayersViewController.m in Sources */,
 				3D7DF2071B6A551B00FCF8FE /* Teetime.m in Sources */,
 				3D7DF2211B6FD89F00FCF8FE /* CourseUpdateServices.m in Sources */,
+				BCA7894A1B819E22002F3B56 /* ValidationUtility.m in Sources */,
 				3DD47A661B4A608C005DE325 /* Hole.m in Sources */,
 				3D0455D21B71F87100FFB0E8 /* UIImage+Resize.m in Sources */,
 			);
