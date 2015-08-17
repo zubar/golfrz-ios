@@ -133,7 +133,7 @@
     //Array
     NSMutableSet * teeTimes = [[NSMutableSet alloc]init];
     
-    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSCalendar *gregorian = [NSCalendar currentCalendar];
 
     NSDate *today = [[NSDate alloc] initWithTimeInterval:0 sinceDate:teetimeDay];
     unsigned unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth |  NSCalendarUnitDay;
@@ -245,6 +245,7 @@
     }
         __block NSArray * teeTimesArray = [self.teeTimesData objectForKey:[self.selectedDate dateWithTimeComponentsZeroSet]];
     Teetime * teeTime = teeTimesArray[indexPath.row];
+    
     TeeTimeBookingCell *customViewCell = (TeeTimeBookingCell *)customCell;
     [customViewCell updateViewBtnForTeetime:teeTime];
     
@@ -326,7 +327,7 @@
 - (IBAction)btnShowCalendarTapped:(UIButton *)sender {
     
     [ActionSheetDatePicker showPickerWithTitle:@"Select Date"
-                                datePickerMode:UIDatePickerModeDateAndTime
+                                datePickerMode:UIDatePickerModeDate
                                   selectedDate:self.selectedDate
                                    minimumDate:[NSDate date]
                                    maximumDate:nil
