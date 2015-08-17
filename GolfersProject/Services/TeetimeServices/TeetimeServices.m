@@ -57,6 +57,8 @@
                     failure:(void(^)(bool status, GolfrzError * error))failureBlock{
     
     APIClient * apiClient = [APIClient sharedAPICLient];
+    NSLog(@"BOOKTEE-TIME:%@", [TeetimeServices paramBookTeetime:subcourseId players:playerCount bookingTime:bookTime] );
+    
     [apiClient POST:kBookTeetime parameters:[TeetimeServices paramBookTeetime:subcourseId players:playerCount bookingTime:bookTime] completion:^(id response, NSError *error) {
         if(error) failureBlock(false, [response result]);
         else{
@@ -103,8 +105,8 @@
              @"user_agent" : kUserAgent,
              @"auth_token" : [UserServices currentToken],
              @"sub_course_id" : subcourseId,
-             @"start_date" : [[strtDate toGlobalTime] serverFormatDate],
-             @"end_date" : [[endDate toGlobalTime] serverFormatDate],
+             @"start_date" : [strtDate serverFormatDate],
+             @"end_date" : [endDate serverFormatDate],
              };
     
 }
@@ -117,7 +119,7 @@
              @"auth_token" : [UserServices currentToken],
              @"count" : playersCount,
              @"sub_course_id" : subCourseId,
-             @"booked_time" : bookingTime,
+             @"booked_time" : [bookingTime serverFormatDate],
              };
 }
 

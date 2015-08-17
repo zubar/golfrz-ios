@@ -25,7 +25,7 @@
     // Left nav-bar.
     UIButton * imageButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 10, 10, 14)];
     [imageButton setBackgroundImage:[UIImage imageNamed:@"back_btn"] forState:UIControlStateNormal];
-    [imageButton addTarget:self action:@selector(baseButtonTap) forControlEvents:UIControlEventTouchUpInside];
+    [imageButton addTarget:self action:@selector(baseBackBtnTap) forControlEvents:UIControlEventTouchUpInside];
     
     UIBarButtonItem *leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:imageButton];
     self.navigationItem.leftBarButtonItem = leftBarButtonItem;
@@ -61,7 +61,7 @@
 }
 
 //Subclasses will override.
--(void)baseButtonTap{
+-(void)baseBackBtnTap{
     
     AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
     [delegate.appDelegateNavController popViewControllerAnimated:YES];

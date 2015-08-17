@@ -56,23 +56,24 @@
 - (BOOL)isEqual:(id)other {
     if (other == self)
         return YES;
-    if (!other || ![other isKindOfClass:[self class]])
+    if (![other isKindOfClass:[Teetime class]])
         return NO;
     return [self isEqualToTeetime:other];
 }
 
-- (BOOL)isEqualToTeetime:(Teetime *)teetime {
-    if (self == teetime){
-        NSLog(@"Comparitng ---- :%@  with %@ -- NOT EQUAL", [self bookedTime], [teetime bookedTime]);
+- (BOOL)isEqualToTeetime:(Teetime *)teetime
+{
+    if ([[self bookedTime]  isEqual:[teetime bookedTime]]){
+        NSLog(@"Comparitng ---- :%@  with %@ -- EQUAL", [self bookedTime] , [teetime bookedTime]);
         return YES;
     }
-    if (![[[self bookedTime] toLocalTime] isEqual:[[teetime bookedTime] toLocalTime]]){
-        NSLog(@"Comparitng ---- :%@  with %@ -- NOT EQUAL", [[self bookedTime] toLocalTime], [[teetime bookedTime] toLocalTime]);
-        return NO;
-    }
     NSLog(@"Comparitng ---- :%@  with %@ -- EQUAL", [self bookedTime], [teetime bookedTime]);
-    return YES;
+    return NO;
 }
 
+- (NSUInteger)hash {
+    NSLog(@"HAST-TEETIME:%lu", (unsigned long)fabs([self.bookedTime timeIntervalSinceReferenceDate]));
+    return (NSUInteger)fabs([self.bookedTime timeIntervalSinceReferenceDate]);
+}
 
 @end

@@ -125,6 +125,8 @@ static NSString * const kInvitationAppOpen = @"%@/redirect_with_invitation?id=%@
 static NSString * const kGetIndividualScore = @"scores/individual_score";
 static NSString * const kGetScoreCard = @"scores/score_card";
 static NSString * const kPreviousScores = @"scores/previous_score_cards";
+static NSString * const kGetAllPlayerTotalForRound = @"rounds/user_shots";
+static NSString * const kSaveScoreCard = @"scores/save_score_card";
 
 /*
  *  Push notification token registeration

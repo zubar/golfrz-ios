@@ -100,10 +100,12 @@
     
     FoodBeverage * food_bev_item = (isFoodItemSelected ? [self.foodArray objectAtIndex:indexPath.row] : [self.bevArray objectAtIndex:indexPath.row] );
     
-    [customCell.imgFoodBev sd_setImageWithURL:[NSURL URLWithString:food_bev_item.imageUrl] placeholderImage:[UIImage imageNamed:@"foodbev_placeholder"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL)
-     {
-         [customCell.imgFoodBev setImage:image];
-     }];
+    [customCell.imgFoodBev sd_setImageWithURL:[NSURL URLWithString:food_bev_item.imageUrl] placeholderImage:[UIImage imageNamed:@"foodbev_placeholder"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        if (image) {
+            [customCell.imgFoodBev setImage:image];
+        }
+    }];
+    
     [customCell.lblItemName setText:food_bev_item.name];
     [customCell.lblItemPrice setText:food_bev_item.price.stringValue];
     return customCell;

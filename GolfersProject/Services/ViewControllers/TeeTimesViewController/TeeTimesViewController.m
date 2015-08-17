@@ -104,9 +104,9 @@
      */
     
     NSDate * tempStart = [NSDate dateWithTimeInterval:0 sinceDate:self.selectedDate];
-    NSDate * start =  [[[[tempStart dateWithTimeComponentsZeroSet] toLocalTime] dateWithOffsethours:6 minuteOffset:30] toLocalTime];
+    NSDate * start =  [[[tempStart dateWithTimeComponentsZeroSet] toLocalTime] dateWithOffsethours:6 minuteOffset:30];
     NSDate * tempEnd = [NSDate dateWithTimeInterval:0 sinceDate:self.selectedDate];
-    NSDate * end =  [[[[tempEnd dateWithTimeComponentsZeroSet] toLocalTime] dateWithOffsethours:18 minuteOffset:30] toLocalTime];
+    NSDate * end =  [[[tempEnd dateWithTimeComponentsZeroSet] toLocalTime] dateWithOffsethours:18 minuteOffset:30];
     
     
     [self loadTeetimesStartdate:start endDate:end subCourse:self.selectedSubcourseId completion:^(NSArray * serverBookedTimes) {
@@ -114,11 +114,10 @@
        NSMutableSet * teeTimes = [self createTeeTimesForDate:teeTimeDate];
        NSSet * bookedTeetimes = [NSSet setWithArray:serverBookedTimes];
         
+      [teeTimes minusSet:bookedTeetimes];
+      [teeTimes unionSet:bookedTeetimes];
         
-     [teeTimes unionSet:bookedTeetimes];
         
-        
-      // NSArray * mergedTeeTimes = [self removeExistingTeeTimesFromArray:teeTimes whichAreIn:bookedTeeTimes];
         NSArray * mergedTeeTimes = [[NSMutableArray alloc] initWithArray:[teeTimes allObjects]];
 
         NSSortDescriptor * sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"bookedTime" ascending:YES];
@@ -134,7 +133,7 @@
     //Array
     NSMutableSet * teeTimes = [[NSMutableSet alloc]init];
     
-    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSCalendar *gregorian = [NSCalendar currentCalendar];
 
     NSDate *today = [[NSDate alloc] initWithTimeInterval:0 sinceDate:teetimeDay];
     unsigned unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth |  NSCalendarUnitDay;
@@ -235,13 +234,7 @@
             [Utilities displayErrorAlertWithMessage:[error errorMessage]];
         }];
     else
-        [TeetimeServices updateTeeTime:tee playerCount:[NSNumber numberWithInteger:playerCount] success:^(bool status, id response) {
-            [self updateTeeTimesForDate:self.selectedDate completion:^{
-                [self.teeTimesTable reloadData];
-            }];
-        } failure:^(bool status, GolfrzError *error) {
-            [Utilities displayErrorAlertWithMessage:[error errorMessage]];
-        }];
+        [[[UIAlertView alloc] initWithTitle:@"TeeTime Already Booked!" message:@"This teetime is already booked please contact course admin." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -252,6 +245,7 @@
     }
         __block NSArray * teeTimesArray = [self.teeTimesData objectForKey:[self.selectedDate dateWithTimeComponentsZeroSet]];
     Teetime * teeTime = teeTimesArray[indexPath.row];
+    
     TeeTimeBookingCell *customViewCell = (TeeTimeBookingCell *)customCell;
     [customViewCell updateViewBtnForTeetime:teeTime];
     
@@ -264,12 +258,14 @@
         // Update the tee time if already existing teeTime persons are
         NSIndexPath * indexOfTappedBtn = nil;
         if([sender isKindOfClass:[TeeTimeBookingCell class]]) indexOfTappedBtn = [self.teeTimesTable indexPathForCell:sender];
+       
         Teetime * tee = [teeTimesArray objectAtIndex:indexOfTappedBtn.row];
-        if (![self checkTeeTimeCanUpdate:tee playerCount:playerCount]){ // teetimeis already booked we can call update only
-            [self showErrorAlert];
+        if([teeTime itemId] != nil){
+            [self displayTeetimeAlreadyBookedAlert];
         }else{
             [self bookTeetimeForPlayers:playerCount tee:tee];
         }
+
     }];
     [customViewCell setDidTapPlayerCountBtnBlock:^(id sender ) {
         [self editTeetimeTappedFromView:sender];
@@ -278,23 +274,11 @@
 }
 
 
+-(void)displayTeetimeAlreadyBookedAlert{
+    [[[UIAlertView alloc] initWithTitle:@"Teetime Already Booked!" message:@"This teetime is already booked, please contact admin to update or cancel booking." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+}
 
 #pragma mark - Pop-up view
-
--(BOOL)checkTeeTimeCanUpdate:(Teetime *)tee playerCount:(NSInteger)playrcount{
-    if([tee itemId]){ // if tee count is nil it mean teetime is never booked so anyone can book it.
-    if ([[tee count] integerValue] < playrcount)
-        return FALSE;
-    else
-        if ([[tee count] integerValue]> 5)
-            return FALSE;
-    else
-        if(playrcount <= 5 && playrcount >=1)
-            return TRUE;
-    }else
-        return TRUE;
-    return FALSE;
-}
 
 -(void)showErrorAlert{
  [[[UIAlertView alloc] initWithTitle:@"Can not Update Teetime !" message:@"Number of players for a booked teetime can't be decreased & maximum number of player for a teetime is 5." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
@@ -346,22 +330,12 @@
     [self.popTipView dismissAnimated:YES];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 #pragma mark - UIActions
 
 - (IBAction)btnShowCalendarTapped:(UIButton *)sender {
     
     [ActionSheetDatePicker showPickerWithTitle:@"Select Date"
-                                datePickerMode:UIDatePickerModeDateAndTime
+                                datePickerMode:UIDatePickerModeDate
                                   selectedDate:self.selectedDate
                                    minimumDate:[NSDate date]
                                    maximumDate:nil

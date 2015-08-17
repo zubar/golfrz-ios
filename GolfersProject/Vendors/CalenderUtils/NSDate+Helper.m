@@ -239,7 +239,7 @@ static NSDateFormatter *sUserVisibleDateFormatter = nil;
 
 -(NSDate *) toLocalTime
 {
-    NSCalendar * gregorian = [[NSCalendar alloc] initWithCalendarIdentifier: NSGregorianCalendar];
+    NSCalendar * gregorian = [NSCalendar currentCalendar];
     NSDateComponents *timeStamp = [gregorian components: NSCalendarUnitTimeZone | NSCalendarUnitYear fromDate:self];
     NSTimeZone *localTimeZone = [NSTimeZone defaultTimeZone];
     
@@ -248,11 +248,19 @@ static NSDateFormatter *sUserVisibleDateFormatter = nil;
     
     NSTimeZone *tz = [NSTimeZone defaultTimeZone];
     NSInteger seconds = [tz secondsFromGMTForDate: self];
-    return [NSDate dateWithTimeInterval: seconds sinceDate: self];
+    return [NSDate dateWithTimeInterval:seconds sinceDate: self];
 }
 
 -(NSDate *)toGlobalTime
 {
+    NSCalendar * gregorian = [NSCalendar currentCalendar];
+    NSDateComponents *timeStamp = [gregorian components: NSCalendarUnitTimeZone | NSCalendarUnitYear fromDate:self];
+    NSTimeZone *utcTimeZone = [NSTimeZone timeZoneForSecondsFromGMT:0.0];
+    
+    if([[timeStamp timeZone] isEqualToTimeZone:utcTimeZone])
+        return self;    // dates are already in same time zone.
+
+    
     NSTimeZone *tz = [NSTimeZone defaultTimeZone];
     NSInteger seconds = -[tz secondsFromGMTForDate: self];
     return [NSDate dateWithTimeInterval: seconds sinceDate: self];
@@ -270,18 +278,23 @@ static NSDateFormatter *sUserVisibleDateFormatter = nil;
 
 -(NSDate *)dateWithTimeComponentsZeroSet{
     
-    NSCalendar * gregorian = [[NSCalendar alloc] initWithCalendarIdentifier: NSGregorianCalendar];
-    NSDateComponents *components = [gregorian components: NSUIntegerMax fromDate:self];
+    NSCalendar * gregorian = [NSCalendar currentCalendar];
+    NSDateComponents *components = [gregorian componentsInTimeZone:[NSTimeZone localTimeZone] fromDate:self];
+    
     [components setHour:00];
     [components setMinute:00];
     [components setSecond:00];
+    [components setNanosecond:00];
+    [components setMonth:components.month];
+    [components setYear:components.year];
+    [components setDay:components.day];
     NSDate *newDate = [gregorian dateFromComponents: components];
     return newDate;
 }
 
 -(NSDate *)dateWithOffsethours:(NSInteger )hoursOffset minuteOffset:(NSInteger)minutesOffset{
     
-    NSCalendar * gregorian = [[NSCalendar alloc] initWithCalendarIdentifier: NSGregorianCalendar];
+    NSCalendar * gregorian = [NSCalendar currentCalendar];
     NSDateComponents *components = [gregorian components: NSUIntegerMax fromDate:self];
     [components setHour:hoursOffset];
     [components setMinute:minutesOffset];
@@ -289,12 +302,4 @@ static NSDateFormatter *sUserVisibleDateFormatter = nil;
     NSDate *newDate = [gregorian dateFromComponents: components];
     return newDate;
 }
-//-(NSComparisonResult)compareWithDate:(NSDate *)date forComponents:(NSCalendarUnit)unitFlag{
-//    
-//    NSTimeInterval timeInterval = [self timeIntervalSinceDate:date];
-//    
-//    if (unitFlag <= ) {
-//        <#statements#>
-//    }
-//}
 @end

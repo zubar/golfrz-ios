@@ -71,6 +71,7 @@
     
     Activity * courseActivity = self.courseUpdates[indexPath.row];
     CourseUpdateCell *customViewCell = (CourseUpdateCell *)customCell;
+    customViewCell.selectionStyle = UITableViewCellSelectionStyleNone;
     [customViewCell.lblUpdateText setText:[courseActivity text]];
     
     

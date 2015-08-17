@@ -19,7 +19,8 @@
                   holeId:(NSNumber *)holeId
                  roundId:(NSNumber *)roundId
                  success:(void (^)(bool status, id score))successBlock
-                  failure:(void (^)(bool status, GolfrzError * error))failureBlock{
+                  failure:(void (^)(bool status, GolfrzError * error))failureBlock
+{
     
     AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
     
@@ -29,7 +30,15 @@
         NSNumber * score = responseObject[@"users_score"];
         successBlock(true, score);
     } failure:^(NSURLSessionDataTask *task, id response) {
-        NSLog(@"%@", [response result]);
+        @try {
+            NSLog(@"%@", [response result]);
+        }
+        @catch (NSException *exception) {
+            // Send exception message as error message. 
+        }
+        @finally {
+            //Make a Golfers Error Object and Return;
+        }
     }];
 }
 
@@ -84,9 +93,67 @@
     }];
 }
 
++(void)getTotalScoreForAllPlayersForRoundId:(NSNumber *)roundId
+                                    success:(void(^)(bool status, NSDictionary * playerTotalScore))successBlock
+                                    failure:(void(^)(bool status, GolfrzError * error))failureBlock
+{
 
+    APIClient * apiClient = [APIClient sharedAPICLient];
+    NSLog(@"Param Total Score:%@", [ScoreboardServices paramPastScoreWithRoundId:roundId]);
+    [apiClient GET:kGetAllPlayerTotalForRound parameters:[ScoreboardServices paramPastScoreWithRoundId:roundId] completion:^(id response, NSError *error) {
+        if(!error){
+            successBlock(true, [response result][@"users"]);
+        }else
+            failureBlock(false, [response result]);
+    }];
+}
+
++(void)saveScoreBoardForRoundId:(NSNumber *)roundId
+                     grossScore:(NSNumber *)grossScore
+                       netScore:(NSNumber *)netScore
+                      skinCount:(NSNumber *)skinCount
+                        success:(void(^)(bool status, id response))successBlock
+                        failure:(void(^)(bool status, GolfrzError * error))failureBlock
+
+{
+    APIClient * apiClient = [APIClient sharedAPICLient];
+    NSLog(@"Param SavePast Scoreboard:%@", [ScoreboardServices paramSaveScoreboardRoundId:roundId gross:grossScore net:netScore skinCount:skinCount]);
+  
+    [apiClient GET:kSaveScoreCard parameters:[ScoreboardServices paramSaveScoreboardRoundId:roundId gross:grossScore net:netScore skinCount:skinCount] completion:^(id response, NSError *error) {
+        if(!error){
+            successBlock(true, [response result]);
+        }else
+            failureBlock(false, [response result]);
+    }];
+}
 
 #pragma mark - Helper Methods
+
++(NSDictionary *)paramSaveScoreboardRoundId:(NSNumber *)roundId
+                                      gross:(NSNumber *)grossScore
+                                        net:(NSNumber *)netScore
+                                  skinCount:(NSNumber *)skincount
+{
+    return @{
+             @"app_bundle_id" : kAppBundleId,
+             @"user_agent" : kUserAgent,
+             @"auth_token" : [UserServices currentToken],
+             @"round_id" : (roundId != nil ? roundId : [NSNumber numberWithInt:0]),
+             @"gross_score" : (grossScore != nil ? grossScore : [NSNumber numberWithInt:0]),
+             @"net_score" : (netScore != nil ? netScore : [NSNumber numberWithInt:0]),
+             @"skin_count" : (skincount != nil ? skincount : [NSNumber numberWithInt:0]),
+             };
+}
++(NSDictionary *)paramPastScoreWithRoundId:(NSNumber *)roundId{
+    
+    return @{
+             @"app_bundle_id" : kAppBundleId,
+             @"user_agent" : kUserAgent,
+             @"auth_token" : [UserServices currentToken],
+             @"round_id" : roundId,
+             };
+}
+
 
 +(NSDictionary *)paramPastScore{
     

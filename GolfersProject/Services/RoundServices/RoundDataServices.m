@@ -18,6 +18,7 @@
 #import "Round.h"
 #import "RoundPlayers.h"
 #import "GolfrzError.h"
+#import "Shot.h"
 
 @implementation RoundDataServices
 
@@ -120,19 +121,23 @@
     AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
     [apiClient POST:kAddShot parameters:[RoundDataServices paramsAddShotholeId:holeId roundId:round shortType:shotType]
             success:^(NSURLSessionDataTask *task, id responseObject) {
-        successBlock(true, responseObject);
+                NSError * tError = nil;
+                Shot * tempShot = [MTLJSONAdapter modelOfClass:[Shot class] fromJSONDictionary:responseObject[@"shot"] error:&tError];
+                if(!tError)
+                    successBlock(true, tempShot);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        failureBlock(false, error);
+        if(error != nil) failureBlock(false, error);
     }];
 }
 
 
-+(void)deleteShotWithShotId:(NSNumber *)shotId
++(void)deleteShot:(Shot *)mShot
                  success:(void(^)(bool, id response))successBlock
-                 failure:(void(^)(bool,  NSError *error))failureBlock{
+                 failure:(void(^)(bool,  NSError *error))failureBlock
+{
     
     AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
-    [apiClient POST:kDeleteShot parameters:[RoundDataServices paramsDeleteShotId:shotId]
+    [apiClient POST:kDeleteShot parameters:[RoundDataServices paramsDeleteShot:mShot]
             success:^(NSURLSessionDataTask *task, id responseObject) {
                 successBlock(true, responseObject);
             } failure:^(NSURLSessionDataTask *task, NSError *error) {
@@ -294,13 +299,16 @@
              };
 }
 
-+(NSDictionary *)paramsDeleteShotId:(NSNumber *)shotId
++(NSDictionary *)paramsDeleteShot:(Shot *)mShot
 {
     return @{
              @"app_bundle_id" : kAppBundleId,
              @"user_agent" : kUserAgent,
              @"auth_token" : [UserServices currentToken],
-             @"shot_id" :   shotId,
+             @"shot_id" :   [mShot itemId],
+             @"round_id" : [mShot roundId],
+             @"hole_id" : [mShot holeId],
+             @"shot_type" : [mShot shotType],
              };
 }
 
