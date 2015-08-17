@@ -11,10 +11,14 @@
 #import "AppDelegate.h"
 #import "UIImageView+RoundedImage.h"
 #import "CourseServices.h"
+#import "Coordinate.h"
 #import "Utilities.h"
+#import "Constants.h"
 #import "Course.h"
 
 @interface EventAdminViewController ()
+
+- (void)viewMapSelected;
 
 @end
 
@@ -33,6 +37,10 @@
     [imageButton setBackgroundImage:[UIImage imageNamed:@"back_btn"] forState:UIControlStateNormal];
     
     [imageButton addTarget:self action:@selector(eventAdminBackBtnTapped) forControlEvents:UIControlEventTouchUpInside];
+    
+    UITapGestureRecognizer *tapGesture =
+    [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewMapSelected)];
+    [self.lblViewMap addGestureRecognizer:tapGesture];
     
     UIBarButtonItem *leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:imageButton];
     self.navigationItem.leftBarButtonItem = leftBarButtonItem;
@@ -84,6 +92,10 @@
     [self.lblEmail setText:[admin email]];
     [self.lblContactNo setText:[admin phoneNo]];
     
+}
+
+- (void)viewMapSelected {
+    [Utilities viewMap];
 }
 
 /*

@@ -58,6 +58,7 @@
         [self.lblOptions setText:@"NO SIDE OPTIONS FOR THIS ITEM"];
     }
     self.sideItems = self.selectedItem.sideItems;
+    
     [self.imgItemPic sd_setImageWithURL:[NSURL URLWithString:self.selectedItem.imageUrl] placeholderImage:[UIImage imageNamed:@"foodbev_placeholder"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         if (image) {
             [self.imgItemPic setImage:image];
@@ -104,6 +105,13 @@
     [customViewCell setDelegate:self];
     SideItem *sideItem = [self.sideItems objectAtIndex:indexPath.row];
     [customViewCell.lblSideItem setText:sideItem.name];
+    
+    if([self.selectedIds containsObject:[sideItem itemId]]){
+        [customViewCell.btnChecked setImage:[UIImage imageNamed:@"checked_checkbox"] forState:UIControlStateNormal];
+        
+    }else{
+        [customViewCell.btnChecked setImage:[UIImage imageNamed:@"unchecked_checkbox"] forState:UIControlStateNormal];
+    }
    
     return customViewCell;
 }

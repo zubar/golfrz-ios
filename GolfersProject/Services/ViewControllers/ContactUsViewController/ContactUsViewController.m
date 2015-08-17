@@ -188,15 +188,7 @@
     
 }
 - (IBAction)viewMapTapped:(id)sender {
-    
-    NSArray *coordinatesArray = [CourseServices currentCourse].coordinates;
-    
-    if (coordinatesArray.count) {
-        Coordinate *coordinate = coordinatesArray[0];
-        NSString *staticMapUrl = [NSString stringWithFormat:@"http://maps.google.com/maps/api/staticmap?markers=color:red|%@,%@&%@&sensor=true",coordinate.latitude, coordinate.longitude,[NSString stringWithFormat:@"zoom=10&size=%ldx%ld", kScreenWidth * 2, kScreenHeight * 2]];
-        NSString *escaped = [staticMapUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:escaped]];
-    }
+    [Utilities viewMap];
 }
 
 @end

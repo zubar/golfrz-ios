@@ -36,4 +36,6 @@
 
 +(void) setUpToolbarForField:(id)textField withTwoButtons:(BOOL)isTwoButton andDelegate:(id)delegate;
 
++ (void)viewMap;
+
 @end
