@@ -28,5 +28,9 @@
            success:(void(^)(bool status, id successMessage))successBlock
            failure:(void(^)(bool status, GolfrzError * error))failureBlock;
 
++(void)addKudos:(NSNumber *)postId
+        success:(void(^)(bool status, id successMessage))successBlock
+        failure:(void(^)(bool status, GolfrzError * error))failureBlock;
+
 
 @end

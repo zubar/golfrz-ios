@@ -13,6 +13,7 @@
 #import "UIImageView+RoundedImage.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "User.h"
+#import "User+convenience.h"
 
 @implementation HMMessageRecieveCell
 @synthesize recieveDate, messageDetails;
@@ -31,7 +32,10 @@
         if (image) {
             [self.imgUser setRoundedImage:image];
         }
+        
     }];
+    User * currentUser = _DTOObject.user;
+    self.lblUserName.text = currentUser.firstName;
     
     
 //    [self.imgUser sd_setImageWithURL:[NSURL URLWithString:[_DTOObject.user imgPath]] placeholderImage:[UIImage imageNamed:@"person_placeholder"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
