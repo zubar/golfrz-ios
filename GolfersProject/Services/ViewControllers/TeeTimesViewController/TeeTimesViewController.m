@@ -263,7 +263,8 @@
         if([teeTime itemId] != nil){
             [self displayTeetimeAlreadyBookedAlert];
         }else{
-            [self bookTeetimeForPlayers:playerCount tee:tee];
+            if(playerCount <= 0) [self displayAlertPlayerCountZero];
+            else [self bookTeetimeForPlayers:playerCount tee:tee];
         }
 
     }];
@@ -273,18 +274,7 @@
     return customViewCell;
 }
 
-
--(void)displayTeetimeAlreadyBookedAlert{
-    [[[UIAlertView alloc] initWithTitle:@"Teetime Already Booked!" message:@"This teetime is already booked, please contact admin to update or cancel booking." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
-}
-
 #pragma mark - Pop-up view
-
--(void)showErrorAlert{
- [[[UIAlertView alloc] initWithTitle:@"Can not Update Teetime !" message:@"Number of players for a booked teetime can't be decreased & maximum number of player for a teetime is 5." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
-}
-
-
 
 // To enter score manually for a player.
 -(void)editTeetimeTappedFromView:(id)sender
@@ -408,6 +398,18 @@
     self.popTipView = nil;
 }
 
+#pragma mark - ErrorAlerts 
 
+-(void)displayTeetimeAlreadyBookedAlert{
+    [[[UIAlertView alloc] initWithTitle:@"Teetime Already Booked!" message:@"This teetime is already booked, please contact admin to update or cancel booking." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+}
+
+-(void)displayAlertPlayerCountZero{
+    [[[UIAlertView alloc] initWithTitle:@"Player Count Zero!" message:@"A teetime can not be booked for zero player selected." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+}
+
+-(void)showErrorAlert{
+    [[[UIAlertView alloc] initWithTitle:@"Can not Update Teetime !" message:@"Number of players for a booked teetime can't be decreased & maximum number of player for a teetime is 5." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+}
 
 @end
