@@ -20,6 +20,10 @@
 #import "CourseServices.h"
 #import "Course.h"
 #import "AppDelegate.h"
+#import "ClubHouseContainerVC.h"
+#import "UserServices.h"
+#import "GameSettings.h"
+#import "PastScoreCardsViewController.h"
 
 @interface ScoreBoardViewController (){
     
@@ -97,11 +101,47 @@
         }
     }
 }
+
+- (void)saveScorecardInHistory:(void(^)(void))completion{
+    // This is the shit- WEB TEAM has forced us to do.
+    GameSettings * settings = [GameSettings sharedSettings];
+    NSString * currUserId = [NSString stringWithFormat:@"%@", [UserServices currentUserId]];
+    
+    for (ScoreCardUser * user in [scoreCard_ users]) {
+        if ([[[user userId] stringValue] isEqualToString:currUserId]) {
+            int totalGross = [user grossFirst] + [user grossLast];
+            int totalNet = totalGross - [[user handiCap] intValue];
+            
+            // Check if round id is present,
+            if([settings roundId] != nil){
+            [ScoreboardServices saveScoreBoardForRoundId:[settings roundId] grossScore:[NSNumber numberWithInt:totalGross] netScore:[NSNumber numberWithInt:totalNet] skinCount:[user skinCount]
+                                                 success:^(bool status, id response)
+             {
+                 //Do nothing.
+                 if(status)
+                     [[[UIAlertView alloc] initWithTitle:@"ScoreCard saved." message:@"This scorecard is saved in your history of past scorecards." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+
+                 completion();
+             } failure:^(bool status, GolfrzError *error) {
+                 if(!status)
+                     [[[UIAlertView alloc] initWithTitle:@"ScoreCard Can not be Saved!" message:@"This scorecard can not be saved in your history of past scorecards." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+                 completion();
+             }];
+            }else
+                completion();
+            
+        }
+    }
+}
+
 -(void)viewWillDisappear:(BOOL)animated
 {
-    [super viewWillDisappear:animated];
-    scoreCard_ = nil;
-    [ScoreBoardManager sharedScoreBoardManager].scoreCard = nil;
+    [self saveScorecardInHistory:^{
+        [super viewWillDisappear:animated];
+        scoreCard_ = nil;
+        [ScoreBoardManager sharedScoreBoardManager].scoreCard = nil;
+
+    }];
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
@@ -522,12 +562,6 @@
         }
         
     }
-    
-    
-    
-    
-    
-    
     return cell;
 }
 
@@ -560,10 +594,14 @@
 
     AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
     for (UIViewController * controller  in [delegate.appDelegateNavController viewControllers]) {
-        if ([controller isKindOfClass:[PlayerProfileViewController class]]) {
-            [delegate.appDelegateNavController popToViewController:controller animated:NO];
+        if ([controller isKindOfClass:[PastScoreCardsViewController class]]) {
+            [delegate.appDelegateNavController popToViewController:controller animated:YES];
             return;
-        }
+        }else
+            if ([controller isKindOfClass:[ClubHouseContainerVC class]]) {
+                [delegate.appDelegateNavController popToViewController:controller animated:NO];
+                return;
+            }
     }
 }
 
