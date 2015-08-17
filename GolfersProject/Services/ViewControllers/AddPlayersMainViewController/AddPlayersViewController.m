@@ -409,19 +409,19 @@
     switch (currentItemsIndropdown) {
         case DropDownContainsItemsSubcourses:
             self.selectedSubCourse = item;
-            [self UpdateTitleForSelectedItem:item button:self.btnSelectCourse];
+            [self UpdateTitleForSelectedItem:item label:self.lblSelectCourse];
             break;
         case DropDownContainsItemsScoring:
             self.selectedScoreType = item;
-            [self UpdateTitleForSelectedItem:item button:self.btnSelectScoretype];
+            [self UpdateTitleForSelectedItem:item label:self.lblSelectScoring];
             break;
         case DropDownContainsItemsGametype:
             self.selectedGameType = item;
-            [self UpdateTitleForSelectedItem:item button:self.btnSelectGametype];
+            [self UpdateTitleForSelectedItem:item label:self.lblSelectGameType];
             break;
         case DropDownContainsItemsTeeboxes:
             self.selectedTeeBox = item;
-            [self UpdateTitleForSelectedItem:item button:self.btnSelectTeebox];
+            [self UpdateTitleForSelectedItem:item label:self.lblSelectTeeBox];
             break;
         default:
             break;
@@ -520,10 +520,13 @@
 }
 
 
--(void)UpdateTitleForSelectedItem:(id)item button:(id)sender{
+
+
+-(void)UpdateTitleForSelectedItem:(id)item label:(id)sender{
     
-    UIButton * btn = sender;
-    [btn setTitle:[item name] forState:UIControlStateNormal];
+    UILabel * lbl = sender;
+    //[btn setTitle:[item name] forState:UIControlStateNormal];
+    [lbl setText:[item name]];
     //[btn.titleLabel setText:[item name]];
 }
 

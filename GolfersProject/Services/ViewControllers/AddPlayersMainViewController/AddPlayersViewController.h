@@ -51,5 +51,9 @@ typedef NS_ENUM(NSInteger, DropDownContainsItems) {
 -(void)getAvailableRoundOptions:(void(^)(void))completion;
 -(void)loadPlayersListCompletion:(void(^)(void))completion;
 
+@property (strong, nonatomic) IBOutlet UILabel *lblSelectCourse;
+@property (strong, nonatomic) IBOutlet UILabel *lblSelectGameType;
+@property (strong, nonatomic) IBOutlet UILabel *lblSelectScoring;
+@property (strong, nonatomic) IBOutlet UILabel *lblSelectTeeBox;
 
 @end
