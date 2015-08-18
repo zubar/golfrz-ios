@@ -97,18 +97,19 @@
 
 -(void)roundAlreadyInProgress{
     
-    [RoundDataServices isRoundInProgress:^(bool status, NSNumber *roundNo, NSNumber *subCourseId)
-    {
-        [ScoreboardServices getScoreForUserId:[NSNumber numberWithInteger:[[UserServices currentUserId] integerValue]] holeId:[NSNumber numberWithInt:0] roundId:roundNo success:^(bool status, id score)
-        {
-            [self.lblPoints setText:[score stringValue]];
-        } failure:^(bool status, GolfrzError *error) {
-            [Utilities displayErrorAlertWithMessage:[error errorMessage]];
-        }];
-        
+    [RoundDataServices getRoundInProgress:^(bool status, NSNumber *roundNo, NSNumber *subCourseId, NSString *teeboxName) {
+        if(status)
+            [ScoreboardServices getScoreForUserId:[NSNumber numberWithInteger:[[UserServices currentUserId] integerValue]] holeId:[NSNumber numberWithInt:0] roundId:roundNo success:^(bool status, id score)
+             {
+                 [self.lblPoints setText:[score stringValue]];
+             } failure:^(bool status, GolfrzError *error) {
+                 [Utilities displayErrorAlertWithMessage:[error errorMessage]];
+             }];
+    } finishedRounds:^(bool status) {
+        if(!status)
+            [self.lblPoints setText:@"0"];
     } failure:^(bool status, GolfrzError *error) {
-        // In this case ignore this error because it contains the message user has finished the round which we don't want to show the user.
-        [self.lblPoints setText:@"0"];
+        [Utilities displayErrorAlertWithMessage:[error errorMessage]];
     }];
 }
 

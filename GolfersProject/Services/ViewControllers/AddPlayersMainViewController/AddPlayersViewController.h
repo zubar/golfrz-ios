@@ -50,8 +50,6 @@ typedef NS_ENUM(NSInteger, DropDownContainsItems) {
 @property (weak, nonatomic) IBOutlet UIView *roundSettingsView;
 
 
--(void)getAvailableRoundOptions:(void(^)(void))completion;
--(void)loadPlayersListCompletion:(void(^)(void))completion;
 
 @property (strong, nonatomic) IBOutlet UILabel *lblSelectCourse;
 @property (strong, nonatomic) IBOutlet UILabel *lblSelectGameType;

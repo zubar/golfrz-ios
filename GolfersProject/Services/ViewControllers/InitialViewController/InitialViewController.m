@@ -59,7 +59,7 @@
     [self.lblCourseName setText:[manager courseName]];
     [self.lblCityState setText:[NSString stringWithFormat:@"%@, %@", manager.courseCity, manager.courseState]];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(displayAlertForPendingInvitations) name:kAppLaunchInvitationReceived object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(displayAlertForPendingInvitations) name:kAppLaunchUserTapInvitationLink object:nil];
 }
 
 

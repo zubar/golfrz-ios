@@ -97,7 +97,7 @@
     }];
     
     // Receive this notification to check if there are any pending invitations to show.
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(displayAlertForPendingInvitations) name:kAppLaunchInvitationReceived object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(displayAlertForPendingInvitations) name:kAppLaunchUserTapInvitationLink object:nil];
     [self  loadCourseDetailsCompletionBlock:^(Course *currentCourse) {
         // Loading course details to use by courseServices, Must call this. 
     }];

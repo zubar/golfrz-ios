@@ -244,7 +244,7 @@
         if(!error){
             successBlock(true,[[response result] valueForKeyPath:@"round.id"], [[response result] valueForKeyPath:@"round.sub_course_id"], [[response result] valueForKeyPath:@"round.tee_box_name"]);
         }else
-            if([[response result] isEqualToString:@"Player Already Finished the Round"]){
+            if([[response result] isKindOfClass:[GolfrzError class]]){
                 roundsFinished(true);
             }else{
                 failureBlock(false, [response result]);

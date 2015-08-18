@@ -70,7 +70,7 @@
     }else
         if ([[[url scheme] lowercaseString] isEqualToString:@"invitationreceived"]) {
             [[GameSettings sharedSettings] setInvitationToken:[self extractParamsFromUrl:[url query]][@"invitation"]];
-            [[NSNotificationCenter defaultCenter] postNotificationName:kAppLaunchInvitationReceived object:nil];
+            [[NSNotificationCenter defaultCenter] postNotificationName:kAppLaunchUserTapInvitationLink object:nil];
             NSLog(@"Received invitation:%@", [[GameSettings sharedSettings] invitationToken]);
             return YES;
         }else

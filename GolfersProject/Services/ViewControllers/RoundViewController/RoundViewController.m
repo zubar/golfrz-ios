@@ -391,7 +391,7 @@
 -(void)finishRoundTap
 {
     [RoundDataServices finishRoundWithBlock:^(bool status, id response) {
-        // TODO: Navigate to ScoreCard.
+        // Navigate to ScoreCard.
         if(status){
             [ScoreboardServices getScoreCardForRoundId:[[GameSettings sharedSettings] roundId] subCourse:[[GameSettings sharedSettings] subCourseId] success:^(bool status, id responseObject) {
                 if(status){
@@ -402,7 +402,7 @@
                     [self.navigationController pushViewController:scoreBoardVc animated:YES];
                 }
             } failure:^(bool status, NSError *error) {
-                NSLog(@"%@", error);
+                [[[UIAlertView alloc] initWithTitle:@"Try Again" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
             }];
         }
     } failure:^(bool status, NSError *error) {
