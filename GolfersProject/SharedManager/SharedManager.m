@@ -15,6 +15,7 @@
 #import "Constants.h"
 #import "GolfrzError.h"
 #import "Utilities.h"
+#import <CoreLocation/CoreLocation.h>
 
 /*
  http://alienryderflex.com/polygon/
@@ -132,6 +133,13 @@ bool pointInPolygon(int polyCorners, float polyX[], float polyY[], float x, floa
     return CGPointMake(lastKnownLocation.x, lastKnownLocation.y);
 }
 
+-(void)startUpdatingCurrentLocation{
+    [self triggerLocationServices];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(isUpdatingCurrentLocation:locationCordinates:)]) {
+        [self.delegate isUpdatingCurrentLocation:YES locationCordinates:lastKnownLocation];
+    }
+}
+
 -(void)triggerLocationServices {
     
     if ([CLLocationManager locationServicesEnabled]) {
@@ -162,6 +170,9 @@ bool pointInPolygon(int polyCorners, float polyX[], float polyY[], float x, floa
     NSTimeInterval howRecent = [eventDate timeIntervalSinceNow];
     if (fabs(howRecent) < 15.0) {
         // If the event is recent, do something with it.
+        CGPoint tempLoc = CGPointMake(location.coordinate.longitude, location.coordinate.latitude);
+        if(self.delegate && [self.delegate respondsToSelector:@selector(isUpdatingCurrentLocation:locationCordinates:)]) [self.delegate isUpdatingCurrentLocation:NO locationCordinates:tempLoc];
+
         NSLog(@"latitude: %+.6f\n, longitude: %+.6f\n, altitude: %+.6f\n, speed: %+.6f\n vertical_accuracy: %+.6f\n horizontal_accuracy: %+.6f\n",
               location.coordinate.latitude,
               location.coordinate.longitude,
@@ -169,11 +180,12 @@ bool pointInPolygon(int polyCorners, float polyX[], float polyY[], float x, floa
               location.speed,
               location.verticalAccuracy,
               location.horizontalAccuracy);
+        
+        
         if ((location.verticalAccuracy <= kAccuracyGPS ) && (location.horizontalAccuracy <= kAccuracyGPS)) {
             lastKnownLocation.x = location.coordinate.longitude;
             lastKnownLocation.y = location.coordinate.latitude;
             [sharedLocationManager stopUpdatingLocation];
-            
             if (self.delegate && [self.delegate respondsToSelector:@selector(IsUserInCourseWithRequiredAccuracy:)]){
                 ([self isUserLocationInCourse] ?
                  [self.delegate IsUserInCourseWithRequiredAccuracy:YES] : [self.delegate IsUserInCourseWithRequiredAccuracy:NO]);

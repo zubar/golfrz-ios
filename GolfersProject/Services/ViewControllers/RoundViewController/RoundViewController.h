@@ -12,9 +12,10 @@
 #import "ScoreSelectionView.h"
 #import "PlayerScoreCell.h"
 #import "RoundDataServices.h"
+#import "SharedManager.h"
 
 
-@interface RoundViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, PlayerScoreViewDelegate, CMPopTipViewDelegate, ScoreSelectionDataSource, ScoreSelectionDelegate, PlayerScoreCellDelegate>
+@interface RoundViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, PlayerScoreViewDelegate, CMPopTipViewDelegate, ScoreSelectionDataSource, ScoreSelectionDelegate, PlayerScoreCellDelegate, SharedManagerDelegate>
 
 @property (strong, nonatomic) NSNumber * holeNumberPlayed;
 @property (strong, nonatomic) IBOutlet UITableView *scoreTable;

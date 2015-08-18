@@ -37,11 +37,15 @@
 #import <QuartzCore/QuartzCore.h>
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "UIImageView+RoundedImage.h"
+#import "GreenCoordinate.h"
 
 #define kPlayerScoreViewHeight 60.0f
 
 @interface RoundViewController (){
     BOOL isScoreTableDescended;
+    CGPoint frontCord;
+    CGPoint middleCord;
+    CGPoint backCord;
 }
 @property (nonatomic, strong) NSMutableArray * playersInRound;
 @property (nonatomic, strong) NSMutableDictionary * playerScores;
@@ -100,6 +104,8 @@
     
     GameSettings * settings = [GameSettings sharedSettings];
     self.currentHole = [[[settings subCourse] holes] objectAtIndex:[self.holeNumberPlayed integerValue]];
+    [self extractFrontMiddleBackCord];
+    [[SharedManager sharedInstance] startUpdatingCurrentLocation];
     [self updateYardAndParForHole:self.currentHole];
     
     
@@ -144,6 +150,8 @@
     AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
     [delegate.appDelegateNavController setNavigationBarHidden:NO];
     [self updateYardAndParForHole:[[GameSettings sharedSettings] subCourse].holes[[self.holeNumberPlayed intValue]]];
+    
+    [SharedManager sharedInstance].delegate = self;
 }
 
 -(void)updateYardAndParForHole:(Hole *)hole
@@ -224,6 +232,7 @@
 {
     AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
     [delegate.appDelegateNavController setNavigationBarHidden:YES];
+    [SharedManager sharedInstance].delegate = nil;
 }
 
 - (void)didReceiveMemoryWarning
@@ -681,4 +690,65 @@
             }
         }];
 }
+
+#pragma mark - Location related stuff
+
+-(void)extractFrontMiddleBackCord{
+    
+    for (GreenCoordinate * cordinate in [self.currentHole greenCoordinates]) {
+        if([[cordinate type] isEqualToString:@"front"])
+            frontCord = CGPointMake([cordinate.longitude intValue], [cordinate.latitude intValue]);
+        
+        if([[cordinate type] isEqualToString:@"middle"])
+            middleCord = CGPointMake([cordinate.longitude intValue], [cordinate.latitude intValue]);
+        
+        if([[cordinate type] isEqualToString:@"back"])
+            backCord = CGPointMake([cordinate.longitude intValue], [cordinate.latitude intValue]);
+            }
+}
+
+-(void)isUpdatingCurrentLocation:(BOOL)yesNo locationCordinates:(CGPoint)cord
+{
+    [self updateFrontDistanceForLoc:cord];
+    [self updateMiddleDistanceForLoc:cord];
+    [self updateBackDistanceForLoc:cord];
+}
+
+-(void)updateFrontDistanceForLoc:(CGPoint)cord
+{
+    int dist = [self meterfromPlace:cord andToPlace:frontCord];
+    NSString * lbl =[NSString stringWithFormat:@"%d%@", (dist >= 1000 ? dist/1000 : dist), (dist >= 1000 ? @"KM" : @"")];
+    [self.lblForward setText:lbl];
+}
+
+-(void)updateMiddleDistanceForLoc:(CGPoint)cord
+{
+    int dist = [self meterfromPlace:cord andToPlace:middleCord];
+    NSString * lbl =[NSString stringWithFormat:@"%d%@", (dist >= 1000 ? dist/1000 : dist), (dist >= 1000 ? @"KM" : @"")];
+    [self.lblMiddle setText:lbl];
+}
+
+-(void)updateBackDistanceForLoc:(CGPoint)cord
+{
+    int dist = [self meterfromPlace:cord andToPlace:backCord];
+    NSString * lbl =[NSString stringWithFormat:@"%d%@", (dist >= 1000 ? dist/1000 : dist), (dist >= 1000 ? @"KM" : @"")];
+    [self.lblBack setText:lbl];
+}
+
+
+-(int)meterfromPlace:(CGPoint )from andToPlace:(CGPoint)to  {
+    
+    CLLocation *userloc = [[CLLocation alloc]initWithLatitude:from.y longitude:from.x];
+    CLLocation *dest = [[CLLocation alloc]initWithLatitude:to.y longitude:to.x];
+    
+    CLLocationDistance dist = [userloc distanceFromLocation:dest];
+    
+    NSLog(@"%f",dist);
+    NSString *distance = [NSString stringWithFormat:@"%f",dist];
+    
+    return [distance intValue];
+    
+}
+
+
 @end

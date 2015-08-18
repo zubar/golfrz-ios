@@ -147,12 +147,12 @@ passwordConfirmation:(NSString *)passwordConfirmation
         @"email": email,
         @"password": password,
         @"password_confirmation": passwordConfirmation,
-        @"member_id": memberID,
         @"first_name": firstName,
         @"last_name": lastName,
         @"user_agent" : kUserAgent,
         @"app_bundle_id" : kAppBundleId,
-        @"handicap" : handicap
+        @"handicap" : handicap,
+        @"phone_no" : @"9808"
         };
 }
 

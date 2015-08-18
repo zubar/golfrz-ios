@@ -151,6 +151,7 @@
     }else{
         [pageControl setHidden:NO];
     }
+    [SharedManager sharedInstance].delegate = nil;
 }
 -(void)btnContactUsTap{
 
