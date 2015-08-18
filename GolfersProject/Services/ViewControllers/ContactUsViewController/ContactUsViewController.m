@@ -18,8 +18,10 @@
 #import "StaffType.h"
 #import "SharedManager.h"
 #import "UIImageView+RoundedImage.h"
+#import "Coordinate.h"
 #import "GolfrzError.h"
 #import "Utilities.h"
+#import "Constants.h"
 
 @interface ContactUsViewController ()
 
@@ -186,19 +188,7 @@
     
 }
 - (IBAction)viewMapTapped:(id)sender {
-    
-    //TODO: Open Map
-    
-   // NSString * destinationAddress = [NSString stringWithFormat:@"http://maps.apple.com/?ll=%@" , @"31.501452,74.315775"];
-    
-    NSString * destinationAddress = [NSString stringWithFormat:@"http://maps.apple.com/?daddr=%@" , @"Kalma+Chowk+Bus+Stop,+Lahore,+Punjab,+Pakistan&saddr=31-b+3,+Lahore,+Punjab,+Pakistan"];
-
-    
-    //NSString * destSafariAddress = [NSString stringWithFormat:@"<a href=http://maps.apple.com/?daddr=%@> GolfCourse</a>" , @"31 B-III, Gulberg-III, Lahore, Pakistan"];
-    
-    NSURL * destUrl = [NSURL URLWithString:destinationAddress];
-    if (destUrl) {
-       // [[UIApplication sharedApplication] openURL:destUrl];
-    }
+    [Utilities viewMap];
 }
+
 @end

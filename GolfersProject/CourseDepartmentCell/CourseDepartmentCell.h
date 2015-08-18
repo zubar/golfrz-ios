@@ -17,9 +17,8 @@
 -(void)configureViewForDepartment:(Department *)departmant;
 
 @property (strong, nonatomic)    Department * currentDepartment;
-
+@property (strong, nonatomic) IBOutlet UIButton *departmentContactButton;
 @property (strong, nonatomic) IBOutlet UILabel *lblDptName;
-@property (strong, nonatomic) IBOutlet UILabel *lblDptContact;
 @property (strong, nonatomic) IBOutlet UILabel *lblDptDays; // Mon - Fri
 @property (strong, nonatomic) IBOutlet UILabel *lblDptTimings; // (7am - 7pm)
 

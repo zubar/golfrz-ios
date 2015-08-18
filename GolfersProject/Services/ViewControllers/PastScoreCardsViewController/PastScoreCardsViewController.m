@@ -127,6 +127,13 @@
     [searchBar resignFirstResponder];
 }
 
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+    searchBar.text = @"";
+    [searchBar resignFirstResponder];
+    self.searchedPastScores = [self.pastScores mutableCopy];
+    [self.scoreCardTable reloadData];
+}
+
 - (void)filterContentForSearchText:(NSString*)searchText
 {
     NSPredicate *resultPredicate = [NSPredicate predicateWithFormat:@"gameType contains[c] %@", searchText];

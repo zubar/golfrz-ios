@@ -20,4 +20,5 @@
 +(void)displayErrorAlertWithTitle:(NSString *)title Message:(NSString *)errmsg;
 
 +(void)checkInternetConnectivityWithAlertCompletion:(void(^)(bool status))completion;
++ (void)viewMap;
 @end
