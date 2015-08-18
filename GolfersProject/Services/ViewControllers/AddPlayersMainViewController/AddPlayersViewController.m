@@ -11,7 +11,6 @@
 #import "Constants.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "UIImageView+RoundedImage.h"
-#import "InvitationManager.h"
 
 #import "SubCourse.h"
 #import "GameType.h"

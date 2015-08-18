@@ -13,7 +13,7 @@
 #import "GameSettings.h"
 #import "MBProgressHUD.h"
 #import "SharedManager.h"
-#import "InvitationManager.h"
+#import "GameSettings.h"
 
 @implementation InvitationServices
 
@@ -71,7 +71,7 @@
 #pragma mark - Helpers
 +(NSDictionary *)paramGetInvitationDetail{
     return @{
-             @"invitation_token" : [[InvitationManager sharedInstance] invitationToken],
+             @"invitation_token" : [[GameSettings sharedSettings] invitationToken],
              @"app_bundle_id" : kAppBundleId,
              @"user_agent" : kUserAgent,
              @"auth_token" : [UserServices currentToken],

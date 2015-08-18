@@ -61,4 +61,9 @@
 -(void)setTotalNumberOfHoles:(NSNumber *)holescount;
 -(NSNumber *)totalNumberOfHoles;
 
+
+
+-(NSString *)invitationToken;
+-(void)setInvitationToken:(NSString *)token;
+-(void)deleteInvitation;
 @end

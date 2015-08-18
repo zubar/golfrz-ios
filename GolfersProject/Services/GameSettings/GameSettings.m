@@ -160,6 +160,19 @@
     return [dataDict objectForKey:@"holesCount"];
 }
 
+//------------------------------ Invitation Related Stuff -------------------
+
+-(NSString *)invitationToken{
+    return dataDict[@"invitationToken"];
+}
+
+-(void)setInvitationToken:(NSString *)token{
+    [dataDict setObject:token forKey:@"invitationToken"];
+}
+-(void)deleteInvitation{
+    [dataDict removeObjectForKey:@"invitationToken"];
+}
+
 #pragma mark - HandleAppStateChangeNotif
 
 -(void)handleAppStateChangeNotification:(NSNotification *)notif{

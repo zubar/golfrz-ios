@@ -13,7 +13,6 @@
 #import "SplashScreenViewController.h"
 #import "GameSettings.h"
 #import "Constants.h"
-#import "InvitationManager.h"
 #import <AFNetworking/AFNetworking.h>
 
 #define MAIN_CONTROL_IDENTIFIER @"mainPagingController"
@@ -70,9 +69,9 @@
                                                            annotation:annotation];
     }else
         if ([[[url scheme] lowercaseString] isEqualToString:@"invitationreceived"]) {
-            [[InvitationManager sharedInstance] setInvitationToken:[self extractParamsFromUrl:[url query]][@"invitation"]];
+            [[GameSettings sharedSettings] setInvitationToken:[self extractParamsFromUrl:[url query]][@"invitation"]];
             [[NSNotificationCenter defaultCenter] postNotificationName:kAppLaunchInvitationReceived object:nil];
-            NSLog(@"Received invitation:%@", [[InvitationManager sharedInstance] invitationToken]);
+            NSLog(@"Received invitation:%@", [[GameSettings sharedSettings] invitationToken]);
             return YES;
         }else
             return NO;
