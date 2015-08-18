@@ -15,6 +15,7 @@
 
 @protocol SharedManagerDelegate <NSObject>
 -(void)IsUserInCourseWithRequiredAccuracy:(BOOL)yesNo;
+-(void)isUpdatingCurrentLocation:(BOOL)yesNo locationCordinates:(CGPoint)cord;
 @end
 
 
@@ -39,7 +40,7 @@
 +(SharedManager *)sharedInstance;
 -(BOOL)isUserLocationInCourse;
 -(void)triggerLocationServices;
-
+-(void)startUpdatingCurrentLocation;
 -(void)updateCartItemsCountCompletion:(void(^)(void))completion;
 
 @end

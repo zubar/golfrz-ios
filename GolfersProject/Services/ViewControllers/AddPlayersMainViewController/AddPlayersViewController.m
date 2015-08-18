@@ -586,9 +586,11 @@
                                                    return ;
                                                }
                                            } failure:^(bool status, NSError *error) {
+                                               [MBProgressHUD hideHUDForView:self.view animated:YES];
                                                [[[UIAlertView alloc]initWithTitle:@"Try Again" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
                                            }];
     } failure:^(bool status, NSError *error) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
         NSLog(@"Error-RoundInvitee: %@", error);
     }];
 }

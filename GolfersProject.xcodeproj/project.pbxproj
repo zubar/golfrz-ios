@@ -640,9 +640,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DFD15B61B25B2AB008F76D8 /* CoreLocation.framework in Frameworks */,
 				A921244B1B36DB1E00917649 /* MessageUI.framework in Frameworks */,
 				3DC1161F1B2EE21F00E83F4F /* AddressBook.framework in Frameworks */,
-				3DFD15B61B25B2AB008F76D8 /* CoreLocation.framework in Frameworks */,
 				3D5CA5D81B20572E00CB6ED7 /* SystemConfiguration.framework in Frameworks */,
 				3D1964231B13271000766CFC /* FBSDKShareKit.framework in Frameworks */,
 				32B56928BD94CBDCCDA0C43B /* libPods.a in Frameworks */,
@@ -2213,6 +2213,11 @@
 					88024F5C1AD29134004AC260 = {
 						CreatedOnToolsVersion = 6.1;
 						DevelopmentTeam = X6K86D8S89;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+						};
 					};
 					88024F751AD29134004AC260 = {
 						CreatedOnToolsVersion = 6.1;
