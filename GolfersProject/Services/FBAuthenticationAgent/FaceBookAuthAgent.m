@@ -90,7 +90,9 @@
 
 +(NSDictionary *)paramsForFacebookSignUp:(NSString *)fbBoken{
     return @{
-             @"access_token" : fbBoken
+             @"access_token" : fbBoken,
+             @"app_bundle_id" : kAppBundleId,
+             @"user_agent" : kUserAgent,
              };
 }
 //TODO: Save Token here.

@@ -19,6 +19,7 @@
 #import "Course.h"
 #import "CalendarEventServices.h"
 #import "GameSettings.h"
+#import "ClubHouseViewController.h"
 
 #import "FaceBookAuthAgent.h"
 #import "CalendarEventServices.h"
@@ -89,10 +90,12 @@
     [FaceBookAuthAgent signInWithFacebook:^(bool status, NSDictionary *userInfo) {
        
         [MBProgressHUD hideHUDForView:self.view animated:YES];
-        
+    
+       
         AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
         UIViewController *clubHouseContainerVC  = [self.storyboard instantiateViewControllerWithIdentifier:@"ClubHouseContainerVC"];
         [delegate.appDelegateNavController pushViewController:clubHouseContainerVC animated:YES];
+        
     } failure:^(bool status, NSError *error) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         

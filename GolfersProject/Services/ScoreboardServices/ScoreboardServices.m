@@ -118,13 +118,12 @@
 {
     APIClient * apiClient = [APIClient sharedAPICLient];
     NSLog(@"Param SavePast Scoreboard:%@", [ScoreboardServices paramSaveScoreboardRoundId:roundId gross:grossScore net:netScore skinCount:skinCount]);
-  
-    [apiClient GET:kSaveScoreCard parameters:[ScoreboardServices paramSaveScoreboardRoundId:roundId gross:grossScore net:netScore skinCount:skinCount] completion:^(id response, NSError *error) {
-        if(!error){
-            successBlock(true, [response result]);
-        }else
-            failureBlock(false, [response result]);
-    }];
+  [apiClient POST:kSaveScoreCard parameters:[ScoreboardServices paramSaveScoreboardRoundId:roundId gross:grossScore net:netScore skinCount:skinCount] completion:^(id response, NSError *error) {
+      if(!error){
+          successBlock(true, [response result]);
+      }else
+          failureBlock(false, [response result]);
+  }];    
 }
 
 #pragma mark - Helper Methods
