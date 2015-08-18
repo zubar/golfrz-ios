@@ -12,7 +12,7 @@
 
 @interface UserServices : NSObject
 
-
++(User *)currentUser;
 
 +(void)setCurrentToken:(NSString *)token;
 +(NSString *)currentToken;
@@ -29,6 +29,7 @@
 +(void)updateUserInfo:(NSString *)fName
              lastName:(NSString *)lastName
                 email:(NSString *)email
+              phoneNo:(NSString *)phoneNo
               success:(void (^)(bool status, NSString * message))successBlock
               failure:(void (^)(bool status, GolfrzError * error))failureBlock;
 

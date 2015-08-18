@@ -19,6 +19,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *txtFirstName;
 @property (strong, nonatomic) IBOutlet UITextField *txtLastName;
 @property (strong, nonatomic) IBOutlet UITextField *txtEmailAddress;
+@property (strong, nonatomic) IBOutlet UITextField *txtPhoneNumber;
 
 @property (strong, nonatomic) IBOutlet UIImageView *backgroundImg;
 

@@ -14,6 +14,7 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "User.h"
 #import "User+convenience.h"
+#import "UserServices.h"
 
 @implementation HMMessageRecieveCell
 @synthesize recieveDate, messageDetails;
@@ -35,7 +36,13 @@
         
     }];
     User * currentUser = _DTOObject.user;
-    self.lblUserName.text = currentUser.firstName;
+    //This is a wonderful chapi, don't try to torture your brain in resolving this... Its ISO certified.
+    NSLog(@"currentUser:%@", currentUser);
+    if ([currentUser firstName] == nil) {
+        self.lblUserName.text = [[UserServices currentUser] firstName];
+    }else{
+        self.lblUserName.text = currentUser.firstName;
+    }
     
     
 //    [self.imgUser sd_setImageWithURL:[NSURL URLWithString:[_DTOObject.user imgPath]] placeholderImage:[UIImage imageNamed:@"person_placeholder"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {

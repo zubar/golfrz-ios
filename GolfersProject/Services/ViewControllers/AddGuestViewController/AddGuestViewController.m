@@ -37,6 +37,7 @@
     // Do any additional setup after loading the view.
     SharedManager * manager = [SharedManager sharedInstance];
     [self.imgViewBackground setImage:[manager backgroundImage]];
+    [[self navigationItem] setTitle:@"ADD GUEST"];
     
     // Init pop over view.
     self.popOverView = [[PopOverView alloc] init];
@@ -50,6 +51,8 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
 
 #pragma mark popOverView delegate
 

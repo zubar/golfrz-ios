@@ -101,6 +101,12 @@
     ScoreBoardViewController *scoreBoardVc = [self.storyboard instantiateViewControllerWithIdentifier:@"SCORE_BOARD_VC_ID"];
     scoreBoardVc.roundId = [mPastScore roundId];
     scoreBoardVc.subCourseId = [mPastScore subCourseId];
+    scoreBoardVc.previousGameType = [mPastScore gameType];
+    [Utilities dateComponents:[mPastScore createdAt] components:^(NSString *dayName, NSString *monthName, NSString *day, NSString *time, NSString *minutes, NSString *timeAndMinute, NSString *year)
+     {
+        scoreBoardVc.previousDate = [NSString stringWithFormat:@"%@-%@-%@", day, monthName, year];
+         
+     }];
     [self.navigationController pushViewController:scoreBoardVc animated:YES];
 }
 

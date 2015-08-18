@@ -128,6 +128,7 @@
         [self.txtFirstName resignFirstResponder];
         [self.txtLastName resignFirstResponder];
         [self.txtEmailAddress resignFirstResponder];
+        [self.txtPhoneNumber resignFirstResponder];
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         NSString *errorMessage = [self validateForm];
         if (errorMessage) {
@@ -135,7 +136,7 @@
             [[[UIAlertView alloc] initWithTitle:nil message:errorMessage delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] show];
             return;
         }
-        [self upDateUserFirstName:[self.txtFirstName text] lastName:[self.txtLastName text] email:[self.txtEmailAddress text]];
+        [self upDateUserFirstName:[self.txtFirstName text] lastName:[self.txtLastName text] email:[self.txtEmailAddress text] phoneNo:[self.txtPhoneNumber text]];
     }
     
     [self.lblEditProfile setAttributedText:saveTitle];
@@ -165,6 +166,7 @@
     [self.txtFirstName setEnabled:yesNo];
     [self.txtLastName setEnabled:yesNo];
     [self.txtEmailAddress setEnabled:yesNo];
+    [self.txtPhoneNumber setEnabled:yesNo];
 }
 
 
@@ -203,12 +205,12 @@
     }
 }
 
--(void)upDateUserFirstName:(NSString *)firstName lastName:(NSString *)lastName email:(NSString *)email{
+-(void)upDateUserFirstName:(NSString *)firstName lastName:(NSString *)lastName email:(NSString *)email phoneNo:(NSString *)phoneNo{
     
   __block  NSString * alertTitle = nil;
   __block  NSString * alertMessage = nil;
     
-    [UserServices updateUserInfo:firstName lastName:lastName email:email success:^(bool status, NSString *message) {
+    [UserServices updateUserInfo:firstName lastName:lastName email:email phoneNo:phoneNo success:^(bool status, NSString *message) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         alertTitle = @"Success";
         alertMessage = message;

@@ -17,5 +17,10 @@
 @property (strong, nonatomic) NSNumber * roundId;
 @property (strong, nonatomic) IBOutlet UICollectionView *rightCollectionView;
 @property (weak, nonatomic) IBOutlet UILabel *lblheadingScorecard;
+@property (strong, nonatomic) IBOutlet UILabel *lblDateOfRound;
+@property (strong, nonatomic) IBOutlet UILabel *lblNoOfHoles;
+@property (strong, nonatomic) IBOutlet UILabel *lblGameType;
+@property (strong, nonatomic) NSString *previousDate;
+@property (strong, nonatomic) NSString *previousGameType;
 
 @end
