@@ -315,6 +315,7 @@
     
     [ContactServices getAddressbookContactsFiltered:option sortedByName:YES success:^(bool status, NSArray *contactsArray) {
         [self.allFriends addObjectsFromArray:contactsArray];
+        self.searchedFriends = self.allFriends;
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         //Run the completion block
         completionBlock();
@@ -455,6 +456,13 @@
 {
     NSPredicate *resultPredicate = [NSPredicate predicateWithFormat:@"contactFirstName contains[c] %@", searchText];
     self.searchedFriends = [[self.allFriends filteredArrayUsingPredicate:resultPredicate] mutableCopy];
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+    searchBar.text = @"";
+    [searchBar resignFirstResponder];
+    self.searchedFriends = [self.allFriends mutableCopy];
+    [self.friendsTableView reloadData];
 }
 
 -(BOOL)searchBarShouldEndEditing:(UISearchBar *)searchBar{
