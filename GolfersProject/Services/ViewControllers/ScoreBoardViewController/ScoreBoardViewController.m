@@ -598,6 +598,8 @@
 -(void)baseBackBtnTap{
 
     AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+    
+    /*
     for (UIViewController * controller  in [delegate.appDelegateNavController viewControllers]) {
         if ([controller isKindOfClass:[PastScoreCardsViewController class]]) {
             [delegate.appDelegateNavController popToViewController:controller animated:YES];
@@ -608,6 +610,7 @@
                 return;
             }
     }
+     */
 }
 
 @end

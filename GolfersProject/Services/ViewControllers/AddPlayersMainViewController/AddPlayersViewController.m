@@ -136,7 +136,8 @@
             [MBProgressHUD hideHUDForView:self.view animated:YES];
             [self loadDataToCountinueRound:roundNumber inSubcourse:subCourseId];
         }else{
-                [self loadDataToSetUpNewRound];
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            [self loadDataToSetUpNewRound];
             }
     }];
 }
