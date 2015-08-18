@@ -174,6 +174,7 @@
 		3DDF9BE91B60CA990036C735 /* RoundPlayers.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDF9BE81B60CA990036C735 /* RoundPlayers.m */; };
 		3DF9936F1B256999006EBC39 /* PushManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF9936E1B256999006EBC39 /* PushManager.m */; };
 		3DF993721B256A4A006EBC39 /* AppDelegate+Push.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF993711B256A4A006EBC39 /* AppDelegate+Push.m */; };
+		3DFCDB231B83B33300673570 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3DFCDB221B83B33300673570 /* GoogleService-Info.plist */; };
 		3DFD15B61B25B2AB008F76D8 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DFD15B51B25B2AA008F76D8 /* CoreLocation.framework */; };
 		774F2C281B71E6CD0051C9E8 /* ScoreCardUserScore.m in Sources */ = {isa = PBXBuildFile; fileRef = 774F2C271B71E6CD0051C9E8 /* ScoreCardUserScore.m */; };
 		775F06D31B78D58600BA4055 /* RoundMoviePlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 775F06D21B78D58600BA4055 /* RoundMoviePlayerController.m */; };
@@ -534,6 +535,7 @@
 		3DF9936E1B256999006EBC39 /* PushManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushManager.m; sourceTree = "<group>"; };
 		3DF993701B256A4A006EBC39 /* AppDelegate+Push.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+Push.h"; sourceTree = "<group>"; };
 		3DF993711B256A4A006EBC39 /* AppDelegate+Push.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+Push.m"; sourceTree = "<group>"; };
+		3DFCDB221B83B33300673570 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3DFD15B51B25B2AA008F76D8 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		5A26DAF5CF62E34098597EA3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		774F2C261B71E6CD0051C9E8 /* ScoreCardUserScore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreCardUserScore.h; sourceTree = "<group>"; };
@@ -1702,6 +1704,7 @@
 		88024F541AD29134004AC260 = {
 			isa = PBXGroup;
 			children = (
+				3DFCDB221B83B33300673570 /* GoogleService-Info.plist */,
 				885CB06C1B09BDCD00AD2A7B /* README.md */,
 				88024F5F1AD29134004AC260 /* GolfersProject */,
 				88024F791AD29134004AC260 /* GolfersProjectTests */,
@@ -2270,6 +2273,7 @@
 				3D1C8E9A1B3BFEB0004AAD30 /* popoverArrowUp.png in Resources */,
 				3D1C8E8E1B3BFEB0004AAD30 /* popoverArrowDown.png in Resources */,
 				3D1C8E961B3BFEB0004AAD30 /* popoverArrowRight.png in Resources */,
+				3DFCDB231B83B33300673570 /* GoogleService-Info.plist in Resources */,
 				3D1C8E971B3BFEB0004AAD30 /* popoverArrowRight@2x.png in Resources */,
 				3D1C8E9F1B3BFEB0004AAD30 /* popoverBg@2x.png in Resources */,
 				3D1C8E9C1B3BFEB0004AAD30 /* popoverArrowUpSimple.png in Resources */,
