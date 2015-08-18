@@ -272,90 +272,103 @@
 #pragma mark - API Calls
 
 // call this when some one accepts the send invitation & we received a push notif for this.
--(void)loadDataInvitationAcceptedByInvitee:(void(^)(void))completion{
-    
-    GameSettings * persistentStore = [GameSettings sharedSettings];
-    
-    [InvitationServices getInvitationDetail:^(bool status, id invitation) {
-        
+-(void)getRoundInfoForInvitation:(NSString *)invitation success:(void(^)(NSNumber * roundId))completion
+{
+    [InvitationServices getInvitationDetail:^(bool status, id invitation){
         if (status) {
             NSNumber * roundId = invitation[@"invitation_round"][@"round_id"];
-            [persistentStore setroundId:roundId];
-            [self loadRoundDetailsForRoundId:roundId Completion:^{
-                completion();
-            }];
+            completion(roundId);
         }
     } failure:^(bool status, NSError *error) {
-        completion();
+        completion(nil);
     }];
 }
 
--(void)loadPlayersListCompletion:(void(^)(void))completion{
+-(void)getPlayersListForRoundId:(NSNumber *)roundId success:(void(^)(NSArray * playersList))completion{
     
-    NSNumber * roundId = [[GameSettings sharedSettings] roundId];
-    if (!roundId) {
-        return;
-    }
+    if (!roundId) return;
     [RoundDataServices getPlayersInRoundId:roundId success:^(bool status, RoundPlayers *playerData) {
         if (status) {
-            [self.playersInRound removeAllObjects];
-            [self.playersInRound addObjectsFromArray:playerData.players];
-            completion();
+            completion(playerData.players);
         }
     } failure:^(bool status, GolfrzError *error) {
-        completion();
+        [Utilities displayErrorAlertWithMessage:[error errorMessage]];
+        completion(nil);
     }];
 }
 
--(void)loadRoundDetailsForRoundId:(NSNumber * )round Completion:(void(^)(void))completion{
-    
+-(void)getRoundOptionsForRoundId:(NSNumber * )round Completion:(void(^)(RoundMetaData * currRound))completion
+{
     [RoundDataServices getRoundInfoForRoundId:round success:^(bool status, Round * mRound) {
-       
-        RoundMetaData * currRound = mRound.roundData;
-        self.roundInfo = currRound;
-        
-        GameSettings * gameSettings = [GameSettings sharedSettings];
-        [gameSettings setsubCourseId:currRound.activeCourse.itemId];
-        
-        //Also setting current subCourse
-        [gameSettings setsubCourse:currRound.activeCourse];
-        [gameSettings setgameType:currRound.activeGameType];
-        [gameSettings setscoreType:currRound.activeScoreType];
-        
-        currentItemsIndropdown = DropDownContainsItemsSubcourses;
-        [self setSelectedItemToLocalItem:self.roundInfo.activeCourse];
-        currentItemsIndropdown = DropDownContainsItemsGametype;
-        [self setSelectedItemToLocalItem:self.roundInfo.activeGameType];
-        currentItemsIndropdown = DropDownContainsItemsScoring;
-        [self setSelectedItemToLocalItem:self.roundInfo.activeScoreType];
-        currentItemsIndropdown = DropDownContainsItemsTeeboxes;
-        [self setSelectedItemToLocalItem:[[[[[self.roundInfo.subCourses firstObject] holes] firstObject] teeboxes] firstObject]];
-        
-        completion();
-        
+        completion(mRound.roundData);
     } failure:^(bool status, GolfrzError *error) {
-        completion();
-
+        [Utilities displayErrorAlertWithMessage:[error errorMessage]];
+        completion(nil);
     }];
-    
 }
 
 
 // call this for is waiting for players.
--(void)getAvailableRoundOptions:(void(^)(void))completion{
+-(void)getAllRoundOptionsForCurrentCourse:(void(^)(RoundMetaData *roundData))completion{
                      
     [RoundDataServices getRoundData:^(bool status, RoundMetaData *roundData) {
             if (status) {
-                    self.roundInfo = roundData;
-                    completion();
+                    completion(roundData);
                          }
     } failure:^(bool status, GolfrzError *error) {
-        completion();
         [Utilities displayErrorAlertWithMessage:[error errorMessage]];
+        completion(nil);
     }];
 }
 
+-(void)getPreviousRoundStatus:(void(^)(bool inProgress, NSNumber * roundNumber, NSNumber * subCourseId, NSString * selectedteeBox))completion
+{
 
+    [RoundDataServices getRoundInProgress:^(bool status, NSNumber *roundNo, NSNumber *subCourseId, NSString *teeboxName) {
+        completion(true, roundNo, subCourseId, teeboxName);
+    }
+    finishedRounds:^(bool status){
+        completion(false, nil, nil, nil);
+    }
+    failure:^(bool status, GolfrzError *error){
+        [Utilities displayErrorAlertWithMessage:[error errorMessage]];
+        completion(false, nil, nil, nil);
+    }];
+}
+
+-(void)updateSettingsForRound:(NSNumber *)roundId
+                  subCourseId:(NSNumber *)subcourseId
+                     gameType:(NSNumber *)gameTypeId
+                    scoreType:(NSNumber *)scoreTypeId
+                       teebox:(NSNumber *)teeboxId
+                      success:(void(^)(NSNumber * roundId))completion
+{
+    
+    NSMutableDictionary * paramDict = [NSMutableDictionary new];
+    
+    [paramDict setObject:subcourseId forKey:@"subCourseId"];
+    [paramDict setObject:gameTypeId forKey:@"gameTypeId"];
+    [paramDict setObject:scoreTypeId forKey:@"scoreTypeId"];
+    [paramDict setObject:teeboxId forKey:@"teeBoxId"];
+    if(roundId != nil) [paramDict setObject:roundId forKey:@"roundId"];
+    
+    [RoundDataServices getNewRoundIdWithOptions:paramDict success:^(bool status, NSNumber *roundId) {
+       if(status) completion(roundId);
+    } failure:^(bool status, NSError *error) {
+        if (error) {
+            [Utilities displayErrorAlertWithMessage:[error localizedDescription]];
+        }
+    }];
+}
+
+-(void)startRoundWithId:(NSNumber *)roundId subcourseId:(NSNumber *)subcourseId success:(void(^)(NSNumber * roundid))completion
+{
+    [RoundDataServices startNewRoundWithId:roundId subCourseId:subcourseId success:^(bool status, id roundId) {
+        if(status) completion(roundId);
+    } failure:^(bool status, NSError *error) {
+        if(error) [Utilities displayErrorAlertWithMessage:[error localizedDescription]];
+    }];
+}
 
 #pragma mark - UITableViewDataSource
 
@@ -511,7 +524,6 @@
     UILabel * lbl = sender;
     //[btn setTitle:[item name] forState:UIControlStateNormal];
     [lbl setText:[item name]];
-    //[btn.titleLabel setText:[item name]];
 }
 
 - (void)presentPopOverViewPointedAtButton:(UIView *)sender {
@@ -534,66 +546,6 @@
         [self startRoundInviter];
 }
 
-// Inviter only needs to call start round api.
--(void)startRoundInviter{
-
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    GameSettings * persistentStore = [GameSettings sharedSettings];
-    
-    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
-    [delegate.appDelegateNavController setNavigationBarHidden:NO];
-    
-    // Assuming game settings has valid round ID, GameTypeID, etc.
-    [RoundDataServices updateRound:^(bool status, id response) {
-        if (status)
-            [RoundDataServices startNewRoundWithId:[persistentStore roundId]
-                                       subCourseId:[persistentStore subCourseId]
-                                           success:^(bool status, id roundId) {
-                                               if (status) {
-                                                   [MBProgressHUD hideHUDForView:self.view animated:YES];
-                                                   HolesMapViewController * holesMapViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"HolesMapViewController"];
-                                                   [delegate.appDelegateNavController pushViewController:holesMapViewController animated:YES];
-                                                   return ;
-                                               }
-                                           } failure:^(bool status, NSError *error) {
-                                               [[[UIAlertView alloc]initWithTitle:@"Try Again" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
-                                           }];
-    } failure:^(bool status, NSError *error) {
-        NSLog(@"Failed : %@" , [error localizedDescription]);
-    }];
-}
-
-// Invitee first needs to call new round API then start round.
--(void)startRoundInvitee
-{
-    
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    GameSettings * persistentStore = [GameSettings sharedSettings];
-    
-    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
-    [delegate.appDelegateNavController setNavigationBarHidden:NO];
-    
-    
-    [RoundDataServices updateRound:^(bool status, id response) {
-        if(status)
-            [RoundDataServices startNewRoundWithId:[persistentStore roundId]
-                                       subCourseId:[persistentStore subCourseId]
-                                           success:^(bool status, id roundId) {
-                                               if (status) {
-                                                   [MBProgressHUD hideHUDForView:self.view animated:YES];
-                                                   HolesMapViewController * holesMapViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"HolesMapViewController"];
-                                                   [delegate.appDelegateNavController pushViewController:holesMapViewController animated:YES];
-                                                   return ;
-                                               }
-                                           } failure:^(bool status, NSError *error) {
-                                               [MBProgressHUD hideHUDForView:self.view animated:YES];
-                                               [[[UIAlertView alloc]initWithTitle:@"Try Again" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
-                                           }];
-    } failure:^(bool status, NSError *error) {
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
-        NSLog(@"Error-RoundInvitee: %@", error);
-    }];
-}
 
 - (IBAction)editPlayersTapped:(UIButton *)sender
 {
