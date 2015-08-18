@@ -334,6 +334,12 @@
                  [self.lblSelectedDate setText:[NSString stringWithFormat:@"%@, %@ %@", dayName, day, monthName]];
             [self setSelectedDate:selectedDate];
         }];
+        // Get teetimes after loading subcourses.
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        [self updateTeeTimesForDate:self.selectedDate completion:^{
+            [self.teeTimesTable reloadData];
+            [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        }];
     } cancelBlock:^(ActionSheetDatePicker *picker) {
       //  keep chill. 
     } origin:sender];
@@ -363,8 +369,10 @@
                                            SubCourse * selectedCourse = self.subCourses[selectedIndex];
                                            self.lblSubCourseName.text = [selectedCourse name];
                                            self.selectedSubcourseId = [selectedCourse itemId];
+                                           [MBProgressHUD showHUDAddedTo:self.view animated:YES];
                                            [self updateTeeTimesForDate:self.selectedDate completion:^{
                                                [self.teeTimesTable reloadData];
+                                               [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
                                            }];
                                            
                                        } cancelBlock:^(ActionSheetStringPicker *picker) {
