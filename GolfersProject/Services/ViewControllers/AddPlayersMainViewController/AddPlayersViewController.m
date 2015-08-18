@@ -74,7 +74,7 @@
     
     
     // Right bar button
-    UIBarButtonItem * rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(popSelf)];
+    UIBarButtonItem * rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel Round" style:UIBarButtonItemStylePlain target:self action:@selector(cancelRound)];
     self.navigationItem.rightBarButtonItem = rightBarButtonItem;
     
     
@@ -264,9 +264,17 @@
 
 
 #pragma mark - Navigation
--(void)popSelf{
-    AppDelegate * appDelegate = [[UIApplication sharedApplication] delegate];
-    [appDelegate.appDelegateNavController popViewControllerAnimated:YES];
+-(void)cancelRound{
+    [RoundDataServices finishRoundWithBlock:^(bool status, id response) {
+        // Navigate to ScoreCard.
+        if(status){
+            [[[UIAlertView alloc] initWithTitle:@"Round Cancelled!" message:@"Current Round is cancelled, you can now start new round." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+            [self loadDataToSetUpNewRound];
+        }
+    } failure:^(bool status, NSError *error) {
+        [[[UIAlertView alloc] initWithTitle:@"Try Again!" message:@"Can not cancel current round." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+    }];
+    
 }
 
 - (IBAction)btnAddPlayersTapped:(id)sender {

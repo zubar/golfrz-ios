@@ -46,6 +46,8 @@
     CGPoint frontCord;
     CGPoint middleCord;
     CGPoint backCord;
+    
+    NSNumberFormatter * distanceFormatter;
 }
 @property (nonatomic, strong) NSMutableArray * playersInRound;
 @property (nonatomic, strong) NSMutableDictionary * playerScores;
@@ -69,6 +71,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
+     distanceFormatter =  [[NSNumberFormatter alloc] init];
+    [distanceFormatter setMaximumIntegerDigits:1];
+    [distanceFormatter setMaximumFractionDigits:0];
+    [distanceFormatter setUsesSignificantDigits:NO];
+    
     // Do any additional setup after loading the view.
     if(!self.playerScores) self.playerScores = [NSMutableDictionary new];
     
@@ -717,22 +726,36 @@
 -(void)updateFrontDistanceForLoc:(CGPoint)cord
 {
     int dist = [self meterfromPlace:cord andToPlace:frontCord];
-    NSString * lbl =[NSString stringWithFormat:@"%d%@", (dist >= 1000 ? dist/1000 : dist), (dist >= 1000 ? @"KM" : @"")];
+    
+    NSString * lbl = nil;
+    NSString * ditFormt = nil;
+    if(dist >= 1000)
+       ditFormt  = [distanceFormatter stringFromNumber:[NSNumber numberWithInt:dist]];
+
+    lbl =[NSString stringWithFormat:@"%@%@", (dist >= 1000 ? ditFormt : [NSString stringWithFormat:@"%d", dist]), (dist >= 1000 ? @"+KM" : @"")];
     [self.lblForward setText:lbl];
 }
 
 -(void)updateMiddleDistanceForLoc:(CGPoint)cord
 {
     int dist = [self meterfromPlace:cord andToPlace:middleCord];
-    NSString * lbl =[NSString stringWithFormat:@"%d%@", (dist >= 1000 ? dist/1000 : dist), (dist >= 1000 ? @"KM" : @"")];
-    [self.lblMiddle setText:lbl];
+    NSString * lbl = nil;
+    NSString * ditFormt = nil;
+    if(dist >= 1000)
+        ditFormt  = [distanceFormatter stringFromNumber:[NSNumber numberWithInt:dist]];
+    
+    lbl =[NSString stringWithFormat:@"%@%@", (dist >= 1000 ? ditFormt : [NSString stringWithFormat:@"%d", dist]), (dist >= 1000 ? @"+KM" : @"")];    [self.lblMiddle setText:lbl];
 }
 
 -(void)updateBackDistanceForLoc:(CGPoint)cord
 {
     int dist = [self meterfromPlace:cord andToPlace:backCord];
-    NSString * lbl =[NSString stringWithFormat:@"%d%@", (dist >= 1000 ? dist/1000 : dist), (dist >= 1000 ? @"KM" : @"")];
-    [self.lblBack setText:lbl];
+    NSString * lbl = nil;
+    NSString * ditFormt = nil;
+    if(dist >= 1000)
+        ditFormt  = [distanceFormatter stringFromNumber:[NSNumber numberWithInt:dist]];
+    
+    lbl =[NSString stringWithFormat:@"%@%@", (dist >= 1000 ? ditFormt : [NSString stringWithFormat:@"%d", dist]), (dist >= 1000 ? @"+KM" : @"")];    [self.lblBack setText:lbl];
 }
 
 
