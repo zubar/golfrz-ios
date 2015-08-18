@@ -15,6 +15,7 @@
 #import "User.h"
 #import "User+convenience.h"
 #import "UserServices.h"
+#import "User+convenience.h"
 
 @implementation HMMessageRecieveCell
 @synthesize recieveDate, messageDetails;
@@ -35,30 +36,14 @@
         }
         
     }];
-    User * currentUser = _DTOObject.user;
+    User * mUser = _DTOObject.user;
     //This is a wonderful chapi, don't try to torture your brain in resolving this... Its ISO certified.
-    NSLog(@"currentUser:%@", currentUser);
-    if ([currentUser firstName] == nil) {
-        self.lblUserName.text = [[UserServices currentUser] firstName];
+    NSLog(@"currentUser:%@", mUser);
+    if (!mUser) {
+        self.lblUserName.text = [UserServices currentUserName];
     }else{
-        self.lblUserName.text = currentUser.firstName;
+        self.lblUserName.text = mUser.firstName;
     }
-    
-    
-//    [self.imgUser sd_setImageWithURL:[NSURL URLWithString:[_DTOObject.user imgPath]] placeholderImage:[UIImage imageNamed:@"person_placeholder"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-//        [self.imgUser setRoundedImage:image];
-//    }];
-
-    
-    //font setting + auto height adjustment
-//    int height = [Utility heightRequiredToShowText:_DTOObject.comment forFont:[UIFont fontWithName:@"Helvetica" size:16] inWidth:218];
-//    self.frame = CGRectMake(self.frame.origin.x,self.frame.origin.y,self.frame.size.width,height+82-25);
-//    self.chatBG.frame = CGRectMake(self.chatBG.frame.origin.x, self.chatBG.frame.origin.y, self.chatBG.frame.size.width , self.frame.size.height-20);
-//    self.messageDetails.frame = CGRectMake(self.messageDetails.frame.origin.x, self.messageDetails.frame.origin.y, self.messageDetails.frame.size.width, height+6);
-//    self.recieveDate.frame = CGRectMake(self.recieveDate.frame.origin.x,self.chatBG.frame.size.height-self.recieveDate.frame.size.height+10, self.recieveDate.frame.size.width, self.recieveDate.frame.size.height);
-    
-//    self.messageDetails.font = [UIFont fontWithName:@"Helvetica" size:10];
-//    self.recieveDate.font = [UIFont fontWithName:@"Helvetica" size:8];
 }
 
 

@@ -25,7 +25,7 @@
 #import "GameSettings.h"
 #import "PastScoreCardsViewController.h"
 #import "GameType.h"
-
+#import "AddPlayersViewController.h"
 
 @interface ScoreBoardViewController (){
     
@@ -45,7 +45,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = [[CourseServices currentCourse] courseName];
+   
+    UIBarButtonItem * rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"SAVE" style:UIBarButtonItemStylePlain target:self action:@selector(saveScorecardInHistory)];
+    self.navigationItem.rightBarButtonItem = rightBarButtonItem;
+
+    
+    self.navigationItem.title = @"SCORECARD";
     
     [ScoreBoardManager sharedScoreBoardManager].numberOfSections = 0;
     [ScoreBoardManager sharedScoreBoardManager].numberOfItems = 0;
@@ -81,7 +86,7 @@
         }
         if (self.previousDate == nil) {
             NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-            formatter.dateFormat = @"d.M.yyyy";
+            formatter.dateFormat = @"d-MMM-yyyy";
             NSString *currentDate = [formatter stringFromDate:[NSDate date]];
             self.lblDateOfRound.text = currentDate;
         }else{
@@ -112,7 +117,7 @@
     }
 }
 
-- (void)saveScorecardInHistory:(void(^)(void))completion{
+- (void)saveScorecardInHistory{
     // This is the shit- WEB TEAM has forced us to do.
     GameSettings * settings = [GameSettings sharedSettings];
     NSString * currUserId = [NSString stringWithFormat:@"%@", [UserServices currentUserId]];
@@ -131,14 +136,11 @@
                  if(status)
                      [[[UIAlertView alloc] initWithTitle:@"ScoreCard saved." message:@"This scorecard is saved in your history of past scorecards." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
 
-                 completion();
              } failure:^(bool status, GolfrzError *error) {
                  if(!status)
                      [[[UIAlertView alloc] initWithTitle:@"ScoreCard Can not be Saved!" message:@"This scorecard can not be saved in your history of past scorecards." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
-                 completion();
              }];
-            }else
-                completion();
+            }
             
         }
     }
@@ -146,12 +148,8 @@
 
 -(void)viewWillDisappear:(BOOL)animated
 {
-    [self saveScorecardInHistory:^{
-        [super viewWillDisappear:animated];
         scoreCard_ = nil;
         [ScoreBoardManager sharedScoreBoardManager].scoreCard = nil;
-
-    }];
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
@@ -598,19 +596,16 @@
 -(void)baseBackBtnTap{
 
     AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
-    [delegate.appDelegateNavController popViewControllerAnimated:YES];
-    /*
+    
     for (UIViewController * controller  in [delegate.appDelegateNavController viewControllers]) {
         if ([controller isKindOfClass:[PastScoreCardsViewController class]]) {
             [delegate.appDelegateNavController popToViewController:controller animated:YES];
-            return;
         }else
-            if ([controller isKindOfClass:[ClubHouseContainerVC class]]) {
+            if ([controller isKindOfClass:[AddPlayersViewController class]]) {
                 [delegate.appDelegateNavController popToViewController:controller animated:NO];
-                return;
             }
     }
-     */
+    
 }
 
 @end

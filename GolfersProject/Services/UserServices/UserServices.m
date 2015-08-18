@@ -19,6 +19,23 @@
 static User * currentUser = nil;
 
 
++(User *)currentUser{
+    return currentUser;
+}
+
++(void)setCurrentUSerName:(NSString *)name{
+    
+    NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setValue:name forKey:KUSER_NAME];
+    [defaults synchronize];
+}
++(NSString *)currentUserName
+{
+    NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
+    return   [defaults objectForKey:KUSER_NAME];
+}
+
+
 +(void)setCurrentToken:(NSString *)token{
 
     NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];

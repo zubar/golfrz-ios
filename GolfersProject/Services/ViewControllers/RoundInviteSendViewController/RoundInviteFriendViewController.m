@@ -371,7 +371,7 @@
             alertMessage = @"You canceled the invitation.";
             break;
         case MessageComposeResultFailed:
-            alertTitle = @"Failed to send";
+            alertTitle = @"Failed to sent.";
             alertMessage = @"Please try again.";
             break;
         case MessageComposeResultSent:
@@ -404,7 +404,7 @@
             alertMessage = @"You canceled the invitation.";
             break;
         case MFMailComposeResultFailed:
-            alertTitle = @"Failed to send";
+            alertTitle = @"Failed to sent.";
             alertMessage = @"Please try again.";
             break;
         case MFMailComposeResultSaved:

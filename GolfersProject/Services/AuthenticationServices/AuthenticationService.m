@@ -106,7 +106,7 @@ passwordConfirmation:(NSString *)passwordConfirmation
             [defaults setValue:responseObject[@"token"] forKey:kUSER_TOKEN];
             [defaults setValue:responseObject[@"email"] forKey:kUSER_EMAIL];
             [defaults setValue:responseObject[@"id"] forKey:kUSER_ID];
-            
+            //[defaults setValue:responseObject[@"first_name"] forKey:KUSER_NAME];
             NSLog(@"Email: %@, Token: %@, User_Id: %@", responseObject[@"email"], responseObject[@"token"], responseObject[@"id"]);
             
             [defaults synchronize];

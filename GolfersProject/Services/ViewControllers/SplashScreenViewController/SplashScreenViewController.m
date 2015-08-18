@@ -17,6 +17,7 @@
 #import "InitialViewController.h"
 #import "AppDelegate.h"
 #import "SharedManager.h"
+#import "User.h"
 
 #import "UserServices.h"
 #import "ClubHouseViewController.h"
@@ -66,13 +67,11 @@
         
         // If user has already signed in and token is available.
         /*
-        if ([UserServices currentToken]) {
+        if ([UserServices currentToken] != nil) {
             ClubHouseViewController * clubHouseController = [self.storyboard instantiateViewControllerWithIdentifier:@"ClubHouseViewController"];
             [delegate.appDelegateNavController pushViewController:clubHouseController animated:YES];
         }else
-         */
-        //TODO:
-        {
+        */{
             // push sign in controller
             InitialViewController * initController = [self.storyboard instantiateViewControllerWithIdentifier:@"InitialViewController"];
             [delegate.appDelegateNavController pushViewController:initController animated:YES];
@@ -121,6 +120,16 @@
      [[SharedManager sharedInstance] setBackgroundImage:[UIImage imageNamed:@"background_image"]];
      }
     }
+    
+    // Get user info here:
+    [UserServices setCurrentUSerName:@"ME"];
+    /*
+    [UserServices getUserInfo:^(bool status, User *mUser) {
+        [UserServices setCurrentUSerName:[mUser firstName]];
+    } failure:^(bool status, GolfrzError *error) {
+        [UserServices setCurrentUSerName:@"ME"];
+    }];
+    */
 }
 -(void)viewWillAppear:(BOOL)animated{
     [self.navigationController setNavigationBarHidden:YES];

@@ -56,8 +56,8 @@
             [self.imgCourseLogo setRoundedImage:image];
         }
     }];
-    [self.lblCourseName setText:[manager courseName]];
-    [self.lblCityState setText:[NSString stringWithFormat:@"%@, %@", manager.courseCity, manager.courseState]];
+    [self.lblCourseName setText:([manager courseName] == nil ? @"": [manager courseName])];
+    [self.lblCityState setText:[NSString stringWithFormat:@"%@, %@", ([manager courseCity] == nil ? @"": [manager courseCity]), ([manager courseState] == nil ? @"": [manager courseState])]];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(displayAlertForPendingInvitations) name:kAppLaunchUserTapInvitationLink object:nil];
 }

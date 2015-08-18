@@ -14,6 +14,12 @@
 
 +(User *)currentUser;
 
+
+
++(void)setCurrentUSerName:(NSString *)name;
++(NSString *)currentUserName;
+
+
 +(void)setCurrentToken:(NSString *)token;
 +(NSString *)currentToken;
 

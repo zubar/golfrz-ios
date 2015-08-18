@@ -222,14 +222,20 @@
     return [teeTimesArray count];
 }
 
-- (void)bookTeetimeForPlayers:(NSInteger)playerCount tee:(Teetime *)tee {
+- (void)bookTeetimeForPlayers:(NSInteger)playerCount tee:(Teetime *)tee
+{
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     if(![tee itemId]) //teetime is never book
         [TeetimeServices bookTeeTimeSubcourse:self.selectedSubcourseId playersNo:[NSNumber numberWithInteger:playerCount] bookTime:[tee bookedTime] success:^(bool status, Teetime * response) {
             // Reload all the teetimes
-            if(status)
-            [self updateTeeTimesForDate:self.selectedDate completion:^{
-                [self.teeTimesTable reloadData];
-            }];
+            if(status){
+                [self showAlertBookedTeetimeOnDate:response];
+                [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+                
+                [self updateTeeTimesForDate:self.selectedDate completion:^{
+                    [self.teeTimesTable reloadData];
+                }];
+            }
         } failure:^(bool status, GolfrzError *error) {
             [Utilities displayErrorAlertWithMessage:[error errorMessage]];
         }];
@@ -409,7 +415,7 @@
 #pragma mark - ErrorAlerts 
 
 -(void)displayTeetimeAlreadyBookedAlert{
-    [[[UIAlertView alloc] initWithTitle:@"Teetime Already Booked!" message:@"This teetime is already booked, please contact admin to update or cancel booking." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+    [[[UIAlertView alloc] initWithTitle:@"Tee Time Already Booked!" message:@"This teetime is already booked, please contact admin to update or cancel booking." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
 }
 
 -(void)displayAlertPlayerCountZero{
@@ -417,7 +423,15 @@
 }
 
 -(void)showErrorAlert{
-    [[[UIAlertView alloc] initWithTitle:@"Can not Update Teetime !" message:@"Number of players for a booked teetime can't be decreased & maximum number of player for a teetime is 5." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+    [[[UIAlertView alloc] initWithTitle:@"Can not Update Teetime!" message:@"Number of players for a booked teetime can't be decreased & maximum number of player for a teetime is 5." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
 }
 
+-(void)showAlertBookedTeetimeOnDate:(Teetime *)mTeeTime
+{
+    __block NSString * message = nil;
+    [Utilities dateComponents:[mTeeTime bookedTime] components:^(NSString *dayName, NSString *monthName, NSString *day, NSString *time, NSString *minutes, NSString *timeAndMinute, NSString *year) {
+        message = [NSString stringWithFormat:@"Booked Tee Time at %@ on %@ %@, %@ for %@ player.", timeAndMinute, day, monthName, year, [[mTeeTime count] stringValue]];
+    }];
+    [[[UIAlertView alloc] initWithTitle:@"Tee Time Details." message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+}
 @end

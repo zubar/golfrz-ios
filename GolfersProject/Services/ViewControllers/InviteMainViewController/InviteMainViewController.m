@@ -138,7 +138,7 @@
 
 -(void)errorMessageNoContactSelected{
     
-    [[[UIAlertView alloc] initWithTitle:@"No Contacts Selected" message:@"Please select atleast one contact to send invite" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
+    [[[UIAlertView alloc] initWithTitle:@"No Contacts Selected" message:@"Please select atleast one contact to sent invite" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
 }
 
 #pragma mark - UITableViewDelagate
@@ -421,7 +421,7 @@
             alertMessage = @"You canceled the invitation.";
             break;
         case MessageComposeResultFailed:
-            alertTitle = @"Failed to send";
+            alertTitle = @"Failed to sent";
             alertMessage = @"Please try again.";
             break;
         case MessageComposeResultSent:
@@ -453,7 +453,7 @@
             alertMessage = @"You canceled the invitation.";
             break;
         case MFMailComposeResultFailed:
-            alertTitle = @"Failed to send";
+            alertTitle = @"Failed to sent";
             alertMessage = @"Please try again.";
             break;
         case MFMailComposeResultSaved:

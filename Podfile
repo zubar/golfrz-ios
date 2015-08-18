@@ -6,4 +6,4 @@ pod 'SDWebImage', '~>3.7'
 pod 'APAddressBook'
 pod 'CMPopTipView', '~> 2.2.0'
 pod 'ActionSheetPicker-3.0'
-
+pod 'Google/Analytics', '~> 1.0.0'

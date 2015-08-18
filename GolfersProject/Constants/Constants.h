@@ -13,6 +13,7 @@
 #define kUSER_TOKEN @"user_token"
 #define kUSER_EMAIL @"user_email"
 #define kUSER_ID    @"user_id"
+#define KUSER_NAME  @"user_name"
 
 #define kScreenWidth (NSInteger)[[UIScreen mainScreen] bounds].size.width
 #define kScreenHeight (NSInteger)[[UIScreen mainScreen] bounds].size.height
