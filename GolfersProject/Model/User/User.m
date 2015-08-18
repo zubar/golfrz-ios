@@ -20,6 +20,7 @@
              @"lastName" : @"last_name",
              @"handicap" : @"handicap",
              @"imgPath" : @"image_path",
+             @"phone" : @"phone_no",
             //propertyName : json_key
              };
 }

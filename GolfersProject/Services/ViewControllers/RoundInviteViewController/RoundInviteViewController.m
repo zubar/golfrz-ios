@@ -26,8 +26,8 @@
 
     
     // Remove left button
-    self.navigationItem.leftBarButtonItem = nil;
-    self.navigationItem.hidesBackButton = YES;
+    //self.navigationItem.leftBarButtonItem = nil;
+    //self.navigationItem.hidesBackButton = YES;
     
     // Right bar button
     UIBarButtonItem * rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(popSelf)];
@@ -35,8 +35,11 @@
     
     self.inviteArrayImages = [NSArray array];
     self.inviteNames = [NSArray array];
-    self.inviteArrayImages = [NSArray arrayWithObjects:@"inApp_invite_unselected", @"fb_invite_unselected", @"sms_invite_unselected", @"email_invite_unselected", @"addGuest", nil];
-    self.inviteNames = [NSArray arrayWithObjects:@"IN-APP FRIENDS", @"FACEBOOK", @"SMS", @"EMAIL", @"ADD GUEST", nil];
+   // self.inviteArrayImages = [NSArray arrayWithObjects:@"inApp_invite_unselected", @"fb_invite_unselected", @"sms_invite_unselected", @"email_invite_unselected", @"addGuest", nil];
+    self.inviteArrayImages = [NSArray arrayWithObjects:@"inApp_invite_unselected", @"sms_invite_unselected", @"email_invite_unselected", @"addGuest", nil];
+
+//    self.inviteNames = [NSArray arrayWithObjects:@"IN-APP FRIENDS", @"FACEBOOK", @"SMS", @"EMAIL", @"ADD GUEST", nil];
+    self.inviteNames = [NSArray arrayWithObjects:@"IN-APP FRIENDS", @"SMS", @"EMAIL", @"ADD GUEST", nil];
     [self.inviteTableView reloadData];
     // Do any additional setup after loading the view.
 }

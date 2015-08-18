@@ -84,6 +84,7 @@
                 [self.txtFirstName setText:[mUser firstName]];
                 [self.txtLastName setText:[mUser lastName]];
                 [self.txtEmailAddress setText:[mUser email]];
+                [self.txtPhoneNumber setText:[mUser phone]];
                 [self makeUserInfoFieldsEditable:NO];
             [MBProgressHUD hideHUDForView:self.view animated:YES];
         }
