@@ -35,29 +35,7 @@
     // Do any additional setup after loading the view.
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-/*
-   //TODDO: Testing
-    NSString *urlAsString = @"http://45.56.104.68/system/attachments/contents/000/000/002/original/car1.jpg?1439443697";
-    NSURL *url = [NSURL URLWithString:urlAsString];
-    
-    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
-    NSURLResponse *response = nil;
-    NSError *error = nil;
-    
-    NSLog(@"Firing synchronous url connection...");
-    NSData *data = [NSURLConnection sendSynchronousRequest:urlRequest
-                                         returningResponse:&response
-                                                     error:&error];
-    
-    if ([data length] > 0 && error == nil){
-        UIImage * bgImag = [UIImage imageWithData:data];
-        if (bgImag != nil) {
-            [[SharedManager sharedInstance] setBackgroundImage:bgImag];
-        }else{
-            [[SharedManager sharedInstance] setBackgroundImage:[UIImage imageNamed:@"background_image"]];
-        }
-    }
-    */
+
     [[SharedManager sharedInstance] setBackgroundImage:[UIImage imageNamed:@"background_image"]];
 
     
@@ -82,8 +60,8 @@
         
         self.navigationController.navigationBar.barTintColor = [[SharedManager sharedInstance] themeColor];
         [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
-
         
+        [self loadBackgroundImageFromUrl:[sharedManager backgroundImagePath]];
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         
         // If user has already signed in and token is available.
@@ -111,10 +89,6 @@
         [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
 
 
-        //TODO:
-        // Setting Background Image
-        // Setting Course Logo
-        
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         
         self.navigationController.navigationBar.barTintColor = [[SharedManager sharedInstance] themeColor];
@@ -126,6 +100,28 @@
 
 }
 
+
+-(void)loadBackgroundImageFromUrl:(NSString *)imagePath
+{
+     NSURL *url = [NSURL URLWithString:imagePath];
+     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
+     NSURLResponse *response = nil;
+     NSError *error = nil;
+     
+     NSLog(@"Firing synchronous url connection...");
+     NSData *data = [NSURLConnection sendSynchronousRequest:urlRequest
+     returningResponse:&response
+     error:&error];
+     
+     if ([data length] > 0 && error == nil){
+     UIImage * bgImag = [UIImage imageWithData:data];
+     if (bgImag != nil) {
+     [[SharedManager sharedInstance] setBackgroundImage:bgImag];
+     }else{
+     [[SharedManager sharedInstance] setBackgroundImage:[UIImage imageNamed:@"background_image"]];
+     }
+    }
+}
 -(void)viewWillAppear:(BOOL)animated{
     [self.navigationController setNavigationBarHidden:YES];
 }

@@ -17,6 +17,7 @@
 #define kScreenWidth (NSInteger)[[UIScreen mainScreen] bounds].size.width
 #define kScreenHeight (NSInteger)[[UIScreen mainScreen] bounds].size.height
 
+//https://www.mobilecoursesolutions.com/
 
 static NSString * const kAppStoreUrl = @"https://fb.me/1587823924813232";
 static NSString * const kAppPreviewImage = @"http://a5.mzstatic.com/us/r30/Purple1/v4/14/9d/66/149d6659-a6c7-9d30-ff50-49b84013a4b6/icon175x175.jpeg";
@@ -25,6 +26,7 @@ static NSString * const kAppPreviewImage = @"http://a5.mzstatic.com/us/r30/Purpl
  * BaseImageURLGolfrz
  */
 static NSString * const kBaseImageUrl = @"http://45.56.104.68";
+
 //@"https://powerful-plains-9156.herokuapp.com";
 
 

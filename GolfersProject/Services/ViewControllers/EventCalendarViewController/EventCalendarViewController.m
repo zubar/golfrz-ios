@@ -47,6 +47,7 @@
     SharedManager * manager = [SharedManager sharedInstance];
     [self.imgViewBackground setImage:[manager backgroundImage]];
 
+    if(!self.eventslist) self.eventslist = [[NSMutableArray alloc] init];
     
     UIButton * imageButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 10, 10, 14)];
     [imageButton setBackgroundImage:[UIImage imageNamed:@"back_btn"] forState:UIControlStateNormal];
@@ -135,7 +136,8 @@
         if (status) {
             
             NSSortDescriptor * sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"dateStart" ascending:YES];
-            self.eventslist = [eventsArray.items sortedArrayUsingDescriptors:@[sortDescriptor]];
+            if([self.eventslist count]>0)[self.eventslist removeAllObjects];
+            [self.eventslist addObjectsFromArray:[eventsArray.items sortedArrayUsingDescriptors:@[sortDescriptor]]] ;
             //
             for (CalendarEvent * anEvent in self.eventslist) {
                 if (!self.events[anEvent.dateStart]) {

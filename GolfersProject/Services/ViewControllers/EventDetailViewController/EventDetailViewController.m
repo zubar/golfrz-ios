@@ -15,6 +15,7 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "UIImageView+RoundedImage.h"
 #import "EventAdminViewController.h"
+#import "InviteMainViewController.h"
 
 @interface EventDetailViewController ()
 
@@ -115,5 +116,9 @@
 }
 
 - (IBAction)btnInviteFriendsTapped:(UIButton *)sender {
+    
+    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+    InviteMainViewController * friendsController = [self.storyboard instantiateViewControllerWithIdentifier:@"InviteMainViewController"];
+    [delegate.appDelegateNavController pushViewController:friendsController animated:YES];
 }
 @end

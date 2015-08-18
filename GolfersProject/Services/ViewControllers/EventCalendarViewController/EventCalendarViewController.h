@@ -17,7 +17,7 @@
 
 @property (nonatomic, retain) VRGCalendarView * calendar;
 
-@property (nonatomic, retain) NSArray * eventslist;
+@property (nonatomic, retain) NSMutableArray * eventslist;
 
 @property (retain, nonatomic) IBOutlet UITableView *eventsTableVeiw;
 @property (weak, nonatomic) IBOutlet UILabel *lblNoEvents;
