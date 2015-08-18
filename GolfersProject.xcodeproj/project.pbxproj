@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		32B56928BD94CBDCCDA0C43B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A26DAF5CF62E34098597EA3 /* libPods.a */; };
 		3D00B59E1B61161800FA2C19 /* Round.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D00B59D1B61161800FA2C19 /* Round.m */; };
-		3D00B5A11B621C7500FA2C19 /* InvitationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D00B5A01B621C7500FA2C19 /* InvitationManager.m */; };
 		3D00B5A51B6748A300FA2C19 /* GameSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D00B5A41B6748A300FA2C19 /* GameSettings.m */; };
 		3D00B5A91B67493100FA2C19 /* PlayerSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D00B5A81B67493100FA2C19 /* PlayerSettings.m */; };
 		3D00B5AD1B68E48000FA2C19 /* ScoreboardServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D00B5AC1B68E48000FA2C19 /* ScoreboardServices.m */; };
@@ -238,8 +237,6 @@
 /* Begin PBXFileReference section */
 		3D00B59C1B61161800FA2C19 /* Round.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Round.h; sourceTree = "<group>"; };
 		3D00B59D1B61161800FA2C19 /* Round.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Round.m; sourceTree = "<group>"; };
-		3D00B59F1B621C7500FA2C19 /* InvitationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvitationManager.h; sourceTree = "<group>"; };
-		3D00B5A01B621C7500FA2C19 /* InvitationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvitationManager.m; sourceTree = "<group>"; };
 		3D00B5A31B6748A300FA2C19 /* GameSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameSettings.h; sourceTree = "<group>"; };
 		3D00B5A41B6748A300FA2C19 /* GameSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameSettings.m; sourceTree = "<group>"; };
 		3D00B5A71B67493100FA2C19 /* PlayerSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerSettings.h; sourceTree = "<group>"; };
@@ -1596,8 +1593,6 @@
 			children = (
 				3D221F8E1B5254CB00CF79E4 /* InvitationServices.h */,
 				3D221F8F1B5254CB00CF79E4 /* InvitationServices.m */,
-				3D00B59F1B621C7500FA2C19 /* InvitationManager.h */,
-				3D00B5A01B621C7500FA2C19 /* InvitationManager.m */,
 			);
 			path = InvitationServices;
 			sourceTree = "<group>";
@@ -2330,7 +2325,6 @@
 				3DCA44D01B26CB3400B66BD2 /* Course.m in Sources */,
 				3D221F901B5254CB00CF79E4 /* InvitationServices.m in Sources */,
 				3DCA44CF1B26CB3400B66BD2 /* Coordinate.m in Sources */,
-				3D00B5A11B621C7500FA2C19 /* InvitationManager.m in Sources */,
 				3D1CB0F11B691563005C1E19 /* EventCalendarViewController.m in Sources */,
 				3D1CB0EE1B691563005C1E19 /* ContactUsViewController.m in Sources */,
 				3D87D8431B1852120046BD60 /* NSMutableArray+convenience.m in Sources */,

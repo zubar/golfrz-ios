@@ -36,9 +36,10 @@
         // Observe notif to write all data to file before leaving the app.
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleAppStateChangeNotification:) name:UIApplicationWillResignActiveNotification object:nil];
         
-        if ([self isFileExists]) {
-            dataDict = [[NSMutableDictionary alloc]initWithContentsOfFile:[self filePath]];
-        }else{
+//        if ([self isFileExists]) {
+//            dataDict = [[NSMutableDictionary alloc]initWithContentsOfFile:[self filePath]];
+//        }else
+        {
             dataDict = [[NSMutableDictionary alloc] init];
         }
     }
@@ -158,6 +159,19 @@
 
 -(NSNumber *)totalNumberOfHoles{
     return [dataDict objectForKey:@"holesCount"];
+}
+
+//------------------------------ Invitation Related Stuff -------------------
+
+-(NSString *)invitationToken{
+    return dataDict[@"invitationToken"];
+}
+
+-(void)setInvitationToken:(NSString *)token{
+    [dataDict setObject:token forKey:@"invitationToken"];
+}
+-(void)deleteInvitation{
+    [dataDict removeObjectForKey:@"invitationToken"];
 }
 
 #pragma mark - HandleAppStateChangeNotif

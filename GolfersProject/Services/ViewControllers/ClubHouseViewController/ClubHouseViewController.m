@@ -38,7 +38,7 @@
 
 #import "RoundViewController.h"
 #import "ScoreSelectionView.h"
-#import "InvitationManager.h"
+#import "GameSettings.h"
 #import "RoundMoviePlayerController.h"
 #import "TeeTimesViewController.h"
 #import "HMMessagesDisplayViewController.h"
@@ -97,7 +97,7 @@
     }];
     
     // Receive this notification to check if there are any pending invitations to show.
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(displayAlertForPendingInvitations) name:kAppLaunchInvitationReceived object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(displayAlertForPendingInvitations) name:kAppLaunchUserTapInvitationLink object:nil];
     [self  loadCourseDetailsCompletionBlock:^(Course *currentCourse) {
         // Loading course details to use by courseServices, Must call this. 
     }];
@@ -351,7 +351,7 @@
 
 -(void)displayAlertForPendingInvitations{
     
-    if ([[InvitationManager sharedInstance] invitationToken]) {
+    if ([[GameSettings sharedSettings] invitationToken]) {
         if ([UserServices currentToken]) {
             //TODO: Send call to get invitation details.
             
@@ -366,12 +366,12 @@
     switch (buttonIndex) {
         case 0: {// Cancel
             // do nothing just ignore & remove the invitation token from app.
-            [[InvitationManager sharedInstance] deleteInvitation];
-            [[InvitationManager sharedInstance]setInvitationStatusAccepted:NO];
+            [[GameSettings sharedSettings] deleteInvitation];
+           // [[GameSettings sharedSettings]setInvitationStatusAccepted:NO];
             break;
         }
         case 1:{ // Accept Invitation. Navigate
-            [[InvitationManager sharedInstance] setInvitationStatusAccepted:YES];
+          //  [[InvitationManager sharedInstance] setInvitationStatusAccepted:YES];
             AppDelegate * appdelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
             
             if ([[appdelegate.appDelegateNavController topViewController] isKindOfClass:[ClubHouseContainerVC class]]) {

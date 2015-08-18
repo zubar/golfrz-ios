@@ -21,7 +21,6 @@
 #import "RoundViewController.h"
 #import "AppDelegate.h"
 #import "SharedManager.h"
-#import "InvitationManager.h"
 
 //TODO: Create a class invitationManager which handles:
 /*

@@ -235,18 +235,21 @@
     }];
 }
 
-+(void)isRoundInProgress:(void(^)(bool status, NSNumber * roundNo, NSNumber * subCourseId))successBlock
-                 failure:(void(^)(bool status, GolfrzError * error))failureBlock
++(void)getRoundInProgress:(void(^)(bool status, NSNumber * roundNo, NSNumber * subCourseId, NSString * teeboxName))successBlock
+           finishedRounds:(void(^)(bool status))roundsFinished
+                  failure:(void(^)(bool status, GolfrzError * error))failureBlock
 {
     APIClient * apiClient = [APIClient sharedAPICLient];
     [apiClient GET:kRoundInProgress parameters:[RoundDataServices paramUserAuthentication] completion:^(id response, NSError *error) {
         if(!error){
-            successBlock(true,[[response result] valueForKeyPath:@"round.id"], [[response result] valueForKeyPath:@"round.sub_course_id"]);
-        }else{
-            failureBlock(false, [response result]);
+            successBlock(true,[[response result] valueForKeyPath:@"round.id"], [[response result] valueForKeyPath:@"round.sub_course_id"], [[response result] valueForKeyPath:@"round.tee_box_name"]);
+        }else
+            if([[response result] isKindOfClass:[GolfrzError class]]){
+                roundsFinished(true);
+            }else{
+                failureBlock(false, [response result]);
         }
     }];
-
 }
 
 #pragma mark - HelperMethods
@@ -382,15 +385,28 @@
 
 +(NSDictionary *)paramsCreateRound:(NSDictionary *)dict{
     
-    return @{
-            @"app_bundle_id" : kAppBundleId,
-            @"user_agent" : kUserAgent,
-            @"auth_token" : [UserServices currentToken],
-                @"sub_course_id" : dict[@"subCourseId"],
-                @"game_type_id" : dict[@"gameTypeId"],
-                @"score_type_id" : dict[@"scoreTypeId"],
-                @"tee_box_id" : dict[@"teeBoxId"],
-                };
+    NSMutableDictionary * paramDict = [NSMutableDictionary new];
+    
+    [paramDict setObject:kAppBundleId forKey:@"app_bundle_id"];
+    [paramDict setObject:kUserAgent forKey:@"user_agent"];
+    [paramDict setObject:[UserServices currentToken] forKey:@"auth_token"];
+    [paramDict setObject:dict[@"subCourseId"] forKey:@"sub_course_id"];
+    [paramDict setObject:dict[@"gameTypeId"] forKey:@"game_type_id"];
+    [paramDict setObject:dict[@"scoreTypeId"] forKey:@"score_type_id"];
+    [paramDict setObject:dict[@"teeBoxId"] forKey:@"tee_box_id"];
+    
+    if(dict[@"roundId"] != nil) [paramDict setObject:dict[@"roundId"] forKey:@"round_id"];
+    
+    return paramDict;
+//    return @{
+//            @"app_bundle_id" : kAppBundleId,
+//            @"user_agent" : kUserAgent,
+//            @"auth_token" : [UserServices currentToken],
+//                @"sub_course_id" : dict[@"subCourseId"],
+//                @"game_type_id" : dict[@"gameTypeId"],
+//                @"score_type_id" : dict[@"scoreTypeId"],
+//                @"tee_box_id" : dict[@"teeBoxId"],
+//                };
 }
 
 +(NSDictionary *)paramsUpdateRound{
