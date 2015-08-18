@@ -86,7 +86,7 @@
         }
         if (self.previousDate == nil) {
             NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-            formatter.dateFormat = @"d-MMM-yyyy";
+            formatter.dateFormat = @"dd-MMM-yyyy";
             NSString *currentDate = [formatter stringFromDate:[NSDate date]];
             self.lblDateOfRound.text = currentDate;
         }else{
@@ -109,39 +109,11 @@
             NSNumber *number = scoreCardHole.parValue;
             parTotal_ += [number intValue];
         }
+        
         for (int i = 9; i<18; i++) {
             ScoreCardHole *scoreCardHole = [scoreCard_.holesArray objectAtIndex:i];
             NSNumber *number = scoreCardHole.parValue;
             parTotal2_ += [number intValue];
-        }
-    }
-}
-
-- (void)saveScorecardInHistory{
-    // This is the shit- WEB TEAM has forced us to do.
-    GameSettings * settings = [GameSettings sharedSettings];
-    NSString * currUserId = [NSString stringWithFormat:@"%@", [UserServices currentUserId]];
-    
-    for (ScoreCardUser * user in [scoreCard_ users]) {
-        if ([[[user userId] stringValue] isEqualToString:currUserId]) {
-            int totalGross = [user grossFirst] + [user grossLast];
-            int totalNet = totalGross - [[user handiCap] intValue];
-            
-            // Check if round id is present,
-            if([settings roundId] != nil){
-            [ScoreboardServices saveScoreBoardForRoundId:[settings roundId] grossScore:[NSNumber numberWithInt:totalGross] netScore:[NSNumber numberWithInt:totalNet] skinCount:[user skinCount]
-                                                 success:^(bool status, id response)
-             {
-                 //Do nothing.
-                 if(status)
-                     [[[UIAlertView alloc] initWithTitle:@"ScoreCard saved." message:@"This scorecard is saved in your history of past scorecards." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
-
-             } failure:^(bool status, GolfrzError *error) {
-                 if(!status)
-                     [[[UIAlertView alloc] initWithTitle:@"ScoreCard Can not be Saved!" message:@"This scorecard can not be saved in your history of past scorecards." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
-             }];
-            }
-            
         }
     }
 }
@@ -583,16 +555,8 @@
     
     return [UIColor colorWithRed:((colorValue & 0xFF0000) >> 16)/255.0 green:((colorValue & 0xFF00) >> 8)/255.0 blue:((colorValue & 0xFF) >> 0)/255.0 alpha:alpha];
 }
-/*
+
 #pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 -(void)baseBackBtnTap{
 
     AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
@@ -606,6 +570,34 @@
             }
     }
     
+}
+- (void)saveScorecardInHistory{
+    // This is the shit- WEB TEAM has forced us to do.
+    GameSettings * settings = [GameSettings sharedSettings];
+    NSString * currUserId = [NSString stringWithFormat:@"%@", [UserServices currentUserId]];
+    
+    for (ScoreCardUser * user in [scoreCard_ users]) {
+        if ([[[user userId] stringValue] isEqualToString:currUserId]) {
+            int totalGross = [user grossFirst] + [user grossLast];
+            int totalNet = totalGross - [[user handiCap] intValue];
+            
+            // Check if round id is present,
+            if([settings roundId] != nil){
+                [ScoreboardServices saveScoreBoardForRoundId:[settings roundId] grossScore:[NSNumber numberWithInt:totalGross] netScore:[NSNumber numberWithInt:totalNet] skinCount:[user skinCount]
+                                                     success:^(bool status, id response)
+                 {
+                     //Do nothing.
+                     if(status)
+                         [[[UIAlertView alloc] initWithTitle:@"ScoreCard saved." message:@"This scorecard is saved in your history of past scorecards." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+                     
+                 } failure:^(bool status, GolfrzError *error) {
+                     if(!status)
+                         [[[UIAlertView alloc] initWithTitle:@"ScoreCard Can not be Saved!" message:@"This scorecard can not be saved in your history of past scorecards." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+                 }];
+            }
+            
+        }
+    }
 }
 
 @end

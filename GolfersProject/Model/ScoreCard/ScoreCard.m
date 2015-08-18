@@ -11,62 +11,7 @@
 #import "ScoreCardUser.h"
 @implementation ScoreCard
 
-/*
- {
- "score_card": {
- "users": [
- {
- "id": 25,
- "first_name": "inviter",
- "handicap": 7
- }
- ],
- "tee_box_count": 1,
- "holes_data": {
- "hole_1": {
- "25": {
- "score": -1,
- "symbol": {
- "shot_type": "berdie",
- "symbol": "circle, green_dot"
- }
- },
- "par_value": 5,
- "tee_box_0": {
- "handicap": 3
- }
- },
- "hole_3": {
- "25": {
- "score": -1,
- "symbol": {
- "shot_type": "berdie",
- "symbol": "circle, green_dot"
- }
- },
- "par_value": 7,
- "tee_box_0": {
- "handicap": 3
- }
- },
- "hole_2": {
- "25": {
- "score": -1,
- "symbol": {
- "shot_type": "berdie",
- "symbol": "circle, green_dot"
- }
- },
- "par_value": 1,
- "tee_box_0": {
- "handicap": 5
- }
- }
- },
- "25_gross_first": -3
- }
- }
- */
+
 -(instancetype)initWithDictionary:(NSDictionary *)data
 {
     if (self = [super init]) {

@@ -14,21 +14,23 @@
 #import "MBProgressHUD.h"
 #import "SharedManager.h"
 #import "GameSettings.h"
+#import "User.h"
+
 
 @implementation InvitationServices
 
 +(void)getInAppUsers:(void (^)(bool status, NSArray * inAppUsers))successBlock
-             failure:(void (^)(bool status, GolfrzError * error))failureBlock{
-
-    APIClient * apiClient = [APIClient sharedAPICLient];
-    
-    [apiClient GET:kInAppFriend parameters:[InvitationServices paramInAppFriend] completion:^(id response, NSError *error) {
-        OVCResponse * resp = response;
-        if (!error) {
-            NSArray * friendsList = [resp result];
-            successBlock(true, friendsList);
-        }else
-            failureBlock(false, [response result]);
+             failure:(void (^)(bool status, GolfrzError * error))failureBlock
+{    
+    AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
+    [apiClient GET:kInAppFriend parameters:[InvitationServices paramInAppFriend] success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSDictionary * responseDict =(NSDictionary *)responseObject;
+        NSError * error = nil;
+        NSArray * objectsArray = [MTLJSONAdapter modelsOfClass:[User class] fromJSONArray:responseDict[@"in_app_user_list"] error:&error];
+        if(!error) successBlock(true, objectsArray);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        GolfrzError * errorObject = [MTLJSONAdapter modelOfClass:[GolfrzError class] fromJSONDictionary:@{@"error_message" : @"Can not get in-app friends."} error:nil];
+        failureBlock(false, errorObject);
     }];
 }
 
@@ -81,7 +83,9 @@
 +(NSDictionary *)paramInAppFriend
 {
     return @{
-             @"auth_token" : [UserServices currentToken]
+             @"app_bundle_id" : kAppBundleId,
+             @"user_agent" : kUserAgent,
+             @"auth_token" : [UserServices currentToken],
              };
 }
 
