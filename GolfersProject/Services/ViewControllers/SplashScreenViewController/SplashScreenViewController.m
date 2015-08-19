@@ -120,16 +120,6 @@
      [[SharedManager sharedInstance] setBackgroundImage:[UIImage imageNamed:@"background_image"]];
      }
     }
-    
-    // Get user info here:
-    [UserServices setCurrentUSerName:@"ME"];
-    /*
-    [UserServices getUserInfo:^(bool status, User *mUser) {
-        [UserServices setCurrentUSerName:[mUser firstName]];
-    } failure:^(bool status, GolfrzError *error) {
-        [UserServices setCurrentUSerName:@"ME"];
-    }];
-    */
 }
 -(void)viewWillAppear:(BOOL)animated{
     [self.navigationController setNavigationBarHidden:YES];

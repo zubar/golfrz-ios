@@ -20,6 +20,8 @@
 #import "AppDelegate.h"
 #import "HMMessagesDisplayViewController.h"
 #import "MBProgressHUD.h"
+#import "UserServices.h"
+#import "User.h"
 
 @interface CourseUpdatesViewController ()
 @property(strong, nonatomic) NSMutableArray * courseUpdates;
@@ -50,6 +52,13 @@
         [Utilities displayErrorAlertWithMessage:[error errorMessage]];
         [MBProgressHUD hideHUDForView:self.view animated:YES];
     }];
+    
+    
+     [UserServices getUserInfo:^(bool status, User *mUser) {
+         [UserServices setCurrentUSerName:[mUser firstName]];
+     } failure:^(bool status, GolfrzError *error) {
+         [UserServices setCurrentUSerName:@"ME"];
+     }];
     
 }
 
