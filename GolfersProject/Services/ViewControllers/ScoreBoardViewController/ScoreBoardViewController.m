@@ -103,19 +103,23 @@
 {
     parTotal_ = 0;
     parTotal2_ = 0;
-    if (scoreCard_.holeCount >= 9) {
+    //For first Nine holes
+    if (scoreCard_.holeCount <= 9) {
         for (int i = 0; i<9; i++) {
             ScoreCardHole *scoreCardHole = [scoreCard_.holesArray objectAtIndex:i];
             NSNumber *number = scoreCardHole.parValue;
             parTotal_ += [number intValue];
         }
-        
+    }
+    
+    if(scoreCard_.holeCount >= 18){
         for (int i = 9; i<18; i++) {
             ScoreCardHole *scoreCardHole = [scoreCard_.holesArray objectAtIndex:i];
             NSNumber *number = scoreCardHole.parValue;
             parTotal2_ += [number intValue];
         }
     }
+    
 }
 
 -(void)viewWillDisappear:(BOOL)animated
@@ -170,7 +174,7 @@
             
             ScoreCardHole *hole = [scoreCard_.holesArray objectAtIndex:index];
             if (teeBoxIndex >= hole.teeBoxArray.count) {
-                teeBoxIndex = hole.teeBoxArray.count - 1;
+                teeBoxIndex = (int)hole.teeBoxArray.count - 1;
             }
             ScoreCardTeeBox *teeBox = [hole.teeBoxArray objectAtIndex:teeBoxIndex];
             headerCell.handiCpLbl.hidden = YES;
@@ -218,7 +222,8 @@
         if (indexPath.row >= numberOfLeftColumns) {
             cell.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"leftColorImage"]];
         }
-            
+        
+        
         if (indexPath.section == 10) {
             
             cell.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"rightColorImage"]];
@@ -419,14 +424,11 @@
                     if (indexPath.section < scoreCard_.holeCount) {
                         hole = [scoreCard_.holesArray objectAtIndex:indexPath.section-1];
                     }
-                    
                 }
-                
                 if (hole) {
                     
                     bodyCell.contentLbl.text = [NSString stringWithFormat:@"%d",[hole.holeNumber intValue]];
                 }
-                
             }
             else if (indexPath.row == 1)
             {
@@ -442,8 +444,6 @@
                     {
                         hole = [scoreCard_.holesArray objectAtIndex:indexPath.section-2];
                     }
-                    
-                    
                 }
                 else
                 {

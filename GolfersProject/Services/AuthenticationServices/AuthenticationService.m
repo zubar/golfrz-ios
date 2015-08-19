@@ -56,7 +56,9 @@
     APIClient *apiClient = [APIClient sharedAPICLient];
     
     NSDictionary * params = @{
-                              @"email":email
+                              @"email":email,
+                              @"user_agent" : kUserAgent,
+                              @"app_bundle_id" : kAppBundleId,
                               };
     
     [apiClient POST:kForgetPasswordURL parameters:params completion:^(id response, NSError *error) {
@@ -122,7 +124,9 @@ passwordConfirmation:(NSString *)passwordConfirmation
     
     return    @{
                 @"email": userName,
-                @"password": pwd
+                @"password": pwd,
+                @"app_bundle_id" : kAppBundleId,
+                @"user_agent" : kUserAgent,
                 };
 }
 
