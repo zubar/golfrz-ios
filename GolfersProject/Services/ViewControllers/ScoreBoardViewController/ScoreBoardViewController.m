@@ -139,6 +139,14 @@
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    //Zee
+    int indexofTotalRow = 0;
+    if (scoreCard_.holeCount == 9 )
+    { indexofTotalRow = (int)scoreCard_.holeCount + 2;
+    } else {
+        indexofTotalRow = (int)scoreCard_.holeCount + 3;
+    }
+    
     UICollectionViewCell *cell = nil;
     if (indexPath.section == 0) {
         
@@ -275,7 +283,9 @@
             }
             
         }
-        else if (indexPath.section == 21)
+        //Zee
+        //else if (indexPath.section == 21)
+        else if (indexPath.section == indexofTotalRow)
         {
             if (indexPath.row == 0) {
                 
@@ -325,7 +335,9 @@
                 });
             }
         }
-        else if (indexPath.section == 22)
+       // else if (indexPath.section == 22)
+        // Zee
+        else if (indexPath.section == indexofTotalRow +1)
         {
             if (indexPath.row == 0) {
                 bodyCell.contentLbl.text = @"NET";
@@ -353,7 +365,8 @@
             }
             
         }
-        else if ([scoreCard_.gameType isEqualToString:@"skin"] && indexPath.section == 23)
+        //else if ([scoreCard_.gameType isEqualToString:@"skin"] && indexPath.section == 23)
+        else if ([scoreCard_.gameType isEqualToString:@"skin"] && indexPath.section == indexofTotalRow +2)
         {
             if (indexPath.row == 0) {
                 bodyCell.contentLbl.text = @"SKINS";
@@ -401,7 +414,7 @@
                 }
             }
         }
-        else
+        else // For GameType Stroke
         {
             
             if (indexPath.row == 0) {
