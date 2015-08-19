@@ -136,7 +136,7 @@ static User * currentUser = nil;
         @"first_name" : firstName,
         @"last_name" : lastName,
         @"email" : email,
-        @"phone_no" :phoneNo
+        @"phone_no" :phoneNo,
 
     };
 }

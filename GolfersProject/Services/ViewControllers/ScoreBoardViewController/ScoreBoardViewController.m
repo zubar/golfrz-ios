@@ -66,10 +66,19 @@
         
         scoreCard_ = [[ScoreCard alloc] initWithDictionary:responseObject];
         [ScoreBoardManager sharedScoreBoardManager].numberOfItems = (int)scoreCard_.users.count + [scoreCard_.teeBoxCount intValue]+2;
+        
+        if(scoreCard_.holeCount >=18){
         if ([scoreCard_.gameType isEqualToString:@"skin"]) {
             [ScoreBoardManager sharedScoreBoardManager].numberOfSections = (int)scoreCard_.holeCount+6;
         }else{
             [ScoreBoardManager sharedScoreBoardManager].numberOfSections = (int)scoreCard_.holeCount+5;
+        }
+        }else{
+            if ([scoreCard_.gameType isEqualToString:@"skin"]) {
+                [ScoreBoardManager sharedScoreBoardManager].numberOfSections = (int)scoreCard_.holeCount+5;
+            }else{
+                [ScoreBoardManager sharedScoreBoardManager].numberOfSections = (int)scoreCard_.holeCount+4;
+            }
         }
         [ScoreBoardManager sharedScoreBoardManager].scoreCard = scoreCard_;
         [self calculateParTotal];
@@ -429,6 +438,7 @@
                     }
                     else
                     {
+                        if(indexPath.section -2 < [scoreCard_.holesArray count])
                         hole = [scoreCard_.holesArray objectAtIndex:indexPath.section-2];
                     }
                     
@@ -437,7 +447,9 @@
                 {
                     if (indexPath.section < scoreCard_.holeCount) {
                         hole = [scoreCard_.holesArray objectAtIndex:indexPath.section-1];
-                    }
+                    }else
+                        hole = [scoreCard_.holesArray objectAtIndex:indexPath.section-1];
+
                 }
                 if (hole) {
                     
@@ -456,6 +468,7 @@
                     }
                     else
                     {
+                        if(indexPath.section - 2 < [scoreCard_.holesArray count])
                         hole = [scoreCard_.holesArray objectAtIndex:indexPath.section-2];
                     }
                 }
@@ -531,6 +544,7 @@
             {
                 ScoreCardHole *hole = nil;
                 if (indexPath.section > 10) {
+                    if(indexPath.section -2 < [scoreCard_.holesArray count])
                     hole = [scoreCard_.holesArray objectAtIndex:indexPath.section-2];
                 }
                 else
