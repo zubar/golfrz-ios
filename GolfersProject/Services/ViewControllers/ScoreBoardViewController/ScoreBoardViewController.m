@@ -395,7 +395,10 @@
                 });
                 bodyCell.contentLbl.text = @"";
                 bodyCell.containerImgView.hidden = NO;
-                [bodyCell.containerImgView setImage:[UIImage imageNamed:@"skin_symbol"]];
+
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [bodyCell.containerImgView setImage:[UIImage imageNamed:@"skin_symbol"]];
+                });
             }
             else
             {
@@ -503,6 +506,20 @@
                         
                         NSString *compareString = [key copy];
                         compareString = [[compareString lowercaseString] stringByReplacingOccurrencesOfString:@" " withString:@""];
+                       
+                        if ([scoreCard_.gameType isEqualToString:@"skin"]) {
+                            if ([compareString isEqualToString:@"pentagon"]) {
+                                bodyCell.containerImgView.hidden = NO;
+                                
+                                dispatch_async(dispatch_get_main_queue(), ^{
+                                    [bodyCell.containerImgView setImage:[UIImage imageNamed:@"skin_symbol"]];
+                                });
+                            }
+                            if ([compareString isEqualToString:@"green_dot"]) {
+                                bodyCell.greeDotImgView.hidden = NO;
+                            }
+                        }else{
+                        // If game type is Stroke
                         if ([compareString isEqualToString:@"green_dot"]) {
                             
                             bodyCell.greeDotImgView.hidden = NO;
@@ -514,7 +531,6 @@
                             bodyCell.containerImgView.hidden = NO;
                             
                             dispatch_async(dispatch_get_main_queue(), ^{
-                                
                                 [bodyCell.containerImgView setImage:[UIImage imageNamed:@"skin_symbol"]];
                             });
                             
@@ -530,6 +546,7 @@
                             
                         }
                     }
+                }
                     bodyCell.contentLbl.text = [NSString stringWithFormat:@"%d",[scoreUser.score intValue]];
                 }
                 else

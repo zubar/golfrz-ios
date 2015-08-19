@@ -18,6 +18,8 @@
 #import "AppDelegate.h"
 #import "SharedManager.h"
 #import "User.h"
+#import "SignInViewController.h"
+#import "ClubHouseContainerVC.h"
 
 #import "UserServices.h"
 #import "ClubHouseViewController.h"
@@ -68,10 +70,17 @@
         // If user has already signed in and token is available.
         /*
         if ([UserServices currentToken] != nil) {
+            
+            InitialViewController * initController = [self.storyboard instantiateViewControllerWithIdentifier:@"InitialViewController"];
+            SignInViewController *signInViewController  = [self.storyboard instantiateViewControllerWithIdentifier:@"SignInViewController"];
+         
             ClubHouseViewController * clubHouseController = [self.storyboard instantiateViewControllerWithIdentifier:@"ClubHouseViewController"];
+            [delegate.appDelegateNavController pushViewController:initController animated:NO];
+            
             [delegate.appDelegateNavController pushViewController:clubHouseController animated:YES];
         }else
-        */{
+         */
+        {
             // push sign in controller
             InitialViewController * initController = [self.storyboard instantiateViewControllerWithIdentifier:@"InitialViewController"];
             [delegate.appDelegateNavController pushViewController:initController animated:YES];
