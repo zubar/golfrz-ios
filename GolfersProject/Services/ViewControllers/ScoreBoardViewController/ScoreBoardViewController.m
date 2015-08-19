@@ -142,7 +142,8 @@
     //Zee
     int indexofTotalRow = 0;
     if (scoreCard_.holeCount == 9 )
-    { indexofTotalRow = (int)scoreCard_.holeCount + 2;
+    {
+        indexofTotalRow = (int)scoreCard_.holeCount + 2;
     } else {
         indexofTotalRow = (int)scoreCard_.holeCount + 3;
     }
