@@ -79,8 +79,8 @@ static NSString * const kInAppFriend = @"users/in_app_user_list";
 
 //TODO: get it from bundle id,
 #pragma warking - Automation issue.
-static NSString * const kAppBundleId = @"org.golfrz.GolferzProject99";
-//static NSString * const kAppBundleId = @"org.golfrz.GolferzProject";
+//static NSString * const kAppBundleId = @"org.golfrz.GolferzProject99";
+static NSString * const kAppBundleId = @"org.golfrz.GolferzProject";
 static NSString * const kUserAgent = @"ios";
 
 
