@@ -12,6 +12,8 @@
 #import "Utilities.h"
 #import "GolfrzError.h"
 #import "MBProgressHUD.h"
+#import "AppDelegate.h"
+#import "InviteMainViewController.h"
 
 @interface RewardTutorialDetailVC ()
 
@@ -95,7 +97,8 @@
                 if(pageType == TutorialPageTypeSocialShare){
                     [self.rewardTutorialBtn setHidden:YES];
                     [self.tutorialDetail setHidden:NO];
-                    [self.socialMediaView setHidden:NO];
+                    //TODO: integrate FB & Twitter
+                    [self.socialMediaView setHidden:YES];
                     [self.imgRewardBag setHidden:YES];
 
                 }
@@ -160,6 +163,9 @@
         case TutorialPageTypeCheckIn:
             [self checkInUser];
             break;
+        case TutorialPageTypeInvite:
+            [self InvideFriends];
+            break;
         default:
             break;
     }
@@ -176,6 +182,10 @@
 }
 
 -(void)InvideFriends{
+    
+    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+    InviteMainViewController * friendsController = [self.storyboard instantiateViewControllerWithIdentifier:@"InviteMainViewController"];
+    [delegate.appDelegateNavController pushViewController:friendsController animated:YES];
 
 }
 
