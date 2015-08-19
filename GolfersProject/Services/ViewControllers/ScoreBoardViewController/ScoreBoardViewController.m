@@ -479,10 +479,11 @@
                 {
                     if (indexPath.section < scoreCard_.holeCount) {
                         hole = [scoreCard_.holesArray objectAtIndex:indexPath.section-1];
+                    }else{
+                        hole = [scoreCard_.holesArray objectAtIndex:indexPath.section-1];
                     }
                 }
                 if (hole) {
-                    
                     bodyCell.contentLbl.text = [NSString stringWithFormat:@"%d",[hole.parValue intValue]];
                 }
             }

@@ -48,6 +48,7 @@
                       failure:(void (^)(bool status, NSError * error))failureBlock
 {
     AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
+    NSLog(@"GET-SCORECARD-PARAM:%@", [ScoreboardServices paramsScoreForSubCourseId:subCourseId roundId:roundId]);
     [apiClient GET:kGetScoreCard parameters:[ScoreboardServices paramsScoreForSubCourseId:subCourseId roundId:roundId] success:^(NSURLSessionDataTask *task, id responseObject) {
             successBlock(true,responseObject);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
