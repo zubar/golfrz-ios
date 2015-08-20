@@ -105,11 +105,17 @@
 }
 
 - (IBAction)departmentButtonSelected:(UIButton *)sender {
+    
     NSString *contact = [sender attributedTitleForState:UIControlStateNormal].string;
+    NSString *condensedPhoneno = [[contact componentsSeparatedByCharactersInSet:
+                                   [[NSCharacterSet characterSetWithCharactersInString:@"+0123456789"]
+                                    invertedSet]]
+                                  componentsJoinedByString:@""];
+    
     UIDevice *device = [UIDevice currentDevice];
     if ([[device model] isEqualToString:@"iPhone"]) {
         if (contact.length) {
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://%@", contact]]];
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://%@", condensedPhoneno]]];
         }
         else {
             UIAlertView *notAvaliable=[[UIAlertView alloc] initWithTitle:kError message:NumberNotAvaliableErrorMessage delegate:nil cancelButtonTitle:kOK otherButtonTitles:nil];
