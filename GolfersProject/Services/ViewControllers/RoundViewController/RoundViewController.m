@@ -583,13 +583,12 @@
 - (IBAction)btnFlyoverTapped:(UIButton *)sender
 {
     RoundMoviePlayerController *movieController = [RoundMoviePlayerController new];
-    if (![self.currentHole flyOverVideoPath]) {
+    if ([self.currentHole flyOverVideoPath] == nil || [self.currentHole flyOverVideoPath] == NULL) {
         [[[UIAlertView alloc] initWithTitle:@"Flyover Video Not Available!" message:@"Flyover video is not available for this hole." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
         return;
     }
     movieController.moviePath =[self.currentHole flyOverVideoPath];
     [self.navigationController pushViewController:movieController animated:YES];
-    return;
 }
 
 - (IBAction)btnNextHoleTapped:(UIButton *)sender {
