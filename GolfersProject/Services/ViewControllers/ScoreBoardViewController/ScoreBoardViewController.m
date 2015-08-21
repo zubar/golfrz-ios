@@ -27,6 +27,7 @@
 #import "GameType.h"
 #import "AddPlayersViewController.h"
 
+
 @interface ScoreBoardViewController (){
     
     NSUInteger numberOfLeftColumns;
@@ -45,9 +46,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    if (self.previousDate == nil){
    
-    UIBarButtonItem * rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"SAVE" style:UIBarButtonItemStylePlain target:self action:@selector(saveScorecardInHistory)];
-    self.navigationItem.rightBarButtonItem = rightBarButtonItem;
+        UIBarButtonItem * rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"SAVE" style:UIBarButtonItemStylePlain target:self action:@selector(saveScorecardInHistory)];
+        self.navigationItem.rightBarButtonItem = rightBarButtonItem;
+    }
 
     
     self.navigationItem.title = @"SCORECARD";
@@ -619,6 +623,7 @@
 }
 - (void)saveScorecardInHistory{
     // This is the shit- WEB TEAM has forced us to do.
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     GameSettings * settings = [GameSettings sharedSettings];
     NSString * currUserId = [NSString stringWithFormat:@"%@", [UserServices currentUserId]];
     
@@ -634,10 +639,12 @@
                  {
                      //Do nothing.
                      if(status)
+                          [MBProgressHUD hideHUDForView:self.view animated:YES];
                          [[[UIAlertView alloc] initWithTitle:@"ScoreCard saved." message:@"This scorecard is saved in your history of past scorecards." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
                      
                  } failure:^(bool status, GolfrzError *error) {
                      if(!status)
+                          [MBProgressHUD hideHUDForView:self.view animated:YES];
                          [[[UIAlertView alloc] initWithTitle:@"ScoreCard Can not be Saved!" message:@"This scorecard can not be saved in your history of past scorecards." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
                  }];
             }

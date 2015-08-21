@@ -399,9 +399,11 @@
 
 -(void)finishRoundTap
 {
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [RoundDataServices finishRoundWithBlock:^(bool status, id response) {
         // Navigate to ScoreCard.
         if(status){
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
             [ScoreboardServices getScoreCardForRoundId:[[GameSettings sharedSettings] roundId] subCourse:[[GameSettings sharedSettings] subCourseId] success:^(bool status, id responseObject) {
                 if(status){
                     //Load scorecard here.
@@ -415,6 +417,7 @@
             }];
         }
     } failure:^(bool status, NSError *error) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
         [[[UIAlertView alloc] initWithTitle:@"Try Again" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
     }];
 }
