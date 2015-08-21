@@ -17,6 +17,7 @@
 #import "SignInViewController.h"
 #import "GolfrzError.h"
 #import "Utilities.h"
+#import "FaceBookAuthAgent.h"
 
 @interface PlayerSettingsMainViewController ()
 
@@ -134,7 +135,7 @@
         NSString *errorMessage = [self validateForm];
         if (errorMessage) {
             [MBProgressHUD hideHUDForView:self.view animated:YES];
-            [[[UIAlertView alloc] initWithTitle:nil message:errorMessage delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] show];
+            [[[UIAlertView alloc] initWithTitle:nil message:errorMessage delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil] show];
             return;
         }
         [self upDateUserFirstName:[self.txtFirstName text] lastName:[self.txtLastName text] email:[self.txtEmailAddress text] phoneNo:[self.txtPhoneNumber text]];
@@ -193,6 +194,10 @@
 }
 - (IBAction)btnLogOutTap:(id)sender {
     [self logoutTapped];
+}
+- (IBAction)btnDisConnectFacebookTap:(id)sender {
+    
+    [FaceBookAuthAgent disConnectFBAccount];
 }
 
 -(void)popToSignInViewController{

@@ -282,7 +282,7 @@
     
     
     if (![self validateRoundOptions]) {
-        [[[UIAlertView alloc] initWithTitle:@"Required Field Missing." message:@"Please select SubCourse, GameType, ScoreType and TeeBox." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
+        [[[UIAlertView alloc] initWithTitle:@"Required Field Missing." message:@"Please select Course, GameType, ScoreType and TeeBox." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
         return;
     }
     [RoundDataServices getNewRoundIdWithOptions:@{
@@ -297,7 +297,7 @@
                                             }
                                         } failure:^(bool status, NSError *error) {
                                             if (status) {
-                                                [[[UIAlertView alloc] initWithTitle:@"Failed to create round !" message:@"" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
+                                                [[[UIAlertView alloc] initWithTitle:@"Failed to create round !" message:@"" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
                                             }
                                         }];
     
@@ -497,7 +497,7 @@
     
     [RoundDataServices updateRound:^(bool status, id response) {
         if (status) {
-            [[[UIAlertView alloc] initWithTitle:@"Successfully Updated." message:@"Successfully updated the selected options." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
+            [[[UIAlertView alloc] initWithTitle:@"Successfully Updated." message:@"Successfully updated the selected options." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
             completionBlock();
         }
     } failure:^(bool status, NSError *error) {
@@ -556,7 +556,7 @@
 - (IBAction)btnSelectTeeBoxTapped:(UIButton *)sender {
     
     if (!self.selectedSubCourse) {
-        [[[UIAlertView alloc]initWithTitle:@"Subcourse not selected." message:@"Please select subcourse first." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
+        [[[UIAlertView alloc]initWithTitle:@"Course not selected." message:@"Please select course first." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
         return;
     }
     if([self.dataArray count] > 0) [self.dataArray removeAllObjects];
@@ -571,7 +571,7 @@
     
     UILabel * lbl = sender;
     //[btn setTitle:[item name] forState:UIControlStateNormal];
-    [lbl setText:[item name]];
+    [lbl setText:[[item name] capitalizedString]];
 }
 
 - (void)presentPopOverViewPointedAtButton:(UIView *)sender {
@@ -584,7 +584,7 @@
 - (IBAction)btnStartRoundTapped:(UIButton *)sender {
     
     if (![self validateRoundOptions]) {
-        [[[UIAlertView alloc] initWithTitle:@"Required Field Missing." message:@"Please select SubCourse, GameType, ScoreType and TeeBox." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
+        [[[UIAlertView alloc] initWithTitle:@"Required Field Missing." message:@"Please select Course, GameType, ScoreType and TeeBox." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
         return;
     }
    

@@ -108,7 +108,7 @@
 
     if ([[GameSettings sharedSettings] invitationToken]) {
         if (![UserServices currentToken]) {
-            [[[UIAlertView alloc] initWithTitle:@"LogIn Required" message:@"Please sign-in to accept the invitation" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
+            [[[UIAlertView alloc] initWithTitle:@"LogIn Required" message:@"Please sign-in to accept the invitation" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
         }
     }
 }

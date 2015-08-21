@@ -487,9 +487,8 @@
                                       // Only Add shot Marker for signed-in player
                                       if([playerId isEqual:[[PlayerSettings sharedSettings] userId]])
                                           [self addShotMarker:(int)score shotType:ShotTypeStardard shotId:-1];
-                                      else{
+                                      else
                                           [[[UIAlertView alloc] initWithTitle:@"Score Updated" message:@"Score updated successfully." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
-                                      }
                                       // Update players score.
                                       [self updateScoresOfAllPlayers:^{
                                           [self.scoreTable reloadData];

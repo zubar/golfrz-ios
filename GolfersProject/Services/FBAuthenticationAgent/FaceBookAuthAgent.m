@@ -22,6 +22,7 @@
                   failure:(void (^)(bool status, NSError * error))failureBlock{
     
     FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
+    [login logOut];
     [login logInWithReadPermissions:@[@"public_profile", @"email", @"user_friends"] handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
         if (error) {
             // Process error
@@ -53,6 +54,20 @@
 }
 
 
++(void)disConnectFBAccount
+{
+    FBSDKLoginManager * fbLoginAgent = [FBSDKLoginManager new];
+    [fbLoginAgent logOut];
+
+        NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setValue:nil forKey:kUSER_TOKEN];
+        [defaults setValue:nil forKey:kUSER_EMAIL];
+        [defaults setValue:nil forKey:kUSER_ID];
+        [defaults synchronize];
+    /*
+     In current version of FBSDK the logOut method calls [FBSDKAccessToken setCurrentAccessToken:nil] and [FBSDKProfile setCurrentProfile:nil].
+     */
+}
 
 +(BOOL)hasValidToken{
 

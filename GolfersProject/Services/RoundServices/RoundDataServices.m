@@ -138,12 +138,12 @@
 {
     
     AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
-    [apiClient POST:kDeleteShot parameters:[RoundDataServices paramsDeleteShot:mShot]
-            success:^(NSURLSessionDataTask *task, id responseObject) {
-                successBlock(true, responseObject);
-            } failure:^(NSURLSessionDataTask *task, NSError *error) {
-                failureBlock(false, error);
-            }];
+    [apiClient DELETE:kDeleteShot parameters:[RoundDataServices paramsDeleteShot:mShot] success:^(NSURLSessionDataTask *task, id responseObject)
+    {
+        successBlock(true, responseObject);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        failureBlock(false, error);
+    }];
 }
 
 +(void)deleteShotRoundId:(NSNumber *)round

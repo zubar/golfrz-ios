@@ -138,7 +138,7 @@
 
 -(void)errorMessageNoContactSelected{
     
-    [[[UIAlertView alloc] initWithTitle:@"No Contacts Selected" message:@"Please select atleast one contact to sent invite" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
+    [[[UIAlertView alloc] initWithTitle:@"No Contacts Selected" message:@"Please select atleast one contact to sent invite" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
 }
 
 #pragma mark - UITableViewDelagate
@@ -434,7 +434,7 @@
     }
     [controller dismissViewControllerAnimated:YES completion:^{
         if (alertTitle && alertMessage) {
-            [[[UIAlertView alloc]initWithTitle:alertTitle message:alertMessage delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
+            [[[UIAlertView alloc]initWithTitle:alertTitle message:alertMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
         }
         [self removeAllEmailInvites];
         [self.contactsTable reloadData];
@@ -475,7 +475,7 @@
     
     [controller dismissViewControllerAnimated:YES completion:^{
         if (alertTitle && alertMessage) {
-            [[[UIAlertView alloc]initWithTitle:alertTitle message:alertMessage delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
+            [[[UIAlertView alloc]initWithTitle:alertTitle message:alertMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
         };
         [self removeAllEmailInvites];
         [self.contactsTable reloadData];
@@ -497,11 +497,11 @@
     //Checking error
     if ([results[@"didComplete"] integerValue] ==1) {
         if ([results[@"completionGesture"] isEqualToString:@"Cancel"]) {
-            [[[UIAlertView alloc] initWithTitle:@"User Cancelled" message:@"User cancelled the action" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
+            [[[UIAlertView alloc] initWithTitle:@"User Cancelled" message:@"User cancelled the action" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
         }
         
         if ([[results allKeys] count] == 1){
-            [[[UIAlertView alloc] initWithTitle:@"Inivites Send" message:@"Send invitations successfully" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
+            [[[UIAlertView alloc] initWithTitle:@"Inivites Send" message:@"Send invitations successfully" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
             // TODO:
         }
     }
@@ -515,7 +515,7 @@
 - (void)appInviteDialog:(FBSDKAppInviteDialog *)appInviteDialog didFailWithError:(NSError *)error{
     
     if (error) {
-        [[[UIAlertView alloc] initWithTitle:@"Try Again" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
+        [[[UIAlertView alloc] initWithTitle:@"Try Again" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
     }
     [self.segmentControl setSelectedSegmentIndex:1];
     [self setSegmentControlImagesForSelectedSegment:1];

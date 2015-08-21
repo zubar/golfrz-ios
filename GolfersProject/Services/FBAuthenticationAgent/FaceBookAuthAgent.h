@@ -14,4 +14,6 @@
                   failure:(void (^)(bool status, NSError * error))failureBlock;
 
 +(BOOL)hasValidToken;
++(void)disConnectFBAccount;
+
 @end

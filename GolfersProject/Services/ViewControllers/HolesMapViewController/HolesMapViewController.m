@@ -34,6 +34,9 @@
     GameSettings * settings = [GameSettings sharedSettings];
     [settings setTotalNumberOfHoles:[NSNumber numberWithInteger:[[[settings subCourse] holes] count]]];
     
+    if ([self.holesInround count] <= 9) [self.btnNextHoles setHidden:YES];
+
+    
     if (!self.holesInround) {
         self.holesInround = [[NSMutableArray alloc]initWithCapacity:1];
         [self.holesInround addObjectsFromArray:[[settings subCourse] holes]];

@@ -17,6 +17,7 @@
 #import "AddPlayersViewController.h"
 #import "GameSettings.h"
 #import "AddPlayersViewController.h"
+#import "APContact+convenience.h"
 
 #import "RoundViewController.h"
 #import "AppDelegate.h"
@@ -224,7 +225,7 @@
     [self saveInvitationOnServerCompletion:^{
         NSString * invitationUrl = [InvitationServices getinvitationAppOpenUrlForInvitation:self.invitationId];
         NSLog(@"InvitationUrl: %@", invitationUrl);
-        if ([self.allFriends count] > 0) {
+        if ([self.selectedFriends count] > 0) {
             [[GameSettings sharedSettings] setWaitingForPlayers:YES];
             [self sendInvitationsWithMsg:invitationUrl];
         }
@@ -235,11 +236,14 @@
 -(void)sendInvitationsWithMsg:(NSString *)text{
     
     switch (self.currentFriendContactType) {
-        case FriendContactTypeAddressbookSMS:
-            [self sendSMSToContacts:[self contactsEmailSMSId:self.selectedFriends option:FriendContactTypeAddressbookSMS]];
+        case FriendContactTypeAddressbookSMS:{
+            [self sendSMSToContacts:[self contactsEmailSMSId:self.selectedFriends option:FriendContactTypeAddressbookSMS] message:text];
+        }
             break;
-        case FriendContactTypeAddressbookEmail:
-            [self sendEmailToContacts:[self contactsEmailSMSId:self.selectedFriends option:FriendContactTypeAddressbookEmail] EmailText:text];
+        case FriendContactTypeAddressbookEmail:{
+            NSArray * emailArray = [self contactsEmailSMSId:self.selectedFriends option:FriendContactTypeAddressbookEmail];
+            [self sendEmailToContacts:emailArray EmailText:text];
+        }
             break;
         case FriendContactTypeInAppUser:
             [self sendEmailToContacts:[self contactsEmailSMSId:self.selectedFriends option:FriendContactTypeAddressbookEmail] EmailText:text];
@@ -331,12 +335,12 @@
 
 #pragma mark - HelperMethods
 
--(void)sendSMSToContacts:(NSArray *)mContacts{
+-(void)sendSMSToContacts:(NSArray *)mContacts message:(NSString *)smsText{
     
     MFMessageComposeViewController *controller = [[MFMessageComposeViewController alloc] init];
     if([MFMessageComposeViewController canSendText])
     {
-        controller.body = [NSString stringWithFormat:@"Hey lets play Golf by downloading :%@", kAppStoreUrl];
+        controller.body = [NSString stringWithFormat:@"To accept invitation to play golf please tap on link:  :%@", smsText];
         controller.recipients = mContacts;
         controller.messageComposeDelegate = self;
         [self presentViewController:controller animated:YES completion:^{
@@ -384,7 +388,7 @@
     }
     [controller dismissViewControllerAnimated:YES completion:^{
         if (alertTitle && alertMessage) {
-            [[[UIAlertView alloc]initWithTitle:alertTitle message:alertMessage delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
+            [[[UIAlertView alloc]initWithTitle:alertTitle message:alertMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
         }
         [self.selectedFriends removeAllObjects];
         [self.friendsTableView reloadData];
@@ -426,7 +430,7 @@
     
     [controller dismissViewControllerAnimated:YES completion:^{
         if (alertTitle && alertMessage) {
-            [[[UIAlertView alloc]initWithTitle:alertTitle message:alertMessage delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
+            [[[UIAlertView alloc]initWithTitle:alertTitle message:alertMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
         };
         [self.selectedFriends removeAllObjects];
         [self.friendsTableView reloadData];
