@@ -19,6 +19,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
+    // Left nav-bar.
+    UIButton * imageButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 10, 10, 14)];
+    [imageButton setBackgroundImage:[UIImage imageNamed:@"back_btn"] forState:UIControlStateNormal];
+    [imageButton addTarget:self action:@selector(rewardTutorialBackTap) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIBarButtonItem *leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:imageButton];
+    self.rewardViewController.navigationItem.leftBarButtonItem = leftBarButtonItem;
+    
     // Do any additional setup after loading the view.
     if(!self.allViewControllers) self.allViewControllers = [[NSMutableArray alloc]init];
     
@@ -126,6 +136,11 @@
     // Pass the selected object to the new view controller.
 }
 */
+-(void)rewardTutorialBackTap{
+    self.rewardViewController.navigationItem.leftBarButtonItem = nil;
+    [self.rewardViewController cycleControllerToIndex:0];
+}
+
 
 -(void)dealloc {
     // let's release our child controllers
