@@ -96,12 +96,8 @@
     [self.playersTableContainerView setHidden:!tablShow];
     [self.addPlayerContainerView setHidden:!btnAddplayr];
     
-    if(btnShow){
-        if([self.playersInRound count] > 1) [self.btnStartRound setHidden:NO];
-        else [self.btnStartRound setHidden:YES];
-    }else{
-        [self.btnStartRound setHidden:!btnShow];
-    }
+    [self.btnStartRound setHidden:!btnShow];
+    
 }
 
 
@@ -110,7 +106,7 @@
     AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
     [delegate.appDelegateNavController setNavigationBarHidden:NO];
 
-    [self showPlayerTable:NO showStartBtn:NO isStartTitleContinue:NO showAddplyerbtn:YES];
+    [self showPlayerTable:NO showStartBtn:YES isStartTitleContinue:NO showAddplyerbtn:YES];
     
     GameSettings * settings = [GameSettings sharedSettings];
     if([settings invitationToken]){
@@ -200,7 +196,7 @@
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [self getAllRoundOptionsForCurrentCourse:^(RoundMetaData *roundData) {
         self.roundInfo = roundData;
-        [self showPlayerTable:NO showStartBtn:NO isStartTitleContinue:NO showAddplyerbtn:YES];
+        [self showPlayerTable:NO showStartBtn:YES isStartTitleContinue:NO showAddplyerbtn:YES];
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
     }];
 }
@@ -278,13 +274,13 @@
     
 }
 
-- (IBAction)btnAddPlayersTapped:(id)sender {
-    
-    
-    if (![self validateRoundOptions]) {
+- (IBAction)btnAddPlayersTapped:(id)sender
+{
+    if (![self validateRoundOptions]){
         [[[UIAlertView alloc] initWithTitle:@"Required Field Missing." message:@"Please select Course, GameType, ScoreType and TeeBox." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
         return;
     }
+    
     [RoundDataServices getNewRoundIdWithOptions:@{
                                                   @"subCourseId" : self.selectedSubCourse.itemId,
                                                   @"gameTypeId" : self.selectedGameType.itemId,
