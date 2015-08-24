@@ -266,13 +266,16 @@
 
 #pragma mark - Navigation
 -(void)cancelRound{
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [RoundDataServices finishRoundWithBlock:^(bool status, id response) {
         // Navigate to ScoreCard.
         if(status){
+            [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
             [[[UIAlertView alloc] initWithTitle:@"Round Cancelled!" message:@"Current Round is cancelled, you can now start new round." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
             [self loadDataToSetUpNewRound];
         }
     } failure:^(bool status, NSError *error) {
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         [[[UIAlertView alloc] initWithTitle:@"Try Again!" message:@"Can not cancel current round." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
     }];
     

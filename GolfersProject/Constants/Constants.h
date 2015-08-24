@@ -216,6 +216,20 @@ static NSString * const CallSupportErrorMessage  = @"Your device doesn't support
 static NSString * const kSuccess = @"Success";
 static NSString * const kAddGuestSuccessMessage = @"Guest successfully added.";
 
+/*
+ * Reward Tutorial Messages
+ */
+
+static NSString * const RewardTutorialHeading = @"Here you can see how to earn points as well as claim your rewards!";
+static NSString * const CheckInReward = @"Earn 5 points every time you check in to the course.";
+static NSString * const InviteFriendsReward = @"Earn 25 points for each friend you invite to the app.";
+static NSString * const SocialMediaReward = @"Earn 5 more points for each social network you post on.";
+static NSString * const ScoreCardReward = @"Earn 10 points for every Scorecard you post to your Player Profile.";
+static NSString * const RoundsReward =@"Finally, earn points when you finish 5, 10 or 25 consecutive rounds.";
+static NSString * const FinalRewardHeading = @"Then, it's time to collect your rewards!";
+
+//=======================================================================
+
 #define UIColorFromHex(rgbValue) [UIColor \
 colorWithRed: ((float)((rgbValue & 0xFF0000) >> 16)) / 255.0 \
 green: ((float)((rgbValue & 0xFF00) >> 8)) / 255.0 \
