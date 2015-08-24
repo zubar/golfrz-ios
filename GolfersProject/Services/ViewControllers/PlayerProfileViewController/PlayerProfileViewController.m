@@ -98,7 +98,7 @@
 -(void)roundAlreadyInProgress{
     
     [RoundDataServices getRoundInProgress:^(bool status, NSNumber *roundNo, NSNumber *subCourseId, NSString *teeboxName) {
-        if(status)
+        if(status){
         [ScoreboardServices getTotalScoreForAllPlayersForRoundId:roundNo
                                                          success:^(bool status, NSDictionary *playerTotalScore)
          {
@@ -108,12 +108,12 @@
                  [self.lblPoints setText:[score stringValue]];
                  [self.btnStartRound setTitle:@"CONTINUE TO ROUND" forState:UIControlStateNormal];
              }else{
-                 [self.lblPoints setText:@""];
+                 [self.lblPoints setText:@"-"];
              }
         } failure:^(bool status, GolfrzError *error) {
             [Utilities displayErrorAlertWithMessage:[error errorMessage]];
         }];
-        
+        }
     } finishedRounds:^(bool status) {
         if(!status)
             [self.lblPoints setText:@"0"];
