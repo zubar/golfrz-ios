@@ -299,6 +299,8 @@
 
 - (IBAction)btnCheckedInTapped:(UIButton *)sender {
     
+    [[[UIAlertView alloc] initWithTitle:@"CHECKING IN." message:@"Thank you for checking in. Please wait until we get your location." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+    
     if ([CourseServices currentCourse]) {
             [self checkInToCurrentCourse];
     }else{

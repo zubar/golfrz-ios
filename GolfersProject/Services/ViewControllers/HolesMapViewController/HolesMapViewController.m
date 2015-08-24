@@ -51,7 +51,7 @@
                                         NSForegroundColorAttributeName : [UIColor whiteColor]
                                         };
     
-    self.navigationItem.title = @"FIRST NINE";
+    self.navigationItem.title = @"FRONT NINE";
     self.navigationController.navigationBar.titleTextAttributes = navTitleAttributes;
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
 
@@ -115,12 +115,11 @@
     }else{
         UIImage *buttonToDisplay = [UIImage imageNamed:@"ChooseHole_Down"];
         [self.btnNextHoles setImage:buttonToDisplay forState:UIControlStateNormal];
-        self.navigationItem.title = @"FIRST NINE";
+        self.navigationItem.title = @"BACK NINE";
         NSIndexPath *indexPathToScroll = [NSIndexPath indexPathForItem:1 inSection:0];
         [self.holeCollectionView scrollToItemAtIndexPath:indexPathToScroll atScrollPosition:UICollectionViewScrollPositionTop animated:YES];
         isDownButtonPressed = FALSE;
     }
-    
     
 }
 @end

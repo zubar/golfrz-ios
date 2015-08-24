@@ -553,8 +553,8 @@
     //[self presentPopOverWithOptions:nil pointedAtBtn:sender];
 }
 
-- (IBAction)btnSelectTeeBoxTapped:(UIButton *)sender {
-    
+- (IBAction)btnSelectTeeBoxTapped:(UIButton *)sender
+{
     if (!self.selectedSubCourse) {
         [[[UIAlertView alloc]initWithTitle:@"Course not selected." message:@"Please select course first." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
         return;
@@ -567,14 +567,16 @@
     //[self presentPopOverWithOptions:nil pointedAtBtn:sender];
 }
 
--(void)UpdateTitleForSelectedItem:(id)item label:(id)sender{
-    
+-(void)UpdateTitleForSelectedItem:(id)item label:(id)sender
+{
     UILabel * lbl = sender;
     //[btn setTitle:[item name] forState:UIControlStateNormal];
-    [lbl setText:[[item name] capitalizedString]];
+    NSString * itemName = [[item name] capitalizedString];
+    [lbl setText:itemName];
 }
 
-- (void)presentPopOverViewPointedAtButton:(UIView *)sender {
+- (void)presentPopOverViewPointedAtButton:(UIView *)sender
+{
     self.popOverView.stringDataSource = [self.dataArray valueForKeyPath:@"self.name"];
     CGPoint point = [sender convertPoint:sender.bounds.origin toView:self.view];
     CGFloat bottomPadding = 12;

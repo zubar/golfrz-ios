@@ -22,9 +22,16 @@
 @property (strong, nonatomic) NSMutableArray *itemAttributes;
 @property (strong, nonatomic) NSMutableArray *itemsSize;
 @property (nonatomic, assign) CGSize contentSize;
+
 @end
 
 @implementation CustomCollectionViewLayout
+
+
+-(NSInteger)space_between_cells
+{
+  return  MAX([ScoreBoardManager sharedScoreBoardManager].numberOfItems * 45, 45);
+}
 
 - (void)prepareLayout
 {

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="7Xa-5q-5iG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="7Xa-5q-5iG">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
@@ -2191,7 +2191,7 @@
                                                                                 <constraint firstAttribute="height" constant="26" id="GGQ-nW-yvd"/>
                                                                                 <constraint firstAttribute="width" constant="26" id="LJ2-ou-0eZ"/>
                                                                             </constraints>
-                                                                            <state key="normal" image="6828CF39-6C86-4587-A0DA-EE13FEFD37D8">
+                                                                            <state key="normal" image="023802F6-0E2D-4B12-93B0-F026EA103D6B">
                                                                                 <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                                             </state>
@@ -5847,7 +5847,7 @@
                                                                                 <constraint firstAttribute="height" constant="26" id="OaE-ph-eo5"/>
                                                                                 <constraint firstAttribute="width" constant="26" id="S5w-xw-4Ro"/>
                                                                             </constraints>
-                                                                            <state key="normal" image="1DB525B3-70BD-40E5-B819-D17F7386F658">
+                                                                            <state key="normal" image="04F328BF-E5F1-4CF6-9682-AF3592B1E918">
                                                                                 <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                                             </state>
@@ -6386,6 +6386,7 @@
                         <outlet property="distanceView" destination="nIM-qf-Zxb" id="Twn-qA-3kz"/>
                         <outlet property="imageMap" destination="3TS-so-tpf" id="Pve-Uq-MKa"/>
                         <outlet property="imgDarkerBg" destination="qLn-DE-tnJ" id="eNf-dJ-pmo"/>
+                        <outlet property="imgGPS" destination="O5k-jC-cop" id="kw8-ps-sPA"/>
                         <outlet property="imgViewBackground" destination="Ab7-eq-egf" id="foC-r6-t94"/>
                         <outlet property="lblBack" destination="Yey-Xp-Y6y" id="Rkp-sU-Zqi"/>
                         <outlet property="lblForward" destination="6EA-27-Sr3" id="HBw-m9-zsR"/>
@@ -7325,7 +7326,7 @@ Nulla sed est consectetur, tempus tellus interdum, vehicula lectus. Aliquam soll
         </scene>
     </scenes>
     <resources>
-        <image name="1DB525B3-70BD-40E5-B819-D17F7386F658" width="24" height="25">
+        <image name="023802F6-0E2D-4B12-93B0-F026EA103D6B" width="24" height="25">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -7416,7 +7417,7 @@ ExMWExsTKhMuEzUTPRNKE08TURNTE1gTYBNjE2gTcBNzE4UTiBONAAAAAAAAAgEAAAAAAAAAQgAAAAAA
 AAAAAAAAAAAAE48
 </mutableData>
         </image>
-        <image name="6828CF39-6C86-4587-A0DA-EE13FEFD37D8" width="24" height="25">
+        <image name="04F328BF-E5F1-4CF6-9682-AF3592B1E918" width="24" height="25">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
