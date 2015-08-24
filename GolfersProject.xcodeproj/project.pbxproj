@@ -212,6 +212,7 @@
 		88EF1EF51B78FEFE006F901F /* RewardDescriptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88EF1EF41B78FEFE006F901F /* RewardDescriptionViewController.m */; };
 		88EF1EF91B79014F006F901F /* PastScoreCardsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88EF1EF81B79014F006F901F /* PastScoreCardsViewController.m */; };
 		88EF1EFF1B79F867006F901F /* PastScoreCardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88EF1EFE1B79F867006F901F /* PastScoreCardCell.m */; };
+		88EFFD761B8B1C650020AFAD /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88EFFD751B8B1C650020AFAD /* Social.framework */; };
 		88FCA5481B7B46B7001B35BA /* CourseUpdatesHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88FCA5471B7B46B7001B35BA /* CourseUpdatesHeaderView.xib */; };
 		88FCA54B1B7B4C3A001B35BA /* CourseUpdatesHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88FCA54A1B7B4C3A001B35BA /* CourseUpdatesHeaderView.m */; };
 		A921244B1B36DB1E00917649 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A921244A1B36DB1E00917649 /* MessageUI.framework */; };
@@ -611,6 +612,7 @@
 		88EF1EF81B79014F006F901F /* PastScoreCardsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PastScoreCardsViewController.m; sourceTree = "<group>"; };
 		88EF1EFD1B79F867006F901F /* PastScoreCardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PastScoreCardCell.h; sourceTree = "<group>"; };
 		88EF1EFE1B79F867006F901F /* PastScoreCardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PastScoreCardCell.m; sourceTree = "<group>"; };
+		88EFFD751B8B1C650020AFAD /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		88FCA5471B7B46B7001B35BA /* CourseUpdatesHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CourseUpdatesHeaderView.xib; sourceTree = "<group>"; };
 		88FCA5491B7B4C3A001B35BA /* CourseUpdatesHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseUpdatesHeaderView.h; sourceTree = "<group>"; };
 		88FCA54A1B7B4C3A001B35BA /* CourseUpdatesHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseUpdatesHeaderView.m; sourceTree = "<group>"; };
@@ -632,6 +634,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88EFFD761B8B1C650020AFAD /* Social.framework in Frameworks */,
 				3DFD15B61B25B2AB008F76D8 /* CoreLocation.framework in Frameworks */,
 				A921244B1B36DB1E00917649 /* MessageUI.framework in Frameworks */,
 				3DC1161F1B2EE21F00E83F4F /* AddressBook.framework in Frameworks */,
@@ -2124,6 +2127,7 @@
 		C91B48159ABC56B52D213A0C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				88EFFD751B8B1C650020AFAD /* Social.framework */,
 				A921244A1B36DB1E00917649 /* MessageUI.framework */,
 				3DC1161E1B2EE21F00E83F4F /* AddressBook.framework */,
 				3DFD15B51B25B2AA008F76D8 /* CoreLocation.framework */,

@@ -14,8 +14,16 @@
 #import "MBProgressHUD.h"
 #import "AppDelegate.h"
 #import "InviteMainViewController.h"
+#import <Social/Social.h>
+#import "Constants.h"
 
-@interface RewardTutorialDetailVC ()
+@interface RewardTutorialDetailVC (){
+    bool isFbTapped;
+    SLComposeViewController *socialMediaController;
+}
+
+
+
 
 @end
 
@@ -24,7 +32,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    isFbTapped = false;
     
     //Or whatever number of viewcontrollers you have
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
@@ -59,6 +67,7 @@
 
 -(void)viewDidAppear:(BOOL)animated{
     [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+    isFbTapped = false;
     [self.view setHidden:NO];
 }
 
@@ -97,8 +106,8 @@
                 if(pageType == TutorialPageTypeSocialShare){
                     [self.rewardTutorialBtn setHidden:YES];
                     [self.tutorialDetail setHidden:NO];
-                    //TODO: integrate FB & Twitter
-                    [self.socialMediaView setHidden:YES];
+
+                    [self.socialMediaView setHidden:NO];
                     [self.imgRewardBag setHidden:YES];
 
                 }
@@ -109,28 +118,28 @@
     NSString * detail = nil;
     switch (pageType) {
         case TutorialPageTypeWelcome:
-            detail = @"Here you can see how to earn points as well as claim your rewards!";
+            detail = RewardTutorialHeading;
             break;
         case TutorialPageTypeCheckIn:
-            detail = @"Earn 5 points every time you check in to the course.";
+            detail = CheckInReward;
             [self.rewardTutorialBtn setTitle:@"CHECK IN NOW" forState:UIControlStateNormal];
             break;
         case TutorialPageTypeInvite:
-            detail = @"Earn 25 points for each friend you invite to the app.";
+            detail = InviteFriendsReward;
             [self.rewardTutorialBtn setTitle:@"INVITE NOW" forState:UIControlStateNormal];
             break;
         case TutorialPageTypeSocialShare:
-            detail = @"Earn 5 more points for each social network you post on.";
+            detail = SocialMediaReward;
             break;
         case TutorialPageTypePrompt:
-            detail = @"Earn 10 points for every Scorecard you post to your Player Profile.";
+            detail = ScoreCardReward;
             break;
         case TutorialPageTypeViewRewards:
-            detail = @"Finally, earn points when you finish 5, 10 or 25 consecutive rounds.";
+            detail = RoundsReward;
             [self.rewardTutorialBtn setTitle:@"VIEW REWARDS" forState:UIControlStateNormal];
             break;
         case TutorialPageTypeFinish:
-            detail = @"Then, it's time to collect your rewards!";
+            detail = FinalRewardHeading;
             [self.rewardTutorialBtn setTitle:@"VIEW REWARDS" forState:UIControlStateNormal];
             break;
         default:
@@ -172,13 +181,15 @@
 }
 
 - (IBAction)fbShareTapped:(UIButton *)sender {
-    
-    
-}
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    isFbTapped = true;
+    [self socialMediaBtnTapped];
+    }
 
 - (IBAction)twitterShareTapped:(UIButton *)sender {
-    
-    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    isFbTapped = false;
+    [self socialMediaBtnTapped];
 }
 
 -(void)InvideFriends{
@@ -241,5 +252,41 @@
     }
     
     
+}
+
+-(void)socialMediaBtnTapped{
+    
+    if (isFbTapped){
+        socialMediaController = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+    }
+    else{
+        socialMediaController = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+    }
+    
+        SLComposeViewControllerCompletionHandler __block completionHandler=^(SLComposeViewControllerResult result){
+            [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+            [socialMediaController dismissViewControllerAnimated:YES completion:nil];
+            
+            switch(result){
+                case SLComposeViewControllerResultCancelled:
+                default:
+                {
+                    NSLog(@"Cancelled.....");
+                    
+                }
+                    break;
+                case SLComposeViewControllerResultDone:
+                {
+                    NSLog(@"Posted....");
+                }
+                    break;
+            }};
+        
+        //[socialMediaController addImage:[UIImage imageNamed:@"1.jpg"]]; //for adding any image to share
+        [socialMediaController setInitialText:@"Type your message that you want to share"];
+        //[socialMediaController addURL:[NSURL URLWithString:@"https://www.google.com/"]]; //for adding any URL to be shared
+        [socialMediaController setCompletionHandler:completionHandler];
+        [self presentViewController:socialMediaController animated:YES completion:nil];
+
 }
 @end

@@ -262,13 +262,16 @@
 
 #pragma mark - Navigation
 -(void)cancelRound{
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [RoundDataServices finishRoundWithBlock:^(bool status, id response) {
         // Navigate to ScoreCard.
         if(status){
+            [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
             [[[UIAlertView alloc] initWithTitle:@"Round Cancelled!" message:@"Current Round is cancelled, you can now start new round." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
             [self loadDataToSetUpNewRound];
         }
     } failure:^(bool status, NSError *error) {
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         [[[UIAlertView alloc] initWithTitle:@"Try Again!" message:@"Can not cancel current round." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
     }];
     
@@ -549,8 +552,8 @@
     //[self presentPopOverWithOptions:nil pointedAtBtn:sender];
 }
 
-- (IBAction)btnSelectTeeBoxTapped:(UIButton *)sender
-{
+- (IBAction)btnSelectTeeBoxTapped:(UIButton *)sender {
+    
     if (!self.selectedSubCourse) {
         [[[UIAlertView alloc]initWithTitle:@"Course not selected." message:@"Please select course first." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
         return;
@@ -563,16 +566,14 @@
     //[self presentPopOverWithOptions:nil pointedAtBtn:sender];
 }
 
--(void)UpdateTitleForSelectedItem:(id)item label:(id)sender
-{
+-(void)UpdateTitleForSelectedItem:(id)item label:(id)sender{
+    
     UILabel * lbl = sender;
     //[btn setTitle:[item name] forState:UIControlStateNormal];
-    NSString * itemName = [[item name] capitalizedString];
-    [lbl setText:itemName];
+    [lbl setText:[[item name] capitalizedString]];
 }
 
-- (void)presentPopOverViewPointedAtButton:(UIView *)sender
-{
+- (void)presentPopOverViewPointedAtButton:(UIView *)sender {
     self.popOverView.stringDataSource = [self.dataArray valueForKeyPath:@"self.name"];
     CGPoint point = [sender convertPoint:sender.bounds.origin toView:self.view];
     CGFloat bottomPadding = 12;

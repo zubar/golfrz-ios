@@ -63,8 +63,8 @@
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3WV-tt-NZU">
-                            <rect key="frame" x="66" y="8" width="50" height="22"/>
-                            <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="18"/>
+                            <rect key="frame" x="66" y="8" width="171" height="18"/>
+                            <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="15"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -92,6 +92,7 @@
                         <constraint firstItem="wCd-P1-wlJ" firstAttribute="top" secondItem="kTM-09-QWB" secondAttribute="top" id="Hgc-sT-d7N"/>
                         <constraint firstItem="OgE-Bc-w0y" firstAttribute="baseline" secondItem="hw8-CW-4Fb" secondAttribute="baseline" id="Hvp-zD-uBU"/>
                         <constraint firstItem="3WV-tt-NZU" firstAttribute="leading" secondItem="wCd-P1-wlJ" secondAttribute="trailing" constant="5" id="JAY-O6-Ew2"/>
+                        <constraint firstItem="LTE-5U-JSM" firstAttribute="leading" secondItem="3WV-tt-NZU" secondAttribute="trailing" constant="5" id="Kag-bc-BqL"/>
                         <constraint firstItem="wCd-P1-wlJ" firstAttribute="leading" secondItem="kTM-09-QWB" secondAttribute="leading" id="OLC-n0-GHt"/>
                         <constraint firstItem="p5C-j7-qLN" firstAttribute="leading" secondItem="LTE-5U-JSM" secondAttribute="trailing" constant="8" id="SFZ-fw-7eq"/>
                         <constraint firstItem="hw8-CW-4Fb" firstAttribute="leading" secondItem="OgE-Bc-w0y" secondAttribute="trailing" constant="3" id="TuI-Xi-PkS"/>
