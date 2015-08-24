@@ -57,29 +57,6 @@
 }
 
 
-
-
-+(void)getTestScoreCard:(void (^)(bool status, id responseObject))successBlock
-            failure:(void (^)(bool status, NSError * error))failureBlock{
-    
-    
-    AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] init];
-    
-    //https://api.myjson.com/bins/1w19g
-    //https://api.myjson.com/bins/23s9m
-    [apiClient GET:@"https://api.myjson.com/bins/37ang" parameters:[ScoreboardServices paramsScoreForSubCourseId:[NSNumber numberWithInt:1] roundId:[NSNumber numberWithInt:466]] success:^(NSURLSessionDataTask *task, id responseObject) {
-        
-        successBlock(true,responseObject);
-        
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        failureBlock(false,error);
-    }];
-}
-
-
-////https://api.myjson.com/bins/2ncny
-//+(void)getTestScoreBoard
-
 +(void)getScorecardHistory:(void(^)(bool status, NSArray * enabledFeatures))successBlock
                    failure:(void(^)(bool status, GolfrzError * error))failureBlock
 {
