@@ -10,7 +10,7 @@
 #import "ScoreBoardManager.h"
 
 #define INDEX_LIMIT 2
-#define SPACES_BETWEEN_CELLS 45
+#define MIN_SPACES_BETWEEN_CELLS 45
 
 //#define NUMBEROFCOLUMNS 12
 
@@ -22,9 +22,18 @@
 @property (strong, nonatomic) NSMutableArray *itemAttributes;
 @property (strong, nonatomic) NSMutableArray *itemsSize;
 @property (nonatomic, assign) CGSize contentSize;
+
 @end
 
 @implementation CustomCollectionViewLayout
+
+
+-(NSInteger)space_between_cells
+{
+    int screenWidth = [[UIScreen mainScreen] bounds].size.width;
+    int space =   (screenWidth / [ScoreBoardManager sharedScoreBoardManager].numberOfItems);
+    return MAX(MIN_SPACES_BETWEEN_CELLS, space);
+}
 
 - (void)prepareLayout
 {
@@ -67,9 +76,9 @@
                      if (index == 0) {
                             frame.origin.x = self.collectionView.contentOffset.x;
                         }else if (index == 1){
-                            frame.origin.x = self.collectionView.contentOffset.x + (index * SPACES_BETWEEN_CELLS);
+                            frame.origin.x = self.collectionView.contentOffset.x + (index * [self space_between_cells]);
                         }else{
-                            frame.origin.x = self.collectionView.contentOffset.x + SPACES_BETWEEN_CELLS + ((index -1) * SPACES_BETWEEN_CELLS);
+                            frame.origin.x = self.collectionView.contentOffset.x + [self space_between_cells] + ((index -1) * [self space_between_cells]);
                         }
                         
                         attributes.frame = frame;
@@ -133,9 +142,9 @@
                     if (index == 0) {
                         frame.origin.x = self.collectionView.contentOffset.x;
                     }else if (index == 1){
-                        frame.origin.x = self.collectionView.contentOffset.x + (index * SPACES_BETWEEN_CELLS);
+                        frame.origin.x = self.collectionView.contentOffset.x + (index * [self space_between_cells]);
                     }else{
-                        frame.origin.x = self.collectionView.contentOffset.x + SPACES_BETWEEN_CELLS + ((index -1) * SPACES_BETWEEN_CELLS);
+                        frame.origin.x = self.collectionView.contentOffset.x + [self space_between_cells] + ((index -1) * [self space_between_cells]);
                     }
                     
                     attributes.frame = frame;
@@ -202,7 +211,7 @@
   
     //CGSize size = [text sizeWithAttributes: @{NSFontAttributeName:[UIFont fontWithName:@"HelveticaNeue" size:10]}];
 
-    return CGSizeMake(SPACES_BETWEEN_CELLS, 35);
+    return CGSizeMake([self space_between_cells], 35);
     //return CGSizeMake([@(size.width + 9) floatValue], 30); // Extra space of 9px for all the items
 }
 

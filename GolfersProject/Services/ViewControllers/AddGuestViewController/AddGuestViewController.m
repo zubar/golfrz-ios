@@ -18,6 +18,8 @@
 #import "MBProgressHUD.h"
 #import "ValidationUtility.h"
 #import "Constants.h"
+#import "AppDelegate.h"
+#import "AddPlayersViewController.h"
 
 @interface AddGuestViewController ()
 
@@ -131,10 +133,22 @@
     [RoundDataServices addGuestWithEmail:[self.txtGuestEmail text] firstName:[self.txtGuestFirstName text] lastName:[self.txtGuestLastName text] handicap:[numberFormatter numberFromString:[self.txtGuestHandicap text]] teeBoxId:self.selectedTeeBox.itemId success:^(bool status, NSDictionary *response) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         [[[UIAlertView alloc] initWithTitle:kSuccess message:kAddGuestSuccessMessage delegate:nil cancelButtonTitle:kOK otherButtonTitles:nil, nil] show];
+        [self popToAddPlayerVC];
+        
     } failure:^(bool status, NSError *error) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         [[[UIAlertView alloc] initWithTitle:kError message:kAddGuestErrorMessage delegate:nil cancelButtonTitle:kOK otherButtonTitles:nil, nil] show];
     }];
+}
+
+-(void)popToAddPlayerVC{
+    
+    AppDelegate * appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    for (UIViewController * controller  in [appDelegate.appDelegateNavController viewControllers]) {
+        if([controller isKindOfClass:[AddPlayersViewController class]]){
+            [appDelegate.appDelegateNavController popToViewController:controller animated:YES]
+            ;        }
+    }
 }
 
 @end

@@ -48,7 +48,9 @@
     CGPoint backCord;
     
     NSNumberFormatter * distanceFormatter;
+    BOOL isUpdatingLocation;
 }
+@property (weak, nonatomic) IBOutlet UIImageView *imgGPS;
 @property (nonatomic, strong) NSMutableArray * playersInRound;
 @property (nonatomic, strong) NSMutableDictionary * playerScores;
 @property (nonatomic, strong) NSMutableDictionary * playerTotalScoreInRound;
@@ -74,7 +76,7 @@
     
     
      distanceFormatter =  [[NSNumberFormatter alloc] init];
-    [distanceFormatter setMaximumIntegerDigits:1];
+    [distanceFormatter setMaximumIntegerDigits:3];
     [distanceFormatter setMaximumFractionDigits:0];
     [distanceFormatter setUsesSignificantDigits:NO];
     
@@ -160,6 +162,7 @@
     [delegate.appDelegateNavController setNavigationBarHidden:NO];
     [self updateYardAndParForHole:[[GameSettings sharedSettings] subCourse].holes[[self.holeNumberPlayed intValue]]];
     
+    isUpdatingLocation = FALSE;
     [SharedManager sharedInstance].delegate = self;
 }
 
@@ -413,12 +416,13 @@
                     [self.navigationController pushViewController:scoreBoardVc animated:YES];
                 }
             } failure:^(bool status, NSError *error) {
-                [[[UIAlertView alloc] initWithTitle:@"Try Again" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+                //TODO: see this alert or get Golfrz Error object here.
+               // [[[UIAlertView alloc] initWithTitle:@"Try Again" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
             }];
         }
     } failure:^(bool status, NSError *error) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
-        [[[UIAlertView alloc] initWithTitle:@"Try Again" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+        //[[[UIAlertView alloc] initWithTitle:@"Try Again" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
     }];
 }
 
@@ -719,9 +723,19 @@
 
 -(void)isUpdatingCurrentLocation:(BOOL)yesNo locationCordinates:(CGPoint)cord
 {
+    isUpdatingLocation = yesNo;
     [self updateFrontDistanceForLoc:cord];
     [self updateMiddleDistanceForLoc:cord];
     [self updateBackDistanceForLoc:cord];
+   
+    /*
+    [UIView animateWithDuration:1.0 delay:0.5 options:UIViewAnimationOptionRepeat | UIViewAnimationOptionAutoreverse  animations:^{
+        self.imgGPS.alpha = 1;
+    } completion:^(BOOL finished) {
+        if(!isUpdatingLocation) [self.imgGPS.layer removeAllAnimations];
+            }];
+     */
+
 }
 
 -(void)updateFrontDistanceForLoc:(CGPoint)cord
@@ -733,7 +747,7 @@
     if(dist >= 1000)
        ditFormt  = [distanceFormatter stringFromNumber:[NSNumber numberWithInt:dist]];
 
-    lbl =[NSString stringWithFormat:@"%@%@", (dist >= 1000 ? ditFormt : [NSString stringWithFormat:@"%d", dist]), (dist >= 1000 ? @"+KM" : @"")];
+    lbl =[NSString stringWithFormat:@"%@%@", (dist >= 1000 ? ditFormt : [NSString stringWithFormat:@"%d", dist]), (dist >= 1000 ? @"+Y" : @"")];
     [self.lblForward setText:lbl];
 }
 
@@ -745,7 +759,7 @@
     if(dist >= 1000)
         ditFormt  = [distanceFormatter stringFromNumber:[NSNumber numberWithInt:dist]];
     
-    lbl =[NSString stringWithFormat:@"%@%@", (dist >= 1000 ? ditFormt : [NSString stringWithFormat:@"%d", dist]), (dist >= 1000 ? @"+KM" : @"")];    [self.lblMiddle setText:lbl];
+    lbl =[NSString stringWithFormat:@"%@%@", (dist >= 1000 ? ditFormt : [NSString stringWithFormat:@"%d", dist]), (dist >= 1000 ? @"+Y" : @"")];    [self.lblMiddle setText:lbl];
 }
 
 -(void)updateBackDistanceForLoc:(CGPoint)cord
@@ -756,7 +770,7 @@
     if(dist >= 1000)
         ditFormt  = [distanceFormatter stringFromNumber:[NSNumber numberWithInt:dist]];
     
-    lbl =[NSString stringWithFormat:@"%@%@", (dist >= 1000 ? ditFormt : [NSString stringWithFormat:@"%d", dist]), (dist >= 1000 ? @"+KM" : @"")];    [self.lblBack setText:lbl];
+    lbl =[NSString stringWithFormat:@"%@%@", (dist >= 1000 ? ditFormt : [NSString stringWithFormat:@"%d", dist]), (dist >= 1000 ? @"+Y" : @"")];    [self.lblBack setText:lbl];
 }
 
 
@@ -769,8 +783,9 @@
     
     NSLog(@"%f",dist);
     NSString *distance = [NSString stringWithFormat:@"%f",dist];
+    int distYards = [distance intValue] * 1.09361;
     
-    return [distance intValue];
+    return distYards;
     
 }
 
