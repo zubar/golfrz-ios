@@ -19,6 +19,8 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 
+#import "UtilityServices.h"
+
 @implementation ContactServices
 static     APAddressBook *addressBook;
 
@@ -144,11 +146,7 @@ static     APAddressBook *addressBook;
 #pragma mark - HelperMethods 
 +(NSDictionary *)paramsInviteContactViaEmail{
     
-    return @{
-             @"app_bundle_id": kAppBundleId,
-             @"user_agent" : kUserAgent,
-             @"auth_token" : [UserServices currentToken]
-             };
+    return [UtilityServices authenticationParams];
 }
 
 @end

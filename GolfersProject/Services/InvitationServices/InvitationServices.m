@@ -15,7 +15,7 @@
 #import "SharedManager.h"
 #import "GameSettings.h"
 #import "User.h"
-
+#import "UtilityServices.h"
 
 @implementation InvitationServices
 
@@ -72,21 +72,15 @@
 
 #pragma mark - Helpers
 +(NSDictionary *)paramGetInvitationDetail{
-    return @{
-             @"invitation_token" : [[GameSettings sharedSettings] invitationToken],
-             @"app_bundle_id" : kAppBundleId,
-             @"user_agent" : kUserAgent,
-             @"auth_token" : [UserServices currentToken],
+    NSDictionary * param = @{
+             @"invitation_token" : [[GameSettings sharedSettings] invitationToken]
              };
+    return [UtilityServices dictionaryByMergingDictionaries:param aDict:[UtilityServices authenticationParams]];
 }
 
 +(NSDictionary *)paramInAppFriend
 {
-    return @{
-             @"app_bundle_id" : kAppBundleId,
-             @"user_agent" : kUserAgent,
-             @"auth_token" : [UserServices currentToken],
-             };
+    return [UtilityServices authenticationParams];
 }
 
 +(NSDictionary *)paramsGetInvitationInvitee:(NSArray *)invitee inviteType:(RoundInvitationType )invitationType{
@@ -124,15 +118,13 @@
             break;
     }
   
-    return @{
-             @"app_bundle_id" : kAppBundleId,
-             @"user_agent" : kUserAgent,
-             @"auth_token" : [UserServices currentToken],
+    NSDictionary * param = @{
              @"provider" : provider,
              @"subcourse_id" : [[GameSettings sharedSettings] subCourseId],
              @"round_id" : [[GameSettings sharedSettings] roundId],
              @"invite_type" : providerType,
              };
+    return [UtilityServices dictionaryByMergingDictionaries:param aDict:[UtilityServices authenticationParams]];
 }
 
 

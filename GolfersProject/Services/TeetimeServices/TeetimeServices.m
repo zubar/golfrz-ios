@@ -20,7 +20,7 @@
 #import "NSDate+Helper.h"
 #import "GolfrzError.h"
 #import "Teetime.h"
-
+#import "UtilityServices.h"
 
 
 @implementation TeetimeServices
@@ -85,42 +85,36 @@
 #pragma mark - HelperMethods
 
 +(NSDictionary *)paramUpdateTeetime:(Teetime *)teeTime playerCount:(NSNumber *)playerCount{
-    return @{
-             @"app_bundle_id" : kAppBundleId,
-             @"user_agent" : kUserAgent,
-             @"auth_token" : [UserServices currentToken],
+    NSDictionary * param = @{
              @"count" : playerCount,
              @"sub_course_id" : [teeTime subCourseId],
              @"booked_time" : [[[teeTime bookedTime] toGlobalTime] serverFormatDate],
              @"tee_time_id" : [teeTime itemId],
              };
+    return [UtilityServices dictionaryByMergingDictionaries:param aDict:[UtilityServices authenticationParams]];
 
 }
 
 +(NSDictionary *)paramsGetTeetimesSubcourse:(NSNumber *)subcourseId startDate:(NSDate *)strtDate endDate:(NSDate *)endDate{
     
     
-    return @{
-             @"app_bundle_id" : kAppBundleId,
-             @"user_agent" : kUserAgent,
-             @"auth_token" : [UserServices currentToken],
+    NSDictionary * param = @{
              @"sub_course_id" : subcourseId,
              @"start_date" : [strtDate serverFormatDate],
              @"end_date" : [endDate serverFormatDate],
              };
+    return [UtilityServices dictionaryByMergingDictionaries:param aDict:[UtilityServices authenticationParams]];
     
 }
 
 +(NSDictionary *)paramBookTeetime:(NSNumber *)subCourseId players:(NSNumber *)playersCount bookingTime:(NSDate *)bookingTime{
     
-    return @{
-             @"app_bundle_id" : kAppBundleId,
-             @"user_agent" : kUserAgent,
-             @"auth_token" : [UserServices currentToken],
+    NSDictionary * param = @{
              @"count" : playersCount,
              @"sub_course_id" : subCourseId,
              @"booked_time" : [bookingTime serverFormatDate],
              };
+    return [UtilityServices dictionaryByMergingDictionaries:param aDict:[UtilityServices authenticationParams]];
 }
 
 

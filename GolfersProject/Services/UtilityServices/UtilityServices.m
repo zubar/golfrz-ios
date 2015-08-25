@@ -29,13 +29,12 @@
     
 }
 
-+(NSDictionary *)authenticationParamsWithMemberId{
-    
-    return @{@"app_bundle_id" : kAppBundleId,
-             @"user_agent" : kUserAgent,
-             @"auth_token" : [UserServices currentToken],
++(NSDictionary *)authenticationParamsWithMemberId
+{
+    NSDictionary * param = @{
              @"member_id" : [UserServices currentUserId]
              };
+    return [UtilityServices dictionaryByMergingDictionaries:param aDict:[UtilityServices authenticationParams]];
 }
 
 +(NSDictionary *)authenticationParams{
@@ -44,6 +43,14 @@
              @"user_agent" : kUserAgent,
              @"auth_token" : [UserServices currentToken],
              };
+}
+
++(NSDictionary *)dictionaryByMergingDictionaries:(NSDictionary *)authDict aDict:(NSDictionary *)paramDict
+{
+    NSMutableDictionary * combineDict=[[NSMutableDictionary alloc] init];
+    [combineDict addEntriesFromDictionary:authDict];
+    [combineDict addEntriesFromDictionary:paramDict];
+    return combineDict;
 }
 
 @end

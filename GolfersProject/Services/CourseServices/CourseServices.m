@@ -16,6 +16,7 @@
 #import "GolfrzError.h"
 #import "FeaturedControl.h"
 
+#import "UtilityServices.h"
 
 @implementation CourseServices
 
@@ -107,11 +108,7 @@ static Course * currentCourse = nil;
 #pragma mark - Helper Methods
 
 +(NSDictionary *)paramsCourseDetailInfo{
-        return @{
-                @"app_bundle_id": kAppBundleId,
-                @"user_agent" : kUserAgent,
-                @"auth_token" : [UserServices currentToken]
-    };
+    return [UtilityServices authenticationParams];
 }
 
 

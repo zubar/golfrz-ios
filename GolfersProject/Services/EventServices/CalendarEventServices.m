@@ -12,6 +12,7 @@
 #import "UserServices.h"
 #import "User.h"
 #import "EventList.h"
+#import "UtilityServices.h"
 
 @implementation CalendarEventServices
 
@@ -36,11 +37,7 @@
 
 +(NSDictionary *)paramsForEventList{
     
-    return @{
-             @"app_bundle_id" : kAppBundleId,
-             @"user_agent" : kUserAgent,
-             @"auth_token" : [UserServices currentToken]
-             };
+    return [UtilityServices authenticationParams];
 
 }
 @end

@@ -124,19 +124,15 @@
 
 +(NSDictionary *)userAuthParams
 {
-    return @{@"app_bundle_id" : kAppBundleId,
-             @"user_agent" : kUserAgent,
-             @"auth_token" : [UserServices currentToken]
-             };
+    return [UtilityServices authenticationParams];
 }
 
 +(NSDictionary *)confirmOrderParams:(NSString *)place
 {
-    return @{@"app_bundle_id" : kAppBundleId,
-             @"user_agent" : kUserAgent,
-             @"auth_token" : [UserServices currentToken],
+    NSDictionary * param = @{
              @"location" : place
              };
+    return [UtilityServices dictionaryByMergingDictionaries:param aDict:[UtilityServices authenticationParams]];
 }
 +(NSDictionary *)paramsForCartItem:(FoodBeverage *)item quantity:(NSUInteger)quantity
 {
@@ -146,39 +142,33 @@
         ids_arry  =[[NSMutableArray alloc] initWithArray:[foodItem valueForKeyPath:@"sideItems.@distinctUnionOfObjects.foodId"]];
         [ids_arry addObject:foodItem[@"id"]];
     }
-    return @{
-             @"app_bundle_id" : kAppBundleId,
-             @"user_agent" : kUserAgent,
-             @"auth_token" : [UserServices currentToken],
+    NSDictionary * param = @{
              @"menu_item_ids" : ids_arry,
              @"quantity" : [NSNumber numberWithInteger:quantity]
              };
+    return [UtilityServices dictionaryByMergingDictionaries:param aDict:[UtilityServices authenticationParams]];
 }
 +(NSDictionary *)paramsForItemIds:(NSArray *)items quantity:(NSUInteger)quantity
 {
-    return @{
-             @"app_bundle_id" : kAppBundleId,
-             @"user_agent" : kUserAgent,
-             @"auth_token" : [UserServices currentToken],
+    NSDictionary * param = @{
              @"menu_item_ids" : [items componentsJoinedByString:@","],
              @"quantity" : [NSNumber numberWithInteger:quantity]
              };
+    return [UtilityServices dictionaryByMergingDictionaries:param aDict:[UtilityServices authenticationParams]];
 }
 +(NSDictionary *)paramsForRemoveCartItem:(Order *)order
 {
-    return @{@"app_bundle_id" : kAppBundleId,
-             @"user_agent" : kUserAgent,
-             @"auth_token" : [UserServices currentToken],
+    NSDictionary * param = @{
              @"order_id" : [order orderId]
              };
+    return [UtilityServices dictionaryByMergingDictionaries:param aDict:[UtilityServices authenticationParams]];
 }
 +(NSDictionary *)paramsForSubmitOrder
 {
-    return @{@"app_bundle_id" : kAppBundleId,
-             @"user_agent" : kUserAgent,
-             @"auth_token" : [UserServices currentToken],
+    NSDictionary * param = @{
              @"member_id" : [UserServices currentUserId]
              };
+    return [UtilityServices dictionaryByMergingDictionaries:param aDict:[UtilityServices authenticationParams]];
 }
 
 @end
