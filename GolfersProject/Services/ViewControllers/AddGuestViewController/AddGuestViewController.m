@@ -61,7 +61,8 @@
 - (void)popOverView:(PopOverView *)popOverView indexPathForSelectedRow:(NSIndexPath *)indexPath string:(NSString *)string {
     id item = self.teeBoxesArray[indexPath.row];
     NSLog(@"%@, selectedItem-id: %@", [item name], [item itemId]);
-    [self.btnTeeBox setTitle:string forState:UIControlStateNormal];
+    //[self.btnTeeBox setTitle:string forState:UIControlStateNormal];
+    [self.lblTeeBox setText:string];
     self.selectedTeeBox = (Teebox *)item;
     [self.popOverView dismissPopOverViewAnimated:YES];
 }

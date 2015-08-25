@@ -401,12 +401,23 @@
 }
 #pragma mark - UINavigation
 
+-(void)showAlertNoRoundInProgress{
+    [[[UIAlertView alloc] initWithTitle:@"No Round InProgress" message:@"You have finished all rounds." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+}
+
 -(void)finishRoundTap
 {
+    if([[GameSettings sharedSettings] roundId] == (NSNumber *)[NSNull null]|| [[GameSettings sharedSettings] subCourseId]== (NSNumber *)[NSNull null]){
+        [self showAlertNoRoundInProgress];
+        return;
+    }
+
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [RoundDataServices finishRoundWithBlock:^(bool status, id response) {
         // Navigate to ScoreCard.
         if(status){
+            
+            // Getting score-card.
             [MBProgressHUD hideHUDForView:self.view animated:YES];
             [ScoreboardServices getScoreCardForRoundId:[[GameSettings sharedSettings] roundId] subCourse:[[GameSettings sharedSettings] subCourseId] success:^(bool status, id responseObject) {
                 if(status){
@@ -415,6 +426,7 @@
                     scoreBoardVc.roundId = [[GameSettings sharedSettings] roundId];
                     scoreBoardVc.subCourseId = [[GameSettings sharedSettings] subCourseId];
                     [self.navigationController pushViewController:scoreBoardVc animated:YES];
+                   
                 }
             } failure:^(bool status, NSError *error) {
                 //TODO: see this alert or get Golfrz Error object here.
@@ -600,11 +612,14 @@
 
 - (IBAction)btnFlyoverTapped:(UIButton *)sender
 {
-    RoundMoviePlayerController *movieController = [RoundMoviePlayerController new];
-    if ([self.currentHole flyOverVideoPath] == nil || [self.currentHole flyOverVideoPath] == NULL) {
+    if ([self.currentHole flyOverVideoPath] == nil ||
+        [self.currentHole flyOverVideoPath] == NULL ||
+        [[self.currentHole flyOverVideoPath] containsString:@"No Fly Over Video Specified"])
+    {
         [[[UIAlertView alloc] initWithTitle:@"Flyover Video Not Available!" message:@"Flyover video is not available for this hole." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
         return;
     }
+    RoundMoviePlayerController *movieController = [RoundMoviePlayerController new];
     movieController.moviePath =[self.currentHole flyOverVideoPath];
     [self.navigationController pushViewController:movieController animated:YES];
 }
