@@ -81,6 +81,18 @@
     }];
 }
 
+-(void)updateUserRewardPoints{
+    [RewardServices getUserRewardPoints:^(bool status, NSNumber *totalPoints) {
+        if(status)
+            [self.lblPoints setText:[totalPoints stringValue]];
+        else{
+            [self.lblPoints setText:@"-"];
+        }
+    } failure:^(bool status, GolfrzError *error) {
+        [Utilities displayErrorAlertWithMessage:[error errorMessage]];
+    }];
+}
+
 - (void) hasUserCheckedIn{
     [CourseServices getCheckInCount:^(bool status, NSNumber *noOfCheckIns){
         if ([noOfCheckIns boolValue]) {
@@ -101,12 +113,6 @@
     [RoundDataServices getRoundInProgress:^(bool status, NSNumber *roundNo, NSNumber *subCourseId, NSString *teeboxName) {
         if(status){
             [self.btnStartRound setTitle:@"CONTINUE TO ROUND" forState:UIControlStateNormal];
-            [RewardServices getUserRewardPoints:^(bool status, NSNumber *totalPoints) {
-                if(status)
-                    [self.lblPoints setText:[totalPoints stringValue]];
-            } failure:^(bool status, GolfrzError *error) {
-                [Utilities displayErrorAlertWithMessage:[error errorMessage]];
-            }];
         }
     } finishedRounds:^(bool status) {
         if(!status)
@@ -132,6 +138,7 @@
     
     [self hasUserCheckedIn];
     [self roundAlreadyInProgress];
+    [self updateUserRewardPoints];
 
     GameSettings * settings = [GameSettings sharedSettings];
     if([settings isRoundInProgress]){

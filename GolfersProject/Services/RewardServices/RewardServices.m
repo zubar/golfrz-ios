@@ -61,7 +61,6 @@
 +(void)getUserRewardPoints:(void(^)(bool status, NSNumber * totalPoints))successBlock
                    failure:(void(^)(bool status, GolfrzError * error))failureBlock
 {
-//TODO: 
     AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
     [apiClient GET:kRewardUserTotalPoints parameters:[RewardServices paramUserAuth] success:^(NSURLSessionDataTask *task, id responseObject) {
         if([responseObject objectForKey:@"points"] != [NSNull null])
