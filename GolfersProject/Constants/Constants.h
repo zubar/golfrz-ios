@@ -157,6 +157,7 @@ static NSString * const kInviteeAcceptedInvitation = @"InviteeAcceptedRoundInvit
 static NSString * const kInviteeRejectedInvitation = @"InviteeRejectedRoundInvitation";
 static NSString * const kInvitationReceived = @"InvitationReceivedForRound";
 static NSString * const kAppLaunchUserTapInvitationLink = @"AppLaunchDueToUserTapOnInvitationLink";
+static NSString * const kRedeemedReward = @"RedeemedRewardUpdateUserPoints";
 
 /*
  *  CourseUpdates
