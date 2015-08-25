@@ -44,7 +44,7 @@ static NSString * const kInvitationRedirect = @"http://45.56.104.68/";
  * Weather API
  */
 static NSString * const kWeatherAPI = @"http://api.openweathermap.org/data/2.5/";
-//static NSString * const kWeatherAPIKey = @"e5bfb7faf3d0c719e87f3e1300ad0739";
+// Weather API by Dustion
 static NSString * const kWeatherAPIKey = @"ca770f97be3145f111acb65c4c47b9dd";
 
 /*

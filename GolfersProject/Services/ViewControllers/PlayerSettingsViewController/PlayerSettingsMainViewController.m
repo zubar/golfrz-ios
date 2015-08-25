@@ -195,21 +195,23 @@
 - (IBAction)btnLogOutTap:(id)sender {
     [self logoutTapped];
 }
-- (IBAction)btnDisConnectFacebookTap:(id)sender {
-    
+- (IBAction)btnDisConnectFacebookTap:(id)sender
+{    
     [FaceBookAuthAgent disConnectFBAccount];
+    [self popToSignInViewController];
 }
 
 -(void)popToSignInViewController{
     AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
     
     for (UIViewController *controller in delegate.appDelegateNavController.viewControllers) {
-        if ([controller isKindOfClass:[SignInViewController class]]) {
+        if ([controller isKindOfClass:[SignInViewController class]] || [controller isKindOfClass:[InitialViewController class]]) {
             [delegate.appDelegateNavController popToViewController:controller animated:YES];
             return;
         }
     }
 }
+
 
 -(void)upDateUserFirstName:(NSString *)firstName lastName:(NSString *)lastName email:(NSString *)email phoneNo:(NSString *)phoneNo{
     

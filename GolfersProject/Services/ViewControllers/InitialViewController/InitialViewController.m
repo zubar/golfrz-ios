@@ -90,7 +90,6 @@
     [FaceBookAuthAgent signInWithFacebook:^(bool status, NSDictionary *userInfo) {
        
         [MBProgressHUD hideHUDForView:self.view animated:YES];
-    
        
         AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
         UIViewController *clubHouseContainerVC  = [self.storyboard instantiateViewControllerWithIdentifier:@"ClubHouseContainerVC"];
@@ -112,6 +111,7 @@
         }
     }
 }
+
 
 /*
 #pragma mark - Navigation
