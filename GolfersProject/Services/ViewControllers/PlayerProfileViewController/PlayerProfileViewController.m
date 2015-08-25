@@ -98,13 +98,22 @@
 -(void)roundAlreadyInProgress{
     
     [RoundDataServices getRoundInProgress:^(bool status, NSNumber *roundNo, NSNumber *subCourseId, NSString *teeboxName) {
-        if(status)
-            [ScoreboardServices getScoreForUserId:[NSNumber numberWithInteger:[[UserServices currentUserId] integerValue]] holeId:[NSNumber numberWithInt:0] roundId:roundNo success:^(bool status, id score)
-             {
+        if(status){
+        [ScoreboardServices getTotalScoreForAllPlayersForRoundId:roundNo
+                                                         success:^(bool status, NSDictionary *playerTotalScore)
+         {
+             NSString * userId = [NSString stringWithFormat:@"%@",[UserServices currentUserId]];
+             if([playerTotalScore objectForKey:userId] != nil){
+                NSNumber * score =  [playerTotalScore objectForKey:userId];
                  [self.lblPoints setText:[score stringValue]];
-             } failure:^(bool status, GolfrzError *error) {
-                 [Utilities displayErrorAlertWithMessage:[error errorMessage]];
-             }];
+                 [self.btnStartRound setTitle:@"CONTINUE TO ROUND" forState:UIControlStateNormal];
+             }else{
+                 [self.lblPoints setText:@"-"];
+             }
+        } failure:^(bool status, GolfrzError *error) {
+            [Utilities displayErrorAlertWithMessage:[error errorMessage]];
+        }];
+        }
     } finishedRounds:^(bool status) {
         if(!status)
             [self.lblPoints setText:@"0"];
@@ -129,6 +138,8 @@
     
     [self hasUserCheckedIn];
     
+    [self roundAlreadyInProgress];
+
     GameSettings * settings = [GameSettings sharedSettings];
     if([settings isRoundInProgress]){
         [self.btnStartRound setTitle:@"CONTINUE TO ROUND" forState:UIControlStateNormal
@@ -137,7 +148,6 @@
         [self.btnStartRound setTitle:@"START NEW ROUND" forState:UIControlStateNormal];
     }
 
-    [self roundAlreadyInProgress];
 }
 
 - (void)pushNextController{

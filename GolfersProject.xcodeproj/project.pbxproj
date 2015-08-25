@@ -99,10 +99,6 @@
 		3D221F7B1B4BB0A600CF79E4 /* GameType.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D221F7A1B4BB0A600CF79E4 /* GameType.m */; };
 		3D221F7E1B4BB0DC00CF79E4 /* ScoreType.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D221F7D1B4BB0DC00CF79E4 /* ScoreType.m */; };
 		3D221F811B4BB30A00CF79E4 /* RoundDataServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D221F801B4BB30A00CF79E4 /* RoundDataServices.m */; };
-		3D221F861B4BE35B00CF79E4 /* DropdownCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D221F841B4BE35B00CF79E4 /* DropdownCell.m */; };
-		3D221F871B4BE35B00CF79E4 /* DropdownCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D221F851B4BE35B00CF79E4 /* DropdownCell.xib */; };
-		3D221F8C1B4BEB4600CF79E4 /* DropdownView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D221F8A1B4BEB4600CF79E4 /* DropdownView.m */; };
-		3D221F8D1B4BEB4600CF79E4 /* DropdownView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D221F8B1B4BEB4600CF79E4 /* DropdownView.xib */; };
 		3D221F901B5254CB00CF79E4 /* InvitationServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D221F8F1B5254CB00CF79E4 /* InvitationServices.m */; };
 		3D221F941B52797300CF79E4 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D221F931B52797300CF79E4 /* User.m */; };
 		3D221F971B5279AC00CF79E4 /* User+convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D221F961B5279AC00CF79E4 /* User+convenience.m */; };
@@ -136,6 +132,7 @@
 		3D87D8441B1852120046BD60 /* UIColor+expanded.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D87D83D1B1852120046BD60 /* UIColor+expanded.m */; };
 		3D87D8451B1852120046BD60 /* UIView+convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D87D83F1B1852120046BD60 /* UIView+convenience.m */; };
 		3D87D8461B1852120046BD60 /* VRGCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D87D8411B1852120046BD60 /* VRGCalendarView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3D8FEAD81B8B42A800743675 /* UIAlertView+NSCookbook.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D8FEAD71B8B42A800743675 /* UIAlertView+NSCookbook.m */; };
 		3DA70A3C1B3972B900D3ABEC /* UIBarButtonItem+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA70A391B3972B900D3ABEC /* UIBarButtonItem+Badge.m */; };
 		3DA70A3D1B3972B900D3ABEC /* UIButton+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA70A3B1B3972B900D3ABEC /* UIButton+Badge.m */; };
 		3DA70A401B3981AB00D3ABEC /* BBBadgeBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA70A3F1B3981AB00D3ABEC /* BBBadgeBarButtonItem.m */; };
@@ -391,12 +388,6 @@
 		3D221F7D1B4BB0DC00CF79E4 /* ScoreType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreType.m; sourceTree = "<group>"; };
 		3D221F7F1B4BB30A00CF79E4 /* RoundDataServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundDataServices.h; sourceTree = "<group>"; };
 		3D221F801B4BB30A00CF79E4 /* RoundDataServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundDataServices.m; sourceTree = "<group>"; };
-		3D221F831B4BE35B00CF79E4 /* DropdownCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropdownCell.h; sourceTree = "<group>"; };
-		3D221F841B4BE35B00CF79E4 /* DropdownCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropdownCell.m; sourceTree = "<group>"; };
-		3D221F851B4BE35B00CF79E4 /* DropdownCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DropdownCell.xib; sourceTree = "<group>"; };
-		3D221F891B4BEB4600CF79E4 /* DropdownView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropdownView.h; sourceTree = "<group>"; };
-		3D221F8A1B4BEB4600CF79E4 /* DropdownView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropdownView.m; sourceTree = "<group>"; };
-		3D221F8B1B4BEB4600CF79E4 /* DropdownView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DropdownView.xib; sourceTree = "<group>"; };
 		3D221F8E1B5254CB00CF79E4 /* InvitationServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvitationServices.h; sourceTree = "<group>"; };
 		3D221F8F1B5254CB00CF79E4 /* InvitationServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvitationServices.m; sourceTree = "<group>"; };
 		3D221F921B52797300CF79E4 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
@@ -458,6 +449,8 @@
 		3D87D83F1B1852120046BD60 /* UIView+convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+convenience.m"; sourceTree = "<group>"; };
 		3D87D8401B1852120046BD60 /* VRGCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VRGCalendarView.h; sourceTree = "<group>"; };
 		3D87D8411B1852120046BD60 /* VRGCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VRGCalendarView.m; sourceTree = "<group>"; };
+		3D8FEAD61B8B42A800743675 /* UIAlertView+NSCookbook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+NSCookbook.h"; sourceTree = "<group>"; };
+		3D8FEAD71B8B42A800743675 /* UIAlertView+NSCookbook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+NSCookbook.m"; sourceTree = "<group>"; };
 		3DA70A381B3972B900D3ABEC /* UIBarButtonItem+Badge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Badge.h"; sourceTree = "<group>"; };
 		3DA70A391B3972B900D3ABEC /* UIBarButtonItem+Badge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Badge.m"; sourceTree = "<group>"; };
 		3DA70A3A1B3972B900D3ABEC /* UIButton+Badge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Badge.h"; sourceTree = "<group>"; };
@@ -776,6 +769,8 @@
 		3D1964021B130E3B00766CFC /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				3D8FEAD61B8B42A800743675 /* UIAlertView+NSCookbook.h */,
+				3D8FEAD71B8B42A800743675 /* UIAlertView+NSCookbook.m */,
 				3D7DF20B1B6F5A2200FCF8FE /* NSArray+BinarySearch.h */,
 				3D7DF20C1B6F5A2200FCF8FE /* NSArray+BinarySearch.m */,
 				3D1C8E661B3BFDBE004AAD30 /* WEPopover */,
@@ -1205,26 +1200,6 @@
 			path = ScoreType;
 			sourceTree = "<group>";
 		};
-		3D221F821B4BE2CE00CF79E4 /* DropdownCell */ = {
-			isa = PBXGroup;
-			children = (
-				3D221F831B4BE35B00CF79E4 /* DropdownCell.h */,
-				3D221F841B4BE35B00CF79E4 /* DropdownCell.m */,
-				3D221F851B4BE35B00CF79E4 /* DropdownCell.xib */,
-			);
-			path = DropdownCell;
-			sourceTree = "<group>";
-		};
-		3D221F881B4BEB4600CF79E4 /* DropdownView */ = {
-			isa = PBXGroup;
-			children = (
-				3D221F891B4BEB4600CF79E4 /* DropdownView.h */,
-				3D221F8A1B4BEB4600CF79E4 /* DropdownView.m */,
-				3D221F8B1B4BEB4600CF79E4 /* DropdownView.xib */,
-			);
-			path = DropdownView;
-			sourceTree = "<group>";
-		};
 		3D221F911B52797300CF79E4 /* User */ = {
 			isa = PBXGroup;
 			children = (
@@ -1281,8 +1256,6 @@
 		3D613B7B1B44191B00F7DEDA /* ScoreSelection */ = {
 			isa = PBXGroup;
 			children = (
-				3D221F881B4BEB4600CF79E4 /* DropdownView */,
-				3D221F821B4BE2CE00CF79E4 /* DropdownCell */,
 				3D613B7C1B44191B00F7DEDA /* ScoreSelectionCell */,
 				3D613B801B44191B00F7DEDA /* ScoreSelectionView */,
 			);
@@ -2265,7 +2238,6 @@
 				3D1C8E921B3BFEB0004AAD30 /* popoverArrowLeft.png in Resources */,
 				3D1C8E911B3BFEB0004AAD30 /* popoverArrowLeft-white@2x.png in Resources */,
 				3D613B641B416F1F00F7DEDA /* CalendarEventCell.xib in Resources */,
-				3D221F8D1B4BEB4600CF79E4 /* DropdownView.xib in Resources */,
 				3D0455C91B71E66100FFB0E8 /* HMMessageRecieveCell.xib in Resources */,
 				3D613B871B44191B00F7DEDA /* ScoreSelectionView.xib in Resources */,
 				3DD3CA391B2863CF00767BCF /* SideNotificationView.xib in Resources */,
@@ -2289,7 +2261,6 @@
 				3D613B851B44191B00F7DEDA /* ScoreSelectionCell.xib in Resources */,
 				3D1C8E931B3BFEB0004AAD30 /* popoverArrowLeft@2x.png in Resources */,
 				3D1C8EB01B3D36C9004AAD30 /* EventHeaderView.xib in Resources */,
-				3D221F871B4BE35B00CF79E4 /* DropdownCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2340,7 +2311,6 @@
 				88573E2A1B4551900060929C /* RoundInviteCell.m in Sources */,
 				77BBE9131B6B9D32004D1C86 /* ScoreCardHole.m in Sources */,
 				88255AEE1B70AF620089644F /* ScoreBoardHeaderCell.m in Sources */,
-				3D221F8C1B4BEB4600CF79E4 /* DropdownView.m in Sources */,
 				3D00B59E1B61161800FA2C19 /* Round.m in Sources */,
 				3D1CB0E81B691563005C1E19 /* AddGuestViewController.m in Sources */,
 				774F2C281B71E6CD0051C9E8 /* ScoreCardUserScore.m in Sources */,
@@ -2432,6 +2402,7 @@
 				3D1CB0EF1B691563005C1E19 /* CourseUpdatesViewController.m in Sources */,
 				77BBE9161B6BA9E1004D1C86 /* ScoreCardTeeBox.m in Sources */,
 				3D0455CB1B71E66100FFB0E8 /* HMMessageSentCell.m in Sources */,
+				3D8FEAD81B8B42A800743675 /* UIAlertView+NSCookbook.m in Sources */,
 				3D1C8E741B3BFDBE004AAD30 /* WEPopoverContainerView.m in Sources */,
 				3D1964191B130E3B00766CFC /* MBProgressHUD.m in Sources */,
 				3D1CB0FE1B691563005C1E19 /* RewardViewController.m in Sources */,
@@ -2441,7 +2412,6 @@
 				3D87D8451B1852120046BD60 /* UIView+convenience.m in Sources */,
 				3DCA44CC1B26CB3400B66BD2 /* CalendarEvent.m in Sources */,
 				3D19641B1B130E3B00766CFC /* TPKeyboardAvoidingScrollView.m in Sources */,
-				3D221F861B4BE35B00CF79E4 /* DropdownCell.m in Sources */,
 				3D1CB0F71B691563005C1E19 /* ForgotPasswordSViewController.m in Sources */,
 				3D1CB0FB1B691563005C1E19 /* InviteMainViewController.m in Sources */,
 				3D87D8421B1852120046BD60 /* NSDate+convenience.m in Sources */,

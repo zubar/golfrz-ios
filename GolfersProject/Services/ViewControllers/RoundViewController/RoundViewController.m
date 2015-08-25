@@ -38,6 +38,7 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "UIImageView+RoundedImage.h"
 #import "GreenCoordinate.h"
+#import "UIAlertView+NSCookbook.h"
 
 #define kPlayerScoreViewHeight 60.0f
 
@@ -138,7 +139,7 @@
                                        }
                                    } failure:^(bool status, GolfrzError *error) {
                                        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-                                       [Utilities displayErrorAlertWithMessage:[error errorMessage]];
+                                      // [Utilities displayErrorAlertWithMessage:[error errorMessage]];
                                        completion();
                                    }];
 }
@@ -417,12 +418,12 @@
                 }
             } failure:^(bool status, NSError *error) {
                 //TODO: see this alert or get Golfrz Error object here.
-               // [[[UIAlertView alloc] initWithTitle:@"Try Again" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+                [[[UIAlertView alloc] initWithTitle:@"Try Again." message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
             }];
         }
     } failure:^(bool status, NSError *error) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
-        //[[[UIAlertView alloc] initWithTitle:@"Try Again" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+        [[[UIAlertView alloc] initWithTitle:@"Try Again." message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
     }];
 }
 
@@ -449,8 +450,6 @@
     CGRect initalFrame = [self.scoreTable frame];
     CGRect finalFrame = CGRectMake(0, initalFrame.origin.y, initalFrame.size.width, appFrame.size.height * 0.5);
     
-    
-    //TODO: change button image of header on completion.
     [UIView animateWithDuration:0.5 animations:^{
         [self.scoreTable setFrame:finalFrame];
         [self.imgDarkerBg setHidden:NO];
@@ -466,7 +465,6 @@
     CGRect initalFrame = [self.scoreTable frame];
     CGRect finalFrame = CGRectMake(0, initalFrame.origin.y, initalFrame.size.width, kPlayerScoreViewHeight);
     
-    //TODO: change button image of header on completion.
     [UIView animateWithDuration:0.5 animations:^{
         [self.scoreTable setFrame:finalFrame];
         [self.imgDarkerBg setHidden:YES];
@@ -492,8 +490,8 @@
                                   [MBProgressHUD hideHUDForView:self.view animated:YES];
                                   if (status){
                                       // Only Add shot Marker for signed-in player
-                                      if([playerId isEqual:[[PlayerSettings sharedSettings] userId]])
-                                          [self addShotMarker:(int)score shotType:ShotTypeStardard shotId:-1];
+                                      if([playerId isEqual:[UserServices currentUserId]])
+                                          [self addShotMarker:[score integerValue] shotType:ShotTypeStardard shotId:-1];
                                       else
                                           [[[UIAlertView alloc] initWithTitle:@"Score Updated" message:@"Score updated successfully." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
                                       // Update players score.
@@ -567,24 +565,37 @@
         [[[UIAlertView alloc] initWithTitle:@"Update Score Manually!" message:@"This shot can't be deleted by tapping on shot, please update the score for this hole manually." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
         return;
     }
-   __block BOOL shotIdFount = FALSE;
-    UIImageView *tappedShot = (UIImageView *)sender.view;
-    NSInteger tag = [tappedShot tag];
     
-    for (int i = 0; i < [self.shots count] ; ++i) {
-        Shot * aShot = self.shots[i];
-        if(tag == [[aShot itemId] integerValue]){
-            [RoundDataServices deleteShot:aShot success:^(bool status, id response) {
-                shotIdFount = TRUE;
-                [tappedShot removeFromSuperview];
-                [self.shotMarkerViews removeObject:tappedShot];
-                [self.shots removeObjectAtIndex:i];
-
-            } failure:^(bool status, NSError *error) {
-                [[[UIAlertView alloc] initWithTitle:@"Update Score Manually!" message:@"This shot can't be deleted by tapping on shot, please update the score for this hole manually." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
-            }];
+    UIAlertView * confirmationAlert =  [[UIAlertView alloc] initWithTitle:@"Confirmation!" message:@"Are you sure you want to delete this shot ?" delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:@"Delete", nil];
+    [confirmationAlert showWithCompletion:^(UIAlertView *alertView, NSInteger buttonIndex) {
+        if (buttonIndex == 1) { // means user tapped Delete button
+           
+            __block BOOL shotIdFount = FALSE;
+            UIImageView *tappedShot = (UIImageView *)sender.view;
+            NSInteger tag = [tappedShot tag];
+            for (int i = 0; i < [self.shots count] ; ++i) {
+                Shot * aShot = self.shots[i];
+                if(tag == [[aShot itemId] integerValue]){
+                    
+                    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+                    [RoundDataServices deleteShot:aShot success:^(bool status, id response) {
+                        shotIdFount = TRUE;
+                        [tappedShot removeFromSuperview];
+                        [self.shotMarkerViews removeObject:tappedShot];
+                        [self.shots removeObjectAtIndex:i];
+                        
+                        [self updateScoresOfAllPlayers:^{
+                            [self.scoreTable reloadData];
+                            [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+                        }];
+                        
+                    } failure:^(bool status, NSError *error) {
+                        [[[UIAlertView alloc] initWithTitle:@"Update Score Manually!" message:@"This shot can't be deleted by tapping on shot, please update the score for this hole manually." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+                    }];
+                }
+            }
         }
-    }
+    }];
 }
 
 - (IBAction)btnFlyoverTapped:(UIButton *)sender
