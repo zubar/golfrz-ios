@@ -262,11 +262,21 @@
 
 #pragma mark - Navigation
 -(void)cancelRound{
+    
+    if([[GameSettings sharedSettings] roundId]== (NSNumber *)[NSNull null] || [[GameSettings sharedSettings] subCourseId]==(NSNumber *)[NSNull null]){
+        [self showAlertNoRoundInProgress];
+        return;
+    }
+    
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [RoundDataServices finishRoundWithBlock:^(bool status, id response) {
         // Navigate to ScoreCard.
         if(status){
             [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+            
+            [[GameSettings sharedSettings] setroundId:(NSNumber *)[NSNull null]],
+            [[GameSettings sharedSettings] setsubCourseId:(NSNumber *)[NSNull null]],
+            
             [[[UIAlertView alloc] initWithTitle:@"Round Cancelled!" message:@"Current Round is cancelled, you can now start new round." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
             [self loadDataToSetUpNewRound];
         }
@@ -274,7 +284,10 @@
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         [[[UIAlertView alloc] initWithTitle:@"Try Again!" message:@"Can not cancel current round." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
     }];
-    
+}
+
+-(void)showAlertNoRoundInProgress{
+    [[[UIAlertView alloc] initWithTitle:@"No Round InProgress" message:@"You have finished all rounds." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
 }
 
 - (IBAction)btnAddPlayersTapped:(id)sender

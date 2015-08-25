@@ -220,6 +220,11 @@
 
     
 -(void)doneTapped{
+    if([self.selectedFriends count]<=0){
+        [[[UIAlertView alloc] initWithTitle:@"Players are not selected!" message:@"Please select players to send invitation." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+        return;
+    }
+    
     [self.searchDisplayController.searchBar resignFirstResponder];
     self.searchDisplayController.searchBar.text = @"";
     [self saveInvitationOnServerCompletion:^{

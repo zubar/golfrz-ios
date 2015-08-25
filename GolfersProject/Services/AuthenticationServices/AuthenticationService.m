@@ -156,7 +156,6 @@ passwordConfirmation:(NSString *)passwordConfirmation
         @"user_agent" : kUserAgent,
         @"app_bundle_id" : kAppBundleId,
         @"handicap" : handicap,
-        @"phone_no" : @"9808"
         };
 }
 

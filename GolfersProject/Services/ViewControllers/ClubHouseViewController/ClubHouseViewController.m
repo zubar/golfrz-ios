@@ -81,21 +81,6 @@
     [[self navigationItem] setTitle:@"CLUBHOUSE"];
     
     
-    // Do any additional setup after loading the view.
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    [WeatherServices weatherInfo:^(bool status, NSArray *mWeatherData) {
-        if (status) {
-            self.weatherList = mWeatherData;
-            [self.weatherCollectionView reloadData];
-            [MBProgressHUD hideHUDForView:self.view animated:YES];
-        }
-    } failure:^(bool status, NSError *error) {
-        if (error) {
-            [MBProgressHUD hideHUDForView:self.view animated:YES];
-            [[[UIAlertView alloc]initWithTitle:@"Try Again" message:@"Failed to get weather" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
-        }
-    }];
-    
     // Receive this notification to check if there are any pending invitations to show.
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(displayAlertForPendingInvitations) name:kAppLaunchUserTapInvitationLink object:nil];
     [self  loadCourseDetailsCompletionBlock:^(Course *currentCourse) {
@@ -141,6 +126,34 @@
     }
     [[UINavigationBar appearance] setTitleVerticalPositionAdjustment:-10.0 forBarMetrics:UIBarMetricsDefault];
     [self getAvailableFeatures];
+    
+    //Update weatherData
+    [self.lblWeatherDate setText:@"Updating Weather Forecast..."];
+    [self updateWeatherData];
+
+}
+
+- (void)updateWeatherData {
+    // Do any additional setup after loading the view.
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [WeatherServices weatherInfo:^(bool status, NSArray *mWeatherData) {
+        if (status) {
+            if([mWeatherData count] > 0){
+            self.weatherList = mWeatherData;
+                [self.weatherCollectionView setHidden:NO];
+                [self.weatherCollectionView reloadData];
+            }else{
+                [self.weatherCollectionView setHidden:YES];
+                [self.lblWeatherDate setText:@"Weather Forecast Not Available."];
+            }
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+        }
+    } failure:^(bool status, NSError *error) {
+        if (error) {
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            [[[UIAlertView alloc]initWithTitle:@"Try Again" message:@"Failed to get weather" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+        }
+    }];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -251,6 +264,15 @@
     
     
     return customCell;
+}
+
+-(void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    WeatherData * tempWeather = [self.weatherList objectAtIndex:indexPath.row];
+    [Utilities dateComponents:[tempWeather timeStamp] components:^(NSString *dayName, NSString *monthName, NSString *day, NSString *time, NSString *minutes, NSString *timeAndMinute, NSString *year) {
+        [self.lblWeatherDate setText:[NSString stringWithFormat:@"%@-%@, %@", day, monthName, year]];
+
+    }];
 }
 
 -(NSString *)hoursFromDate:(NSDate *)date{

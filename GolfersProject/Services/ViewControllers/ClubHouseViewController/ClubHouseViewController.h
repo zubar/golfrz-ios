@@ -27,6 +27,7 @@
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *btnEventsTapped;
 
 @property (weak, nonatomic) IBOutlet UIImageView *imgViewBackground;
+@property (strong, nonatomic) IBOutlet UILabel *lblWeatherDate;
 
 
 @property (weak, nonatomic) IBOutlet UIButton *btnCheckIn;

@@ -29,8 +29,7 @@
     
     NSString * endPoint =[NSString stringWithFormat:@"forecast?lat=%@&lon=%@&units=metric&APPID=%@", coordinates[@"latitude"], coordinates[@"longitude"], kWeatherAPIKey];
     
-    //@"forecast?lat=31.508925&lon=74.484135&units=metric&APPID=e5bfb7faf3d0c719e87f3e1300ad0739"
-    
+    NSLog(@"Weather-API: %@%@", kWeatherAPI, endPoint);
     [apiClient GET:endPoint parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
        
         NSArray * tempObjects = [(NSDictionary *)responseObject objectForKey:@"list"];
@@ -50,7 +49,7 @@
         successBlock(true, weatherObjects);
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        NSLog(@"%@", error);
+        failureBlock(false, error);
     }];
 }
 

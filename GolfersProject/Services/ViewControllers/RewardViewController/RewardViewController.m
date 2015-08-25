@@ -25,6 +25,7 @@
 #import "RewardDescriptionViewController.h"
 #import "AppDelegate.h"
 #import "InviteMainViewController.h"
+#import "Constants.h"
 
 @interface RewardViewController (){
         RewardListViewController  *_rewardListVC;
@@ -46,6 +47,8 @@
     SharedManager * manager = [SharedManager sharedInstance];
     [self.imgViewBackground setImage:[manager backgroundImage]];
 
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(updateRewardPoints) name:kRedeemedReward object:nil];
+    
     
     /*! @brief Array of view controllers to switch between */
     self.selectedControllerIndex = 0;
@@ -174,6 +177,7 @@
 
 
 -(void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     // let's release our child controllers
     _rewardListVC = nil;
     _rewardTutorialContainerVC = nil;
@@ -182,16 +186,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 -(void)populateUserPointsView{
     
@@ -211,6 +205,15 @@
         [Utilities displayErrorAlertWithMessage:[error errorMessage]];
     }];
     
+    // update user checkIn count.
+    [self updateCheckInCount];
+    
+    // get total reward points of user.
+    [self updateRewardPoints];
+}
+
+- (void)updateCheckInCount
+{
     // Get total count of checkings of user.
     [CourseServices getCheckInCount:^(bool status, NSNumber *countOfCheckin) {
         if([countOfCheckin integerValue] > 0){
@@ -223,8 +226,10 @@
     } failure:^(bool status, GolfrzError *error) {
         [Utilities displayErrorAlertWithMessage:[error errorMessage]];
     }];
-    
-    // get total reward points of user.
+}
+
+-(void)updateRewardPoints
+{
     [RewardServices getUserRewardPoints:^(bool status, NSNumber *totalPoints) {
         if(status) {
             [self.lblTotlPoints setHidden:NO];
@@ -235,7 +240,6 @@
         [self.lblPromptPoints setHidden:YES];
         [Utilities displayErrorAlertWithMessage:[error errorMessage]];
     }];
-
 }
 
 - (void)inviteFriendTap{
@@ -245,5 +249,4 @@
     [delegate.appDelegateNavController pushViewController:friendsController animated:YES];
     
 }
-
 @end
