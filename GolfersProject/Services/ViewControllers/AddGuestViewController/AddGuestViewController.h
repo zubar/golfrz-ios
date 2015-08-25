@@ -22,5 +22,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imgViewBackground;
 - (IBAction)btnSelectTeeBoxTapped:(UIButton *)sender;
 - (IBAction)btnAddGuestTapped:(UIButton *)sender;
+@property (strong, nonatomic) IBOutlet UILabel *lblTeeBox;
 
 @end
