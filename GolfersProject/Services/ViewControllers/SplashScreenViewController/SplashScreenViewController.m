@@ -58,8 +58,8 @@
         [sharedManager setCourseCity:[mCourse courseCity]];
         [sharedManager setCourseName:[mCourse courseName]];
         [sharedManager setCourseState:[mCourse courseState]];
-        [sharedManager setLogoImagePath:[NSString stringWithFormat:@"%@%@", kBaseImageUrl, [mCourse courseLogo]]];
-        [sharedManager setBackgroundImagePath:[NSString stringWithFormat:@"%@%@", kBaseImageUrl, [mCourse courseBackgroundImage]]];
+        [sharedManager setLogoImagePath:[mCourse courseLogo]];
+        [sharedManager setBackgroundImagePath:[mCourse courseBackgroundImage]];
         
         self.navigationController.navigationBar.barTintColor = [[SharedManager sharedInstance] themeColor];
         [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];

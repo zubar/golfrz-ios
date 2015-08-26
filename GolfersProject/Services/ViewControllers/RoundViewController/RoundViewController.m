@@ -501,8 +501,9 @@
                                   [MBProgressHUD hideHUDForView:self.view animated:YES];
                                   if (status){
                                       // Only Add shot Marker for signed-in player
-                                      if([playerId isEqual:[UserServices currentUserId]])
-                                          [self addShotMarker:[score integerValue] shotType:ShotTypeStardard shotId:-1];
+                                      if([playerId isEqual:[UserServices currentUserId]]){
+                                          [self updateShots:[score integerValue]];
+                                        }
                                       else
                                           [[[UIAlertView alloc] initWithTitle:@"Score Updated" message:@"Score updated successfully." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
                                       // Update players score.
@@ -513,6 +514,20 @@
                               } failure:^(bool status, NSError *error) {
                                   [MBProgressHUD hideHUDForView:self.view animated:YES];
                               }];
+}
+
+-(void)updateShots:(NSInteger )shotsCount{
+    
+    NSInteger existingShots = [[self.playerScores objectForKey:[UserServices currentUserId]] integerValue];
+    if(shotsCount > existingShots)
+        [self addShotMarker:shotsCount-existingShots shotType:ShotTypeStardard shotId:-1];
+    else
+        if(shotsCount == existingShots) return;
+    else
+        if(shotsCount < existingShots){
+            [self clearAllShotMarkers];
+            [self addShotMarker:shotsCount shotType:ShotTypeStardard shotId:-1];
+        }
 }
 
 - (IBAction)btnPenaltyTapped:(UIButton *)sender
@@ -737,7 +752,6 @@
     for (GreenCoordinate * cordinate in [self.currentHole greenCoordinates]) {
         if([[cordinate type] isEqualToString:@"front"])
             frontCord = CGPointMake([cordinate.longitude intValue], [cordinate.latitude intValue]);
-        
         if([[cordinate type] isEqualToString:@"middle"])
             middleCord = CGPointMake([cordinate.longitude intValue], [cordinate.latitude intValue]);
         
@@ -799,19 +813,16 @@
 }
 
 
--(int)meterfromPlace:(CGPoint )from andToPlace:(CGPoint)to  {
-    
+-(int)meterfromPlace:(CGPoint )from andToPlace:(CGPoint)to
+{
     CLLocation *userloc = [[CLLocation alloc]initWithLatitude:from.y longitude:from.x];
     CLLocation *dest = [[CLLocation alloc]initWithLatitude:to.y longitude:to.x];
-    
     CLLocationDistance dist = [userloc distanceFromLocation:dest];
-    
     NSLog(@"%f",dist);
     NSString *distance = [NSString stringWithFormat:@"%f",dist];
     int distYards = [distance intValue] * 1.09361;
     
     return distYards;
-    
 }
 
 

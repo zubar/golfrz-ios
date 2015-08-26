@@ -100,14 +100,17 @@
         NSString * weatherTemp = weatherData[@"temp"];
         if(!weatherTemp || (weatherData[@"temp"] == [NSNull null])){
             [self.lblTemperature setHidden:YES];
+            [self.imgWeatherImage setHidden:YES];
         }else{
             [self.imgWeatherImage sd_setImageWithURL:weatherData[@"icon"] placeholderImage:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
                 [self.imgWeatherImage setImage:image];
             }];
             [self.lblTemperature setText:[NSString stringWithFormat:@"%@ F", weatherTemp]];
             [self.lblTemperature setHidden:NO];
+            [self.imgWeatherImage setHidden:NO];
         }
     } failure:^(bool status, NSError *error) {
+        [self.imgWeatherImage setHidden:YES];
         [self.lblTemperature setHidden:YES];
     }];
 }
