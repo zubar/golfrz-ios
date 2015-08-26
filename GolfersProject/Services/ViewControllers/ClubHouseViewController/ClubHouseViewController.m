@@ -45,6 +45,7 @@
 
 @interface ClubHouseViewController ()
 {
+    NSDate * lastWeatherUpdateTime;
 }
 @property (nonatomic, retain) NSArray * weatherList;
 @end
@@ -127,7 +128,6 @@
     [[UINavigationBar appearance] setTitleVerticalPositionAdjustment:-10.0 forBarMetrics:UIBarMetricsDefault];
     
     //Update weatherData
-    [self.lblWeatherDate setText:@"Updating Weather Forecast..."];
     [self updateWeatherData];
     [self getAvailableFeatures];
 
@@ -136,6 +136,14 @@
 
 - (void)updateWeatherData {
     // Do any additional setup after loading the view.
+    if ([self.weatherList count] > 0) {
+        // Don't update weather if time interval is less than 60 minute.
+        if([self minutesBetween:lastWeatherUpdateTime endDate:[NSDate date]] < 30) return;
+    }else{
+        lastWeatherUpdateTime = [NSDate date];
+        [self.lblWeatherDate setText:@"Updating Weather Forecast..."];
+            }
+    
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [WeatherServices weatherInfo:^(bool status, NSArray *mWeatherData) {
         if (status) {
@@ -417,5 +425,10 @@
 }
 
 
+#pragma mark - Helper 
+-(CGFloat)minutesBetween:(NSDate *)startDate endDate:(NSDate *)endDate
+{
+    return [endDate timeIntervalSinceDate:startDate] / 60.0;
+}
 
 @end

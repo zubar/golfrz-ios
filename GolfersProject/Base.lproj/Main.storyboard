@@ -2209,7 +2209,7 @@
                                                                                 <constraint firstAttribute="height" constant="26" id="GGQ-nW-yvd"/>
                                                                                 <constraint firstAttribute="width" constant="26" id="LJ2-ou-0eZ"/>
                                                                             </constraints>
-                                                                            <state key="normal" image="C1AC80BB-DFCA-423B-8004-4EA725B766A9">
+                                                                            <state key="normal" image="D43B6861-33E4-42DB-871A-EE3E819EF355">
                                                                                 <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                                             </state>
@@ -5538,6 +5538,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <connections>
                         <outlet property="backgroundImg" destination="d1z-7w-e0D" id="KoC-R7-y63"/>
+                        <outlet property="btnDisconnectFB" destination="GCu-gw-zkB" id="oRT-VJ-i0x"/>
                         <outlet property="imgUserPic" destination="q3W-YF-wpN" id="IgX-ki-kn1"/>
                         <outlet property="lblEditProfile" destination="Mzb-4r-QUn" id="q4C-2b-A0g"/>
                         <outlet property="txtEmailAddress" destination="Ffl-MI-QBz" id="tgq-X3-TXR"/>
@@ -5914,7 +5915,7 @@
                                                                                 <constraint firstAttribute="height" constant="26" id="OaE-ph-eo5"/>
                                                                                 <constraint firstAttribute="width" constant="26" id="S5w-xw-4Ro"/>
                                                                             </constraints>
-                                                                            <state key="normal" image="F6EFFB2D-CDCB-4DF9-AC95-662BE7A78C9E">
+                                                                            <state key="normal" image="9E24C05F-19EA-4536-AF90-12D926CE0FD5">
                                                                                 <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                                             </state>
@@ -7393,7 +7394,7 @@ Nulla sed est consectetur, tempus tellus interdum, vehicula lectus. Aliquam soll
         </scene>
     </scenes>
     <resources>
-        <image name="C1AC80BB-DFCA-423B-8004-4EA725B766A9" width="24" height="25">
+        <image name="9E24C05F-19EA-4536-AF90-12D926CE0FD5" width="24" height="25">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -7485,7 +7486,7 @@ AAAAAAAAAAAAE48
 </mutableData>
         </image>
         <image name="ChooseHole_Down" width="88" height="88"/>
-        <image name="F6EFFB2D-CDCB-4DF9-AC95-662BE7A78C9E" width="24" height="25">
+        <image name="D43B6861-33E4-42DB-871A-EE3E819EF355" width="24" height="25">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
