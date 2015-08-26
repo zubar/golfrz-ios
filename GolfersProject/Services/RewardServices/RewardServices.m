@@ -15,6 +15,7 @@
 #import "Reward.h"
 #import "APIClient.h"
 #import "RewardSet.h"
+#import "UtilityServices.h"
 
 @implementation RewardServices
 
@@ -60,7 +61,6 @@
 +(void)getUserRewardPoints:(void(^)(bool status, NSNumber * totalPoints))successBlock
                    failure:(void(^)(bool status, GolfrzError * error))failureBlock
 {
-//TODO: 
     AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
     [apiClient GET:kRewardUserTotalPoints parameters:[RewardServices paramUserAuth] success:^(NSURLSessionDataTask *task, id responseObject) {
         if([responseObject objectForKey:@"points"] != [NSNull null])
@@ -77,22 +77,17 @@
  @return NSDictionary, dictionary contains all required params to call the api. 
  @param rewardId: id of the reward whose details are to fetch.
  */
-+(NSDictionary *)paramRewardIdentity:(NSNumber *)rewardId{
-    
-    return @{
++(NSDictionary *)paramRewardIdentity:(NSNumber *)rewardId
+{    
+    NSDictionary * param =@{
              @"reward_id" : rewardId,
-             @"app_bundle_id" : kAppBundleId,
-             @"user_agent" : kUserAgent,
-             @"auth_token" : [UserServices currentToken],
-             };
+                        };
+    return [UtilityServices dictionaryByMergingDictionaries:param aDict:[UtilityServices authenticationParams]];
 }
 
-+(NSDictionary *)paramUserAuth{
-    return @{
-        @"app_bundle_id" : kAppBundleId,
-        @"user_agent" : kUserAgent,
-        @"auth_token" : [UserServices currentToken],
-    };
++(NSDictionary *)paramUserAuth
+{
+    return [UtilityServices authenticationParams];
 }
 
 @end

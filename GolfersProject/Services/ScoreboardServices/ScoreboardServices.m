@@ -11,7 +11,7 @@
 #import "Constants.h"
 #import "UserServices.h"
 #import "PastScore.h"
-
+#import "UtilityServices.h"
 
 @implementation ScoreboardServices
 
@@ -111,59 +111,46 @@
                                         net:(NSNumber *)netScore
                                   skinCount:(NSNumber *)skincount
 {
-    return @{
-             @"app_bundle_id" : kAppBundleId,
-             @"user_agent" : kUserAgent,
-             @"auth_token" : [UserServices currentToken],
+    NSDictionary * param = @{
              @"round_id" : (roundId != nil ? roundId : [NSNumber numberWithInt:0]),
              @"gross_score" : (grossScore != nil ? grossScore : [NSNumber numberWithInt:0]),
              @"net_score" : (netScore != nil ? netScore : [NSNumber numberWithInt:0]),
              @"skin_count" : (skincount != nil ? skincount : [NSNumber numberWithInt:0]),
              };
+    return [UtilityServices dictionaryByMergingDictionaries:param aDict:[UtilityServices authenticationParams]];
 }
 +(NSDictionary *)paramPastScoreWithRoundId:(NSNumber *)roundId{
     
-    return @{
-             @"app_bundle_id" : kAppBundleId,
-             @"user_agent" : kUserAgent,
-             @"auth_token" : [UserServices currentToken],
+    NSDictionary * param = @{
              @"round_id" : roundId,
              };
+    return [UtilityServices dictionaryByMergingDictionaries:param aDict:[UtilityServices authenticationParams]];
 }
 
 
 +(NSDictionary *)paramPastScore{
     
-    return @{
-             @"app_bundle_id" : kAppBundleId,
-             @"user_agent" : kUserAgent,
-             @"auth_token" : [UserServices currentToken]
-             };
+    return [UtilityServices authenticationParams];
 }
 
 +(NSDictionary *)paramsScoreForSubCourseId:(NSNumber *)subCourseId roundId:(NSNumber *)roundId{
 
     
-    return @{
-             @"app_bundle_id" : kAppBundleId,
-             @"user_agent" : kUserAgent,
-             @"auth_token" : [UserServices currentToken],
+    NSDictionary * param = @{
              @"round_id" : roundId,
              @"sub_course_id":subCourseId
              };
+    return [UtilityServices dictionaryByMergingDictionaries:param aDict:[UtilityServices authenticationParams]];
 }
 
 
 +(NSDictionary *)paramsScoreForUserId:(NSNumber *)userId holeId:(NSNumber *)holeId roundId:(NSNumber *)roundId{
 
-    return @{
-             @"app_bundle_id" : kAppBundleId,
-             @"user_agent" : kUserAgent,
-             @"auth_token" : [UserServices currentToken],
+    NSDictionary * param = @{
              @"hole_id" : holeId,
              @"round_id" : roundId,
              @"user_id" : userId,
              };
-
+    return [UtilityServices dictionaryByMergingDictionaries:param aDict:[UtilityServices authenticationParams]];
 }
 @end

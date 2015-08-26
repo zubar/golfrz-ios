@@ -18,4 +18,5 @@
 
 +(NSDictionary *)authenticationParamsWithMemberId;
 +(NSDictionary *)authenticationParams;
++(NSDictionary *)dictionaryByMergingDictionaries:(NSDictionary *)authDict aDict:(NSDictionary *)paramDict;
 @end

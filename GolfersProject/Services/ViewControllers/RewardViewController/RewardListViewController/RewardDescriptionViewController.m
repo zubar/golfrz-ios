@@ -13,6 +13,7 @@
 #import "RewardServices.h"
 #import "GolfrzError.h"
 #import "Utilities.h"
+#import "Constants.h"
 
 @interface RewardDescriptionViewController ()
 
@@ -21,14 +22,14 @@
 @implementation RewardDescriptionViewController
 
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-
 }
 
 
--(void)viewWillAppear:(BOOL)animated{
-    
+-(void)viewWillAppear:(BOOL)animated
+{
     [self.view setHidden:YES];
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
@@ -40,9 +41,7 @@
     UIBarButtonItem *leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:imageButton];
     self.rewardViewController.navigationItem.leftBarButtonItem = leftBarButtonItem;
     
-    
     [self updateUserPoints];
-    
     
     [self.rewardImage sd_setImageWithURL:[NSURL URLWithString:[self.currentReward imagePath]] placeholderImage:nil  completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         if (image) {
@@ -53,10 +52,10 @@
     self.lblRewardPoints.text = [[self.currentReward pointsRequired] stringValue];
     self.lblRewardDetails.text = [self.currentReward rewardDetail];
     // Do any additional setup after loading the view.
-
 }
 
-- (void)updateUserPoints {
+- (void)updateUserPoints
+{
     [RewardServices getUserRewardPoints:^(bool status, NSNumber *totalPoints) {
         if(status){
             NSInteger userPoints = [totalPoints integerValue];
@@ -76,36 +75,34 @@
         [Utilities displayErrorAlertWithMessage:[error errorMessage]];
     }];
 }
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
--(void)viewDidAppear:(BOOL)animated{
+-(void)viewDidAppear:(BOOL)animated
+{
     [self.view setHidden:NO];
 }
 
--(void)viewWillDisappear:(BOOL)animated{
-    
+-(void)viewWillDisappear:(BOOL)animated
+{
     self.rewardViewController.navigationItem.leftBarButtonItem = nil;
 }
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 - (IBAction)btnRedeemedTapped:(UIButton *)sender {
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [RewardServices redeemRewardWithId:[self.currentReward itemId] success:^(bool status, id response) {
-        if(status)
+        if(status){
+            // Observer of this notification is RewardViewController which updates its label of total reward points of user.
+            [[NSNotificationCenter defaultCenter] postNotificationName:kRedeemedReward object:nil];
+            
              [[[UIAlertView alloc] initWithTitle:@"REWARD REDEEMED" message:@"Congratulations! An email will be sent shortly your way with more details." delegate:self cancelButtonTitle:@"BACK TO APP" otherButtonTitles:@"CHECK EMAIL", nil] show];
         [MBProgressHUD hideHUDForView:self.view animated:YES];
-        [self updateUserPoints];
+            [self updateUserPoints];
+        }
     } failure:^(bool status, GolfrzError *error) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         [Utilities displayErrorAlertWithMessage:[error errorMessage]];
@@ -118,8 +115,8 @@
 
 
 #pragma  - mark UIAlertViewDelegate
--(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
     // In case user clicked on CHECK EMAIL button.
     if(buttonIndex == 1){
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.gmail.com"]];

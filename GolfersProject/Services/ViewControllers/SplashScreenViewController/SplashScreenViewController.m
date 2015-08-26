@@ -50,16 +50,16 @@
     SharedManager * sharedManager = [SharedManager sharedInstance];
     
     [CourseServices courseInfo:^(bool status, id tObject) {
-        NSDictionary * mCourse = tObject;
+        Course * mCourse = tObject;
         // Setting ThemeColor
-        UIColor * themeColor = [UIColor colorWithHexString:[NSString stringWithFormat:@"0x%@", mCourse[@"course_theme"]]];
+        UIColor * themeColor = [UIColor colorWithHexString:[NSString stringWithFormat:@"0x%@", [mCourse courseTheme]]];
         (themeColor != nil ? [sharedManager setThemeColor:themeColor] : [sharedManager setThemeColor:[UIColor colorWithHexString:kDefaultThemeColor]]);
         // Setting
-        [sharedManager setCourseCity:mCourse[@"course_city"]];
-        [sharedManager setCourseName:mCourse[@"course_name"]];
-        [sharedManager setCourseState:mCourse[@"course_state"]];
-        [sharedManager setLogoImagePath:[NSString stringWithFormat:@"%@%@", kBaseImageUrl, mCourse[@"course_logo"]]];
-        [sharedManager setBackgroundImagePath:[NSString stringWithFormat:@"%@%@", kBaseImageUrl, mCourse[@"course_bg_image"]]];
+        [sharedManager setCourseCity:[mCourse courseCity]];
+        [sharedManager setCourseName:[mCourse courseName]];
+        [sharedManager setCourseState:[mCourse courseState]];
+        [sharedManager setLogoImagePath:[NSString stringWithFormat:@"%@%@", kBaseImageUrl, [mCourse courseLogo]]];
+        [sharedManager setBackgroundImagePath:[NSString stringWithFormat:@"%@%@", kBaseImageUrl, [mCourse courseBackgroundImage]]];
         
         self.navigationController.navigationBar.barTintColor = [[SharedManager sharedInstance] themeColor];
         [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];

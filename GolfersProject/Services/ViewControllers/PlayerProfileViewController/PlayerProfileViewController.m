@@ -27,6 +27,7 @@
 #import "UserServices.h"
 #import "Utilities.h"
 #import "User+convenience.h"
+#import "RewardServices.h"
 
 @interface PlayerProfileViewController (){
 
@@ -80,6 +81,18 @@
     }];
 }
 
+-(void)updateUserRewardPoints{
+    [RewardServices getUserRewardPoints:^(bool status, NSNumber *totalPoints) {
+        if(status)
+            [self.lblPoints setText:[totalPoints stringValue]];
+        else{
+            [self.lblPoints setText:@"-"];
+        }
+    } failure:^(bool status, GolfrzError *error) {
+        [Utilities displayErrorAlertWithMessage:[error errorMessage]];
+    }];
+}
+
 - (void) hasUserCheckedIn{
     [CourseServices getCheckInCount:^(bool status, NSNumber *noOfCheckIns){
         if ([noOfCheckIns boolValue]) {
@@ -99,20 +112,7 @@
     
     [RoundDataServices getRoundInProgress:^(bool status, NSNumber *roundNo, NSNumber *subCourseId, NSString *teeboxName) {
         if(status){
-        [ScoreboardServices getTotalScoreForAllPlayersForRoundId:roundNo
-                                                         success:^(bool status, NSDictionary *playerTotalScore)
-         {
-             NSString * userId = [NSString stringWithFormat:@"%@",[UserServices currentUserId]];
-             if([playerTotalScore objectForKey:userId] != nil){
-                NSNumber * score =  [playerTotalScore objectForKey:userId];
-                 [self.lblPoints setText:[score stringValue]];
-                 [self.btnStartRound setTitle:@"CONTINUE TO ROUND" forState:UIControlStateNormal];
-             }else{
-                 [self.lblPoints setText:@"-"];
-             }
-        } failure:^(bool status, GolfrzError *error) {
-            [Utilities displayErrorAlertWithMessage:[error errorMessage]];
-        }];
+            [self.btnStartRound setTitle:@"CONTINUE TO ROUND" forState:UIControlStateNormal];
         }
     } finishedRounds:^(bool status) {
         if(!status)
@@ -137,8 +137,8 @@
     [[UINavigationBar appearance] setTitleVerticalPositionAdjustment:-10.0 forBarMetrics:UIBarMetricsDefault];
     
     [self hasUserCheckedIn];
-    
     [self roundAlreadyInProgress];
+    [self updateUserRewardPoints];
 
     GameSettings * settings = [GameSettings sharedSettings];
     if([settings isRoundInProgress]){
@@ -173,27 +173,16 @@
 
 #pragma mark - NavBarButtonsDelegate
 
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
-- (IBAction)btnSettingsTapped:(UIButton *)sender {
-    
+- (IBAction)btnSettingsTapped:(UIButton *)sender
+{
     AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
     
     PlayerSettingsMainViewController * mainSettingsController = [self.storyboard instantiateViewControllerWithIdentifier:@"PlayerSettingsMainViewController"];
     [delegate.appDelegateNavController pushViewController:mainSettingsController animated:YES];
     
 }
-- (IBAction)btnStartRoundTapped:(UIButton *)sender {
-    
+- (IBAction)btnStartRoundTapped:(UIButton *)sender
+{
     AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
     AddPlayersViewController * controller = [self.storyboard instantiateViewControllerWithIdentifier:@"AddPlayersViewController"];
     [delegate.appDelegateNavController pushViewController:controller animated:YES];

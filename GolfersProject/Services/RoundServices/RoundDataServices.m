@@ -256,33 +256,25 @@
 
 +(NSDictionary *)paramUserAuthentication{
 
-    return @{
-        @"app_bundle_id" : kAppBundleId,
-        @"user_agent" : kUserAgent,
-        @"auth_token" : [UserServices currentToken],
-    };
+    return [UtilityServices authenticationParams];
 }
 
 +(NSDictionary *)paramStartRoundWithId:(NSNumber *)roundId
                            subCourseId:(NSNumber * )subcourseId
 {
-    return @{
-             @"app_bundle_id" : kAppBundleId,
-             @"user_agent" : kUserAgent,
-             @"auth_token" : [UserServices currentToken],
+    NSDictionary * param = @{
              @"round_id" :    roundId,
              @"sub_course_id" : subcourseId,
              };
+    return [UtilityServices dictionaryByMergingDictionaries:param aDict:[UtilityServices authenticationParams]];
 }
 
 +(NSDictionary *)paramsGetRoundInfoForRound:(NSNumber *)roundId
 {
-    return @{
-             @"app_bundle_id" : kAppBundleId,
-             @"user_agent" : kUserAgent,
-             @"auth_token" : [UserServices currentToken],
+    NSDictionary * param = @{
              @"round_id" :    roundId,
             };
+    return [UtilityServices dictionaryByMergingDictionaries:param aDict:[UtilityServices authenticationParams]];
 }
 
 +(NSDictionary *)paramsAddShotholeId:(NSNumber *)holeId
@@ -293,27 +285,23 @@
     if (type == ShotTypeStardard) shotTypeString = @"shot";
     else if (type == ShotTypePutt) shotTypeString = @"putt";
     else if (type == ShotTypePenalty) shotTypeString = @"penalty";
-    return @{
-             @"app_bundle_id" : kAppBundleId,
-             @"user_agent" : kUserAgent,
-             @"auth_token" : [UserServices currentToken],
+    NSDictionary * param = @{
              @"hole_id" :    holeId,
              @"round_id" :   round,
              @"shot_type" :  shotTypeString,
              };
+    return [UtilityServices dictionaryByMergingDictionaries:param aDict:[UtilityServices authenticationParams]];
 }
 
 +(NSDictionary *)paramsDeleteShot:(Shot *)mShot
 {
-    return @{
-             @"app_bundle_id" : kAppBundleId,
-             @"user_agent" : kUserAgent,
-             @"auth_token" : [UserServices currentToken],
+    NSDictionary * param = @{
              @"shot_id" :   [mShot itemId],
              @"round_id" : [mShot roundId],
              @"hole_id" : [mShot holeId],
              @"shot_type" : [mShot shotType],
              };
+    return [UtilityServices dictionaryByMergingDictionaries:param aDict:[UtilityServices authenticationParams]];
 }
 
 
@@ -326,15 +314,13 @@
     if(type == ShotTypeStardard) shotType = @"shot";
     else if(type == ShotTypePutt) shotType = @"putt";
     else if(type == ShotTypePenalty) shotType = @"penalty";
-    return @{
-             @"app_bundle_id" : kAppBundleId,
-             @"user_agent" : kUserAgent,
-             @"auth_token" : [UserServices currentToken],
+    NSDictionary * param = @{
              @"hole_id" :    holeId,
              @"round_id" :   round,
              @"shot_type" :  shotType,
              @"shot_id" :   shotId,
              };
+    return [UtilityServices dictionaryByMergingDictionaries:param aDict:[UtilityServices authenticationParams]];
 }
 
 
@@ -342,15 +328,13 @@
                               holeId:(NSNumber *)holeId
                             playerId:(NSNumber *)playerId
 {
-        return @{
-                 @"app_bundle_id" : kAppBundleId,
-                 @"user_agent" : kUserAgent,
-                 @"auth_token" : [UserServices currentToken],
+        NSDictionary * param = @{
                  @"hole_id" :    holeId,
                  @"round_id" :   [[GameSettings sharedSettings] roundId],
                  @"user_id" : playerId,
                  @"score" : score,
                  };
+    return [UtilityServices dictionaryByMergingDictionaries:param aDict:[UtilityServices authenticationParams]];
 }
 
 +(NSDictionary *)paramAddGuestToRoundEmail:(NSString *)email
@@ -359,10 +343,7 @@
                                  handicap:(NSNumber *)handicap
                                  teeBoxId:(NSNumber *)teeBoxId
 {
-    return @{
-             @"app_bundle_id" : kAppBundleId,
-             @"auth_token" : [UserServices currentToken],
-             @"user_agent" : kUserAgent,
+    NSDictionary * param = @{
              @"round_id" : [[GameSettings sharedSettings] roundId],
              @"email" : email,
              @"first_name" : firstName,
@@ -370,17 +351,16 @@
              @"handicap" : handicap,
              @"tee_box_id" : teeBoxId,
              };
+    return [UtilityServices dictionaryByMergingDictionaries:param aDict:[UtilityServices authenticationParams]];
 }
 
 +(NSDictionary *)paramsFinishRound{
     
-    return @{
-             @"app_bundle_id" : kAppBundleId,
-             @"user_agent" : kUserAgent,
-             @"auth_token" : [UserServices currentToken],
+    NSDictionary * param = @{
              @"round_id" : [[GameSettings sharedSettings] roundId],
              @"sub_course_id" : [[GameSettings sharedSettings] subCourseId],
              };
+    return [UtilityServices dictionaryByMergingDictionaries:param aDict:[UtilityServices authenticationParams]];
 }
 
 +(NSDictionary *)paramsCreateRound:(NSDictionary *)dict{
@@ -411,15 +391,13 @@
 
 +(NSDictionary *)paramsUpdateRound{
     
-    return @{
-             @"app_bundle_id" : kAppBundleId,
-             @"user_agent" : kUserAgent,
-             @"auth_token" : [UserServices currentToken],
+    NSDictionary * param = @{
              @"sub_course_id" : [[GameSettings sharedSettings] subCourseId],
              @"game_type_id" : [[GameSettings sharedSettings] gameTypeId],
              @"score_type_id" : [[GameSettings sharedSettings] scoreTypeId],
              @"tee_box_id" : [[GameSettings sharedSettings] teeboxId],
              @"round_id" : [[GameSettings sharedSettings] roundId],
              };
+    return [UtilityServices dictionaryByMergingDictionaries:param aDict:[UtilityServices authenticationParams]];
 }
 @end

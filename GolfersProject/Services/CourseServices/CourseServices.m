@@ -16,16 +16,18 @@
 #import "GolfrzError.h"
 #import "FeaturedControl.h"
 
+#import "UtilityServices.h"
 
 @implementation CourseServices
 
 static Course * currentCourse = nil;
 
 
-+(void)courseDetailInfo:(void (^)(bool status, Course * currentCourse))successBlock failure:(void (^)(bool status, GolfrzError * error))failureBlock{
++(void)courseDetailInfo:(void (^)(bool status, Course * currentCourse))successBlock
+                failure:(void (^)(bool status, GolfrzError * error))failureBlock
+{
     
     APIClient * apiClient = [APIClient sharedAPICLient];
-    
     [apiClient GET:kCourseDetail parameters:[self paramsCourseDetailInfo] completion:^(id response, NSError *error) {
         OVCResponse * resp = response;
         if (!error) {
@@ -39,14 +41,17 @@ static Course * currentCourse = nil;
 }
 
 
-+(void)courseInfo:(void (^)(bool, id tObject))successBlock failure:(void (^)(bool, NSError *))failureBlock{
-    
++(void)courseInfo:(void (^)(bool, id tObject))successBlock
+          failure:(void (^)(bool, NSError *))failureBlock
+{
     
     AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
-    
     [apiClient GET:kCourseInfo parameters:[CourseServices paramsCourseInfo] success:^(NSURLSessionDataTask *task, id responseObject) {
         if (responseObject) {
-            successBlock(true, responseObject);
+            NSError * parseError = nil;
+            Course * temp = [MTLJSONAdapter modelOfClass:[Course class] fromJSONDictionary:responseObject error:&parseError];
+            currentCourse = temp;
+            successBlock(true, currentCourse);
         }
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         if (error) {
@@ -56,8 +61,8 @@ static Course * currentCourse = nil;
 }
 
 +(void)checkInToCurrentCourse:(void(^)(bool status, id responseObject))successBlock
-                      failure:(void (^)(bool, NSError *))failureBlock{
-
+                      failure:(void (^)(bool, NSError *))failureBlock
+{
     AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
     [apiClient POST:kCheckInUrl parameters:[CourseServices paramsCourseDetailInfo] success:^(NSURLSessionDataTask *task, id responseObject) {
         successBlock(true, responseObject);
@@ -107,11 +112,7 @@ static Course * currentCourse = nil;
 #pragma mark - Helper Methods
 
 +(NSDictionary *)paramsCourseDetailInfo{
-        return @{
-                @"app_bundle_id": kAppBundleId,
-                @"user_agent" : kUserAgent,
-                @"auth_token" : [UserServices currentToken]
-    };
+    return [UtilityServices authenticationParams];
 }
 
 
