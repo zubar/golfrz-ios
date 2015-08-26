@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "BaseViewController.h"
 
-@interface ContactUsViewController : BaseViewController <UITableViewDataSource, UITableViewDelegate>
+@interface ContactUsViewController : BaseViewController <UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
 
 
 @property (strong, nonatomic) IBOutlet UILabel *lblCourseName;
@@ -43,5 +43,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *lblComma;
 
 @property (weak, nonatomic) IBOutlet UIImageView *imgViewBackground;
+@property (strong, nonatomic) IBOutlet UICollectionView *staffCollectionView;
 
 @end

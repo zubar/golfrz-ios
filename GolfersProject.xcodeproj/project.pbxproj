@@ -213,6 +213,7 @@
 		88EF1EF91B79014F006F901F /* PastScoreCardsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88EF1EF81B79014F006F901F /* PastScoreCardsViewController.m */; };
 		88EF1EFF1B79F867006F901F /* PastScoreCardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88EF1EFE1B79F867006F901F /* PastScoreCardCell.m */; };
 		88EFFD761B8B1C650020AFAD /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88EFFD751B8B1C650020AFAD /* Social.framework */; };
+		88EFFD7A1B8D9D750020AFAD /* StaffCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88EFFD791B8D9D750020AFAD /* StaffCell.m */; };
 		88FCA5481B7B46B7001B35BA /* CourseUpdatesHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88FCA5471B7B46B7001B35BA /* CourseUpdatesHeaderView.xib */; };
 		88FCA54B1B7B4C3A001B35BA /* CourseUpdatesHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88FCA54A1B7B4C3A001B35BA /* CourseUpdatesHeaderView.m */; };
 		A921244B1B36DB1E00917649 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A921244A1B36DB1E00917649 /* MessageUI.framework */; };
@@ -613,6 +614,8 @@
 		88EF1EFD1B79F867006F901F /* PastScoreCardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PastScoreCardCell.h; sourceTree = "<group>"; };
 		88EF1EFE1B79F867006F901F /* PastScoreCardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PastScoreCardCell.m; sourceTree = "<group>"; };
 		88EFFD751B8B1C650020AFAD /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		88EFFD781B8D9D750020AFAD /* StaffCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StaffCell.h; sourceTree = "<group>"; };
+		88EFFD791B8D9D750020AFAD /* StaffCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StaffCell.m; sourceTree = "<group>"; };
 		88FCA5471B7B46B7001B35BA /* CourseUpdatesHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CourseUpdatesHeaderView.xib; sourceTree = "<group>"; };
 		88FCA5491B7B4C3A001B35BA /* CourseUpdatesHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseUpdatesHeaderView.h; sourceTree = "<group>"; };
 		88FCA54A1B7B4C3A001B35BA /* CourseUpdatesHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseUpdatesHeaderView.m; sourceTree = "<group>"; };
@@ -1936,6 +1939,7 @@
 		889872C71B13237F00D3C0E9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				88EFFD771B8D9D5A0020AFAD /* StaffCell */,
 				BCC179F21B80623E002C0DA8 /* PopOverCell */,
 				BCC179EA1B805CAB002C0DA8 /* PopOverView */,
 				88FCA5461B7B46A2001B35BA /* CourseUpdatesHeaderView */,
@@ -2083,6 +2087,15 @@
 				88EF1EFE1B79F867006F901F /* PastScoreCardCell.m */,
 			);
 			path = PastScoreCardCell;
+			sourceTree = "<group>";
+		};
+		88EFFD771B8D9D5A0020AFAD /* StaffCell */ = {
+			isa = PBXGroup;
+			children = (
+				88EFFD781B8D9D750020AFAD /* StaffCell.h */,
+				88EFFD791B8D9D750020AFAD /* StaffCell.m */,
+			);
+			path = StaffCell;
 			sourceTree = "<group>";
 		};
 		88FCA5461B7B46A2001B35BA /* CourseUpdatesHeaderView */ = {
@@ -2458,6 +2471,7 @@
 				8890E4D31B307A5500A11BBF /* ContactCell.m in Sources */,
 				3DCA44D21B26CB3400B66BD2 /* StaffMember.m in Sources */,
 				3D1CB0E91B691563005C1E19 /* AddPlayersViewController.m in Sources */,
+				88EFFD7A1B8D9D750020AFAD /* StaffCell.m in Sources */,
 				3D7DF2071B6A551B00FCF8FE /* Teetime.m in Sources */,
 				3D7DF2211B6FD89F00FCF8FE /* CourseUpdateServices.m in Sources */,
 				BCA7894A1B819E22002F3B56 /* ValidationUtility.m in Sources */,
