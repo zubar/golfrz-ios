@@ -457,10 +457,9 @@
 -(void)descendTableViewWithAnimation:(BOOL)yesNo completion:(void(^)(void))completionBlock{
     
     [self.scoreTable setScrollEnabled:YES];
-    CGRect appFrame = [[UIScreen mainScreen] applicationFrame];
     
     CGRect initalFrame = [self.scoreTable frame];
-    CGRect finalFrame = CGRectMake(0, initalFrame.origin.y, initalFrame.size.width, appFrame.size.height * 0.5);
+    CGRect finalFrame = CGRectMake(0, initalFrame.origin.y, initalFrame.size.width, kPlayerScoreViewHeight * 3);
     
     [UIView animateWithDuration:0.5 animations:^{
         [self.scoreTable setFrame:finalFrame];
