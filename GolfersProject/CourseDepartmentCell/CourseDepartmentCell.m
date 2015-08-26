@@ -91,7 +91,7 @@
         default:
             break;
     }
-    return @"N/A";
+    return @" ";
 }
 
 
