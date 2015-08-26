@@ -33,6 +33,8 @@
 #import "ScoreSelectionView.h"
 #import <CMPopTipView/CMPopTipView.h>
 #import "ScoreSelectionCell.h"
+#import "WeatherServices.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface TeeTimesViewController ()
 @property(nonatomic, strong) NSMutableArray * subCourses;
@@ -92,8 +94,27 @@
     
    
 }
+-(void)updateWeatherForDate:(NSDate *)timeStamp{
+    
+    [WeatherServices dailyWeather:^(bool status, NSDictionary *weatherData) {
+        NSString * weatherTemp = weatherData[@"temp"];
+        if(!weatherTemp || [weatherTemp containsString:@"null"]){
+            [self.lblTemperature setHidden:YES];
+        }else{
+            [self.imgWeatherImage sd_setImageWithURL:weatherData[@"icon"] placeholderImage:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                [self.imgWeatherImage setImage:image];
+            }];
+            [self.lblTemperature setText:[NSString stringWithFormat:@"%@ F  ", weatherTemp]];
+            [self.lblTemperature setHidden:NO];
+        }
+    } failure:^(bool status, NSError *error) {
+        [self.lblTemperature setHidden:YES];
+    }];
+}
 
 -(void)updateTeeTimesForDate:(NSDate *)teeTimeDate completion:(void(^)(void))completionHandler{
+    
+    [self updateWeatherForDate:teeTimeDate];
     
     /*
      1: Get all teeTimes from 6:30 to 18:30 with intervals of 7min. 

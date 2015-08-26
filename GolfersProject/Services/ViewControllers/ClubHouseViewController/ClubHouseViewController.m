@@ -321,17 +321,6 @@
 
 #pragma mark - NavBarButtonsDelegate
 
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 - (IBAction)btnCheckedInTapped:(UIButton *)sender {
     
     [[[UIAlertView alloc] initWithTitle:@"CHECKING IN." message:@"Thank you for checking in. Please wait until we get your location." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];

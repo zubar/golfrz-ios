@@ -273,10 +273,9 @@
         // Navigate to ScoreCard.
         if(status){
             [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-            
             [[GameSettings sharedSettings] setroundId:(NSNumber *)[NSNull null]],
             [[GameSettings sharedSettings] setsubCourseId:(NSNumber *)[NSNull null]],
-            
+
             [[[UIAlertView alloc] initWithTitle:@"Round Cancelled!" message:@"Current Round is cancelled, you can now start new round." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
             [self loadDataToSetUpNewRound];
         }
