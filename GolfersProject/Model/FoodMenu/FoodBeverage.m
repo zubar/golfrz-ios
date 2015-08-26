@@ -8,6 +8,7 @@
 
 #import "FoodBeverage.h"
 #import "SideItem.h"
+#import "Constants.h"
 
 @implementation FoodBeverage
 
@@ -22,11 +23,18 @@
              //propertyName : json_key
              };
 }
-+ (NSValueTransformer *)sideItemsJSONTransformer {
-   // return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[SideItem class]];
+
++ (NSValueTransformer *)sideItemsJSONTransformer{
     return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[SideItem class]];
 }
 
++ (NSValueTransformer *)imageUrlJSONTransformer{
+    return [MTLValueTransformer transformerWithBlock:^id(id relativePath) {
+        return [self absoluteImageURLfromRelativeUR:relativePath ];
+    }];
+}
 
-
++ (NSString *)absoluteImageURLfromRelativeUR:(NSString *)relativePath{
+    return [NSString stringWithFormat:@"%@%@", kBaseImageUrl, relativePath];
+}
 @end
