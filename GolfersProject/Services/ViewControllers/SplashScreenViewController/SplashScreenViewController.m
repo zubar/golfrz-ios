@@ -68,25 +68,21 @@
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         
         // If user has already signed in and token is available.
-        /*
-        if ([UserServices currentToken] != nil) {
-            
-            InitialViewController * initController = [self.storyboard instantiateViewControllerWithIdentifier:@"InitialViewController"];
-            SignInViewController *signInViewController  = [self.storyboard instantiateViewControllerWithIdentifier:@"SignInViewController"];
-         
-            ClubHouseViewController * clubHouseController = [self.storyboard instantiateViewControllerWithIdentifier:@"ClubHouseViewController"];
-            [delegate.appDelegateNavController pushViewController:initController animated:NO];
-            
-            [delegate.appDelegateNavController pushViewController:clubHouseController animated:YES];
-        }else
-         */
+    
+        if ([UserServices currentToken] != nil)
         {
+            InitialViewController * initController = [self.storyboard instantiateViewControllerWithIdentifier:@"InitialViewController"];
+            AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+            UIViewController *clubHouseContainerVC  = [self.storyboard instantiateViewControllerWithIdentifier:@"ClubHouseContainerVC"];
+            [delegate.appDelegateNavController pushViewController:initController animated:NO];
+            [delegate.appDelegateNavController pushViewController:clubHouseContainerVC animated:NO];
+        }else{
             // push sign in controller
             InitialViewController * initController = [self.storyboard instantiateViewControllerWithIdentifier:@"InitialViewController"];
             [delegate.appDelegateNavController pushViewController:initController animated:YES];
         }
-    } failure:^(bool status, NSError * error) {
-        
+    } failure:^(bool status, NSError * error)
+    {
         [Utilities checkInternetConnectivityWithAlertCompletion:^(bool status) {
             if(!status)
                 return ;
@@ -98,10 +94,8 @@
 
 
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-        
         self.navigationController.navigationBar.barTintColor = [[SharedManager sharedInstance] themeColor];
 
-        
         InitialViewController * initController = [self.storyboard instantiateViewControllerWithIdentifier:@"InitialViewController"];
         [delegate.appDelegateNavController pushViewController:initController animated:YES];
     }];

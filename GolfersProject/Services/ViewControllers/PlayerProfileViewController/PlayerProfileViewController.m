@@ -39,9 +39,8 @@
 
 @implementation PlayerProfileViewController
 
-- (void)viewDidLoad {
-    
-    
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
@@ -81,7 +80,8 @@
     }];
 }
 
--(void)updateUserRewardPoints{
+-(void)updateUserRewardPoints
+{
     [RewardServices getUserRewardPoints:^(bool status, NSNumber *totalPoints) {
         if(status)
             [self.lblPoints setText:[totalPoints stringValue]];
@@ -93,7 +93,8 @@
     }];
 }
 
-- (void) hasUserCheckedIn{
+- (void) hasUserCheckedIn
+{
     [CourseServices getCheckInCount:^(bool status, NSNumber *noOfCheckIns){
         if ([noOfCheckIns boolValue]) {
             [self.checkInView setHidden:NO];
@@ -108,8 +109,8 @@
     }];
 }
 
--(void)roundAlreadyInProgress{
-    
+-(void)roundAlreadyInProgress
+{    
     [RoundDataServices getRoundInProgress:^(bool status, NSNumber *roundNo, NSNumber *subCourseId, NSString *teeboxName) {
         if(status){
             [self.btnStartRound setTitle:@"CONTINUE TO ROUND" forState:UIControlStateNormal];
@@ -147,26 +148,27 @@
     }else{
         [self.btnStartRound setTitle:@"START NEW ROUND" forState:UIControlStateNormal];
     }
-
 }
 
-- (void)pushNextController{
+- (void)pushNextController
+{
         [self.navigationController pushViewController:self.containerVC.rewardViewController animated:YES];
 }
 
-- (void)inviteFriendTap{
-    
+- (void)inviteFriendTap
+{
     AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
     InviteMainViewController * friendsController = [self.storyboard instantiateViewControllerWithIdentifier:@"InviteMainViewController"];
     [delegate.appDelegateNavController pushViewController:friendsController animated:YES];
-
 }
 
--(void)popToPreviousController{
+-(void)popToPreviousController
+{
         [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }

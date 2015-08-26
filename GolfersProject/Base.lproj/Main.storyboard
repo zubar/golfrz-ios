@@ -1853,6 +1853,23 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BxL-gq-5xJ">
                                 <rect key="frame" x="0.0" y="64" width="320" height="496"/>
                                 <subviews>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="owg-gR-xJB">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="20"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6HJ-J0-nYY">
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="20"/>
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TODAY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U3r-Vm-ait">
+                                                <rect key="frame" x="0.0" y="2" width="320" height="17"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </view>
                                     <view autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8vh-mx-3r4">
                                         <rect key="frame" x="0.0" y="20" width="320" height="74"/>
                                         <subviews>
@@ -2041,12 +2058,6 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TODAY" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U3r-Vm-ait">
-                                        <rect key="frame" x="137" y="2" width="47" height="17"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -2055,8 +2066,6 @@
                                     <constraint firstItem="ttc-5C-ber" firstAttribute="top" secondItem="yUd-U0-aX0" secondAttribute="bottom" constant="15" id="Z55-Fi-N4A"/>
                                     <constraint firstItem="yUd-U0-aX0" firstAttribute="top" secondItem="BxL-gq-5xJ" secondAttribute="top" constant="105" id="kQu-bA-imp"/>
                                     <constraint firstAttribute="centerX" secondItem="ttc-5C-ber" secondAttribute="centerX" id="lgm-TU-mcJ"/>
-                                    <constraint firstAttribute="centerX" secondItem="U3r-Vm-ait" secondAttribute="centerX" id="m5f-mi-Za0"/>
-                                    <constraint firstItem="U3r-Vm-ait" firstAttribute="top" secondItem="BxL-gq-5xJ" secondAttribute="top" constant="2" id="njn-mu-SXi"/>
                                     <constraint firstItem="A6e-HL-Fpl" firstAttribute="top" secondItem="ttc-5C-ber" secondAttribute="bottom" constant="22" id="prF-Jc-gcm"/>
                                     <constraint firstItem="A6e-HL-Fpl" firstAttribute="leading" secondItem="BxL-gq-5xJ" secondAttribute="leading" constant="95" id="zpR-h7-Bl7"/>
                                 </constraints>
@@ -2200,7 +2209,7 @@
                                                                                 <constraint firstAttribute="height" constant="26" id="GGQ-nW-yvd"/>
                                                                                 <constraint firstAttribute="width" constant="26" id="LJ2-ou-0eZ"/>
                                                                             </constraints>
-                                                                            <state key="normal" image="95872522-FAFA-498F-8F03-F8C97786212E">
+                                                                            <state key="normal" image="394FE0FE-28A3-4421-A6F1-4C5C7D56A0A4">
                                                                                 <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                                             </state>
@@ -5866,7 +5875,7 @@
                                                                                 <constraint firstAttribute="height" constant="26" id="OaE-ph-eo5"/>
                                                                                 <constraint firstAttribute="width" constant="26" id="S5w-xw-4Ro"/>
                                                                             </constraints>
-                                                                            <state key="normal" image="8B513128-6315-4BA3-AEE8-62E9A8865071">
+                                                                            <state key="normal" image="2A574D2B-1181-4474-9DDF-32203EDB34EE">
                                                                                 <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                                             </state>
@@ -7345,7 +7354,7 @@ Nulla sed est consectetur, tempus tellus interdum, vehicula lectus. Aliquam soll
         </scene>
     </scenes>
     <resources>
-        <image name="8B513128-6315-4BA3-AEE8-62E9A8865071" width="24" height="25">
+        <image name="2A574D2B-1181-4474-9DDF-32203EDB34EE" width="24" height="25">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -7436,7 +7445,7 @@ ExMWExsTKhMuEzUTPRNKE08TURNTE1gTYBNjE2gTcBNzE4UTiBONAAAAAAAAAgEAAAAAAAAAQgAAAAAA
 AAAAAAAAAAAAE48
 </mutableData>
         </image>
-        <image name="95872522-FAFA-498F-8F03-F8C97786212E" width="24" height="25">
+        <image name="394FE0FE-28A3-4421-A6F1-4C5C7D56A0A4" width="24" height="25">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

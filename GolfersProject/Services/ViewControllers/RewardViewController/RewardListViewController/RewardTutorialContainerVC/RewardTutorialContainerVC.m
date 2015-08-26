@@ -144,9 +144,7 @@
 
 -(void)dealloc {
     // let's release our child controllers
-    for (int i = 0; i <= kTutorialPagesCount; ++i) {
-        self.allViewControllers[i] = nil;
-    }
+    self.allViewControllers = nil;
 }
 -(void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
