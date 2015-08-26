@@ -258,7 +258,7 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    //One is subtracted because one player data is displayed header view of table.
+    // One is subtracted because one player data is displayed header view of table.
     return [self.playersInRound count] - 1;
 }
 
