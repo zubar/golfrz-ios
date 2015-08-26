@@ -22,6 +22,7 @@
 #import "GolfrzError.h"
 #import "Utilities.h"
 #import "Constants.h"
+#import "StaffCell.h"
 
 @interface ContactUsViewController ()
 
@@ -50,7 +51,8 @@
         self.courseDepartments = currentCourse.departments;
         self.courseStaff = currentCourse.staff;
         [self.tblDept reloadData];
-        [self populateStaffFields];
+        [self.staffCollectionView reloadData];
+        //[self populateStaffFields];
         [self populateCourseFields];
         [self.staffView setHidden:NO];
         [self.courseInfoView setHidden:NO];
@@ -106,29 +108,29 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-- (void)populateStaffFields{
-    if([self.courseStaff count] <= 0 ){
-        [self.staffView setHidden:YES];
-         return;
-        }else{
-            [self.staffView setHidden:NO];
-        }
-    
-    
-    StaffMember *currentStaffMember = [self.courseStaff objectAtIndex:0];
-    //StaffType *currentStafType = currentStaffMember.type;    
-    [self.imgAdminPic sd_setImageWithURL:[NSURL URLWithString:[currentStaffMember imageUrl]] placeholderImage:[UIImage imageNamed:@"person_placeholder"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-        if (image) {
-            [self.imgAdminPic setRoundedImage:image];
-        }
-    }];
-    
-    [self.lblAdminName setText:[currentStaffMember name]];
-    [self.lblAdminContact setText:[currentStaffMember phone]];
-    [self.lblAdminEmail setText:[currentStaffMember email]];
-    [self.lblAdminPost setText:((StaffType*)[currentStaffMember type]).name];
-}
+//
+//- (void)populateStaffFields{
+//    if([self.courseStaff count] <= 0 ){
+//        [self.staffView setHidden:YES];
+//         return;
+//        }else{
+//            [self.staffView setHidden:NO];
+//        }
+//    
+//    
+//    StaffMember *currentStaffMember = [self.courseStaff objectAtIndex:0];
+//    //StaffType *currentStafType = currentStaffMember.type;    
+//    [self.imgAdminPic sd_setImageWithURL:[NSURL URLWithString:[currentStaffMember imageUrl]] placeholderImage:[UIImage imageNamed:@"person_placeholder"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+//        if (image) {
+//            [self.imgAdminPic setRoundedImage:image];
+//        }
+//    }];
+//    
+//    [self.lblAdminName setText:[currentStaffMember name]];
+//    [self.lblAdminContact setText:[currentStaffMember phone]];
+//    [self.lblAdminEmail setText:[currentStaffMember email]];
+//    [self.lblAdminPost setText:((StaffType*)[currentStaffMember type]).name];
+//}
 
 - (void) populateCourseFields{
     [self.lblHdrCourseCity setText:[[CourseServices currentCourse]courseCity ] ];
@@ -171,6 +173,39 @@
     return customViewCell;
 }
 
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    return self.courseStaff.count;
+}
+
+
+-(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+    CGRect appFrame = [[UIScreen mainScreen] applicationFrame];
+    return CGSizeMake(appFrame.size.width, 100);
+}
+
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"StaffCell" forIndexPath:indexPath];
+    
+    if (cell == nil){
+        cell = [[UICollectionViewCell alloc] init];
+    }
+    
+    StaffCell *customCell = (StaffCell *)cell;
+    StaffMember *currentStaffMember = [self.courseStaff objectAtIndex:indexPath.row];
+    [customCell.imgAdminPic sd_setImageWithURL:[NSURL URLWithString:[currentStaffMember imageUrl]] placeholderImage:[UIImage imageNamed:@"person_placeholder"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        if (image) {
+            [customCell.imgAdminPic setRoundedImage:image];
+        }
+    }];
+    
+    [customCell.lblAdminName setText:[currentStaffMember name]];
+    [customCell.lblAdminContact setText:[currentStaffMember phone]];
+    [customCell.lblAdminEmail setText:[currentStaffMember email]];
+    [customCell.lblAdminPost setText:((StaffType*)[currentStaffMember type]).name];
+    
+    return customCell;
+    
+}
 /*
 #pragma mark - Navigation
 
