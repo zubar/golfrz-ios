@@ -222,6 +222,7 @@
             
             currentItemsIndropdown = DropDownContainsItemsSubcourses;
             [self setSelectedItemToLocalItem:self.roundInfo.activeCourse];
+            
             currentItemsIndropdown = DropDownContainsItemsGametype;
             [self setSelectedItemToLocalItem:self.roundInfo.activeGameType];
             currentItemsIndropdown = DropDownContainsItemsScoring;
@@ -263,7 +264,10 @@
 #pragma mark - Navigation
 -(void)cancelRound{
     
-    if([[GameSettings sharedSettings] roundId]== (NSNumber *)[NSNull null] || [[GameSettings sharedSettings] subCourseId]==(NSNumber *)[NSNull null]){
+    if(![[GameSettings sharedSettings] roundId] ||
+       ![[GameSettings sharedSettings] subCourseId] ||
+       [[GameSettings sharedSettings] roundId]== (NSNumber *)[NSNull null] ||
+       [[GameSettings sharedSettings] subCourseId]==(NSNumber *)[NSNull null]){
         [self showAlertNoRoundInProgress];
         return;
     }

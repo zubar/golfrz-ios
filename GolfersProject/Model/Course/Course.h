@@ -19,6 +19,7 @@
 @property (copy, nonatomic, readonly) NSString * courseState;
 @property (copy, nonatomic, readonly) NSString * courseCity;
 @property (copy, nonatomic, readonly) NSString * courseAddress;
+
 @property (copy, nonatomic, readonly) NSNumber *postalCode;
 @property (copy, nonatomic, readonly) NSArray * coordinates;
 @property (copy, nonatomic, readonly) NSArray * departments;
