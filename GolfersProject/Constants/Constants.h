@@ -211,7 +211,7 @@ static NSString * const kAddGuestErrorMessage = @"Unable to add guest.";
 static NSString * const kTeeBoxErrorMessage = @"Please select a teebox.";
 static NSString * const NumberNotAvaliableErrorMessage  = @"Number not avaliable!";
 static NSString * const CallSupportErrorMessage  = @"Your device doesn't support call!";
-static NSString *const EmailSupportErrorMessage = @"Your device doesn't support e-mail!"
+static NSString *const EmailSupportErrorMessage = @"Email is not configured on this device!";
 
 /*
  * Success Messages
