@@ -377,7 +377,7 @@
 -(NSArray *)dataArrayForCells
 {
     NSMutableArray * scoresArray = [NSMutableArray new];
-    for (int i = 0; i < 30; ++i) {
+    for (int i = 1; i < 30; ++i) {
         [scoresArray addObject:[[NSNumber numberWithInt:i] stringValue]];
     }
     return scoresArray;
@@ -396,7 +396,8 @@
         NSNumber * score = [NSNumber numberWithInteger:[item integerValue]];
         [self updateScore:score player:self.scoredPlayer];
     }else{
-        //TODO: call the removeShots Method.
+        NSNumber * score = [NSNumber numberWithInteger:[item integerValue]];
+        [self updateScore:score player:self.scoredPlayer];
     }
 }
 #pragma mark - UINavigation
