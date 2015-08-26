@@ -332,7 +332,7 @@
                     [headerView.imgWeather setHidden:NO];
                 } ];
                 
-                [headerView.lblTemperature setText:[NSString stringWithFormat:@"%@ C", [weatherData[@"temp"] stringValue]]];
+                [headerView.lblTemperature setText:[NSString stringWithFormat:@"%@ F", [weatherData[@"temp"] stringValue]]];
                 [headerView.lblTemperature setFont:[UIFont fontWithName:@"Helvetica" size:12.0f]];
                 [headerView.lblTemperature setHidden:NO];
             }

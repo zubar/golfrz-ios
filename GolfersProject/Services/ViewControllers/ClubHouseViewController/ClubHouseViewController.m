@@ -267,7 +267,7 @@
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
     [formatter setMaximumFractionDigits:0];
     NSString *tempToDisplay = [formatter stringFromNumber:tempWeather.temperature];
-    [customCell.lblTemperature setText:[NSString stringWithFormat:@"%@", tempToDisplay]];
+    [customCell.lblTemperature setText:[NSString stringWithFormat:@"%@ F", tempToDisplay]];
     
     [customCell.imgWeatherIcon sd_setImageWithURL:[NSURL URLWithString:tempWeather.condition.icon] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
       //  <#code#>
