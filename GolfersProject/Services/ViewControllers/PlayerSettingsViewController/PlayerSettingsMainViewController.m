@@ -19,6 +19,10 @@
 #import "Utilities.h"
 #import "FaceBookAuthAgent.h"
 
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
+
 @interface PlayerSettingsMainViewController ()
 
 @end
@@ -31,6 +35,11 @@
     SharedManager * manager = [SharedManager sharedInstance];
     [self.backgroundImg setImage:[manager backgroundImage]];
 
+    if([[FBSDKAccessToken currentAccessToken] tokenString] != nil )
+       [self.btnDisconnectFB setHidden:NO];
+    else
+        [self.btnDisconnectFB setHidden:YES];
+    
     
     //Assuming the view will always be created in non-editing mode.
     isEditing = false;

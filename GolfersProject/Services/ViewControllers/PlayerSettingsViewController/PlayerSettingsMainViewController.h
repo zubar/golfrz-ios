@@ -22,5 +22,6 @@
 @property (strong, nonatomic) IBOutlet UITextField *txtPhoneNumber;
 
 @property (strong, nonatomic) IBOutlet UIImageView *backgroundImg;
+@property (weak, nonatomic) IBOutlet UIButton *btnDisconnectFB;
 
 @end

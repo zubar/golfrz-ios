@@ -45,6 +45,7 @@
 
 @interface ClubHouseViewController ()
 {
+    NSDate * lastWeatherUpdateTime;
 }
 @property (nonatomic, retain) NSArray * weatherList;
 @end
@@ -125,16 +126,24 @@
         [pageControl setHidden:NO];
     }
     [[UINavigationBar appearance] setTitleVerticalPositionAdjustment:-10.0 forBarMetrics:UIBarMetricsDefault];
-    [self getAvailableFeatures];
     
     //Update weatherData
-    [self.lblWeatherDate setText:@"Updating Weather Forecast..."];
     [self updateWeatherData];
+    [self getAvailableFeatures];
+
 
 }
 
 - (void)updateWeatherData {
     // Do any additional setup after loading the view.
+    if ([self.weatherList count] > 0) {
+        // Don't update weather if time interval is less than 60 minute.
+        if([self minutesBetween:lastWeatherUpdateTime endDate:[NSDate date]] < 30) return;
+    }else{
+        lastWeatherUpdateTime = [NSDate date];
+        [self.lblWeatherDate setText:@"Updating Weather Forecast..."];
+            }
+    
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [WeatherServices weatherInfo:^(bool status, NSArray *mWeatherData) {
         if (status) {
@@ -209,25 +218,28 @@
                     [self.teeTimesView setCenter:CGPointMake(xDisplacement * multiplyFactor , self.teeTimesView.center.y)];
                     ++multiplyFactor;
                     [self.teeTimesView setHidden:NO];
+                    NSLog(@"TeeTime: xDisplacement: %d, countFeatureItem: %d, X-Axis: %d", xDisplacement, countFeatureItems, xDisplacement * multiplyFactor);
                 }
                 if ([visibleFeatures objectForKey:kFeatEventCalendar]) {
                     [self.eventsView setCenter:CGPointMake(xDisplacement* multiplyFactor, self.eventsView.center.y)];
                     ++multiplyFactor;
                     [self.eventsView setHidden:NO];
+                    NSLog(@"FeatEventCal: xDisplacement: %d, countFeatureItem: %d, X-Axis: %d", xDisplacement, countFeatureItems, xDisplacement * multiplyFactor);
                 }
                 if ([visibleFeatures objectForKey:kFeatFoodAndBeverages]) {
                     [self.foodBevView setCenter:CGPointMake(xDisplacement* multiplyFactor, self.foodBevView.center.y)];
                     ++multiplyFactor;
                     [self.foodBevView setHidden:NO];
+                    NSLog(@"FoodBef: xDisplacement: %d, countFeatureItem: %d, X-Axis: %d", xDisplacement, countFeatureItems, xDisplacement * multiplyFactor);
                 }
-
             [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         }
     } failure:^(bool status, GolfrzError *error) {
+        // If request fails also show the data in exiting labels.
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         [Utilities displayErrorAlertWithMessage:[error errorMessage]];
     }];
-     
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -265,6 +277,7 @@
     
     return customCell;
 }
+
 
 -(void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -412,5 +425,10 @@
 }
 
 
+#pragma mark - Helper 
+-(CGFloat)minutesBetween:(NSDate *)startDate endDate:(NSDate *)endDate
+{
+    return [endDate timeIntervalSinceDate:startDate] / 60.0;
+}
 
 @end

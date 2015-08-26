@@ -52,10 +52,9 @@
 }
 
 +(void)getInvitationDetail:(void (^)(bool status, id roundId))successBlock
-                   failure:(void (^)(bool status, NSError * error))failureBlock{
-    
+                   failure:(void (^)(bool status, NSError * error))failureBlock
+{
     AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
-    
     NSLog(@"GET_INVITATION:%@", [InvitationServices paramGetInvitationDetail]);
 
     [apiClient GET:kGetInvitationDetail parameters:[InvitationServices paramGetInvitationDetail] success:^(NSURLSessionDataTask *task, id responseObject) {
@@ -65,8 +64,8 @@
     }];
 }
 
-+(NSString *)getinvitationAppOpenUrlForInvitation:(NSString *)appInvitationToken{
-    //http://45.56.104.68/redirect_with_invitation?invitation=2222
++(NSString *)getinvitationAppOpenUrlForInvitation:(NSString *)appInvitationToken
+{
     return  [NSString stringWithFormat:@"%@redirect_with_invitation?invitation=%@", kInvitationRedirect, appInvitationToken];
 }
 
@@ -83,9 +82,8 @@
     return [UtilityServices authenticationParams];
 }
 
-+(NSDictionary *)paramsGetInvitationInvitee:(NSArray *)invitee inviteType:(RoundInvitationType )invitationType{
-    
-    
++(NSDictionary *)paramsGetInvitationInvitee:(NSArray *)invitee inviteType:(RoundInvitationType )invitationType
+{
     NSDictionary * provider = nil;
     NSString * providerType = nil;
     
