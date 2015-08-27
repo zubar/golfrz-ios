@@ -63,9 +63,7 @@
     
     self.navigationItem.title = @"COURSE UPDATES";
     
-    //TODO:
-    //For Testing.
-    notificationId = [NSNumber numberWithInt:17];
+    notificationId = [self.currntActivity itemId];
     userId = [NSNumber numberWithInteger:[[UserServices currentUserId] integerValue]];
     
     
@@ -212,35 +210,6 @@
      */
     return 1;
 }
-
-/*
--(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    return 40;
-}
-
-
--(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
-    UIView * headerView = [[UIView alloc] initWithFrame:CGRectMake(0,0,320,40)];
-    headerView.backgroundColor = [UIColor clearColor];
-    UIImageView * imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg_date.png"]];
-    //UIView * backgroundView = [[UIView alloc]init];
-    //[backgroundView setBackgroundColor:[UIColor colorWithRed:251/255.0 green:234/255.0 blue:25/255.0 alpha:1.0f]];
-    imageView.frame = CGRectMake(0, 0, 111, 36);
-    imageView.center = CGPointMake(320/2, 18);
-    [headerView addSubview:imageView];
-    
-    UILabel * label  = [[UILabel alloc] initWithFrame:CGRectMake(0,0,320,40)];
-    label.backgroundColor = [UIColor clearColor];
-    label.font = [UIFont fontWithName:@"Helvetica" size:14];
-    label.textAlignment = NSTextAlignmentCenter;
-    label.textColor = [UIColor blackColor];
-    label.text = [Utility convertDate:[tablekeys objectAtIndex:section] fromFormat:@"dd/MM/yy" InFormat:@"dd-MMM-yyyy"];
-    [headerView addSubview:label];
-    return headerView;
-}
-*/
 
 #pragma mark text button action listener
 -(IBAction)sendMessage:(id)sender

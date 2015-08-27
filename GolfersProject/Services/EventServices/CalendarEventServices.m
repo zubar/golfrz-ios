@@ -17,7 +17,9 @@
 @implementation CalendarEventServices
 
 
-+(void)getEvents:(void (^)(bool status, EventList * eventsArray))successBlock failure:(void (^)(bool status, NSError * error))failureBlock{
++(void)getEvents:(void (^)(bool status, EventList * eventsArray))successBlock
+         failure:(void (^)(bool status, NSError * error))failureBlock
+{
 
     APIClient * apiClient = [APIClient sharedAPICLient];
     [apiClient GET:kCalenderEventsList parameters:[CalendarEventServices paramsForEventList] completion:^(id response, NSError *error) {
@@ -28,16 +30,12 @@
         }else
             failureBlock(false, error);
     }];
-    
 }
-
-//TODO: update token code.
 
 #pragma mark - Helper Methods
 
-+(NSDictionary *)paramsForEventList{
-    
++(NSDictionary *)paramsForEventList
+{
     return [UtilityServices authenticationParams];
-
 }
 @end

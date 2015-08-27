@@ -75,7 +75,6 @@ bool isDisplaying;
 -(void)populateNotificationAndShow{
     
     if (isDisplaying ) {
-        //[self performSelector:@selector(populateNotificationAndShow) withObject:nil afterDelay:5.0];
         return;
     }
     
@@ -105,6 +104,8 @@ bool isDisplaying;
     
     if ([self.notificationsArray count] > 0) {
         [self performSelector:@selector(populateNotificationAndShow) withObject:nil afterDelay:2.0];
+    }else{
+        [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
     }
 }
 

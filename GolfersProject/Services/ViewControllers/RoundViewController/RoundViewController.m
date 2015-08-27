@@ -430,7 +430,6 @@
                    
                 }
             } failure:^(bool status, NSError *error) {
-                //TODO: see this alert or get Golfrz Error object here.
                 [[[UIAlertView alloc] initWithTitle:@"Try Again." message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
             }];
         }
@@ -780,7 +779,7 @@
 
 -(void)updateFrontDistanceForLoc:(CGPoint)cord
 {
-    int dist = [self meterfromPlace:cord andToPlace:frontCord];
+    int dist = [self yardsfromPlace:cord andToPlace:frontCord];
     
     NSString * lbl = nil;
     NSString * ditFormt = nil;
@@ -793,7 +792,7 @@
 
 -(void)updateMiddleDistanceForLoc:(CGPoint)cord
 {
-    int dist = [self meterfromPlace:cord andToPlace:middleCord];
+    int dist = [self yardsfromPlace:cord andToPlace:middleCord];
     NSString * lbl = nil;
     NSString * ditFormt = nil;
     if(dist >= 1000)
@@ -804,7 +803,7 @@
 
 -(void)updateBackDistanceForLoc:(CGPoint)cord
 {
-    int dist = [self meterfromPlace:cord andToPlace:backCord];
+    int dist = [self yardsfromPlace:cord andToPlace:backCord];
     NSString * lbl = nil;
     NSString * ditFormt = nil;
     if(dist >= 1000)
@@ -814,7 +813,7 @@
 }
 
 
--(int)meterfromPlace:(CGPoint )from andToPlace:(CGPoint)to
+-(int)yardsfromPlace:(CGPoint )from andToPlace:(CGPoint)to
 {
     CLLocation *userloc = [[CLLocation alloc]initWithLatitude:from.y longitude:from.x];
     CLLocation *dest = [[CLLocation alloc]initWithLatitude:to.y longitude:to.x];

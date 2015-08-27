@@ -502,7 +502,6 @@
         
         if ([[results allKeys] count] == 1){
             [[[UIAlertView alloc] initWithTitle:@"Inivites Send" message:@"Send invitations successfully" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
-            // TODO:
         }
     }
     [self.segmentControl setSelectedSegmentIndex:1];

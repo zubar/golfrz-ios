@@ -97,7 +97,6 @@
         customViewCell.lblUpdateTestTrailingConstraints.constant = -40;
         [customViewCell.singleImageView setHidden:NO];
         [customViewCell.detailCommentsView setHidden:YES];
-        //TODO: image below is not loading.
         [customViewCell.imgUpdateImage sd_setImageWithURL:[NSURL URLWithString:[courseActivity imgPath]] placeholderImage:[UIImage imageNamed:@"event_placeholder"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
             [customViewCell.imgUpdateImage setRoundedImage:image];
         }];

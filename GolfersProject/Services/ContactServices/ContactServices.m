@@ -68,7 +68,8 @@ static     APAddressBook *addressBook;
 +(void)getFacebookFriendsFiltered:(ContactFilterOption)filterProperty
                      sortedbyName:(BOOL)yesNo
                           success:(void (^)(bool status, NSArray * friendsArray))successBlock
-                          failure:(void (^)(bool status, NSError * error))failureBlock{
+                          failure:(void (^)(bool status, NSError * error))failureBlock
+{
 
     FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc] initWithGraphPath:@"me/friends"
                                                                    parameters:nil];
@@ -76,12 +77,10 @@ static     APAddressBook *addressBook;
     if ([FaceBookAuthAgent hasValidToken]) {
         [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
             if (!error) {
-                //TODO: parse friends
                 successBlock(true, result[@"data"]);
             }else{
                 failureBlock(false, error);
             }
-            
         }];
     }else{
         [FaceBookAuthAgent signInWithFacebook:^(bool status, NSDictionary *userInfo) {
@@ -100,20 +99,20 @@ static     APAddressBook *addressBook;
     }
 }
 
+//Future Use:
 +(void)getInAppFriendsFiltered:(ContactFilterOption)filterProperty
                   sortedbyName:(BOOL)yesNo
                        success:(void(^)(bool status, NSArray * contactsArray))successBlock
-                       failure:(void(^)(bool status, NSError * error))failureBlock{
+                       failure:(void(^)(bool status, NSError * error))failureBlock
+{
     
-    /*
-    AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc]initWithBaseURL:[NSURL URLWithString:kBaseURL]];
-    apiClient GET:<#(NSString *)#> parameters:<#(id)#> success:<#^(NSURLSessionDataTask *task, id responseObject)success#> failure:<#^(NSURLSessionDataTask *task, NSError *error)failure#>
-*/
+ 
 }
 
 
 
-+(void)inviteContactViaEmail:(id)contact success:(void (^)(bool status, id response))successBlock failure:(void (^)(bool status, NSError * error))failureBlock{
++(void)inviteContactViaEmail:(id)contact success:(void (^)(bool status, id response))successBlock
+                     failure:(void (^)(bool status, NSError * error))failureBlock{
     
     AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
     [apiClient POST:kSignInURL parameters:[ContactServices paramsInviteContactViaEmail] success:^(NSURLSessionDataTask *task, id responseObject) {

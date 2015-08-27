@@ -23,7 +23,7 @@
 #import "AppDelegate.h"
 #import "SharedManager.h"
 
-//TODO: Create a class invitationManager which handles:
+//Create a class invitationManager which handles:
 /*
     1- Fetching friends from Addressbook, send inivitations to addressbook friends. 
     2- Handle delegates for SMS, Email etc. 
@@ -34,7 +34,7 @@
 @property (nonatomic, strong) NSMutableArray * selectedFriends;
 @property (nonatomic, strong) NSMutableArray * allFriends;
 @property (nonatomic, strong) NSMutableArray * searchedFriends;
-//TODO: save the invitationId if required.
+//Save the invitationId if required.
 @property (nonatomic, strong) NSString * invitationId;
 @end
 
@@ -96,7 +96,7 @@
         }
             break;
         case FriendContactTypeFacebookEmail:{
-            //TODO:
+            //TODO: Feature to work in Future.
         }
         default:
             break;
@@ -200,7 +200,6 @@
                     [MBProgressHUD hideHUDForView:self.view animated:YES];
                         }
     } failure:^(bool status, NSError *error) {
-        //TODO:
         [MBProgressHUD hideHUDForView:self.view animated:YES];
     }];
 }
@@ -275,10 +274,10 @@
             propertySelector = NSSelectorFromString(@"contactPhoneNumber");
             break;
         case FriendContactTypeFacebookEmail:
-            ///TODO:
+            //TODO: Future item, this feature will be implemented in next version.
             break;
         case FriendContactTypeGuest:
-            //TODO:
+            // Guest feature is working fine Need to see if its needed. 
             break;
         default:
             break;

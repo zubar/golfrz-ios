@@ -63,7 +63,7 @@
 
 -(void)addNotificationToList:(NSDictionary *)object{
 
-    //TODO: check before you post notif
+    //check before you post notif
     //currentUserNotificationSettings
     //Extracts notification payload.
     NSLog(@"Push-Message:%@", object);
@@ -80,6 +80,7 @@
         
         SideNotificationView * notifView = [SideNotificationView sharedInstance];
         [notifView addNotificationsArrayObject:notif];
+        [UIApplication sharedApplication].applicationIconBadgeNumber = [[notifView notificationsArray] count];
     }
 }
 
@@ -97,15 +98,14 @@
                               };
     NSString * pushUrl = [NSString stringWithFormat:@"%@%@",kBaseURL, kPushRegURL];
     
-    //TODO: try sending the message again if some error occurs.
+    //Try sending the message again if some error occurs.
     [UtilityServices postData:params toURL:pushUrl success:^(bool status, NSDictionary *userInfo) {
         // Good keep chill.
         if (status) {
             self.isRegisteredForPush = TRUE;
         }
-        
     } failure:^(bool status, NSError *error) {
-        //TODO: Try again to post.
+        [[[UIAlertView alloc] initWithTitle:@"Can not register with Golfrz Server!" message:@"App can not register for push messages with Golfrz Server, it may cause delay in receiving updates." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
     }];
 }
 

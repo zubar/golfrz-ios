@@ -96,7 +96,7 @@ bool pointInPolygon(int polyCorners, float polyX[], float polyY[], float x, floa
 
 -(BOOL)isUserLocationInCourse{
    
-    // Check if location services are enabled if not  retun & TODO: show alert
+    // Check if location services are enabled if not  retun & show alert
     Course * mCourse = [CourseServices currentCourse];
     int polyCorners = (int)[mCourse.coordinates count];
     

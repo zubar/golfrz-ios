@@ -77,7 +77,6 @@ static NSString * const kFeatureUrl =@"features/list";
 static NSString * const kInAppFriend = @"users/in_app_user_list";
 
 
-//TODO: get it from bundle id,
 #pragma warking - Automation issue.
 static NSString * const kAppBundleId = @"com.golfrz.genevagcc";
 //static NSString * const kAppBundleId = @"org.golfrz.GolferzProject99";

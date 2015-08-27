@@ -223,7 +223,6 @@
     
     [CourseServices courseDetailInfo:^(bool status, Course *currentCourse) {
         if (status) {
-            //TODO: any business logic on it to apply.
             if (status) {
                 completionBlock(currentCourse);
             }

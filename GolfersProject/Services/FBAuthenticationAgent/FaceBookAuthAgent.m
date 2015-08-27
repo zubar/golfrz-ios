@@ -110,7 +110,6 @@
              @"user_agent" : kUserAgent,
              };
 }
-//TODO: Save Token here.
 /*
 You can also track currentAccessToken changes with FBSDKAccessTokenDidChangeNotification in NSNotificationCenter. If you track someone's login state changes you can update your UI based on their state.
 

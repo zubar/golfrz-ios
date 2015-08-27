@@ -48,7 +48,7 @@
     return @"no email exists";
 }
 
-//TODO: 
+//In future will allow user to upload his image to server. 
 -(UIImage *)contactImage{
     return nil;
 }

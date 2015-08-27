@@ -13,18 +13,11 @@
 
 // R & D on notifications while app is killed.
 -(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo{
-
-    //TODO: See if we need to check localNotif: 
-    //UILocalNotification *localNotif = [userInfo objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
     
     NSLog(@"PushReceived: %@", userInfo);
     
     PushManager * sharedPushManager = [PushManager sharedInstance];
     [sharedPushManager addNotificationToList:userInfo];
-    
-        //NSString *itemName = [localNotif.userInfo objectForKey:ToDoItemKey];
-        //[viewController displayItem:itemName];  // custom method
-        //app.applicationIconBadgeNumber = localNotif.applicationIconBadgeNumber-1;
 }
 
 
@@ -50,7 +43,7 @@
     NSLog(@"Fail-TO-Register-Notif: %@", error);
 }
 
-//TODO: called when user taps push alert displayed by iOS, display the internal app alert or navigate to relevant screen. 
+//called when user taps push alert displayed by iOS, display the internal app alert or navigate to relevant screen. 
 -(void)application:(UIApplication *)application handleActionWithIdentifier:(NSString *)identifier forRemoteNotification:(NSDictionary *)userInfo completionHandler:(void (^)())completionHandler{
 
 

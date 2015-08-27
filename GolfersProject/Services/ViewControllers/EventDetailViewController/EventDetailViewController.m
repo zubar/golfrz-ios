@@ -52,7 +52,6 @@
     
     [Utilities dateComponentsFromNSDate:self.currentEvent.dateStart components:^(NSString *dayName, NSString *monthName, NSString *day, NSString *time, NSString * minutes, NSString * hourAndMin) {
         [self.lblDay setText:[NSString stringWithFormat:@"%@ %@", monthName, day]];
-        //TODO: Update the dateComponentsFromNSDate utility method to return time without am/ pm or in both formats
         [self.lblTime setText:hourAndMin];
     }];
     

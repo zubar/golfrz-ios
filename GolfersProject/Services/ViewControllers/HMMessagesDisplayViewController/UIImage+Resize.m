@@ -153,7 +153,6 @@
 	return [self resizedImageToSize:dstSize];
 }
 
-//TODO: Zubi
 +(CGSize)resizedImageSizeToFitInSize:(CGSize)boundingSize actualSize:(CGSize)originalSize scaleIfSmaller:(BOOL)scale
 {
     // get the image size (independant of imageOrientation)

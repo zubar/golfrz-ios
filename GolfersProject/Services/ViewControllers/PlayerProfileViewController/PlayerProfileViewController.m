@@ -70,10 +70,7 @@
                 [self.imgUserPic setRoundedImage:image];
             }
         }];
-        
-        
     } failure:^(bool status, GolfrzError *error) {
-        //TODO: add in a separate file all the alert messages.
         [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Failed to get details" delegate:nil cancelButtonTitle:@"CANCEL" otherButtonTitles:nil, nil] show];
         [MBProgressHUD hideHUDForView:self.view animated:YES];
 
@@ -98,7 +95,6 @@
     [CourseServices getCheckInCount:^(bool status, NSNumber *noOfCheckIns){
         if ([noOfCheckIns boolValue]) {
             [self.checkInView setHidden:NO];
-            //TODO: sometimes course name is not available
             [self.lblCourseName setText:[[CourseServices currentCourse] courseName]];
         }else{
             [self.checkInView setHidden:YES];

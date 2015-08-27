@@ -184,7 +184,7 @@
         
         NSDictionary * teeTimeParam = @{
                                         @"bookedTime" : timeStampTeeTime,
-                                        @"subCourseId" : [NSNumber numberWithInt:1], //TODO: For Testing.
+                                        @"subCourseId" : self.selectedSubcourseId, 
                                         //propertyName : json_key
                                         };
         

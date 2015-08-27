@@ -118,7 +118,8 @@
     NSString *errorMessage;
     
     NSString *emailRegex = @"[^@]+@[A-Za-z0-9.-]+\\.[A-Za-z]+";
-    //TODO:
+    
+    // Reges can also be applied on the password to check its strength.
     //NSString *passwordRegex =@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).";
     NSPredicate *emailPredicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
     //NSPredicate *pswdPredicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", passwordRegex];

@@ -75,11 +75,6 @@
     }];
     
     //TODO:
-    /*
-    @property (strong, nonatomic) IBOutlet UILabel *lblViewMap;
-    @property (strong, nonatomic) IBOutlet UILabel *lblEventLocation;
-    */
-    //TODO:
     [self.imgAdminPic sd_setImageWithURL:[NSURL URLWithString:@""] placeholderImage:[UIImage imageNamed:@"person_placeholder"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         if (image) {
             [self.imgAdminPic setRoundedImage:image];
