@@ -774,13 +774,7 @@
 -(void)updateDistanceForLoc:(CGPoint)cord onLabel:(UILabel *)frontmidlbl fromCord:(CGPoint)holeGreenCord
 {
     int dist = [self yardsfromPlace:cord andToPlace:holeGreenCord];
-    
-    NSString * lbl = nil;
-    NSString * ditFormt = nil;
-    if(dist >= 1000)
-       ditFormt  = [self getFirstThreeDigits:dist];
-
-    lbl =[NSString stringWithFormat:@"%@%@", (dist >= 1000 ? ditFormt : [NSString stringWithFormat:@"%d Y", dist]), (dist >= 1000 ? @"+Y" : @"")];
+    NSString * lbl =[NSString stringWithFormat:@"%@", (dist <= 999 ? [NSString stringWithFormat:@"%d", dist] : @"--")];
     [frontmidlbl setText:lbl];
 }
 

@@ -31,11 +31,10 @@
     SharedManager * manager = [SharedManager sharedInstance];
     [self.imgViewBackground setImage:[manager backgroundImage]];
 
+    
     GameSettings * settings = [GameSettings sharedSettings];
     [settings setTotalNumberOfHoles:[NSNumber numberWithInteger:[[[settings subCourse] holes] count]]];
     
-    if ([self.holesInround count] <= 9) [self.btnNextHoles setHidden:YES];
-
     
     if (!self.holesInround) {
         self.holesInround = [[NSMutableArray alloc]initWithCapacity:1];
@@ -44,6 +43,9 @@
         if([self.holesInround count] > 0) [self.holesInround removeAllObjects];
         [self.holesInround addObjectsFromArray:[[settings subCourse] holes]];
     }
+    if ([self.holesInround count] <= 9) [self.btnNextHoles setHidden:YES];
+    else [self.btnNextHoles setHidden:NO];
+
     
     isDownButtonPressed = FALSE;
     NSDictionary *navTitleAttributes =@{
@@ -57,6 +59,7 @@
 
     // Do any additional setup after loading the view.
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
