@@ -9,6 +9,11 @@
 #import "MTLModel.h"
 #import <Mantle/Mantle.h>
 
+#define GREEN_MIDDLE @"green_middle"
+#define GREEN_FRONT  @"green_front"
+#define GREEN_BACK   @"green_back"
+#define GREEN_UNDEFINED @"green_key_undefined"
+
 @interface GreenCoordinate : MTLModel<MTLJSONSerializing>
 
 @property (nonatomic, copy, readonly) NSString * latitude;

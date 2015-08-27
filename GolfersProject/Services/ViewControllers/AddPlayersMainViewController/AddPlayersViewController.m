@@ -82,7 +82,7 @@
      This notification is posted by PushManager class, it informs that someone has accepted the invitation for round.
      */
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNotification:) name:kInviteeAcceptedInvitation object:nil];
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNotification:) name:kAppLaunchUserTapInvitationLink object:nil];
+    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNotification:) name:kAppLaunchUserTapInvitationLink object:nil];
     
 }
 

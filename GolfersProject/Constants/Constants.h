@@ -78,9 +78,9 @@ static NSString * const kInAppFriend = @"users/in_app_user_list";
 
 
 #pragma warking - Automation issue.
-static NSString * const kAppBundleId = @"com.golfrz.genevagcc";
+//static NSString * const kAppBundleId = @"com.golfrz.genevagcc";
 //static NSString * const kAppBundleId = @"org.golfrz.GolferzProject99";
-//static NSString * const kAppBundleId = @"org.golfrz.GolferzProject";
+static NSString * const kAppBundleId = @"org.golfrz.GolferzProject";
 static NSString * const kUserAgent = @"ios";
 
 

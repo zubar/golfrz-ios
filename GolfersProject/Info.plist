@@ -47,6 +47,10 @@
 	<string>GolfRz would like to use your current location so you can receive course specific messages, accurate pin locations during your round and last to reward you for checking in at the club.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>GolfRz would like to use your current location so you can receive course specific messages, accurate pin locations during your round and last to reward you for checking in at the club.</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>location</string>
+	</array>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>

@@ -48,7 +48,6 @@
     CGPoint middleCord;
     CGPoint backCord;
     
-    NSNumberFormatter * distanceFormatter;
     BOOL isUpdatingLocation;
 }
 @property (weak, nonatomic) IBOutlet UIImageView *imgGPS;
@@ -74,12 +73,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    
-     distanceFormatter =  [[NSNumberFormatter alloc] init];
-    [distanceFormatter setMaximumIntegerDigits:3];
-    [distanceFormatter setMaximumFractionDigits:0];
-    [distanceFormatter setUsesSignificantDigits:NO];
     
     // Do any additional setup after loading the view.
     if(!self.playerScores) self.playerScores = [NSMutableDictionary new];
@@ -750,22 +743,23 @@
 -(void)extractFrontMiddleBackCord{
     
     for (GreenCoordinate * cordinate in [self.currentHole greenCoordinates]) {
-        if([[cordinate type] isEqualToString:@"front"])
-            frontCord = CGPointMake([cordinate.longitude intValue], [cordinate.latitude intValue]);
-        if([[cordinate type] isEqualToString:@"middle"])
-            middleCord = CGPointMake([cordinate.longitude intValue], [cordinate.latitude intValue]);
+        if([[cordinate type] isEqualToString:GREEN_FRONT])
+            frontCord = CGPointMake([cordinate.longitude doubleValue], [cordinate.latitude doubleValue]);
         
-        if([[cordinate type] isEqualToString:@"back"])
-            backCord = CGPointMake([cordinate.longitude intValue], [cordinate.latitude intValue]);
+        if([[cordinate type] isEqualToString:GREEN_MIDDLE])
+            middleCord = CGPointMake([cordinate.longitude doubleValue], [cordinate.latitude doubleValue]);
+        
+        if([[cordinate type] isEqualToString:GREEN_BACK])
+            backCord = CGPointMake([cordinate.longitude doubleValue], [cordinate.latitude doubleValue]);
             }
 }
 
 -(void)isUpdatingCurrentLocation:(BOOL)yesNo locationCordinates:(CGPoint)cord
 {
     isUpdatingLocation = yesNo;
-    [self updateFrontDistanceForLoc:cord];
-    [self updateMiddleDistanceForLoc:cord];
-    [self updateBackDistanceForLoc:cord];
+    [self updateDistanceForLoc:cord onLabel:self.lblForward fromCord:frontCord];
+    [self updateDistanceForLoc:cord onLabel:self.lblMiddle fromCord:middleCord];
+    [self updateDistanceForLoc:cord onLabel:self.lblBack fromCord:backCord];
    
     /*
     [UIView animateWithDuration:1.0 delay:0.5 options:UIViewAnimationOptionRepeat | UIViewAnimationOptionAutoreverse  animations:^{
@@ -777,52 +771,38 @@
 
 }
 
--(void)updateFrontDistanceForLoc:(CGPoint)cord
+-(void)updateDistanceForLoc:(CGPoint)cord onLabel:(UILabel *)frontmidlbl fromCord:(CGPoint)holeGreenCord
 {
-    int dist = [self yardsfromPlace:cord andToPlace:frontCord];
+    int dist = [self yardsfromPlace:cord andToPlace:holeGreenCord];
     
     NSString * lbl = nil;
     NSString * ditFormt = nil;
     if(dist >= 1000)
-       ditFormt  = [distanceFormatter stringFromNumber:[NSNumber numberWithInt:dist]];
+       ditFormt  = [self getFirstThreeDigits:dist];
 
-    lbl =[NSString stringWithFormat:@"%@%@", (dist >= 1000 ? ditFormt : [NSString stringWithFormat:@"%d", dist]), (dist >= 1000 ? @"+Y" : @"")];
-    [self.lblForward setText:lbl];
+    lbl =[NSString stringWithFormat:@"%@%@", (dist >= 1000 ? ditFormt : [NSString stringWithFormat:@"%d Y", dist]), (dist >= 1000 ? @"+Y" : @"")];
+    [frontmidlbl setText:lbl];
 }
-
--(void)updateMiddleDistanceForLoc:(CGPoint)cord
-{
-    int dist = [self yardsfromPlace:cord andToPlace:middleCord];
-    NSString * lbl = nil;
-    NSString * ditFormt = nil;
-    if(dist >= 1000)
-        ditFormt  = [distanceFormatter stringFromNumber:[NSNumber numberWithInt:dist]];
-    
-    lbl =[NSString stringWithFormat:@"%@%@", (dist >= 1000 ? ditFormt : [NSString stringWithFormat:@"%d", dist]), (dist >= 1000 ? @"+Y" : @"")];    [self.lblMiddle setText:lbl];
-}
-
--(void)updateBackDistanceForLoc:(CGPoint)cord
-{
-    int dist = [self yardsfromPlace:cord andToPlace:backCord];
-    NSString * lbl = nil;
-    NSString * ditFormt = nil;
-    if(dist >= 1000)
-        ditFormt  = [distanceFormatter stringFromNumber:[NSNumber numberWithInt:dist]];
-    
-    lbl =[NSString stringWithFormat:@"%@%@", (dist >= 1000 ? ditFormt : [NSString stringWithFormat:@"%d", dist]), (dist >= 1000 ? @"+Y" : @"")];    [self.lblBack setText:lbl];
-}
-
 
 -(int)yardsfromPlace:(CGPoint )from andToPlace:(CGPoint)to
 {
     CLLocation *userloc = [[CLLocation alloc]initWithLatitude:from.y longitude:from.x];
     CLLocation *dest = [[CLLocation alloc]initWithLatitude:to.y longitude:to.x];
     CLLocationDistance dist = [userloc distanceFromLocation:dest];
-    NSLog(@"%f",dist);
+    NSLog(@"Dist: %f",dist);
     NSString *distance = [NSString stringWithFormat:@"%f",dist];
     int distYards = [distance intValue] * 1.09361;
-    
+   
+   NSLog(@"DistInYards: %d",distYards);
+
     return distYards;
+}
+
+-(NSString *)getFirstThreeDigits:(int)distance
+{
+    NSString * n = [NSString stringWithFormat:@"%d", distance];
+    NSString * s = [n substringToIndex:3];
+    return s;
 }
 
 

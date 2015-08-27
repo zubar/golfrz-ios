@@ -20,7 +20,7 @@
              @"holeNumber": @"number",
              @"yards" : @"yards",
              @"teeboxes" : @"tee_boxes",
-             @"greenCoordinates" : @"greenCoordinates",
+             @"greenCoordinates" : @"locations",
              @"flyOverVideoPath" : @"fly_over_path",
              @"imagePath" : @"image_path",
              //propertyName : json_key

@@ -14,9 +14,29 @@
     return @{
              @"latitude" : @"latitude",
              @"longitude" : @"longitude",
-             @"type": @"type",
+             @"type": @"location_type",
              //propertyName : json_key
              };
+}
+
++ (NSValueTransformer *)typeJSONTransformer {
+    return [MTLValueTransformer transformerWithBlock:^id(id typeName) {
+        return [self macroForGreenCord:typeName];
+    }];
+}
+
++ (NSString *)macroForGreenCord:(NSString *)greenType {
+    
+    if([greenType isEqualToString:@"green_front"])
+        return GREEN_FRONT;
+    else
+    if ([greenType isEqualToString:@"green_mid"])
+        return GREEN_MIDDLE;
+    else
+    if([greenType isEqualToString:@"green_back"])
+        return GREEN_BACK;
+    else
+        return GREEN_UNDEFINED;
 }
 
 @end

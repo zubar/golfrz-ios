@@ -14,6 +14,7 @@
 
 
 @protocol SharedManagerDelegate <NSObject>
+@optional
 -(void)IsUserInCourseWithRequiredAccuracy:(BOOL)yesNo;
 -(void)isUpdatingCurrentLocation:(BOOL)yesNo locationCordinates:(CGPoint)cord;
 @end
