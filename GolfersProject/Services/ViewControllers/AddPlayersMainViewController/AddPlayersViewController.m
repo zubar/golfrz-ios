@@ -133,6 +133,7 @@
             [self loadDataToCountinueRound:roundNumber inSubcourse:subCourseId];
         }else{
             [MBProgressHUD hideHUDForView:self.view animated:YES];
+            [self resetAllFields];
             [self loadDataToSetUpNewRound];
             }
     }];
@@ -293,8 +294,8 @@
             [[GameSettings sharedSettings] setsubCourseId:(NSNumber *)[NSNull null]],
 
             [[[UIAlertView alloc] initWithTitle:@"Round Cancelled!" message:@"Current Round is cancelled, you can now start new round." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
-            [self loadDataToSetUpNewRound];
             [self resetAllFields];
+            [self loadDataToSetUpNewRound];
         }
     } failure:^(bool status, NSError *error) {
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
