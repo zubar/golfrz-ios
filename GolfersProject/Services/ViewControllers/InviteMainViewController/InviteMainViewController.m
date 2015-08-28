@@ -322,6 +322,7 @@
     [controller setToRecipients:mContacts];
     if (controller)
         [self presentViewController:controller animated:YES completion:^{
+            
             nil;
         }];
 }
@@ -483,11 +484,21 @@
     
 }
 
--(void)removeAllEmailInvites{
+-(void)removeAllEmailInvites
+{
+    for (int i = 0; i< [contacts count]; ++i) {
+        id contact = contacts[i];
+        [contact setAssociatedObject:[NSNumber numberWithBool:NO]];
+    }
     [invities[kEmailInvites] removeAllObjects];
 }
 
--(void)removeAllSMSInvites{
+-(void)removeAllSMSInvites
+{
+    for (int i = 0; i< [contacts count]; ++i) {
+        id contact = contacts[i];
+        [contact setAssociatedObject:[NSNumber numberWithBool:NO]];
+    }
     [invities[kSMSInvites] removeAllObjects];
 }
 
