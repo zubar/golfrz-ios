@@ -217,7 +217,7 @@
         completion();
     } failure:^(bool status, GolfrzError *error) {
         completion();
-        [Utilities displayErrorAlertWithMessage:[error errorMessage]];
+        //[Utilities displayErrorAlertWithMessage:[error errorMessage]]; //This is removed temporarily as API is not mature enough and it is displaying error on first time
     }];
 }
 

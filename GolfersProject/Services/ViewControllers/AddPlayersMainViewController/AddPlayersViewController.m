@@ -201,6 +201,17 @@
     }];
 }
 
+-(void) resetAllFields{
+    self.selectedSubCourse = nil;
+    self.selectedTeeBox = nil;
+    self.selectedGameType = nil;
+    self.selectedScoreType = nil;
+    self.lblSelectCourse.text = @"SELECT";
+    self.lblSelectGameType.text = @"SELECT";
+    self.lblSelectScoring.text = @"SELECT";
+    self.lblSelectTeeBox.text = @"SELECT";
+}
+
 
 -(void)loadDataToCountinueRound:(NSNumber *)roundId inSubcourse:(NSNumber *)subcourseId {
     
@@ -269,6 +280,7 @@
        [[GameSettings sharedSettings] roundId]== (NSNumber *)[NSNull null] ||
        [[GameSettings sharedSettings] subCourseId]==(NSNumber *)[NSNull null]){
         [self showAlertNoRoundInProgress];
+        [self resetAllFields];
         return;
     }
     
@@ -282,6 +294,7 @@
 
             [[[UIAlertView alloc] initWithTitle:@"Round Cancelled!" message:@"Current Round is cancelled, you can now start new round." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
             [self loadDataToSetUpNewRound];
+            [self resetAllFields];
         }
     } failure:^(bool status, NSError *error) {
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
