@@ -36,13 +36,22 @@
     [settings setTotalNumberOfHoles:[NSNumber numberWithInteger:[[[settings subCourse] holes] count]]];
     
     
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"holeNumber" ascending:YES];
+    NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+
+    
     if (!self.holesInround) {
         self.holesInround = [[NSMutableArray alloc]initWithCapacity:1];
-        [self.holesInround addObjectsFromArray:[[settings subCourse] holes]];
+        [self.holesInround addObjectsFromArray:[NSMutableArray arrayWithArray:[[[settings subCourse] holes] sortedArrayUsingDescriptors:sortDescriptors]]] ;
     }else{
         if([self.holesInround count] > 0) [self.holesInround removeAllObjects];
-        [self.holesInround addObjectsFromArray:[[settings subCourse] holes]];
+        [self.holesInround addObjectsFromArray:[NSMutableArray arrayWithArray:[[[settings subCourse] holes] sortedArrayUsingDescriptors:sortDescriptors]]] ;
     }
+    
+    
+    
+    
+    
     if ([self.holesInround count] <= 9) [self.btnNextHoles setHidden:YES];
     else [self.btnNextHoles setHidden:NO];
 
@@ -53,7 +62,9 @@
                                         NSForegroundColorAttributeName : [UIColor whiteColor]
                                         };
     
-    self.navigationItem.title = @"FRONT NINE";
+    if ([[self.holesInround[0] holeNumber] integerValue] < 10) self.navigationItem.title = @"FRONT NINE";
+    else self.navigationItem.title = @"BACK NINE";
+
     self.navigationController.navigationBar.titleTextAttributes = navTitleAttributes;
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
 
@@ -85,7 +96,7 @@
     
     Hole * aHole = self.holesInround[indexPath.row];
     HoleMapCell *customCell = (HoleMapCell *)cell;
-    customCell.lblHoleNo.text = [[aHole holeNumber] stringValue];
+    customCell.lblHoleNo.text =  [NSString stringWithFormat:@"%ld",indexPath.row +1];//[[aHole holeNumber] stringValue];
     customCell.lblPar.text = [[aHole par] stringValue];
     [customCell.imgHoleMao sd_setImageWithURL:[NSURL URLWithString:[aHole imagePath]] placeholderImage:[UIImage imageNamed:@""] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         [customCell.imgHoleMao setImage:image];
@@ -99,7 +110,8 @@
     AppDelegate * appDelegate = [[UIApplication sharedApplication] delegate];
     
     RoundViewController * controller = [self.storyboard instantiateViewControllerWithIdentifier:@"RoundViewController"];
-    controller.holeNumberPlayed = [NSNumber numberWithInteger:indexPath.row];
+    NSInteger holeToPlay =  indexPath.row ;
+    controller.holeNumberPlayed = [NSNumber numberWithInteger:holeToPlay];
     [appDelegate.appDelegateNavController pushViewController:controller animated:YES];
     return;
 }
@@ -111,14 +123,14 @@
     if (!isDownButtonPressed) {
         UIImage *buttonToDisplay = [UIImage imageNamed:@"ChooseHole_Up"];
         [self.btnNextHoles setImage:buttonToDisplay forState:UIControlStateNormal];
-        self.navigationItem.title = @"LAST NINE";
+        self.navigationItem.title = @"BACK NINE";
         NSIndexPath *indexPathToScroll = [NSIndexPath indexPathForItem:10 inSection:0];
         [self.holeCollectionView scrollToItemAtIndexPath:indexPathToScroll atScrollPosition:UICollectionViewScrollPositionTop animated:YES];
         isDownButtonPressed = TRUE;
     }else{
         UIImage *buttonToDisplay = [UIImage imageNamed:@"ChooseHole_Down"];
         [self.btnNextHoles setImage:buttonToDisplay forState:UIControlStateNormal];
-        self.navigationItem.title = @"BACK NINE";
+        self.navigationItem.title = @"FRONT NINE";
         NSIndexPath *indexPathToScroll = [NSIndexPath indexPathForItem:1 inSection:0];
         [self.holeCollectionView scrollToItemAtIndexPath:indexPathToScroll atScrollPosition:UICollectionViewScrollPositionTop animated:YES];
         isDownButtonPressed = FALSE;

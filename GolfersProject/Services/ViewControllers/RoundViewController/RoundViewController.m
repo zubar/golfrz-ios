@@ -108,7 +108,13 @@
 -(void)loadDataForHoleNumber:(NSNumber *)holeNumber :(void(^)(void))completion{
     
     GameSettings * settings = [GameSettings sharedSettings];
-    self.currentHole = [[[settings subCourse] holes] objectAtIndex:[self.holeNumberPlayed integerValue]];
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"holeNumber" ascending:YES];
+    NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+    NSArray * sortedHoles =  [NSMutableArray arrayWithArray:[[[settings subCourse] holes] sortedArrayUsingDescriptors:sortDescriptors]];
+    self.currentHole = [sortedHoles objectAtIndex:[self.holeNumberPlayed integerValue]];
+    
+    
     [self extractFrontMiddleBackCord];
     [[SharedManager sharedInstance] startUpdatingCurrentLocation];
     [self updateYardAndParForHole:self.currentHole];
