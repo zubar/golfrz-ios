@@ -27,6 +27,23 @@
 #define kEventCalendarWidth 300.0f // please it also depends on calendar height in VrgCalendar.h
 #define kEventCalendarHeight 320.0f
 
+@interface UILabel (private)
+-(void)setNonNullText:(NSString *)text;
+@end
+
+
+@implementation UILabel (private)
+-(void)setNonNullText:(NSString *)text{
+    
+    NSString * labelText = nil;
+    if(labelText == (NSString *)[NSNull null]) labelText = @"";
+    else labelText = text;
+    labelText = [labelText stringByReplacingOccurrencesOfString:@"(null)" withString:@"--"];
+    [self setText:labelText];
+}
+
+@end
+
 @interface EventCalendarViewController ()
 
 //To mark the dates in calendar
@@ -332,7 +349,7 @@
                     [headerView.imgWeather setHidden:NO];
                 } ];
                 
-                [headerView.lblTemperature setText:[NSString stringWithFormat:@"%@ F", [weatherData[@"temp"] stringValue]]];
+                [headerView.lblTemperature setNonNullText:[NSString stringWithFormat:@"%@ F", [weatherData[@"temp"] stringValue]]];
                 [headerView.lblTemperature setFont:[UIFont fontWithName:@"Helvetica" size:12.0f]];
                 [headerView.lblTemperature setHidden:NO];
             }
