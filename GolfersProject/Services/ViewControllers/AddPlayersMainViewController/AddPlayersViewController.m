@@ -202,6 +202,10 @@
 }
 
 -(void) resetAllFields{
+    self.selectedSubCourse = nil;
+    self.selectedTeeBox = nil;
+    self.selectedGameType = nil;
+    self.selectedScoreType = nil;
     self.lblSelectCourse.text = @"SELECT";
     self.lblSelectGameType.text = @"SELECT";
     self.lblSelectScoring.text = @"SELECT";
