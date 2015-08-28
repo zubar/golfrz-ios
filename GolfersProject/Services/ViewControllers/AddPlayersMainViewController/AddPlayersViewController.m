@@ -461,7 +461,7 @@
     }
     
     User * player = self.playersInRound[indexPath.row];
-    NSString * fullName = [NSString stringWithFormat:@"%@%@", (player.firstName != nil ? player.firstName : @""), (player.lastName != nil ? player.lastName : @"")];
+    NSString * fullName = [NSString stringWithFormat:@"%@ %@", (player.firstName != nil ? player.firstName : @""), (player.lastName != nil ? player.lastName : @"")];
     
     RoundPlayerCell *customViewCell = (RoundPlayerCell *)customCell;
     [customViewCell.lblPlayerName setText:fullName];

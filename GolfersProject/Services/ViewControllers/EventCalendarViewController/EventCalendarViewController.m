@@ -343,15 +343,23 @@
         
         [WeatherServices dailyWeather:^(bool status, NSDictionary *weatherData) {
             if (status) {
+                // Event is farther then 24 hours don't show temp.
+                if([self hoursBetween:dateForSection andEndDate:[NSDate date]] <= 24){
                 [headerView.imgWeather sd_setImageWithURL:weatherData[@"icon"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
                     //  <#code#>
                     [headerView.imgWeather setImage:image];
                     [headerView.imgWeather setHidden:NO];
-                } ];
-                
+                }];
                 [headerView.lblTemperature setNonNullText:[NSString stringWithFormat:@"%@ F", [weatherData[@"temp"] stringValue]]];
                 [headerView.lblTemperature setFont:[UIFont fontWithName:@"Helvetica" size:12.0f]];
                 [headerView.lblTemperature setHidden:NO];
+                }else{
+                    [headerView.lblTemperature setNonNullText:@"N/A"];
+                    [headerView.lblTemperature setHidden:NO];
+                }
+            }else{
+                [headerView.lblTemperature setHidden:YES];
+                [headerView.imgWeather setHidden:YES];
             }
         } failure:^(bool status, NSError *error) {
             if (!status) {
@@ -391,4 +399,16 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(CGFloat )hoursBetween:(NSDate *)startDate andEndDate:(NSDate *)endDate
+{
+    /*
+     --For Testing:
+    NSLog(@"EventStart-Date:%@", startDate);
+    if(fabs([endDate timeIntervalSinceDate:startDate] / 3600.0) < 24){
+        NSLog(@"should display Event Weather");
+    }
+     */
+
+    return fabs([endDate timeIntervalSinceDate:startDate] / 3600.0);
+}
 @end
