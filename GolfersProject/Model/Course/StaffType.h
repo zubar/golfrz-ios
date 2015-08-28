@@ -11,7 +11,7 @@
 @interface StaffType :  MTLModel<MTLJSONSerializing>
 
 
-@property (copy, nonatomic, readonly) NSNumber * typeId;
+@property (copy, nonatomic, readonly) NSNumber * itemId;
 @property (copy, nonatomic, readonly) NSString * name;
 
 

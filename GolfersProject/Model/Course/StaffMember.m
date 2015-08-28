@@ -19,7 +19,7 @@
              @"email" : @"email",
              @"imageUrl" : @"photo",
              @"phone" : @"phone",
-             @"type" : @"type"
+             @"type" : @"staff_type"
              //propertyName : json_key
              };
 }
