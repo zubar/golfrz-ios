@@ -459,8 +459,7 @@
 
                 }
                 if (hole) {
-                    
-                    bodyCell.contentLbl.text = [NSString stringWithFormat:@"%d",[hole.holeNumber intValue]];
+                    bodyCell.contentLbl.text = [self mappingFunctionHoleNumber:hole.holeNumber];
                 }
             }
             else if (indexPath.row == 1)
@@ -589,6 +588,19 @@
     }
     return cell;
 }
+
+-(NSString *)mappingFunctionHoleNumber:(NSNumber *)holeNum
+{
+    
+    if([[scoreCard_ holesArray] count] >10){
+        return [NSString stringWithFormat:@"%@", holeNum];
+    }else
+        if([[scoreCard_ holesArray] count] <=9 && [holeNum integerValue] > 9){
+            return [NSString stringWithFormat:@"%ld", [holeNum integerValue] - 9];
+        }
+    return [NSString stringWithFormat:@"%@", holeNum];
+}
+
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"Clicked");
