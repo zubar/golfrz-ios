@@ -7,6 +7,7 @@
 //
 
 #import "User.h"
+#import "Constants.h"
 
 @implementation User
 
@@ -19,9 +20,21 @@
              @"firstName": @"first_name",
              @"lastName" : @"last_name",
              @"handicap" : @"handicap",
-             @"imgPath" : @"image_path",
+             @"imgPath" : @"profile_photo_url",
              @"phone" : @"phone_no",
             //propertyName : json_key
              };
+}
+
++ (NSValueTransformer *)imgPathJSONTransformer
+{
+    return [MTLValueTransformer transformerWithBlock:^id(id relativePath) {
+        return [self absoluteImageURLfromRelativeUR:relativePath ];
+    }];
+}
+
++ (NSString *)absoluteImageURLfromRelativeUR:(NSString *)relativePath
+{
+    return [NSString stringWithFormat:@"%@%@", kBaseImageUrl, relativePath];
 }
 @end
