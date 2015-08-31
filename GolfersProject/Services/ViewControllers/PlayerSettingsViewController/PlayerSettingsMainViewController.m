@@ -179,7 +179,7 @@
             if (![emailPredicate evaluateWithObject:self.txtEmailAddress.text]){
                 errorMessage = @"Please enter a valid email address";
             }else if ((self.txtPhoneNumber.text.length >= 1) && (![phonePredicate evaluateWithObject:self.txtPhoneNumber.text]))
-                errorMessage = @"Please enter a valid phone number";
+                errorMessage = @"Please enter a valid phone number in format like +01123456778, phone number must contain country code.";
     return errorMessage;
 }
 

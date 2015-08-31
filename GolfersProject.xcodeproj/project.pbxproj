@@ -26,7 +26,6 @@
 		3D1963C41B0DAECD00766CFC /* WeatherServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1963C31B0DAECD00766CFC /* WeatherServices.m */; };
 		3D1963CB1B0DBC2600766CFC /* WeatherData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1963CA1B0DBC2600766CFC /* WeatherData.m */; };
 		3D1963CE1B0DBC8300766CFC /* Condition.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1963CD1B0DBC8300766CFC /* Condition.m */; };
-		3D1963F81B0E1F0500766CFC /* WeatherViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1963F71B0E1F0500766CFC /* WeatherViewCell.m */; };
 		3D1963FA1B0E21B100766CFC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 88024F621AD29134004AC260 /* main.m */; };
 		3D1964191B130E3B00766CFC /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D19640C1B130E3B00766CFC /* MBProgressHUD.m */; };
 		3D19641A1B130E3B00766CFC /* TPKeyboardAvoidingCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D19640F1B130E3B00766CFC /* TPKeyboardAvoidingCollectionView.m */; };
@@ -142,6 +141,8 @@
 		3DC1161F1B2EE21F00E83F4F /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DC1161E1B2EE21F00E83F4F /* AddressBook.framework */; };
 		3DC116231B2EF4AD00E83F4F /* APContact+convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC116221B2EF4AD00E83F4F /* APContact+convenience.m */; };
 		3DC352941B94597F00A39E36 /* Invitation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC352931B94597F00A39E36 /* Invitation.m */; };
+		3DC352981B94926000A39E36 /* WeatherViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC352971B94926000A39E36 /* WeatherViewCell.m */; };
+		3DC3529C1B94926E00A39E36 /* CourseDepartmentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC3529B1B94926E00A39E36 /* CourseDepartmentCell.m */; };
 		3DCA44CC1B26CB3400B66BD2 /* CalendarEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DCA44A91B26CB3400B66BD2 /* CalendarEvent.m */; };
 		3DCA44CD1B26CB3400B66BD2 /* EventList.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DCA44AB1B26CB3400B66BD2 /* EventList.m */; };
 		3DCA44CE1B26CB3400B66BD2 /* EventWeather.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DCA44AD1B26CB3400B66BD2 /* EventWeather.m */; };
@@ -200,7 +201,6 @@
 		8890E4D31B307A5500A11BBF /* ContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8890E4D21B307A5500A11BBF /* ContactCell.m */; };
 		889872BF1B13105C00D3C0E9 /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 889872BE1B13105C00D3C0E9 /* Utilities.m */; };
 		88A48F011B2B0167006CEC42 /* FoodBevItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88A48F001B2B0167006CEC42 /* FoodBevItemCell.m */; };
-		88B23C1C1B16E69D00988908 /* CourseDepartmentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B23C1B1B16E69D00988908 /* CourseDepartmentCell.m */; };
 		88C4EDB61B4A723100519D3B /* HoleMapCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88C4EDB51B4A723100519D3B /* HoleMapCell.m */; };
 		88E9EE621B6A0B4B00F4D90E /* CustomCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E9EE5C1B6A0B4B00F4D90E /* CustomCollectionViewLayout.m */; };
 		88E9EE631B6A0B4B00F4D90E /* ScoreBoardManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E9EE5F1B6A0B4B00F4D90E /* ScoreBoardManager.m */; };
@@ -269,8 +269,6 @@
 		3D1963CA1B0DBC2600766CFC /* WeatherData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherData.m; sourceTree = "<group>"; };
 		3D1963CC1B0DBC8300766CFC /* Condition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Condition.h; sourceTree = "<group>"; };
 		3D1963CD1B0DBC8300766CFC /* Condition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Condition.m; sourceTree = "<group>"; };
-		3D1963F61B0E1F0500766CFC /* WeatherViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherViewCell.h; sourceTree = "<group>"; };
-		3D1963F71B0E1F0500766CFC /* WeatherViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherViewCell.m; sourceTree = "<group>"; };
 		3D19640B1B130E3B00766CFC /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		3D19640C1B130E3B00766CFC /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		3D19640E1B130E3B00766CFC /* TPKeyboardAvoidingCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingCollectionView.h; sourceTree = "<group>"; };
@@ -470,6 +468,10 @@
 		3DC116221B2EF4AD00E83F4F /* APContact+convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "APContact+convenience.m"; sourceTree = "<group>"; };
 		3DC352921B94597F00A39E36 /* Invitation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Invitation.h; sourceTree = "<group>"; };
 		3DC352931B94597F00A39E36 /* Invitation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Invitation.m; sourceTree = "<group>"; };
+		3DC352961B94926000A39E36 /* WeatherViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherViewCell.h; sourceTree = "<group>"; };
+		3DC352971B94926000A39E36 /* WeatherViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherViewCell.m; sourceTree = "<group>"; };
+		3DC3529A1B94926E00A39E36 /* CourseDepartmentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseDepartmentCell.h; sourceTree = "<group>"; };
+		3DC3529B1B94926E00A39E36 /* CourseDepartmentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseDepartmentCell.m; sourceTree = "<group>"; };
 		3DCA44A81B26CB3400B66BD2 /* CalendarEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarEvent.h; sourceTree = "<group>"; };
 		3DCA44A91B26CB3400B66BD2 /* CalendarEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarEvent.m; sourceTree = "<group>"; };
 		3DCA44AA1B26CB3400B66BD2 /* EventList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventList.h; sourceTree = "<group>"; };
@@ -590,8 +592,6 @@
 		889872C21B13111900D3C0E9 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		88A48EFF1B2B0167006CEC42 /* FoodBevItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodBevItemCell.h; sourceTree = "<group>"; };
 		88A48F001B2B0167006CEC42 /* FoodBevItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodBevItemCell.m; sourceTree = "<group>"; };
-		88B23C1A1B16E69D00988908 /* CourseDepartmentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseDepartmentCell.h; sourceTree = "<group>"; };
-		88B23C1B1B16E69D00988908 /* CourseDepartmentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseDepartmentCell.m; sourceTree = "<group>"; };
 		88C4EDB41B4A723100519D3B /* HoleMapCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoleMapCell.h; sourceTree = "<group>"; };
 		88C4EDB51B4A723100519D3B /* HoleMapCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoleMapCell.m; sourceTree = "<group>"; };
 		88E9EE5B1B6A0B4B00F4D90E /* CustomCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCollectionViewLayout.h; sourceTree = "<group>"; };
@@ -754,15 +754,6 @@
 				3D1963CD1B0DBC8300766CFC /* Condition.m */,
 			);
 			path = WeatherModel;
-			sourceTree = "<group>";
-		};
-		3D1963F51B0E1F0500766CFC /* WeatherCell */ = {
-			isa = PBXGroup;
-			children = (
-				3D1963F61B0E1F0500766CFC /* WeatherViewCell.h */,
-				3D1963F71B0E1F0500766CFC /* WeatherViewCell.m */,
-			);
-			path = WeatherCell;
 			sourceTree = "<group>";
 		};
 		3D1963FD1B1305D500766CFC /* GeoLocationServices */ = {
@@ -1425,6 +1416,24 @@
 			path = Invitation;
 			sourceTree = "<group>";
 		};
+		3DC352951B94926000A39E36 /* WeatherCell */ = {
+			isa = PBXGroup;
+			children = (
+				3DC352961B94926000A39E36 /* WeatherViewCell.h */,
+				3DC352971B94926000A39E36 /* WeatherViewCell.m */,
+			);
+			path = WeatherCell;
+			sourceTree = "<group>";
+		};
+		3DC352991B94926E00A39E36 /* CourseDepartmentCell */ = {
+			isa = PBXGroup;
+			children = (
+				3DC3529A1B94926E00A39E36 /* CourseDepartmentCell.h */,
+				3DC3529B1B94926E00A39E36 /* CourseDepartmentCell.m */,
+			);
+			path = CourseDepartmentCell;
+			sourceTree = "<group>";
+		};
 		3DCA44A71B26CB3400B66BD2 /* CalendarEvent */ = {
 			isa = PBXGroup;
 			children = (
@@ -1714,11 +1723,9 @@
 				3D1CB08A1B691563005C1E19 /* ViewControllers */,
 				3DF9936C1B256977006EBC39 /* PushManager */,
 				3D16D0811B1C3FDB00A582A3 /* SharedManager */,
-				88B23C191B16E63B00988908 /* CourseDepartmentCell */,
 				889872C71B13237F00D3C0E9 /* Views */,
 				889872C01B13111900D3C0E9 /* Constants */,
 				889872BC1B13103300D3C0E9 /* Utilities */,
-				3D1963F51B0E1F0500766CFC /* WeatherCell */,
 				885CB07C1B0A121300AD2A7B /* Services */,
 				3D1964021B130E3B00766CFC /* Vendors */,
 				885CB0231B09BA9D00AD2A7B /* AppDelegate */,
@@ -1944,6 +1951,8 @@
 		889872C71B13237F00D3C0E9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3DC352991B94926E00A39E36 /* CourseDepartmentCell */,
+				3DC352951B94926000A39E36 /* WeatherCell */,
 				88EFFD771B8D9D5A0020AFAD /* StaffCell */,
 				BCC179F21B80623E002C0DA8 /* PopOverCell */,
 				BCC179EA1B805CAB002C0DA8 /* PopOverView */,
@@ -1978,15 +1987,6 @@
 				88A48F001B2B0167006CEC42 /* FoodBevItemCell.m */,
 			);
 			path = FoodBevItemCell;
-			sourceTree = "<group>";
-		};
-		88B23C191B16E63B00988908 /* CourseDepartmentCell */ = {
-			isa = PBXGroup;
-			children = (
-				88B23C1A1B16E69D00988908 /* CourseDepartmentCell.h */,
-				88B23C1B1B16E69D00988908 /* CourseDepartmentCell.m */,
-			);
-			path = CourseDepartmentCell;
 			sourceTree = "<group>";
 		};
 		88C4EDB31B4A721100519D3B /* HoleMapCell */ = {
@@ -2337,6 +2337,7 @@
 				3DC116231B2EF4AD00E83F4F /* APContact+convenience.m in Sources */,
 				3D7DF20A1B6CABEE00FCF8FE /* Teetime+Compare.m in Sources */,
 				88EF1EFF1B79F867006F901F /* PastScoreCardCell.m in Sources */,
+				3DC3529C1B94926E00A39E36 /* CourseDepartmentCell.m in Sources */,
 				3D1CB1061B691563005C1E19 /* TeeTimesViewController.m in Sources */,
 				3D613B861B44191B00F7DEDA /* ScoreSelectionView.m in Sources */,
 				880A97DD1B2F0ED4001D97F0 /* FoodBevCartCell.m in Sources */,
@@ -2357,6 +2358,7 @@
 				3D1CB0F81B691563005C1E19 /* ForgotPasswordViewController.m in Sources */,
 				3D1C8E751B3BFDBE004AAD30 /* WEPopoverController.m in Sources */,
 				88EF1EF91B79014F006F901F /* PastScoreCardsViewController.m in Sources */,
+				3DC352981B94926000A39E36 /* WeatherViewCell.m in Sources */,
 				3DCA44D91B26CB3400B66BD2 /* SideItem.m in Sources */,
 				3D1CB0FC1B691563005C1E19 /* PlayerProfileViewController.m in Sources */,
 				88243AF61B28437C00E600D6 /* FoodBevViewCell.m in Sources */,
@@ -2408,7 +2410,6 @@
 				88EBBAE61B4D108400AA6688 /* TeeTimeBookingCell.m in Sources */,
 				3D7DF20D1B6F5A2200FCF8FE /* NSArray+BinarySearch.m in Sources */,
 				88573E1E1B4528280060929C /* RoundPlayerCell.m in Sources */,
-				88B23C1C1B16E69D00988908 /* CourseDepartmentCell.m in Sources */,
 				3DD47A691B4A6099005DE325 /* Teebox.m in Sources */,
 				3D19641D1B130E3B00766CFC /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				3D1CB0F61B691563005C1E19 /* FoodBeveragesMainViewController.m in Sources */,
@@ -2465,7 +2466,6 @@
 				3D7DF2121B6FC80500FCF8FE /* CourseUpdate.m in Sources */,
 				3D16D0841B1C3FFB00A582A3 /* SharedManager.m in Sources */,
 				3DA7CB851B2AF0C800B5BAFF /* Order.m in Sources */,
-				3D1963F81B0E1F0500766CFC /* WeatherViewCell.m in Sources */,
 				3DD47A611B4A6040005DE325 /* SubCourse.m in Sources */,
 				3DCA44DF1B2709BF00B66BD2 /* FoodBeverageServices.m in Sources */,
 				3DD3CA401B297AD300767BCF /* UtilityServices.m in Sources */,

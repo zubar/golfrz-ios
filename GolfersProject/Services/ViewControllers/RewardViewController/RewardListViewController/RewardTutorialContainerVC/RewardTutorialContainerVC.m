@@ -20,15 +20,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
-    // Left nav-bar.
-    UIButton * imageButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 10, 10, 14)];
-    [imageButton setBackgroundImage:[UIImage imageNamed:@"back_btn"] forState:UIControlStateNormal];
-    [imageButton addTarget:self action:@selector(rewardTutorialBackTap) forControlEvents:UIControlEventTouchUpInside];
-    
-    UIBarButtonItem *leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:imageButton];
-    self.rewardViewController.navigationItem.leftBarButtonItem = leftBarButtonItem;
-    
     // Do any additional setup after loading the view.
     if(!self.allViewControllers) self.allViewControllers = [[NSMutableArray alloc]init];
     
@@ -111,6 +102,14 @@
 
 - (void)viewWillAppear:(BOOL)animated   {
     [super viewWillAppear:animated];
+    
+    // Left nav-bar.
+    UIButton * imageButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 10, 10, 14)];
+    [imageButton setBackgroundImage:[UIImage imageNamed:@"back_btn"] forState:UIControlStateNormal];
+    [imageButton addTarget:self action:@selector(rewardTutorialBackTap) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIBarButtonItem *leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:imageButton];
+    self.rewardViewController.navigationItem.leftBarButtonItem = leftBarButtonItem;
 }
 #pragma mark - Private Methods
 /**********
