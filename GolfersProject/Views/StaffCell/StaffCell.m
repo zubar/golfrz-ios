@@ -41,7 +41,7 @@
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"mailto://%@", (NSString *)self.lblAdminEmail.text]]];
         
     } else {
-        UIAlertView *notPermitted=[[UIAlertView alloc] initWithTitle:kError message:CallSupportErrorMessage delegate:nil cancelButtonTitle:kOK otherButtonTitles:nil];
+        UIAlertView *notPermitted=[[UIAlertView alloc] initWithTitle:kError message:EmailSupportErrorMessage delegate:nil cancelButtonTitle:kOK otherButtonTitles:nil];
         [notPermitted show];
     }
     

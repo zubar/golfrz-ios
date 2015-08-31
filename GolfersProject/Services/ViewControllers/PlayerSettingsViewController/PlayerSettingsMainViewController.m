@@ -18,6 +18,8 @@
 #import "GolfrzError.h"
 #import "Utilities.h"
 #import "FaceBookAuthAgent.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+#import "UIImageView+RoundedImage.h"
 
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
@@ -95,7 +97,12 @@
                 [self.txtLastName setText:[mUser lastName]];
                 [self.txtEmailAddress setText:[mUser email]];
                 [self.txtPhoneNumber setText:[mUser phone]];
-                [self makeUserInfoFieldsEditable:NO];
+                [self.imgUserPic sd_setImageWithURL:[NSURL URLWithString:[mUser imgPath]] placeholderImage:[UIImage imageNamed:@"person_placeholder"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                if (image) {
+                    [self.imgUserPic setRoundedImage:image];
+                }
+            }];
+            [self makeUserInfoFieldsEditable:NO];
             [MBProgressHUD hideHUDForView:self.view animated:YES];
         }
     } failure:^(bool status, GolfrzError *error) {
@@ -176,7 +183,8 @@
     return errorMessage;
 }
 
--(void)makeUserInfoFieldsEditable:(BOOL)yesNo{
+-(void)makeUserInfoFieldsEditable:(BOOL)yesNo
+{
     [self.txtFirstName setEnabled:yesNo];
     [self.txtLastName setEnabled:yesNo];
     [self.txtEmailAddress setEnabled:yesNo];

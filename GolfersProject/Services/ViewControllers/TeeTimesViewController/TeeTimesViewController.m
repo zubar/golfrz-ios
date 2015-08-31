@@ -283,6 +283,8 @@
     [Utilities dateComponentsFromNSDate:[teeTime bookedTime] components:^(NSString *dayName, NSString *monthName, NSString *day, NSString *time, NSString *minutes, NSString *timeAndMinute) {
         [customViewCell.lblTime setText:timeAndMinute];
     }];
+    
+    
     [customViewCell setSelectionStyle:UITableViewCellSelectionStyleNone];
     
     [customViewCell setDidTapButtonBlock:^(id sender , NSInteger playerCount) {

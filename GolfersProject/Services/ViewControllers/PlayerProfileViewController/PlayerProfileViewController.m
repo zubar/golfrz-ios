@@ -64,7 +64,6 @@
         
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         
-        //TODO: get img form FaceBook
         [self.imgUserPic sd_setImageWithURL:[NSURL URLWithString:[mUser imgPath]] placeholderImage:[UIImage imageNamed:@"person_placeholder"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
             if (image) {
                 [self.imgUserPic setRoundedImage:image];

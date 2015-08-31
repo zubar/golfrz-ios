@@ -54,8 +54,13 @@
     
     NSLog(@"%ld, %ld", startComponents.day, (long)startComponents.hour);
     
-    self.lblDptDays.text = [NSString stringWithFormat:@"%@-%@", [self dayName:startComponents.weekday], [self dayName:endComponents.weekday]];
-    self.lblDptTimings.text = [NSString stringWithFormat:@"(%@ - %@)", [self timeInAMPMfrom24hour:(int)startComponents.hour], [self timeInAMPMfrom24hour:(int)endComponents.hour]];
+    if(startComponents != nil && endComponents != nil){
+        self.lblDptDays.text = [NSString stringWithFormat:@"%@-%@", [self dayName:startComponents.weekday], [self dayName:endComponents.weekday]];
+        self.lblDptTimings.text = [NSString stringWithFormat:@"(%@ - %@)", [self timeInAMPMfrom24hour:(int)startComponents.hour], [self timeInAMPMfrom24hour:(int)endComponents.hour]];
+    }else{
+        [self.lblDptDays setText:@""];
+        [self.lblDptTimings setText:@""];
+    }
     
     
     NSDictionary *contactAttributes =@{NSUnderlineStyleAttributeName:@(NSUnderlineStyleSingle),
@@ -95,12 +100,20 @@
 }
 
 
--(NSString *)timeInAMPMfrom24hour:(int)hour{
-    (hour > 11 && hour <= 23 ? --hour : ++hour);
-     if (hour > 11 && hour <= 23 ) {
-        return [NSString stringWithFormat:@"%dPM", hour-11];
+-(NSString *)timeInAMPMfrom24hour:(int)hour
+{
+     if (hour >= 12 && hour <= 23 ) {
+         if (hour == 12){
+             return [NSString stringWithFormat:@"%dPM", hour];
+         }else{
+             return [NSString stringWithFormat:@"%dPM", hour-12];
+         }
     }else{
+        if (hour == 0){
+            return [NSString stringWithFormat:@"%dAM", hour + 12];
+        }else{
         return [NSString stringWithFormat:@"%dAM", hour];
+        }
     }
 }
 

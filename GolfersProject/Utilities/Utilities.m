@@ -114,19 +114,33 @@
 
 
 +(NSString *)timeInAMPMfrom24hour:(int)hour{
-    (hour > 11 && hour <= 23 ? --hour : ++hour);
-    if (hour > 11 && hour <= 23 ) {
-        return [NSString stringWithFormat:@"%d PM", hour-11];
+    
+    if (hour >= 12 && hour <= 23 ) {
+        if (hour == 12){
+            return [NSString stringWithFormat:@"%dPM", hour];
+        }else{
+            return [NSString stringWithFormat:@"%dPM", hour-12];
+        }
     }else{
-        return [NSString stringWithFormat:@"%d AM", hour];
+        if (hour == 0){
+            return [NSString stringWithFormat:@"%dAM", hour + 12];
+        }else{
+            return [NSString stringWithFormat:@"%dAM", hour];
+        }
     }
 }
 
 +(NSString *)timeInAMPMfrom24hour:(int)hour minute:(long)min{
-    (hour > 11 && hour <= 23 ? --hour : ++hour);
-    if (hour > 11 && hour <= 23 ) {
-        return [NSString stringWithFormat:@"%d:%.2ld PM", hour-11, min];
-    }else{
+    if (hour >= 12 && hour <= 23 && min <= 58 ) {
+        if (hour == 12){
+            return [NSString stringWithFormat:@"%d:%.2ld PM", hour, min];
+        }else{
+        return [NSString stringWithFormat:@"%d:%.2ld PM", hour-12, min];
+        }
+    }else
+        if(hour >= 23 && min >= 59 ){
+            return [NSString stringWithFormat:@"%d:%.2ld AM", hour-12, min];
+        }else{
         return [NSString stringWithFormat:@"%d:%.2ld AM", hour, min];
     }
 }
