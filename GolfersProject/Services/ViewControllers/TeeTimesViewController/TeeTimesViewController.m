@@ -261,6 +261,7 @@
                 }];
             }
         } failure:^(bool status, GolfrzError *error) {
+            [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
             [Utilities displayErrorAlertWithMessage:[error errorMessage]];
         }];
     else
@@ -322,6 +323,7 @@
         [self.popTipView setCornerRadius:0.0];
         // saving the ref to selected view.
         self.tappedButton = sender;
+        [self.popTipView setDismissTapAnywhere:YES];
         [self.popTipView presentPointingAtView:sender inView:self.view animated:YES];
     }else {
         // Dismiss

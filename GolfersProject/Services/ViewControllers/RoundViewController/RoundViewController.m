@@ -365,6 +365,7 @@
         // saving the ref to selected view.
         self.editScoreBtn = sender;
         self.scoredPlayer = player;
+        [self.popTipView setDismissTapAnywhere:YES];
         [self.popTipView presentPointingAtView:sender inView:self.view animated:YES];
     }else {
         // Dismiss
