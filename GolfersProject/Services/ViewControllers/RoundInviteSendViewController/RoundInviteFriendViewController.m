@@ -240,7 +240,7 @@
 
 -(NSString *)createInvitationMessageforinvitation:(Invitation *)invite
 {
-    NSString * inivitationMessage = [NSString stringWithFormat:@"You have received invitation to play Golf, please tap on the invitation link below to play. \nTO PLAY ON iPHONE APP: %@  \nTO PLAY ON ANDROID APP: %@", [invite iOSInvitationUrl], [invite androidInvitationUrl]];
+    NSString * inivitationMessage = [NSString stringWithFormat:@"You have received invitation to play Golf, please tap on the invitation link below to play. \n\nTO PLAY ON iPHONE APP: %@  \n\nTO PLAY ON ANDROID APP: %@", [invite iOSInvitationUrl], [invite androidInvitationUrl]];
     return inivitationMessage;
     
 }
