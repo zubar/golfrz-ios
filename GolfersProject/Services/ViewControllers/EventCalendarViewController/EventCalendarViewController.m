@@ -354,7 +354,7 @@
                 [headerView.lblTemperature setFont:[UIFont fontWithName:@"Helvetica" size:12.0f]];
                 [headerView.lblTemperature setHidden:NO];
                 }else{
-                    [headerView.lblTemperature setNonNullText:@"N/A"];
+                    [headerView.lblTemperature setNonNullText:@""];
                     [headerView.lblTemperature setHidden:NO];
                 }
             }else{
