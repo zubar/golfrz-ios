@@ -16,6 +16,7 @@
 #import "GameSettings.h"
 #import "User.h"
 #import "UtilityServices.h"
+#import "Invitation.h"
 
 @implementation InvitationServices
 
@@ -36,18 +37,23 @@
 
 +(void)getInvitationTokenForInvitee:(NSArray *)invitees
                                type:(RoundInvitationType)smsEmail
-                            success:(void (^)(bool status, NSString * invitationToken))successBlock
-                            failure:(void (^)(bool status, NSError * error))failureBlock{
+                            success:(void (^)(bool status, Invitation * curInvitation ))successBlock
+                            failure:(void (^)(bool status, GolfrzError * error))failureBlock
+{
 
-    AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
+    APIClient * apiClient = [APIClient sharedAPICLient];
     
     NSLog(@"GET_TOKEN:%@",[InvitationServices paramsGetInvitationInvitee:invitees inviteType:smsEmail] );
-    
-    [apiClient POST:kGetInvitationToken parameters:[InvitationServices paramsGetInvitationInvitee:invitees inviteType:smsEmail] success:^(NSURLSessionDataTask *task, id responseObject) {
-        NSString * invitationToken = [responseObject valueForKey:@"invitation_token"];
-        successBlock(true, invitationToken);
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        failureBlock(false, error);
+
+    [apiClient POST:kGetInvitationToken parameters:[InvitationServices paramsGetInvitationInvitee:invitees inviteType:smsEmail] completion:^(id response, NSError *error) {
+            OVCResponse * resp = response;
+        if(!error){
+            NSError * parseError = nil;
+            Invitation * currInvitation = [MTLJSONAdapter modelOfClass:[Invitation class] fromJSONDictionary:[resp result] error:&parseError];
+            if(!error) successBlock(true, currInvitation);
+        }else{
+            failureBlock(false, [resp result]);
+        }
     }];
 }
 
@@ -62,11 +68,6 @@
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         NSLog(@"%@", error);
     }];
-}
-
-+(NSString *)getinvitationAppOpenUrlForInvitation:(NSString *)appInvitationToken
-{
-    return  [NSString stringWithFormat:@"%@redirect_with_invitation?invitation=%@", kInvitationRedirect, appInvitationToken];
 }
 
 #pragma mark - Helpers

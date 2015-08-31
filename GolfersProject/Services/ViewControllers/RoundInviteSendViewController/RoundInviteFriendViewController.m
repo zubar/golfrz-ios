@@ -18,6 +18,8 @@
 #import "GameSettings.h"
 #import "AddPlayersViewController.h"
 #import "APContact+convenience.h"
+#import "Utilities.h"
+#import "Invitation.h"
 
 #import "RoundViewController.h"
 #import "AppDelegate.h"
@@ -35,7 +37,7 @@
 @property (nonatomic, strong) NSMutableArray * allFriends;
 @property (nonatomic, strong) NSMutableArray * searchedFriends;
 //Save the invitationId if required.
-@property (nonatomic, strong) NSString * invitationId;
+@property (nonatomic, strong) Invitation * currentInvitation;
 @end
 
 @implementation RoundInviteFriendViewController
@@ -193,14 +195,15 @@
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [InvitationServices getInvitationTokenForInvitee:emailSMS
                                                 type:inviteType
-                                             success:^(bool status, NSString *invitationToken) {
+                                             success:^(bool status, Invitation * curInvite) {
                 if (status) {
-                    self.invitationId = invitationToken;
+                    self.currentInvitation = curInvite;
                     completion();
                     [MBProgressHUD hideHUDForView:self.view animated:YES];
                         }
-    } failure:^(bool status, NSError *error) {
+    } failure:^(bool status, GolfrzError * error) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [Utilities displayErrorAlertWithMessage:[error errorMessage]];
     }];
 }
 
@@ -227,15 +230,20 @@
     [self.searchDisplayController.searchBar resignFirstResponder];
     self.searchDisplayController.searchBar.text = @"";
     [self saveInvitationOnServerCompletion:^{
-        NSString * invitationUrl = [InvitationServices getinvitationAppOpenUrlForInvitation:self.invitationId];
-        NSLog(@"InvitationUrl: %@", invitationUrl);
+       
         if ([self.selectedFriends count] > 0) {
             [[GameSettings sharedSettings] setWaitingForPlayers:YES];
-            [self sendInvitationsWithMsg:invitationUrl];
+            [self sendInvitationsWithMsg:[self createInvitationMessageforinvitation:self.currentInvitation]];
         }
     }];
 }
 
+-(NSString *)createInvitationMessageforinvitation:(Invitation *)invite
+{
+    NSString * inivitationMessage = [NSString stringWithFormat:@"You have received invitation to play Golf, please tap on the invitation link below to play. \nTO PLAY ON iPHONE APP: %@  \nTO PLAY ON ANDROID APP: %@", [invite iOSInvitationUrl], [invite androidInvitationUrl]];
+    return inivitationMessage;
+    
+}
 
 -(void)sendInvitationsWithMsg:(NSString *)text{
     
@@ -286,7 +294,18 @@
     NSMutableArray * emailSMSArray = [[NSMutableArray alloc] initWithCapacity:[userObjects count]];
     for (id user in userObjects) {
         if ([user respondsToSelector:propertySelector]) {
-            [emailSMSArray addObject:[user performSelector:propertySelector]];
+            if(extractionOption == FriendContactTypeAddressbookSMS)
+            {
+            NSString * cellNumber = [[user performSelector:propertySelector] stringByReplacingOccurrencesOfString:@" " withString:@""];
+            NSString * condensedNumber = [[cellNumber componentsSeparatedByCharactersInSet:
+                                         [[NSCharacterSet characterSetWithCharactersInString:@"+0123456789"]
+                                          invertedSet]]
+                                          componentsJoinedByString:@""];
+                [emailSMSArray addObject:condensedNumber];
+            }else{
+                NSString * email = [[user performSelector:propertySelector] stringByReplacingOccurrencesOfString:@" " withString:@""];
+                [emailSMSArray addObject:email];
+            }
         }
     }
     

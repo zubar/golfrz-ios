@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "GolfrzError.h"
+@class Invitation;
 
 typedef NS_ENUM(NSInteger, RoundInvitationType) {
     RoundInvitationTypeSMS = 0,
@@ -22,10 +23,11 @@ typedef NS_ENUM(NSInteger, RoundInvitationType) {
 +(void)getInAppUsers:(void (^)(bool status, NSArray * inAppUsers))successBlock
              failure:(void (^)(bool status, GolfrzError * error))failureBlock;
 
+
 +(void)getInvitationTokenForInvitee:(NSArray *)invitees
                                type:(RoundInvitationType)smsEmail
-                            success:(void (^)(bool status, NSString * invitationToken))successBlock
-                            failure:(void (^)(bool status, NSError * error))failureBlock;
+                            success:(void (^)(bool status, Invitation * curInvitation ))successBlock
+                            failure:(void (^)(bool status, GolfrzError * error))failureBlock;
 
 
 +(void)getInvitationDetail:(void (^)(bool status, id roundId))successBlock

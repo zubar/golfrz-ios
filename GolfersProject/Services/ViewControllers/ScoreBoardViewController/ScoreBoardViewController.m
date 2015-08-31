@@ -636,7 +636,6 @@
 - (void)saveScorecardInHistory{
     // This is the shit- WEB TEAM has forced us to do.
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    GameSettings * settings = [GameSettings sharedSettings];
     NSString * currUserId = [NSString stringWithFormat:@"%@", [UserServices currentUserId]];
     
     for (ScoreCardUser * user in [scoreCard_ users]) {
@@ -645,8 +644,8 @@
             int totalNet = totalGross - [[user handiCap] intValue];
             
             // Check if round id is present,
-            if([settings roundId] != nil){
-                [ScoreboardServices saveScoreBoardForRoundId:[settings roundId] grossScore:[NSNumber numberWithInt:totalGross] netScore:[NSNumber numberWithInt:totalNet] skinCount:[user skinCount]
+            if([self roundId] != nil){
+                [ScoreboardServices saveScoreBoardForRoundId:[self roundId] grossScore:[NSNumber numberWithInt:totalGross] netScore:[NSNumber numberWithInt:totalNet] skinCount:[user skinCount]
                                                      success:^(bool status, id response)
                  {
                      //Do nothing.

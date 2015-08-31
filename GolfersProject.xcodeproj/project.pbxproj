@@ -141,6 +141,7 @@
 		3DC1161D1B2ED8A500E83F4F /* ContactServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC1161C1B2ED8A500E83F4F /* ContactServices.m */; };
 		3DC1161F1B2EE21F00E83F4F /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DC1161E1B2EE21F00E83F4F /* AddressBook.framework */; };
 		3DC116231B2EF4AD00E83F4F /* APContact+convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC116221B2EF4AD00E83F4F /* APContact+convenience.m */; };
+		3DC352941B94597F00A39E36 /* Invitation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC352931B94597F00A39E36 /* Invitation.m */; };
 		3DCA44CC1B26CB3400B66BD2 /* CalendarEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DCA44A91B26CB3400B66BD2 /* CalendarEvent.m */; };
 		3DCA44CD1B26CB3400B66BD2 /* EventList.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DCA44AB1B26CB3400B66BD2 /* EventList.m */; };
 		3DCA44CE1B26CB3400B66BD2 /* EventWeather.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DCA44AD1B26CB3400B66BD2 /* EventWeather.m */; };
@@ -467,6 +468,8 @@
 		3DC1161E1B2EE21F00E83F4F /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		3DC116211B2EF4AD00E83F4F /* APContact+convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "APContact+convenience.h"; sourceTree = "<group>"; };
 		3DC116221B2EF4AD00E83F4F /* APContact+convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "APContact+convenience.m"; sourceTree = "<group>"; };
+		3DC352921B94597F00A39E36 /* Invitation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Invitation.h; sourceTree = "<group>"; };
+		3DC352931B94597F00A39E36 /* Invitation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Invitation.m; sourceTree = "<group>"; };
 		3DCA44A81B26CB3400B66BD2 /* CalendarEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarEvent.h; sourceTree = "<group>"; };
 		3DCA44A91B26CB3400B66BD2 /* CalendarEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarEvent.m; sourceTree = "<group>"; };
 		3DCA44AA1B26CB3400B66BD2 /* EventList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventList.h; sourceTree = "<group>"; };
@@ -1413,6 +1416,15 @@
 			path = "APContact+Extension";
 			sourceTree = "<group>";
 		};
+		3DC352911B94596900A39E36 /* Invitation */ = {
+			isa = PBXGroup;
+			children = (
+				3DC352921B94597F00A39E36 /* Invitation.h */,
+				3DC352931B94597F00A39E36 /* Invitation.m */,
+			);
+			path = Invitation;
+			sourceTree = "<group>";
+		};
 		3DCA44A71B26CB3400B66BD2 /* CalendarEvent */ = {
 			isa = PBXGroup;
 			children = (
@@ -1508,13 +1520,6 @@
 				3DD3CA3F1B297AD300767BCF /* UtilityServices.m */,
 			);
 			path = UtilityServices;
-			sourceTree = "<group>";
-		};
-		3DD47A581B4A5FA7005DE325 /* Invitation */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Invitation;
 			sourceTree = "<group>";
 		};
 		3DD47A5A1B4A5FA7005DE325 /* Score */ = {
@@ -1837,6 +1842,7 @@
 		885CB06F1B09F91700AD2A7B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3DC352911B94596900A39E36 /* Invitation */,
 				3D6346CB1B80BE650093AA1D /* Shot */,
 				3D6346C71B7A1B0B0093AA1D /* PastScore */,
 				3D6346C01B78D0190093AA1D /* FeaturedControl */,
@@ -1848,7 +1854,6 @@
 				3DDF9BE61B60CA470036C735 /* RoundPlayers */,
 				3D221F911B52797300CF79E4 /* User */,
 				3DD47A5E1B4A6040005DE325 /* SubCourse */,
-				3DD47A581B4A5FA7005DE325 /* Invitation */,
 				3DD47A5A1B4A5FA7005DE325 /* Score */,
 				3DC116201B2EF3E400E83F4F /* APContact+Extension */,
 				3DCA44A71B26CB3400B66BD2 /* CalendarEvent */,
@@ -2446,6 +2451,7 @@
 				3D00B5A91B67493100FA2C19 /* PlayerSettings.m in Sources */,
 				3D1CB0FA1B691563005C1E19 /* InitialViewController.m in Sources */,
 				3D1CB0EC1B691563005C1E19 /* ClubHouseSubController.m in Sources */,
+				3DC352941B94597F00A39E36 /* Invitation.m in Sources */,
 				3D0455CA1B71E66100FFB0E8 /* HMMessagesDisplayViewController.m in Sources */,
 				3DF9936F1B256999006EBC39 /* PushManager.m in Sources */,
 				3DD958751B7294B400F8960D /* Reward.m in Sources */,

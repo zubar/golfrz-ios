@@ -426,7 +426,9 @@
                     scoreBoardVc.roundId = [[GameSettings sharedSettings] roundId];
                     scoreBoardVc.subCourseId = [[GameSettings sharedSettings] subCourseId];
                     [self.navigationController pushViewController:scoreBoardVc animated:YES];
-                   
+                    
+                    [[GameSettings sharedSettings] setroundId:(NSNumber *)[NSNull null]];
+                    [[GameSettings sharedSettings] setsubCourseId:(NSNumber *)[NSNull null]];
                 }
             } failure:^(bool status, NSError *error) {
                 [[[UIAlertView alloc] initWithTitle:@"Try Again." message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
