@@ -159,7 +159,9 @@
     NSString *errorMessage;
     
     NSString *emailRegex = @"[^@]+@[A-Za-z0-9.-]+\\.[A-Za-z]+";
+    NSString *phoneRegex = @"^\\+\\d+$";
     NSPredicate *emailPredicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
+    NSPredicate *phonePredicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", phoneRegex];
     
     if (!(self.txtFirstName.text.length >= 1)){
         errorMessage = @"Please enter a first name";
@@ -169,7 +171,8 @@
         } else
             if (![emailPredicate evaluateWithObject:self.txtEmailAddress.text]){
                 errorMessage = @"Please enter a valid email address";
-            }
+            }else if ((self.txtPhoneNumber.text.length >= 1) && (![phonePredicate evaluateWithObject:self.txtPhoneNumber.text]))
+                errorMessage = @"Please enter a valid phone number";
     return errorMessage;
 }
 
