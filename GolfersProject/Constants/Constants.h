@@ -221,7 +221,7 @@ static NSString * const kAddGuestSuccessMessage = @"Guest successfully added.";
 /*
  * Reward Tutorial Messages
  */
-
+static NSString * const MessageToDownloadApp = @"Download Ames Golf & Country Club App on iTunes.";
 static NSString * const RewardTutorialHeading = @"Here you can see how to earn points as well as claim your rewards!";
 static NSString * const CheckInReward = @"Earn 5 points every time you check in to the course.";
 static NSString * const InviteFriendsReward = @"Earn 25 points for each friend you invite to the app.";

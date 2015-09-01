@@ -18,6 +18,7 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "UIImageView+RoundedImage.h"
 #import "Utilities.h"
+#import "FaceBookAuthAgent.h"
 
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
@@ -83,6 +84,22 @@
     // Pass the selected object to the new view controller.
 }
 */
+- (IBAction)connectWithFacebook:(id)sender {
+    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [FaceBookAuthAgent signInWithFacebook:^(bool status, NSDictionary *userInfo) {
+        
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        
+        AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+        UIViewController *clubHouseContainerVC  = [self.storyboard instantiateViewControllerWithIdentifier:@"ClubHouseContainerVC"];
+        [delegate.appDelegateNavController pushViewController:clubHouseContainerVC animated:YES];
+        
+    } failure:^(bool status, NSError *error) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+    }];
+    
+}
 
 - (IBAction)btnSignInTapped:(id)sender {
     

@@ -69,8 +69,6 @@
         UIAlertView *notPermitted=[[UIAlertView alloc] initWithTitle:kError message:CallSupportErrorMessage delegate:nil cancelButtonTitle:kOK otherButtonTitles:nil];
         [notPermitted show];
     }
-
-    
 }
 
 @end

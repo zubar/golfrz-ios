@@ -27,10 +27,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self addGestureAdminContact];
+    [self addGestureToAdminEmail];
+
     
     SharedManager * manager = [SharedManager sharedInstance];
     [self.imgViewBackground setImage:[manager backgroundImage]];
-;
+
 
     
     UIButton * imageButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 10, 10, 14)];
@@ -93,24 +96,6 @@
     [Utilities viewMap];
 }
 
-/*
--(void)viewWillAppear:(BOOL)animated{
-    
-    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
-    [delegate.appDelegateNavController setNavigationBarHidden:NO];
-    
-    [[UINavigationBar appearance] setTitleVerticalPositionAdjustment:-10.0 forBarMetrics:UIBarMetricsDefault];
-    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
-    
-}
-
--(void)viewWillDisappear:(BOOL)animated{
-    
-    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
-    [delegate.appDelegateNavController setNavigationBarHidden:NO];
-}
-*/
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -118,6 +103,61 @@
 
 -(void)eventAdminBackBtnTapped{
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+
+
+-(void) addGestureToAdminEmail{
+    UITapGestureRecognizer* gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(adminEmailTapped)];
+    // if labelView is not set userInteractionEnabled, you must do so
+    [self.lblEmail setUserInteractionEnabled:YES];
+    [self.lblEmail addGestureRecognizer:gesture];
+}
+
+
+-(void) addGestureAdminContact{
+    UITapGestureRecognizer* gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(adminContactTapped)];
+    // if labelView is not set userInteractionEnabled, you must do so
+    [self.lblContactNo setUserInteractionEnabled:YES];
+    [self.lblContactNo addGestureRecognizer:gesture];
+}
+
+-(void) adminEmailTapped{
+    
+    UIDevice *device = [UIDevice currentDevice];
+    if ([[device model] isEqualToString:@"iPhone"]) {
+        
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"mailto://%@", (NSString *)self.lblEmail.text]]];
+        
+    } else {
+        UIAlertView *notPermitted=[[UIAlertView alloc] initWithTitle:kError message:EmailSupportErrorMessage delegate:nil cancelButtonTitle:kOK otherButtonTitles:nil];
+        [notPermitted show];
+    }
+    
+}
+
+-(void) adminContactTapped{
+    
+    NSString *contact = (NSString *)self.lblContactNo.text;
+    NSString *condensedPhoneno = [[contact componentsSeparatedByCharactersInSet:
+                                   [[NSCharacterSet characterSetWithCharactersInString:@"+0123456789"]
+                                    invertedSet]]
+                                  componentsJoinedByString:@""];
+    
+    UIDevice *device = [UIDevice currentDevice];
+    if ([[device model] isEqualToString:@"iPhone"]) {
+        if (contact.length) {
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://%@", condensedPhoneno]]];
+        }
+        else {
+            UIAlertView *notAvaliable=[[UIAlertView alloc] initWithTitle:kError message:NumberNotAvaliableErrorMessage delegate:nil cancelButtonTitle:kOK otherButtonTitles:nil];
+            [notAvaliable show];
+        }
+        
+    } else {
+        UIAlertView *notPermitted=[[UIAlertView alloc] initWithTitle:kError message:CallSupportErrorMessage delegate:nil cancelButtonTitle:kOK otherButtonTitles:nil];
+        [notPermitted show];
+    }
 }
 
 

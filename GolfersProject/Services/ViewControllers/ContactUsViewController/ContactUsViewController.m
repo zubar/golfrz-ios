@@ -108,7 +108,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-//
+
 //- (void)populateStaffFields{
 //    if([self.courseStaff count] <= 0 ){
 //        [self.staffView setHidden:YES];
@@ -217,7 +217,6 @@
 */
 
 -(void)backBtnTapped{
-    
     AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
     [delegate.appDelegateNavController popViewControllerAnimated:YES];
     

@@ -125,10 +125,10 @@
             if ([invities[kSMSInvites] count] <= 0) {
                 [self errorMessageNoContactSelected];
                 return;
+            }else{
+                NSString * invitationMessage = [NSString stringWithFormat:@"%@ :%@", MessageToDownloadApp, kAppStoreUrl];
+                [self sendSMSToContacts:invities[kSMSInvites] text:invitationMessage];
             }
-            //TODO:
-//            [self sendSMSToContacts:<#(NSArray *)#> text:<#(NSString *)#>]
-//            [self sendSMSToContacts:invities[kSMSInvites]];
             break;
         default:
             break;
@@ -304,7 +304,7 @@
     MFMessageComposeViewController *controller = [[MFMessageComposeViewController alloc] init];
     if([MFMessageComposeViewController canSendText])
     {
-        controller.body = [NSString stringWithFormat:@"Hey lets play Golf by downloading :%@", kAppStoreUrl];
+        controller.body = text;
         controller.recipients = mContacts;
         controller.messageComposeDelegate = self;
         [self presentViewController:controller animated:YES completion:^{
@@ -318,7 +318,7 @@
     MFMailComposeViewController* controller = [[MFMailComposeViewController alloc] init];
     controller.mailComposeDelegate = self;
     [controller setSubject:@"Invitation to play Golf"];
-    [controller setMessageBody:[NSString stringWithFormat:@"Hey lets play Golf by downloading :%@", kAppStoreUrl] isHTML:NO];
+    [controller setMessageBody:[NSString stringWithFormat:@"%@ :%@", MessageToDownloadApp, kAppStoreUrl] isHTML:NO];
     [controller setToRecipients:mContacts];
     if (controller)
         [self presentViewController:controller animated:YES completion:^{
