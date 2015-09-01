@@ -109,7 +109,7 @@
     [self showPlayerTable:NO showStartBtn:YES isStartTitleContinue:NO showAddplyerbtn:YES];
     
     GameSettings * settings = [GameSettings sharedSettings];
-    if([settings invitationToken] != (NSString *)[NSNull null]){
+    if([settings invitationToken] != (NSString *)[NSNull null] && [settings invitationToken] !=nil){
         [self loadDataUserAcceptedInvitation];
     }else
         [self loadData];
