@@ -31,7 +31,7 @@ typedef NS_ENUM(NSInteger, RoundInvitationType) {
 
 
 +(void)getInvitationDetail:(void (^)(bool status, id roundId))successBlock
-                   failure:(void (^)(bool status, NSError * error))failureBlock;
+                   failure:(void (^)(bool status, GolfrzError * error))failureBlock;
 
 //+(NSString *)getinvitationAppOpenUrlForInvitation:(NSString *)appInvitationToken;
 

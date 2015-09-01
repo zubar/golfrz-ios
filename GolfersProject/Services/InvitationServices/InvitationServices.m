@@ -58,16 +58,27 @@
 }
 
 +(void)getInvitationDetail:(void (^)(bool status, id roundId))successBlock
-                   failure:(void (^)(bool status, NSError * error))failureBlock
+                   failure:(void (^)(bool status, GolfrzError * error))failureBlock
 {
-    AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
+    
+    APIClient * sharedClient = [APIClient sharedAPICLient];
     NSLog(@"GET_INVITATION:%@", [InvitationServices paramGetInvitationDetail]);
-
-    [apiClient GET:kGetInvitationDetail parameters:[InvitationServices paramGetInvitationDetail] success:^(NSURLSessionDataTask *task, id responseObject) {
-        successBlock(true, responseObject);
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        NSLog(@"%@", error);
+    [sharedClient GET:kGetInvitationDetail parameters:[InvitationServices paramGetInvitationDetail] completion:^(id response, NSError *error) {
+        OVCResponse * resp = response;
+        if(!error){
+            successBlock(true, [resp result]);
+        }else{
+            failureBlock(false, [resp result]);
+        }
     }];
+    
+//    AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
+//
+//    [apiClient GET:kGetInvitationDetail parameters:[InvitationServices paramGetInvitationDetail] success:^(NSURLSessionDataTask *task, id responseObject) {
+//        successBlock(true, responseObject);
+//    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+//        NSLog(@"%@", error);
+//    }];
 }
 
 #pragma mark - Helpers

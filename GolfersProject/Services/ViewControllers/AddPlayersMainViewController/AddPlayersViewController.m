@@ -356,7 +356,7 @@
             NSNumber * roundId = invitation[@"invitation_round"][@"round_id"];
             completion(roundId);
         }
-    } failure:^(bool status, NSError *error) {
+    } failure:^(bool status, GolfrzError *error) {
         completion(nil);
     }];
 }
