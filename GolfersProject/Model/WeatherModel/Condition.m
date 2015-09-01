@@ -29,15 +29,6 @@
     }
     return self;
 }
-/*
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-    return @{
-             @"main" : @"main",
-             @"breif" : @"description",
-             @"icon" : @"icon"
-             //propertyName : json_key
-             };
-}
-*/
+
 
 @end
