@@ -54,7 +54,8 @@
 }
 
 
-+(void)dailyWeather:(void(^)(bool status, NSDictionary * weatherData))successBlock failure:(void (^)(bool status, NSError * error))failureBlock{
++(void)dailyWeather:(void(^)(bool status, NSDictionary * weatherData))successBlock
+            failure:(void (^)(bool status, NSError * error))failureBlock{
 
     AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kWeatherAPI]];
     NSDictionary * coordinates = [WeatherServices coordinatesForCurrentCourse];
@@ -73,40 +74,10 @@
         successBlock(true, weatherObject);
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        NSLog(@"%@", error);
+        failureBlock(false, error);
     }];
 
 }
-
-/*
-+(void)dailyWeatherInfoForDays:(int)daysCount :(void(^)(bool status, NSDictionary * weatherData))successBlock failure:(void (^)(bool status, NSError * error))failureBlock{
-    
-    AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kWeatherAPI]];
-    NSDictionary * coordinates = [WeatherServices coordinatesForCurrentCourse];
-    
-    NSString * endPoint =[NSString stringWithFormat:@"forecast/daily?lat=%@&lon=%@&units=metric&APPID=%@&mode=json&cnt=%d", coordinates[@"latitude"], coordinates[@"longitude"], kWeatherAPIKey, daysCount];
-    //http://api.openweathermap.org/data/2.5/forecast/daily?lat=31.558868&lon=74.366853&cnt=1&mode=json&units=metric
-    
-    [apiClient GET:endPoint parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
-        
-        NSArray * tempObjects = [(NSDictionary *)responseObject objectForKey:@"list"];
-        NSMutableArray * weatherObjects = [[NSMutableArray alloc]initWithCapacity:tempObjects.count];
-        
-        
-        for (NSDictionary * weather in tempObjects) {
-            
-            [weatherObjects addObject:temp];
-        }
-        successBlock(true, weatherObjects);
-        
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        NSLog(@"%@", error);
-    }];
-    
-}
-
-*/
-
 
 +(NSDictionary *)coordinatesForCurrentCourse{
     if ([CourseServices currentCourse]) {

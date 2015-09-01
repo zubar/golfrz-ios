@@ -71,14 +71,6 @@
             failureBlock(false, [resp result]);
         }
     }];
-    
-//    AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
-//
-//    [apiClient GET:kGetInvitationDetail parameters:[InvitationServices paramGetInvitationDetail] success:^(NSURLSessionDataTask *task, id responseObject) {
-//        successBlock(true, responseObject);
-//    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-//        NSLog(@"%@", error);
-//    }];
 }
 
 #pragma mark - Helpers

@@ -116,7 +116,6 @@ static     APAddressBook *addressBook;
     
     AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
     [apiClient POST:kSignInURL parameters:[ContactServices paramsInviteContactViaEmail] success:^(NSURLSessionDataTask *task, id responseObject) {
-        //TODO: check success_messsage. 
         successBlock(true, responseObject);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         failureBlock(false, error);

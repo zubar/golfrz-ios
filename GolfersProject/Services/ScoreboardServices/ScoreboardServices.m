@@ -30,15 +30,10 @@
         NSNumber * score = responseObject[@"users_score"];
         successBlock(true, score);
     } failure:^(NSURLSessionDataTask *task, id response) {
-        @try {
-            NSLog(@"%@", [response result]);
-        }
-        @catch (NSException *exception) {
-            // Send exception message as error message. 
-        }
-        @finally {
-            //Make a Golfers Error Object and Return;
-        }
+        NSDictionary * errorDict = @{@"errorMessage" : @"An unknown error occured, please refresh"};
+        NSError * parseError=nil;
+        GolfrzError * gError = [GolfrzError modelWithDictionary:errorDict error:&parseError ];
+        failureBlock(false, gError);
     }];
 }
 

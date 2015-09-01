@@ -26,21 +26,14 @@ static NSString * const kAppPreviewImage = @"http://a5.mzstatic.com/us/r30/Purpl
 /*
  * BaseImageURLGolfrz
  */
-static NSString * const kBaseImageUrl = @"http://45.56.104.68";
-//static NSString * const kBaseImageUrl = @"https://www.mobilecoursesolutions.com";
+//static NSString * const kBaseImageUrl = @"http://45.56.104.68";
+static NSString * const kBaseImageUrl = @"http://mobilecoursesolutions.com";
 
-static NSString * const kBaseURL = @"http://45.56.104.68/api/0.1/";
-//static NSString * const kBaseURL = @"https://www.mobilecoursesolutions.com/api/0.1/";
-
-
-/*
- This URL is used to create a app open link via a server redirect.
- */
-static NSString * const kInvitationRedirect = @"http://45.56.104.68/";
-//static NSString * const kInvitationRedirect = @"https://www.mobilecoursesolutions.com/";
+//static NSString * const kBaseURL = @"http://45.56.104.68/api/0.1/";
+static NSString * const kBaseURL = @"http://mobilecoursesolutions.com/api/0.1/";
 
 
-static NSString * const kPrivacyPolicyURL = @"http://45.56.104.68/geneva-golf-and-country-club/privacy";
+static NSString * const kPrivacyPolicyURL = @"http://mobilecoursesolutions.com/geneva-golf-and-country-club/privacy";
 //http://45.56.104.68/ames-golf-country-club/privacy
 
 /*
