@@ -39,18 +39,8 @@
 
 @implementation PlayerProfileViewController
 
-- (void)viewDidLoad
+- (void)updateUserInfo
 {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    
-    SharedManager * manager = [SharedManager sharedInstance];
-    [self.imgViewBackground setImage:[manager backgroundImage]];
-    
-  
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(loadPreviousScoreCards)];
-    [_myScorecardsTapped addGestureRecognizer:tap];
-    
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [UserServices getUserInfo:^(bool status, User *mUser) {
         
@@ -72,8 +62,22 @@
     } failure:^(bool status, GolfrzError *error) {
         [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Failed to get details" delegate:nil cancelButtonTitle:@"CANCEL" otherButtonTitles:nil, nil] show];
         [MBProgressHUD hideHUDForView:self.view animated:YES];
-
+        
     }];
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+    
+    SharedManager * manager = [SharedManager sharedInstance];
+    [self.imgViewBackground setImage:[manager backgroundImage]];
+    
+  
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(loadPreviousScoreCards)];
+    [_myScorecardsTapped addGestureRecognizer:tap];
+    
 }
 
 -(void)updateUserRewardPoints
@@ -135,6 +139,7 @@
     [self hasUserCheckedIn];
     [self roundAlreadyInProgress];
     [self updateUserRewardPoints];
+    [self updateUserInfo];
 
     GameSettings * settings = [GameSettings sharedSettings];
     if([settings isRoundInProgress]){

@@ -20,5 +20,6 @@
 - (IBAction)btnRegisterTapped:(UIButton *)sender;
 - (IBAction)btnBackTapped:(UIButton *)sender;
 @property (weak, nonatomic) IBOutlet UIImageView *imgViewBackground;
+@property (weak, nonatomic) IBOutlet UILabel *lblPrivacyPolicy;
 
 @end

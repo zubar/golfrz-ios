@@ -40,6 +40,9 @@ static NSString * const kInvitationRedirect = @"http://45.56.104.68/";
 //static NSString * const kInvitationRedirect = @"https://www.mobilecoursesolutions.com/";
 
 
+static NSString * const kPrivacyPolicyURL = @"http://45.56.104.68/geneva-golf-and-country-club/privacy";
+//http://45.56.104.68/ames-golf-country-club/privacy
+
 /*
  * Weather API
  */

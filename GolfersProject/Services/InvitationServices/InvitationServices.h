@@ -33,6 +33,6 @@ typedef NS_ENUM(NSInteger, RoundInvitationType) {
 +(void)getInvitationDetail:(void (^)(bool status, id roundId))successBlock
                    failure:(void (^)(bool status, NSError * error))failureBlock;
 
-+(NSString *)getinvitationAppOpenUrlForInvitation:(NSString *)appInvitationToken;
+//+(NSString *)getinvitationAppOpenUrlForInvitation:(NSString *)appInvitationToken;
 
 @end

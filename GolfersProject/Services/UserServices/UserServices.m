@@ -80,6 +80,7 @@ static User * currentUser = nil;
              lastName:(NSString *)lastName
                 email:(NSString *)email
               phoneNo:(NSString *)phoneNo
+             handicap:(NSNumber *)handicap
               success:(void (^)(bool status, NSString * message))successBlock
               failure:(void (^)(bool status, GolfrzError * error))failureBlock
 {
@@ -88,7 +89,7 @@ static User * currentUser = nil;
     APIClient *apiClient = [APIClient sharedAPICLient];
     NSString * updateInfoUrl = [NSString stringWithFormat:@"%@%@", kUpdateUserInfo, [UserServices currentUserId]];
     
-    [apiClient PUT:updateInfoUrl parameters:[UserServices userFirstName:fName lastName:lastName email:email phoneNo:phoneNo] completion:^(id response, NSError *error) {
+    [apiClient PUT:updateInfoUrl parameters:[UserServices userFirstName:fName lastName:lastName email:email phoneNo:phoneNo handicap:handicap] completion:^(id response, NSError *error) {
         if (!error) {
             //Setting current user
             NSString * msg = @"Successfully updated";;
@@ -133,16 +134,18 @@ static User * currentUser = nil;
 
 #pragma mark - Helper Methods
 
-+(NSDictionary *)userFirstName:(NSString *)firstName lastName:(NSString *)lastName email:(NSString *)email phoneNo:(NSString *)phoneNo{
-    return @{
-        @"id" : [UserServices currentUserId],
-        @"auth_token" : [UserServices currentToken],
-        @"first_name" : firstName,
-        @"last_name" : lastName,
-        @"email" : email,
-        @"phone_no" :phoneNo,
++(NSDictionary *)userFirstName:(NSString *)firstName lastName:(NSString *)lastName email:(NSString *)email phoneNo:(NSString *)phoneNo handicap:(NSNumber *)handicap{
+    
+    NSMutableDictionary * dict = [NSMutableDictionary new];
+    [dict setObject:[UserServices currentUserId] forKey:@"id"];
+    [dict setObject:[UserServices currentToken] forKey:@"auth_token"];
+    [dict setObject:firstName forKey:@"first_name"];
+    [dict setObject:lastName forKey:@"last_name"];
+    [dict setObject:email forKey:@"email"];
+    [dict setObject:phoneNo forKey:@"phone_no"];
 
-    };
+    if(handicap != nil) [dict setObject:handicap forKey:@"handicap"];
+    return (NSDictionary *)dict;
 }
 
 +(NSDictionary *)userToken{

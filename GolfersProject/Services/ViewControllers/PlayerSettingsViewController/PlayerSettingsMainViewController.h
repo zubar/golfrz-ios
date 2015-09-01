@@ -20,8 +20,10 @@
 @property (strong, nonatomic) IBOutlet UITextField *txtLastName;
 @property (strong, nonatomic) IBOutlet UITextField *txtEmailAddress;
 @property (strong, nonatomic) IBOutlet UITextField *txtPhoneNumber;
+@property (weak, nonatomic) IBOutlet UITextField *txtHandicap;
 
 @property (strong, nonatomic) IBOutlet UIImageView *backgroundImg;
 @property (weak, nonatomic) IBOutlet UIButton *btnDisconnectFB;
+@property (weak, nonatomic) IBOutlet UILabel *lblPrivacyPolicy;
 
 @end

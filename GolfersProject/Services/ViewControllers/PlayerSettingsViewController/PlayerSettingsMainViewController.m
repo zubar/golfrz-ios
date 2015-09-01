@@ -11,6 +11,7 @@
 #import "InitialViewController.h"
 #import "ForgotPasswordViewController.h"
 #import "UserServices.h"
+#import "Constants.h"
 #import "User.h"
 #import "AppDelegate.h"
 #import "MBProgressHUD.h"
@@ -42,7 +43,7 @@
     else
         [self.btnDisconnectFB setHidden:YES];
     
-    
+    [self addGestureToPrivacyPolicy];
     //Assuming the view will always be created in non-editing mode.
     isEditing = false;
     
@@ -97,6 +98,7 @@
                 [self.txtLastName setText:[mUser lastName]];
                 [self.txtEmailAddress setText:[mUser email]];
                 [self.txtPhoneNumber setText:[mUser phone]];
+                [self.txtHandicap setText:[[mUser handicap] stringValue]];
                 [self.imgUserPic sd_setImageWithURL:[NSURL URLWithString:[mUser imgPath]] placeholderImage:[UIImage imageNamed:@"person_placeholder"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
                 if (image) {
                     [self.imgUserPic setRoundedImage:image];
@@ -147,6 +149,7 @@
         [self.txtLastName resignFirstResponder];
         [self.txtEmailAddress resignFirstResponder];
         [self.txtPhoneNumber resignFirstResponder];
+        [self.txtHandicap resignFirstResponder];
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         NSString *errorMessage = [self validateForm];
         if (errorMessage) {
@@ -154,7 +157,7 @@
             [[[UIAlertView alloc] initWithTitle:nil message:errorMessage delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil] show];
             return;
         }
-        [self upDateUserFirstName:[self.txtFirstName text] lastName:[self.txtLastName text] email:[self.txtEmailAddress text] phoneNo:[self.txtPhoneNumber text]];
+        [self upDateUserFirstName:[self.txtFirstName text] lastName:[self.txtLastName text] email:[self.txtEmailAddress text] phoneNo:[self.txtPhoneNumber text] handiCap:[self.txtHandicap text]];
     }
     
     [self.lblEditProfile setAttributedText:saveTitle];
@@ -189,6 +192,7 @@
     [self.txtLastName setEnabled:yesNo];
     [self.txtEmailAddress setEnabled:yesNo];
     [self.txtPhoneNumber setEnabled:yesNo];
+    [self.txtHandicap setEnabled:yesNo];
 }
 
 
@@ -233,12 +237,17 @@
 }
 
 
--(void)upDateUserFirstName:(NSString *)firstName lastName:(NSString *)lastName email:(NSString *)email phoneNo:(NSString *)phoneNo{
+-(void)upDateUserFirstName:(NSString *)firstName lastName:(NSString *)lastName email:(NSString *)email phoneNo:(NSString *)phoneNo handiCap:(NSString *)handicap{
+    
+    NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
+    f.numberStyle = NSNumberFormatterDecimalStyle;
+    NSNumber *numHandicap = [f numberFromString:handicap];
+    
     
   __block  NSString * alertTitle = nil;
   __block  NSString * alertMessage = nil;
     
-    [UserServices updateUserInfo:firstName lastName:lastName email:email phoneNo:phoneNo success:^(bool status, NSString *message) {
+    [UserServices updateUserInfo:firstName lastName:lastName email:email phoneNo:phoneNo handicap:numHandicap success:^(bool status, NSString *message) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         alertTitle = @"Success";
         alertMessage = message;
@@ -277,6 +286,17 @@
     return YES;
 }
 
+-(void)addGestureToPrivacyPolicy{
+    
+    UITapGestureRecognizer* gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(openPrivacyPolicy)];
+    // if labelView is not set userInteractionEnabled, you must do so
+    [self.lblPrivacyPolicy setUserInteractionEnabled:YES];
+    [self.lblPrivacyPolicy addGestureRecognizer:gesture];
+    
+}
 
+- (void)openPrivacyPolicy{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:kPrivacyPolicyURL]];
+}
 
 @end

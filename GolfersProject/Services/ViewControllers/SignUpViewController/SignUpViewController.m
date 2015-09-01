@@ -16,6 +16,8 @@
 #import "SignInViewController.h"
 #import "ClubHouseContainerVC.h"
 #import "AppDelegate.h"
+#import "Constants.h"
+
 
 @interface SignUpViewController ()
 
@@ -29,7 +31,7 @@
     SharedManager * manager = [SharedManager sharedInstance];
     [self.imgViewBackground setImage:[manager backgroundImage]];
 
-    
+    [self addGestureToPrivacyPolicy];
     [self.navigationController setNavigationBarHidden:YES animated:YES];
 }
 
@@ -119,6 +121,19 @@
     }
     
     return errorMessage;
+}
+
+-(void)addGestureToPrivacyPolicy{
+    
+    UITapGestureRecognizer* gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(openPrivacyPolicy)];
+    // if labelView is not set userInteractionEnabled, you must do so
+    [self.lblPrivacyPolicy setUserInteractionEnabled:YES];
+    [self.lblPrivacyPolicy addGestureRecognizer:gesture];
+    
+}
+
+- (void)openPrivacyPolicy{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:kPrivacyPolicyURL]];
 }
 
 #pragma TextFieldMethods

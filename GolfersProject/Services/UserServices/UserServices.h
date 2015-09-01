@@ -36,6 +36,7 @@
              lastName:(NSString *)lastName
                 email:(NSString *)email
               phoneNo:(NSString *)phoneNo
+             handicap:(NSNumber *)handicap
               success:(void (^)(bool status, NSString * message))successBlock
               failure:(void (^)(bool status, GolfrzError * error))failureBlock;
 

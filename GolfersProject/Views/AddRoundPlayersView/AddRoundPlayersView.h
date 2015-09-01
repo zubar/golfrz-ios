@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AddRoundPlayersView : UIView<UITableViewDataSource, UITableViewDelegate>
+@interface AddRoundPlayersView : UIView
 
 @end
