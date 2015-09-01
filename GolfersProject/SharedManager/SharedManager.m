@@ -185,7 +185,9 @@ bool pointInPolygon(int polyCorners, float polyX[], float polyY[], float x, floa
         if ((location.verticalAccuracy <= kAccuracyGPS ) && (location.horizontalAccuracy <= kAccuracyGPS)) {
             lastKnownLocation.x = location.coordinate.longitude;
             lastKnownLocation.y = location.coordinate.latitude;
-            [sharedLocationManager stopUpdatingLocation];
+            if ((location.verticalAccuracy <= kStopUpdatingOnAccuracy ) && (location.horizontalAccuracy <= kStopUpdatingOnAccuracy)){
+                [sharedLocationManager stopUpdatingLocation];
+            }
             if (self.delegate && [self.delegate respondsToSelector:@selector(IsUserInCourseWithRequiredAccuracy:)]){
                 ([self isUserLocationInCourse] ?
                  [self.delegate IsUserInCourseWithRequiredAccuracy:YES] : [self.delegate IsUserInCourseWithRequiredAccuracy:NO]);

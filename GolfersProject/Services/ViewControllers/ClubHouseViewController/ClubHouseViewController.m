@@ -355,7 +355,7 @@
             }
         }];
     }else{
-        NSString * message = [NSString stringWithFormat:@"You are not %d meter inside the course perimeter.",kAccuracyGPS];
+        NSString * message = [NSString stringWithFormat:@"You are not inside the course perimeter."];
         [[[UIAlertView alloc]initWithTitle:@"" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
     }
     

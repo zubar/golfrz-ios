@@ -10,7 +10,8 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 
-#define kAccuracyGPS 40
+#define kAccuracyGPS 100
+#define kStopUpdatingOnAccuracy 2
 
 
 @protocol SharedManagerDelegate <NSObject>
