@@ -8,6 +8,7 @@
 
 #import "FaceBookAuthAgent.h"
 #import <AFNetworking/AFNetworking.h>
+#import "MBProgressHUD.h"
 
 #import "Constants.h"
 
@@ -26,8 +27,12 @@
     [login logInWithReadPermissions:@[@"public_profile", @"email", @"user_friends"] handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
         if (error) {
             // Process error
+            NSError * tError = [NSError errorWithDomain:@"FBError-Some Unknown error occured." code:0 userInfo:nil];
+            failureBlock(false, tError);
         } else if (result.isCancelled) {
             // Handle cancellations
+            NSError * tError = [NSError errorWithDomain:@"FBError-UserCancelled Authentication." code:0 userInfo:nil];
+            failureBlock(false, tError);
         } else {
             // If you ask for multiple permissions at once, you
             // should check if specific permissions missing
