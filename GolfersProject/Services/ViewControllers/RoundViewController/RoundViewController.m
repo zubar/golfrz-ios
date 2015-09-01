@@ -430,6 +430,7 @@
                     
                     [[GameSettings sharedSettings] setroundId:(NSNumber *)[NSNull null]];
                     [[GameSettings sharedSettings] setsubCourseId:(NSNumber *)[NSNull null]];
+                    [[GameSettings sharedSettings] setInvitationToken:(NSString *)[NSNull null]];
                 }
             } failure:^(bool status, GolfrzError *error) {
                 [Utilities displayErrorAlertWithMessage:[error errorMessage]];

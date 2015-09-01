@@ -109,7 +109,7 @@
     [self showPlayerTable:NO showStartBtn:YES isStartTitleContinue:NO showAddplyerbtn:YES];
     
     GameSettings * settings = [GameSettings sharedSettings];
-    if([settings invitationToken]){
+    if([settings invitationToken] != (NSString *)[NSNull null]){
         [self loadDataUserAcceptedInvitation];
     }else
         [self loadData];
@@ -290,8 +290,9 @@
         // Navigate to ScoreCard.
         if(status){
             [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-            [[GameSettings sharedSettings] setroundId:(NSNumber *)[NSNull null]],
-            [[GameSettings sharedSettings] setsubCourseId:(NSNumber *)[NSNull null]],
+            [[GameSettings sharedSettings] setroundId:(NSNumber *)[NSNull null]];
+            [[GameSettings sharedSettings] setsubCourseId:(NSNumber *)[NSNull null]];
+            [[GameSettings sharedSettings] setInvitationToken:(NSString *)[NSNull null]];
 
             [[[UIAlertView alloc] initWithTitle:@"Round Cancelled!" message:@"Current Round is cancelled, you can now start new round." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
             [self resetAllFields];
