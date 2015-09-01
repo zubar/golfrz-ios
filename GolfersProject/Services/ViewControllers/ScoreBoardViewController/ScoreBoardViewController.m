@@ -26,6 +26,8 @@
 #import "PastScoreCardsViewController.h"
 #import "GameType.h"
 #import "AddPlayersViewController.h"
+#import "Utilities.h"
+#import "GolfrzError.h"
 
 
 @interface ScoreBoardViewController (){
@@ -107,9 +109,10 @@
         }
         [_rightCollectionView reloadData];
     }
-    failure:^(bool status, NSError *error)
+    failure:^(bool status, GolfrzError *error)
     {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [Utilities displayErrorAlertWithMessage:[error errorMessage]];
     }];
 }
 -(void)calculateParTotal

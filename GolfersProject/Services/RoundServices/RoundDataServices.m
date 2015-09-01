@@ -378,15 +378,6 @@
     if(dict[@"roundId"] != nil) [paramDict setObject:dict[@"roundId"] forKey:@"round_id"];
     
     return paramDict;
-//    return @{
-//            @"app_bundle_id" : kAppBundleId,
-//            @"user_agent" : kUserAgent,
-//            @"auth_token" : [UserServices currentToken],
-//                @"sub_course_id" : dict[@"subCourseId"],
-//                @"game_type_id" : dict[@"gameTypeId"],
-//                @"score_type_id" : dict[@"scoreTypeId"],
-//                @"tee_box_id" : dict[@"teeBoxId"],
-//                };
 }
 
 +(NSDictionary *)paramsUpdateRound{

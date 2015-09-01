@@ -78,8 +78,8 @@ static NSString * const kInAppFriend = @"users/in_app_user_list";
 
 
 #pragma warking - Automation issue.
-//static NSString * const kAppBundleId = @"com.golfrz.genevagcc";
-static NSString * const kAppBundleId = @"org.golfrz.GolferzProject99";
+static NSString * const kAppBundleId = @"com.golfrz.genevagcc";
+//static NSString * const kAppBundleId = @"org.golfrz.GolferzProject99";
 //static NSString * const kAppBundleId = @"org.golfrz.GolferzProject";
 static NSString * const kUserAgent = @"ios";
 
@@ -217,11 +217,11 @@ static NSString * const EmailSupportErrorMessage = @"Email is not configured on 
  */
 static NSString * const kSuccess = @"Success";
 static NSString * const kAddGuestSuccessMessage = @"Guest successfully added.";
-
+static NSString * const MessageToDownloadApp = @"Download Ames Golf & Country Club App on iTunes.";
+static NSString * const kUpdateHandicap = @"You must add your handicap on settings screen to play.";
 /*
  * Reward Tutorial Messages
  */
-static NSString * const MessageToDownloadApp = @"Download Ames Golf & Country Club App on iTunes.";
 static NSString * const RewardTutorialHeading = @"Here you can see how to earn points as well as claim your rewards!";
 static NSString * const CheckInReward = @"Earn 5 points every time you check in to the course.";
 static NSString * const InviteFriendsReward = @"Earn 25 points for each friend you invite to the app.";

@@ -45,14 +45,18 @@
 +(void)getScoreCardForRoundId:(NSNumber *)roundId
                     subCourse:(NSNumber *)subCourseId
                       success:(void (^)(bool status, id responseObject))successBlock
-                      failure:(void (^)(bool status, NSError * error))failureBlock
+                      failure:(void (^)(bool status, GolfrzError * error))failureBlock
 {
-    AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
+    APIClient * sharedClient = [APIClient sharedAPICLient];
     NSLog(@"GET-SCORECARD-PARAM:%@", [ScoreboardServices paramsScoreForSubCourseId:subCourseId roundId:roundId]);
-    [apiClient GET:kGetScoreCard parameters:[ScoreboardServices paramsScoreForSubCourseId:subCourseId roundId:roundId] success:^(NSURLSessionDataTask *task, id responseObject) {
-            successBlock(true,responseObject);
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        failureBlock(false,error);
+
+    [sharedClient GET:kGetScoreCard parameters:[ScoreboardServices paramsScoreForSubCourseId:subCourseId roundId:roundId] completion:^(id response, NSError *error) {
+        OVCResponse * resp = response;
+        if(!error){
+            successBlock(true, [resp result]);
+        }else{
+            failureBlock(false, [resp result]);
+        }
     }];
 }
 

@@ -19,6 +19,7 @@
 #import "UIImageView+RoundedImage.h"
 #import "Utilities.h"
 #import "FaceBookAuthAgent.h"
+#import "Constants.h"
 
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
@@ -75,22 +76,14 @@
     AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
     [delegate.appDelegateNavController setNavigationBarHidden:YES];
 }
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 - (IBAction)connectWithFacebook:(id)sender {
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [FaceBookAuthAgent signInWithFacebook:^(bool status, NSDictionary *userInfo) {
         
         [MBProgressHUD hideHUDForView:self.view animated:YES];
-        
+        [[[UIAlertView alloc] initWithTitle:@"Update Handicap." message:kUpdateHandicap delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
         AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
         UIViewController *clubHouseContainerVC  = [self.storyboard instantiateViewControllerWithIdentifier:@"ClubHouseContainerVC"];
         [delegate.appDelegateNavController pushViewController:clubHouseContainerVC animated:YES];

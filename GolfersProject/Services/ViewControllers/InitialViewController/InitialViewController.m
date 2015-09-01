@@ -90,7 +90,7 @@
     [FaceBookAuthAgent signInWithFacebook:^(bool status, NSDictionary *userInfo) {
        
         [MBProgressHUD hideHUDForView:self.view animated:YES];
-       
+        [[[UIAlertView alloc] initWithTitle:@"Update Handicap." message:kUpdateHandicap delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
         AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
         UIViewController *clubHouseContainerVC  = [self.storyboard instantiateViewControllerWithIdentifier:@"ClubHouseContainerVC"];
         [delegate.appDelegateNavController pushViewController:clubHouseContainerVC animated:YES];

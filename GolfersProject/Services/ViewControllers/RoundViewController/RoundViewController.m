@@ -431,8 +431,8 @@
                     [[GameSettings sharedSettings] setroundId:(NSNumber *)[NSNull null]];
                     [[GameSettings sharedSettings] setsubCourseId:(NSNumber *)[NSNull null]];
                 }
-            } failure:^(bool status, NSError *error) {
-                [[[UIAlertView alloc] initWithTitle:@"Try Again." message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+            } failure:^(bool status, GolfrzError *error) {
+                [Utilities displayErrorAlertWithMessage:[error errorMessage]];
             }];
         }
     } failure:^(bool status, NSError *error) {
