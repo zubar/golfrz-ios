@@ -357,6 +357,7 @@
             completion(roundId);
         }
     } failure:^(bool status, GolfrzError *error) {
+        [Utilities displayErrorAlertWithMessage:[error errorMessage]];
         completion(nil);
     }];
 }
