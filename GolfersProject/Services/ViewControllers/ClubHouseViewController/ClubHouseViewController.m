@@ -33,6 +33,7 @@
 #import "Utilities.h"
 #import "CourseUpdatesViewController.h"
 #import "FeaturedControl.h"
+#import "NSDate+Helper.h"
 
 #import "RoundDataServices.h"
 
@@ -262,18 +263,12 @@
     
     WeatherData * tempWeather = [self.weatherList objectAtIndex:indexPath.row];
     
-    WeatherViewCell *customCell = (WeatherViewCell *)cell;
+    WeatherViewCell * customCell = (WeatherViewCell *)cell;
     [customCell.lblTime setText:[self hoursFromDate:tempWeather.timeStamp]];
-    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
-    [formatter setMaximumFractionDigits:0];
-    NSString *tempToDisplay = [formatter stringFromNumber:tempWeather.temperature];
-    [customCell.lblTemperature setText:[NSString stringWithFormat:@"%@ F", tempToDisplay]];
-    
-    [customCell.imgWeatherIcon sd_setImageWithURL:[NSURL URLWithString:tempWeather.condition.icon] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-      //  <#code#>
+    [customCell.lblTemperature setText:[NSString stringWithFormat:@"%.1f F", [[tempWeather temperature] floatValue]]];
+    [customCell.imgWeatherIcon sd_setImageWithURL:[NSURL URLWithString:tempWeather.condition.icon] completed:^(UIImage * image, NSError * error, SDImageCacheType cacheType, NSURL *imageURL) {
         [customCell.imgWeatherIcon setImage:image];
     } ];
-    
     
     return customCell;
 }
@@ -289,12 +284,13 @@
 }
 
 -(NSString *)hoursFromDate:(NSDate *)date{
-
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"h a"];
-    NSString *formattedDateString = [dateFormatter stringFromDate:date];
-    return formattedDateString;
     
+    NSDate *tempDate = [date toGlobalTime];
+    __block  NSString * timeStamp = nil;
+    [Utilities dateComponentsFromNSDate:tempDate components:^(NSString* dayName, NSString* monthName, NSString* day, NSString* time, NSString* minutes, NSString * timeAndMinute) {
+        timeStamp = [[NSString alloc] initWithString:time];
+    }];
+    return timeStamp;
 }
 
 #pragma mark - Navigation
