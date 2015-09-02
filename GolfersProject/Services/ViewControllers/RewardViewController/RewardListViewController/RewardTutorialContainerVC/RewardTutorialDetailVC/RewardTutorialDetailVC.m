@@ -33,6 +33,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     isFbTapped = false;
+
     
     //Or whatever number of viewcontrollers you have
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
@@ -149,16 +150,7 @@
     [self.tutorialDetail setText:detail];
 }
 
-
-/*
 #pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 - (IBAction)viewRewardsBtnTapped:(UIButton *)sender {
     
@@ -201,7 +193,7 @@
 }
 
 -(void)checkInUser{
-
+    
     if ([CourseServices currentCourse]) {
         [self checkInToCurrentCourse];
     }else{
@@ -249,8 +241,7 @@
         NSString * message = [NSString stringWithFormat:@"You are not inside the course perimeter."];
         [[[UIAlertView alloc]initWithTitle:@"" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
     }
-    
-    
+    [SharedManager sharedInstance].delegate = nil;
 }
 
 -(void)socialMediaBtnTapped{
@@ -287,5 +278,8 @@
         [socialMediaController setCompletionHandler:completionHandler];
         [self presentViewController:socialMediaController animated:YES completion:nil];
 
+}
+-(void)dealloc{
+    [SharedManager sharedInstance].delegate = nil;
 }
 @end

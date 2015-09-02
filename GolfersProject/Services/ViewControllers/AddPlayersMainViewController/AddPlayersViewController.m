@@ -148,8 +148,9 @@
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
     [self getRoundInfoForInvitation:invitationToken success:^(NSNumber *roundId) {
+        if(roundId == nil || roundId == (NSNumber *)[NSNull null]) return ;
+       
         [settings setroundId:roundId];
-        
         [self getRoundOptionsForRoundId:[settings roundId] Completion:^(RoundMetaData *currRound) {
             self.roundInfo = currRound;
             

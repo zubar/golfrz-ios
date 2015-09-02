@@ -43,7 +43,13 @@
     
     [self.navigationItem setTitle:@"COURSE UPDATES"];
     
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
     [CourseUpdateServices getCourseUpdates:^(bool status, CourseUpdate *update) {
+        if([self.courseUpdates count] >0) [self.courseUpdates removeAllObjects];
+        
         [self.courseUpdates addObjectsFromArray:[update activities]];
         [self.tblUpdates reloadData];
         [MBProgressHUD hideHUDForView:self.view animated:YES];
@@ -54,13 +60,13 @@
     }];
     
     
-     [UserServices getUserInfo:^(bool status, User *mUser) {
-         [UserServices setCurrentUSerName:[mUser firstName]];
-     } failure:^(bool status, GolfrzError *error) {
-         [UserServices setCurrentUSerName:@"ME"];
-     }];
-    
+    [UserServices getUserInfo:^(bool status, User *mUser) {
+        [UserServices setCurrentUSerName:[mUser firstName]];
+    } failure:^(bool status, GolfrzError *error) {
+        [UserServices setCurrentUSerName:@"ME"];
+    }];
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

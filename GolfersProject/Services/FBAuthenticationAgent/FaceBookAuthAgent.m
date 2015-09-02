@@ -34,7 +34,7 @@
             NSError * tError = [NSError errorWithDomain:@"FBError-UserCancelled Authentication." code:0 userInfo:nil];
             failureBlock(false, tError);
         } else {
-            // If you ask for multiple permissions at once, you
+            // If ask for multiple permissions at once, you
             // should check if specific permissions missing
             if ([result.grantedPermissions containsObject:@"email"]) {
                 // Do work
@@ -53,7 +53,6 @@
                 NSError * tError = [NSError errorWithDomain:@"FBError-Unknown" code:0 userInfo:nil];
                 failureBlock(false, tError);
                 }
-            
         }
     }];
 }

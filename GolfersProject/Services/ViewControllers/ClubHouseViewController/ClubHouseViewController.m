@@ -319,6 +319,8 @@
 
 - (IBAction)btnCheckedInTapped:(UIButton *)sender {
     
+    [SharedManager sharedInstance].delegate = self;
+    
     [[[UIAlertView alloc] initWithTitle:@"CHECKING IN." message:@"Thank you for checking in. Please wait until we get your location." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
     
     if ([CourseServices currentCourse]) {
@@ -339,7 +341,7 @@
 
 #pragma mark - SharedManagerDelegate for location service.
 -(void)IsUserInCourseWithRequiredAccuracy:(BOOL)yesNo{
-    
+        
     if (yesNo) {
         [CourseServices checkInToCurrentCourse:^(bool status, id responseObject) {
             if (status) {
@@ -354,8 +356,7 @@
         NSString * message = [NSString stringWithFormat:@"You are not inside the course perimeter."];
         [[[UIAlertView alloc]initWithTitle:@"" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
     }
-    
-
+    [SharedManager sharedInstance].delegate = nil;
 }
 
 -(void)enableCheckInButton:(BOOL)yesNo{
@@ -416,4 +417,7 @@
     return [endDate timeIntervalSinceDate:startDate] / 60.0;
 }
 
+-(void)dealloc{
+    [SharedManager sharedInstance].delegate = nil;
+}
 @end

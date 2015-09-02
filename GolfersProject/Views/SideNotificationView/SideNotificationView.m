@@ -7,8 +7,9 @@
 //
 
 #import "SideNotificationView.h"
-
-
+#import <UIImageView+WebCache.h>
+#import "UIImageView+RoundedImage.h"
+#import "SharedManager.h"
 
 @implementation SideNotificationView (private)
 bool isDisplaying;
@@ -54,6 +55,11 @@ bool isDisplaying;
     isDisplaying = true;
     [self.lblTypeOfUpdate setText:title];
     [self.lblUpdateText setText:description];
+    
+    NSString * logoPath = [[SharedManager sharedInstance] logoImagePath];
+    [self.imgCourseLogo sd_setImageWithURL:[NSURL URLWithString:logoPath] placeholderImage:[UIImage imageNamed:@"event_placeholder"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        [self.imgCourseLogo setRoundedImage:image];
+    }];
     
     CGRect appFrame = [[UIScreen mainScreen] applicationFrame];
     CGRect initalFrame = CGRectMake(-self.frame.size.width, appFrame.size.height * kSideViewOriginYPercent, kSideViewWidth, kSideViewHeight);

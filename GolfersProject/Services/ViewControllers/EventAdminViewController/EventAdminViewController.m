@@ -87,9 +87,16 @@
     EventAdmin * admin = [self.currentEvent eventAdmin];
     [self.lblAdminName setText:[NSString stringWithFormat:@"%@ %@", [admin firstName], [admin lastName]]];
     [self.lblAdminPost setText:[admin designation]];
-    [self.lblEmail setText:[admin email]];
-    [self.lblContactNo setText:[admin phoneNo]];
+   
+    NSDictionary *contactAttributes =@{NSUnderlineStyleAttributeName:@(NSUnderlineStyleSingle),
+                                       NSFontAttributeName :[UIFont fontWithName:@"Helvetica-Neue" size:14.0],
+                                       NSForegroundColorAttributeName : [UIColor whiteColor]
+                                       };
     
+    NSAttributedString * adminPhone  = [[NSAttributedString alloc] initWithString:[admin phoneNo] attributes:contactAttributes];
+    NSAttributedString * adminEmail  = [[NSAttributedString alloc] initWithString:[admin email] attributes:contactAttributes];
+    [self.lblEmail setAttributedText:adminEmail];
+    [self.lblContactNo setAttributedText:adminPhone];
 }
 
 - (void)viewMapSelected {

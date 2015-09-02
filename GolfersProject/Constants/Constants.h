@@ -79,6 +79,7 @@ static NSString * const kAppBundleId = @"com.golfrz.genevagcc";
 //static NSString * const kAppBundleId = @"org.golfrz.GolferzProject";
 static NSString * const kUserAgent = @"ios";
 
+static NSString * const MessageToDownloadApp = @"Download Ames Golf & Country Club App on iTunes.";
 
 /*
  * Events
@@ -213,7 +214,6 @@ static NSString * const EmailSupportErrorMessage = @"Email is not configured on 
  */
 static NSString * const kSuccess = @"Success";
 static NSString * const kAddGuestSuccessMessage = @"Guest successfully added.";
-static NSString * const MessageToDownloadApp = @"Download Ames Golf & Country Club App on iTunes.";
 static NSString * const kUpdateHandicap = @"You must add your handicap on settings screen to play.";
 /*
  * Reward Tutorial Messages

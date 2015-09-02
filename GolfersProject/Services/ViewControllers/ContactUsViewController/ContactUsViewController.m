@@ -109,29 +109,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-//- (void)populateStaffFields{
-//    if([self.courseStaff count] <= 0 ){
-//        [self.staffView setHidden:YES];
-//         return;
-//        }else{
-//            [self.staffView setHidden:NO];
-//        }
-//    
-//    
-//    StaffMember *currentStaffMember = [self.courseStaff objectAtIndex:0];
-//    //StaffType *currentStafType = currentStaffMember.type;    
-//    [self.imgAdminPic sd_setImageWithURL:[NSURL URLWithString:[currentStaffMember imageUrl]] placeholderImage:[UIImage imageNamed:@"person_placeholder"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-//        if (image) {
-//            [self.imgAdminPic setRoundedImage:image];
-//        }
-//    }];
-//    
-//    [self.lblAdminName setText:[currentStaffMember name]];
-//    [self.lblAdminContact setText:[currentStaffMember phone]];
-//    [self.lblAdminEmail setText:[currentStaffMember email]];
-//    [self.lblAdminPost setText:((StaffType*)[currentStaffMember type]).name];
-//}
-
 - (void) populateCourseFields{
     [self.lblHdrCourseCity setText:[[CourseServices currentCourse]courseCity ] ];
     [self.lblHdrCourseState setText:[[CourseServices currentCourse] courseState]];
@@ -166,9 +143,6 @@
     }
     
     CourseDepartmentCell *customViewCell = (CourseDepartmentCell *)customCell;
-    
-    //customViewCell.currentDepartment = [self.courseDepartments objectAtIndexedSubscript:indexPath.row];
-    
     [customViewCell configureViewForDepartment:[self.courseDepartments objectAtIndex:indexPath.row]];
     return customViewCell;
 }
@@ -199,22 +173,23 @@
     }];
     
     [customCell.lblAdminName setText:[currentStaffMember name]];
-    [customCell.lblAdminContact setText:[currentStaffMember phone]];
-    [customCell.lblAdminEmail setText:[currentStaffMember email]];
+    
+    NSDictionary *contactAttributes =@{NSUnderlineStyleAttributeName:@(NSUnderlineStyleSingle),
+                                       NSFontAttributeName :[UIFont fontWithName:@"Helvetica-Neue" size:17.0],
+                                       NSForegroundColorAttributeName : [UIColor whiteColor]
+                                       };
+    
+    NSAttributedString * adminPhone  = [[NSAttributedString alloc] initWithString:[currentStaffMember phone] attributes:contactAttributes];
+    NSAttributedString * adminEmail  = [[NSAttributedString alloc] initWithString:[currentStaffMember email] attributes:contactAttributes];
+    [customCell.lblAdminContact setAttributedText:adminPhone];
+    [customCell.lblAdminEmail setAttributedText:adminEmail];
     [customCell.lblAdminPost setText:((StaffType*)[currentStaffMember type]).name];
     
     return customCell;
     
 }
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+#pragma mark - Navigation
 
 -(void)backBtnTapped{
     AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
