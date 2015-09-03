@@ -7,22 +7,22 @@
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.golfrz.genevagcc</string>
+	<string>com.golfrz.amesgcc</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>$(PRODUCT_NAME)</string>
+	<string>Ames Country &amp; Golf Club</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0-b-17</string>
+	<string>1.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
 			<key>CFBundleURLName</key>
-			<string>com.golfrz.genevagcc</string>
+			<string>com.golfrz.amesgcc</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>invitationReceived</string>
@@ -31,22 +31,22 @@
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>fb1579340818994876</string>
+				<string>fb394531980753056</string>
 			</array>
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>17-geneva</string>
+	<string>1</string>
 	<key>FacebookAppID</key>
-	<string>1579340818994876</string>
+	<string>394531980753056</string>
 	<key>FacebookDisplayName</key>
-	<string>Golfrz-ios</string>
+	<string>Ames Country &amp; Golf Club</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>GolfRz would like to use your current location so you can receive course specific messages, accurate pin locations during your round and last to reward you for checking in at the club.</string>
+	<string>Ames Golf &amp; Country Club would like to use your current location so you can receive course specific messages, accurate pin locations during your round and last to reward you for checking in at the club.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>GolfRz would like to use your current location so you can receive course specific messages, accurate pin locations during your round and last to reward you for checking in at the club.</string>
+	<string>Ames Golf &amp; Country Club would like to use your current location so you can receive course specific messages, accurate pin locations during your round and last to reward you for checking in at the club.</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>location</string>
