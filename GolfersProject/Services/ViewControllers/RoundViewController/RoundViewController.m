@@ -417,15 +417,15 @@
     [RoundDataServices finishRoundWithBlock:^(bool status, id response) {
         // Navigate to ScoreCard.
         if(status){
-            
             // Getting score-card.
-            [MBProgressHUD hideHUDForView:self.view animated:YES];
             [ScoreboardServices getScoreCardForRoundId:[[GameSettings sharedSettings] roundId] subCourse:[[GameSettings sharedSettings] subCourseId] success:^(bool status, id responseObject) {
                 if(status){
                     //Load scorecard here.
                     ScoreBoardViewController *scoreBoardVc = [self.storyboard instantiateViewControllerWithIdentifier:@"SCORE_BOARD_VC_ID"];
                     scoreBoardVc.roundId = [[GameSettings sharedSettings] roundId];
                     scoreBoardVc.subCourseId = [[GameSettings sharedSettings] subCourseId];
+                    [MBProgressHUD hideHUDForView:self.view animated:YES];
+
                     [self.navigationController pushViewController:scoreBoardVc animated:YES];
                     
                     [[GameSettings sharedSettings] setroundId:(NSNumber *)[NSNull null]];
@@ -433,6 +433,7 @@
                     [[GameSettings sharedSettings] setInvitationToken:(NSString *)[NSNull null]];
                 }
             } failure:^(bool status, GolfrzError *error) {
+                [MBProgressHUD hideHUDForView:self.view animated:YES];
                 [Utilities displayErrorAlertWithMessage:[error errorMessage]];
             }];
         }

@@ -402,7 +402,7 @@
             alertMessage = @"Please try again.";
             break;
         case MessageComposeResultSent:
-            alertTitle = @"Invitation Send.";
+            alertTitle = @"Invitation Sent.";
             alertMessage = @"Send the invitation successfully.";
             break;
             
@@ -439,7 +439,7 @@
             alertMessage = @"Invitation email is saved in drafts.";
             break;
         case MFMailComposeResultSent:
-            alertTitle = @"Invitation Send.";
+            alertTitle = @"Invitation Sent.";
             alertMessage = @"Send the invitation successfully.";
             break;
         default:
