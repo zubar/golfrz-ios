@@ -148,10 +148,15 @@
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
     [self getRoundInfoForInvitation:invitationToken success:^(NSNumber *roundId) {
-        if(roundId == nil || roundId == (NSNumber *)[NSNull null]) return ;
+        if(roundId == nil || roundId == (NSNumber *)[NSNull null]){
+            [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+            return ;}
        
         [settings setroundId:roundId];
         [self getRoundOptionsForRoundId:[settings roundId] Completion:^(RoundMetaData *currRound) {
+            if(roundId == nil || roundId == (NSNumber *)[NSNull null]){
+                [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+                return ;}
             self.roundInfo = currRound;
             
             // Saving round options in round.
@@ -226,6 +231,9 @@
         
         // To set the already selected options for current round.
         [self getRoundOptionsForRoundId:roundId Completion:^(RoundMetaData *currRound) {
+            if(roundId == nil || roundId == (NSNumber *)[NSNull null]){
+                [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+                return ;}
             self.roundInfo = currRound;
             
             // Saving round options in round.

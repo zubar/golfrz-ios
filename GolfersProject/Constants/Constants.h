@@ -34,7 +34,13 @@ static NSString * const kBaseURL = @"http://mobilecoursesolutions.com/api/0.1/";
 
 
 static NSString * const kPrivacyPolicyURL = @"http://mobilecoursesolutions.com/geneva-golf-and-country-club/privacy";
-//http://45.56.104.68/ames-golf-country-club/privacy
+//http://mobilecoursesolutions.com/ames-golf-country-club/privacy/privacy
+
+#pragma warking - Automation issue.
+//static NSString * const kAppBundleId = @"com.golfrz.genevagcc";
+static NSString * const kAppBundleId = @"com.golfrz.amesgcc";
+//static NSString * const kAppBundleId = @"org.golfrz.GolferzProject";
+static NSString * const MessageToDownloadApp = @"Download Ames Golf & Country Club App on iTunes.";
 
 /*
  * Weather API
@@ -71,15 +77,7 @@ static NSString * const kFeatureUrl =@"features/list";
  * InApp Friends
  */
 static NSString * const kInAppFriend = @"users/in_app_user_list";
-
-
-#pragma warking - Automation issue.
-static NSString * const kAppBundleId = @"com.golfrz.genevagcc";
-//static NSString * const kAppBundleId = @"org.golfrz.GolferzProject99";
-//static NSString * const kAppBundleId = @"org.golfrz.GolferzProject";
 static NSString * const kUserAgent = @"ios";
-
-static NSString * const MessageToDownloadApp = @"Download Ames Golf & Country Club App on iTunes.";
 
 /*
  * Events
