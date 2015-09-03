@@ -7,6 +7,7 @@
 //
 
 #import "Order.h"
+#import "Constants.h"
 
 @implementation Order
 
@@ -20,6 +21,16 @@
              @"imageUrl" : @"menu_image_path"
              //propertyName : json_key
              };
+}
+
++ (NSValueTransformer *)imageUrlJSONTransformer {
+    return [MTLValueTransformer transformerWithBlock:^id(id relativePath) {
+        return [self absoluteImageURLfromRelativeUR:relativePath ];
+    }];
+}
+
++ (NSString *)absoluteImageURLfromRelativeUR:(NSString *)relativePath {
+    return [NSString stringWithFormat:@"%@%@", kBaseImageUrl, relativePath];
 }
 
 @end

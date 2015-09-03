@@ -107,14 +107,12 @@
     
     FoodBevCartCell *customViewCell = (FoodBevCartCell *)customCell;
     Order *cartItem = [self.cartArray objectAtIndex:indexPath.row];
-    [customViewCell.imgFoodBevItemPic sd_setImageWithURL:[NSURL URLWithString:cartItem.imageUrl] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-        //  <#code#>
+    [customViewCell.imgFoodBevItemPic sd_setImageWithURL:[NSURL URLWithString:cartItem.imageUrl] placeholderImage:[UIImage imageNamed:@"foodbev_placeholder"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         [customViewCell.imgFoodBevItemPic setImage:image];
-    } ];
+    }];
     customViewCell.lblFoodBevItemName.text = cartItem.name;
     customViewCell.lblPrice.text = cartItem.price.stringValue;
     customViewCell.lblQuantity.text = cartItem.quantity.stringValue;
-    
     [customViewCell setCurrentOrder:cartItem];
     [customViewCell setDelegate:self];
     

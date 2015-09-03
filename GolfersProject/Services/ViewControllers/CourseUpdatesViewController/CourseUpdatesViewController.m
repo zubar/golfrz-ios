@@ -47,6 +47,7 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
     [CourseUpdateServices getCourseUpdates:^(bool status, CourseUpdate *update) {
         if([self.courseUpdates count] >0) [self.courseUpdates removeAllObjects];
         

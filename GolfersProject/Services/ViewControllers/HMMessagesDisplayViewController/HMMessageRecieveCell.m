@@ -16,6 +16,7 @@
 #import "User+convenience.h"
 #import "UserServices.h"
 #import "User+convenience.h"
+#import "NSDate+Helper.h"
 
 @implementation HMMessageRecieveCell
 @synthesize recieveDate, messageDetails;
@@ -25,7 +26,7 @@
 {
     _DTOObject = DTOObject;
     
-    [Utilities dateComponentsFromNSDate:[_DTOObject createdAt] components:^(NSString *dayName, NSString *monthName, NSString *day, NSString *time, NSString *minutes, NSString *timeAndMinute) {
+    [Utilities dateComponentsFromNSDate:[[_DTOObject createdAt] toLocalTime] components:^(NSString *dayName, NSString *monthName, NSString *day, NSString *time, NSString *minutes, NSString *timeAndMinute) {
         [self.recieveDate setText:timeAndMinute];
     }];
     self.messageDetails.text = _DTOObject.comment;

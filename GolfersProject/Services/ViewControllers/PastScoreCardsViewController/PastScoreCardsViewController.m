@@ -70,7 +70,8 @@
     PastScoreCardCell *customViewCell = (PastScoreCardCell *)customCell;
     [Utilities dateComponents:[mPastScore createdAt] components:^(NSString *dayName, NSString *monthName, NSString *day, NSString *time, NSString *minutes, NSString *timeAndMinute, NSString *year)
     {
-        [customViewCell.lblDayDate setText:[NSString stringWithFormat:@"%@ %@", monthName, day]];
+        NSString * shortMonth = [monthName substringWithRange:NSMakeRange(0, 3)];
+        [customViewCell.lblDayDate setText:[NSString stringWithFormat:@"%@ %@.", day, shortMonth]];
         [customViewCell.lblYear setText:year];
 
     }];

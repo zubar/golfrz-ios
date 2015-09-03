@@ -265,7 +265,7 @@
             [Utilities displayErrorAlertWithMessage:[error errorMessage]];
         }];
     else
-        [[[UIAlertView alloc] initWithTitle:@"TeeTime Already Booked!" message:@"This teetime is already booked please contact course admin." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+        [[[UIAlertView alloc] initWithTitle:@"Tee Time Already Booked!" message:@"This tee time is already booked please contact course admin." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -443,15 +443,15 @@
 #pragma mark - ErrorAlerts 
 
 -(void)displayTeetimeAlreadyBookedAlert{
-    [[[UIAlertView alloc] initWithTitle:@"Tee Time Already Booked!" message:@"This teetime is already booked, please contact admin to update or cancel booking." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+    [[[UIAlertView alloc] initWithTitle:@"Tee Time Already Booked!" message:@"This tee time is already booked, please contact admin to update or cancel booking." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
 }
 
 -(void)displayAlertPlayerCountZero{
-    [[[UIAlertView alloc] initWithTitle:@"Player Count Zero!" message:@"A teetime can not be booked for zero player selected." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+    [[[UIAlertView alloc] initWithTitle:@"Player Count Zero!" message:@"A tee time can not be booked for zero player selected." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
 }
 
 -(void)showErrorAlert{
-    [[[UIAlertView alloc] initWithTitle:@"Can not Update Teetime!" message:@"Number of players for a booked teetime can't be decreased & maximum number of player for a teetime is 5." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+    [[[UIAlertView alloc] initWithTitle:@"Can not Update Tee time!" message:@"Number of players for a booked tee time can't be decreased & maximum number of player for a tee time is 5." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
 }
 
 -(void)showAlertBookedTeetimeOnDate:(Teetime *)mTeeTime
