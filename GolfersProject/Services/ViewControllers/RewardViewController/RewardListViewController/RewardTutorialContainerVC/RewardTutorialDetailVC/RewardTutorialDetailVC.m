@@ -273,8 +273,8 @@
             }};
         
         //[socialMediaController addImage:[UIImage imageNamed:@"1.jpg"]]; //for adding any image to share
-        [socialMediaController setInitialText:MessageToDownloadApp];
-        //[socialMediaController addURL:[NSURL URLWithString:@"https://www.google.com/"]]; //for adding any URL to be shared
+        [socialMediaController setInitialText:MessageToDownloadAppTest];
+        [socialMediaController addURL:[NSURL URLWithString:kAppStoreUrl]]; //for adding any URL to be shared
         [socialMediaController setCompletionHandler:completionHandler];
         [self presentViewController:socialMediaController animated:YES completion:nil];
 

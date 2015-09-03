@@ -41,6 +41,9 @@ static NSString * const kPrivacyPolicyURL = @"http://mobilecoursesolutions.com/a
 static NSString * const kAppBundleId = @"com.golfrz.amesgcc";
 //static NSString * const kAppBundleId = @"org.golfrz.GolferzProject";
 static NSString * const MessageToDownloadApp = @"Download Ames Golf & Country Club App on iTunes. https://itunes.apple.com/app/id1015449544";
+static NSString * const MessageToDownloadAppTest = @"Download Ames Golf & Country Club App on iTunes.";
+
+
 
 /*
  * Weather API

@@ -11,7 +11,7 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>Ames Country &amp; Golf Club</string>
+	<string>Ames Golf &amp; Country Club</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
@@ -40,7 +40,7 @@
 	<key>FacebookAppID</key>
 	<string>394531980753056</string>
 	<key>FacebookDisplayName</key>
-	<string>Ames Country &amp; Golf Club</string>
+	<string>Ames Golf &amp; Country Club</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSLocationAlwaysUsageDescription</key>
