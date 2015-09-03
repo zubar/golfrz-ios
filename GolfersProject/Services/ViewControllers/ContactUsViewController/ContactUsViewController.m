@@ -174,8 +174,8 @@
     
     [customCell.lblAdminName setText:[currentStaffMember name]];
     
-    NSDictionary *contactAttributes =@{NSUnderlineStyleAttributeName:@(NSUnderlineStyleSingle),
-                                       NSFontAttributeName :[UIFont fontWithName:@"Helvetica-Neue" size:17.0],
+    NSDictionary *contactAttributes =@{NSUnderlineStyleAttributeName:[NSNumber numberWithInteger:NSUnderlineStyleSingle],
+                                       NSFontAttributeName :[UIFont fontWithName:@"Helvetica" size:14.0],
                                        NSForegroundColorAttributeName : [UIColor whiteColor]
                                        };
     

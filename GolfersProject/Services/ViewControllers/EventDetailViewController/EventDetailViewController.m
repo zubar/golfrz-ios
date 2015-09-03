@@ -43,8 +43,7 @@
     
     self.navigationItem.title = @"EVENT DETAIL";
     
-    //TODO:
-    [self.imgEventLogo sd_setImageWithURL:[NSURL URLWithString:@""] placeholderImage:[UIImage imageNamed:@"event_placeholder"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+    [self.imgEventLogo sd_setImageWithURL:[NSURL URLWithString:[self.currentEvent imagePath]] placeholderImage:[UIImage imageNamed:@"event_placeholder"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         if (image) {
             [self.imgEventLogo setRoundedImage:image];
         }

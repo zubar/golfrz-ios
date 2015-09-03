@@ -15,7 +15,7 @@
 #import "Utilities.h"
 #import "Constants.h"
 #import "Course.h"
-
+#import <CoreText/CoreText.h>
 @interface EventAdminViewController ()
 
 - (void)viewMapSelected;
@@ -56,7 +56,8 @@
 
 -(void)loadDataForCurrentEvent{
    
-    [self.imgEventLogo sd_setImageWithURL:[NSURL URLWithString:self.currentEvent.imagePath] placeholderImage:[UIImage imageNamed:@"event_placeholder"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+    
+    [self.imgEventLogo sd_setImageWithURL:[NSURL URLWithString:[[SharedManager sharedInstance] logoImagePath]] placeholderImage:[UIImage imageNamed:@"event_placeholder"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         if (image) {
             [self.imgEventLogo setRoundedImage:image];
         }
@@ -77,7 +78,8 @@
         [self.lblTime setText:timeAndMinutes];
     }];
     
-    //TODO:
+    //TODO: JSON does don't contain image property for event admin, however the mock-up view does, so we will use it future, when imagePath is added
+    // in JSON.
     [self.imgAdminPic sd_setImageWithURL:[NSURL URLWithString:@""] placeholderImage:[UIImage imageNamed:@"person_placeholder"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         if (image) {
             [self.imgAdminPic setRoundedImage:image];
@@ -88,13 +90,15 @@
     [self.lblAdminName setText:[NSString stringWithFormat:@"%@ %@", [admin firstName], [admin lastName]]];
     [self.lblAdminPost setText:[admin designation]];
    
-    NSDictionary *contactAttributes =@{NSUnderlineStyleAttributeName:@(NSUnderlineStyleSingle),
-                                       NSFontAttributeName :[UIFont fontWithName:@"Helvetica-Neue" size:14.0],
+    
+    NSDictionary *contactAttributes =@{NSUnderlineStyleAttributeName:[NSNumber numberWithInteger:NSUnderlineStyleSingle],
+                                       NSFontAttributeName :[UIFont fontWithName:@"Helvetica" size:14.0],
                                        NSForegroundColorAttributeName : [UIColor whiteColor]
                                        };
     
     NSAttributedString * adminPhone  = [[NSAttributedString alloc] initWithString:[admin phoneNo] attributes:contactAttributes];
     NSAttributedString * adminEmail  = [[NSAttributedString alloc] initWithString:[admin email] attributes:contactAttributes];
+    
     [self.lblEmail setAttributedText:adminEmail];
     [self.lblContactNo setAttributedText:adminPhone];
 }

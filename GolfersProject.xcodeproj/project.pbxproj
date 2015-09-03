@@ -143,6 +143,7 @@
 		3DC352941B94597F00A39E36 /* Invitation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC352931B94597F00A39E36 /* Invitation.m */; };
 		3DC352981B94926000A39E36 /* WeatherViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC352971B94926000A39E36 /* WeatherViewCell.m */; };
 		3DC3529C1B94926E00A39E36 /* CourseDepartmentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC3529B1B94926E00A39E36 /* CourseDepartmentCell.m */; };
+		3DC3529E1B986E5200A39E36 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DC3529D1B986E5100A39E36 /* CoreText.framework */; };
 		3DCA44CC1B26CB3400B66BD2 /* CalendarEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DCA44A91B26CB3400B66BD2 /* CalendarEvent.m */; };
 		3DCA44CD1B26CB3400B66BD2 /* EventList.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DCA44AB1B26CB3400B66BD2 /* EventList.m */; };
 		3DCA44CE1B26CB3400B66BD2 /* EventWeather.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DCA44AD1B26CB3400B66BD2 /* EventWeather.m */; };
@@ -472,6 +473,7 @@
 		3DC352971B94926000A39E36 /* WeatherViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherViewCell.m; sourceTree = "<group>"; };
 		3DC3529A1B94926E00A39E36 /* CourseDepartmentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseDepartmentCell.h; sourceTree = "<group>"; };
 		3DC3529B1B94926E00A39E36 /* CourseDepartmentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseDepartmentCell.m; sourceTree = "<group>"; };
+		3DC3529D1B986E5100A39E36 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		3DCA44A81B26CB3400B66BD2 /* CalendarEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarEvent.h; sourceTree = "<group>"; };
 		3DCA44A91B26CB3400B66BD2 /* CalendarEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarEvent.m; sourceTree = "<group>"; };
 		3DCA44AA1B26CB3400B66BD2 /* EventList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventList.h; sourceTree = "<group>"; };
@@ -640,6 +642,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DC3529E1B986E5200A39E36 /* CoreText.framework in Frameworks */,
 				88EFFD761B8B1C650020AFAD /* Social.framework in Frameworks */,
 				3DFD15B61B25B2AB008F76D8 /* CoreLocation.framework in Frameworks */,
 				A921244B1B36DB1E00917649 /* MessageUI.framework in Frameworks */,
@@ -2145,6 +2148,7 @@
 		C91B48159ABC56B52D213A0C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3DC3529D1B986E5100A39E36 /* CoreText.framework */,
 				88EFFD751B8B1C650020AFAD /* Social.framework */,
 				A921244A1B36DB1E00917649 /* MessageUI.framework */,
 				3DC1161E1B2EE21F00E83F4F /* AddressBook.framework */,

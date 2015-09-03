@@ -7,6 +7,7 @@
 //
 
 #import "CalendarEvent.h"
+#import "Constants.h"
 
 @implementation CalendarEvent
 
@@ -27,7 +28,17 @@
              };
 }
 
++ (NSValueTransformer *)imagePathJSONTransformer
+{
+    return [MTLValueTransformer transformerWithBlock:^id(id relativePath) {
+        return [self absoluteImageURLfromRelativeUR:relativePath ];
+    }];
+}
 
++ (NSString *)absoluteImageURLfromRelativeUR:(NSString *)relativePath
+{
+    return [NSString stringWithFormat:@"%@%@", kBaseImageUrl, relativePath];
+}
 
 + (NSValueTransformer *)eventAdminJSONTransformer {
     return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[EventAdmin class]];
