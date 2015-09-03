@@ -37,8 +37,8 @@ static NSString * const kPrivacyPolicyURL = @"http://mobilecoursesolutions.com/g
 //http://mobilecoursesolutions.com/ames-golf-country-club/privacy/privacy
 
 #pragma warking - Automation issue.
-//static NSString * const kAppBundleId = @"com.golfrz.genevagcc";
-static NSString * const kAppBundleId = @"com.golfrz.amesgcc";
+static NSString * const kAppBundleId = @"com.golfrz.genevagcc";
+//static NSString * const kAppBundleId = @"com.golfrz.amesgcc";
 //static NSString * const kAppBundleId = @"org.golfrz.GolferzProject";
 static NSString * const MessageToDownloadApp = @"Download Ames Golf & Country Club App on iTunes.";
 
