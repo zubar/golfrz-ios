@@ -41,8 +41,8 @@
     
     // Optional: configure GAI options.
     GAI *gai = [GAI sharedInstance];
-    gai.trackUncaughtExceptions = YES;  // report uncaught exceptions
-    gai.logger.logLevel = kGAILogLevelVerbose;  // remove before app release
+    gai.trackUncaughtExceptions = YES;
+    gai.logger.logLevel = kGAILogLevelNone;
     
     
     
@@ -96,13 +96,7 @@
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     
 }
-//-(NSUInteger)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window
-//{
-//    if (!_shouldRestricOrient) {
-//        return UIInterfaceOrientationMaskPortraitUpsideDown;
-//    }
-//    return UIInterfaceOrientationMaskAll;
-//}
+
 - (void)applicationWillEnterForeground:(UIApplication *)application {
    
 }

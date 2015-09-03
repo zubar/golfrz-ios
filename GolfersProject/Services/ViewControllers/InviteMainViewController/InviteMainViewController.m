@@ -243,7 +243,7 @@
             
             FBSDKAppInviteContent * content =[[FBSDKAppInviteContent alloc] init];
             content.appLinkURL = [NSURL URLWithString:kAppStoreUrl];
-            content.previewImageURL = [NSURL URLWithString:kAppPreviewImage];
+            //content.previewImageURL = [NSURL URLWithString:kAppPreviewImage];
             // present the dialog. Assumes self implements protocol `FBSDKAppInviteDialogDelegate`
             [FBSDKAppInviteDialog showWithContent:content
                                          delegate:self];
