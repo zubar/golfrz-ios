@@ -65,6 +65,10 @@ static     APAddressBook *addressBook;
     }];
 }
 
+/*
+ Facebook has updated its privacy policy and now the graph api does not allow to get user's friend list. 
+ So this method is not used At-all. Will remove it in next version.
+ */
 +(void)getFacebookFriendsFiltered:(ContactFilterOption)filterProperty
                      sortedbyName:(BOOL)yesNo
                           success:(void (^)(bool status, NSArray * friendsArray))successBlock
@@ -93,7 +97,7 @@ static     APAddressBook *addressBook;
                 }
             }];
         } failure:^(bool status, NSError *error) {
-            //TODO: authentication failed
+            // authentication failed
             failureBlock(false, error);
         }];
     }

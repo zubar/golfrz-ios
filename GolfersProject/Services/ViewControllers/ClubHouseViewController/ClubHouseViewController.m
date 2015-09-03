@@ -376,8 +376,7 @@
     
     if ([[GameSettings sharedSettings] invitationToken]) {
         if ([UserServices currentToken]) {
-            //TODO: Send call to get invitation details.
-            
+            //TODO: Send call to get invitation details. Some later version
             [[[UIAlertView alloc] initWithTitle:@"Invitation Received" message:@"Accept Invitation to play round." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil] show];
         }
     }
