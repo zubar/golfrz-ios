@@ -84,7 +84,15 @@
 
     } failure:^(bool status, NSError *error) {
          [MBProgressHUD hideHUDForView:self.view animated:YES];
-         [[[UIAlertView alloc]initWithTitle:@"Error" message:@"Something went wrong" delegate:nil cancelButtonTitle:@"CANCEL" otherButtonTitles:nil, nil] show];
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:[error.userInfo objectForKey:@"com.alamofire.serialization.response.error.data"] options:NSJSONReadingMutableLeaves error:nil];
+        if(dic.allKeys.count>0)
+        {
+            [[[UIAlertView alloc]initWithTitle:@"Error" message:[dic objectForKey:@"error_message"] delegate:nil cancelButtonTitle:@"CANCEL" otherButtonTitles:nil, nil] show];
+        }
+        else
+        {
+            [[[UIAlertView alloc]initWithTitle:@"Error" message:@"Something went wrong" delegate:nil cancelButtonTitle:@"CANCEL" otherButtonTitles:nil, nil] show];
+        }
     }];
     
 }

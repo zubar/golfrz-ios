@@ -1,3 +1,14 @@
+//code is added at line 225 for Golfrz-751
+
+//code is added 4 golfrz-752
+//property scoretype is added in scoreCard.h and initialize in scoreCard.m
+//if else block is added to check scoretype text 373 and displaying score 394
+
+//code is added 4 golfrz-762
+//change the label txt in storyboard
+
+
+
 //
 //  ScoreBoardViewController.m
 //  GolfersProject
@@ -221,6 +232,12 @@
             if (userIndex < scoreCard_.users.count) {
                 ScoreCardUser *user = [scoreCard_.users objectAtIndex:userIndex];
                 headerCell.lblHeading.text = user.firstName;
+                //start bug
+                if([user.scoreCardTeeBox.color isEqualToString:@"ffffff"])
+                {
+                    headerCell.handiCpLbl.textColor=[UIColor blackColor];
+                }
+                //end bug
                 headerCell.handiCpLbl.text = [NSString stringWithFormat:@"%d HCP",[user.handiCap intValue]];
                 //set the color
                 headerCell.handiCpLblView.backgroundColor = [self colorWithHexString:user.scoreCardTeeBox.color alpha:1];
@@ -357,7 +374,17 @@
         else if (indexPath.section == indexofTotalRow +1)
         {
             if (indexPath.row == 0) {
-                bodyCell.contentLbl.text = @"NET";
+                //bodyCell.contentLbl.text = @"NET";
+                //start code 4 bug
+                if([scoreCard_.scoreType isEqualToString:@"gross"])
+                {
+                    bodyCell.contentLbl.text = @"Gross";
+                }
+                else
+                {
+                    bodyCell.contentLbl.text = @"NET";
+                }
+                //end code 4 bug
             }
             else
             {
@@ -369,7 +396,15 @@
                     if (cardUser) {
                         int total = cardUser.grossFirst+cardUser.grossLast;
                         int net = total-[cardUser.handiCap intValue];
-                        bodyCell.contentLbl.text = [NSString stringWithFormat:@"%d",net];
+                        //bodyCell.contentLbl.text = [NSString stringWithFormat:@"%d",net];
+                        if([scoreCard_.scoreType isEqualToString:@"net"])
+                        {
+                            bodyCell.contentLbl.text = [NSString stringWithFormat:@"%d",net];
+                        }
+                        else
+                        {
+                            bodyCell.contentLbl.text = [NSString stringWithFormat:@"%d",total];
+                        }
                     }
                     
                     //

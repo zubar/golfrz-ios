@@ -1,3 +1,7 @@
+//code for golfrz-750
+//comment line at 161
+//added a line at 54 line# and added shouldBeginEditing Delegate function
+//ended
 //
 //  PlayerSettingsMainViewController.m
 //  GolfersProject
@@ -47,6 +51,7 @@
     //Assuming the view will always be created in non-editing mode.
     isEditing = false;
     
+    self.txtHandicap.delegate=self;
     
     UIButton * imageButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 10, 10, 14)];
     [imageButton setBackgroundImage:[UIImage imageNamed:@"back_btn"] forState:UIControlStateNormal];
@@ -130,6 +135,14 @@
     [self.lblEditProfile addGestureRecognizer:gesture];
 }
 
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
+    if(textField==self.txtHandicap)
+    {
+        return NO;
+    }
+    return YES;
+}
+
 - (void) editProfileTapped{
     
     NSDictionary *titleAttributes =@{NSUnderlineStyleAttributeName:@(NSUnderlineStyleSingle),
@@ -149,7 +162,7 @@
         [self.txtLastName resignFirstResponder];
         [self.txtEmailAddress resignFirstResponder];
         [self.txtPhoneNumber resignFirstResponder];
-        [self.txtHandicap resignFirstResponder];
+        //[self.txtHandicap resignFirstResponder];
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         NSString *errorMessage = [self validateForm];
         if (errorMessage) {

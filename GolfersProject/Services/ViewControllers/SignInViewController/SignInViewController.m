@@ -1,3 +1,5 @@
+//golfrz-736 change label txt from email or valid member id to just email 
+
 //
 //  SignInViewController.m
 //  GolfersProject

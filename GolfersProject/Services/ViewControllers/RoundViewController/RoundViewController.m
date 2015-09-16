@@ -1,3 +1,7 @@
+//golfrz-671
+//code is added at line 671 an if statement and a BOOL property is added at line# 50
+
+
 //
 //  RoundViewController.m
 //  GolfersProject
@@ -44,6 +48,7 @@
 
 @interface RoundViewController (){
     BOOL isScoreTableDescended;
+    BOOL isRoundFinished;
     CGPoint frontCord;
     CGPoint middleCord;
     CGPoint backCord;
@@ -80,6 +85,9 @@
     SharedManager * manager = [SharedManager sharedInstance];
     [self.imgViewBackground setImage:[manager backgroundImage]];
     
+    //start code 4 bug
+    isRoundFinished=FALSE;
+    //end code 4 bug
     
     if (!self.playersInRound) self.playersInRound = [[NSMutableArray alloc]initWithCapacity:1];
     if (!self.playerTotalScoreInRound) self.playerTotalScoreInRound = [NSMutableDictionary new];
@@ -412,35 +420,38 @@
         [self showAlertNoRoundInProgress];
         return;
     }
+    if(!(isRoundFinished))
+    {
+        isRoundFinished=true;
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        [RoundDataServices finishRoundWithBlock:^(bool status, id response) {
+            // Navigate to ScoreCard.
+            if(status){
+                // Getting score-card.
+                [ScoreboardServices getScoreCardForRoundId:[[GameSettings sharedSettings] roundId] subCourse:[[GameSettings sharedSettings] subCourseId] success:^(bool status, id responseObject) {
+                    if(status){
+                        //Load scorecard here.
+                        ScoreBoardViewController *scoreBoardVc = [self.storyboard instantiateViewControllerWithIdentifier:@"SCORE_BOARD_VC_ID"];
+                        scoreBoardVc.roundId = [[GameSettings sharedSettings] roundId];
+                        scoreBoardVc.subCourseId = [[GameSettings sharedSettings] subCourseId];
+                        [MBProgressHUD hideHUDForView:self.view animated:YES];
 
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    [RoundDataServices finishRoundWithBlock:^(bool status, id response) {
-        // Navigate to ScoreCard.
-        if(status){
-            // Getting score-card.
-            [ScoreboardServices getScoreCardForRoundId:[[GameSettings sharedSettings] roundId] subCourse:[[GameSettings sharedSettings] subCourseId] success:^(bool status, id responseObject) {
-                if(status){
-                    //Load scorecard here.
-                    ScoreBoardViewController *scoreBoardVc = [self.storyboard instantiateViewControllerWithIdentifier:@"SCORE_BOARD_VC_ID"];
-                    scoreBoardVc.roundId = [[GameSettings sharedSettings] roundId];
-                    scoreBoardVc.subCourseId = [[GameSettings sharedSettings] subCourseId];
+                        [self.navigationController pushViewController:scoreBoardVc animated:YES];
+                        
+                        [[GameSettings sharedSettings] setroundId:(NSNumber *)[NSNull null]];
+                        [[GameSettings sharedSettings] setsubCourseId:(NSNumber *)[NSNull null]];
+                        [[GameSettings sharedSettings] setInvitationToken:(NSString *)[NSNull null]];
+                    }
+                } failure:^(bool status, GolfrzError *error) {
                     [MBProgressHUD hideHUDForView:self.view animated:YES];
-
-                    [self.navigationController pushViewController:scoreBoardVc animated:YES];
-                    
-                    [[GameSettings sharedSettings] setroundId:(NSNumber *)[NSNull null]];
-                    [[GameSettings sharedSettings] setsubCourseId:(NSNumber *)[NSNull null]];
-                    [[GameSettings sharedSettings] setInvitationToken:(NSString *)[NSNull null]];
-                }
-            } failure:^(bool status, GolfrzError *error) {
-                [MBProgressHUD hideHUDForView:self.view animated:YES];
-                [Utilities displayErrorAlertWithMessage:[error errorMessage]];
-            }];
-        }
-    } failure:^(bool status, NSError *error) {
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
-        [[[UIAlertView alloc] initWithTitle:@"Try Again." message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
-    }];
+                    [Utilities displayErrorAlertWithMessage:[error errorMessage]];
+                }];
+            }
+        } failure:^(bool status, NSError *error) {
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            [[[UIAlertView alloc] initWithTitle:@"Try Again." message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+        }];
+    }
 }
 
 -(void)roundbackBtnTapped

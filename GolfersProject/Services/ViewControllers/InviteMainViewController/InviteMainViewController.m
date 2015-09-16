@@ -1,3 +1,9 @@
+//start code 4 bug solving
+//code 4 bug solve at 407 golfrz-400
+//code is added at line 83
+//additional code is added at line 388 and 389
+//end code 4 bug solving
+
 //
 //  InviteMainViewController.m
 //  GolfersProject
@@ -72,6 +78,9 @@
                                                                     [[NSMutableArray alloc]init], kSMSInvites,
                                                                     nil];
     isSearching = false;
+    
+    //hiding the label text
+    self.playerFound.hidden=YES;
     
     //properties to hold data
     self.fbFriends = [NSMutableArray array];
@@ -377,6 +386,8 @@
         [self.contactsTable reloadData];
     }else{
         isSearching = false;
+        self.contactsTable.hidden=NO;
+        self.playerFound.hidden=YES;
         [self.contactsTable reloadData];
     }
 }
@@ -390,6 +401,11 @@
     [searchString  setString:@""];
     [searchBar setText:searchString];
     isSearching = false;
+    if([searchResults count]==0)
+    {
+        self.playerFound.hidden=YES;
+        self.contactsTable.hidden=NO;
+    }
     [self.contactsTable reloadData];
 
 } // called when cancel button pressed
@@ -402,6 +418,18 @@
 {
     NSPredicate *resultPredicate = [NSPredicate predicateWithFormat:@"contactFirstName contains[c] %@", searchText];
     searchResults = [contacts filteredArrayUsingPredicate:resultPredicate];
+    //start code
+    if([searchResults count]>0)
+    {
+        [self.playerFound setHidden:YES];
+        [self.contactsTable setHidden:NO];
+    }
+    else
+    {
+        [self.contactsTable setHidden:YES];
+        [self.playerFound setHidden:NO];
+    }
+    //end code
 }
 
 -(BOOL)searchBarShouldEndEditing:(UISearchBar *)searchBar{
@@ -427,7 +455,7 @@
             break;
         case MessageComposeResultSent:
             alertTitle = @"Invitation Sent.";
-            alertMessage = @"Send the invitation successfully.";
+            alertMessage = @"Sent the invitation successfully.";
             break;
             
         default:
@@ -463,7 +491,7 @@
             break;
         case MFMailComposeResultSent:
             alertTitle = @"Invitation Sent.";
-            alertMessage = @"Send the invitation successfully.";
+            alertMessage = @"Sent the invitation successfully.";
             break;
         default:
             break;

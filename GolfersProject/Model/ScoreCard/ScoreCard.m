@@ -20,6 +20,10 @@
         if (scoreCard) {
             
             NSArray *users = [scoreCard objectForKey:@"users"];
+            //start code 4 bug
+            _scoreType = [[scoreCard objectForKey:@"game_type"] isKindOfClass:[NSNull class]]?nil:[scoreCard objectForKey:@"score_type"];
+            //end code 4 bug
+            
             _gameType = [[scoreCard objectForKey:@"game_type"] isKindOfClass:[NSNull class]]?nil:[scoreCard objectForKey:@"game_type"];
             // Setting
             if (users.count > 0) {

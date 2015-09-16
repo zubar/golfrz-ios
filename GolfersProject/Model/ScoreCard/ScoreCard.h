@@ -10,7 +10,9 @@
 #import <Mantle/Mantle.h>
 @interface ScoreCard : NSObject
 
-
+//start code 4 bug
+@property(nonatomic,strong) NSString *scoreType;
+//end code 4 bug
 
 @property(nonatomic,strong)NSMutableArray *users;
 @property(nonatomic,strong)NSNumber *teeBoxCount;

@@ -403,7 +403,7 @@
             break;
         case MessageComposeResultSent:
             alertTitle = @"Invitation Sent.";
-            alertMessage = @"Send the invitation successfully.";
+            alertMessage = @"Sent the invitation successfully.";
             break;
             
         default:
@@ -440,7 +440,7 @@
             break;
         case MFMailComposeResultSent:
             alertTitle = @"Invitation Sent.";
-            alertMessage = @"Send the invitation successfully.";
+            alertMessage = @"Sent the invitation successfully.";
             break;
         default:
             break;

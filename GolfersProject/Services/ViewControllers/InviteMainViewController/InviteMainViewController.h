@@ -25,6 +25,7 @@
                                                        MFMailComposeViewControllerDelegate,
                                                         FBSDKAppInviteDialogDelegate>
 
+@property (strong, nonatomic) IBOutlet UIView *playerFound;
 - (IBAction)segmentControlTapped:(UISegmentedControl *)sender;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *segmentControl;
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar;

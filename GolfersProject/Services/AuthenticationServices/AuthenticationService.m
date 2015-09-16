@@ -115,6 +115,7 @@ passwordConfirmation:(NSString *)passwordConfirmation
         }
         successBlock(true, responseObject);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
         failureBlock(false, error);
     }];
 }
@@ -156,6 +157,7 @@ passwordConfirmation:(NSString *)passwordConfirmation
         @"user_agent" : kUserAgent,
         @"app_bundle_id" : kAppBundleId,
         @"handicap" : handicap,
+        @"member_id":memberID
         };
 }
 
