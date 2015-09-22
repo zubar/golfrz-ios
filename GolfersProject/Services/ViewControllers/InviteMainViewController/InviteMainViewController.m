@@ -1,9 +1,3 @@
-//start code 4 bug solving
-//code 4 bug solve at 407 golfrz-400
-//code is added at line 83
-//additional code is added at line 388 and 389
-//end code 4 bug solving
-
 //
 //  InviteMainViewController.m
 //  GolfersProject
@@ -418,7 +412,6 @@
 {
     NSPredicate *resultPredicate = [NSPredicate predicateWithFormat:@"contactFirstName contains[c] %@", searchText];
     searchResults = [contacts filteredArrayUsingPredicate:resultPredicate];
-    //start code
     if([searchResults count]>0)
     {
         [self.playerFound setHidden:YES];
@@ -429,7 +422,6 @@
         [self.contactsTable setHidden:YES];
         [self.playerFound setHidden:NO];
     }
-    //end code
 }
 
 -(BOOL)searchBarShouldEndEditing:(UISearchBar *)searchBar{

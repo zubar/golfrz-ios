@@ -60,7 +60,7 @@
     AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kWeatherAPI]];
     NSDictionary * coordinates = [WeatherServices coordinatesForCurrentCourse];
     
-    NSString * endPoint =[NSString stringWithFormat:@"forecast/daily?lat=%@&lon=%@&units=imperial&APPID=%@&mode=json&cnt=%d", coordinates[@"latitude"], coordinates[@"longitude"], kWeatherAPIKey, 1];
+    NSString * endPoint =[NSString stringWithFormat:@"forecast/daily?lat=%@&lon=%@&units=imperial&APPID=%@&mode=json&cnt=%d", coordinates[@"latitude"], coordinates[@"longitude"], kWeatherAPIKey, 99];
     
     NSLog(@"dailyWeather: %@%@", kWeatherAPI, endPoint);
     
@@ -78,6 +78,39 @@
     }];
 
 }
+
++(void)dailyWeatherForOffsetWithCurrentDate:(NSUInteger )dayOffset
+                                    success:(void(^)(bool status, NSDictionary * weatherData))successBlock
+                                    failure:(void (^)(bool status, NSError * error))failureBlock
+{
+    
+    AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kWeatherAPI]];
+    NSDictionary * coordinates = [WeatherServices coordinatesForCurrentCourse];
+    
+    NSString * endPoint =[NSString stringWithFormat:@"forecast/daily?lat=%@&lon=%@&units=imperial&APPID=%@&mode=json&cnt=%d", coordinates[@"latitude"], coordinates[@"longitude"], kWeatherAPIKey, 99];
+    
+    NSLog(@"dailyWeather-Offset: %@%@", kWeatherAPI, endPoint);
+    
+    [apiClient GET:endPoint parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        
+        if ([responseObject[@"list"] count] > dayOffset) {
+            
+            NSMutableDictionary * weatherObject = [NSMutableDictionary dictionary];
+            NSString * icon_url = [NSString stringWithFormat:@"http://openweathermap.org/img/w/%@.png", responseObject[@"list"][dayOffset][@"weather"][0][@"icon"]];
+            [weatherObject setValue:responseObject[@"list"][dayOffset][@"temp"][@"day"] forKey:@"temp"];
+            [weatherObject setValue:icon_url forKey:@"icon"];
+            
+            successBlock(true, weatherObject);
+        }else{
+            NSError * tError = [NSError errorWithDomain:@"error domain golfrz weather services" code:00 userInfo:@{NSLocalizedDescriptionKey : @"Weather for mentioned date not found"}];
+            failureBlock(false, tError);
+        }
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        failureBlock(false, error);
+    }];
+    
+}
+
 
 +(NSDictionary *)coordinatesForCurrentCourse{
     if ([CourseServices currentCourse]) {

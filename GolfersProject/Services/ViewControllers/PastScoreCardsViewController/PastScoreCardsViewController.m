@@ -75,7 +75,7 @@
         [customViewCell.lblYear setText:year];
 
     }];
-    [customViewCell.lblGameType setText:[mPastScore gameType]];
+    [customViewCell.lblGameType setText:[[mPastScore gameType] capitalizedString]];
     [customViewCell.lblScore setText:[[mPastScore grossScore] stringValue]];
     [customViewCell.lblScoreCardIdentifier setText:[[mPastScore subCourseName] uppercaseString]];
     [customViewCell setSelectionStyle:UITableViewCellSelectionStyleNone];

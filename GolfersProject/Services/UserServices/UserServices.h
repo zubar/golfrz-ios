@@ -40,4 +40,7 @@
               success:(void (^)(bool status, NSString * message))successBlock
               failure:(void (^)(bool status, GolfrzError * error))failureBlock;
 
+/*+(void)getUserInfoAndFBImage:(NSString *)userId success:(void (^)(bool status, User * mUser))successBlock
+                     failure:(void (^)(bool status, GolfrzError * error))failureBlock;*/
+
 @end

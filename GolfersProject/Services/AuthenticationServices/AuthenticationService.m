@@ -95,28 +95,35 @@ passwordConfirmation:(NSString *)passwordConfirmation
          memberId:(NSString *)memberID
          handicap:(NSString *)handicap
        completion:(void (^)(bool status, NSDictionary * userInfo))successBlock
-          failure:(void (^)(bool status, NSError * error))failureBlock{
+          failure:(void (^)(bool status, GolfrzError * error))failureBlock{
 
-    AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
+    //AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
+    
+    
+    APIClient * apiClient = [APIClient sharedAPICLient];
     
     NSDictionary * params = [AuthenticationService paramsForSignUp:firstName lastName:lastName email:email password:password passwordConfirmation:passwordConfirmation memberId:memberID handicap:handicap];
     
-    [apiClient POST:kSignUpURL parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
-        
-        if (responseObject[@"status"]) {
-            NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
-            [defaults setValue:responseObject[@"token"] forKey:kUSER_TOKEN];
-            [defaults setValue:responseObject[@"email"] forKey:kUSER_EMAIL];
-            [defaults setValue:responseObject[@"id"] forKey:kUSER_ID];
-            //[defaults setValue:responseObject[@"first_name"] forKey:KUSER_NAME];
-            NSLog(@"Email: %@, Token: %@, User_Id: %@", responseObject[@"email"], responseObject[@"token"], responseObject[@"id"]);
-            
-            [defaults synchronize];
+    
+    
+    
+    [apiClient POST:kSignUpURL parameters:params completion:^(id response, NSError *error) {
+        OVCResponse * resp = (OVCResponse *)response;
+        if(!error){
+            NSDictionary * responseObject = [resp result];
+            if (responseObject[@"status"]) {
+                NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
+                [defaults setValue:responseObject[@"token"] forKey:kUSER_TOKEN];
+                [defaults setValue:responseObject[@"email"] forKey:kUSER_EMAIL];
+                [defaults setValue:responseObject[@"id"] forKey:kUSER_ID];
+                //[defaults setValue:responseObject[@"first_name"] forKey:KUSER_NAME];
+                NSLog(@"Email: %@, Token: %@, User_Id: %@", responseObject[@"email"], responseObject[@"token"], responseObject[@"id"]);
+                [defaults synchronize];
+            }
+            successBlock(true, responseObject);
+        }else{
+            failureBlock(false, [resp result]);
         }
-        successBlock(true, responseObject);
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        
-        failureBlock(false, error);
     }];
 }
 

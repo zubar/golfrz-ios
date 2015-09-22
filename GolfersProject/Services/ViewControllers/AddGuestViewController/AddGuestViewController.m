@@ -1,7 +1,3 @@
-//golfrz-683
-//code is added at line 125 just 1 statement
-
-
 //
 //  AddGuestViewController.m
 //  GolfersProject
@@ -126,10 +122,7 @@
         return;
     }
     if (self.selectedTeeBox == nil) {
-        //[[[UIAlertView alloc] initWithTitle:kError message:kNumberHandicapErrorMessage delegate:nil cancelButtonTitle:kOK otherButtonTitles:nil, nil] show];
-        //start code 4 bug
         [[[UIAlertView alloc] initWithTitle:kError message:kTeeBoxErrorMessage delegate:nil cancelButtonTitle:kOK otherButtonTitles:nil, nil] show];
-        //end code 4 bug
         return;
     }
     

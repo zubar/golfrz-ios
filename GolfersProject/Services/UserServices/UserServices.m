@@ -124,6 +124,28 @@ static User * currentUser = nil;
     }];
 }
 
+/*+(void)getUserInfoAndFBImage:(NSString *)userId success:(void (^)(bool status, User * mUser))successBlock
+           failure:(void (^)(bool status, GolfrzError * error))failureBlock
+{
+    //Create our client
+    APIClient *apiClient = [APIClient sharedAPICLient];
+    
+    NSString * userInfoUrl = [NSString stringWithFormat:@"%@%@", kUserInfo, userId];
+    [apiClient GET:userInfoUrl parameters:[UserServices userToken] completion:^(id response, NSError *error) {
+        OVCResponse * resp = response;
+        if (!error) {
+            //Setting current user
+            User * mUser = [resp result];
+            currentUser = mUser;
+            successBlock(true, mUser);
+        }else{
+            failureBlock(false, [resp result]);
+        }
+        
+    }];
+}*/
+
+
 /*
  {
  "flag": "changed",

@@ -27,7 +27,7 @@ passwordConfirmation:(NSString *)passwordConfirmation
          memberId:(NSString *)memberID
          handicap:(NSString *)handicap
        completion:(void (^)(bool status, NSDictionary * userInfo))successBlock
-          failure:(void (^)(bool status, NSError * error))failureBlock;
+          failure:(void (^)(bool status, GolfrzError * error))failureBlock;
 
 
 +(void)resetUserPassword:(NSString *)email
@@ -36,6 +36,8 @@ passwordConfirmation:(NSString *)passwordConfirmation
 
 +(void)signOutUser:(void (^)(bool status))successfullyPosted
       failureBlock:(void (^)(bool status, GolfrzError * error))failureBlock;
+
+
 
 
 @end

@@ -17,4 +17,8 @@
 +(void)dailyWeather:(void(^)(bool status, NSDictionary * weatherData))successBlock
             failure:(void (^)(bool status, NSError * error))failureBlock;
 
+
++(void)dailyWeatherForOffsetWithCurrentDate:(NSUInteger )dayOffset
+                                    success:(void(^)(bool status, NSDictionary * weatherData))successBlock
+                                    failure:(void (^)(bool status, NSError * error))failureBlock;
 @end

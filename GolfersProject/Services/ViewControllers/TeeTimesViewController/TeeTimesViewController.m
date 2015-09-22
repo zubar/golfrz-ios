@@ -96,7 +96,9 @@
 }
 -(void)updateWeatherForDate:(NSDate *)timeStamp{
     
-    [WeatherServices dailyWeather:^(bool status, NSDictionary *weatherData) {
+    NSUInteger offsetDays = [self daysBetween:[NSDate date] andEndDate:timeStamp];
+    
+    [WeatherServices dailyWeatherForOffsetWithCurrentDate:offsetDays success:^(bool status, NSDictionary *weatherData) {
         NSString * weatherTemp = weatherData[@"temp"];
         if(!weatherTemp || (weatherData[@"temp"] == [NSNull null])){
             [self.lblTemperature setHidden:YES];
@@ -426,6 +428,20 @@
         [Utilities displayErrorAlertWithMessage:[error errorMessage]];
     }];
 }
+
+-(CGFloat )daysBetween:(NSDate *)startDate andEndDate:(NSDate *)endDate
+{
+    /*
+     --For Testing:
+     NSLog(@"EventStart-Date:%@", startDate);
+     if(fabs([endDate timeIntervalSinceDate:startDate] / 3600.0) < 24){
+     NSLog(@"should display Event Weather");
+     }
+     */
+    
+    return fabs(([endDate timeIntervalSinceDate:startDate] / 3600.0) /24);
+}
+
 
 #pragma mark - MemoryManagement 
 

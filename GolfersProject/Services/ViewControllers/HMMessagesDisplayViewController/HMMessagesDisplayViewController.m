@@ -58,9 +58,7 @@
     // Do any additional setup after loading the view.
     if(!self.DTOArray) self.DTOArray = [[NSMutableArray alloc] init];
 
-   // [self.messagesTable registerNib:[UINib nibWithNibName:@"HMMessageSentCell" bundle:nil] forCellReuseIdentifier:@"HMMessageSent"];
     [self.messagesTable registerNib:[UINib nibWithNibName:@"HMMessageRecieveCell" bundle:nil] forCellReuseIdentifier:@"HMMessageRecieve"];
-    
     self.navigationItem.title = @"COURSE UPDATES";
     
     notificationId = [self.currntActivity itemId];
@@ -84,6 +82,9 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    // 80 is the width of Top View
+    _messagesTable.frame = CGRectMake(0.0f, _messagesTable.frame.origin.y, _messagesTable.frame.size.width, self.view.frame.size.height - _commentView.frame.size.height - 80 -44-20);
+    _commentView.frame = CGRectMake(0.0f, self.view.frame.size.height-_commentView.frame.size.height, _commentView.frame.size.width, _commentView.frame.size.height);
     [self configureView];
     
 }

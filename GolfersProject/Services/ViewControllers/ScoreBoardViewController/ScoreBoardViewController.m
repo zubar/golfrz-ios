@@ -1,14 +1,3 @@
-//code is added at line 225 for Golfrz-751
-
-//code is added 4 golfrz-752
-//property scoretype is added in scoreCard.h and initialize in scoreCard.m
-//if else block is added to check scoretype text 373 and displaying score 394
-
-//code is added 4 golfrz-762
-//change the label txt in storyboard
-
-
-
 //
 //  ScoreBoardViewController.m
 //  GolfersProject
@@ -101,14 +90,14 @@
         [self calculateParTotal];
         
         numberOfLeftColumns = [scoreCard_.teeBoxCount intValue]+2;
-        self.lblNoOfHoles.text = [NSString stringWithFormat:@"%@",  @(scoreCard_.holeCount)];
+        self.lblNoOfHoles.text = [[NSString stringWithFormat:@"%@-",  @(scoreCard_.holeCount)] stringByReplacingOccurrencesOfString:@" " withString:@""];
         gameType_ = [[GameSettings sharedSettings] gameType];
         NSString *currentGameType = gameType_.name;
         if (currentGameType == nil)
         {
-            self.lblGameType.text = self.previousGameType;
+            self.lblGameType.text = [self.previousGameType capitalizedString];
         }else{
-            self.lblGameType.text = currentGameType;
+            self.lblGameType.text = [currentGameType capitalizedString];
         }
         if (self.previousDate == nil) {
             NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
@@ -233,7 +222,7 @@
                 ScoreCardUser *user = [scoreCard_.users objectAtIndex:userIndex];
                 headerCell.lblHeading.text = user.firstName;
                 //start bug
-                if([user.scoreCardTeeBox.color isEqualToString:@"ffffff"])
+                if([user.scoreCardTeeBox.color isEqualToString:@"ffffff"] || [user.scoreCardTeeBox.color isEqualToString:@"ffd700"])
                 {
                     headerCell.handiCpLbl.textColor=[UIColor blackColor];
                 }
@@ -375,16 +364,12 @@
         {
             if (indexPath.row == 0) {
                 //bodyCell.contentLbl.text = @"NET";
-                //start code 4 bug
-                if([scoreCard_.scoreType isEqualToString:@"gross"])
-                {
+                if([scoreCard_.scoreType isEqualToString:@"gross"]){
                     bodyCell.contentLbl.text = @"Gross";
                 }
-                else
-                {
+                else{
                     bodyCell.contentLbl.text = @"NET";
                 }
-                //end code 4 bug
             }
             else
             {
@@ -396,18 +381,12 @@
                     if (cardUser) {
                         int total = cardUser.grossFirst+cardUser.grossLast;
                         int net = total-[cardUser.handiCap intValue];
-                        //bodyCell.contentLbl.text = [NSString stringWithFormat:@"%d",net];
-                        if([scoreCard_.scoreType isEqualToString:@"net"])
-                        {
+                        if([scoreCard_.scoreType isEqualToString:@"net"]){
                             bodyCell.contentLbl.text = [NSString stringWithFormat:@"%d",net];
-                        }
-                        else
-                        {
+                        }else{
                             bodyCell.contentLbl.text = [NSString stringWithFormat:@"%d",total];
                         }
                     }
-                    
-                    //
                 }
                 else
                 {

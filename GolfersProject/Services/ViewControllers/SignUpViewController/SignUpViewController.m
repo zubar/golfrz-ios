@@ -17,6 +17,8 @@
 #import "ClubHouseContainerVC.h"
 #import "AppDelegate.h"
 #import "Constants.h"
+#import "Utilities.h"
+#import "GolfrzError.h"
 
 
 @interface SignUpViewController ()
@@ -80,21 +82,11 @@
         AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
         ClubHouseContainerVC *clubHouseContainerVC  = [self.storyboard instantiateViewControllerWithIdentifier:@"ClubHouseContainerVC"];
         [delegate.appDelegateNavController pushViewController:clubHouseContainerVC animated:YES];
-        
 
-    } failure:^(bool status, NSError *error) {
-         [MBProgressHUD hideHUDForView:self.view animated:YES];
-        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:[error.userInfo objectForKey:@"com.alamofire.serialization.response.error.data"] options:NSJSONReadingMutableLeaves error:nil];
-        if(dic.allKeys.count>0)
-        {
-            [[[UIAlertView alloc]initWithTitle:@"Error" message:[dic objectForKey:@"error_message"] delegate:nil cancelButtonTitle:@"CANCEL" otherButtonTitles:nil, nil] show];
-        }
-        else
-        {
-            [[[UIAlertView alloc]initWithTitle:@"Error" message:@"Something went wrong" delegate:nil cancelButtonTitle:@"CANCEL" otherButtonTitles:nil, nil] show];
-        }
+    } failure:^(bool status, GolfrzError *error) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [Utilities displayErrorAlertWithMessage:[error errorMessage]];
     }];
-    
 }
 
 - (IBAction)btnBackTapped:(UIButton *)sender {

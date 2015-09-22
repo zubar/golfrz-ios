@@ -1,7 +1,3 @@
-//golfrz-671
-//code is added at line 671 an if statement and a BOOL property is added at line# 50
-
-
 //
 //  RoundViewController.m
 //  GolfersProject
@@ -85,9 +81,7 @@
     SharedManager * manager = [SharedManager sharedInstance];
     [self.imgViewBackground setImage:[manager backgroundImage]];
     
-    //start code 4 bug
     isRoundFinished=FALSE;
-    //end code 4 bug
     
     if (!self.playersInRound) self.playersInRound = [[NSMutableArray alloc]initWithCapacity:1];
     if (!self.playerTotalScoreInRound) self.playerTotalScoreInRound = [NSMutableDictionary new];
@@ -171,6 +165,7 @@
     [self updateYardAndParForHole:[[GameSettings sharedSettings] subCourse].holes[[self.holeNumberPlayed intValue]]];
     
     isUpdatingLocation = FALSE;
+    isScoreTableDescended = FALSE;
     [SharedManager sharedInstance].delegate = self;
 }
 
