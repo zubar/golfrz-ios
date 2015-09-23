@@ -122,7 +122,14 @@ passwordConfirmation:(NSString *)passwordConfirmation
             }
             successBlock(true, responseObject);
         }else{
-            failureBlock(false, [resp result]);
+            NSError * parseError = nil;
+            GolfrzError * terror = [GolfrzError modelWithDictionary:@{@"errorMessage": @"An unknown Error Occured!"} error:&parseError];
+            if([[[resp result] errorMessage] isEqual:[NSNull null]] || [[resp result] errorMessage] == nil){
+                failureBlock(false, terror);
+            }else{
+                failureBlock(false, [resp result]);
+
+            }
         }
     }];
 }
