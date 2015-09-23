@@ -501,16 +501,21 @@
         }
     }];
     
-    if([[player userId] isEqualToNumber:[[UserServices currentUser] userId]]){
-        [UserServices getUserInfo:^(bool status, User *mUser) {
-            [customViewCell.imgPlayerPic sd_setImageWithURL:[NSURL URLWithString:[mUser imgPath]] placeholderImage:[UIImage imageNamed:@"person_placeholder"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-                if (image != nil) {
-                    [customViewCell.imgPlayerPic setRoundedImage:image];
-                }
+    @try {
+        if([[player userId] isEqualToNumber:[[UserServices currentUser] userId]]){
+            [UserServices getUserInfo:^(bool status, User *mUser) {
+                [customViewCell.imgPlayerPic sd_setImageWithURL:[NSURL URLWithString:[mUser imgPath]] placeholderImage:[UIImage imageNamed:@"person_placeholder"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                    if (image != nil) {
+                        [customViewCell.imgPlayerPic setRoundedImage:image];
+                    }
+                }];
+            } failure:^(bool status, GolfrzError *error) {
+                // Simply ignore, user name is already loaded with place holder image. So we don't show error  message.
             }];
-        } failure:^(bool status, GolfrzError *error) {
-           // Simply ignore, user name is already loaded with place holder image. So we don't show error  message.
-        }];
+        }
+    }
+    @catch (NSException *exception) {
+        NSLog(@"Exception at AddPlayersViewController %@", exception);
     }
     
     return customViewCell;
