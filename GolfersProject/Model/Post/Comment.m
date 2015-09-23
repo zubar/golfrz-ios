@@ -30,22 +30,25 @@
 
 + (NSValueTransformer *)createdAtJSONTransformer {
     return [MTLValueTransformer reversibleTransformerWithForwardBlock:^(NSString *dateString) {
-        return [[self.dateFormatter dateFromString:dateString] toLocalTime];
+        NSLog(@"dateString: %@", dateString);
+        NSLog(@"nsDate: %@", [self.dateFormatter dateFromString:dateString]);
+        return [self.dateFormatter dateFromString:dateString];
     } reverseBlock:^(NSDate *date) {
-        return [self.dateFormatter stringFromDate:[date toGlobalTime]];
+        return [self.dateFormatter stringFromDate:date];
     }];
 }
 + (NSValueTransformer *)updatedAtJSONTransformer {
     return [MTLValueTransformer reversibleTransformerWithForwardBlock:^(NSString *dateString) {
-        return [[self.dateFormatter dateFromString:dateString] toLocalTime];
+        return [self.dateFormatter dateFromString:dateString];
     } reverseBlock:^(NSDate *date) {
-        return [self.dateFormatter stringFromDate:[date toGlobalTime]];
+        return [self.dateFormatter stringFromDate:date];
     }];
 }
 
 + (NSDateFormatter *)dateFormatter {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
+    dateFormatter.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"UTC"];
     dateFormatter.dateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
     
     return dateFormatter;

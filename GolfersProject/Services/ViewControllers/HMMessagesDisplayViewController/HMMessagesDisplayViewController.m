@@ -186,7 +186,9 @@
         cell=[[HMMessageRecieveCell alloc] init ];
     }
         cell.DTOObject = message;
+    NSLog(@"%@",message.comment);
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
     return cell;
 }
 
