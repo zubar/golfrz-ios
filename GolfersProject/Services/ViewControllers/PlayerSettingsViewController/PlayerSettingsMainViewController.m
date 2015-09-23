@@ -25,6 +25,8 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 
+#import "GameSettings.h"
+
 @interface PlayerSettingsMainViewController ()
 
 @end
@@ -208,6 +210,7 @@
     [AuthenticationService signOutUser:^(bool status) {
         if (status) {
             [MBProgressHUD hideHUDForView:self.view animated:YES];
+            [[GameSettings sharedSettings] resetGameSettings];
             [self popToSignInViewController];
         }
     } failureBlock:^(bool status, GolfrzError *error) {
@@ -221,6 +224,7 @@
 - (IBAction)btnDisConnectFacebookTap:(id)sender
 {    
     [FaceBookAuthAgent disConnectFBAccount];
+    [[GameSettings sharedSettings] resetGameSettings];
     [self popToSignInViewController];
 }
 

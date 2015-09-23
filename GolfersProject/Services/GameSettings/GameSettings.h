@@ -66,4 +66,7 @@
 -(NSString *)invitationToken;
 -(void)setInvitationToken:(NSString *)token;
 -(void)deleteInvitation;
+
+-(void)resetGameSettings;
+
 @end

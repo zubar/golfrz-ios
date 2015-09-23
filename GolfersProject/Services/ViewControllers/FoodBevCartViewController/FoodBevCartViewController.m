@@ -21,6 +21,7 @@
 #import "FoodBeveragesMainViewController.h"
 #import "GolfrzError.h"
 #import "Utilities.h"
+#import "User.h"
 
 @interface FoodBevCartViewController ()
 
@@ -59,12 +60,12 @@
 
 -(void)viewWillAppear:(BOOL)animated{
 
-    [self.txtMemberNo setText:[NSString stringWithFormat:@"%@",[UserServices currentUserId]]];
+    [self.txtMemberNo setText:[NSString stringWithFormat:@"%@",[[UserServices currentUser] memberId]]];
     [self.navigationController setNavigationBarHidden:NO];
 }
 
 - (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning]; 
+    [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 

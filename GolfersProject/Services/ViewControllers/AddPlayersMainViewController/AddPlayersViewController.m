@@ -1,3 +1,7 @@
+//Golfrz-747
+//add line at 162 line #
+
+
 //
 //  AddPlayersViewController.m
 //  GolfersProject
@@ -34,6 +38,7 @@
 #import "RoundDataServices.h"
 #import "RoundPlayers.h"
 #import "Utilities.h"
+#import "UserServices.h"
 
 @interface AddPlayersViewController (){
     DropDownContainsItems currentItemsIndropdown;
@@ -82,6 +87,12 @@
      This notification is posted by PushManager class, it informs that someone has accepted the invitation for round.
      */
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNotification:) name:kInviteeAcceptedInvitation object:nil];
+    
+    /*GameSettings * settings = [GameSettings sharedSettings];
+    if([settings invitationToken] != (NSString *)[NSNull null] && [settings invitationToken] !=nil){
+        [self loadDataUserAcceptedInvitation];
+    }else
+        [self loadData];*/
     //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNotification:) name:kAppLaunchUserTapInvitationLink object:nil];
     
 }
@@ -101,6 +112,7 @@
 }
 
 
+
 -(void)viewWillAppear:(BOOL)animated
 {
     AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
@@ -117,9 +129,9 @@
 
 -(void)loadData
 {
-    
+        
     GameSettings * settings = [GameSettings sharedSettings];
-    
+        
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     // If user comes to the View and a round is already in-Progress.
     [self getPreviousRoundStatus:^(bool inProgress, NSNumber *roundNumber, NSNumber *subCourseId, NSString *teeboxname) {
@@ -128,14 +140,14 @@
             [settings setroundId:roundNumber];
             [settings setsubCourseId:subCourseId];
             userSelectedTeebox = [[NSString alloc]initWithString:teeboxname];
-            
+                
             [MBProgressHUD hideHUDForView:self.view animated:YES];
             [self loadDataToCountinueRound:roundNumber inSubcourse:subCourseId];
         }else{
             [MBProgressHUD hideHUDForView:self.view animated:YES];
             [self resetAllFields];
             [self loadDataToSetUpNewRound];
-            }
+        }
     }];
 }
 
@@ -150,7 +162,9 @@
     [self getRoundInfoForInvitation:invitationToken success:^(NSNumber *roundId) {
         if(roundId == nil || roundId == (NSNumber *)[NSNull null]){
             [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-            return ;}
+            [self loadData];
+            return ;
+        }
        
         [settings setroundId:roundId];
         [self getRoundOptionsForRoundId:[settings roundId] Completion:^(RoundMetaData *currRound) {
@@ -361,6 +375,8 @@
 // call this when some one accepts the send invitation & we received a push notif for this.
 -(void)getRoundInfoForInvitation:(NSString *)invitation success:(void(^)(NSNumber * roundId))completion
 {
+    if (invitation == nil) return;
+    
     [InvitationServices getInvitationDetail:^(bool status, id invitation){
         if (status) {
             NSNumber * roundId = invitation[@"invitation_round"][@"round_id"];
@@ -368,6 +384,7 @@
         }
     } failure:^(bool status, GolfrzError *error) {
         [Utilities displayErrorAlertWithMessage:[error errorMessage]];
+        [[GameSettings sharedSettings] deleteInvitation];
         completion(nil);
     }];
 }
@@ -472,17 +489,29 @@
     }
     
     User * player = self.playersInRound[indexPath.row];
+    
     NSString * fullName = [NSString stringWithFormat:@"%@ %@", (player.firstName != nil ? player.firstName : @""), (player.lastName != nil ? player.lastName : @"")];
     
     RoundPlayerCell *customViewCell = (RoundPlayerCell *)customCell;
     [customViewCell.lblPlayerName setText:fullName];
     [customViewCell.lblHandicap setText:[player.handicap stringValue]];
-    
     [customViewCell.imgPlayerPic sd_setImageWithURL:[NSURL URLWithString:[player imgPath]] placeholderImage:[UIImage imageNamed:@"person_placeholder"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         if (image) {
             [customViewCell.imgPlayerPic setRoundedImage:image];
         }
     }];
+    
+    if([[player userId] isEqualToNumber:[[UserServices currentUser] userId]]){
+        [UserServices getUserInfo:^(bool status, User *mUser) {
+            [customViewCell.imgPlayerPic sd_setImageWithURL:[NSURL URLWithString:[mUser imgPath]] placeholderImage:[UIImage imageNamed:@"person_placeholder"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                if (image != nil) {
+                    [customViewCell.imgPlayerPic setRoundedImage:image];
+                }
+            }];
+        } failure:^(bool status, GolfrzError *error) {
+           // Simply ignore, user name is already loaded with place holder image. So we don't show error  message.
+        }];
+    }
     
     return customViewCell;
 }

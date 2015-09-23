@@ -2212,7 +2212,7 @@
 						DevelopmentTeam = X6K86D8S89;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -2611,7 +2611,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "92d4e17d-736f-4163-a259-0aec14af24c4";
+				PROVISIONING_PROFILE = "fa7892d1-d399-42e9-b6ed-38dbbad95acf";
 			};
 			name = Debug;
 		};
@@ -2621,8 +2621,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Golf Challenges LLC (X6K86D8S89)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Golf Challenges LLC (X6K86D8S89)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Abdullah Saeed (7983HQ379L)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Abdullah Saeed (7983HQ379L)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/GolfersProject/Vendors",
@@ -2631,7 +2631,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "782d943d-44da-429a-88e6-f388db245a3c";
+				PROVISIONING_PROFILE = "fa7892d1-d399-42e9-b6ed-38dbbad95acf";
 			};
 			name = Release;
 		};

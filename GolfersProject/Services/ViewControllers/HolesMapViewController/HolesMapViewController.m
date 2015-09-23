@@ -19,6 +19,7 @@
     BOOL isDownButtonPressed;
 }
 @property (nonatomic, strong) NSMutableArray * holesInround;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *btnNextHolesHeightConstraint;
 
 
 @end
@@ -52,8 +53,13 @@
     
     
     
-    if ([self.holesInround count] <= 9) [self.btnNextHoles setHidden:YES];
-    else [self.btnNextHoles setHidden:NO];
+    if ([self.holesInround count] <= 9){
+        self.btnNextHolesHeightConstraint.constant = 0;
+        //        [self.btnNextHoles setHidden:YES];
+    }else{
+        self.btnNextHolesHeightConstraint.constant = 45;
+        //    [self.btnNextHoles setHidden:NO];
+    }
 
     
     isDownButtonPressed = FALSE;
