@@ -176,19 +176,7 @@
 
 //----------------------------- Reset -----------------------------------------
 -(void)resetGameSettings{
-    [self deleteInvitation];
-    [self setIsRoundInProgress:NO];
-    [self setWaitingForPlayers:NO];
-    [self setInvitee:NO];
-    [self setroundId:(NSNumber *)[NSNull null]];
-    [self setInviteeId:(NSNumber *)[NSNull null]];
-    [self setteeboxId:(NSNumber *)[NSNull null]];
-    [self setscoreTypeId:(NSNumber *)[NSNull null]];
-    [self setscoreType:(ScoreType *)[NSNull null]];
-    [self setgameType:(GameType *)[NSNull null]];
-    [self setgameTypeId:(NSNumber *)[NSNull null]];
-    [self setsubCourse:(SubCourse *)[NSNull null]];
-    [self setsubCourseId:(NSNumber *)[NSNull null]];
+    [dataDict removeAllObjects];
 }
 
 #pragma mark - HandleAppStateChangeNotif

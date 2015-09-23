@@ -89,6 +89,7 @@ static NSString * const kUserAgent = @"ios";
  * Events
  */
 static NSString * const kCalenderEventsList = @"events";
+static NSString * const kEarnPointSocialShare = @"courses/earn_points";
 
 
 /*
@@ -227,8 +228,9 @@ static NSString * const CheckInReward = @"Earn 5 points every time you check in 
 static NSString * const InviteFriendsReward = @"Earn 25 points for each friend you invite to the app.";
 static NSString * const SocialMediaReward = @"Earn 5 more points for each social network you post on.";
 static NSString * const ScoreCardReward = @"Earn 10 points for every Scorecard you post to your Player Profile.";
-static NSString * const RoundsReward =@"Finally, earn points when you finish 5, 10 or 25 consecutive rounds.";
+static NSString * const RoundsReward =@"Finally, earn points when you finish 9th Hole in a round.";
 static NSString * const FinalRewardHeading = @"Then, it's time to collect your rewards!";
+static NSString * const PointsEarnedMessage = @"Congratulations, You have earned points.";
 
 //=======================================================================
 

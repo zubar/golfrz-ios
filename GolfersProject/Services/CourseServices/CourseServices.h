@@ -29,6 +29,9 @@
 +(void)getEnabledFeatures:(void(^)(bool status, NSArray * enabledFeatures))successBlock
                   failure:(void(^)(bool status, GolfrzError * error))failureBlock;
 
++(void)earnPointSocialShare:(void(^)(bool status, id resp))successBlock
+                    failure:(void(^)(bool status,  GolfrzError * error))failureBlock;
+
 +(void)setCurrentCourse:(Course *)mCourse;
 +(Course *)currentCourse;
 

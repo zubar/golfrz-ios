@@ -109,6 +109,19 @@ static Course * currentCourse = nil;
     return currentCourse;
 }
 
++(void)earnPointSocialShare:(void(^)(bool status, id resp))successBlock
+                    failure:(void(^)(bool status,  GolfrzError * error))failureBlock
+{
+
+    APIClient * apiClient = [APIClient sharedAPICLient];
+    [apiClient POST:kEarnPointSocialShare parameters:[CourseServices paramsEarnPointSocialShare] completion:^(id response, NSError *error) {
+        if(!error){
+            successBlock(true, [response result]);
+        }else
+            failureBlock(false, [response result]);
+    }];
+}
+
 #pragma mark - Helper Methods
 
 +(NSDictionary *)paramsCourseDetailInfo{
@@ -121,6 +134,16 @@ static Course * currentCourse = nil;
     return @{
              @"app_bundle_id": kAppBundleId,
              @"user_agent" : kUserAgent
+             };
+}
+
++(NSDictionary *)paramsEarnPointSocialShare{
+    return @{
+             @"app_bundle_id": kAppBundleId,
+             @"user_agent" : kUserAgent,
+             @"auth_token" : [UserServices currentToken],
+             @"point_slug" : @"share_on_social_media"
+
              };
 }
 @end

@@ -268,6 +268,12 @@
                 case SLComposeViewControllerResultDone:
                 {
                     NSLog(@"Posted....");
+                    [CourseServices earnPointSocialShare:^(bool status, id resp) {
+                        if(status)
+                            [[[UIAlertView alloc] initWithTitle:@"Congratulations!" message:PointsEarnedMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+                    } failure:^(bool status, GolfrzError *error) {
+                        [Utilities displayErrorAlertWithMessage:[error errorMessage]];
+                    }];
                 }
                     break;
             }};
