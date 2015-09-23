@@ -26,7 +26,7 @@
 {
     _DTOObject = DTOObject;
     
-    [Utilities dateComponentsFromNSDate:[[_DTOObject createdAt] toLocalTime] components:^(NSString *dayName, NSString *monthName, NSString *day, NSString *time, NSString *minutes, NSString *timeAndMinute) {
+    [Utilities dateComponentsFromNSDate:[[_DTOObject createdAt] toLocalTime]   components:^(NSString *dayName, NSString *monthName, NSString *day, NSString *time, NSString *minutes, NSString *timeAndMinute) {
         [self.recieveDate setText:timeAndMinute];
     }];
     self.messageDetails.text = _DTOObject.comment;
