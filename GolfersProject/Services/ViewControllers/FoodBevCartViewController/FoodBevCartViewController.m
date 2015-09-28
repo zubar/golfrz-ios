@@ -1,3 +1,6 @@
+//Golfrz-798
+//if else is added at line number 63
+
 //
 //  FoodBevCartViewController.m
 //  GolfersProject
@@ -60,7 +63,15 @@
 
 -(void)viewWillAppear:(BOOL)animated{
 
-    [self.txtMemberNo setText:[NSString stringWithFormat:@"%@",[[UserServices currentUser] memberId]]];
+    if([[UserServices currentUser] memberId]==nil)
+    {
+        [self.txtMemberNo setText:@""];
+        self.txtMemberNo.placeholder=nil;
+    }
+    else
+    {
+        [self.txtMemberNo setText:[NSString stringWithFormat:@"%@",[[UserServices currentUser] memberId]]];
+    }
     [self.navigationController setNavigationBarHidden:NO];
 }
 

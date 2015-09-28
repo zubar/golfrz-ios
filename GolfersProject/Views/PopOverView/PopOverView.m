@@ -76,6 +76,7 @@
     
     if ([self.stringDataSource[indexPath.row] isKindOfClass:[NSString class]]) {
         cell.nameLabel.text = self.stringDataSource[indexPath.row];
+        NSLog(@"%@",cell.nameLabel.text);
     }
     else {
         NSLog(@"Warning: Data will not be visible beacuse it is not of type NSString class.");

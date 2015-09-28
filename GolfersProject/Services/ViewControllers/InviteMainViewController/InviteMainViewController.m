@@ -1,3 +1,6 @@
+//Golfrz-800
+//two lines are added at line # 238
+
 //
 //  InviteMainViewController.m
 //  GolfersProject
@@ -231,6 +234,9 @@
 - (IBAction)segmentControlTapped:(UISegmentedControl *)sender {
 //    [invities removeAllObjects];
     [contacts removeAllObjects];
+    
+    [self.playerFound setHidden:YES];
+    [self.contactsTable setHidden:NO];
     
     [self.searchBar resignFirstResponder];
     [searchString  setString:@""];

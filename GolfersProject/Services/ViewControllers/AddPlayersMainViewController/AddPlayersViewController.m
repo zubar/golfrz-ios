@@ -1,6 +1,8 @@
 //Golfrz-747
 //add line at 162 line #
 
+//not more than 5 players added
+// if statement is added at line num 204 , 248
 
 //
 //  AddPlayersViewController.m
@@ -201,6 +203,10 @@
                     [self getPlayersListForRoundId:[gameSettings roundId] success:^(NSArray *playersList) {
                         if([self.playersInRound count] > 0) [self.playersInRound removeAllObjects];
                         [self.playersInRound addObjectsFromArray:playersList];
+                        if([self.playersInRound count]>=5)
+                        {
+                            [self.editPlayerButton setHidden:YES];
+                        }
                         [self.playersTable reloadData];
                         [self showPlayerTable:YES showStartBtn:YES isStartTitleContinue:YES showAddplyerbtn:NO];
                         // hide hud.
@@ -241,6 +247,10 @@
     [self getPlayersListForRoundId:roundId success:^(NSArray *playersList) {
         if([self.playersInRound count] > 0) [self.playersInRound removeAllObjects];
         [self.playersInRound addObjectsFromArray:playersList];
+        if([self.playersInRound count]>=5)
+        {
+            [self.editPlayerButton setHidden:YES];
+        }
         [self.playersTable reloadData];
         
         // To set the already selected options for current round.

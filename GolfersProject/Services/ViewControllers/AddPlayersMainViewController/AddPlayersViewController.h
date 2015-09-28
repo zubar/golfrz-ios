@@ -24,6 +24,8 @@ typedef NS_ENUM(NSInteger, DropDownContainsItems) {
 
 @interface AddPlayersViewController : BaseViewController<PopOverViewDelegate, UITableViewDelegate, UITableViewDataSource>
 
+@property (strong, nonatomic) IBOutlet UIButton *editPlayerButton;
+
 @property (nonatomic, strong) RoundMetaData * roundInfo;
 
 @property (weak, nonatomic) IBOutlet UIView *addPlayerContainerView;

@@ -1,3 +1,7 @@
+//Golfrz-799
+//try catch block is added at line number 342 , 285
+
+
 //
 //  RoundViewController.m
 //  GolfersProject
@@ -273,14 +277,33 @@
     }
     
     
-    User * player = [self.playersInRound objectAtIndex:indexPath.row +1 ];
+    User * player = [self.playersInRound objectAtIndex:indexPath.row+1];
     PlayerScoreCell *customCell = (PlayerScoreCell *)cell;
     customCell.delegate = self;
+    
     [customCell.imgPlayerPic sd_setImageWithURL:[NSURL URLWithString:[player imgPath]] placeholderImage:[UIImage imageNamed:@"person_placeholder"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         if (image) {
             [customCell.imgPlayerPic setRoundedImage:image];
         }
     }];
+    
+    @try {
+        if([[player userId] isEqualToNumber:[[UserServices currentUser] userId]]){
+            [UserServices getUserInfo:^(bool status, User *mUser) {
+                [customCell.imgPlayerPic sd_setImageWithURL:[NSURL URLWithString:[mUser imgPath]] placeholderImage:[UIImage imageNamed:@"person_placeholder"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                    if (image != nil) {
+                        [customCell.imgPlayerPic setRoundedImage:image];
+                    }
+                }];
+            } failure:^(bool status, GolfrzError *error) {
+                // Simply ignore, user name is already loaded with place holder image. So we don't show error  message.
+            }];
+        }
+    }
+    @catch (NSException *exception) {
+        NSLog(@"Exception at RoundViewController %@", exception);
+    }
+    
     
     // One is added becasue data of first player is displayed in header view of table.
     customCell.lblPlayerName.text = [player contactFullName];
@@ -311,11 +334,32 @@
     
     [self.headerView configureViewForPlayer:player hideDropdownBtn:NO];
     [self.headerView.lblUserName setText:(player != nil ? [player contactFullName] : @"")];
+    
     [self.headerView.imgUserPic sd_setImageWithURL:[NSURL URLWithString:[player imgPath]] placeholderImage:[UIImage imageNamed:@"person_placeholder"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         if (image) {
             [self.headerView.imgUserPic setRoundedImage:image];
         }
     }];
+    
+    @try {
+        if([[player userId] isEqualToNumber:[[UserServices currentUser] userId]]){
+            [UserServices getUserInfo:^(bool status, User *mUser) {
+                [self.headerView.imgUserPic sd_setImageWithURL:[NSURL URLWithString:[mUser imgPath]] placeholderImage:[UIImage imageNamed:@"person_placeholder"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                    if (image != nil) {
+                        [self.headerView.imgUserPic setRoundedImage:image];
+                    }
+                }];
+            } failure:^(bool status, GolfrzError *error) {
+                // Simply ignore, user name is already loaded with place holder image. So we don't show error  message.
+            }];
+        }
+    }
+    @catch (NSException *exception) {
+        NSLog(@"Exception at RoundViewController %@", exception);
+    }
+
+    
+    
     [self.headerView.lblScoreForHole setText:[[self.playerTotalScoreInRound objectForKey:[player.userId stringValue]] stringValue]];
     [self.headerView.btnEditScore setTitle:[[self.playerScores objectForKey:player.userId] stringValue] forState:UIControlStateNormal];
     [self.headerView.lblInOut setText:([self.currentHole.holeNumber integerValue] <= 9 ? @"OUT" : @"IN")];

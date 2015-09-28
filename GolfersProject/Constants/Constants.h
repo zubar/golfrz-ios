@@ -43,7 +43,7 @@ static NSString * const kPrivacyPolicyURL = @"http://mobilecoursesolutions.com/g
 static NSString * const kAppBundleId = @"com.golfrz.genevagcc";
 //static NSString * const kAppBundleId = @"com.golfrz.amesgcc";
 //static NSString * const kAppBundleId = @"org.golfrz.GolferzProject";
-static NSString * const MessageToDownloadApp = @"Download Geneva Golf & Country Club App on iTunes. https://itunes.apple.com/app/id1015455807";
+static NSString * const MessageToDownloadApp = @"Download Geneva Golf & Country Club App on iTunes. https://itunes.apple.com/app/id 1015455807";
 static NSString * const MessageToDownloadAppTest = @"Download Geneva Golf & Country Club App on iTunes.";
 
 

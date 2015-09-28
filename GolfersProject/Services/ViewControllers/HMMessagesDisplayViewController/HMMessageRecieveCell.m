@@ -38,6 +38,25 @@
         
     }];
     User * mUser = _DTOObject.user;
+    
+    @try {
+        if([[mUser userId] isEqualToNumber:[[UserServices currentUser] userId]]){
+            [UserServices getUserInfo:^(bool status, User *player) {
+                [self.imgUser sd_setImageWithURL:[NSURL URLWithString:[player imgPath]] placeholderImage:[UIImage imageNamed:@"person_placeholder"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                    if (image != nil) {
+                        [self.imgUser setRoundedImage:image];
+                    }
+                }];
+            } failure:^(bool status, GolfrzError *error) {
+                // Simply ignore, user name is already loaded with place holder image. So we don't show error  message.
+            }];
+        }
+    }
+    @catch (NSException *exception) {
+        NSLog(@"Exception at HMMessagesDisplayViewController %@", exception);
+    }
+
+    
     //This is a wonderful chapi, don't try to torture your brain in resolving this... Its ISO certified.
     NSLog(@"currentUser:%@", mUser);
     if (!mUser) {
