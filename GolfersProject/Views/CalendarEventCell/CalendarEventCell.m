@@ -40,6 +40,7 @@
     [Utilities dateComponentsFromNSDate:self.event.dateStart components:^(NSString *dayName, NSString *monthName, NSString *day, NSString *time, NSString * minutes, NSString * hourAndMin) {
         
         self.lbleventName.text = self.event.name;
+        NSLog(@"%@",self.event.location);
         [self.lbleventTime setText:time];
     }];
 }

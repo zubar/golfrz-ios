@@ -1800,8 +1800,8 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L0f-Im-p6C">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
                                         <subviews>
-                                            <searchBar contentMode="redraw" misplaced="YES" placeholder="Search" showsCancelButton="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SW3-fp-X1G">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                            <searchBar contentMode="redraw" placeholder="Search" showsCancelButton="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SW3-fp-X1G">
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
                                                 <color key="tintColor" red="0.18823529410000001" green="0.40000000000000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
@@ -1860,7 +1860,7 @@
                                                                     <rect key="frame" x="70" y="0.0" width="193" height="64"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N7O-h5-V2L">
-                                                                            <rect key="frame" x="8" y="21" width="42" height="21"/>
+                                                                            <rect key="frame" x="8" y="21" width="177" height="21"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                             <nil key="highlightedColor"/>
@@ -1869,6 +1869,7 @@
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                     <constraints>
                                                                         <constraint firstItem="N7O-h5-V2L" firstAttribute="leading" secondItem="sXW-Wk-JUy" secondAttribute="leading" constant="8" id="31e-HW-6Ww"/>
+                                                                        <constraint firstAttribute="trailing" secondItem="N7O-h5-V2L" secondAttribute="trailing" constant="8" id="7Kb-1q-xDW"/>
                                                                         <constraint firstAttribute="centerY" secondItem="N7O-h5-V2L" secondAttribute="centerY" id="FrX-pD-ogC"/>
                                                                     </constraints>
                                                                 </view>
@@ -1881,7 +1882,7 @@
                                                                                 <constraint firstAttribute="height" constant="26" id="GGQ-nW-yvd"/>
                                                                                 <constraint firstAttribute="width" constant="26" id="LJ2-ou-0eZ"/>
                                                                             </constraints>
-                                                                            <state key="normal" image="35BC68C8-1A37-4BD5-A4BF-18ABAFF32EA7">
+                                                                            <state key="normal" image="A46998B8-8F38-4997-8675-B295A819AF26">
                                                                                 <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                                             </state>
@@ -5704,7 +5705,7 @@
                                                                                 <constraint firstAttribute="height" constant="26" id="OaE-ph-eo5"/>
                                                                                 <constraint firstAttribute="width" constant="26" id="S5w-xw-4Ro"/>
                                                                             </constraints>
-                                                                            <state key="normal" image="EB0C3B61-2B36-476A-867E-1EE21A0E3E01">
+                                                                            <state key="normal" image="F33592A8-7437-4E2B-BD59-92EF5FFB1BBD">
                                                                                 <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                                             </state>
@@ -7565,7 +7566,7 @@ Nulla sed est consectetur, tempus tellus interdum, vehicula lectus. Aliquam soll
         </scene>
     </scenes>
     <resources>
-        <image name="35BC68C8-1A37-4BD5-A4BF-18ABAFF32EA7" width="24" height="25">
+        <image name="A46998B8-8F38-4997-8675-B295A819AF26" width="24" height="25">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -7657,7 +7658,7 @@ AAAAAAAAAAAAE48
 </mutableData>
         </image>
         <image name="ChooseHole_Down" width="88" height="88"/>
-        <image name="EB0C3B61-2B36-476A-867E-1EE21A0E3E01" width="24" height="25">
+        <image name="F33592A8-7437-4E2B-BD59-92EF5FFB1BBD" width="24" height="25">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
