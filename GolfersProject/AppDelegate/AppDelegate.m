@@ -98,7 +98,7 @@
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
-   
+    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {

@@ -32,7 +32,8 @@ static NSString * const kAppStoreUrl = @"https://itunes.apple.com/app/id10154558
 static NSString * const kBaseImageUrl = @"http://mobilecoursesolutions.com";
 
 //static NSString * const kBaseURL = @"http://45.56.104.68/api/0.1/";
-static NSString * const kBaseURL = @"http://mobilecoursesolutions.com/api/0.1/";
+static NSString * const kBaseURL = @"http://10.0.2.54:3000/api/0.1";
+//static NSString * const kBaseURL = @"http://mobilecoursesolutions.com/api/0.1/";
 
 
 //static NSString * const kPrivacyPolicyURL = @"http://mobilecoursesolutions.com/ames-golf-country-club/privacy/privacy";
@@ -159,7 +160,7 @@ static NSString * const kInviteeAcceptedInvitation = @"InviteeAcceptedRoundInvit
 static NSString * const kInviteeRejectedInvitation = @"InviteeRejectedRoundInvitation";
 static NSString * const kInvitationReceived = @"InvitationReceivedForRound";
 static NSString * const kAppLaunchUserTapInvitationLink = @"AppLaunchDueToUserTapOnInvitationLink";
-static NSString * const kRedeemedReward = @"RedeemedRewardUpdateUserPoints";
+static NSString * const kUpdateRewardPoints = @"RedeemedRewardUpdateUserPoints";
 
 /*
  *  CourseUpdates
@@ -230,7 +231,7 @@ static NSString * const SocialMediaReward = @"Earn 5 more points for each social
 static NSString * const ScoreCardReward = @"Earn 10 points for every Scorecard you post to your Player Profile.";
 static NSString * const RoundsReward =@"Finally, earn points when you finish 9th Hole in a round.";
 static NSString * const FinalRewardHeading = @"Then, it's time to collect your rewards!";
-static NSString * const PointsEarnedMessage = @"Congratulations, You have earned points.";
+static NSString * const PointsEarnedMessage = @"You have earned points.";
 
 //=======================================================================
 

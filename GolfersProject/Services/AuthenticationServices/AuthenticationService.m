@@ -103,13 +103,11 @@ passwordConfirmation:(NSString *)passwordConfirmation
     APIClient * apiClient = [APIClient sharedAPICLient];
     
     NSDictionary * params = [AuthenticationService paramsForSignUp:firstName lastName:lastName email:email password:password passwordConfirmation:passwordConfirmation memberId:memberID handicap:handicap];
-    
-    
-    
-    
+
     [apiClient POST:kSignUpURL parameters:params completion:^(id response, NSError *error) {
         OVCResponse * resp = (OVCResponse *)response;
         if(!error){
+            
             NSDictionary * responseObject = [resp result];
             if (responseObject[@"status"]) {
                 NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
@@ -123,12 +121,16 @@ passwordConfirmation:(NSString *)passwordConfirmation
             successBlock(true, responseObject);
         }else{
             NSError * parseError = nil;
+            
+             //NSDictionary * errorDic = [NSJSONSerialization JSONObjectWithData:[error.userInfo objectForKey:@"com.alamofire.serialization.response.error.data"] options:NSJSONReadingMutableLeaves error:nil];
+           
             GolfrzError * terror = [GolfrzError modelWithDictionary:@{@"errorMessage": @"An unknown Error Occured!"} error:&parseError];
+            
+           
             if([[[resp result] errorMessage] isEqual:[NSNull null]] || [[resp result] errorMessage] == nil){
                 failureBlock(false, terror);
             }else{
                 failureBlock(false, [resp result]);
-
             }
         }
     }];
@@ -162,17 +164,26 @@ passwordConfirmation:(NSString *)passwordConfirmation
                         memberId:(NSString *)memberID
                         handicap:(NSString *)handicap{
     
-    return @{
-        @"email": email,
-        @"password": password,
-        @"password_confirmation": passwordConfirmation,
-        @"first_name": firstName,
-        @"last_name": lastName,
-        @"user_agent" : kUserAgent,
-        @"app_bundle_id" : kAppBundleId,
-        @"handicap" : handicap,
-        @"member_id":memberID
-        };
+    
+    NSDictionary * dic = @{
+                                  @"email": email,
+                                  @"password": password,
+                                  @"password_confirmation": passwordConfirmation,
+                                  @"first_name": firstName,
+                                  @"last_name": lastName,
+                                  @"user_agent" : kUserAgent,
+                                  @"app_bundle_id" : kAppBundleId,
+                                  @"handicap" : handicap,
+                                  @"member_id":memberID
+                                  };
+    
+    NSMutableDictionary * mDic = [dic mutableCopy];
+    if([[mDic objectForKey:@"member_id"] isEqualToString:@""])
+    {
+        [mDic removeObjectForKey:@"member_id"];
+    }
+    
+    return mDic;
 }
 
 @end

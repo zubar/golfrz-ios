@@ -105,7 +105,6 @@
             [customCell.imgFoodBev setImage:image];
         }
     }];
-    
     [customCell.lblItemName setText:food_bev_item.name];
     [customCell.lblItemPrice setText:food_bev_item.price.stringValue];
     return customCell;

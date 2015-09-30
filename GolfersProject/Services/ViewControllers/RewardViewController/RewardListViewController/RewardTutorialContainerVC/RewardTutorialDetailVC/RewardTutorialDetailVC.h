@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "RewardViewController.h"
 #import "RewardTutorialContainerVC.h"
 #import "SharedManager.h"
+
+
 
 typedef NS_ENUM(NSInteger, TutorialPageType){
 

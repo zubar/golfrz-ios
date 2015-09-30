@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ClubHouseSubController.h"
+#import "RewardTutorialDetailVC.h"
 
 @interface RewardViewController : ClubHouseSubController
 
@@ -24,6 +25,7 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *imgViewBackground;
 
+-(void)updateRewardPoints;
 /*!
  @brief It cycles two view controllers.
  

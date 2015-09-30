@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "RewardViewController.h"
 #define kTutorialPagesCount 6
+
+@class RewardViewController;
 
 @interface RewardTutorialContainerVC : UIViewController
 

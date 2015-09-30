@@ -8,6 +8,7 @@
 
 #import "RewardTutorialContainerVC.h"
 #import "RewardTutorialDetailVC.h"
+#import "RewardViewController.h"
 
 @interface RewardTutorialContainerVC (){
     UIViewController __weak * _currentChildController;

@@ -47,8 +47,7 @@
     SharedManager * manager = [SharedManager sharedInstance];
     [self.imgViewBackground setImage:[manager backgroundImage]];
 
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(updateRewardPoints) name:kRedeemedReward object:nil];
-    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(updateRewardPoints) name:kUpdateRewardPoints object:nil];
     
     /*! @brief Array of view controllers to switch between */
     self.selectedControllerIndex = 0;
@@ -151,7 +150,6 @@
     [imageRightButton addTarget:self action:@selector(inviteFriendTap) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:imageRightButton];
     self.navigationItem.rightBarButtonItem = rightBarButtonItem;
-
 }
 
 #pragma mark - Private Methods

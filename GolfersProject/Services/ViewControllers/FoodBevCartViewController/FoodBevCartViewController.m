@@ -65,7 +65,7 @@
 
     if([[UserServices currentUser] memberId]==nil)
     {
-        [self.txtMemberNo setText:@""];
+        [self.txtMemberNo setText:@"N/A"];
         self.txtMemberNo.placeholder=nil;
     }
     else

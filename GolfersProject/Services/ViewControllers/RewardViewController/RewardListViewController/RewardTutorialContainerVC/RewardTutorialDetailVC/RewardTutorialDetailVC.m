@@ -17,13 +17,10 @@
 #import <Social/Social.h>
 #import "Constants.h"
 
-@interface RewardTutorialDetailVC (){
+@interface RewardTutorialDetailVC ()<UIAlertViewDelegate>{
     bool isFbTapped;
     SLComposeViewController *socialMediaController;
 }
-
-
-
 
 @end
 
@@ -172,6 +169,12 @@
     }
 }
 
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:kUpdateRewardPoints object:nil];
+}
+
+
 - (IBAction)fbShareTapped:(UIButton *)sender {
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     isFbTapped = true;
@@ -270,7 +273,7 @@
                     NSLog(@"Posted....");
                     [CourseServices earnPointSocialShare:^(bool status, id resp) {
                         if(status)
-                            [[[UIAlertView alloc] initWithTitle:@"Congratulations!" message:PointsEarnedMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+                            [[[UIAlertView alloc] initWithTitle:@"Congratulations!" message:PointsEarnedMessage delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
                     } failure:^(bool status, GolfrzError *error) {
                         [Utilities displayErrorAlertWithMessage:[error errorMessage]];
                     }];

@@ -97,7 +97,7 @@
     [RewardServices redeemRewardWithId:[self.currentReward itemId] success:^(bool status, id response) {
         if(status){
             // Observer of this notification is RewardViewController which updates its label of total reward points of user.
-            [[NSNotificationCenter defaultCenter] postNotificationName:kRedeemedReward object:nil];
+            [[NSNotificationCenter defaultCenter] postNotificationName:kUpdateRewardPoints object:nil];
             
              [[[UIAlertView alloc] initWithTitle:@"REWARD REDEEMED" message:@"Congratulations! An email will be sent shortly your way with more details." delegate:self cancelButtonTitle:@"BACK TO APP" otherButtonTitles:@"CHECK EMAIL", nil] show];
         [MBProgressHUD hideHUDForView:self.view animated:YES];

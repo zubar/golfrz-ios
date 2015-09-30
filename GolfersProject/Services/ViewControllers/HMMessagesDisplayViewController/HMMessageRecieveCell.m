@@ -26,11 +26,17 @@
 {
     _DTOObject = DTOObject;
     
+    int daysAgo = [self daysBetween:[NSDate date] andEndDate:[[_DTOObject createdAt] toLocalTime]];
+    
+    if( daysAgo > 0){
+        [self.recieveDate setText:[NSString stringWithFormat:@"%d days ago", daysAgo]];
+    }else
     [Utilities dateComponentsFromNSDate:[[_DTOObject createdAt] toLocalTime]   components:^(NSString *dayName, NSString *monthName, NSString *day, NSString *time, NSString *minutes, NSString *timeAndMinute) {
         [self.recieveDate setText:timeAndMinute];
     }];
+    
+    
     self.messageDetails.text = _DTOObject.comment;
-   
     [self.imgUser sd_setImageWithURL:[NSURL URLWithString:[_DTOObject.user imgPath]] placeholderImage:[UIImage imageNamed:@"person_placeholder"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         if (image) {
             [self.imgUser setRoundedImage:image];
@@ -64,6 +70,11 @@
     }else{
         self.lblUserName.text = mUser.firstName;
     }
+}
+
+-(CGFloat )daysBetween:(NSDate *)startDate andEndDate:(NSDate *)endDate
+{
+    return fabs(([endDate timeIntervalSinceDate:startDate] / 3600) /24);
 }
 
 
