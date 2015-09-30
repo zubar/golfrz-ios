@@ -32,8 +32,8 @@ static NSString * const kAppStoreUrl = @"https://itunes.apple.com/app/id10154558
 static NSString * const kBaseImageUrl = @"http://mobilecoursesolutions.com";
 
 //static NSString * const kBaseURL = @"http://45.56.104.68/api/0.1/";
-static NSString * const kBaseURL = @"http://10.0.2.54:3000/api/0.1";
-//static NSString * const kBaseURL = @"http://mobilecoursesolutions.com/api/0.1/";
+//static NSString * const kBaseURL = @"http://10.0.2.54:3000/api/0.1";
+static NSString * const kBaseURL = @"http://mobilecoursesolutions.com/api/0.1/";
 
 
 //static NSString * const kPrivacyPolicyURL = @"http://mobilecoursesolutions.com/ames-golf-country-club/privacy/privacy";
@@ -44,7 +44,7 @@ static NSString * const kPrivacyPolicyURL = @"http://mobilecoursesolutions.com/g
 static NSString * const kAppBundleId = @"com.golfrz.genevagcc";
 //static NSString * const kAppBundleId = @"com.golfrz.amesgcc";
 //static NSString * const kAppBundleId = @"org.golfrz.GolferzProject";
-static NSString * const MessageToDownloadApp = @"Download Geneva Golf & Country Club App on iTunes. https://itunes.apple.com/app/id 1015455807";
+static NSString * const MessageToDownloadApp = @"Download Geneva Golf & Country Club App on iTunes. https://itunes.apple.com/app/id1015455807";
 static NSString * const MessageToDownloadAppTest = @"Download Geneva Golf & Country Club App on iTunes.";
 
 

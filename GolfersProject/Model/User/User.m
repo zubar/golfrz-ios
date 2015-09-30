@@ -22,11 +22,19 @@
              @"handicap" : @"handicap",
              @"imgPath" : @"profile_photo_url",
              @"phone" : @"phone_no",
+             @"userIcon" : @"image_path",
             //propertyName : json_key
              };
 }
 
 + (NSValueTransformer *)imgPathJSONTransformer
+{
+    return [MTLValueTransformer transformerWithBlock:^id(id relativePath) {
+        return [self absoluteImageURLfromRelativeUR:relativePath ];
+    }];
+}
+
++ (NSValueTransformer *)userIconJSONTransformer
 {
     return [MTLValueTransformer transformerWithBlock:^id(id relativePath) {
         return [self absoluteImageURLfromRelativeUR:relativePath ];

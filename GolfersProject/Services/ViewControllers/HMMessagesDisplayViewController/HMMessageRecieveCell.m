@@ -37,7 +37,7 @@
     
     
     self.messageDetails.text = _DTOObject.comment;
-    [self.imgUser sd_setImageWithURL:[NSURL URLWithString:[_DTOObject.user imgPath]] placeholderImage:[UIImage imageNamed:@"person_placeholder"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+    [self.imgUser sd_setImageWithURL:[NSURL URLWithString:[_DTOObject.user userIcon]] placeholderImage:[UIImage imageNamed:@"person_placeholder"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         if (image) {
             [self.imgUser setRoundedImage:image];
         }

@@ -96,19 +96,12 @@ passwordConfirmation:(NSString *)passwordConfirmation
          handicap:(NSString *)handicap
        completion:(void (^)(bool status, NSDictionary * userInfo))successBlock
           failure:(void (^)(bool status, GolfrzError * error))failureBlock{
-
-    //AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
     
-    
-    APIClient * apiClient = [APIClient sharedAPICLient];
-    
+    AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
     NSDictionary * params = [AuthenticationService paramsForSignUp:firstName lastName:lastName email:email password:password passwordConfirmation:passwordConfirmation memberId:memberID handicap:handicap];
-
-    [apiClient POST:kSignUpURL parameters:params completion:^(id response, NSError *error) {
-        OVCResponse * resp = (OVCResponse *)response;
-        if(!error){
-            
-            NSDictionary * responseObject = [resp result];
+    
+    [apiClient POST:kSignUpURL parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
+        if(responseObject){
             if (responseObject[@"status"]) {
                 NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
                 [defaults setValue:responseObject[@"token"] forKey:kUSER_TOKEN];
@@ -119,23 +112,20 @@ passwordConfirmation:(NSString *)passwordConfirmation
                 [defaults synchronize];
             }
             successBlock(true, responseObject);
-        }else{
-            NSError * parseError = nil;
-            
-             //NSDictionary * errorDic = [NSJSONSerialization JSONObjectWithData:[error.userInfo objectForKey:@"com.alamofire.serialization.response.error.data"] options:NSJSONReadingMutableLeaves error:nil];
-           
-            GolfrzError * terror = [GolfrzError modelWithDictionary:@{@"errorMessage": @"An unknown Error Occured!"} error:&parseError];
-            
-           
-            if([[[resp result] errorMessage] isEqual:[NSNull null]] || [[resp result] errorMessage] == nil){
-                failureBlock(false, terror);
-            }else{
-                failureBlock(false, [resp result]);
-            }
         }
+    } failure:^(NSURLSessionDataTask *task, NSError *error){
+        NSData *errorData = error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey];
+        NSDictionary *serializedData = [NSJSONSerialization JSONObjectWithData: errorData options:kNilOptions error:nil];
+        NSError * parseError = nil;
+        GolfrzError * terror = nil;
+        
+        if (serializedData != nil)
+            terror = [MTLJSONAdapter modelOfClass:[GolfrzError class] fromJSONDictionary:serializedData error:&parseError];
+        else
+            terror = [GolfrzError modelWithDictionary:@{@"errorMessage": @"An unknown Error Occured!"} error:&parseError];
+        failureBlock(false, terror);
     }];
 }
-
 #pragma mark - Helper Methods
 +(NSDictionary *)paramsForLogin:(NSString *)userName password:(NSString *)pwd{
     

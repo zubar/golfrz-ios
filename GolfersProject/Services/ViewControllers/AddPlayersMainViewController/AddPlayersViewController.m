@@ -505,7 +505,7 @@
     RoundPlayerCell *customViewCell = (RoundPlayerCell *)customCell;
     [customViewCell.lblPlayerName setText:fullName];
     [customViewCell.lblHandicap setText:[player.handicap stringValue]];
-    [customViewCell.imgPlayerPic sd_setImageWithURL:[NSURL URLWithString:[player imgPath]] placeholderImage:[UIImage imageNamed:@"person_placeholder"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+    [customViewCell.imgPlayerPic sd_setImageWithURL:[NSURL URLWithString:[player userIcon]] placeholderImage:[UIImage imageNamed:@"person_placeholder"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         if (image) {
             [customViewCell.imgPlayerPic setRoundedImage:image];
         }

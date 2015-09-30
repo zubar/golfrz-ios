@@ -20,5 +20,6 @@
 @property (copy, nonatomic, readonly) NSString * phone;
 
 @property (copy, nonatomic, readonly) NSString * imgPath;
+@property (copy, nonatomic, readonly) NSString * userIcon;
 
 @end
