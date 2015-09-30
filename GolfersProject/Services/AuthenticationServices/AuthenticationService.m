@@ -114,8 +114,11 @@ passwordConfirmation:(NSString *)passwordConfirmation
             successBlock(true, responseObject);
         }
     } failure:^(NSURLSessionDataTask *task, NSError *error){
+        @try {
+            
         NSData *errorData = error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey];
-        NSDictionary *serializedData = [NSJSONSerialization JSONObjectWithData: errorData options:kNilOptions error:nil];
+        NSDictionary *serializedData = nil;
+        if(errorData !=nil ) serializedData = [NSJSONSerialization JSONObjectWithData:errorData options:kNilOptions error:nil];
         NSError * parseError = nil;
         GolfrzError * terror = nil;
         
@@ -124,6 +127,10 @@ passwordConfirmation:(NSString *)passwordConfirmation
         else
             terror = [GolfrzError modelWithDictionary:@{@"errorMessage": @"An unknown Error Occured!"} error:&parseError];
         failureBlock(false, terror);
+        }
+        @catch (NSException *exception) {
+            NSLog(@"exception: %@", exception);
+        }
     }];
 }
 #pragma mark - Helper Methods
@@ -164,13 +171,12 @@ passwordConfirmation:(NSString *)passwordConfirmation
                                   @"user_agent" : kUserAgent,
                                   @"app_bundle_id" : kAppBundleId,
                                   @"handicap" : handicap,
-                                  @"member_id":memberID
                                   };
     
+    
     NSMutableDictionary * mDic = [dic mutableCopy];
-    if([[mDic objectForKey:@"member_id"] isEqualToString:@""])
-    {
-        [mDic removeObjectForKey:@"member_id"];
+    if([[memberID stringByReplacingOccurrencesOfString:@" " withString:@""] length] > 0){
+        [mDic setObject:memberID forKey:@"member_id"];
     }
     
     return mDic;

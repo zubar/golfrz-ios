@@ -22,7 +22,7 @@
 //Link for Ames
 //static NSString * const kAppStoreUrl = @"https://itunes.apple.com/app/id1015449544";
 //Link for Geneva
-static NSString * const kAppStoreUrl = @"https://itunes.apple.com/app/id1015455807";
+static NSString * const kAppStoreUrl = @"https://fb.me/450808621773081";
 
 
 /*
