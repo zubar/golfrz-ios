@@ -63,15 +63,18 @@
 
 -(void)viewWillAppear:(BOOL)animated{
 
-    if([[UserServices currentUser] memberId]==nil)
-    {
-        [self.txtMemberNo setText:@"N/A"];
-        self.txtMemberNo.placeholder=nil;
-    }
-    else
-    {
-        [self.txtMemberNo setText:[NSString stringWithFormat:@"%@",[[UserServices currentUser] memberId]]];
-    }
+    [UserServices getUserInfo:^(bool status, User *mUser) {
+        if([mUser memberId]==nil){
+            [self.txtMemberNo setText:@"N/A"];
+            self.txtMemberNo.placeholder=nil;
+        }else{
+            [self.txtMemberNo setText:[NSString stringWithFormat:@"%@",[mUser memberId]]];
+        }
+    } failure:^(bool status, GolfrzError *error) {
+        
+    }];
+    
+  
     [self.navigationController setNavigationBarHidden:NO];
 }
 

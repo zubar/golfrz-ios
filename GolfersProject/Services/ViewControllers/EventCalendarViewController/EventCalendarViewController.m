@@ -261,10 +261,13 @@
 }
 -(NSInteger)daysBetweenDate: (NSDate *)firstDate andDate:(NSDate *)secondDate
 {
+    NSDate  * firstDateZero = [firstDate dateWithTimeComponentsZeroSet];
+    NSDate * secondDateZero = [secondDate dateWithTimeComponentsZeroSet];
+    
     NSCalendar *currentCalendar = [NSCalendar currentCalendar];
     NSDateComponents *components = [currentCalendar components: NSDayCalendarUnit
-                                                      fromDate: firstDate
-                                                        toDate: secondDate
+                                                      fromDate: firstDateZero
+                                                        toDate: secondDateZero
                                                        options: 0];
     
     NSInteger days = [components day];
