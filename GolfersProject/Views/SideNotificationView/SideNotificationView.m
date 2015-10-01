@@ -96,12 +96,20 @@ bool isDisplaying;
     }else
         if((timeAgo/60) <= 24){
             return [NSString stringWithFormat:@"%d Hour Ago", timeAgo/60];
-        }else{
-            if(timeAgo/1440 >1)
-            return [NSString stringWithFormat:@"%d Days Ago", timeAgo/1440];  // 1440 = 60* 24 
-            else return [NSString stringWithFormat:@"%d Day Ago", timeAgo/1440];
-            }
+        }else
+            if(timeAgo/1440 > 1 && timeAgo/1440 < 30){
+                  if(timeAgo/1440 >1  )
+                        return [NSString stringWithFormat:@"%d Days Ago", timeAgo/1440];  // 1440 = 60* 24
+                    else return [NSString stringWithFormat:@"%d Day Ago", timeAgo/1440];
+        }else
+            if(timeAgo/43200 <=1 )
+                    return [NSString stringWithFormat:@"%d Month Ago", timeAgo/43200];
+                else
+                   return [NSString stringWithFormat:@"%d Months Ago", timeAgo/43200];
+
+
 }
+
 
 -(void)addNotificationsArrayObject:(NSDictionary *)object{
     
