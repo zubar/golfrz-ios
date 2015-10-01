@@ -20,9 +20,9 @@
 
 
 //Link for Ames
-//static NSString * const kAppStoreUrl = @"https://itunes.apple.com/app/id1015449544";
+static NSString * const kAppStoreUrl = @"https://fb.me/402937166579204";
 //Link for Geneva
-static NSString * const kAppStoreUrl = @"https://fb.me/450808621773081";
+//static NSString * const kAppStoreUrl = @"https://fb.me/450808621773081";
 
 
 /*
@@ -35,16 +35,16 @@ static NSString * const kBaseImageUrl = @"http://mobilecoursesolutions.com";
 static NSString * const kBaseURL = @"http://mobilecoursesolutions.com/api/0.1/";
 
 
-//static NSString * const kPrivacyPolicyURL = @"http://mobilecoursesolutions.com/ames-golf-country-club/privacy";
-static NSString * const kPrivacyPolicyURL = @"http://mobilecoursesolutions.com/geneva-golf-and-country-club/privacy";
+static NSString * const kPrivacyPolicyURL = @"http://mobilecoursesolutions.com/ames-golf-country-club/privacy";
+//static NSString * const kPrivacyPolicyURL = @"http://mobilecoursesolutions.com/geneva-golf-and-country-club/privacy";
 
 
 #pragma warking - Automation issue.
-static NSString * const kAppBundleId = @"com.golfrz.genevagcc";
-//static NSString * const kAppBundleId = @"com.golfrz.amesgcc";
+//static NSString * const kAppBundleId = @"com.golfrz.genevagcc";
+static NSString * const kAppBundleId = @"com.golfrz.amesgcc";
 //static NSString * const kAppBundleId = @"org.golfrz.GolferzProject";
-static NSString * const MessageToDownloadApp = @"Download Geneva Golf & Country Club App on iTunes. https://itunes.apple.com/app/id1015455807";
-static NSString * const MessageToDownloadAppTest = @"Download Geneva Golf & Country Club App on iTunes.";
+static NSString * const MessageToDownloadApp = @"Download Ames Golf & Country Club App on iTunes. https://itunes.apple.com/app/id1015449544";
+static NSString * const MessageToDownloadAppTest = @"Download Ames Golf & Country Club App on iTunes.";
 
 
 

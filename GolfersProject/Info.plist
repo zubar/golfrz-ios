@@ -7,11 +7,11 @@
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.golfrz.genevagcc</string>
+	<string>com.golfrz.amesgcc</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>Geneva Golf &amp; Country Club</string>
+	<string>Ames Golf &amp; Country Club</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
@@ -22,7 +22,7 @@
 	<array>
 		<dict>
 			<key>CFBundleURLName</key>
-			<string>com.golfrz.genevagcc</string>
+			<string>com.golfrz.amesgcc</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>invitationReceived</string>
@@ -31,22 +31,22 @@
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>fb442544915932785</string>
+				<string>fb394531980753056</string>
 			</array>
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>FacebookAppID</key>
-	<string>442544915932785</string>
+	<string>394531980753056</string>
 	<key>FacebookDisplayName</key>
-	<string>Geneva Golf &amp; Country Club</string>
+	<string>Ames Golf &amp; Country Club</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Geneva Golf &amp; Country Club would like to use your current location so you can receive course specific messages, accurate pin locations during your round and last to reward you for checking in at the club.</string>
+	<string>Ames Golf &amp; Country Club would like to use your current location so you can receive course specific messages, accurate pin locations during your round and last to reward you for checking in at the club.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Geneva Golf &amp; Country Club would like to use your current location so you can receive course specific messages, accurate pin locations during your round and last to reward you for checking in at the club.</string>
+	<string>Ames Golf &amp; Country Club would like to use your current location so you can receive course specific messages, accurate pin locations during your round and last to reward you for checking in at the club.</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>
