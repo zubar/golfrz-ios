@@ -17,6 +17,7 @@
 
 #define kNotificationTitle @"title"
 #define kNotificaationDescription @"description"
+#define kNotificationTimeStamp @"notificationCreatedTime"
 
 @interface SideNotificationView : UIView
 @property (strong, nonatomic) IBOutlet UILabel *lblTypeOfUpdate;

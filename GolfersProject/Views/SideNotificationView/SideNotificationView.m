@@ -10,6 +10,7 @@
 #import <UIImageView+WebCache.h>
 #import "UIImageView+RoundedImage.h"
 #import "SharedManager.h"
+#import "NSDate+Helper.h"
 
 @implementation SideNotificationView (private)
 bool isDisplaying;
@@ -50,11 +51,19 @@ bool isDisplaying;
 
 
 
--(void)showNotificationInView:(UIView*)view title:(NSString *)title detail:(NSString *)description{
+-(void)showNotificationInView:(UIView*)view title:(NSString *)title detail:(NSString *)description timeStamp:(NSString *)dateTime{
+    
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
+    dateFormatter.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"UTC"];
+    dateFormatter.dateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
+    
     
     isDisplaying = true;
     [self.lblTypeOfUpdate setText:title];
     [self.lblUpdateText setText:description];
+    [self.lblTimeStamp setText:[self timeAgoString:[self minutesBetween:[dateFormatter dateFromString:dateTime] andEndDate:[[NSDate date] toGlobalTime]]]];
     
     NSString * logoPath = [[SharedManager sharedInstance] logoImagePath];
     [self.imgCourseLogo sd_setImageWithURL:[NSURL URLWithString:logoPath] placeholderImage:[UIImage imageNamed:@"event_placeholder"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
@@ -70,6 +79,28 @@ bool isDisplaying;
         [self setFrame:finalFrame];
         [view addSubview:self];
     }];
+}
+
+-(CGFloat )minutesBetween:(NSDate *)startDate andEndDate:(NSDate *)endDate
+{
+    return fabs(([endDate timeIntervalSinceDate:startDate] / 60.0) );
+}
+
+
+-(NSString *)timeAgoString:(CGFloat )timeInMinutes{
+    
+    int timeAgo = (int)timeInMinutes;
+    
+    if(timeAgo <= 59){
+        return [NSString stringWithFormat:@"%d Min. Ago", timeAgo];
+    }else
+        if((timeAgo/60) <= 24){
+            return [NSString stringWithFormat:@"%d Hour Ago", timeAgo/60];
+        }else{
+            if(timeAgo/1440 >1)
+            return [NSString stringWithFormat:@"%d Days Ago", timeAgo/1440];  // 1440 = 60* 24 
+            else return [NSString stringWithFormat:@"%d Day Ago", timeAgo/1440];
+            }
 }
 
 -(void)addNotificationsArrayObject:(NSDictionary *)object{
@@ -89,7 +120,7 @@ bool isDisplaying;
     NSDictionary * notif = [NSDictionary dictionaryWithDictionary:[self.notificationsArray firstObject]];
     [self.notificationsArray removeObject:[self.notificationsArray firstObject]];
     
-    [self showNotificationInView:controller.view title:notif[kNotificationTitle] detail:notif[kNotificaationDescription]];
+    [self showNotificationInView:controller.view title:notif[kNotificationTitle] detail:notif[kNotificaationDescription] timeStamp:notif[kNotificationTimeStamp]];
 }
 
 
