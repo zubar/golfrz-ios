@@ -49,9 +49,6 @@
     
     SharedManager * sharedManager = [SharedManager sharedInstance];
     
-    [Utilities checkInternetConnectivityWithAlertCompletion:^(bool status) {
-    }];
-    
     [CourseServices courseInfo:^(bool status, id tObject) {
         Course * mCourse = tObject;
         // Setting ThemeColor

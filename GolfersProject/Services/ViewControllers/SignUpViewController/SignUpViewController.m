@@ -66,7 +66,7 @@
         [[[UIAlertView alloc] initWithTitle:nil message:errorMessage delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil] show];
         return;
     }
-    
+
     // calling signup service method
     [AuthenticationService singUpUser:[self.txtFirstName text]
                              lastName:[self.txtLastName text]

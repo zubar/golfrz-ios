@@ -32,7 +32,6 @@ static NSString * const kAppStoreUrl = @"https://fb.me/450808621773081";
 static NSString * const kBaseImageUrl = @"http://mobilecoursesolutions.com";
 
 //static NSString * const kBaseURL = @"http://45.56.104.68/api/0.1/";
-//static NSString * const kBaseURL = @"http://10.0.2.54:3000/api/0.1";
 static NSString * const kBaseURL = @"http://mobilecoursesolutions.com/api/0.1/";
 
 
