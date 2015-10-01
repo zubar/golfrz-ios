@@ -36,7 +36,7 @@ static NSString * const kBaseImageUrl = @"http://mobilecoursesolutions.com";
 static NSString * const kBaseURL = @"http://mobilecoursesolutions.com/api/0.1/";
 
 
-//static NSString * const kPrivacyPolicyURL = @"http://mobilecoursesolutions.com/ames-golf-country-club/privacy/privacy";
+//static NSString * const kPrivacyPolicyURL = @"http://mobilecoursesolutions.com/ames-golf-country-club/privacy";
 static NSString * const kPrivacyPolicyURL = @"http://mobilecoursesolutions.com/geneva-golf-and-country-club/privacy";
 
 

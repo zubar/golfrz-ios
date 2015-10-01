@@ -71,11 +71,9 @@
         NSMutableDictionary * notif = [NSMutableDictionary new];
         [notif setObject:object[@"title"] forKey:kNotificationTitle];
         [notif setObject:object[@"description"] forKey:kNotificaationDescription];
-
+        [notif setObject:object[@"created_at"] forKey:kNotificationTimeStamp];
+        
         if(object[@"data"] != [NSNull null]){
-            if(object[@"data"][@"created_at"] != nil &&  object[@"data"][@"created_at"] != [NSNull null]){
-                [notif setObject:object[@"data"][@"created_at"] forKey:kNotificationTimeStamp];
-            }
             if ((object[@"data"][@"type"] != nil) && ([object[@"data"][@"type"] isEqualToString:@"invitation_accepted"])) {
             [self postLocalNotificationForInvitationAcceptance];
         }}

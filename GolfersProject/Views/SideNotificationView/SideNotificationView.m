@@ -63,7 +63,7 @@ bool isDisplaying;
     isDisplaying = true;
     [self.lblTypeOfUpdate setText:title];
     [self.lblUpdateText setText:description];
-    [self.lblTimeStamp setText:[self timeAgoString:[self minutesBetween:[dateFormatter dateFromString:dateTime] andEndDate:[[NSDate date] toGlobalTime]]]];
+    [self.lblTimeStamp setText:[self timeAgoString:[self minutesBetween:[[dateFormatter dateFromString:dateTime] toLocalTime] andEndDate:[NSDate date]]]];
     
     NSString * logoPath = [[SharedManager sharedInstance] logoImagePath];
     [self.imgCourseLogo sd_setImageWithURL:[NSURL URLWithString:logoPath] placeholderImage:[UIImage imageNamed:@"event_placeholder"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
@@ -127,7 +127,6 @@ bool isDisplaying;
     
     NSDictionary * notif = [NSDictionary dictionaryWithDictionary:[self.notificationsArray firstObject]];
     [self.notificationsArray removeObject:[self.notificationsArray firstObject]];
-    
     [self showNotificationInView:controller.view title:notif[kNotificationTitle] detail:notif[kNotificaationDescription] timeStamp:notif[kNotificationTimeStamp]];
 }
 
