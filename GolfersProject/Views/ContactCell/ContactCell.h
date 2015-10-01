@@ -16,6 +16,7 @@
 @interface ContactCell : UITableViewCell{
     id currentContact;
 }
+@property (strong, nonatomic) IBOutlet UILabel *lblContactEmail;
 
 @property (assign, nonatomic) id<ContactCellDelegate>delegate;
 

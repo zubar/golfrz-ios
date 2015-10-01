@@ -29,7 +29,9 @@
     int daysAgo = [self daysBetween:[NSDate date] andEndDate:[[_DTOObject createdAt] toLocalTime]];
     
     if( daysAgo > 0){
-        [self.recieveDate setText:[NSString stringWithFormat:@"%d days ago", daysAgo]];
+        if(daysAgo <=1) [self.recieveDate setText:[NSString stringWithFormat:@"%d day ago", daysAgo]];
+        else [self.recieveDate setText:[NSString stringWithFormat:@"%d days ago", daysAgo]];
+
     }else
     [Utilities dateComponentsFromNSDate:[[_DTOObject createdAt] toLocalTime]   components:^(NSString *dayName, NSString *monthName, NSString *day, NSString *time, NSString *minutes, NSString *timeAndMinute) {
         [self.recieveDate setText:timeAndMinute];

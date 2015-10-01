@@ -10,8 +10,7 @@
 #import "APContact+convenience.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "UIImageView+RoundedImage.h"
-
-
+#import "User.h"
 
 @implementation ContactCell
 
@@ -61,16 +60,17 @@
     NSString * fullName = [NSString stringWithFormat:@"%@ %@", firstName, lastName];
     [self.lblContactName setText:fullName];
     
-    if (![currentContact contactImage]) {
-        [self.imgContactPic setRoundedImage:[UIImage imageNamed:@"person_placeholder"]];
-    }else{
-        [self.imgContactPic setRoundedImage:[currentContact contactImage]];
-    }
+    [self.lblContactEmail setText:[currentContact contactEmail]];
     
-    /*
-    [self.imgContactPic sd_setImageWithURL:[NSURL  URLWithString:[contact contactImageURL]] placeholderImage:[UIImage imageNamed:@"person_placeholder"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-        [self.imgContactPic setRoundedImage:image];
-    }];
-     */
-}
+    if ([currentContact isKindOfClass:[User class]] ) {
+        
+        [self.imgContactPic sd_setImageWithURL:[NSURL URLWithString:[currentContact userIcon]] placeholderImage:[UIImage imageNamed:@"person_placeholder"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+            if (image != nil) {
+                [self.imgContactPic setRoundedImage:image];
+            }
+        }];
+    }else{
+        if([currentContact contactImage] == nil ) [self.imgContactPic setRoundedImage:[UIImage imageNamed:@"person_placeholder"]];
+        else [self.imgContactPic setRoundedImage:[currentContact contactImage]];
+    }}
 @end
