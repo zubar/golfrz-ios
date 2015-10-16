@@ -1908,7 +1908,7 @@
                                                                                 <constraint firstAttribute="height" constant="26" id="GGQ-nW-yvd"/>
                                                                                 <constraint firstAttribute="width" constant="26" id="LJ2-ou-0eZ"/>
                                                                             </constraints>
-                                                                            <state key="normal" image="8300E787-CDE7-449F-A98C-943E62C7B97A">
+                                                                            <state key="normal" image="55AE1268-E575-48F9-9AB7-376752F83DFC">
                                                                                 <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                                             </state>
@@ -5733,7 +5733,7 @@
                                                                                 <constraint firstAttribute="height" constant="26" id="OaE-ph-eo5"/>
                                                                                 <constraint firstAttribute="width" constant="26" id="S5w-xw-4Ro"/>
                                                                             </constraints>
-                                                                            <state key="normal" image="D080A2C6-B6BF-4BB4-90C4-9DAB355C38B7">
+                                                                            <state key="normal" image="F076DB14-C606-4BDF-B2B0-4D1F5C36A6F4">
                                                                                 <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                                             </state>
@@ -7728,15 +7728,19 @@ Nulla sed est consectetur, tempus tellus interdum, vehicula lectus. Aliquam soll
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SEDONA GOLF RESORT" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aaB-1l-Fq0">
                                         <rect key="frame" x="64" y="190" width="193" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="RO6-Oi-FMS"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SoZ-Yg-wje">
-                                        <rect key="frame" x="27" y="282" width="253" height="60"/>
+                                    <button contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SoZ-Yg-wje">
+                                        <rect key="frame" x="34" y="293" width="253" height="60"/>
                                         <color key="backgroundColor" red="0.52941176470588236" green="0.0" blue="0.043137254901960784" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="60" id="nWE-nY-lXi"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="0bJ-T0-zK4"/>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="60" id="nWE-nY-lXi"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -7756,10 +7760,11 @@ Nulla sed est consectetur, tempus tellus interdum, vehicula lectus. Aliquam soll
                                         </connections>
                                     </button>
                                     <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dc6-iX-Moa">
-                                        <rect key="frame" x="27" y="424" width="253" height="60"/>
+                                        <rect key="frame" x="34" y="441" width="253" height="60"/>
                                         <color key="backgroundColor" red="0.043137254901960784" green="0.19215686274509805" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="60" id="hfL-YU-hEi"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="NyA-jD-bm0"/>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="60" id="hfL-YU-hEi"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -7778,11 +7783,28 @@ Nulla sed est consectetur, tempus tellus interdum, vehicula lectus. Aliquam soll
                                             <action selector="btnContactUsTap:" destination="8qI-m3-Mo2" eventType="touchUpInside" id="zE1-dK-u2x"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sedona, Arizona" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l6R-A0-HZB">
+                                        <rect key="frame" x="99" y="213" width="133" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="22" id="Wf4-nb-NBz"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="signup_location" translatesAutoresizingMaskIntoConstraints="NO" id="LWa-42-JMW">
+                                        <rect key="frame" x="81" y="216" width="10" height="15"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="15" id="1aW-ji-tZI"/>
+                                            <constraint firstAttribute="width" constant="10" id="TL3-Kw-ERW"/>
+                                        </constraints>
+                                    </imageView>
                                     <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aE2-xl-tPd">
-                                        <rect key="frame" x="27" y="353" width="253" height="60"/>
+                                        <rect key="frame" x="34" y="367" width="253" height="60"/>
                                         <color key="backgroundColor" red="0.011764705882352941" green="0.011764705882352941" blue="0.011764705882352941" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="60" id="BwY-N3-9lN"/>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="60" id="BwY-N3-9lN"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="hcZ-Ei-uvk"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -7801,41 +7823,30 @@ Nulla sed est consectetur, tempus tellus interdum, vehicula lectus. Aliquam soll
                                             <action selector="btnEventsCalendarTap:" destination="8qI-m3-Mo2" eventType="touchUpInside" id="fT1-bx-4Jv"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sedona, Arizona" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l6R-A0-HZB">
-                                        <rect key="frame" x="99" y="213" width="133" height="22"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="signup_location" translatesAutoresizingMaskIntoConstraints="NO" id="LWa-42-JMW">
-                                        <rect key="frame" x="81" y="216" width="10" height="15"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="15" id="1aW-ji-tZI"/>
-                                            <constraint firstAttribute="width" constant="10" id="TL3-Kw-ERW"/>
-                                        </constraints>
-                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="aE2-xl-tPd" firstAttribute="height" secondItem="dc6-iX-Moa" secondAttribute="height" id="0UJ-kV-mnN"/>
                                     <constraint firstItem="l6R-A0-HZB" firstAttribute="leading" secondItem="LWa-42-JMW" secondAttribute="trailing" constant="8" id="1RB-tl-ZuQ"/>
                                     <constraint firstItem="SoZ-Yg-wje" firstAttribute="leading" secondItem="aE2-xl-tPd" secondAttribute="leading" id="3Bd-BA-DEE"/>
-                                    <constraint firstAttribute="bottom" relation="lessThanOrEqual" secondItem="dc6-iX-Moa" secondAttribute="bottom" constant="56" id="7Z1-kh-dQ5"/>
-                                    <constraint firstAttribute="bottom" secondItem="l6R-A0-HZB" secondAttribute="bottom" constant="305" id="ECz-yX-gIF"/>
+                                    <constraint firstItem="aaB-1l-Fq0" firstAttribute="top" secondItem="vbm-wL-14f" secondAttribute="bottom" constant="15" id="4Xz-dF-46O"/>
+                                    <constraint firstItem="SoZ-Yg-wje" firstAttribute="height" secondItem="dc6-iX-Moa" secondAttribute="height" id="CM7-O2-Yha"/>
                                     <constraint firstItem="l6R-A0-HZB" firstAttribute="leading" secondItem="LWa-42-JMW" secondAttribute="trailing" constant="8" id="HG5-cS-FBf"/>
                                     <constraint firstItem="SoZ-Yg-wje" firstAttribute="leading" secondItem="dc6-iX-Moa" secondAttribute="leading" id="N6A-LC-2Tk"/>
                                     <constraint firstItem="l6R-A0-HZB" firstAttribute="centerY" secondItem="LWa-42-JMW" secondAttribute="centerY" constant="0.5" id="Nil-51-qDg"/>
-                                    <constraint firstAttribute="bottom" secondItem="aE2-xl-tPd" secondAttribute="bottom" constant="127" id="Roh-YW-bgK"/>
+                                    <constraint firstItem="SoZ-Yg-wje" firstAttribute="top" relation="greaterThanOrEqual" secondItem="l6R-A0-HZB" secondAttribute="bottom" constant="5" id="Qyi-H5-mIU"/>
+                                    <constraint firstAttribute="bottom" secondItem="aE2-xl-tPd" secondAttribute="bottom" constant="113" id="Roh-YW-bgK"/>
                                     <constraint firstAttribute="centerX" secondItem="vbm-wL-14f" secondAttribute="centerX" id="Tsl-m8-7eb"/>
-                                    <constraint firstItem="dc6-iX-Moa" firstAttribute="top" secondItem="aE2-xl-tPd" secondAttribute="bottom" constant="11" id="aCy-Sg-HNe"/>
+                                    <constraint firstItem="SoZ-Yg-wje" firstAttribute="top" relation="lessThanOrEqual" secondItem="l6R-A0-HZB" secondAttribute="bottom" constant="58" id="ZnL-b1-eP8"/>
+                                    <constraint firstItem="dc6-iX-Moa" firstAttribute="top" secondItem="aE2-xl-tPd" secondAttribute="bottom" constant="14" id="aCy-Sg-HNe"/>
+                                    <constraint firstItem="l6R-A0-HZB" firstAttribute="top" secondItem="aaB-1l-Fq0" secondAttribute="bottom" constant="2" id="epf-hy-Xdd"/>
                                     <constraint firstAttribute="centerX" secondItem="l6R-A0-HZB" secondAttribute="centerX" constant="-5.5" id="jya-2Q-hBd"/>
-                                    <constraint firstAttribute="trailing" secondItem="SoZ-Yg-wje" secondAttribute="trailing" constant="40" id="mUQ-oH-fgQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="SoZ-Yg-wje" secondAttribute="trailing" constant="33" id="mUQ-oH-fgQ"/>
                                     <constraint firstItem="SoZ-Yg-wje" firstAttribute="trailing" secondItem="dc6-iX-Moa" secondAttribute="trailing" id="mar-u1-B6b"/>
                                     <constraint firstItem="SoZ-Yg-wje" firstAttribute="trailing" secondItem="aE2-xl-tPd" secondAttribute="trailing" id="py4-S8-URi"/>
-                                    <constraint firstItem="SoZ-Yg-wje" firstAttribute="leading" secondItem="9oc-Y4-bZq" secondAttribute="leading" constant="27" id="sZA-WA-eVT"/>
-                                    <constraint firstItem="aE2-xl-tPd" firstAttribute="top" secondItem="SoZ-Yg-wje" secondAttribute="bottom" constant="11" id="tEj-WX-MJy"/>
-                                    <constraint firstItem="aaB-1l-Fq0" firstAttribute="top" secondItem="vbm-wL-14f" secondAttribute="bottom" constant="15" id="tLF-SG-oUk"/>
+                                    <constraint firstItem="SoZ-Yg-wje" firstAttribute="leading" secondItem="9oc-Y4-bZq" secondAttribute="leading" constant="34" id="sZA-WA-eVT"/>
+                                    <constraint firstItem="aE2-xl-tPd" firstAttribute="top" secondItem="SoZ-Yg-wje" secondAttribute="bottom" constant="14" id="tEj-WX-MJy"/>
                                     <constraint firstItem="vbm-wL-14f" firstAttribute="top" secondItem="9oc-Y4-bZq" secondAttribute="top" constant="105" id="v2X-aN-M3l"/>
-                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="dc6-iX-Moa" secondAttribute="bottom" constant="35" id="vw9-xq-dSZ"/>
                                     <constraint firstAttribute="centerX" secondItem="aaB-1l-Fq0" secondAttribute="centerX" id="w5R-Of-jQN"/>
                                 </constraints>
                             </view>
@@ -7869,7 +7880,7 @@ Nulla sed est consectetur, tempus tellus interdum, vehicula lectus. Aliquam soll
         </scene>
     </scenes>
     <resources>
-        <image name="8300E787-CDE7-449F-A98C-943E62C7B97A" width="24" height="25">
+        <image name="55AE1268-E575-48F9-9AB7-376752F83DFC" width="24" height="25">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -7961,7 +7972,7 @@ AAAAAAAAAAAAE48
 </mutableData>
         </image>
         <image name="ChooseHole_Down" width="88" height="88"/>
-        <image name="D080A2C6-B6BF-4BB4-90C4-9DAB355C38B7" width="24" height="25">
+        <image name="F076DB14-C606-4BDF-B2B0-4D1F5C36A6F4" width="24" height="25">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
