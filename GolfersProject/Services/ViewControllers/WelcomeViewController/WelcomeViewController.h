@@ -11,6 +11,16 @@
 #import "SharedManager.h"
 #import "WEPopoverController.h"
 
+#import <QuartzCore/QuartzCore.h>
+#import <UIKit/UIKit.h>
+
+@interface CALayer(UIColor)
+
+// This assigns a CGColor to borderColor.
+@property(nonatomic, assign) UIColor* borderUIColor;
+
+@end
+
 @interface WelcomeViewController : UIViewController<UICollectionViewDelegate, UICollectionViewDataSource, SharedManagerDelegate,UIPopoverControllerDelegate, UIAlertViewDelegate
 >
 @property (strong, nonatomic) IBOutlet UICollectionView *weatherCollectionView;

@@ -44,7 +44,19 @@
 #import "RoundMoviePlayerController.h"
 #import "TeeTimesViewController.h"
 #import "HMMessagesDisplayViewController.h"
-#import <QuartzCore/QuartzCore.h>
+
+@implementation CALayer(UIColor)
+
+- (void)setBorderUIColor:(UIColor*)color {
+    self.borderColor = color.CGColor;
+}
+
+- (UIColor*)borderUIColor {
+    return [UIColor colorWithCGColor:self.borderColor];
+}
+
+@end
+
 
 @interface WelcomeViewController ()
 {

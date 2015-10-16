@@ -1908,7 +1908,7 @@
                                                                                 <constraint firstAttribute="height" constant="26" id="GGQ-nW-yvd"/>
                                                                                 <constraint firstAttribute="width" constant="26" id="LJ2-ou-0eZ"/>
                                                                             </constraints>
-                                                                            <state key="normal" image="249796DF-5E3F-4087-B8EA-7A320E1651F0">
+                                                                            <state key="normal" image="8300E787-CDE7-449F-A98C-943E62C7B97A">
                                                                                 <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                                             </state>
@@ -5733,7 +5733,7 @@
                                                                                 <constraint firstAttribute="height" constant="26" id="OaE-ph-eo5"/>
                                                                                 <constraint firstAttribute="width" constant="26" id="S5w-xw-4Ro"/>
                                                                             </constraints>
-                                                                            <state key="normal" image="F7951742-2F8A-4823-A0D3-10F74BB27ACA">
+                                                                            <state key="normal" image="D080A2C6-B6BF-4BB4-90C4-9DAB355C38B7">
                                                                                 <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                                             </state>
@@ -7733,7 +7733,7 @@ Nulla sed est consectetur, tempus tellus interdum, vehicula lectus. Aliquam soll
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SoZ-Yg-wje">
-                                        <rect key="frame" x="27" y="277" width="253" height="60"/>
+                                        <rect key="frame" x="27" y="282" width="253" height="60"/>
                                         <color key="backgroundColor" red="0.52941176470588236" green="0.0" blue="0.043137254901960784" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="nWE-nY-lXi"/>
@@ -7745,9 +7745,9 @@ Nulla sed est consectetur, tempus tellus interdum, vehicula lectus. Aliquam soll
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                                <integer key="value" value="2"/>
+                                                <integer key="value" value="1"/>
                                             </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                            <userDefinedRuntimeAttribute type="color" keyPath="layer.borderUIColor">
                                                 <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
@@ -7768,9 +7768,9 @@ Nulla sed est consectetur, tempus tellus interdum, vehicula lectus. Aliquam soll
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                                <integer key="value" value="2"/>
+                                                <integer key="value" value="1"/>
                                             </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                            <userDefinedRuntimeAttribute type="color" keyPath="layer.borderUIColor">
                                                 <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
@@ -7791,9 +7791,9 @@ Nulla sed est consectetur, tempus tellus interdum, vehicula lectus. Aliquam soll
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                                <integer key="value" value="2"/>
+                                                <integer key="value" value="1"/>
                                             </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                            <userDefinedRuntimeAttribute type="color" keyPath="layer.borderUIColor">
                                                 <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
@@ -7832,7 +7832,7 @@ Nulla sed est consectetur, tempus tellus interdum, vehicula lectus. Aliquam soll
                                     <constraint firstItem="SoZ-Yg-wje" firstAttribute="trailing" secondItem="dc6-iX-Moa" secondAttribute="trailing" id="mar-u1-B6b"/>
                                     <constraint firstItem="SoZ-Yg-wje" firstAttribute="trailing" secondItem="aE2-xl-tPd" secondAttribute="trailing" id="py4-S8-URi"/>
                                     <constraint firstItem="SoZ-Yg-wje" firstAttribute="leading" secondItem="9oc-Y4-bZq" secondAttribute="leading" constant="27" id="sZA-WA-eVT"/>
-                                    <constraint firstItem="aE2-xl-tPd" firstAttribute="top" secondItem="SoZ-Yg-wje" secondAttribute="bottom" constant="16" id="tEj-WX-MJy"/>
+                                    <constraint firstItem="aE2-xl-tPd" firstAttribute="top" secondItem="SoZ-Yg-wje" secondAttribute="bottom" constant="11" id="tEj-WX-MJy"/>
                                     <constraint firstItem="aaB-1l-Fq0" firstAttribute="top" secondItem="vbm-wL-14f" secondAttribute="bottom" constant="15" id="tLF-SG-oUk"/>
                                     <constraint firstItem="vbm-wL-14f" firstAttribute="top" secondItem="9oc-Y4-bZq" secondAttribute="top" constant="105" id="v2X-aN-M3l"/>
                                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="dc6-iX-Moa" secondAttribute="bottom" constant="35" id="vw9-xq-dSZ"/>
@@ -7869,7 +7869,7 @@ Nulla sed est consectetur, tempus tellus interdum, vehicula lectus. Aliquam soll
         </scene>
     </scenes>
     <resources>
-        <image name="249796DF-5E3F-4087-B8EA-7A320E1651F0" width="24" height="25">
+        <image name="8300E787-CDE7-449F-A98C-943E62C7B97A" width="24" height="25">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -7961,7 +7961,7 @@ AAAAAAAAAAAAE48
 </mutableData>
         </image>
         <image name="ChooseHole_Down" width="88" height="88"/>
-        <image name="F7951742-2F8A-4823-A0D3-10F74BB27ACA" width="24" height="25">
+        <image name="D080A2C6-B6BF-4BB4-90C4-9DAB355C38B7" width="24" height="25">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
