@@ -20,6 +20,7 @@
 #import "User.h"
 #import "SignInViewController.h"
 #import "ClubHouseContainerVC.h"
+#import "WelcomeViewController.h"
 
 #import "UserServices.h"
 #import "ClubHouseViewController.h"
@@ -78,7 +79,7 @@
             [delegate.appDelegateNavController pushViewController:clubHouseContainerVC animated:NO];
         }else{
             // push sign in controller
-            InitialViewController * initController = [self.storyboard instantiateViewControllerWithIdentifier:@"InitialViewController"];
+            WelcomeViewController * initController = [self.storyboard instantiateViewControllerWithIdentifier:@"WelcomeViewController"];
             [delegate.appDelegateNavController pushViewController:initController animated:YES];
         }
     } failure:^(bool status, NSError * error)

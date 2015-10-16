@@ -110,6 +110,10 @@
         }
     }
 }
+- (IBAction)btnBackTap:(id)sender {
+    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+    [delegate.appDelegateNavController popViewControllerAnimated:YES];
+}
 
 
 /*

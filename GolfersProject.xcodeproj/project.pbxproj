@@ -174,6 +174,7 @@
 		3DDF9BE91B60CA990036C735 /* RoundPlayers.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDF9BE81B60CA990036C735 /* RoundPlayers.m */; };
 		3DF9936F1B256999006EBC39 /* PushManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF9936E1B256999006EBC39 /* PushManager.m */; };
 		3DF993721B256A4A006EBC39 /* AppDelegate+Push.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF993711B256A4A006EBC39 /* AppDelegate+Push.m */; };
+		3DFBD18B1BD0D03200C67FED /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DFBD18A1BD0D03200C67FED /* WelcomeViewController.m */; };
 		3DFCDB231B83B33300673570 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3DFCDB221B83B33300673570 /* GoogleService-Info.plist */; };
 		3DFD15B61B25B2AB008F76D8 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DFD15B51B25B2AA008F76D8 /* CoreLocation.framework */; };
 		774F2C281B71E6CD0051C9E8 /* ScoreCardUserScore.m in Sources */ = {isa = PBXBuildFile; fileRef = 774F2C271B71E6CD0051C9E8 /* ScoreCardUserScore.m */; };
@@ -537,6 +538,8 @@
 		3DF9936E1B256999006EBC39 /* PushManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushManager.m; sourceTree = "<group>"; };
 		3DF993701B256A4A006EBC39 /* AppDelegate+Push.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+Push.h"; sourceTree = "<group>"; };
 		3DF993711B256A4A006EBC39 /* AppDelegate+Push.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+Push.m"; sourceTree = "<group>"; };
+		3DFBD1891BD0D03200C67FED /* WelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
+		3DFBD18A1BD0D03200C67FED /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
 		3DFCDB221B83B33300673570 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3DFD15B51B25B2AA008F76D8 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		5A26DAF5CF62E34098597EA3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -885,6 +888,7 @@
 		3D1CB08A1B691563005C1E19 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				3DFBD1881BD0CEC500C67FED /* WelcomeViewController */,
 				775F06D01B78D56000BA4055 /* RoundMoviePlayerController */,
 				88EF1EF61B79013E006F901F /* PastScoreCardsViewController */,
 				3D0455BF1B71E66100FFB0E8 /* HMMessagesDisplayViewController */,
@@ -1664,6 +1668,15 @@
 				3DF9936E1B256999006EBC39 /* PushManager.m */,
 			);
 			path = PushManager;
+			sourceTree = "<group>";
+		};
+		3DFBD1881BD0CEC500C67FED /* WelcomeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3DFBD1891BD0D03200C67FED /* WelcomeViewController.h */,
+				3DFBD18A1BD0D03200C67FED /* WelcomeViewController.m */,
+			);
+			path = WelcomeViewController;
 			sourceTree = "<group>";
 		};
 		66D43E9E53452F667DDF180D /* Pods */ = {
@@ -2469,6 +2482,7 @@
 				3D7DF21D1B6FD17500FCF8FE /* Comment.m in Sources */,
 				3D7DF2121B6FC80500FCF8FE /* CourseUpdate.m in Sources */,
 				3D16D0841B1C3FFB00A582A3 /* SharedManager.m in Sources */,
+				3DFBD18B1BD0D03200C67FED /* WelcomeViewController.m in Sources */,
 				3DA7CB851B2AF0C800B5BAFF /* Order.m in Sources */,
 				3DD47A611B4A6040005DE325 /* SubCourse.m in Sources */,
 				3DCA44DF1B2709BF00B66BD2 /* FoodBeverageServices.m in Sources */,
@@ -2602,7 +2616,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Abdullah Saeed (7983HQ379L)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Abdullah Saeed (7983HQ379L)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2612,7 +2626,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "92d4e17d-736f-4163-a259-0aec14af24c4";
+				PROVISIONING_PROFILE = "fa7892d1-d399-42e9-b6ed-38dbbad95acf";
 			};
 			name = Debug;
 		};

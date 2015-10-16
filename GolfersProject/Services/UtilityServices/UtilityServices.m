@@ -45,6 +45,14 @@
              };
 }
 
++(NSDictionary *)paramsCourseInfo{
+    return @{
+             @"app_bundle_id": kAppBundleId,
+             @"user_agent" : kUserAgent
+             };
+}
+
+
 +(NSDictionary *)dictionaryByMergingDictionaries:(NSDictionary *)authDict aDict:(NSDictionary *)paramDict
 {
     NSMutableDictionary * combineDict=[[NSMutableDictionary alloc] init];

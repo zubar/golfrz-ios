@@ -36,6 +36,6 @@
 
 +(NSDictionary *)paramsForEventList
 {
-    return [UtilityServices authenticationParams];
+    return [UtilityServices paramsCourseInfo];
 }
 @end

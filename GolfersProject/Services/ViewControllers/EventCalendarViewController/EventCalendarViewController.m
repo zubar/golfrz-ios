@@ -142,10 +142,10 @@
 }
 
 -(void)updateAllDataStructures{
-
-
+// future use.
 }
 
+#pragma mark - API-Call
 -(void)fetchEvents{
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];

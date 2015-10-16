@@ -28,7 +28,7 @@ static Course * currentCourse = nil;
 {
     
     APIClient * apiClient = [APIClient sharedAPICLient];
-    [apiClient GET:kCourseDetail parameters:[self paramsCourseDetailInfo] completion:^(id response, NSError *error) {
+    [apiClient GET:kCourseDetail parameters:[self paramsCourseInfo] completion:^(id response, NSError *error) {
         OVCResponse * resp = response;
         if (!error) {
             Course * mCourse = [resp result];
@@ -128,13 +128,8 @@ static Course * currentCourse = nil;
     return [UtilityServices authenticationParams];
 }
 
-
-
 +(NSDictionary *)paramsCourseInfo{
-    return @{
-             @"app_bundle_id": kAppBundleId,
-             @"user_agent" : kUserAgent
-             };
+    return [UtilityServices paramsCourseInfo];
 }
 
 +(NSDictionary *)paramsEarnPointSocialShare{
