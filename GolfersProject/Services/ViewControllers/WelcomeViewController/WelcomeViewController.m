@@ -44,6 +44,7 @@
 #import "RoundMoviePlayerController.h"
 #import "TeeTimesViewController.h"
 #import "HMMessagesDisplayViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface WelcomeViewController ()
 {
