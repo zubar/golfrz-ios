@@ -26,6 +26,7 @@
              @"commentsCount" : @"comment_count",
              @"likesCount" : @"likes_count",
              @"hasUserLiked" : @"user_like",
+             @"userNotificationId" : @"users_notification_id"
              //propertyName : json_key
              };
 }

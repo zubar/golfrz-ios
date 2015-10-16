@@ -25,7 +25,7 @@
 			<string>com.golfrz.genevagcc</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>invitationReceived</string>
+				<string>invitationReceived_geneva-golf-country-club</string>
 			</array>
 		</dict>
 		<dict>

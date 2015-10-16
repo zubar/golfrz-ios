@@ -15,6 +15,7 @@
 #import "InvitationServices.h"
 #import "AppDelegate.h"
 #import "AddPlayersViewController.h"
+#import "Course.h"
 
 #import "CourseServices.h"
 #import "EventCalendarViewController.h"
@@ -36,6 +37,7 @@
 #import "NSDate+Helper.h"
 
 #import "RoundDataServices.h"
+#import "CourseUpdateServices.h"
 
 #import "RoundViewController.h"
 #import "ScoreSelectionView.h"
@@ -43,6 +45,7 @@
 #import "RoundMoviePlayerController.h"
 #import "TeeTimesViewController.h"
 #import "HMMessagesDisplayViewController.h"
+#import "BBBadgeBarButtonItem.h"
 
 @interface ClubHouseViewController ()
 {
@@ -66,14 +69,22 @@
     UIBarButtonItem *leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:imageButton];
     self.navigationItem.leftBarButtonItem = leftBarButtonItem;
     
-    UIButton * imageRightButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 10, 22, 22)];
-    [imageRightButton setBackgroundImage:[UIImage imageNamed:@"activity_icon"] forState:UIControlStateNormal];
-    [imageRightButton addTarget:self action:@selector(btnCourseUpdatesTap) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:imageRightButton];
-    self.navigationItem.rightBarButtonItem = rightBarButtonItem;
+    
+    // Right nav-bar.
+    UIImage *image = [UIImage imageNamed:@"activity_icon"];
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    button.frame = CGRectMake(0,0,22, 22);
+    [button addTarget:self action:@selector(btnCourseUpdatesTap) forControlEvents:UIControlEventTouchUpInside];
+    [button setBackgroundImage:image forState:UIControlStateNormal];
+    
+    // Create and add our custom BBBadgeBarButtonItem
+    BBBadgeBarButtonItem *barButton = [[BBBadgeBarButtonItem alloc] initWithCustomUIButton:button];
+    barButton.badgeBGColor = [UIColor redColor];
+    [barButton setShouldHideBadgeAtZero:YES];
+    self.navigationItem.rightBarButtonItem = barButton;
+    
     
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
-   
     NSDictionary *titleAttributes =@{
                                     NSFontAttributeName :[UIFont fontWithName:@"Helvetica-Bold" size:14.0],
                                      NSForegroundColorAttributeName : [UIColor whiteColor]
@@ -128,11 +139,19 @@
     }
     [[UINavigationBar appearance] setTitleVerticalPositionAdjustment:-10.0 forBarMetrics:UIBarMetricsDefault];
     
+    //To Get Badge Count.
+    [CourseServices courseDetailInfo:^(bool status, Course *currentCourse) {
+        if (status) {
+            BBBadgeBarButtonItem * barItem= (BBBadgeBarButtonItem *) self.navigationItem.rightBarButtonItem;
+            barItem.badgeValue = [NSString stringWithFormat:@"%ld", (long)[currentCourse.notificationCount integerValue]];
+        }
+    } failure:^(bool status, GolfrzError *error) {
+        // Keep chill
+    }];
+    
     //Update weatherData
     [self updateWeatherData];
     [self getAvailableFeatures];
-
-
 }
 
 - (void)updateWeatherData {

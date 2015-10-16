@@ -64,11 +64,30 @@
     }];
 }
 
-
-
++(void)markNotificationReadWithUserNotificationId:(NSNumber *)notifId
+                                          success:(void(^)(bool status, id response))successBlock{
+    
+    APIClient * apiClient = [APIClient sharedAPICLient];
+    [apiClient POST:kMarkPostRead parameters:[CourseUpdateServices paramMarkPostReadWithId:notifId]
+         completion:^(id response, NSError *error) {
+        // This api only tries to mark the post read on server, we don't need to do any thing on its status.
+             if (error == nil) {
+                 successBlock(true, response);
+             }
+    }];
+    
+}
 
 
 #pragma mark - HelperMethods
+
++(NSDictionary *)paramMarkPostReadWithId:(NSNumber *)notifId{
+    
+    NSDictionary * param = @{
+                             @"users_notification_id" : notifId
+                             };
+    return [UtilityServices dictionaryByMergingDictionaries:param aDict:[UtilityServices authenticationParams]];}
+
 +(NSDictionary *)paramCourseUpdates
 {
     return [UtilityServices authenticationParams];

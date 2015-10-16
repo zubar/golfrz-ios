@@ -26,7 +26,8 @@
              @"coordinates" : @"course_location",
              @"postalCode" : @"course_postal_code",
              @"departments" : @"course_departments",
-             @"staff" : @"course_staff"
+             @"staff" : @"course_staff",
+             @"notificationCount" : @"notification_count"
              //propertyName : json_key
              };
 }

@@ -168,7 +168,7 @@ static NSString * const kCourseUpdatesList = @"notifications/view_notification_l
 static NSString * const kGetDetailCommentsOnThread = @"notifications/view_notification_comments";
 static NSString * const KPostComment = @"notifications/add_comment";
 static NSString * const KAddKudos = @"notifications/kudos";
-
+static NSString * const kMarkPostRead = @"notifications/is_read";
 /*
  *  Rewards
  */
