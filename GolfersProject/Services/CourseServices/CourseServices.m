@@ -15,6 +15,7 @@
 #import <Overcoat/OVCResponse.h>
 #import "GolfrzError.h"
 #import "FeaturedControl.h"
+#import "UserServices.h"
 
 #import "UtilityServices.h"
 
@@ -28,6 +29,7 @@ static Course * currentCourse = nil;
 {
     
     APIClient * apiClient = [APIClient sharedAPICLient];
+    
     [apiClient GET:kCourseDetail parameters:[self paramsCourseInfo] completion:^(id response, NSError *error) {
         OVCResponse * resp = response;
         if (!error) {
@@ -128,8 +130,11 @@ static Course * currentCourse = nil;
     return [UtilityServices authenticationParams];
 }
 
-+(NSDictionary *)paramsCourseInfo{
-    return [UtilityServices paramsCourseInfo];
++(NSDictionary *)paramsCourseInfo
+{
+    NSMutableDictionary * param  = [[NSMutableDictionary alloc] initWithCapacity:1];
+    if([UserServices currentToken] !=nil) [param setObject:[UserServices currentToken] forKey:@"auth_token"];
+    return [UtilityServices dictionaryByMergingDictionaries:param aDict:[UtilityServices paramsCourseInfo]];
 }
 
 +(NSDictionary *)paramsEarnPointSocialShare{
