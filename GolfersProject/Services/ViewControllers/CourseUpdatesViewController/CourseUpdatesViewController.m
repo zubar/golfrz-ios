@@ -22,6 +22,7 @@
 #import "MBProgressHUD.h"
 #import "UserServices.h"
 #import "User.h"
+#import "NSDate+Helper.h"
 #import "BBBadgeBarButtonItem.h"
 
 @interface CourseUpdatesViewController ()

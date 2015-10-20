@@ -7,6 +7,7 @@
 //
 
 #import "Department.h"
+#import "NSDate+Helper.h"
 
 @implementation Department
 
@@ -25,7 +26,7 @@
 
 + (NSValueTransformer *)startTimeJSONTransformer {
     return [MTLValueTransformer reversibleTransformerWithForwardBlock:^(NSString *dateString) {
-        return [self.dateFormatter dateFromString:dateString];
+        return [[self.dateFormatter dateFromString:dateString] toLocalTime];
     } reverseBlock:^(NSDate *date) {
         return [self.dateFormatter stringFromDate:date];
     }];
@@ -33,7 +34,7 @@
 
 + (NSValueTransformer *)endTimeJSONTransformer {
     return [MTLValueTransformer reversibleTransformerWithForwardBlock:^(NSString *dateString) {
-        return [self.dateFormatter dateFromString:dateString];
+        return [[self.dateFormatter dateFromString:dateString] toLocalTime];
     } reverseBlock:^(NSDate *date) {
         return [self.dateFormatter stringFromDate:date];
     }];
@@ -42,6 +43,7 @@
 
 + (NSDateFormatter *)dateFormatter {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"UTC"];
     dateFormatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
     dateFormatter.dateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
     
