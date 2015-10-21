@@ -93,7 +93,7 @@
     NSDictionary * params = @{
                               @"reg_id": self.pushToken,
                               @"app_bundle_id": kAppBundleId,
-                              @"auth_token" : [UserServices currentToken],
+                              @"auth_token" : ([UserServices currentToken] != nil ? [UserServices currentToken] : @""),
                               @"user_agent" : kUserAgent
                               };
     NSString * pushUrl = [NSString stringWithFormat:@"%@%@",kBaseURL, kPushRegURL];

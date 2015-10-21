@@ -33,7 +33,8 @@
             RoundMetaData * mRoundData = [resp result];
             successBlock(true, mRoundData);
         }else
-            failureBlock(false, [response result]);
+            if(![UtilityServices checkIsUnAuthorizedError:error])
+                failureBlock(false, [resp result]);
     }];
     
 }
@@ -54,7 +55,8 @@
             [[GameSettings sharedSettings] setroundId:roundId];
             successBlock(true, roundId);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        failureBlock(false, error);
+        if(![UtilityServices checkIsUnAuthorizedError:error])
+            failureBlock(false, error);
     }];
     
 }
@@ -74,7 +76,8 @@
         NSLog(@"Round-Star:%@", responseObject);
             successBlock(true, responseObject);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        failureBlock(false, error);
+        if(![UtilityServices checkIsUnAuthorizedError:error])
+            failureBlock(false, error);
     }];
     
 }
@@ -89,7 +92,8 @@
     [apiClient POST:kRoundFinish parameters:[RoundDataServices paramsFinishRound] success:^(NSURLSessionDataTask *task, id responseObject) {
         successBlock(true, responseObject);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        failureBlock(false, error);
+        if(![UtilityServices checkIsUnAuthorizedError:error])
+            failureBlock(false, error);
     }];
 }
 
@@ -106,7 +110,8 @@
     [apiClient POST:kRoundAddGuest parameters:[RoundDataServices paramAddGuestToRoundEmail:email firstName:fName lastName:lName handicap:handicap teeBoxId:teeBoxId] success:^(NSURLSessionDataTask *task, id responseObject) {
         successBlock(true, responseObject);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        failureBlock(false, error);
+        if(![UtilityServices checkIsUnAuthorizedError:error])
+            failureBlock(false, error);
     }];
     
 }
@@ -127,7 +132,10 @@
                 if(!tError)
                     successBlock(true, tempShot);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        if(error != nil) failureBlock(false, error);
+        if(error != nil){
+            if(![UtilityServices checkIsUnAuthorizedError:error])
+                failureBlock(false, error);
+        }
     }];
 }
 
@@ -142,7 +150,8 @@
     {
         successBlock(true, responseObject);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        failureBlock(false, error);
+        if(![UtilityServices checkIsUnAuthorizedError:error])
+            failureBlock(false, error);
     }];
 }
 
@@ -162,7 +171,8 @@
             success:^(NSURLSessionDataTask *task, id responseObject) {
                 successBlock(true, responseObject);
             } failure:^(NSURLSessionDataTask *task, NSError *error) {
-                failureBlock(false, error);
+                if(![UtilityServices checkIsUnAuthorizedError:error])
+                    failureBlock(false, error);
             }];
     
 }
@@ -180,7 +190,8 @@
     [apiClient POST:kAddDirectScore parameters:[RoundDataServices paramAddDirectScore:score holeId:holeId playerId:playerId] success:^(NSURLSessionDataTask *task, id responseObject) {
         successBlock(true, responseObject);
     } failure:^(NSURLSessionDataTask * task, NSError * error) {
-        failureBlock(false, error);
+        if(![UtilityServices checkIsUnAuthorizedError:error])
+            failureBlock(false, error);
     }];
     
 }
@@ -198,7 +209,8 @@
 
         successBlock(true, responseObject);
     } failure:^(NSURLSessionDataTask * task, NSError * error) {
-        failureBlock(false, error);
+        if(![UtilityServices checkIsUnAuthorizedError:error])
+            failureBlock(false, error);
     }];
     
 }
@@ -215,7 +227,8 @@
             RoundPlayers * mPlayers = [resp result];
             successBlock(true, mPlayers);
         }else
-            failureBlock(false, [response result]);
+            if(![UtilityServices checkIsUnAuthorizedError:error])
+                failureBlock(false, [resp result]);
     }];
 }
 
@@ -231,7 +244,8 @@
             Round  * mRound = [resp result];
             successBlock(true, mRound);
         }else
-            failureBlock(false, [response result]);
+            if(![UtilityServices checkIsUnAuthorizedError:error])
+                failureBlock(false, [resp result]);
     }];
 }
 
@@ -247,7 +261,8 @@
             if([[response result] isKindOfClass:[GolfrzError class]]){
                 roundsFinished(true);
             }else{
-                failureBlock(false, [response result]);
+                if(![UtilityServices checkIsUnAuthorizedError:error])
+                    failureBlock(false, [response result]);
         }
     }];
 }

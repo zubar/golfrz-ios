@@ -20,5 +20,5 @@
 +(NSDictionary *)authenticationParams;
 +(NSDictionary *)dictionaryByMergingDictionaries:(NSDictionary *)authDict aDict:(NSDictionary *)paramDict;
 +(NSDictionary *)paramsCourseInfo;
-
++(BOOL)checkIsUnAuthorizedError:(NSError *)error;
 @end

@@ -13,6 +13,7 @@
 #import "UserServices.h"
 #import "AuthenticationService.h"
 #import "GolfrzError.h"
+#import "UtilityServices.h"
 
 @implementation UserServices
 
@@ -95,7 +96,8 @@ static User * currentUser = nil;
             NSString * msg = @"Successfully updated";;
             successBlock(true, msg);
         }else{
-            failureBlock(false, [response result]);
+            if(![UtilityServices checkIsUnAuthorizedError:error])
+                failureBlock(false, [response result]);
         }
     }];
     
@@ -118,7 +120,8 @@ static User * currentUser = nil;
             currentUser = mUser;
             successBlock(true, mUser);
         }else{
-            failureBlock(false, [resp result]);
+            if(![UtilityServices checkIsUnAuthorizedError:error])
+                failureBlock(false, [resp result]);
         }
 
     }];
@@ -172,7 +175,7 @@ static User * currentUser = nil;
 
 +(NSDictionary *)userToken{
     return @{
-             @"auth_token" : [UserServices currentToken]
+             @"auth_token" : ([UserServices currentToken] != nil ? [UserServices currentToken] : @"")
              };
 }
 

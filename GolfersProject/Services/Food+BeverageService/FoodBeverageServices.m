@@ -31,7 +31,8 @@
                 Menu * tMenu = [resp result];
                 successBlock(true, tMenu);
             }else
-                failureBlock(false, [response result]);
+                if(![UtilityServices checkIsUnAuthorizedError:error])
+                    failureBlock(false, [response result]);
         }];
 }
 +(void)addItemToCart:(FoodBeverage *)item
@@ -47,7 +48,8 @@
                      successBlock(true, [response result]);
                  }
              }else{
-                 failureBlock(false, [response result]);
+                 if(![UtilityServices checkIsUnAuthorizedError:error])
+                     failureBlock(false, [response result]);
              }
     }];
 }
@@ -65,7 +67,8 @@
                 successBlock(true, [response result]);
             }
         }else{
-            failureBlock(false, [response result]);
+            if(![UtilityServices checkIsUnAuthorizedError:error])
+                failureBlock(false, [response result]);
         }
     }];
 }
@@ -80,7 +83,8 @@
         if ((NSDictionary *)resp.result[@"success_message"] ) {
             successBlock(true, resp.result);
         }else{
-            failureBlock(false, [resp result]);
+            if(![UtilityServices checkIsUnAuthorizedError:error])
+                failureBlock(false, [resp result]);
         }
     }];
 }
@@ -97,7 +101,8 @@
                 successBlock(true, tempCart);
             }
         }else{
-            failureBlock(false, [resp result]);
+            if(![UtilityServices checkIsUnAuthorizedError:error])
+                failureBlock(false, [resp result]);
         }
     }];
 }
@@ -114,7 +119,8 @@
         if (!error){
             successBlock(true, [resp result]);
     }else{
-        failureBlock(false, [resp result]);
+        if(![UtilityServices checkIsUnAuthorizedError:error])
+            failureBlock(false, [resp result]);
     }
     }];
 }

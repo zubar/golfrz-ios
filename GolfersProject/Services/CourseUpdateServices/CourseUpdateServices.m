@@ -24,7 +24,10 @@
     [apiClient GET:kCourseUpdatesList parameters:[CourseUpdateServices paramCourseUpdates]
         completion:^(id response, NSError *error) {
             if(!error) successBlock(true, [response result]);
-            else failureBlock(false, [response result]);
+            else{
+                if(![UtilityServices checkIsUnAuthorizedError:error])
+                    failureBlock(false, [response result]);
+            }
     }];
 }
 
@@ -37,7 +40,10 @@
     [apiClient GET:kGetDetailCommentsOnThread parameters:[CourseUpdateServices paramPostId:postId]
         completion:^(id response, NSError *error) {
             if(!error) successBlock(true, [response result]);
-            else failureBlock(false, [response result]);
+            else{
+                if(![UtilityServices checkIsUnAuthorizedError:error])
+                    failureBlock(false, [response result]);
+            }
     }];
 }
 
@@ -49,7 +55,10 @@
     APIClient * apiClient = [APIClient sharedAPICLient];
     [apiClient POST:KPostComment parameters:[CourseUpdateServices paramAddComment:comment postId:postId] completion:^(id response, NSError *error) {
         if(!error) successBlock(true, [response result]);
-        else failureBlock(false, [response result]);
+        else{
+            if(![UtilityServices checkIsUnAuthorizedError:error])
+                failureBlock(false, [response result]);
+        }
     }];
 }
 
@@ -60,7 +69,10 @@
     APIClient * apiClient = [APIClient sharedAPICLient];
     [apiClient POST:KAddKudos parameters:[CourseUpdateServices paramAddKudos:postId] completion:^(id response, NSError *error) {
         if(!error) successBlock(true, [response result]);
-        else failureBlock(false, [response result]);
+        else{
+            if(![UtilityServices checkIsUnAuthorizedError:error])
+                failureBlock(false, [response result]);
+        }
     }];
 }
 

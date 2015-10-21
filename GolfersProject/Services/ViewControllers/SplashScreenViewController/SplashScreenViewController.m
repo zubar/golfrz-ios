@@ -97,7 +97,8 @@
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         self.navigationController.navigationBar.barTintColor = [[SharedManager sharedInstance] themeColor];
 
-        InitialViewController * initController = [self.storyboard instantiateViewControllerWithIdentifier:@"InitialViewController"];
+        // push sign in controller
+        WelcomeViewController * initController = [self.storyboard instantiateViewControllerWithIdentifier:@"WelcomeViewController"];
         [delegate.appDelegateNavController pushViewController:initController animated:YES];
     }];
 

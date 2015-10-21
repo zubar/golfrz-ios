@@ -77,6 +77,10 @@
     
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+
+}
+
 - (void)signInTapped{
     
     AppDelegate * delegate = [[UIApplication sharedApplication] delegate];

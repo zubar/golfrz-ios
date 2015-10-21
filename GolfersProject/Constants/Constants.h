@@ -198,6 +198,7 @@ static NSString * const kOK = @"OK";
 /*
  * Error Messages
  */
+static NSString * const kErrorUnAuthorizedAccess = @"UnauthorizedRequest";
 static NSString * const kError = @"Error";
 static NSString * const kReqiredFieldErrorMessage = @"Required Field Missing.";
 static NSString * const kNoInternetErrorTitle = @"Internet Connection Lost!";

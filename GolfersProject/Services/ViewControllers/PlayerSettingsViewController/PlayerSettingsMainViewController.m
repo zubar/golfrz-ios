@@ -218,6 +218,7 @@
         [Utilities displayErrorAlertWithMessage:[error errorMessage]];
     }];
 }
+
 - (IBAction)btnLogOutTap:(id)sender {
     [self logoutTapped];
 }
@@ -261,8 +262,8 @@
     }];
 }
 
--(BOOL)isValidEmail:(NSString *)email{
-    
+-(BOOL)isValidEmail:(NSString *)email
+{
     NSString *emailRegex = @"[^@]+@[A-Za-z0-9.-]+\\.[A-Za-z]+";
     NSPredicate *emailPredicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
     
@@ -284,13 +285,14 @@
 
 #pragma TextFieldMethods
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
     [textField resignFirstResponder];
     return YES;
 }
 
--(void)addGestureToPrivacyPolicy{
-    
+-(void)addGestureToPrivacyPolicy
+{
     UITapGestureRecognizer* gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(openPrivacyPolicy)];
     // if labelView is not set userInteractionEnabled, you must do so
     [self.lblPrivacyPolicy setUserInteractionEnabled:YES];

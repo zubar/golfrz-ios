@@ -46,6 +46,7 @@
 #import "TeeTimesViewController.h"
 #import "HMMessagesDisplayViewController.h"
 #import "BBBadgeBarButtonItem.h"
+#import "PushManager.h"
 
 @interface ClubHouseViewController ()
 {
@@ -58,6 +59,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [[PushManager sharedInstance] postTokenToServer];
     
     SharedManager * manager = [SharedManager sharedInstance];
     [self.imgViewBackground setImage:[manager backgroundImage]];

@@ -28,7 +28,8 @@
             EventList * mlist = [resp result];
             successBlock(true, mlist);
         }else
-            failureBlock(false, error);
+            if(![UtilityServices checkIsUnAuthorizedError:error])
+                failureBlock(false, error);
     }];
 }
 

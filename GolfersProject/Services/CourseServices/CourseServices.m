@@ -37,7 +37,8 @@ static Course * currentCourse = nil;
             [self setCurrentCourse:mCourse];
             successBlock(true, mCourse);
         }else
-            failureBlock(false, [resp result]);
+            if(![UtilityServices checkIsUnAuthorizedError:error])
+                failureBlock(false, [resp result]);
     }];
     
 }
@@ -57,7 +58,8 @@ static Course * currentCourse = nil;
         }
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         if (error) {
-            failureBlock(false, error);
+            if(![UtilityServices checkIsUnAuthorizedError:error])
+                failureBlock(false, error);
         }
     }];
 }
@@ -69,7 +71,8 @@ static Course * currentCourse = nil;
     [apiClient POST:kCheckInUrl parameters:[CourseServices paramsCourseDetailInfo] success:^(NSURLSessionDataTask *task, id responseObject) {
         successBlock(true, responseObject);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        failureBlock(false, error);
+        if(![UtilityServices checkIsUnAuthorizedError:error])
+            failureBlock(false, error);
     }];
 
 }
@@ -83,7 +86,8 @@ static Course * currentCourse = nil;
             if([[response result] valueForKeyPath:@"check_in.count"] == [NSNull null]) successBlock(true, [NSNumber numberWithInt:0]);
                 else successBlock(true, [[response result] valueForKeyPath:@"check_in.count"]);
         }else{
-            failureBlock(false, [response result]);
+            if(![UtilityServices checkIsUnAuthorizedError:error])
+                failureBlock(false, [response result]);
         }
     }];
 
@@ -99,7 +103,8 @@ static Course * currentCourse = nil;
             NSArray * objectsArray =  [MTLJSONAdapter modelsOfClass:[FeaturedControl class] fromJSONArray:[[response result] objectForKey:@"features"] error:&parseError];
             successBlock(true, objectsArray);
         }else
-            failureBlock(false, [response result]);
+            if(![UtilityServices checkIsUnAuthorizedError:error])
+                failureBlock(false, [response result]);
         }];
 }
 
@@ -120,7 +125,8 @@ static Course * currentCourse = nil;
         if(!error){
             successBlock(true, [response result]);
         }else
-            failureBlock(false, [response result]);
+            if(![UtilityServices checkIsUnAuthorizedError:error])
+                failureBlock(false, [response result]);
     }];
 }
 
@@ -141,7 +147,7 @@ static Course * currentCourse = nil;
     return @{
              @"app_bundle_id": kAppBundleId,
              @"user_agent" : kUserAgent,
-             @"auth_token" : [UserServices currentToken],
+             @"auth_token" : ([UserServices currentToken] != nil ? [UserServices currentToken] : @""),
              @"point_slug" : @"share_on_social_media"
 
              };
