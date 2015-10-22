@@ -82,7 +82,7 @@
     
     // Create and add our custom BBBadgeBarButtonItem
     BBBadgeBarButtonItem *barButton = [[BBBadgeBarButtonItem alloc] initWithCustomUIButton:button];
-    barButton.badgeBGColor = [UIColor redColor];
+    barButton.badgeBGColor = [UIColor greenColor];
     [barButton setShouldHideBadgeAtZero:YES];
     self.navigationItem.rightBarButtonItem = barButton;
     
