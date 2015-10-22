@@ -83,7 +83,7 @@
                                                     sourceApplication:sourceApplication
                                                            annotation:annotation];
     }else
-        if ([[[url scheme] lowercaseString] isEqualToString:@"invitationReceived_geneva-golf-country-club"]) {
+        if ([[[url scheme] lowercaseString] isEqualToString:@"geneva-golf-and-country-club"]) {
             [[GameSettings sharedSettings] setInvitationToken:[self extractParamsFromUrl:[url query]][@"invitation"]];
             [[NSNotificationCenter defaultCenter] postNotificationName:kAppLaunchUserTapInvitationLink object:nil];
             NSLog(@"Received invitation:%@", [[GameSettings sharedSettings] invitationToken]);
@@ -162,7 +162,7 @@
 
 -(BOOL)isValidFacebookUrlForApplication:(UIApplication *)application launchOptions:(NSDictionary *)options{
     
-    return [[[options objectForKey:UIApplicationLaunchOptionsURLKey] scheme] isEqualToString:@"invitationReceived_geneva-golf-country-club"];
+    return [[[options objectForKey:UIApplicationLaunchOptionsURLKey] scheme] isEqualToString:@"geneva-golf-and-country-club"];
 }
 
 #pragma mark - UtilityMethod

@@ -114,7 +114,7 @@ static NSString * const kRoundPlayers = @"rounds/round_players";
 static NSString * const kRoundInfo = @"rounds/round_info";
 static NSString * const kRoundInProgress = @"rounds/last_round_info";
 static NSString * const kEndHole = @"holes/end";
-
+static NSString * const kStartHole = @"holes/start";
 
 /*
  * Adding Scores/Shots

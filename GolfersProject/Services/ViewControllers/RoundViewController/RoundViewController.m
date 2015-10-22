@@ -143,6 +143,11 @@
                                       // [Utilities displayErrorAlertWithMessage:[error errorMessage]];
                                        completion();
                                    }];
+    [RoundDataServices startHoleWithId:[self.currentHole itemId] success:^(bool status, id response) {
+        // Keep chill. 
+    } failure:^(bool status, GolfrzError *error) {
+        [Utilities displayErrorAlertWithMessage:[error errorMessage]];
+    }];
 }
 
 -(void)clearAllShotMarkers{
