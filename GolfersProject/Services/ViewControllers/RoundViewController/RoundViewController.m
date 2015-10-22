@@ -1,7 +1,3 @@
-//Golfrz-799
-//try catch block is added at line number 342 , 285
-
-
 //
 //  RoundViewController.m
 //  GolfersProject

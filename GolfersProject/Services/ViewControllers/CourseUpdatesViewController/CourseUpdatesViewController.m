@@ -34,12 +34,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
     SharedManager * manager = [SharedManager sharedInstance];
     [self.imgViewBackground setImage:[manager backgroundImage]];
-
-    
     // Do any additional setup after loading the view.
      if(!self.courseUpdates) self.courseUpdates = [[NSMutableArray alloc] init];
     [self.navigationItem setTitle:@"COURSE UPDATES"];
@@ -67,7 +65,6 @@
         [UserServices setCurrentUSerName:@"ME"];
     }];
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -132,9 +129,7 @@
         }else{
             [customViewCell.btnKudos setBackgroundImage:[UIImage imageNamed:@"kudos"] forState:UIControlStateNormal];
         }
-        
     }
-    
     return customViewCell;
 }
 

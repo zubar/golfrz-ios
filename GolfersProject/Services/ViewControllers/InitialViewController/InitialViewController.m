@@ -78,7 +78,13 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-
+    
+//    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+//    
+//    bool hasWelcomeController = false;
+//    for (UIViewController *controller in delegate.appDelegateNavController.viewControllers)
+//        if ([controller isKindOfClass:[InitialViewController class]]) hasWelcomeController = true;
+//    [self.backBtn setHidden:hasWelcomeController];
 }
 
 - (void)signInTapped{

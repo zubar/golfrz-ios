@@ -120,20 +120,30 @@
 
 - (void)logOutFromAppUnAuthorizedToken
 {
-    [[[UIAlertView alloc] initWithTitle:@"Session Expired" message:@"Your current session has expired please login again to countinue" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
-
+    if (![self.appDelegateNavController.visibleViewController isKindOfClass:[InitialViewController class]] && ![self.appDelegateNavController.visibleViewController isKindOfClass:[WelcomeViewController class]])
+    {
+        [[[UIAlertView alloc] initWithTitle:@"Session Expired" message:@"Your current session has expired please login again to countinue" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+    }
+    
     [FaceBookAuthAgent disConnectFBAccount];
     [[GameSettings sharedSettings] resetGameSettings];
     [self popToSignInViewController];
+    
 }
 
 -(void)popToSignInViewController
 {
+    bool hasWelcomeController = false;
+    for (UIViewController *controller in self.appDelegateNavController.viewControllers)
+        if ([controller isKindOfClass:[WelcomeViewController class]]) hasWelcomeController = true;
+    
     for (UIViewController *controller in self.appDelegateNavController.viewControllers) {
-        if ([controller isKindOfClass:[WelcomeViewController class]]) {
+        if (hasWelcomeController  && [controller isKindOfClass:[WelcomeViewController class]]){
             [self.appDelegateNavController popToViewController:controller animated:YES];
-            return;
-        }
+        }else
+            if ([controller isKindOfClass:[InitialViewController class]]) {
+                [self.appDelegateNavController popToViewController:controller animated:YES];
+            }
     }
 }
 

@@ -310,7 +310,6 @@
 }
 
 #pragma mark - Pop-up view
-
 // To enter score manually for a player.
 -(void)editTeetimeTappedFromView:(id)sender
 {
@@ -441,7 +440,6 @@
     
     return fabs(([endDate timeIntervalSinceDate:startDate] / 3600.0) /24);
 }
-
 
 #pragma mark - MemoryManagement 
 

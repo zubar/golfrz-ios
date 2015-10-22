@@ -104,8 +104,6 @@
     
     [self initializeDataStructures];
     [self fetchEvents];
-
-    
 }
 
 -(void)viewWillAppear:(BOOL)animated{

@@ -741,7 +741,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cnh-zq-pWR">
                                         <rect key="frame" x="30" y="462" width="260" height="50"/>
                                         <animations/>
-                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.043137254899999998" green="0.19215686269999999" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="96A-mo-0Sm"/>
                                         </constraints>
@@ -756,7 +756,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HLG-ob-VZ0">
                                         <rect key="frame" x="30" y="391" width="260" height="50"/>
                                         <animations/>
-                                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.52941176469999995" green="0.0" blue="0.043137254899999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="75X-fL-FtU"/>
                                         </constraints>
@@ -884,7 +884,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ut7-ej-RPE">
                                                 <rect key="frame" x="40" y="247" width="240" height="50"/>
                                                 <animations/>
-                                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" red="0.043137254899999998" green="0.19215686269999999" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="jqX-sq-OdS"/>
                                                 </constraints>
@@ -945,7 +945,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4cB-Hf-g88">
                                                 <rect key="frame" x="20" y="421" width="280" height="50"/>
                                                 <animations/>
-                                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" red="0.52941176469999995" green="0.0" blue="0.043137254899999998" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="e0B-Eq-zQA"/>
                                                 </constraints>
@@ -1226,7 +1226,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yQl-Pb-YkL">
                                         <rect key="frame" x="60" y="268" width="200" height="50"/>
                                         <animations/>
-                                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.52941176469999995" green="0.0" blue="0.043137254899999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="k0A-dL-0hO"/>
                                         </constraints>
@@ -1582,7 +1582,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FBc-1V-sru">
                                 <rect key="frame" x="0.0" y="523" width="320" height="45"/>
                                 <animations/>
-                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.52941176469999995" green="0.0" blue="0.043137254899999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="FKM-8D-1eV"/>
                                 </constraints>
@@ -2063,7 +2063,7 @@
                                                                                 <constraint firstAttribute="height" constant="26" id="GGQ-nW-yvd"/>
                                                                                 <constraint firstAttribute="width" constant="26" id="LJ2-ou-0eZ"/>
                                                                             </constraints>
-                                                                            <state key="normal" image="36CDF7AF-EE27-4B37-BE4B-EC7A1C1F3E28">
+                                                                            <state key="normal" image="2FE899D5-F2DF-4E64-9BBA-F913AAC89778">
                                                                                 <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                                             </state>
@@ -2683,8 +2683,8 @@
                                             <outlet property="delegate" destination="uUb-2S-h15" id="taq-7b-o4m"/>
                                         </connections>
                                     </collectionView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KWH-iI-mE0">
-                                        <rect key="frame" x="138" y="444" width="45" height="45"/>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KWH-iI-mE0">
+                                        <rect key="frame" x="138" y="447" width="45" height="45"/>
                                         <animations/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="45" id="118-FE-stX"/>
@@ -4073,7 +4073,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MPV-iP-vFN">
                                         <rect key="frame" x="0.0" y="459" width="320" height="45"/>
                                         <animations/>
-                                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.52941176469999995" green="0.0" blue="0.043137254899999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="d4p-W4-zRW"/>
                                         </constraints>
@@ -5562,7 +5562,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GCu-gw-zkB">
                                         <rect key="frame" x="40" y="300" width="240" height="50"/>
                                         <animations/>
-                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.043137254899999998" green="0.19215686269999999" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="YYv-8p-6lH"/>
                                         </constraints>
@@ -6214,7 +6214,7 @@
                                                                                 <constraint firstAttribute="height" constant="26" id="OaE-ph-eo5"/>
                                                                                 <constraint firstAttribute="width" constant="26" id="S5w-xw-4Ro"/>
                                                                             </constraints>
-                                                                            <state key="normal" image="829747DB-031B-4016-8449-6E19B1343F90">
+                                                                            <state key="normal" image="A2AF49F6-E4F7-4F94-BCD8-C0BE84455448">
                                                                                 <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                                             </state>
@@ -7560,7 +7560,7 @@ Nulla sed est consectetur, tempus tellus interdum, vehicula lectus. Aliquam soll
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cnu-gN-ZoH">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                                 <animations/>
-                                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" red="0.52941176469999995" green="0.0" blue="0.043137254899999998" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                 <state key="normal" title="REVIEW HOW TO EARN REWARDS">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -8538,7 +8538,7 @@ Nulla sed est consectetur, tempus tellus interdum, vehicula lectus. Aliquam soll
         </scene>
     </scenes>
     <resources>
-        <image name="36CDF7AF-EE27-4B37-BE4B-EC7A1C1F3E28" width="24" height="25">
+        <image name="2FE899D5-F2DF-4E64-9BBA-F913AAC89778" width="24" height="25">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -8628,7 +8628,7 @@ ALIAtQC3ALkAuwC9AMIA2QDbAN0SrxK0Er8SyBLbEt8S6hLzEvgTABMDEwgTFxMbEyITKhM3EzwTPhNA
 E0UTTRNQE1UTXRNgE3ITdRN6AAAAAAAAAgEAAAAAAAAAQQAAAAAAAAAAAAAAAAAAE3w
 </mutableData>
         </image>
-        <image name="829747DB-031B-4016-8449-6E19B1343F90" width="24" height="25">
+        <image name="A2AF49F6-E4F7-4F94-BCD8-C0BE84455448" width="24" height="25">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
