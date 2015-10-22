@@ -113,6 +113,7 @@ static NSString * const kRoundAddGuest = @"rounds/create_guest";
 static NSString * const kRoundPlayers = @"rounds/round_players";
 static NSString * const kRoundInfo = @"rounds/round_info";
 static NSString * const kRoundInProgress = @"rounds/last_round_info";
+static NSString * const kEndHole = @"holes/end";
 
 
 /*

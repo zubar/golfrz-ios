@@ -139,6 +139,40 @@
     }];
 }
 
++(void)endHoleWithId:(NSNumber *)holeId
+             success:(void(^)(bool status, Shot * currentShot))successBlock
+             failure:(void(^)(bool status, GolfrzError * error))failureBlock
+{
+    
+    AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
+    [apiClient POST:kEndHole parameters:[RoundDataServices paramsEndHoleWithId:holeId]
+            success:^(NSURLSessionDataTask *task, id responseObject)
+    {
+        NSError * parseError = nil;
+        Shot * mShot = [MTLJSONAdapter modelOfClass:[Shot class] fromJSONDictionary:responseObject[@"shot"] error:&parseError];
+        successBlock(true, mShot);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        @try {
+            
+            NSData *errorData = error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey];
+            NSDictionary *serializedData = nil;
+            if(errorData !=nil ) serializedData = [NSJSONSerialization JSONObjectWithData:errorData options:kNilOptions error:nil];
+            NSError * parseError = nil;
+            GolfrzError * terror = nil;
+            
+            if (serializedData != nil)
+                terror = [MTLJSONAdapter modelOfClass:[GolfrzError class] fromJSONDictionary:serializedData error:&parseError];
+            else
+                terror = [GolfrzError modelWithDictionary:@{@"errorMessage": @"An unknown Error Occured!"} error:&parseError];
+            failureBlock(false, terror);
+        }
+        @catch (NSException *exception) {
+            NSLog(@"exception: %@", exception);
+        }
+
+    }];
+    
+}
 
 +(void)deleteShot:(Shot *)mShot
                  success:(void(^)(bool, id response))successBlock
@@ -349,6 +383,16 @@
                  @"user_id" : playerId,
                  @"score" : score,
                  };
+    return [UtilityServices dictionaryByMergingDictionaries:param aDict:[UtilityServices authenticationParams]];
+}
+
++(NSDictionary *)paramsEndHoleWithId:(NSNumber *)holeId{
+    
+    NSDictionary * param = @{
+                             @"round_id" : [[GameSettings sharedSettings] roundId],
+                             @"hole_id" : holeId,
+                             @"hole_rounds_user_id" : [UserServices currentUserId]
+                             };
     return [UtilityServices dictionaryByMergingDictionaries:param aDict:[UtilityServices authenticationParams]];
 }
 

@@ -24,7 +24,9 @@ typedef NS_ENUM(NSInteger, ShotType) {
 
 /*
  */
-
++(void)endHoleWithId:(NSNumber *)holeId
+             success:(void(^)(bool status, Shot * currentShot))successBlock
+             failure:(void(^)(bool status, GolfrzError * error))failureBlock;
 
 +(void)getRoundData:(void (^)(bool status, RoundMetaData * subCourse))successBlock
             failure:(void (^)(bool status, GolfrzError * error))failureBlock;
