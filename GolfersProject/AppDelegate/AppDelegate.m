@@ -84,7 +84,7 @@
                                                            annotation:annotation];
     }else
         if ([[[url scheme] lowercaseString] isEqualToString:@"geneva-golf-and-country-club"]) {
-            [[GameSettings sharedSettings] setInvitationToken:[self extractParamsFromUrl:[url query]][@"invitation"]];
+            [[GameSettings sharedSettings] setInvitationToken:[self extractParamsFromUrl:[url query]][@"]];
             [[NSNotificationCenter defaultCenter] postNotificationName:kAppLaunchUserTapInvitationLink object:nil];
             NSLog(@"Received invitation:%@", [[GameSettings sharedSettings] invitationToken]);
             return YES;
