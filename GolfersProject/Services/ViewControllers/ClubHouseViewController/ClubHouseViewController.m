@@ -47,6 +47,7 @@
 #import "HMMessagesDisplayViewController.h"
 #import "BBBadgeBarButtonItem.h"
 #import "PushManager.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface ClubHouseViewController ()
 {
@@ -147,6 +148,7 @@
         if (status) {
             BBBadgeBarButtonItem * barItem= (BBBadgeBarButtonItem *) self.navigationItem.rightBarButtonItem;
             barItem.badgeValue = [NSString stringWithFormat:@"%ld", (long)[currentCourse.notificationCount integerValue]];
+            [self.view setNeedsDisplay                                                                                                                                                                      ];
         }
     } failure:^(bool status, GolfrzError *error) {
         // Keep chill

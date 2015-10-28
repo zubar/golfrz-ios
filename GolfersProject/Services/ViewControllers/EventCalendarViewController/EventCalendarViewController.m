@@ -208,7 +208,7 @@
     NSDate *startDate = [startDateComponents date];
     // Add one day to the previous date. Note that  1 day != 24 h
     NSDateComponents *oneDay = [NSDateComponents new];
-    oneDay.day = 30;
+    oneDay.day = 31;
     // one day after begin date
     NSDate *endDate = [[NSCalendar currentCalendar] dateByAddingComponents:oneDay
                                                                     toDate:startDate
