@@ -36,7 +36,7 @@
     if ([self.emails firstObject]) {
         return [self.emails firstObject];
     }
-    return @"no email exists";
+    return @"User did not added email.";
 }
 
 -(UIImage *)contactImage{

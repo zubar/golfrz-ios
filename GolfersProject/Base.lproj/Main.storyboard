@@ -1638,7 +1638,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="syf-VY-qKA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1016" y="1261"/>
+            <point key="canvasLocation" x="-778" y="1231"/>
         </scene>
         <!--Club House View Controller-->
         <scene sceneID="xhQ-n3-rfC">
@@ -2063,7 +2063,7 @@
                                                                                 <constraint firstAttribute="height" constant="26" id="GGQ-nW-yvd"/>
                                                                                 <constraint firstAttribute="width" constant="26" id="LJ2-ou-0eZ"/>
                                                                             </constraints>
-                                                                            <state key="normal" image="79F9B7C9-D8F7-407A-9881-2162FE3AB15E">
+                                                                            <state key="normal" image="44326E14-9812-4FAB-AFAC-4441C2A9C845">
                                                                                 <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                                             </state>
@@ -6214,7 +6214,7 @@
                                                                                 <constraint firstAttribute="height" constant="26" id="OaE-ph-eo5"/>
                                                                                 <constraint firstAttribute="width" constant="26" id="S5w-xw-4Ro"/>
                                                                             </constraints>
-                                                                            <state key="normal" image="4B92C1F6-569E-4FF7-9816-3CEAD2D6F26B">
+                                                                            <state key="normal" image="18492FCE-0B58-42B1-83E4-A18ABED2EC52">
                                                                                 <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                                             </state>
@@ -8538,7 +8538,7 @@ Nulla sed est consectetur, tempus tellus interdum, vehicula lectus. Aliquam soll
         </scene>
     </scenes>
     <resources>
-        <image name="4B92C1F6-569E-4FF7-9816-3CEAD2D6F26B" width="24" height="25">
+        <image name="18492FCE-0B58-42B1-83E4-A18ABED2EC52" width="24" height="25">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -8628,7 +8628,7 @@ ALIAtQC3ALkAuwC9AMIA2QDbAN0SrxK0Er8SyBLbEt8S6hLzEvgTABMDEwgTFxMbEyITKhM3EzwTPhNA
 E0UTTRNQE1UTXRNgE3ITdRN6AAAAAAAAAgEAAAAAAAAAQQAAAAAAAAAAAAAAAAAAE3w
 </mutableData>
         </image>
-        <image name="79F9B7C9-D8F7-407A-9881-2162FE3AB15E" width="24" height="25">
+        <image name="44326E14-9812-4FAB-AFAC-4441C2A9C845" width="24" height="25">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

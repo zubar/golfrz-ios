@@ -45,7 +45,7 @@
     if (self.email) {
         return self.email;
     }
-    return @"no email exists";
+    return @"User did not added email.";
 }
 
 //In future will allow user to upload his image to server. 

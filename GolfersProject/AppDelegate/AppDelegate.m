@@ -122,7 +122,7 @@
 {
     if (![self.appDelegateNavController.visibleViewController isKindOfClass:[InitialViewController class]] && ![self.appDelegateNavController.visibleViewController isKindOfClass:[WelcomeViewController class]])
     {
-        [[[UIAlertView alloc] initWithTitle:@"Session Expired" message:@"Your current session has expired please login again to countinue" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+        [[[UIAlertView alloc] initWithTitle:@"Session Expired" message:@"Your current session has expired please login again to continue." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
     }
     
     [FaceBookAuthAgent disConnectFBAccount];
