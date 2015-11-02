@@ -17,6 +17,7 @@
 #import "User.h"
 #import "UtilityServices.h"
 #import "Invitation.h"
+#import "UtilityServices.h"
 
 @implementation InvitationServices
 
@@ -31,7 +32,8 @@
         if(!error) successBlock(true, objectsArray);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         GolfrzError * errorObject = [MTLJSONAdapter modelOfClass:[GolfrzError class] fromJSONDictionary:@{@"error_message" : @"Can not get in-app friends."} error:nil];
-        failureBlock(false, errorObject);
+        if(![UtilityServices checkIsUnAuthorizedError:error])
+            failureBlock(false, errorObject);
     }];
 }
 
@@ -52,7 +54,8 @@
             Invitation * currInvitation = [MTLJSONAdapter modelOfClass:[Invitation class] fromJSONDictionary:[resp result] error:&parseError];
             if(!error) successBlock(true, currInvitation);
         }else{
-            failureBlock(false, [resp result]);
+            if(![UtilityServices checkIsUnAuthorizedError:error])
+                failureBlock(false, [resp result]);
         }
     }];
 }
@@ -68,7 +71,8 @@
         if(!error){
             successBlock(true, [resp result]);
         }else{
-            failureBlock(false, [resp result]);
+            if(![UtilityServices checkIsUnAuthorizedError:error])
+                failureBlock(false, [resp result]);
         }
     }];
 }

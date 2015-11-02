@@ -14,6 +14,7 @@
 #import "User.h"
 #import "UserServices.h"
 #import "GolfrzError.h"
+#import "UtilityServices.h"
 
 
 
@@ -64,8 +65,10 @@
     [apiClient POST:kForgetPasswordURL parameters:params completion:^(id response, NSError *error) {
         if (!error)
             successfullyPosted(true);
-        else
-            failureBlock(false, [response result]);
+        else{
+            if(![UtilityServices checkIsUnAuthorizedError:error])
+                failureBlock(false, [response result]);
+        }
     }];
 }
 
@@ -79,7 +82,8 @@
         if (!error) {
             successfullyPosted(true);
         }else{
-            failureBlock(false, [response result]);
+            if(![UtilityServices checkIsUnAuthorizedError:error])
+                failureBlock(false, [response result]);
         }
     }];
     
@@ -148,7 +152,7 @@ passwordConfirmation:(NSString *)passwordConfirmation
     
     return   @{
                @"user_login":@{
-                       @"auth_token" : [UserServices currentToken]
+                       @"auth_token" : ([UserServices currentToken] != nil ? [UserServices currentToken] : @""),
                        }
                };
 }

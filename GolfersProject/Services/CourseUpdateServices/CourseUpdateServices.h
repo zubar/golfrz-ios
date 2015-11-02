@@ -32,5 +32,6 @@
         success:(void(^)(bool status, id successMessage))successBlock
         failure:(void(^)(bool status, GolfrzError * error))failureBlock;
 
-
++(void)markNotificationReadWithUserNotificationId:(NSNumber *)notifId
+                                          success:(void(^)(bool status, id response))successBlock;
 @end

@@ -20,6 +20,7 @@
 #import "User.h"
 #import "SignInViewController.h"
 #import "ClubHouseContainerVC.h"
+#import "WelcomeViewController.h"
 
 #import "UserServices.h"
 #import "ClubHouseViewController.h"
@@ -40,13 +41,8 @@
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
 
     [[SharedManager sharedInstance] setBackgroundImage:[UIImage imageNamed:@"background_image"]];
-
-    
     [self.imgSplash setImage:[[SharedManager sharedInstance] backgroundImage]];
-    
-
     AppDelegate * delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    
     SharedManager * sharedManager = [SharedManager sharedInstance];
     
     [CourseServices courseInfo:^(bool status, id tObject) {
@@ -72,13 +68,15 @@
         if ([UserServices currentToken] != nil)
         {
             InitialViewController * initController = [self.storyboard instantiateViewControllerWithIdentifier:@"InitialViewController"];
+            WelcomeViewController * welcomeVC = [self.storyboard instantiateViewControllerWithIdentifier:@"WelcomeViewController"];
             AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
             UIViewController *clubHouseContainerVC  = [self.storyboard instantiateViewControllerWithIdentifier:@"ClubHouseContainerVC"];
+            [delegate.appDelegateNavController pushViewController:welcomeVC animated:NO];
             [delegate.appDelegateNavController pushViewController:initController animated:NO];
             [delegate.appDelegateNavController pushViewController:clubHouseContainerVC animated:NO];
         }else{
             // push sign in controller
-            InitialViewController * initController = [self.storyboard instantiateViewControllerWithIdentifier:@"InitialViewController"];
+            WelcomeViewController * initController = [self.storyboard instantiateViewControllerWithIdentifier:@"WelcomeViewController"];
             [delegate.appDelegateNavController pushViewController:initController animated:YES];
         }
     } failure:^(bool status, NSError * error)
@@ -96,12 +94,12 @@
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         self.navigationController.navigationBar.barTintColor = [[SharedManager sharedInstance] themeColor];
 
-        InitialViewController * initController = [self.storyboard instantiateViewControllerWithIdentifier:@"InitialViewController"];
+        // push sign in controller
+        WelcomeViewController * initController = [self.storyboard instantiateViewControllerWithIdentifier:@"WelcomeViewController"];
         [delegate.appDelegateNavController pushViewController:initController animated:YES];
     }];
 
 }
-
 
 -(void)loadBackgroundImageFromUrl:(NSString *)imagePath
 {

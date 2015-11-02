@@ -310,7 +310,6 @@
 }
 
 #pragma mark - Pop-up view
-
 // To enter score manually for a player.
 -(void)editTeetimeTappedFromView:(id)sender
 {
@@ -442,7 +441,6 @@
     return fabs(([endDate timeIntervalSinceDate:startDate] / 3600.0) /24);
 }
 
-
 #pragma mark - MemoryManagement 
 
 - (void)didReceiveMemoryWarning {
@@ -473,7 +471,7 @@
 -(void)showAlertBookedTeetimeOnDate:(Teetime *)mTeeTime
 {
     __block NSString * message = nil;
-    [Utilities dateComponents:[mTeeTime bookedTime] components:^(NSString *dayName, NSString *monthName, NSString *day, NSString *time, NSString *minutes, NSString *timeAndMinute, NSString *year) {
+    [Utilities dateComponents:[[mTeeTime bookedTime] toLocalTime] components:^(NSString *dayName, NSString *monthName, NSString *day, NSString *time, NSString *minutes, NSString *timeAndMinute, NSString *year) {
         message = [NSString stringWithFormat:@"Booked Tee Time at %@ on %@ %@, %@ for %@ player.", timeAndMinute, day, monthName, year, [[mTeeTime count] stringValue]];
     }];
     [[[UIAlertView alloc] initWithTitle:@"Tee Time Details." message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];

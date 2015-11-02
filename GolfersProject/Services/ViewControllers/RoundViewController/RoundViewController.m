@@ -1,7 +1,3 @@
-//Golfrz-799
-//try catch block is added at line number 342 , 285
-
-
 //
 //  RoundViewController.m
 //  GolfersProject
@@ -147,6 +143,11 @@
                                       // [Utilities displayErrorAlertWithMessage:[error errorMessage]];
                                        completion();
                                    }];
+    [RoundDataServices startHoleWithId:[self.currentHole itemId] success:^(bool status, id response) {
+        // Keep chill. 
+    } failure:^(bool status, GolfrzError *error) {
+        [Utilities displayErrorAlertWithMessage:[error errorMessage]];
+    }];
 }
 
 -(void)clearAllShotMarkers{
@@ -362,9 +363,6 @@
     @catch (NSException *exception) {
         NSLog(@"Exception at RoundViewController %@", exception);
     }
-
-    
-    
     [self.headerView.lblScoreForHole setText:[[self.playerTotalScoreInRound objectForKey:[player.userId stringValue]] stringValue]];
     [self.headerView.btnEditScore setTitle:[[self.playerScores objectForKey:player.userId] stringValue] forState:UIControlStateNormal];
     [self.headerView.lblInOut setText:([self.currentHole.holeNumber integerValue] <= 9 ? @"OUT" : @"IN")];
@@ -614,11 +612,17 @@
 - (IBAction)btnPuttTapped:(UIButton *)sender
 {
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    [self shotHelperForShotType:ShotTypePutt score:1 completion:^{
+    [RoundDataServices endHoleWithId:[self.currentHole itemId] success:^(bool status, Shot * mShot) {
+        if (status) [self addShotMarker:1 shotType:ShotTypePutt shotId:[[mShot itemId] integerValue]];
         [self updateScoresOfAllPlayers:^{
             [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
             [self.scoreTable reloadData];
         }];
+    } failure:^(bool status, GolfrzError *error) {
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        if (!status)
+            [[[UIAlertView alloc] initWithTitle:@"Try Again" message:@"Failed to finish hole." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+
     }];
 }
 
@@ -826,15 +830,6 @@
     [self updateDistanceForLoc:cord onLabel:self.lblForward fromCord:frontCord];
     [self updateDistanceForLoc:cord onLabel:self.lblMiddle fromCord:middleCord];
     [self updateDistanceForLoc:cord onLabel:self.lblBack fromCord:backCord];
-   
-    /*
-    [UIView animateWithDuration:1.0 delay:0.5 options:UIViewAnimationOptionRepeat | UIViewAnimationOptionAutoreverse  animations:^{
-        self.imgGPS.alpha = 1;
-    } completion:^(BOOL finished) {
-        if(!isUpdatingLocation) [self.imgGPS.layer removeAllAnimations];
-            }];
-     */
-
 }
 
 -(void)updateDistanceForLoc:(CGPoint)cord onLabel:(UILabel *)frontmidlbl fromCord:(CGPoint)holeGreenCord

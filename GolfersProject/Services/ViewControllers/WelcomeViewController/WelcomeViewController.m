@@ -5,8 +5,7 @@
 //  Created by Abdullah Saeed on 4/7/15.
 //  Copyright (c) 2015 Abdullah Saeed. All rights reserved.
 //
-
-#import "ClubHouseViewController.h"
+#import "WelcomeViewController.h"
 #import "ClubHouseContainerVC.h"
 #import "WeatherViewCell.h"
 #import "WeatherServices.h"
@@ -15,7 +14,7 @@
 #import "InvitationServices.h"
 #import "AppDelegate.h"
 #import "AddPlayersViewController.h"
-#import "Course.h"
+#import "InitialViewController.h"
 
 #import "CourseServices.h"
 #import "EventCalendarViewController.h"
@@ -37,7 +36,6 @@
 #import "NSDate+Helper.h"
 
 #import "RoundDataServices.h"
-#import "CourseUpdateServices.h"
 
 #import "RoundViewController.h"
 #import "ScoreSelectionView.h"
@@ -45,50 +43,50 @@
 #import "RoundMoviePlayerController.h"
 #import "TeeTimesViewController.h"
 #import "HMMessagesDisplayViewController.h"
-#import "BBBadgeBarButtonItem.h"
-#import "PushManager.h"
-#import <QuartzCore/QuartzCore.h>
 
-@interface ClubHouseViewController ()
+@implementation CALayer(UIColor)
+
+- (void)setBorderUIColor:(UIColor*)color {
+    self.borderColor = color.CGColor;
+}
+
+- (UIColor*)borderUIColor {
+    return [UIColor colorWithCGColor:self.borderColor];
+}
+
+@end
+
+
+@interface WelcomeViewController ()
 {
     NSDate * lastWeatherUpdateTime;
 }
 @property (nonatomic, retain) NSArray * weatherList;
 @end
 
-@implementation ClubHouseViewController
+@implementation WelcomeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [[PushManager sharedInstance] postTokenToServer];
-    
     SharedManager * manager = [SharedManager sharedInstance];
     [self.imgViewBackground setImage:[manager backgroundImage]];
 
-    
+    /*
     UIButton * imageButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 10, 22, 22)];
     [imageButton setBackgroundImage:[UIImage imageNamed:@"contactus_button"] forState:UIControlStateNormal];
     [imageButton addTarget:self action:@selector(btnContactUsTap) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:imageButton];
     self.navigationItem.leftBarButtonItem = leftBarButtonItem;
     
-    
-    // Right nav-bar.
-    UIImage *image = [UIImage imageNamed:@"activity_icon"];
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    button.frame = CGRectMake(0,0,22, 22);
-    [button addTarget:self action:@selector(btnCourseUpdatesTap) forControlEvents:UIControlEventTouchUpInside];
-    [button setBackgroundImage:image forState:UIControlStateNormal];
-    
-    // Create and add our custom BBBadgeBarButtonItem
-    BBBadgeBarButtonItem *barButton = [[BBBadgeBarButtonItem alloc] initWithCustomUIButton:button];
-    barButton.badgeBGColor = [UIColor greenColor];
-    [barButton setShouldHideBadgeAtZero:YES];
-    self.navigationItem.rightBarButtonItem = barButton;
-    
+    UIButton * imageRightButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 10, 22, 22)];
+    [imageRightButton setBackgroundImage:[UIImage imageNamed:@"activity_icon"] forState:UIControlStateNormal];
+    [imageRightButton addTarget:self action:@selector(btnCourseUpdatesTap) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:imageRightButton];
+    self.navigationItem.rightBarButtonItem = rightBarButtonItem;
     
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+   
     NSDictionary *titleAttributes =@{
                                     NSFontAttributeName :[UIFont fontWithName:@"Helvetica-Bold" size:14.0],
                                      NSForegroundColorAttributeName : [UIColor whiteColor]
@@ -96,6 +94,7 @@
     
     self.navigationController.navigationBar.titleTextAttributes = titleAttributes;
     [[self navigationItem] setTitle:@"CLUBHOUSE"];
+    */
     
     
     // Receive this notification to check if there are any pending invitations to show.
@@ -104,9 +103,9 @@
         // Loading course details to use by courseServices, Must call this. 
     }];
     [self loadDataForCurrentCourse];
-    
-}
+    [self.lblCourseCityState setText:[NSString stringWithFormat:@"%@, %@", manager.courseCity, manager.courseState]];
 
+}
 
 -(void)loadDataForCurrentCourse{
     SharedManager * manager = [SharedManager sharedInstance];
@@ -135,28 +134,18 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     
-    UIPageControl * pageControl = (UIPageControl *)[self.navigationController.navigationBar viewWithTag:89];
-    if (pageControl && ![self isKindOfClass:[ClubHouseSubController class]]) {
-        [pageControl setHidden:YES];
-    }else{
-        [pageControl setHidden:NO];
-    }
-    [[UINavigationBar appearance] setTitleVerticalPositionAdjustment:-10.0 forBarMetrics:UIBarMetricsDefault];
-    
-    //To Get Badge Count.
-    [CourseServices courseDetailInfo:^(bool status, Course *currentCourse) {
-        if (status) {
-            BBBadgeBarButtonItem * barItem= (BBBadgeBarButtonItem *) self.navigationItem.rightBarButtonItem;
-            barItem.badgeValue = [NSString stringWithFormat:@"%ld", (long)[currentCourse.notificationCount integerValue]];
-            [self.navigationController.navigationBar setNeedsDisplay];
-        }
-    } failure:^(bool status, GolfrzError *error) {
-        // Keep chill
-    }];
+    [self.navigationController.navigationBar setHidden:YES];
+
+//    UIPageControl * pageControl = (UIPageControl *)[self.navigationController.navigationBar viewWithTag:89];
+//    if (pageControl && ![self isKindOfClass:[ClubHouseSubController class]]) {
+//        [pageControl setHidden:YES];
+//    }else{
+//        [pageControl setHidden:NO];
+//    }
+   // [[UINavigationBar appearance] setTitleVerticalPositionAdjustment:-10.0 forBarMetrics:UIBarMetricsDefault];
     
     //Update weatherData
     [self updateWeatherData];
-    [self getAvailableFeatures];
 }
 
 - (void)updateWeatherData {
@@ -192,86 +181,15 @@
 
 -(void)viewWillDisappear:(BOOL)animated{
     
-    UIPageControl * pageControl = (UIPageControl *)[self.navigationController.navigationBar viewWithTag:89];
-    if (pageControl && ![self isKindOfClass:[ClubHouseSubController class]]) {
-        [pageControl setHidden:YES];
-    }else{
-        [pageControl setHidden:NO];
-    }
+//    UIPageControl * pageControl = (UIPageControl *)[self.navigationController.navigationBar viewWithTag:89];
+//    if (pageControl && ![self isKindOfClass:[ClubHouseSubController class]]) {
+//        [pageControl setHidden:YES];
+//    }else{
+//        [pageControl setHidden:NO];
+//    }
+    
     [SharedManager sharedInstance].delegate = nil;
 }
--(void)btnContactUsTap{
-
-    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
-    
-    ContactUsViewController * contactController = [self.storyboard instantiateViewControllerWithIdentifier:@"ContactUsViewController"];
-    [delegate.appDelegateNavController pushViewController:contactController animated:YES];
-    return;
-}
-- (void)pushNextController{
-    [self.navigationController pushViewController:self.containerVC.playerProfileViewController animated:YES];
-}
-
-/**
- @brief Method gets the enabled features list and show / hides buttons depending on it.
- */
-
--(void)getAvailableFeatures{
-    
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    [self.teeTimesView setHidden:YES];
-    [self.eventsView setHidden:YES];
-    [self.foodBevView setHidden:YES];
-    
-    NSMutableDictionary * visibleFeatures = [NSMutableDictionary new];
-    
-    [CourseServices getEnabledFeatures:^(bool status, NSArray *enabledFeatures) {
-        if (status) {
-            for (FeaturedControl * featureItem in enabledFeatures) {
-                if([[featureItem featureName] isEqualToString:kFeatTeetime] ||
-                   [[featureItem featureName] isEqualToString:kFeatEventCalendar] ||
-                   [[featureItem featureName] isEqualToString:kFeatFoodAndBeverages])
-                    [visibleFeatures setObject:[featureItem featureName] forKey:[featureItem featureName]];
-            }
-            
-            int countFeatureItems = (int)[[visibleFeatures allKeys] count];
-            int xDisplacement = self.view.frame.size.width/(countFeatureItems+1);
-            int multiplyFactor = 1;
-            
-                //Adjust View frames
-                if ([visibleFeatures objectForKey:kFeatTeetime]) {
-                    [self.teeTimesView setCenter:CGPointMake(xDisplacement * multiplyFactor , self.teeTimesView.center.y)];
-                    ++multiplyFactor;
-                    [self.teeTimesView setHidden:NO];
-                    NSLog(@"TeeTime: xDisplacement: %d, countFeatureItem: %d, X-Axis: %d", xDisplacement, countFeatureItems, xDisplacement * multiplyFactor);
-                }
-                if ([visibleFeatures objectForKey:kFeatEventCalendar]) {
-                    [self.eventsView setCenter:CGPointMake(xDisplacement* multiplyFactor, self.eventsView.center.y)];
-                    ++multiplyFactor;
-                    [self.eventsView setHidden:NO];
-                    NSLog(@"FeatEventCal: xDisplacement: %d, countFeatureItem: %d, X-Axis: %d", xDisplacement, countFeatureItems, xDisplacement * multiplyFactor);
-                }
-                if ([visibleFeatures objectForKey:kFeatFoodAndBeverages]) {
-                    [self.foodBevView setCenter:CGPointMake(xDisplacement* multiplyFactor, self.foodBevView.center.y)];
-                    ++multiplyFactor;
-                    [self.foodBevView setHidden:NO];
-                    NSLog(@"FoodBef: xDisplacement: %d, countFeatureItem: %d, X-Axis: %d", xDisplacement, countFeatureItems, xDisplacement * multiplyFactor);
-                }
-            [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-        }
-    } failure:^(bool status, GolfrzError *error) {
-        // If request fails also show the data in exiting labels.
-        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-        [Utilities displayErrorAlertWithMessage:[error errorMessage]];
-    }];
-    
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     return [self.weatherList count];
@@ -318,18 +236,11 @@
 }
 
 #pragma mark - Navigation
-
+/*
 -(void)btnCourseUpdatesTap{
 
     AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
     CourseUpdatesViewController * controller = [self.storyboard instantiateViewControllerWithIdentifier:@"CourseUpdatesViewController"];
-    [delegate.appDelegateNavController pushViewController:controller animated:YES];
-}
-
-- (IBAction)btnEventsTapped:(id)sender {
-    
-    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
-    EventCalendarViewController * controller = [self.storyboard instantiateViewControllerWithIdentifier:@"EventCalendarViewController"];
     [delegate.appDelegateNavController pushViewController:controller animated:YES];
 }
 
@@ -355,6 +266,7 @@
         }];
     }
 }
+*/
 
 -(void)checkInToCurrentCourse{
     
@@ -381,17 +293,6 @@
         [[[UIAlertView alloc]initWithTitle:@"" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
     }
     [SharedManager sharedInstance].delegate = nil;
-}
-
--(void)enableCheckInButton:(BOOL)yesNo{
-    [self.btnCheckIn setHidden:yesNo];
-}
-
-- (IBAction)btnTeeTimeTap:(id)sender {
-    
-    TeeTimesViewController * controller = [self.storyboard instantiateViewControllerWithIdentifier:@"TeeTimesViewController"];
-    AppDelegate * appDelegate = [[UIApplication sharedApplication] delegate];
-    [appDelegate.appDelegateNavController pushViewController:controller animated:YES];
 }
 
 #pragma mark - Invitation
@@ -433,14 +334,46 @@
     }
 }
 
-
-#pragma mark - Helper 
--(CGFloat)minutesBetween:(NSDate *)startDate endDate:(NSDate *)endDate
-{
+#pragma mark - Helper
+-(CGFloat)minutesBetween:(NSDate *)startDate endDate:(NSDate *)endDate{
     return [endDate timeIntervalSinceDate:startDate] / 60.0;
 }
+- (IBAction)btnMemberLoginTap:(id)sender {
+    
+    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+    InitialViewController * controller = [self.storyboard instantiateViewControllerWithIdentifier:@"InitialViewController"];
+    [delegate.appDelegateNavController pushViewController:controller animated:YES];
+}
 
+- (IBAction)btnEventsCalendarTap:(id)sender {
+    
+    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+    EventCalendarViewController * controller = [self.storyboard instantiateViewControllerWithIdentifier:@"EventCalendarViewController"];
+    [delegate.appDelegateNavController pushViewController:controller animated:YES];
+}
+
+- (IBAction)btnContactUsTap:(id)sender {
+    
+    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+    ContactUsViewController * contactController = [self.storyboard instantiateViewControllerWithIdentifier:@"ContactUsViewController"];
+    [delegate.appDelegateNavController pushViewController:contactController animated:YES];
+    return;
+}
+- (IBAction)btnTeeTimeTap:(id)sender {
+    
+    TeeTimesViewController * controller = [self.storyboard instantiateViewControllerWithIdentifier:@"TeeTimesViewController"];
+    AppDelegate * appDelegate = [[UIApplication sharedApplication] delegate];
+    [appDelegate.appDelegateNavController pushViewController:controller animated:YES];
+}
+
+
+#pragma mark - Memory Management
 -(void)dealloc{
     [SharedManager sharedInstance].delegate = nil;
 }
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
 @end

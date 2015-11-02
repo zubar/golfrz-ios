@@ -73,8 +73,8 @@
         [notif setObject:object[@"description"] forKey:kNotificaationDescription];
         [notif setObject:object[@"created_at"] forKey:kNotificationTimeStamp];
         
-        if(object[@"data"] != [NSNull null]){
-            if ((object[@"data"][@"type"] != nil) && ([object[@"data"][@"type"] isEqualToString:@"invitation_accepted"])) {
+        if(object[@"type"] != [NSNull null]){
+            if ((object[@"type"] != nil) && ([object[@"type"] isEqualToString:@"invitation_accepted"])) {
             [self postLocalNotificationForInvitationAcceptance];
         }}
         
@@ -93,7 +93,7 @@
     NSDictionary * params = @{
                               @"reg_id": self.pushToken,
                               @"app_bundle_id": kAppBundleId,
-                              @"auth_token" : [UserServices currentToken],
+                              @"auth_token" : ([UserServices currentToken] != nil ? [UserServices currentToken] : @""),
                               @"user_agent" : kUserAgent
                               };
     NSString * pushUrl = [NSString stringWithFormat:@"%@%@",kBaseURL, kPushRegURL];

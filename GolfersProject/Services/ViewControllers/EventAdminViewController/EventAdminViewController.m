@@ -96,8 +96,8 @@
                                        NSForegroundColorAttributeName : [UIColor whiteColor]
                                        };
     
-    NSAttributedString * adminPhone  = [[NSAttributedString alloc] initWithString:[admin phoneNo] attributes:contactAttributes];
-    NSAttributedString * adminEmail  = [[NSAttributedString alloc] initWithString:[admin email] attributes:contactAttributes];
+    NSAttributedString * adminPhone  = [[NSAttributedString alloc] initWithString:([admin phoneNo] == nil ? @"" : [admin phoneNo]) attributes:contactAttributes];
+    NSAttributedString * adminEmail  = [[NSAttributedString alloc] initWithString:([admin email] == nil ? @"" : [admin email]) attributes:contactAttributes];
     
     [self.lblEmail setAttributedText:adminEmail];
     [self.lblContactNo setAttributedText:adminPhone];

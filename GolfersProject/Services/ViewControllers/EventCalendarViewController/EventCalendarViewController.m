@@ -104,8 +104,6 @@
     
     [self initializeDataStructures];
     [self fetchEvents];
-
-    
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -142,10 +140,10 @@
 }
 
 -(void)updateAllDataStructures{
-
-
+// future use.
 }
 
+#pragma mark - API-Call
 -(void)fetchEvents{
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
@@ -210,7 +208,7 @@
     NSDate *startDate = [startDateComponents date];
     // Add one day to the previous date. Note that  1 day != 24 h
     NSDateComponents *oneDay = [NSDateComponents new];
-    oneDay.day = 30;
+    oneDay.day = 31;
     // one day after begin date
     NSDate *endDate = [[NSCalendar currentCalendar] dateByAddingComponents:oneDay
                                                                     toDate:startDate

@@ -77,6 +77,16 @@
     
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    
+//    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+//    
+//    bool hasWelcomeController = false;
+//    for (UIViewController *controller in delegate.appDelegateNavController.viewControllers)
+//        if ([controller isKindOfClass:[InitialViewController class]]) hasWelcomeController = true;
+//    [self.backBtn setHidden:hasWelcomeController];
+}
+
 - (void)signInTapped{
     
     AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
@@ -109,6 +119,10 @@
             [[[UIAlertView alloc] initWithTitle:@"LogIn Required" message:@"Please sign-in to accept the invitation" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
         }
     }
+}
+- (IBAction)btnBackTap:(id)sender {
+    AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
+    [delegate.appDelegateNavController popViewControllerAnimated:YES];
 }
 
 

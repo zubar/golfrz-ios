@@ -33,7 +33,8 @@
         NSDictionary * errorDict = @{@"errorMessage" : @"An unknown error occured, please refresh"};
         NSError * parseError=nil;
         GolfrzError * gError = [GolfrzError modelWithDictionary:errorDict error:&parseError ];
-        failureBlock(false, gError);
+        if(![UtilityServices checkIsUnAuthorizedError:[response error]])
+            failureBlock(false, gError);
     }];
 }
 
@@ -50,7 +51,8 @@
         if(!error){
             successBlock(true, [resp result]);
         }else{
-            failureBlock(false, [resp result]);
+            if(![UtilityServices checkIsUnAuthorizedError:error])
+                failureBlock(false, [resp result]);
         }
     }];
 }
@@ -65,8 +67,10 @@
             NSError * parseError = nil;
             NSArray * objectsArray =  [MTLJSONAdapter modelsOfClass:[PastScore class] fromJSONArray:[[response result] objectForKey:@"user_score_history"] error:&parseError];
             successBlock(true, objectsArray);
-        }else
-            failureBlock(false, [response result]);
+        }else{
+            if(![UtilityServices checkIsUnAuthorizedError:error])
+                failureBlock(false, [response result]);
+        }
     }];
 }
 
@@ -80,8 +84,10 @@
     [apiClient GET:kGetAllPlayerTotalForRound parameters:[ScoreboardServices paramPastScoreWithRoundId:roundId] completion:^(id response, NSError *error) {
         if(!error){
             successBlock(true, [response result][@"users"]);
-        }else
-            failureBlock(false, [response result]);
+        }else{
+            if(![UtilityServices checkIsUnAuthorizedError:error])
+                failureBlock(false, [response result]);
+        }
     }];
 }
 
@@ -98,8 +104,10 @@
   [apiClient POST:kSaveScoreCard parameters:[ScoreboardServices paramSaveScoreboardRoundId:roundId gross:grossScore net:netScore skinCount:skinCount] completion:^(id response, NSError *error) {
       if(!error){
           successBlock(true, [response result]);
-      }else
-          failureBlock(false, [response result]);
+      }else{
+          if(![UtilityServices checkIsUnAuthorizedError:error])
+              failureBlock(false, [response result]);
+      }
   }];    
 }
 

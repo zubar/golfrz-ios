@@ -22,6 +22,8 @@
 @property (copy, nonatomic, readonly) NSNumber *hasUserCommented;
 @property (copy, nonatomic, readonly) NSNumber *commentsCount;
 @property (copy, nonatomic, readonly) NSNumber *likesCount;
+
 @property (copy, nonatomic, readonly) NSNumber *hasUserLiked;
+@property (copy, nonatomic, readonly) NSNumber *userNotificationId;
 
 @end

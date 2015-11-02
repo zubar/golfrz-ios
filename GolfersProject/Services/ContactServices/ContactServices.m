@@ -122,7 +122,8 @@ static     APAddressBook *addressBook;
     [apiClient POST:kSignInURL parameters:[ContactServices paramsInviteContactViaEmail] success:^(NSURLSessionDataTask *task, id responseObject) {
         successBlock(true, responseObject);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        failureBlock(false, error);
+        if(![UtilityServices checkIsUnAuthorizedError:error])
+            failureBlock(false, error);
     }];
     
     

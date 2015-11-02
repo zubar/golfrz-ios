@@ -13,6 +13,8 @@
 #import "SplashScreenViewController.h"
 #import "GameSettings.h"
 #import "Constants.h"
+#import "WelcomeViewController.h"
+#import "InitialViewController.h"
 #import <AFNetworking/AFNetworking.h>
 
 #define MAIN_CONTROL_IDENTIFIER @"mainPagingController"
@@ -22,6 +24,7 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import "PushManager.h"
+#import "FaceBookAuthAgent.h"
 
 @interface AppDelegate ()
 
@@ -80,7 +83,7 @@
                                                     sourceApplication:sourceApplication
                                                            annotation:annotation];
     }else
-        if ([[[url scheme] lowercaseString] isEqualToString:@"invitationreceived"]) {
+        if ([[[url scheme] lowercaseString] isEqualToString:@"geneva-golf-and-country-club"]) {
             [[GameSettings sharedSettings] setInvitationToken:[self extractParamsFromUrl:[url query]][@"invitation"]];
             [[NSNotificationCenter defaultCenter] postNotificationName:kAppLaunchUserTapInvitationLink object:nil];
             NSLog(@"Received invitation:%@", [[GameSettings sharedSettings] invitationToken]);
@@ -89,8 +92,9 @@
             return NO;
 }
 
-- (void)applicationWillResignActive:(UIApplication *)application {
-    
+- (void)applicationWillResignActive:(UIApplication *)application
+{
+    [[NSNotificationCenter defaultCenter]removeObserver:self name:kErrorUnAuthorizedAccess object:nil];
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
@@ -101,8 +105,10 @@
     [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
 }
 
-- (void)applicationDidBecomeActive:(UIApplication *)application {
+- (void)applicationDidBecomeActive:(UIApplication *)application
+{
     [FBSDKAppEvents activateApp];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(logOutFromAppUnAuthorizedToken) name:kErrorUnAuthorizedAccess object:nil];
 }
 
 
@@ -111,13 +117,43 @@
 }
 
 #pragma mark - HelperMethod
+
+- (void)logOutFromAppUnAuthorizedToken
+{
+    if (![self.appDelegateNavController.visibleViewController isKindOfClass:[InitialViewController class]] && ![self.appDelegateNavController.visibleViewController isKindOfClass:[WelcomeViewController class]])
+    {
+        [[[UIAlertView alloc] initWithTitle:@"Session Expired" message:@"Your current session has expired please login again to continue." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+    }
+    
+    [FaceBookAuthAgent disConnectFBAccount];
+    [[GameSettings sharedSettings] resetGameSettings];
+    [self popToSignInViewController];
+    
+}
+
+-(void)popToSignInViewController
+{
+    bool hasWelcomeController = false;
+    for (UIViewController *controller in self.appDelegateNavController.viewControllers)
+        if ([controller isKindOfClass:[WelcomeViewController class]]) hasWelcomeController = true;
+    
+    for (UIViewController *controller in self.appDelegateNavController.viewControllers) {
+        if (hasWelcomeController  && [controller isKindOfClass:[WelcomeViewController class]]){
+            [self.appDelegateNavController popToViewController:controller animated:YES];
+        }else
+            if ([controller isKindOfClass:[InitialViewController class]]) {
+                [self.appDelegateNavController popToViewController:controller animated:YES];
+            }
+    }
+}
+
+
 /*
  Method checks if the scheme is valid url for app, i.e, it checks if the url is either facebook url scheme 
  or its custom url scheme defined in info.plist of app.
  */
 
 // Current defined url schemes are "invitationReceived".
-
 -(BOOL)isValidCustomUrlSchemeForApplication:(UIApplication *)application launchOptions:(NSDictionary *)options{
     
     return [[FBSDKApplicationDelegate sharedInstance] application:application
@@ -126,7 +162,7 @@
 
 -(BOOL)isValidFacebookUrlForApplication:(UIApplication *)application launchOptions:(NSDictionary *)options{
     
-    return [[[options objectForKey:UIApplicationLaunchOptionsURLKey] scheme] isEqualToString:@"invitationReceived"];
+    return [[[options objectForKey:UIApplicationLaunchOptionsURLKey] scheme] isEqualToString:@"geneva-golf-and-country-club"];
 }
 
 #pragma mark - UtilityMethod

@@ -31,7 +31,10 @@
             RewardSet * rewardSet = [response result];
             successBlock(true, [rewardSet rewards]);
         }
-        else failureBlcok(false, [response result]);
+        else{
+            if(![UtilityServices checkIsUnAuthorizedError:error])
+                failureBlcok(false, [response result]);
+        }
     }];
 }
 
@@ -42,7 +45,10 @@
     APIClient * apiClient = [APIClient sharedAPICLient];
     [apiClient GET:kRewardDetail parameters:[RewardServices paramRewardIdentity:rewardId] completion:^(id response, NSError *error) {
         if(!error) successBlock(true, [response result]);
-        else failureBlock(false, [response result]);
+        else{
+            if(![UtilityServices checkIsUnAuthorizedError:error])
+                failureBlock(false, [response result]);
+        }
     }];
     
 }
@@ -54,7 +60,10 @@
     APIClient * apiClient = [APIClient sharedAPICLient];
     [apiClient POST:kRewardRedeem parameters:[RewardServices paramRewardIdentity:rewardId] completion:^(id response, NSError *error) {
         if(!error) successBlock(true, [response result]);
-        else failureBlock(false, [response result]);
+        else{
+            if(![UtilityServices checkIsUnAuthorizedError:error])
+                failureBlock(false, [response result]);
+        }
     }];
 }
 
@@ -69,7 +78,8 @@
             successBlock(true, [NSNumber numberWithInt:0]);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         GolfrzError * golfrError = [GolfrzError modelWithDictionary:@{@"errorMessage":@"Can not get your reward points due to an error."} error:nil];
-        failureBlock(false, golfrError);
+        if(![UtilityServices checkIsUnAuthorizedError:error])
+            failureBlock(false, golfrError);
     }];
 }
 /**
@@ -89,5 +99,6 @@
 {
     return [UtilityServices authenticationParams];
 }
+
 
 @end

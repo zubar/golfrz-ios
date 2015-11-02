@@ -15,6 +15,7 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "SharedManager.h"
 #import "UIImageView+RoundedImage.h"
+#import "PlayerSettingsMainViewController.h"
 
 
 @interface ForgotPasswordSViewController ()
@@ -58,11 +59,16 @@
     AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
     
     for (UIViewController *controller in delegate.appDelegateNavController.viewControllers) {
+        if ([controller isKindOfClass:[PlayerSettingsMainViewController class]]) {
+            [delegate.appDelegateNavController popToViewController:controller animated:YES];
+            return;
+        }
         if ([controller isKindOfClass:[SignInViewController class]]) {
             [delegate.appDelegateNavController popToViewController:controller animated:YES];
             return;
         }
     }
+    [delegate.appDelegateNavController popViewControllerAnimated:YES];
 }
 
 

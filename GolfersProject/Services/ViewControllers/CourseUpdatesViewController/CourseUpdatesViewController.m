@@ -22,6 +22,8 @@
 #import "MBProgressHUD.h"
 #import "UserServices.h"
 #import "User.h"
+#import "NSDate+Helper.h"
+#import "BBBadgeBarButtonItem.h"
 
 @interface CourseUpdatesViewController ()
 @property(strong, nonatomic) NSMutableArray * courseUpdates;
@@ -32,12 +34,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
     SharedManager * manager = [SharedManager sharedInstance];
     [self.imgViewBackground setImage:[manager backgroundImage]];
-
-    
     // Do any additional setup after loading the view.
      if(!self.courseUpdates) self.courseUpdates = [[NSMutableArray alloc] init];
     [self.navigationItem setTitle:@"COURSE UPDATES"];
@@ -66,7 +66,6 @@
     }];
 }
 
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -85,7 +84,7 @@
     
     Activity * courseActivity = self.courseUpdates[indexPath.row];
     CourseUpdateCell *customViewCell = (CourseUpdateCell *)customCell;
-    customViewCell.selectionStyle = UITableViewCellSelectionStyleNone;
+    customViewCell.selectionStyle = UITableViewCellSelectionStyleGray;
     [customViewCell.lblUpdateText setText:[courseActivity text]];
     
     
@@ -130,16 +129,19 @@
         }else{
             [customViewCell.btnKudos setBackgroundImage:[UIImage imageNamed:@"kudos"] forState:UIControlStateNormal];
         }
-        
     }
-    
     return customViewCell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     Activity * courseActivity = self.courseUpdates[indexPath.row];
+    [CourseUpdateServices markNotificationReadWithUserNotificationId:[courseActivity userNotificationId] success:^(bool status, id response) {
+        //We are not doing anything, just update on server.
+    }];
+    
     if ([courseActivity.isCommentable boolValue]){
         AppDelegate * delegate = [[UIApplication sharedApplication] delegate];
     

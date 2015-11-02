@@ -1,8 +1,8 @@
 //
 //  NSDate+convenience.h
 //
-//  Created by in 't Veen Tjeerd on 4/23/12.
-//  Copyright (c) 2012 Vurig Media. All rights reserved.
+//  Created by Muhammad Zubair on 4/23/12.
+//  Copyright (c) 2012 Tkxel. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

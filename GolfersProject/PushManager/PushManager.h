@@ -19,6 +19,7 @@
 
 -(void)registerForPushMessages;
 -(void)addNotificationToList:(NSDictionary *)object;
+-(void)postTokenToServer;
 
 
 @end

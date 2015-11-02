@@ -26,6 +26,7 @@
              @"commentsCount" : @"comment_count",
              @"likesCount" : @"likes_count",
              @"hasUserLiked" : @"user_like",
+             @"userNotificationId" : @"users_notification_id"
              //propertyName : json_key
              };
 }
@@ -47,6 +48,7 @@
 
 + (NSDateFormatter *)dateFormatter {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"UTC"];
     dateFormatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
     dateFormatter.dateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
     

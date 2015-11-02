@@ -113,7 +113,8 @@ static NSString * const kRoundAddGuest = @"rounds/create_guest";
 static NSString * const kRoundPlayers = @"rounds/round_players";
 static NSString * const kRoundInfo = @"rounds/round_info";
 static NSString * const kRoundInProgress = @"rounds/last_round_info";
-
+static NSString * const kEndHole = @"holes/end";
+static NSString * const kStartHole = @"holes/start";
 
 /*
  * Adding Scores/Shots
@@ -168,7 +169,7 @@ static NSString * const kCourseUpdatesList = @"notifications/view_notification_l
 static NSString * const kGetDetailCommentsOnThread = @"notifications/view_notification_comments";
 static NSString * const KPostComment = @"notifications/add_comment";
 static NSString * const KAddKudos = @"notifications/kudos";
-
+static NSString * const kMarkPostRead = @"notifications/is_read";
 /*
  *  Rewards
  */
@@ -198,6 +199,7 @@ static NSString * const kOK = @"OK";
 /*
  * Error Messages
  */
+static NSString * const kErrorUnAuthorizedAccess = @"UnauthorizedRequest";
 static NSString * const kError = @"Error";
 static NSString * const kReqiredFieldErrorMessage = @"Required Field Missing.";
 static NSString * const kNoInternetErrorTitle = @"Internet Connection Lost!";

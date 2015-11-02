@@ -41,8 +41,24 @@
     
     return @{@"app_bundle_id" : kAppBundleId,
              @"user_agent" : kUserAgent,
-             @"auth_token" : [UserServices currentToken],
+             @"auth_token" : ([UserServices currentToken] != nil ? [UserServices currentToken] : @"")
              };
+}
+
++(NSDictionary *)paramsCourseInfo{
+    return @{
+             @"app_bundle_id": kAppBundleId,
+             @"user_agent" : kUserAgent
+             };
+}
+
++(BOOL)checkIsUnAuthorizedError:(NSError *)error{
+    if([error.userInfo[AFNetworkingOperationFailingURLResponseErrorKey] statusCode] == 401){
+        [[NSNotificationCenter defaultCenter] postNotificationName:kErrorUnAuthorizedAccess object:nil];
+        return YES;
+    }else{
+        return NO;
+    }
 }
 
 +(NSDictionary *)dictionaryByMergingDictionaries:(NSDictionary *)authDict aDict:(NSDictionary *)paramDict

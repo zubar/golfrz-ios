@@ -45,7 +45,8 @@
         if (!error) {
             successBlock(true, [resp result]);
         }else{
-            failureBlock(false, [resp result]);
+            if(![UtilityServices checkIsUnAuthorizedError:error])
+                failureBlock(false, [resp result]);
         }
     }];
 }
@@ -60,7 +61,10 @@
     NSLog(@"BOOKTEE-TIME:%@", [TeetimeServices paramBookTeetime:subcourseId players:playerCount bookingTime:bookTime] );
     
     [apiClient POST:kBookTeetime parameters:[TeetimeServices paramBookTeetime:subcourseId players:playerCount bookingTime:bookTime] completion:^(id response, NSError *error) {
-        if(error) failureBlock(false, [response result]);
+        if(error) {
+            if(![UtilityServices checkIsUnAuthorizedError:error])
+                failureBlock(false, [response result]);
+        }
         else{
             NSDictionary * dataDict = [[response result] objectForKey:@"tee_time"];
             NSError * error = nil;
@@ -78,7 +82,10 @@
     APIClient * apiClient = [APIClient sharedAPICLient];
    [apiClient POST:kUpdateTeetime parameters:[TeetimeServices paramUpdateTeetime:teetime playerCount:playerCount] completion:^(id response, NSError *error) {
        if(!error) successBlock(true, [response result]);
-       else failureBlock(false, [response result]);
+       else{
+           if(![UtilityServices checkIsUnAuthorizedError:error])
+               failureBlock(false, [response result]);
+       }
    }];
 }
 

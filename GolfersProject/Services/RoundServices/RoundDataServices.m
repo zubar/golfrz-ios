@@ -33,7 +33,8 @@
             RoundMetaData * mRoundData = [resp result];
             successBlock(true, mRoundData);
         }else
-            failureBlock(false, [response result]);
+            if(![UtilityServices checkIsUnAuthorizedError:error])
+                failureBlock(false, [resp result]);
     }];
     
 }
@@ -54,7 +55,8 @@
             [[GameSettings sharedSettings] setroundId:roundId];
             successBlock(true, roundId);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        failureBlock(false, error);
+        if(![UtilityServices checkIsUnAuthorizedError:error])
+            failureBlock(false, error);
     }];
     
 }
@@ -74,7 +76,8 @@
         NSLog(@"Round-Star:%@", responseObject);
             successBlock(true, responseObject);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        failureBlock(false, error);
+        if(![UtilityServices checkIsUnAuthorizedError:error])
+            failureBlock(false, error);
     }];
     
 }
@@ -89,7 +92,8 @@
     [apiClient POST:kRoundFinish parameters:[RoundDataServices paramsFinishRound] success:^(NSURLSessionDataTask *task, id responseObject) {
         successBlock(true, responseObject);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        failureBlock(false, error);
+        if(![UtilityServices checkIsUnAuthorizedError:error])
+            failureBlock(false, error);
     }];
 }
 
@@ -106,7 +110,8 @@
     [apiClient POST:kRoundAddGuest parameters:[RoundDataServices paramAddGuestToRoundEmail:email firstName:fName lastName:lName handicap:handicap teeBoxId:teeBoxId] success:^(NSURLSessionDataTask *task, id responseObject) {
         successBlock(true, responseObject);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        failureBlock(false, error);
+        if(![UtilityServices checkIsUnAuthorizedError:error])
+            failureBlock(false, error);
     }];
     
 }
@@ -127,9 +132,78 @@
                 if(!tError)
                     successBlock(true, tempShot);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        if(error != nil) failureBlock(false, error);
+        if(error != nil){
+            if(![UtilityServices checkIsUnAuthorizedError:error])
+                failureBlock(false, error);
+        }
     }];
 }
+
++(void)endHoleWithId:(NSNumber *)holeId
+             success:(void(^)(bool status, Shot * currentShot))successBlock
+             failure:(void(^)(bool status, GolfrzError * error))failureBlock
+{
+    
+    AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
+    [apiClient POST:kEndHole parameters:[RoundDataServices paramsEndHoleWithId:holeId]
+            success:^(NSURLSessionDataTask *task, id responseObject)
+    {
+        NSError * parseError = nil;
+        Shot * mShot = [MTLJSONAdapter modelOfClass:[Shot class] fromJSONDictionary:responseObject[@"shot"] error:&parseError];
+        successBlock(true, mShot);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        @try {
+            
+            NSData *errorData = error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey];
+            NSDictionary *serializedData = nil;
+            if(errorData !=nil ) serializedData = [NSJSONSerialization JSONObjectWithData:errorData options:kNilOptions error:nil];
+            NSError * parseError = nil;
+            GolfrzError * terror = nil;
+            
+            if (serializedData != nil)
+                terror = [MTLJSONAdapter modelOfClass:[GolfrzError class] fromJSONDictionary:serializedData error:&parseError];
+            else
+                terror = [GolfrzError modelWithDictionary:@{@"errorMessage": @"An unknown Error Occured!"} error:&parseError];
+            failureBlock(false, terror);
+        }
+        @catch (NSException *exception) {
+            NSLog(@"exception: %@", exception);
+        }
+
+    }];
+}
+
++(void)startHoleWithId:(NSNumber *)holeId
+             success:(void(^)(bool status,  id response))successBlock
+             failure:(void(^)(bool status, GolfrzError * error))failureBlock
+{
+    AFHTTPSessionManager * apiClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
+    [apiClient POST:kStartHole parameters:[RoundDataServices paramsStartHoleWithId:holeId]
+            success:^(NSURLSessionDataTask *task, id responseObject)
+     {
+         successBlock(true, responseObject);
+     } failure:^(NSURLSessionDataTask *task, NSError *error) {
+         @try {
+             
+             NSData *errorData = error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey];
+             NSDictionary *serializedData = nil;
+             if(errorData !=nil ) serializedData = [NSJSONSerialization JSONObjectWithData:errorData options:kNilOptions error:nil];
+             NSError * parseError = nil;
+             GolfrzError * terror = nil;
+             
+             if (serializedData != nil)
+                 terror = [MTLJSONAdapter modelOfClass:[GolfrzError class] fromJSONDictionary:serializedData error:&parseError];
+             else
+                 terror = [GolfrzError modelWithDictionary:@{@"errorMessage": @"An unknown Error Occured!"} error:&parseError];
+             failureBlock(false, terror);
+         }
+         @catch (NSException *exception) {
+             NSLog(@"exception: %@", exception);
+         }
+         
+     }];
+}
+
 
 
 +(void)deleteShot:(Shot *)mShot
@@ -142,7 +216,8 @@
     {
         successBlock(true, responseObject);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        failureBlock(false, error);
+        if(![UtilityServices checkIsUnAuthorizedError:error])
+            failureBlock(false, error);
     }];
 }
 
@@ -162,7 +237,8 @@
             success:^(NSURLSessionDataTask *task, id responseObject) {
                 successBlock(true, responseObject);
             } failure:^(NSURLSessionDataTask *task, NSError *error) {
-                failureBlock(false, error);
+                if(![UtilityServices checkIsUnAuthorizedError:error])
+                    failureBlock(false, error);
             }];
     
 }
@@ -180,7 +256,8 @@
     [apiClient POST:kAddDirectScore parameters:[RoundDataServices paramAddDirectScore:score holeId:holeId playerId:playerId] success:^(NSURLSessionDataTask *task, id responseObject) {
         successBlock(true, responseObject);
     } failure:^(NSURLSessionDataTask * task, NSError * error) {
-        failureBlock(false, error);
+        if(![UtilityServices checkIsUnAuthorizedError:error])
+            failureBlock(false, error);
     }];
     
 }
@@ -198,7 +275,8 @@
 
         successBlock(true, responseObject);
     } failure:^(NSURLSessionDataTask * task, NSError * error) {
-        failureBlock(false, error);
+        if(![UtilityServices checkIsUnAuthorizedError:error])
+            failureBlock(false, error);
     }];
     
 }
@@ -215,7 +293,8 @@
             RoundPlayers * mPlayers = [resp result];
             successBlock(true, mPlayers);
         }else
-            failureBlock(false, [response result]);
+            if(![UtilityServices checkIsUnAuthorizedError:error])
+                failureBlock(false, [resp result]);
     }];
 }
 
@@ -231,7 +310,8 @@
             Round  * mRound = [resp result];
             successBlock(true, mRound);
         }else
-            failureBlock(false, [response result]);
+            if(![UtilityServices checkIsUnAuthorizedError:error])
+                failureBlock(false, [resp result]);
     }];
 }
 
@@ -247,7 +327,8 @@
             if([[response result] isKindOfClass:[GolfrzError class]]){
                 roundsFinished(true);
             }else{
-                failureBlock(false, [response result]);
+                if(![UtilityServices checkIsUnAuthorizedError:error])
+                    failureBlock(false, [response result]);
         }
     }];
 }
@@ -334,6 +415,24 @@
                  @"user_id" : playerId,
                  @"score" : score,
                  };
+    return [UtilityServices dictionaryByMergingDictionaries:param aDict:[UtilityServices authenticationParams]];
+}
++(NSDictionary *)paramsStartHoleWithId:(NSNumber *)holeId{
+    
+    NSDictionary * param = @{
+                             @"round_id" : [[GameSettings sharedSettings] roundId],
+                             @"hole_id" : holeId,
+                             };
+    return [UtilityServices dictionaryByMergingDictionaries:param aDict:[UtilityServices authenticationParams]];
+}
+
++(NSDictionary *)paramsEndHoleWithId:(NSNumber *)holeId{
+    
+    NSDictionary * param = @{
+                             @"round_id" : [[GameSettings sharedSettings] roundId],
+                             @"hole_id" : holeId,
+                             @"hole_rounds_user_id" : [UserServices currentUserId]
+                             };
     return [UtilityServices dictionaryByMergingDictionaries:param aDict:[UtilityServices authenticationParams]];
 }
 
