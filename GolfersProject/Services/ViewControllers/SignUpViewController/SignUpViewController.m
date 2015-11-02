@@ -43,7 +43,9 @@
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
-
+    
+    SharedManager * manager = [SharedManager sharedInstance];
+    [self.lblGolfCourseName setText:[manager courseName]];
 }
 
 #pragma ButtonActions
