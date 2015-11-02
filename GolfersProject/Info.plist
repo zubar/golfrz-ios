@@ -25,7 +25,7 @@
 			<string>com.golfrz.amesgcc</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>geneva-golf-and-country-club</string>
+				<string>invitationReceived</string>
 			</array>
 		</dict>
 		<dict>
@@ -36,7 +36,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>0</string>
+	<string>1</string>
 	<key>FacebookAppID</key>
 	<string>394531980753056</string>
 	<key>FacebookDisplayName</key>
