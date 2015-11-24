@@ -26,4 +26,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (NSDate *)toUCTTimeZone:(NSDate *)date{
+    return [NSDate date];
+}
 @end
